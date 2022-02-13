@@ -62,7 +62,25 @@ Use variable to store port, to build circle net.
 ``` cicada-vm
 wire diff
 
-wire 2 cons 1 cons diff
 wire 3 cons diff
+wire 2 cons 1 cons diff
 append
+```
+
+In non stack-based syntax,
+handling multiple return values will be unnatural.
+
+``` cicada-vm
+let x = wire
+
+diff(x, x)
+```
+
+``` cicada-vm
+let x = wire
+let y = wire
+
+append(
+  diff(cons(1, cons(2, x)), x)
+  diff(cons(3, y), y))
 ```
