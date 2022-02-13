@@ -34,6 +34,10 @@ class Rule {
   //
 }
 
+class ActivePair {
+  //
+}
+
 class Net {
   ports: Array<Port>
 
