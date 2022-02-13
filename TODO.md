@@ -1,14 +1,10 @@
 # model
 
+- `Net` `connect(node)` -- use `ports` as a stack to build `Net`
+
 - `Rule`
-
 - `ActivePair`
-
-- `Module.buildNet`
-
 - `Net` has `activePairs`
-
-- `Net` `connect(node)` -- use `portStack` to build `Net`
 
 # later
 

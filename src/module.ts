@@ -1,5 +1,6 @@
 import { Node } from "./node"
 import { Type } from "./type"
+import { Net } from "./net"
 
 export class Module {
   nodeBuilders: Map<string, () => Node> = new Map()
@@ -27,5 +28,22 @@ export class Module {
     // TODO Type check the words.
     this.netBuilders.set(name, words)
     return this
+  }
+
+  buildNet(name: string): Net {
+    const netBuilder = this.netBuilders.get(name)
+
+    if (netBuilder === undefined) {
+      throw new Error(`Undefined net: ${name}`)
+    }
+
+    const net = new Net()
+
+    for (const word of netBuilder) {
+      const node = this.buildNode(word)
+      net.connect(node)
+    }
+
+    return net
   }
 }
