@@ -1,6 +1,5 @@
 # model
 
-- `Port` has `edge`
 - `Node.disconnect(net: Net)`
 - `Net.step` -- handle `rule.reconnect`
 

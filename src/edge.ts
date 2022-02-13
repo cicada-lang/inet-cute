@@ -7,8 +7,12 @@ export class Edge {
 
   constructor(start: Port, end: Port) {
     // TODO check port type.
+
     this.start = start
     this.end = end
+
+    start.edge = this
+    end.edge = this
   }
 }
 
