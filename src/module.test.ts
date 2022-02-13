@@ -15,5 +15,7 @@ import { Module } from "./module"
 
   const net = mod.buildNet("two")
 
-  net.step()
+  net.run()
+
+  console.log(net)
 }

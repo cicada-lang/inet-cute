@@ -1,4 +1,3 @@
-import { zip } from "lodash"
 import { ActiveEdge, Edge } from "./edge"
 import { Module } from "./module"
 import { Node } from "./node"
@@ -81,9 +80,17 @@ export class Net {
       )
     }
 
-    for (const [start, end] of zip(this.ports, outputPorts)) {
+    while (this.ports.length > 0) {
+      const start = this.ports.pop() as Port
+      const end = outputPorts.pop() as Port
       this.connectPorts(start, end)
-      this.ports.pop()
+    }
+  }
+
+  removeNode(node: Node): void {
+    const index = this.nodes.indexOf(node)
+    if (index > -1) {
+      this.nodes.splice(index, 1)
     }
   }
 
