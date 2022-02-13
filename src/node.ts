@@ -13,7 +13,7 @@ export class Node {
     this.name = name
     this.inputTypes = inputTypes
     this.outputTypes = outputTypes
-    this.types = [...this.inputTypes, ...this.outputTypes]
+    this.types = [...inputTypes, ...outputTypes]
     this.checkPrincipalType()
   }
 
