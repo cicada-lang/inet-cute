@@ -1,5 +1,7 @@
 - model interaction nets
 
+- use `Net.portStack` to build `Net`
+
 # Design Syntax
 
 ## How to build net?

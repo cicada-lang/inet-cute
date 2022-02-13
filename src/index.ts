@@ -1,12 +1,8 @@
-class Port {
+interface Port {
   name: string
-
-  constructor(name: string) {
-    this.name = name
-  }
 }
 
-class Node {
+interface Node {
   arity: number
 
   input: Array<Port>
@@ -14,34 +10,20 @@ class Node {
 
   // principal: Port
   // auxiliary: Array<Port>
-
-  constructor(opts: {
-    arity: number
-    input: Array<Port>
-    output: Array<Port>
-  }) {
-    this.arity = opts.arity
-    this.input = opts.input
-    this.output = opts.output
-  }
 }
 
-class Edge {
+interface Edge {
   //
 }
 
-class Rule {
+interface Rule {
   //
 }
 
-class ActivePair {
+interface ActivePair {
   //
 }
 
-class Net {
+interface Net {
   ports: Array<Port>
-
-  constructor(ports: Array<Port>) {
-    this.ports = ports
-  }
 }
