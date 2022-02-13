@@ -26,7 +26,7 @@ A rule specify how to disconnect and reconnect,
 based on a matching active pair.
 
 ```cicada-vm
-rule {
+rules {
   zero * add;
   add1 * add => add add1;
 }
@@ -49,7 +49,7 @@ node apply [ Arg Fun * -> Ret ]
 ```
 
 ```cicada-vm
-rule {
+rules {
   k0 apply => k1;
   k1 apply => drop;
 }
