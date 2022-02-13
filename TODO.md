@@ -1,7 +1,5 @@
 # model
 
-- `Edge`
-
 - `Rule`
 
 - `ActivePair`
