@@ -1,4 +1,5 @@
 import { Port } from "./port"
+import { Rule } from "./rule"
 
 export class Edge {
   start: Port
@@ -8,5 +9,14 @@ export class Edge {
     // TODO check port type.
     this.start = start
     this.end = end
+  }
+}
+
+export class ActiveEdge extends Edge {
+  rule: Rule
+
+  constructor(start: Port, end: Port, rule: Rule) {
+    super(start, end)
+    this.rule = rule
   }
 }

@@ -1,4 +1,5 @@
-import { Edge } from "./edge"
+import { Edge, ActiveEdge } from "./edge"
+import { Module } from "./module"
 import { Node } from "./node"
 import { Port } from "./port"
 
@@ -15,7 +16,7 @@ export class Net {
     return [...this.activeEdges, ...this.normalEdges]
   }
 
-  connect(node: Node): void {
+  connect(mod: Module, node: Node): void {
     // NOTE Be careful about the order.
     for (const port of node.inputPortsReversed) {
       const topPort = this.ports.pop()
@@ -25,8 +26,10 @@ export class Net {
         )
       }
 
-      if (topPort.isPrincipal() && port.isPrincipal()) {
-        this.activeEdges.push(new Edge(topPort, port))
+      const rule = mod.findRuleByPorts(topPort, port)
+
+      if (rule) {
+        this.activeEdges.push(new ActiveEdge(topPort, port, rule))
       } else {
         this.normalEdges.push(new Edge(topPort, port))
       }
