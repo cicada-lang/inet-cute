@@ -1,6 +1,6 @@
+import Path from "path"
 import { Module } from "../lang/module"
 import { DotRenderer } from "../renderers/dot-renderer"
-import Path from "path"
 
 async function test(): Promise<void> {
   const mod = new Module()

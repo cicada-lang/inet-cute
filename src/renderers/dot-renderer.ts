@@ -1,6 +1,6 @@
 import { graphviz } from "@hpcc-js/wasm"
-import Path from "path"
 import fs from "fs"
+import Path from "path"
 
 export class DotRenderer {
   async render(dot: string): Promise<string> {
