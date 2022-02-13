@@ -4,7 +4,6 @@
 
 - `ActivePair`
 
-- `Module.defineNet`
 - `Module.buildNet`
 
 - `Net` has `activePairs`
