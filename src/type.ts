@@ -6,6 +6,19 @@ export abstract class Type {
   }
 }
 
+export class AtomType extends Type {
+  name: string
+
+  constructor(name: string) {
+    super()
+    this.name = name
+  }
+
+  format(): string {
+    return this.name
+  }
+}
+
 export class PrincipalType extends Type {
   t: Type
 
