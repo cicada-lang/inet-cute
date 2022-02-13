@@ -1,10 +1,9 @@
 # model
 
-- handle `rule.disconnect`
-- handle `rule.reconnect`
-
 - `Net.step`
-- `Net.run`
+
+  - handle `rule.disconnect`
+  - handle `rule.reconnect`
 
 # later
 

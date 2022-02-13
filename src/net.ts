@@ -7,7 +7,7 @@ export class Net {
   nodes: Array<Node> = new Array()
 
   normalEdges: Array<Edge> = new Array()
-  activeEdges: Array<Edge> = new Array()
+  activeEdges: Array<ActiveEdge> = new Array()
 
   // NOTE We use `ports` as a stack to build net.
   ports: Array<Port> = new Array()
@@ -38,5 +38,15 @@ export class Net {
     this.ports.push(...node.outputPorts)
 
     this.nodes.push(node)
+  }
+
+  step(): void {
+    // TODO
+  }
+
+  run(): void {
+    while (this.activeEdges.length > 0) {
+      this.step()
+    }
   }
 }
