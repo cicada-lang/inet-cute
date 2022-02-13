@@ -11,9 +11,9 @@ async function test(): Promise<void> {
     .defineRule(["zero", "add"], [])
     .defineRule(["add1", "add"], ["add", "add1"])
 
-    .defineNode("close", ["Nat", "*"], [])
+    .defineNode("main", ["Nat", "*"], [])
 
-    .defineNet("two", ["zero", "add1", "zero", "add1", "add", "close"])
+    .defineNet("two", ["zero", "add1", "zero", "add1", "add", "main"])
 
   const net = mod.buildNet("two")
 
