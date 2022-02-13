@@ -1,5 +1,4 @@
 import { Net } from "./net"
-import { Port } from "./port"
 
 export class Rule {
   disconnect: [string, string]
