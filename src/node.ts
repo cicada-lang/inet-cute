@@ -6,21 +6,19 @@ export class Node {
   name: string
   inputTypes: Array<Type>
   outputTypes: Array<Type>
+  types: Array<Type>
 
   constructor(name: string, inputTypes: Array<Type>, outputTypes: Array<Type>) {
     this.id = nanoid()
     this.name = name
     this.inputTypes = inputTypes
     this.outputTypes = outputTypes
+    this.types = [...this.inputTypes, ...this.outputTypes]
     this.checkPrincipalType()
   }
 
   get arity(): number {
-    return this.inputTypes.length + this.outputTypes.length - 1
-  }
-
-  private get types(): Array<Type> {
-    return [...this.inputTypes, ...this.outputTypes]
+    return this.types.length - 1
   }
 
   getType(index: number): Type {
