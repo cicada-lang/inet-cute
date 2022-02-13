@@ -41,6 +41,17 @@ export class Net {
   }
 
   step(): void {
+    const activeEdge = this.activeEdges.pop()
+
+    if (activeEdge === undefined) {
+      return
+    }
+
+    const { start, end, rule } = activeEdge
+
+    start.node.disconnect(this)
+    end.node.disconnect(this)
+
     // TODO
   }
 

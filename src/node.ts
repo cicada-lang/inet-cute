@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid"
 import { Port } from "./port"
 import { Type } from "./type"
+import { Net } from "./net"
 
 export class Node {
   id: string
@@ -49,5 +50,9 @@ export class Node {
 
   format(): string {
     return this.name
+  }
+
+  disconnect(net: Net): void {
+    // TODO
   }
 }
