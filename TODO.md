@@ -1,7 +1,5 @@
 # model
 
-- `Type.build`
-
 - `Module.defineNet`
 - `Module.buildNet`
 
