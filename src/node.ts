@@ -5,9 +5,13 @@ import { Port } from "./port"
 export class Node {
   id: string
   name: string
+
+  types: Array<Type>
+
   inputPorts: Array<Port>
   outputPorts: Array<Port>
-  types: Array<Type>
+
+  inputPortsReversed: Array<Port>
 
   constructor(name: string, inputTypes: Array<Type>, outputTypes: Array<Type>) {
     this.id = nanoid()
@@ -21,6 +25,8 @@ export class Node {
 
     this.inputPorts = inputTypes.map(t => new Port(this, portCount++))
     this.outputPorts = outputTypes.map(t => new Port(this, portCount++))
+
+    this.inputPortsReversed = [...this.inputPorts].reverse()
   }
 
   private checkPrincipalType(): void {
@@ -39,5 +45,9 @@ export class Node {
 
   get arity(): number {
     return this.types.length - 1
+  }
+
+  format(): string {
+    return this.name
   }
 }

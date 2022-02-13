@@ -20,5 +20,5 @@ import { Module } from "./module"
 
   const net = mod.buildNet("two")
 
-  console.log(net.ports)
+  console.log(net)
 }

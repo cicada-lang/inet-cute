@@ -11,4 +11,8 @@ export class Port {
     this.index = index
     this.t = node.types[index]
   }
+
+  format(): string {
+    return `${this.node.format()} #${this.index}`
+  }
 }

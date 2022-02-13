@@ -10,8 +10,16 @@ export class Net {
   ports: Array<Port> = new Array()
 
   connect(node: Node): void {
-    for (const port of node.inputPorts) {
-      // TODO
+    // NOTE Be careful about the order.
+    for (const port of node.inputPortsReversed) {
+      const toc = this.ports.pop()
+      if (toc === undefined) {
+        throw new Error(
+          `I expect a port on top of the stach to match: ${port.format()}`
+        )
+      }
+
+      this.edges.push(new Edge(toc, port))
     }
 
     this.ports.push(...node.outputPorts)
