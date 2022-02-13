@@ -15,4 +15,8 @@ export class Port {
   format(): string {
     return `${this.node.format()} #${this.index}`
   }
+
+  isPrincipal(): boolean {
+    return this.t.isPrincipal()
+  }
 }

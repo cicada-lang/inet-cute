@@ -1,6 +1,7 @@
 # model
 
-- `Net.connect` build up `activeEdges` when meet two principal ports
+- handle `rule.disconnect`
+- handle `rule.reconnect`
 
 - `Net.step`
 - `Net.run`
