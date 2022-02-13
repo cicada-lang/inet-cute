@@ -9,8 +9,6 @@
 - `Module.defineNet`
 - `Module.buildNet`
 
-- `Net` has `nodes`
-- `Net` has `edges`
 - `Net` has `activePairs`
 - `Net` has `portStack`
 
