@@ -10,10 +10,13 @@ export class Node {
 
   constructor(name: string, inputTypes: Array<Type>, outputTypes: Array<Type>) {
     this.id = nanoid()
+
     this.name = name
     this.inputTypes = inputTypes
     this.outputTypes = outputTypes
+
     this.types = [...inputTypes, ...outputTypes]
+
     this.checkPrincipalType()
   }
 
