@@ -1,10 +1,11 @@
-import { nanoid } from "nanoid"
 import { Net } from "./net"
 import { Port } from "./port"
 import { Type } from "./type"
 
 export class Node {
-  id: string
+  static counter = 0
+
+  id: number
   name: string
 
   types: Array<Type>
@@ -15,7 +16,7 @@ export class Node {
   inputPortsReversed: Array<Port>
 
   constructor(name: string, inputTypes: Array<Type>, outputTypes: Array<Type>) {
-    this.id = nanoid()
+    this.id = Node.counter++
 
     this.name = name
 
@@ -85,5 +86,7 @@ export class Node {
         net.removeNormalEdge(port.edge)
       }
     }
+
+    net.removeNode(this)
   }
 }
