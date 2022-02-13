@@ -1,0 +1,21 @@
+# typescript
+lib
+
+# pkg
+dist
+
+# npm
+node_modules
+
+# 0x
+*.0x/
+
+# emacs
+*~
+*#*
+.#*
+
+.vercel
+
+# idea
+.idea
