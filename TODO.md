@@ -1,4 +1,4 @@
-- [refactor] extract `dot-render`
+- `dot-renderer` render to file
 
 - `Net.step` -- handle free ports
 

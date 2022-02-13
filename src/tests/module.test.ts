@@ -1,4 +1,5 @@
-import { Module } from "./module"
+import { Module } from "../lang/module"
+import { DotRenderer } from "../renderers/dot-renderer"
 
 async function test(): Promise<void> {
   const mod = new Module()
@@ -17,7 +18,9 @@ async function test(): Promise<void> {
 
   net.run()
 
-  console.log(await net.render())
+  const renderer = new DotRenderer()
+
+  console.log(await renderer.render(net.formatDot()))
 }
 
 test()
