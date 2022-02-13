@@ -1,5 +1,5 @@
-import { Node } from "./node"
 import { Edge } from "./edge"
+import { Node } from "./node"
 import { Port } from "./port"
 
 export class Net {

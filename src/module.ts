@@ -1,6 +1,6 @@
+import { Net } from "./net"
 import { Node } from "./node"
 import { Type } from "./type"
-import { Net } from "./net"
 
 export class Module {
   nodeBuilders: Map<string, () => Node> = new Map()

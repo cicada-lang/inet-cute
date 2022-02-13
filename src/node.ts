@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid"
-import { Type } from "./type"
 import { Port } from "./port"
+import { Type } from "./type"
 
 export class Node {
   id: string
@@ -23,8 +23,8 @@ export class Node {
 
     let portCount = 0
 
-    this.inputPorts = inputTypes.map(t => new Port(this, portCount++))
-    this.outputPorts = outputTypes.map(t => new Port(this, portCount++))
+    this.inputPorts = inputTypes.map((t) => new Port(this, portCount++))
+    this.outputPorts = outputTypes.map((t) => new Port(this, portCount++))
 
     this.inputPortsReversed = [...this.inputPorts].reverse()
   }
