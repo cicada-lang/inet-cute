@@ -40,11 +40,11 @@ export class Module {
       throw new Error(`Undefined net: ${name}`)
     }
 
-    const net = new Net()
+    const net = new Net(this)
 
     for (const word of netBuilder) {
       const node = this.buildNode(word)
-      net.connect(this, node)
+      net.connect(node)
     }
 
     return net

@@ -52,7 +52,8 @@ export class Node {
     return this.name
   }
 
-  disconnect(net: Net): void {
+  // NOTE Do side effect on port stack.
+  disconnect(net: Net, ports: Array<Port>): void {
     // TODO
   }
 }

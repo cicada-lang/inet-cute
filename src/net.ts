@@ -4,6 +4,8 @@ import { Node } from "./node"
 import { Port } from "./port"
 
 export class Net {
+  mod: Module
+
   nodes: Array<Node> = new Array()
 
   normalEdges: Array<Edge> = new Array()
@@ -12,11 +14,15 @@ export class Net {
   // NOTE We use `ports` as a stack to build net.
   ports: Array<Port> = new Array()
 
+  constructor(mod: Module) {
+    this.mod = mod
+  }
+
   get edges(): Array<Edge> {
     return [...this.activeEdges, ...this.normalEdges]
   }
 
-  connect(mod: Module, node: Node): void {
+  connect(node: Node): void {
     // NOTE Be careful about the order.
     for (const port of node.inputPortsReversed) {
       const topPort = this.ports.pop()
@@ -26,7 +32,7 @@ export class Net {
         )
       }
 
-      const rule = mod.findRuleByPorts(topPort, port)
+      const rule = this.mod.findRuleByPorts(topPort, port)
 
       if (rule) {
         this.activeEdges.push(new ActiveEdge(topPort, port, rule))
@@ -49,10 +55,13 @@ export class Net {
 
     const { start, end, rule } = activeEdge
 
-    start.node.disconnect(this)
-    end.node.disconnect(this)
+    const ports: Array<Port> = []
 
-    // TODO
+    start.node.disconnect(this, ports)
+    end.node.disconnect(this, ports)
+
+    // TODO reconnect
+    // rule.reconnect(this, ports)
   }
 
   run(): void {
