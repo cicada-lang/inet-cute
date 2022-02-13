@@ -1,15 +1,16 @@
 # model
 
-- `Rule`
-
 - `Module.defineRules`
 
 - `ActivePair`
+
 - `Net` has `activePairs`
 
-- `Net` -- `render` SVG
+- `Net.connect` build up `activePairs`
 
 # later
+
+- `Net` -- `render` SVG
 
 - `Edge` -- check ports type
 

@@ -27,8 +27,8 @@ based on a matching active pair.
 
 ```cicada-vm
 rules {
-  zero * add;
-  add1 * add => add add1;
+  zero add;
+  add1 add => add add1;
 }
 ```
 
