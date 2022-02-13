@@ -1,6 +1,6 @@
 import { Module } from "./module"
 
-{
+async function test(): Promise<void> {
   const mod = new Module()
     .defineNode("zero", [], ["Nat", "*"])
     .defineNode("add1", ["Nat"], ["Nat", "*"])
@@ -17,5 +17,7 @@ import { Module } from "./module"
 
   net.run()
 
-  console.log(net)
+  console.log(await net.render())
 }
+
+test()

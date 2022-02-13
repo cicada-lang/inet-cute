@@ -1,4 +1,4 @@
-- `Net` -- `render` SVG
+- [refactor] extract `dot-render`
 
 - `Net.step` -- handle free ports
 

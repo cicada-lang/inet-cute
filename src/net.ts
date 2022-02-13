@@ -2,6 +2,7 @@ import { ActiveEdge, Edge } from "./edge"
 import { Module } from "./module"
 import { Node } from "./node"
 import { Port } from "./port"
+import * as hpccWasm from "@hpcc-js/wasm"
 
 export class Net {
   mod: Module
@@ -105,5 +106,23 @@ export class Net {
     while (this.activeEdges.length > 0) {
       this.step()
     }
+  }
+
+  renderDot(): string {
+    const lines: Array<string> = []
+
+    for (const edge of this.normalEdges) {
+      const start = `${edge.start.node.name}_${edge.start.node.id}`
+      const end = `${edge.end.node.name}_${edge.end.node.id}`
+      lines.push(`${start} -- ${end};`)
+    }
+
+    const body = lines.join(" ")
+
+    return `graph { ${body} }`
+  }
+
+  async render(): Promise<string> {
+    return await hpccWasm.graphviz.layout(this.renderDot(), "svg", "dot")
   }
 }
