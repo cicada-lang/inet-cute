@@ -11,7 +11,7 @@
 - `Net` has `activePairs`
 - `Net` has `portStack`
 
-- use `Net.portStack` to build `Net`
+- `Net` `connect(node)` -- use `portStack` to build `Net`
 
 # later
 
