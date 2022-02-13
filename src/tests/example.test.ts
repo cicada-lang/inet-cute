@@ -1,5 +1,6 @@
 import { Module } from "../lang/module"
 import { DotRenderer } from "../renderers/dot-renderer"
+import Path from "path"
 
 async function test(): Promise<void> {
   const mod = new Module()
@@ -16,11 +17,19 @@ async function test(): Promise<void> {
 
   const net = mod.buildNet("two")
 
-  net.run()
-
   const renderer = new DotRenderer()
 
-  console.log(await renderer.render(net.formatDot()))
+  await renderer.renderToFile(
+    Path.resolve(__dirname, "../../output/example-init.svg"),
+    net.formatDot()
+  )
+
+  net.run()
+
+  await renderer.renderToFile(
+    Path.resolve(__dirname, "../../output/example-result.svg"),
+    net.formatDot()
+  )
 }
 
 test()

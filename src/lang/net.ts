@@ -116,6 +116,12 @@ export class Net {
       lines.push(`${start} -- ${end};`)
     }
 
+    for (const edge of this.activeEdges) {
+      const start = `${edge.start.node.name}_${edge.start.node.id}`
+      const end = `${edge.end.node.name}_${edge.end.node.id}`
+      lines.push(`${start} -- ${end} [color=red];`)
+    }
+
     const body = lines.join(" ")
 
     return `graph { ${body} }`

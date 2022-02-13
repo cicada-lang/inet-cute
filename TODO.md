@@ -1,5 +1,3 @@
-- `dot-renderer` render to file
-
 - `Net.step` -- handle free ports
 
   - (A) we should disallow free ports before `step`
