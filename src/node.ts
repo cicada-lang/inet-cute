@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid"
+import { Net } from "./net"
 import { Port } from "./port"
 import { Type } from "./type"
-import { Net } from "./net"
 
 export class Node {
   id: string

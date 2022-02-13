@@ -1,4 +1,4 @@
-import { Edge, ActiveEdge } from "./edge"
+import { ActiveEdge, Edge } from "./edge"
 import { Module } from "./module"
 import { Node } from "./node"
 import { Port } from "./port"
