@@ -75,11 +75,11 @@ export class Node {
     for (const port of this.outputPorts.filter((port) => !port.isPrincipal())) {
       if (port.edge) {
         if (port.edge.start.node !== this) {
-          outputPorts.push(port.edge.start)
+          outputPorts.unshift(port.edge.start)
         }
 
         if (port.edge.end.node !== this) {
-          outputPorts.push(port.edge.end)
+          outputPorts.unshift(port.edge.end)
         }
 
         net.removeNormalEdge(port.edge)

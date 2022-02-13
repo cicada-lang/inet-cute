@@ -1,3 +1,4 @@
+import { zip } from "lodash"
 import { ActiveEdge, Edge } from "./edge"
 import { Module } from "./module"
 import { Node } from "./node"
@@ -32,18 +33,22 @@ export class Net {
         )
       }
 
-      const rule = this.mod.findRuleByPorts(topPort, port)
-
-      if (rule) {
-        this.activeEdges.push(new ActiveEdge(topPort, port, rule))
-      } else {
-        this.normalEdges.push(new Edge(topPort, port))
-      }
+      this.connectPorts(topPort, port)
     }
 
     this.ports.push(...node.outputPorts)
 
     this.nodes.push(node)
+  }
+
+  private connectPorts(start: Port, end: Port): void {
+    const rule = this.mod.findRuleByPorts(start, end)
+
+    if (rule) {
+      this.activeEdges.push(new ActiveEdge(start, end, rule))
+    } else {
+      this.normalEdges.push(new Edge(start, end))
+    }
   }
 
   step(): void {
@@ -66,8 +71,20 @@ export class Net {
 
     rule.reconnect(this)
 
-    console.log(this.ports)
-    console.log(outputPorts)
+    if (this.ports.length !== outputPorts.length) {
+      throw new Error(
+        [
+          `Internal error, resulting ports doesn't match prepared output ports`,
+          `  resulting ports length: ${this.ports.length}`,
+          `  prepared output ports length: ${outputPorts.length}`,
+        ].join("\n")
+      )
+    }
+
+    for (const [start, end] of zip(this.ports, outputPorts)) {
+      this.connectPorts(start, end)
+      this.ports.pop()
+    }
   }
 
   removeNormalEdge(edge: Edge): void {
