@@ -55,13 +55,22 @@ export class Net {
 
     const { start, end, rule } = activeEdge
 
-    const ports: Array<Port> = []
+    const inputPorts: Array<Port> = []
+    const outputPorts: Array<Port> = []
 
-    start.node.disconnect(this, ports)
-    end.node.disconnect(this, ports)
+    // NOTE We should disconnect `end` first, then `start`.
+    end.node.disconnect(this, inputPorts, outputPorts)
+    start.node.disconnect(this, inputPorts, outputPorts)
 
     // TODO reconnect
     // rule.reconnect(this, ports)
+  }
+
+  removeNormalEdge(edge: Edge): void {
+    const index = this.normalEdges.indexOf(edge)
+    if (index > -1) {
+      this.normalEdges.splice(index, 1)
+    }
   }
 
   run(): void {

@@ -52,8 +52,38 @@ export class Node {
     return this.name
   }
 
-  // NOTE Do side effect on port stack.
-  disconnect(net: Net, ports: Array<Port>): void {
-    // TODO
+  // NOTE Do side effect on two port stacks.
+  disconnect(
+    net: Net,
+    inputPorts: Array<Port>,
+    outputPorts: Array<Port>
+  ): void {
+    for (const port of this.inputPorts.filter((port) => !port.isPrincipal())) {
+      if (port.edge) {
+        if (port.edge.start.node !== this) {
+          inputPorts.push(port.edge.start)
+        }
+
+        if (port.edge.end.node !== this) {
+          inputPorts.push(port.edge.end)
+        }
+
+        net.removeNormalEdge(port.edge)
+      }
+    }
+
+    for (const port of this.outputPorts.filter((port) => !port.isPrincipal())) {
+      if (port.edge) {
+        if (port.edge.start.node !== this) {
+          outputPorts.push(port.edge.start)
+        }
+
+        if (port.edge.end.node !== this) {
+          outputPorts.push(port.edge.end)
+        }
+
+        net.removeNormalEdge(port.edge)
+      }
+    }
   }
 }

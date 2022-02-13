@@ -1,7 +1,11 @@
 # model
 
-- `Node.disconnect(net: Net)`
 - `Net.step` -- handle `rule.reconnect`
+
+- `Net.step` -- handle free ports
+
+  - (A) we should disallow free ports before `step`
+  - (B) we can temporarily close the net before `step`
 
 # later
 
