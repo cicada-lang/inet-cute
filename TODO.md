@@ -1,7 +1,8 @@
 # model
 
-- `Module.defineNode`
-- `Module.defineNetBuilder`
+- `Type.build`
+
+- `Module.defineNet`
 - `Module.buildNet`
 
 - `Edge`

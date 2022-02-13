@@ -1,6 +1,10 @@
 export abstract class Type {
   abstract format(): string
 
+  static build(words: Array<string>): Array<Type> {
+    return []
+  }
+
   isPrincipal(): boolean {
     return false
   }
@@ -32,6 +36,6 @@ export class PrincipalType extends Type {
   }
 
   format(): string {
-    return "*" + this.t.format()
+    return this.t.format() + " *"
   }
 }

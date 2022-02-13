@@ -7,9 +7,9 @@ title: Design Syntax
 Use postfix notation to build a net.
 
 ```cicada-vm
-node zero [ -> *Nat ]
-node add1 [ Nat -> *Nat ]
-node add [ Nat *Nat -> Nat ]
+node zero [ -> Nat * ]
+node add1 [ Nat -> Nat * ]
+node add [ Nat Nat * -> Nat ]
 ```
 
 Build a net.
@@ -43,9 +43,9 @@ ports on stack is already specified.
 ## K of CL
 
 ```cicada-vm
-node k0 [ -> *T ]
-node k1 [ T -> *T ]
-node apply [ Arg *Fun -> Ret ]
+node k0 [ -> t * ]
+node k1 [ t -> t * ]
+node apply [ Arg Fun * -> Ret ]
 ```
 
 ```cicada-vm
@@ -58,7 +58,7 @@ rule {
 ## Circle
 
 ```cicada-vm
-node diff [ *List(A) A -> DiffList(A) ]
+node diff [ A List * A -> A DiffList ]
 ```
 
 Use variable to store port, to build circle net.
