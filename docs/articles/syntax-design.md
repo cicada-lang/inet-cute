@@ -6,7 +6,7 @@ title: Design Syntax
 
 Use postfix notation to build a net.
 
-``` cicada-vm
+```cicada-vm
 node zero [ -> *Nat ]
 node add1 [ Nat -> *Nat ]
 node add [ Nat *Nat -> Nat ]
@@ -14,7 +14,7 @@ node add [ Nat *Nat -> Nat ]
 
 Build a net.
 
-``` cicada-vm
+```cicada-vm
 net two [ -> Nat ] {
   zero add1 zero add1 add
 }
@@ -25,7 +25,7 @@ net two [ -> Nat ] {
 A rule specify how to disconnect and reconnect,
 based on a matching active pair.
 
-``` cicada-vm
+```cicada-vm
 rule {
   zero * add;
   add1 * add => add add1;
@@ -42,13 +42,13 @@ ports on stack is already specified.
 
 ## K of CL
 
-``` cicada-vm
+```cicada-vm
 node k0 [ -> *T ]
 node k1 [ T -> *T ]
 node apply [ Arg *Fun -> Ret ]
 ```
 
-``` cicada-vm
+```cicada-vm
 rule {
   k0 apply => k1;
   k1 apply => drop;
@@ -57,7 +57,7 @@ rule {
 
 ## Circle
 
-``` cicada-vm
+```cicada-vm
 node diff [ *List(A) A -> DiffList(A) ]
 ```
 
@@ -65,7 +65,7 @@ Use variable to store port, to build circle net.
 
 - `wire` place its two ports on the stack.
 
-``` cicada-vm
+```cicada-vm
 net {
   wire diff
 }
@@ -82,13 +82,13 @@ net {
 In non stack-based syntax,
 handling multiple return values will be unnatural.
 
-``` js
+```js
 let x = wire
 
 diff(x, x)
 ```
 
-``` js
+```js
 let x = wire
 let y = wire
 

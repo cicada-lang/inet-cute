@@ -2,7 +2,6 @@ class Net {
   // ports: Array<Port>
 }
 
-
 // interface Edge {
 //   //
 // }
