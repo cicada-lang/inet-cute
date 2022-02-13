@@ -4,9 +4,12 @@
 - `Module.defineNetBuilder`
 - `Module.buildNet`
 
-- `Net.nodes`
-- `Net.edges`
-- `Net.activePairs`
+- `Edge`
+
+- `Net` has `nodes`
+- `Net` has `edges`
+- `Net` has `activePairs`
+- `Net` has `portStack`
 
 - use `Net.portStack` to build `Net`
 
