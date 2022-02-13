@@ -1,10 +1,9 @@
 # model
 
-- `ActivePair`
+- `Net.connect` build up `activeEdges` when meet two principal ports
 
-- `Net` has `activePairs`
-
-- `Net.connect` build up `activePairs`
+- `Net.step`
+- `Net.run`
 
 # later
 

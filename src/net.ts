@@ -4,7 +4,9 @@ import { Port } from "./port"
 
 export class Net {
   nodes: Array<Node> = new Array()
-  edges: Array<Edge> = new Array()
+
+  noramlEdges: Array<Edge> = new Array()
+  activeEdges: Array<Edge> = new Array()
 
   // NOTE We use `ports` as a stack to build net.
   ports: Array<Port> = new Array()
@@ -19,7 +21,7 @@ export class Net {
         )
       }
 
-      this.edges.push(new Edge(toc, port))
+      this.noramlEdges.push(new Edge(toc, port))
     }
 
     this.ports.push(...node.outputPorts)
