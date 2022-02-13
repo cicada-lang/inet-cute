@@ -1,9 +1,13 @@
 # model
 
+- `Edge`
+
+- `Rule`
+
+- `ActivePair`
+
 - `Module.defineNet`
 - `Module.buildNet`
-
-- `Edge`
 
 - `Net` has `nodes`
 - `Net` has `edges`
@@ -13,5 +17,7 @@
 - `Net` `connect(node)` -- use `portStack` to build `Net`
 
 # later
+
+- `Module.defineType`
 
 - `TermType`
