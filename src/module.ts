@@ -5,6 +5,7 @@ import { Net } from "./net"
 export class Module {
   nodeBuilders: Map<string, () => Node> = new Map()
   netBuilders: Map<string, Array<string>> = new Map()
+  rules: Map<string, Array<string>> = new Map()
 
   defineNode(name: string, input: Array<string>, output: Array<string>): this {
     const nodeBuilder = () =>
@@ -45,5 +46,11 @@ export class Module {
     }
 
     return net
+  }
+
+  defineRule(disconnect: [string, string], reconnect: Array<string>): this {
+    this.rules.set(disconnect.join(" "), reconnect)
+
+    return this
   }
 }

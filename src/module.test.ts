@@ -22,3 +22,18 @@ import { Module } from "./module"
 
   console.log(net)
 }
+
+{
+  const mod = new Module()
+    .defineNode("zero", [], ["Nat", "*"])
+    .defineNode("add1", ["Nat"], ["Nat", "*"])
+    .defineNode("add", ["Nat", "Nat", "*"], ["Nat"])
+    .defineNet("two", ["zero", "add1", "zero", "add1", "add"])
+
+    .defineRule(["zero", "add"], [])
+    .defineRule(["add1", "add"], ["add", "add1"])
+
+  const net = mod.buildNet("two")
+
+  console.log(net)
+}

@@ -1,7 +1,5 @@
 # model
 
-- `Module.defineRules`
-
 - `ActivePair`
 
 - `Net` has `activePairs`
@@ -12,7 +10,9 @@
 
 - `Net` -- `render` SVG
 
-- `Edge` -- check ports type
+- `Edge` -- type check the two ports
+
+- `Module.defineNet` -- type check words composition
 
 - `Module.defineType`
 
