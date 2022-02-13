@@ -10,8 +10,11 @@ export class Rule {
     this.reconnectWords = reconnectWords
   }
 
-  // NOTE Using two port stacks to do side effect on net.
-  reconnect(net: Net, inputPorts: Array<Port>, outputPorts: Array<Port>): void {
-    // TODO
+  // NOTE Do side effect on net.
+  reconnect(net: Net): void {
+    for (const word of this.reconnectWords) {
+      const node = net.mod.buildNode(word)
+      net.connect(node)
+    }
   }
 }

@@ -62,7 +62,12 @@ export class Net {
     end.node.disconnect(this, inputPorts, outputPorts)
     start.node.disconnect(this, inputPorts, outputPorts)
 
-    rule.reconnect(this, inputPorts, outputPorts)
+    this.ports.push(...inputPorts)
+
+    rule.reconnect(this)
+
+    console.log(this.ports)
+    console.log(outputPorts)
   }
 
   removeNormalEdge(edge: Edge): void {

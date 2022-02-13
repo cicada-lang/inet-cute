@@ -1,6 +1,6 @@
 # model
 
-- `Rule.reconnect`
+- `Net.step` -- merge resulting `ports` with `outputPorts`
 
 - `Net.step` -- handle free ports
 
