@@ -1,6 +1,6 @@
 # model
 
-- `Net.step` -- handle `rule.reconnect`
+- `Rule.reconnect`
 
 - `Net.step` -- handle free ports
 

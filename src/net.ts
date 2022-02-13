@@ -62,8 +62,7 @@ export class Net {
     end.node.disconnect(this, inputPorts, outputPorts)
     start.node.disconnect(this, inputPorts, outputPorts)
 
-    // TODO reconnect
-    // rule.reconnect(this, ports)
+    rule.reconnect(this, inputPorts, outputPorts)
   }
 
   removeNormalEdge(edge: Edge): void {
