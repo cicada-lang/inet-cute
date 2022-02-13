@@ -10,7 +10,6 @@
 - `Module.buildNet`
 
 - `Net` has `activePairs`
-- `Net` has `portStack`
 
 - `Net` `connect(node)` -- use `portStack` to build `Net`
 
