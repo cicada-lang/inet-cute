@@ -10,6 +10,12 @@ export class Net {
   ports: Array<Port> = new Array()
 
   connect(node: Node): void {
-    
+    for (const port of node.inputPorts) {
+      // TODO
+    }
+
+    this.ports.push(...node.outputPorts)
+
+    this.nodes.push(node)
   }
 }
