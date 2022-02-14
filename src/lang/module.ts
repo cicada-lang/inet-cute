@@ -4,10 +4,39 @@ import { Port } from "./port"
 import { Rule } from "./rule"
 import { Type } from "./type"
 
+export class Operator {
+  name: string
+
+  constructor(name: string) {
+    this.name = name
+  }
+
+  execute(net: Net): void {
+    if (this.name === "swap") {
+      const x1 = net.ports.pop() as Port
+      const x0 = net.ports.pop() as Port
+
+      net.ports.push(x0, x1)
+    }
+
+    if (this.name === "rot") {
+      const x2 = net.ports.pop() as Port
+      const x1 = net.ports.pop() as Port
+      const x0 = net.ports.pop() as Port
+
+      net.ports.push(x1, x2, x0)
+    }
+  }
+}
+
 export class Module {
   nodeBuilders: Map<string, () => Node> = new Map()
   netBuilders: Map<string, Array<string>> = new Map()
   rules: Map<string, Rule> = new Map()
+  operators: Map<string, Operator> = new Map([
+    ["swap", new Operator("swap")],
+    ["rot", new Operator("rot")],
+  ])
 
   defineNode(name: string, input: Array<string>, output: Array<string>): this {
     const nodeBuilder = () =>
@@ -43,11 +72,20 @@ export class Module {
     const net = new Net(this)
 
     for (const word of netBuilder) {
-      const node = this.buildNode(word)
-      net.connect(node)
+      const operator = this.findOperator(word)
+      if (operator) {
+        operator.execute(net)
+      } else {
+        const node = this.buildNode(word)
+        net.connect(node)
+      }
     }
 
     return net
+  }
+
+  findOperator(name: string): Operator | undefined {
+    return this.operators.get(name)
   }
 
   defineRule(disconnect: [string, string], reconnect: Array<string>): this {

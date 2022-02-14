@@ -40,7 +40,7 @@ ports on stack is already specified.
 
 ## K of CL
 
-``` cicada-vm
+```cicada-vm
 node k0 { -> t * }
 node k1 { t -> t * }
 node apply { Arg Fun * -> Ret }
@@ -49,6 +49,13 @@ node apply { Arg Fun * -> Ret }
 ```cicada-vm
 rule { k0 apply => k1 }
 rule { k1 apply => drop }
+```
+
+## List
+
+```cicada-vm
+rule { null append => }
+rule { cons append => rot rot append swap cons }
 ```
 
 ## Circle

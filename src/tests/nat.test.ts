@@ -20,14 +20,14 @@ async function test(): Promise<void> {
   const renderer = new DotRenderer()
 
   await renderer.renderToFile(
-    Path.resolve(__dirname, "../../output/example-init.svg"),
+    Path.resolve(__dirname, "../../output/nat-init.svg"),
     net.formatDot()
   )
 
   net.run()
 
   await renderer.renderToFile(
-    Path.resolve(__dirname, "../../output/example-result.svg"),
+    Path.resolve(__dirname, "../../output/nat-result.svg"),
     net.formatDot()
   )
 }
