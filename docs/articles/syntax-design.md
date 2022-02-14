@@ -7,15 +7,15 @@ title: Design Syntax
 Use postfix notation to build a net.
 
 ```cicada-vm
-node zero [ -> Nat * ]
-node add1 [ Nat -> Nat * ]
-node add [ Nat Nat * -> Nat ]
+node zero { -> Nat * }
+node add1 { Nat -> Nat * }
+node add { Nat Nat * -> Nat }
 ```
 
 Build a net.
 
 ```cicada-vm
-net two [ -> Nat ] {
+net two { -> Nat } {
   zero add1 zero add1 add
 }
 ```
@@ -26,8 +26,8 @@ A rule specify how to disconnect and reconnect,
 based on a matching active pair.
 
 ```cicada-vm
-rule [ zero add => ]
-rule [ case add1 add => add add1 ]
+rule { zero add => }
+rule { add1 add => add add1 }
 ```
 
 After disconnecting, input ports are placed on the stack in order.
@@ -41,20 +41,20 @@ ports on stack is already specified.
 ## K of CL
 
 ``` cicada-vm
-node k0 [ -> t * ]
-node k1 [ t -> t * ]
-node apply [ Arg Fun * -> Ret ]
+node k0 { -> t * }
+node k1 { t -> t * }
+node apply { Arg Fun * -> Ret }
 ```
 
 ```cicada-vm
-rule [ k0 apply => k1 ]
-rule [ k1 apply => drop ]
+rule { k0 apply => k1 }
+rule { k1 apply => drop }
 ```
 
 ## Circle
 
 ```cicada-vm
-node diff [ A List * A -> A DiffList ]
+node diff { A List * A -> A DiffList }
 ```
 
 Use variable to store port, to build circle net.
