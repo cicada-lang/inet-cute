@@ -10,14 +10,6 @@ Use postfix notation to build a net.
 node zero [ -> Nat * ]
 node add1 [ Nat -> Nat * ]
 node add [ Nat Nat * -> Nat ]
-
-(define-node zero (-> Nat *))
-(define-node add1 (Nat -> Nat *))
-(define-node add (Nat Nat * -> Nat))
-
-:  zero [ -> Nat * ]
-:  add1 [ Nat -> Nat * ]
-:  add [ Nat Nat * -> Nat ]
 ```
 
 Build a net.
@@ -26,10 +18,6 @@ Build a net.
 net two [ -> Nat ] {
   zero add1 zero add1 add
 }
-
-
-(define-net two (-> Nat)
-  zero add1 zero add1 add)
 ```
 
 # How to write rule?
@@ -38,14 +26,8 @@ A rule specify how to disconnect and reconnect,
 based on a matching active pair.
 
 ```cicada-vm
-rules {
-  zero add;
-  add1 add => add add1;
-}
-
-(define-rules
-  (zero add)
-  (add1 add => add add1))
+rule [ zero add => ]
+rule [ case add1 add => add add1 ]
 ```
 
 After disconnecting, input ports are placed on the stack in order.
@@ -58,17 +40,15 @@ ports on stack is already specified.
 
 ## K of CL
 
-```cicada-vm
+``` cicada-vm
 node k0 [ -> t * ]
 node k1 [ t -> t * ]
 node apply [ Arg Fun * -> Ret ]
 ```
 
 ```cicada-vm
-rules {
-  k0 apply => k1;
-  k1 apply => drop;
-}
+rule [ k0 apply => k1 ]
+rule [ k1 apply => drop ]
 ```
 
 ## Circle
