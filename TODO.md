@@ -1,3 +1,5 @@
+- rename the repo to `cicada-inet.js`
+
 - `Net.step` -- handle free ports
 
   - (A) we should disallow free ports before `step`

@@ -1,3 +1,3 @@
-# Cicada VM | JavaScript
+# Cicada Interaction Nets | JavaScript
 
-An implementation of [Interaction nets](https://en.wikipedia.org/wiki/Interaction_nets).
+An implementation of [Interaction Nets](https://en.wikipedia.org/wiki/Interaction_nets) in JavaScript.

@@ -10,6 +10,14 @@ Use postfix notation to build a net.
 node zero [ -> Nat * ]
 node add1 [ Nat -> Nat * ]
 node add [ Nat Nat * -> Nat ]
+
+(define-node zero (-> Nat *))
+(define-node add1 (Nat -> Nat *))
+(define-node add (Nat Nat * -> Nat))
+
+:  zero [ -> Nat * ]
+:  add1 [ Nat -> Nat * ]
+:  add [ Nat Nat * -> Nat ]
 ```
 
 Build a net.
@@ -18,6 +26,10 @@ Build a net.
 net two [ -> Nat ] {
   zero add1 zero add1 add
 }
+
+
+(define-net two (-> Nat)
+  zero add1 zero add1 add)
 ```
 
 # How to write rule?
@@ -30,6 +42,10 @@ rules {
   zero add;
   add1 add => add add1;
 }
+
+(define-rules
+  (zero add)
+  (add1 add => add add1))
 ```
 
 After disconnecting, input ports are placed on the stack in order.
