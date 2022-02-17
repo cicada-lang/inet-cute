@@ -19,3 +19,7 @@
 - concrete syntax
 
 - setup website to render inet online
+
+# use inet to encode lambda calculus
+
+# use inet to encode class, object and message sending
