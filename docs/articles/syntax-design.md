@@ -6,25 +6,26 @@ title: Design Syntax
 
 Use postfix notation to build a net.
 
-```inet
-(define-node zero [] [Nat *])
-(define-node add1 [Nat] [Nat *])
-(define-node add [Nat Nat *] [Nat])
+```scheme
+(define zero
+  (node (input)
+        (output Nat Principal)))
 
-(define zero (node [] [Nat *]))
-(define add1 (node [Nat] [Nat *]))
-(define add (node [Nat Nat *] [Nat]))
+(define add1
+  (node (input)
+        (output Nat Principal)))
+
+(define add
+ (node (input Nat Nat Principal)
+       (output Nat)))
 ```
 
 Build a net.
 
-```inet
-(define-net two [] [Nat]
-  zero add1 zero add1 add)
-
+```scheme
 (define two
-  (nat [] [Nat]
-    zero add1 zero add1 add))
+  (net (input) (output Nat)
+       zero add1 zero add1 add))
 ```
 
 # How to write rule?
@@ -32,9 +33,9 @@ Build a net.
 A rule specify how to disconnect and reconnect,
 based on a matching active pair.
 
-```inet
-(define-rule [zero add] [])
-(define-rule [add1 add] [add add1])
+```scheme
+(define-rule zero add (net))
+(define-rule add1 add (net add add1))
 ```
 
 After disconnecting, input ports are placed on the stack in order.
@@ -47,38 +48,45 @@ ports on stack is already specified.
 
 ## K of CL
 
-```inet
-(define-node k0 [] [t *])
-(define-node k1 [t] [t *])
-(define-node apply [Arg Fun *] [Ret])
+```scheme
+(define k0 (node (input) (output t Principal)))
+(define k1 (node (input t) (output t Principal)))
+(define apply (node (input Arg Fun Principal) (output Ret))
 ```
 
-```inet
-(define-rule [k0 apply] [k1])
-(define-rule [k1 apply] [drop])
+```scheme
+(define-rule k0 apply (net k1))
+(define-rule k1 apply (net drop))
 ```
 
 ## List
 
-```inet
-(define-rule [null append] [])
-(define-rule [cons append] [rot rot append swap cons])
-
-(set-rule! (rule [null append] []))
-(set-rule! (rule [cons append] [rot rot append swap cons]))
+```scheme
+(define-rule null append (net))
+(define-rule cons append (net rot rot append swap cons))
 ```
 
 ## Circle
 
-```inet
-(define diff (node [A List * A] [A DiffList]))
+```scheme
+(define List
+  (node (input Type Principal)
+        (output Type)))
+
+(define DiffList
+    (node (input Type Principal)
+        (output Type)))
+
+(define diff
+  (node (input A List Principal A)
+        (output A DiffList)))
 ```
 
 Use variable to store port, to build circle net.
 
 - `wire` place its two ports on the stack.
 
-```inet
+```scheme
 (net wire diff)
 
 (net
