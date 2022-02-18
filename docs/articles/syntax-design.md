@@ -7,6 +7,10 @@ title: Design Syntax
 Use postfix notation to build a net.
 
 ```scheme
+(define Nat
+  (node (input)
+        (output Type Principal)))
+
 (define zero
   (node (input)
         (output Nat Principal)))
@@ -27,6 +31,13 @@ Build a net.
   (net (input) (output Nat)
        zero add1 zero add1 add))
 ```
+
+# Type of node and net
+
+`(net)` will check type according to its `(input)` and `(output)`,
+
+`(input)` and `(output)` will check ,
+
 
 # How to write rule?
 
@@ -70,12 +81,12 @@ ports on stack is already specified.
 
 ```scheme
 (define List
-  (node (input Type Principal)
-        (output Type)))
+  (node (input Type)
+        (output Type Principal)))
 
 (define DiffList
-    (node (input Type Principal)
-        (output Type)))
+  (node (input Type)
+        (output Type Principal)))
 
 (define diff
   (node (input A List Principal A)
@@ -87,9 +98,10 @@ Use variable to store port, to build circle net.
 - `wire` place its two ports on the stack.
 
 ```scheme
-(net wire diff)
+(net (input) (output A DiffList)
+  wire diff)
 
-(net
+(net (input) (output Nat DiffList)
   wire 3 cons diff
   wire 2 cons 1 cons diff
   append)
