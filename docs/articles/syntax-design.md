@@ -6,7 +6,7 @@ title: Design Syntax
 
 Use postfix notation to build a net.
 
-```cicada-vm
+```inet
 (define-node zero [] [Nat *])
 (define-node add1 [Nat] [Nat *])
 (define-node add [Nat Nat *] [Nat])
@@ -18,7 +18,7 @@ Use postfix notation to build a net.
 
 Build a net.
 
-```cicada-vm
+```inet
 (define-net two [] [Nat]
   zero add1 zero add1 add)
 
@@ -32,7 +32,7 @@ Build a net.
 A rule specify how to disconnect and reconnect,
 based on a matching active pair.
 
-```cicada-vm
+```inet
 (define-rule [zero add] [])
 (define-rule [add1 add] [add add1])
 ```
@@ -47,20 +47,20 @@ ports on stack is already specified.
 
 ## K of CL
 
-```cicada-vm
+```inet
 (define-node k0 [] [t *])
 (define-node k1 [t] [t *])
 (define-node apply [Arg Fun *] [Ret])
 ```
 
-```cicada-vm
+```inet
 (define-rule [k0 apply] [k1])
 (define-rule [k1 apply] [drop])
 ```
 
 ## List
 
-```cicada-vm
+```inet
 (define-rule [null append] [])
 (define-rule [cons append] [rot rot append swap cons])
 
@@ -70,7 +70,7 @@ ports on stack is already specified.
 
 ## Circle
 
-```cicada-vm
+```inet
 (define diff (node [A List * A] [A DiffList]))
 ```
 
@@ -78,7 +78,7 @@ Use variable to store port, to build circle net.
 
 - `wire` place its two ports on the stack.
 
-```cicada-vm
+```inet
 (net wire diff)
 
 (net
