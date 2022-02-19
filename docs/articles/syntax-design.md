@@ -62,7 +62,7 @@ ports on stack is already specified.
 ```scheme
 (define k0 (node (input) (output t Principal)))
 (define k1 (node (input t) (output t Principal)))
-(define apply (node (input Arg Fun Principal) (output Ret))
+(define apply (node (input Arg Fun Principal) (output Ret)))
 ```
 
 ```scheme
