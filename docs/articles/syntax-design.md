@@ -38,7 +38,6 @@ Build a net.
 
 `(input)` and `(output)` will check ,
 
-
 # How to write rule?
 
 A rule specify how to disconnect and reconnect,
