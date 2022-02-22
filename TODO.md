@@ -1,7 +1,5 @@
 > unify `Module` namespace
 
-- `Module` has `URL` -- to compare identity of `Node` across modules
-
 - `Module` has `RuleTable` -- use `fullName` (with `URL`) as key
 
   - API to query about `Rule`

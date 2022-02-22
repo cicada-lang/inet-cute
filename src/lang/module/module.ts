@@ -10,7 +10,7 @@ export class Module {
   defs: Map<string, Def> = new Map()
   private rules: Map<string, Rule> = new Map()
 
-  constructor() {
+  constructor(public url: URL) {
     builtInOperators(this)
   }
 

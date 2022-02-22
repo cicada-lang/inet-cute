@@ -5,7 +5,7 @@ import { DotRenderer } from "../renderers/dot-renderer"
 // prettier-ignore
 async function test(): Promise<void> {
 
-  const mod = new Module()
+  const mod = new Module(new URL("local://test"))
     .defineNode("sole", [], ["Trivial", "*"])
 
     .defineNode("null", [], ["TrivialList", "*"])

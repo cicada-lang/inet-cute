@@ -3,7 +3,7 @@ import { Module } from "../lang/module"
 import { DotRenderer } from "../renderers/dot-renderer"
 
 async function test(): Promise<void> {
-  const mod = new Module()
+  const mod = new Module(new URL("local://test"))
     .defineNode("zero", [], ["Nat", "*"])
     .defineNode("add1", ["Nat"], ["Nat", "*"])
     .defineNode("add", ["Nat", "Nat", "*"], ["Nat"])
