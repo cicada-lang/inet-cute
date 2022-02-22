@@ -7,19 +7,9 @@ export class NetDef extends Def {
     super()
   }
 
-  build(): Net {
-    const net = new Net(this.mod)
-
+  execute(net: Net): void {
     for (const word of this.words) {
-      const operator = this.mod.findOperator(word)
-      if (operator) {
-        operator.execute(net)
-      } else {
-        const node = this.mod.buildNode(word)
-        net.connect(node)
-      }
+      this.mod.apply(net, word)
     }
-
-    return net
   }
 }

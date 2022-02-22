@@ -2,6 +2,7 @@ import { Def } from "../def"
 import { Module } from "../module"
 import { Node } from "../node"
 import { Type } from "../type"
+import { Net } from "../net"
 
 export class NodeDef extends Def {
   constructor(
@@ -15,5 +16,9 @@ export class NodeDef extends Def {
 
   build(): Node {
     return new Node(this.name, Type.build(this.input), Type.build(this.output))
+  }
+
+  execute(net: Net): void {
+    net.connect(this.build())
   }
 }

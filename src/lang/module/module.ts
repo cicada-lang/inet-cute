@@ -25,16 +25,6 @@ export class Module {
     return this
   }
 
-  buildNode(name: string): Node {
-    const def = this.defs.get(name)
-
-    if (!(def instanceof Defs.NodeDef)) {
-      throw new Error(`Undefined node: ${name}`)
-    }
-
-    return def.build()
-  }
-
   buildNet(name: string): Net {
     const def = this.defs.get(name)
 
@@ -42,16 +32,20 @@ export class Module {
       throw new Error(`Undefined net: ${name}`)
     }
 
-    return def.build()
+    const net = new Net(this)
+
+    def.execute(net)
+
+    return net
   }
 
-  findOperator(name: string): Defs.OperatorDef | undefined {
-    const def = this.defs.get(name)
-    if (!(def instanceof Defs.OperatorDef)) {
-      return undefined
+  apply(net: Net, word: string): void {
+    const def = this.defs.get(word)
+    if (def === undefined) {
+      throw new Error(`Unknown word: ${word}`)
     }
 
-    return def
+    def.execute(net)
   }
 
   defineRule(disconnect: [string, string], reconnect: Array<string>): this {

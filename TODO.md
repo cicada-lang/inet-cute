@@ -1,6 +1,7 @@
 > unify `Module` namespace
 
-- `Def.execute(net)`
+- Node has Module
+- Rule has Module
 
 - `Module` as `RuleTable` -- for query about `Rule`
 
