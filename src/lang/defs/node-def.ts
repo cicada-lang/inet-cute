@@ -5,12 +5,12 @@ import { Type } from "../type"
 
 export class NodeDef extends Def {
   constructor(
-    mod: Module,
+    public mod: Module,
     public name: string,
     public input: Array<string>,
     public output: Array<string>
   ) {
-    super(mod)
+    super()
   }
 
   build(): Node {

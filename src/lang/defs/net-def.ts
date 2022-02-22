@@ -4,8 +4,8 @@ import { Node } from "../node"
 import { Net } from "../net"
 
 export class NetDef extends Def {
-  constructor(mod: Module, public words: Array<string>) {
-    super(mod)
+  constructor(public mod: Module, public words: Array<string>) {
+    super()
   }
 
   build(): Net {

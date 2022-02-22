@@ -1,6 +1,6 @@
 > unify `Module` namespace
 
-- `OperatorDef`
+- `Def.execute(net)`
 
 - `Module` as `RuleTable` -- for query about `Rule`
 
