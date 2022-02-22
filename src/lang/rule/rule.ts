@@ -1,7 +1,7 @@
 import { Def } from "../def"
+import * as Defs from "../defs"
 import { Module } from "../module"
 import { Net } from "../net"
-import * as Defs from "../defs"
 
 export class Rule {
   constructor(

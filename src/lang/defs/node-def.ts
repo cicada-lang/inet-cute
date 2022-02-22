@@ -2,8 +2,8 @@ import { Def } from "../def"
 import { Module } from "../module"
 import { Net } from "../net"
 import { Node } from "../node"
-import { Type } from "../type"
 import { Rule } from "../rule"
+import { Type } from "../type"
 
 export class NodeDef extends Def {
   private rules: Map<string, Rule> = new Map()

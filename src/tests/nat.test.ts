@@ -1,8 +1,7 @@
-import Path from "path"
 import fs from "fs"
+import Path from "path"
 import { Module } from "../lang/module"
 import { NetRenderer } from "../renderers/net-renderer"
-
 
 async function test(): Promise<void> {
   const mod = new Module(new URL("local://test"))
@@ -20,7 +19,6 @@ async function test(): Promise<void> {
   const net = mod.buildNet("two")
 
   const renderer = new NetRenderer()
-
 
   {
     const text = await renderer.render(net)

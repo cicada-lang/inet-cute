@@ -1,8 +1,8 @@
+import * as Defs from "../defs"
 import { Module } from "../module"
 import { Net } from "../net"
 import { Port } from "../port"
 import { Type } from "../type"
-import * as Defs from "../defs"
 
 export class Node {
   static counter = 0
