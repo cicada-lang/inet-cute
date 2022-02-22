@@ -1,21 +1,21 @@
 import { Def } from "../def"
 import { Module } from "../module"
+import { Net } from "../net"
 import { Node } from "../node"
 import { Type } from "../type"
-import { Net } from "../net"
 
 export class NodeDef extends Def {
   constructor(
     public mod: Module,
     public name: string,
-    public input: Array<string>,
-    public output: Array<string>
+    public input: Array<Type>,
+    public output: Array<Type>
   ) {
     super()
   }
 
-  build(): Node {
-    return new Node(this.name, Type.build(this.input), Type.build(this.output))
+  private build(): Node {
+    return new Node(this.name, this.input, this.output)
   }
 
   execute(net: Net): void {
