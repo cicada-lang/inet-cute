@@ -3,7 +3,11 @@ import { Module } from "../module"
 import { Net } from "../net"
 
 export class NetDef extends Def {
-  constructor(public mod: Module, public defs: Array<Def>) {
+  constructor(
+    public mod: Module,
+    public name: string,
+    public defs: Array<Def>
+  ) {
     super()
   }
 

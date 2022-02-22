@@ -14,7 +14,7 @@ export class Module {
     builtInOperators(this)
   }
 
-  getOrFail(name: string): Def {
+  private getOrFail(name: string): Def {
     const def = this.defs.get(name)
     if (def === undefined) {
       throw new Error(`Undefined name: ${name}`)
@@ -42,6 +42,7 @@ export class Module {
       name,
       new Defs.NetDef(
         this,
+        name,
         words.map((word) => this.getOrFail(word))
       )
     )
@@ -49,8 +50,15 @@ export class Module {
     return this
   }
 
+  defineOperator(name: string, execute: (net: Net) => void): this {
+    this.defs.set(name, new Defs.OperatorDef(this, name, execute))
+
+    return this
+  }
+
   defineRule(disconnect: [string, string], reconnect: Array<string>): this {
     this.rules.set(disconnect.join(" "), new Rule(this, disconnect, reconnect))
+
     return this
   }
 
