@@ -3,13 +3,13 @@ import { Module } from "../module"
 import { Net } from "../net"
 
 export class NetDef extends Def {
-  constructor(public mod: Module, public words: Array<string>) {
+  constructor(public mod: Module, public defs: Array<Def>) {
     super()
   }
 
   execute(net: Net): void {
-    for (const word of this.words) {
-      this.mod.apply(net, word)
+    for (const def of this.defs) {
+      def.execute(net)
     }
   }
 }

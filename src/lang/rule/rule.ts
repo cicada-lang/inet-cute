@@ -1,5 +1,5 @@
-import { Net } from "../net"
 import { Module } from "../module"
+import { Net } from "../net"
 
 export class Rule {
   constructor(

@@ -1,7 +1,7 @@
+import { Module } from "../module"
 import { Net } from "../net"
 import { Port } from "../port"
 import { Type } from "../type"
-import { Module } from "../module"
 
 export class Node {
   static counter = 0
@@ -17,7 +17,12 @@ export class Node {
 
   inputPortsReversed: Array<Port>
 
-  constructor(mod: Module, name: string, inputTypes: Array<Type>, outputTypes: Array<Type>) {
+  constructor(
+    mod: Module,
+    name: string,
+    inputTypes: Array<Type>,
+    outputTypes: Array<Type>
+  ) {
     this.id = Node.counter++
 
     this.mod = mod

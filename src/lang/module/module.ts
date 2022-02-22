@@ -14,6 +14,15 @@ export class Module {
     builtInOperators(this)
   }
 
+  getDefOrFail(name: string): Def {
+    const def = this.defs.get(name)
+    if (def === undefined) {
+      throw new Error(`Undefined name: ${name}`)
+    }
+
+    return def
+  }
+
   defineNode(name: string, input: Array<string>, output: Array<string>): this {
     this.defs.set(
       name,
@@ -25,22 +34,25 @@ export class Module {
 
   defineNet(name: string, words: Array<string>): this {
     // TODO Type check the words.
-    this.defs.set(name, new Defs.NetDef(this, words))
+    this.defs.set(
+      name,
+      new Defs.NetDef(
+        this,
+        words.map((word) => this.getDefOrFail(word))
+      )
+    )
 
     return this
   }
 
   buildNet(name: string): Net {
-    const def = this.defs.get(name)
-
+    const def = this.getDefOrFail(name)
     if (!(def instanceof Defs.NetDef)) {
-      throw new Error(`Undefined net: ${name}`)
+      throw new Error(`I expect NetDef, but ${name} is ${def.constructor.name}`)
     }
 
     const net = new Net(this)
-
     def.execute(net)
-
     return net
   }
 
