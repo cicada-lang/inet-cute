@@ -8,7 +8,6 @@ import { builtInOperators } from "./built-in-operators"
 
 export class Module {
   defs: Map<string, Def> = new Map()
-  private rules: Map<string, Rule> = new Map()
 
   constructor(public url: URL) {
     builtInOperators(this)
@@ -79,8 +78,11 @@ export class Module {
   }
 
   defineRule(start: string, end: string, words: Array<string>): this {
-    this.rules.set(
-      start + " " + end,
+    const startNodeDef = this.getNodeDefOrFail(start)
+    const endNodeDef = this.getNodeDefOrFail(end)
+
+    startNodeDef.defineRule(
+      endNodeDef,
       new Rule(
         this,
         start,
@@ -93,12 +95,9 @@ export class Module {
   }
 
   getRuleByPorts(start: Port, end: Port): Rule | undefined {
-    if (!(start.isPrincipal() && end.isPrincipal())) {
-      return undefined
+    if (start.isPrincipal() && end.isPrincipal()) {
+      return start.node.def.getRule(end.node.def)
     }
-
-    const key = `${start.node.name} ${end.node.name}`
-    return this.rules.get(key)
   }
 
   buildNet(name: string): Net {

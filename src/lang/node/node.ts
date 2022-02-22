@@ -2,11 +2,15 @@ import { Module } from "../module"
 import { Net } from "../net"
 import { Port } from "../port"
 import { Type } from "../type"
+import * as Defs from "../defs"
 
 export class Node {
   static counter = 0
 
   id: number
+
+  def: Defs.NodeDef
+
   mod: Module
   name: string
 
@@ -18,15 +22,15 @@ export class Node {
   inputPortsReversed: Array<Port>
 
   constructor(
-    mod: Module,
-    name: string,
+    def: Defs.NodeDef,
     inputTypes: Array<Type>,
     outputTypes: Array<Type>
   ) {
     this.id = Node.counter++
 
-    this.mod = mod
-    this.name = name
+    this.def = def
+    this.mod = def.mod
+    this.name = def.name
 
     this.types = [...inputTypes, ...outputTypes]
     this.checkPrincipalType()

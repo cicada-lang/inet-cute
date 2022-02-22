@@ -1,9 +1,5 @@
 > unify `Module` namespace
 
-- store `Rule` in `NodeDef`
-
-  - `NodeDef` as `rules`
-
 - equality between `Net`
 
 - support variable

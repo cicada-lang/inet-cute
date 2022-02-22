@@ -30,7 +30,7 @@ export class NodeDef extends Def {
   }
 
   private build(): Node {
-    return new Node(this.mod, this.name, this.input, this.output)
+    return new Node(this, this.input, this.output)
   }
 
   execute(net: Net): void {
