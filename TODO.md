@@ -1,7 +1,5 @@
 > unify `Module` namespace
 
-- `Def` has `mod: Module`
-
 - `Module` has `defs: Map<string, Def>`
 
   - `NodeDef`
