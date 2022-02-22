@@ -1,7 +1,6 @@
 > unify `Module` namespace
 
-- Node has Module
-- Rule has Module
+- `Rule` has `Module`
 
 - `Module` as `RuleTable` -- for query about `Rule`
 
