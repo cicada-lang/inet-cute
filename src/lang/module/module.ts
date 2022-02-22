@@ -57,12 +57,7 @@ export class Module {
   }
 
   apply(net: Net, word: string): void {
-    const def = this.defs.get(word)
-    if (def === undefined) {
-      throw new Error(`Unknown word: ${word}`)
-    }
-
-    def.execute(net)
+    this.getDefOrFail(word).execute(net)
   }
 
   defineRule(disconnect: [string, string], reconnect: Array<string>): this {
