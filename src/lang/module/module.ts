@@ -14,13 +14,17 @@ export class Module {
     builtInOperators(this)
   }
 
-  getDefOrFail(name: string): Def {
+  getOrFail(name: string): Def {
     const def = this.defs.get(name)
     if (def === undefined) {
       throw new Error(`Undefined name: ${name}`)
     }
 
     return def
+  }
+
+  apply(net: Net, word: string): void {
+    this.getOrFail(word).execute(net)
   }
 
   defineNode(name: string, input: Array<string>, output: Array<string>): this {
@@ -38,26 +42,11 @@ export class Module {
       name,
       new Defs.NetDef(
         this,
-        words.map((word) => this.getDefOrFail(word))
+        words.map((word) => this.getOrFail(word))
       )
     )
 
     return this
-  }
-
-  buildNet(name: string): Net {
-    const def = this.getDefOrFail(name)
-    if (!(def instanceof Defs.NetDef)) {
-      throw new Error(`I expect NetDef, but ${name} is ${def.constructor.name}`)
-    }
-
-    const net = new Net(this)
-    def.execute(net)
-    return net
-  }
-
-  apply(net: Net, word: string): void {
-    this.getDefOrFail(word).execute(net)
   }
 
   defineRule(disconnect: [string, string], reconnect: Array<string>): this {
@@ -72,5 +61,16 @@ export class Module {
 
     const key = `${start.node.name} ${end.node.name}`
     return this.rules.get(key)
+  }
+
+  buildNet(name: string): Net {
+    const def = this.getOrFail(name)
+    if (!(def instanceof Defs.NetDef)) {
+      throw new Error(`I expect NetDef, but ${name} is ${def.constructor.name}`)
+    }
+
+    const net = new Net(this)
+    def.execute(net)
+    return net
   }
 }

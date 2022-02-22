@@ -1,6 +1,10 @@
 > unify `Module` namespace
 
-- `Module` as `RuleTable` -- for query about `Rule`
+- `Module` has `URL` -- to compare identity of `Node` across modules
+
+- `Module` has `RuleTable` -- use `fullName` (with `URL`) as key
+
+  - API to query about `Rule`
 
 - refacor common parts of `rule.reconnect` and `mod.buildNet`
 
