@@ -1,6 +1,5 @@
 > unify `Module` namespace
 
-- `NodeDef`
 - `NetDef`
 - `OperatorDef`
 

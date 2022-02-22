@@ -1,15 +1,14 @@
+import { Def } from "../def"
+import * as Defs from "../defs"
 import { Net } from "../net"
 import { Node } from "../node"
 import { Operator } from "../operator"
 import { Port } from "../port"
 import { Rule } from "../rule"
-import { Type } from "../type"
-import { Def } from "../def"
 
 export class Module {
   defs: Map<string, Def> = new Map()
 
-  nodeBuilders: Map<string, () => Node> = new Map()
   netBuilders: Map<string, Array<string>> = new Map()
   rules: Map<string, Rule> = new Map()
   operators: Map<string, Operator> = new Map([
@@ -18,21 +17,18 @@ export class Module {
   ])
 
   defineNode(name: string, input: Array<string>, output: Array<string>): this {
-    const nodeBuilder = () =>
-      new Node(name, Type.build(input), Type.build(output))
-
-    this.nodeBuilders.set(name, nodeBuilder)
+    this.defs.set(name, new Defs.NodeDef(this, name, input, output))
     return this
   }
 
   buildNode(name: string): Node {
-    const nodeBuilder = this.nodeBuilders.get(name)
+    const nodeDef = this.defs.get(name)
 
-    if (nodeBuilder === undefined) {
+    if (!(nodeDef instanceof Defs.NodeDef)) {
       throw new Error(`Undefined node: ${name}`)
     }
 
-    return nodeBuilder()
+    return nodeDef.build()
   }
 
   defineNet(name: string, words: Array<string>): this {
