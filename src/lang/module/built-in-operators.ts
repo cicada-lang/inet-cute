@@ -1,4 +1,3 @@
-import * as Defs from "../defs"
 import { Module } from "../module"
 import { Port } from "../port"
 

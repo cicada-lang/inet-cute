@@ -1,7 +1,5 @@
 > unify `Module` namespace
 
-- `Rule` as `defs` instead of `words`
-
 - `Module` has `URL` -- to compare identity of `Node` across modules
 
 - `Module` has `RuleTable` -- use `fullName` (with `URL`) as key
