@@ -1,9 +1,9 @@
-import { Net } from "./net"
-import { Node } from "./node"
-import { Operator } from "./operator"
-import { Port } from "./port"
-import { Rule } from "./rule"
-import { Type } from "./type"
+import { Net } from "../net"
+import { Node } from "../node"
+import { Operator } from "../operator"
+import { Port } from "../port"
+import { Rule } from "../rule"
+import { Type } from "../type"
 
 export class Module {
   nodeBuilders: Map<string, () => Node> = new Map()

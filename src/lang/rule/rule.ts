@@ -1,4 +1,4 @@
-import { Net } from "./net"
+import { Net } from "../net"
 
 export class Rule {
   disconnect: [string, string]

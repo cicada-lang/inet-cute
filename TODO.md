@@ -1,10 +1,14 @@
-- unify `Module` namespace
+> unify `Module` namespace
 
-  - a with `Value` abstract class
+- `Def` has `mod: Module`
 
-    - `Value` > `Net`, `Node`, `Operator`
+- `Module` has `defs: Map<string, Def>`
 
-    - `RuleTable` -- for query about `Rule`
+  - `NodeDef`
+  - `NetDef`
+  - `OperatorDef`
+
+- `Module` as `RuleTable` -- for query about `Rule`
 
 - refacor common parts of `rule.reconnect` and `mod.buildNet`
 

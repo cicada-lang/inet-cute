@@ -1,5 +1,5 @@
-import { Port } from "./port"
-import { Rule } from "./rule"
+import { Port } from "../port"
+import { Rule } from "../rule"
 
 export class Edge {
   start: Port

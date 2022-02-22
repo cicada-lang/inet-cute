@@ -1,7 +1,7 @@
-import { ActiveEdge, Edge } from "./edge"
-import { Module } from "./module"
-import { Node } from "./node"
-import { Port } from "./port"
+import { ActiveEdge, Edge } from "../edge"
+import { Module } from "../module"
+import { Node } from "../node"
+import { Port } from "../port"
 
 export class Net {
   mod: Module

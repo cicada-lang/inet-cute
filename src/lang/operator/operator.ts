@@ -1,5 +1,5 @@
-import { Net } from "./net"
-import { Port } from "./port"
+import { Net } from "../net"
+import { Port } from "../port"
 
 export class Operator {
   name: string

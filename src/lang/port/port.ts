@@ -1,6 +1,6 @@
-import { Edge } from "./edge"
-import { Node } from "./node"
-import { Type } from "./type"
+import { Edge } from "../edge"
+import { Node } from "../node"
+import { Type } from "../type"
 
 export class Port {
   node: Node
