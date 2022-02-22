@@ -1,5 +1,11 @@
 - unify `Module` namespace
 
+  - a with `Value` abstract class
+
+    - `Value` > `Net`, `Node`, `Operator`
+
+    - `RuleTable` -- for query about `Rule`
+
 - refacor common parts of `rule.reconnect` and `mod.buildNet`
 
 - support variable
