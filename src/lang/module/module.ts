@@ -4,8 +4,11 @@ import { Operator } from "../operator"
 import { Port } from "../port"
 import { Rule } from "../rule"
 import { Type } from "../type"
+import { Def } from "../def"
 
 export class Module {
+  defs: Map<string, Def> = new Map()
+
   nodeBuilders: Map<string, () => Node> = new Map()
   netBuilders: Map<string, Array<string>> = new Map()
   rules: Map<string, Rule> = new Map()

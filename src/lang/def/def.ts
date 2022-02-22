@@ -1,5 +1,5 @@
 import { Module } from "../module"
 
-abstract class Def {
+export abstract class Def {
   abstract mod: Module
 }

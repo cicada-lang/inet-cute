@@ -1,10 +1,8 @@
 > unify `Module` namespace
 
-- `Module` has `defs: Map<string, Def>`
-
-  - `NodeDef`
-  - `NetDef`
-  - `OperatorDef`
+- `NodeDef`
+- `NetDef`
+- `OperatorDef`
 
 - `Module` as `RuleTable` -- for query about `Rule`
 

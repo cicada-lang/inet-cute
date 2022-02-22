@@ -1,1 +1,1 @@
-export * from "../def"
+export * from "./def"
