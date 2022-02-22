@@ -1,24 +1,38 @@
-> unify `Module` namespace
+# syntax
 
-- equality between `Net`
+- use `partech`
 
-- support variable
+# workflow
+
+- setup command line tools
+
+# semantic
 
 - `Net.step` -- handle free ports
 
   - (A) we should disallow free ports before `step`
   - (B) we can temporarily close the net before `step`
 
+- equality between `Net`
+
+- support variable
+
+- support module
+
+# simple type
+
 - `Edge` -- type check the two ports
+
 - `Module.defineNet` -- type check words composition
 
 - `TermType`
   - `Module.defineType`
 
-- concrete syntax
+# website
 
 - setup website to render inet online
 
-# use inet to encode lambda calculus
+# experiments
 
-# use inet to encode class, object and message sending
+- use inet to encode lambda calculus
+- use inet to encode class, object and message sending
