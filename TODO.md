@@ -1,4 +1,3 @@
-- extract `Operator` class
 - unify `Module` namespace
 
 - refacor common parts of `rule.reconnect` and `mod.buildNet`

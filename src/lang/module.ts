@@ -1,33 +1,9 @@
 import { Net } from "./net"
 import { Node } from "./node"
+import { Operator } from "./operator"
 import { Port } from "./port"
 import { Rule } from "./rule"
 import { Type } from "./type"
-
-export class Operator {
-  name: string
-
-  constructor(name: string) {
-    this.name = name
-  }
-
-  execute(net: Net): void {
-    if (this.name === "swap") {
-      const x1 = net.ports.pop() as Port
-      const x0 = net.ports.pop() as Port
-
-      net.ports.push(x0, x1)
-    }
-
-    if (this.name === "rot") {
-      const x2 = net.ports.pop() as Port
-      const x1 = net.ports.pop() as Port
-      const x0 = net.ports.pop() as Port
-
-      net.ports.push(x1, x2, x0)
-    }
-  }
-}
 
 export class Module {
   nodeBuilders: Map<string, () => Node> = new Map()
