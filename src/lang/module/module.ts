@@ -19,12 +19,14 @@ export class Module {
       name,
       new Defs.NodeDef(this, name, Type.build(input), Type.build(output))
     )
+
     return this
   }
 
   defineNet(name: string, words: Array<string>): this {
     // TODO Type check the words.
     this.defs.set(name, new Defs.NetDef(this, words))
+
     return this
   }
 
@@ -52,7 +54,7 @@ export class Module {
   }
 
   defineRule(disconnect: [string, string], reconnect: Array<string>): this {
-    this.rules.set(disconnect.join(" "), new Rule(disconnect, reconnect))
+    this.rules.set(disconnect.join(" "), new Rule(this, disconnect, reconnect))
     return this
   }
 

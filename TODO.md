@@ -1,7 +1,5 @@
 > unify `Module` namespace
 
-- `Rule` has `Module`
-
 - `Module` as `RuleTable` -- for query about `Rule`
 
 - refacor common parts of `rule.reconnect` and `mod.buildNet`
