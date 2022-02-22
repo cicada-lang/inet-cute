@@ -1,12 +1,13 @@
 import { Def } from "../def"
 import { Module } from "../module"
 import { Net } from "../net"
+import * as Defs from "../defs"
 
 export class Rule {
   constructor(
     public mod: Module,
-    public start: string,
-    public end: string,
+    public start: Defs.NodeDef,
+    public end: Defs.NodeDef,
     public defs: Array<Def>
   ) {}
 

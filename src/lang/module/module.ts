@@ -85,8 +85,8 @@ export class Module {
       endNodeDef,
       new Rule(
         this,
-        start,
-        end,
+        startNodeDef,
+        endNodeDef,
         words.map((word) => this.getDefOrFail(word))
       )
     )
