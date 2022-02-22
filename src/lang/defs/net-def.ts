@@ -1,6 +1,5 @@
 import { Def } from "../def"
 import { Module } from "../module"
-import { Node } from "../node"
 import { Net } from "../net"
 
 export class NetDef extends Def {
