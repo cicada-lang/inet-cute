@@ -12,8 +12,8 @@ async function test(): Promise<void> {
     .defineNode("cons", ["TrivialList", "Trivial"], ["Nat", "*"])
     .defineNode("append", ["TrivialList", "TrivialList", "*"], ["TrivialList"])
 
-    .defineRule(["null", "append"], [])
-    .defineRule(["cons", "append"], ["rot", "rot", "append", "swap", "cons"])
+    .defineRule("null", "append", [])
+    .defineRule("cons", "append", ["rot", "rot", "append", "swap", "cons"])
 
     .defineNode("main", ["TrivialList", "*"], [])
 

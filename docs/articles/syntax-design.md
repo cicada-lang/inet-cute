@@ -34,8 +34,8 @@ A rule specify how to disconnect and reconnect,
 based on a matching active pair.
 
 ```inet
-@rule zero add => {}
-@rule add1 add => { add add1 }
+@rule zero <> add => {}
+@rule add1 <> add => { add add1 }
 ```
 
 After disconnecting, input ports are placed on the stack in order.
@@ -55,15 +55,15 @@ ports on stack is already specified.
 ```
 
 ```inet
-@rule k0 apply => { k1 }
-@rule k1 apply => { drop }
+@rule k0 <> apply => { k1 }
+@rule k1 <> apply => { drop }
 ```
 
 ## List
 
 ```inet
-@rule null append => {}
-@rule cons append => { rot rot append swap cons }
+@rule null <> append => {}
+@rule cons <> append => { rot rot append swap cons }
 ```
 
 ## Circle

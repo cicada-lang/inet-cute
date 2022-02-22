@@ -5,7 +5,8 @@ import { Net } from "../net"
 export class Rule {
   constructor(
     public mod: Module,
-    public disconnect: [string, string],
+    public start: string,
+    public end: string,
     public defs: Array<Def>
   ) {}
 

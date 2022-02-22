@@ -4,6 +4,8 @@
 
   - API to query about `Rule`
 
+- equality between `Net`
+
 - support variable
 
 - `Net.step` -- handle free ports

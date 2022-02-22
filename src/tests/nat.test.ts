@@ -8,8 +8,8 @@ async function test(): Promise<void> {
     .defineNode("add1", ["Nat"], ["Nat", "*"])
     .defineNode("add", ["Nat", "Nat", "*"], ["Nat"])
 
-    .defineRule(["zero", "add"], [])
-    .defineRule(["add1", "add"], ["add", "add1"])
+    .defineRule("zero", "add", [])
+    .defineRule("add1", "add", ["add", "add1"])
 
     .defineNode("main", ["Nat", "*"], [])
 

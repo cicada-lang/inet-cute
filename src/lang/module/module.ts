@@ -56,12 +56,13 @@ export class Module {
     return this
   }
 
-  defineRule(disconnect: [string, string], words: Array<string>): this {
+  defineRule(start: string, end: string, words: Array<string>): this {
     this.rules.set(
-      disconnect.join(" "),
+      start + " " + end,
       new Rule(
         this,
-        disconnect,
+        start,
+        end,
         words.map((word) => this.getOrFail(word))
       )
     )
