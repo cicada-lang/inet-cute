@@ -3,8 +3,11 @@ import { Module } from "../module"
 import { Net } from "../net"
 import { Node } from "../node"
 import { Type } from "../type"
+import { Rule } from "../rule"
 
 export class NodeDef extends Def {
+  private rules: Map<string, Rule> = new Map()
+
   constructor(
     public mod: Module,
     public name: string,
@@ -12,6 +15,18 @@ export class NodeDef extends Def {
     public output: Array<Type>
   ) {
     super()
+  }
+
+  get fullName(): string {
+    return this.mod.url.href + "#" + this.name
+  }
+
+  defineRule(end: NodeDef, rule: Rule): void {
+    this.rules.set(end.fullName, rule)
+  }
+
+  getRule(end: NodeDef): Rule | undefined {
+    return this.rules.get(end.fullName)
   }
 
   private build(): Node {

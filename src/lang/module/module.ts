@@ -14,7 +14,7 @@ export class Module {
     builtInOperators(this)
   }
 
-  private getOrFail(name: string): Def {
+  private getDefOrFail(name: string): Def {
     const def = this.defs.get(name)
     if (def === undefined) {
       throw new Error(`Undefined name: ${name}`)
@@ -23,8 +23,30 @@ export class Module {
     return def
   }
 
+  private getNodeDefOrFail(name: string): Defs.NodeDef {
+    const def = this.getDefOrFail(name)
+    if (!(def instanceof Defs.NodeDef)) {
+      throw new Error(
+        `I expect Defs.NodeDef, but ${name} is ${def.constructor.name}`
+      )
+    }
+
+    return def
+  }
+
+  private getNetDefOrFail(name: string): Defs.NetDef {
+    const def = this.getDefOrFail(name)
+    if (!(def instanceof Defs.NetDef)) {
+      throw new Error(
+        `I expect Defs.NetDef, but ${name} is ${def.constructor.name}`
+      )
+    }
+
+    return def
+  }
+
   apply(net: Net, word: string): void {
-    this.getOrFail(word).execute(net)
+    this.getDefOrFail(word).execute(net)
   }
 
   defineNode(name: string, input: Array<string>, output: Array<string>): this {
@@ -43,7 +65,7 @@ export class Module {
       new Defs.NetDef(
         this,
         name,
-        words.map((word) => this.getOrFail(word))
+        words.map((word) => this.getDefOrFail(word))
       )
     )
 
@@ -63,14 +85,14 @@ export class Module {
         this,
         start,
         end,
-        words.map((word) => this.getOrFail(word))
+        words.map((word) => this.getDefOrFail(word))
       )
     )
 
     return this
   }
 
-  findRuleByPorts(start: Port, end: Port): Rule | undefined {
+  getRuleByPorts(start: Port, end: Port): Rule | undefined {
     if (!(start.isPrincipal() && end.isPrincipal())) {
       return undefined
     }
@@ -80,13 +102,8 @@ export class Module {
   }
 
   buildNet(name: string): Net {
-    const def = this.getOrFail(name)
-    if (!(def instanceof Defs.NetDef)) {
-      throw new Error(`I expect NetDef, but ${name} is ${def.constructor.name}`)
-    }
-
     const net = new Net(this)
-    def.execute(net)
+    this.getNetDefOrFail(name).execute(net)
     return net
   }
 }

@@ -41,7 +41,7 @@ export class Net {
   }
 
   private connectPorts(start: Port, end: Port): void {
-    const rule = this.mod.findRuleByPorts(start, end)
+    const rule = this.mod.getRuleByPorts(start, end)
 
     if (rule) {
       this.activeEdges.push(new ActiveEdge(start, end, rule))

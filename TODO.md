@@ -1,8 +1,8 @@
 > unify `Module` namespace
 
-- `Module` has `RuleTable` -- use `fullName` (with `URL`) as key
+- store `Rule` in `NodeDef`
 
-  - API to query about `Rule`
+  - `NodeDef` as `rules`
 
 - equality between `Net`
 
