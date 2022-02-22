@@ -9,12 +9,12 @@ import { Rule } from "../rule"
 export class Module {
   defs: Map<string, Def> = new Map()
 
-  netBuilders: Map<string, Array<string>> = new Map()
-  rules: Map<string, Rule> = new Map()
-  operators: Map<string, Operator> = new Map([
+  private operators: Map<string, Operator> = new Map([
     ["swap", new Operator("swap")],
     ["rot", new Operator("rot")],
   ])
+
+  private rules: Map<string, Rule> = new Map()
 
   defineNode(name: string, input: Array<string>, output: Array<string>): this {
     this.defs.set(name, new Defs.NodeDef(this, name, input, output))
@@ -22,41 +22,29 @@ export class Module {
   }
 
   buildNode(name: string): Node {
-    const nodeDef = this.defs.get(name)
+    const def = this.defs.get(name)
 
-    if (!(nodeDef instanceof Defs.NodeDef)) {
+    if (!(def instanceof Defs.NodeDef)) {
       throw new Error(`Undefined node: ${name}`)
     }
 
-    return nodeDef.build()
+    return def.build()
   }
 
   defineNet(name: string, words: Array<string>): this {
     // TODO Type check the words.
-    this.netBuilders.set(name, words)
+    this.defs.set(name, new Defs.NetDef(this, words))
     return this
   }
 
   buildNet(name: string): Net {
-    const netBuilder = this.netBuilders.get(name)
+    const def = this.defs.get(name)
 
-    if (netBuilder === undefined) {
+    if (!(def instanceof Defs.NetDef)) {
       throw new Error(`Undefined net: ${name}`)
     }
 
-    const net = new Net(this)
-
-    for (const word of netBuilder) {
-      const operator = this.findOperator(word)
-      if (operator) {
-        operator.execute(net)
-      } else {
-        const node = this.buildNode(word)
-        net.connect(node)
-      }
-    }
-
-    return net
+    return def.build()
   }
 
   findOperator(name: string): Operator | undefined {

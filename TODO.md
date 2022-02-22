@@ -1,6 +1,5 @@
 > unify `Module` namespace
 
-- `NetDef`
 - `OperatorDef`
 
 - `Module` as `RuleTable` -- for query about `Rule`
