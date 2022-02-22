@@ -7,16 +7,16 @@ title: Design Syntax
 Use postfix notation to build a net.
 
 ```inet
-@node Nat : {} -> { Type Principal }
-@node zero : {} -> { Nat Principal }
-@node add1 : {} -> { Nat Principal }
-@node add : { Nat Nat Principal } -> { Nat }
+@node Nat : { -> Type Principal }
+@node zero : { -> Nat Principal }
+@node add1 : { -> Nat Principal }
+@node add : { Nat Nat Principal -> Nat }
 ```
 
 Build a net.
 
 ```inet
-@net two : {} -> { Nat } = { zero add1 zero add1 add }
+@net two : { -> Nat } = { zero add1 zero add1 add }
 ```
 
 # Type of node and net
@@ -49,9 +49,9 @@ ports on stack is already specified.
 ## K of CL
 
 ```inet
-@node k0 : {} -> { t Principal }
-@node k1 : { t } -> { t Principal }
-@node apply : { Arg Fun Principal } -> { Ret }
+@node k0 : { -> t Principal }
+@node k1 : { t -> t Principal }
+@node apply : { Arg Fun Principal -> Ret }
 ```
 
 ```inet
@@ -69,9 +69,9 @@ ports on stack is already specified.
 ## Circle
 
 ```inet
-@node List : { Type } -> { Type Principal }
-@node DiffList : { Type } -> { Type Principal }
-@node diff : { A List Principal A } -> { A DiffList }
+@node List : { Type -> Type Principal }
+@node DiffList : { Type -> Type Principal }
+@node diff : { A List Principal A -> A DiffList }
 ```
 
 Use variable to store port, to build circle net.
@@ -79,9 +79,9 @@ Use variable to store port, to build circle net.
 - `wire` place its two ports on the stack.
 
 ```inet
-@net _ : {} -> { A DiffList } = { wire diff }
+@net _ : { -> A DiffList } = { wire diff }
 
-@net _ : {} -> { Nat DiffList } = {
+@net _ : { -> Nat DiffList } = {
   wire 3 cons diff
   wire 2 cons 1 cons diff
   append
