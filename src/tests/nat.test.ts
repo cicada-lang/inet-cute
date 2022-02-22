@@ -1,6 +1,8 @@
 import Path from "path"
+import fs from "fs"
 import { Module } from "../lang/module"
-import { DotRenderer } from "../renderers/dot-renderer"
+import { NetRenderer } from "../renderers/net-renderer"
+
 
 async function test(): Promise<void> {
   const mod = new Module(new URL("local://test"))
@@ -17,19 +19,30 @@ async function test(): Promise<void> {
 
   const net = mod.buildNet("two")
 
-  const renderer = new DotRenderer()
+  const renderer = new NetRenderer()
 
-  await renderer.renderToFile(
-    Path.resolve(__dirname, "../../output/nat-init.svg"),
-    net.formatDot()
-  )
+
+  {
+    const text = await renderer.render(net)
+    const path = Path.resolve(__dirname, "../../output/nat-init.svg")
+
+    console.log(`>>> ${path}`)
+
+    await fs.promises.mkdir(Path.dirname(path), { recursive: true })
+    await fs.promises.writeFile(path, text)
+  }
 
   net.run()
 
-  await renderer.renderToFile(
-    Path.resolve(__dirname, "../../output/nat-result.svg"),
-    net.formatDot()
-  )
+  {
+    const text = await renderer.render(net)
+    const path = Path.resolve(__dirname, "../../output/nat-result.svg")
+
+    console.log(`>>> ${path}`)
+
+    await fs.promises.mkdir(Path.dirname(path), { recursive: true })
+    await fs.promises.writeFile(path, text)
+  }
 }
 
 test()

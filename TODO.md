@@ -6,12 +6,6 @@
 
 - setup command line tools
 
-# refacor
-
-- extract `net-renderer.ts`
-
-  - `Net` should not has `formatDot`
-
 # semantic
 
 - `Net.step` -- handle free ports
