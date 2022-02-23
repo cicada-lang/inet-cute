@@ -7,10 +7,10 @@ title: Design Syntax
 Use postfix notation to build a net.
 
 ```scheme
-(define-node Nat (-> [] [Type Principal]))
-(define-node zero (-> [] [Nat Principal]))
-(define-node add1 (-> [] [Nat Principal]))
-(define-node add (-> [Nat Nat Principal] [Nat]))
+(define-node Nat (-> [] [Type *]))
+(define-node zero (-> [] [Nat *]))
+(define-node add1 (-> [] [Nat *]))
+(define-node add (-> [Nat Nat *] [Nat]))
 ```
 
 Build a net.
@@ -50,9 +50,9 @@ ports on stack is already specified.
 ## K of CL
 
 ```scheme
-(define-node k0 (-> [] [t Principal]))
-(define-node k1 (-> [t] [t Principal]))
-(define-node apply (-> [Arg Fun Principal] [Ret]))
+(define-node k0 (-> [] [t *]))
+(define-node k1 (-> [t] [t *]))
+(define-node apply (-> [Arg Fun *] [Ret]))
 ```
 
 ```scheme
@@ -70,9 +70,9 @@ ports on stack is already specified.
 ## Circle
 
 ```scheme
-(define-node List (-> [Type] [Type Principal]))
-(define-node DiffList (-> [Type] [Type Principal]))
-(define-node diff (-> [A List Principal A] [A DiffList]))
+(define-node List (-> [Type] [Type *]))
+(define-node DiffList (-> [Type] [Type *]))
+(define-node diff (-> [A List * A] [A DiffList]))
 ```
 
 Use variable to store port, to build circle net.
