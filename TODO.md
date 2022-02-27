@@ -1,4 +1,3 @@
-- setup tests
 - `RunCommand`
 - `parser-tester.ts` and `parser/tests/`
 - remove inner tests
