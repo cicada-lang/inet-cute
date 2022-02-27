@@ -1,5 +1,5 @@
 # syntax
-
+- rename def to definition
 - use `partech`
 
 # workflow

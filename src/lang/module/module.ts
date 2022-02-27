@@ -48,18 +48,21 @@ export class Module {
     this.getDefOrFail(word).apply(net)
   }
 
+  define(name: string, def: Def): this {
+    this.defs.set(name, def)
+    return this
+  }
+
   defineNode(name: string, input: Array<string>, output: Array<string>): this {
-    this.defs.set(
+    return this.define(
       name,
       new Defs.NodeDef(this, name, Type.build(input), Type.build(output))
     )
-
-    return this
   }
 
   defineNet(name: string, words: Array<string>): this {
     // TODO Type check the words.
-    this.defs.set(
+    return this.define(
       name,
       new Defs.NetDef(
         this,
@@ -67,14 +70,10 @@ export class Module {
         words.map((word) => this.getDefOrFail(word))
       )
     )
-
-    return this
   }
 
   defineOperator(name: string, apply: (net: Net) => void): this {
-    this.defs.set(name, new Defs.OperatorDef(this, name, apply))
-
-    return this
+    return this.define(name, new Defs.OperatorDef(this, name, apply))
   }
 
   defineRule(start: string, end: string, words: Array<string>): this {

@@ -11,16 +11,7 @@ export function stmts_matcher(tree: pt.Tree): Array<Stmt> {
 
 export function stmt_matcher(tree: pt.Tree): Stmt {
   return pt.matcher<Stmt>({
-    "stmt:let": ({ name, exp }, { span }) =>
-      new Stmts.Let(pt.str(name), exp_matcher(exp), { span }),
-    "stmt:let_the": ({ name, t, exp }, { span }) =>
-      new Stmts.Let(
-        pt.str(name),
-        new Exps.The(exp_matcher(t), exp_matcher(exp), {
-          span: pt.span_closure([t.span, exp.span]),
-        }),
-        { span }
-      ),
-
+    // "stmt:let": ({ name, exp }, { span }) =>
+    //   new Stmts.Let(pt.str(name), exp_matcher(exp), { span }),
   })(tree)
 }
