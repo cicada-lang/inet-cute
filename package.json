@@ -12,6 +12,9 @@
     "test": "npm-run-all test:*",
     "format": "prettier src docs --write"
   },
+  "bin": {
+    "inet": "bin/inet.js"
+  },
   "prettier": {
     "semi": false,
     "trailingComma": "es5"

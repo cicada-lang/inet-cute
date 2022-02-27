@@ -1,4 +1,3 @@
-import { Definition } from "../definition"
 import { Module } from "../module"
 import { Stmt, StmtMeta } from "../stmt"
 
