@@ -5,6 +5,14 @@ An implementation of [Interaction Nets](https://en.wikipedia.org/wiki/Interactio
 - Use [S-expression](https://en.wikipedia.org/wiki/S-expression) as overall syntax.
 - Use Forth-like postfix stack-based syntax to build Interaction Nets.
 
+## Installation
+
+```
+npm -g i @cicada-lang/inet
+```
+
+The command line program is called `inet`.
+
 ## Development
 
 ```
