@@ -1,8 +1,4 @@
-- move methods from `Module` to `Stmts`
-
-- `parser-tester.ts` and `parser/tests/`
-
-- improve sexp parser
+- [refactor] move methods from `Module` to `Stmts`
 
 # semantic
 
@@ -34,3 +30,11 @@
 
 - use inet to encode lambda calculus
 - use inet to encode class, object and message sending
+
+# later
+
+- `parser-tester.ts` and `parser/tests/`
+
+- improve sexp parser
+
+  - use `;` for comment
