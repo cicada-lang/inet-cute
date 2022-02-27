@@ -1,5 +1,3 @@
-- [refactor] move methods from `Module` to `Stmts`
-
 # semantic
 
 - `Net.step` -- handle free ports

@@ -1,5 +1,7 @@
 import { Module } from "../module"
 import { Stmt, StmtMeta } from "../stmt"
+import * as Defs from "../definitions"
+import { Type } from "../type"
 
 export class DefineNodeStmt extends Stmt {
   constructor(
@@ -12,6 +14,14 @@ export class DefineNodeStmt extends Stmt {
   }
 
   async execute(mod: Module): Promise<void> {
-    mod.defineNode(this.name, this.input, this.output)
+    mod.define(
+      this.name,
+      new Defs.NodeDefinition(
+        mod,
+        this.name,
+        Type.build(this.input),
+        Type.build(this.output)
+      )
+    )
   }
 }

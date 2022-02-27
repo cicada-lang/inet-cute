@@ -13,7 +13,7 @@ export class Module {
     builtInOperators(this)
   }
 
-  private getDefOrFail(name: string): Definition {
+  getDefOrFail(name: string): Definition {
     const def = this.defs.get(name)
     if (def === undefined) {
       throw new Error(`Undefined name: ${name}`)
@@ -22,7 +22,7 @@ export class Module {
     return def
   }
 
-  private getNodeDefOrFail(name: string): Defs.NodeDefinition {
+  getNodeDefOrFail(name: string): Defs.NodeDefinition {
     const def = this.getDefOrFail(name)
     if (!(def instanceof Defs.NodeDefinition)) {
       throw new Error(
@@ -53,44 +53,8 @@ export class Module {
     return this
   }
 
-  defineNode(name: string, input: Array<string>, output: Array<string>): this {
-    return this.define(
-      name,
-      new Defs.NodeDefinition(this, name, Type.build(input), Type.build(output))
-    )
-  }
-
-  defineNet(name: string, words: Array<string>): this {
-    // TODO Type check the words.
-    return this.define(
-      name,
-      new Defs.NetDefinition(
-        this,
-        name,
-        words.map((word) => this.getDefOrFail(word))
-      )
-    )
-  }
-
   defineOperator(name: string, apply: (net: Net) => void): this {
     return this.define(name, new Defs.OperatorDefinition(this, name, apply))
-  }
-
-  defineRule(start: string, end: string, words: Array<string>): this {
-    const startNodeDef = this.getNodeDefOrFail(start)
-    const endNodeDef = this.getNodeDefOrFail(end)
-
-    startNodeDef.defineRule(
-      endNodeDef,
-      new Rule(
-        this,
-        startNodeDef,
-        endNodeDef,
-        words.map((word) => this.getDefOrFail(word))
-      )
-    )
-
-    return this
   }
 
   getRuleByPorts(start: Port, end: Port): Rule | undefined {

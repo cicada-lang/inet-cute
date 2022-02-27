@@ -1,5 +1,6 @@
 import { Module } from "../module"
 import { Stmt, StmtMeta } from "../stmt"
+import * as Defs from "../definitions"
 
 export class DefineNetStmt extends Stmt {
   constructor(
@@ -11,6 +12,14 @@ export class DefineNetStmt extends Stmt {
   }
 
   async execute(mod: Module): Promise<void> {
-    mod.defineNet(this.name, this.words)
+    // TODO Type check the words.
+    mod.define(
+      this.name,
+      new Defs.NetDefinition(
+        mod,
+        this.name,
+        this.words.map((word) => mod.getDefOrFail(word))
+      )
+    )
   }
 }

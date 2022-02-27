@@ -1,5 +1,7 @@
 import { Module } from "../module"
 import { Stmt, StmtMeta } from "../stmt"
+import { Rule } from "../rule"
+import * as Defs from "../definitions"
 
 export class DefineRuleStmt extends Stmt {
   constructor(
@@ -12,6 +14,17 @@ export class DefineRuleStmt extends Stmt {
   }
 
   async execute(mod: Module): Promise<void> {
-    mod.defineRule(this.start, this.end, this.words)
+    const startNodeDef = mod.getNodeDefOrFail(this.start)
+    const endNodeDef = mod.getNodeDefOrFail(this.end)
+
+    startNodeDef.defineRule(
+      endNodeDef,
+      new Rule(
+        mod,
+        startNodeDef,
+        endNodeDef,
+        this.words.map((word) => mod.getDefOrFail(word))
+      )
+    )
   }
 }
