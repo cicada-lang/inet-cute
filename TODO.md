@@ -1,4 +1,3 @@
-- matchers for all `Stmts`
 - `parser-tester.ts` and `parser/tests/`
 - setup command line tools
 - remove inner tests

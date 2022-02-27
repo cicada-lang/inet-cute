@@ -1,9 +1,13 @@
 import { Definition } from "../definition"
 import { Module } from "../module"
-import { Stmt } from "../stmt"
+import { Stmt, StmtMeta } from "../stmt"
 
 export class DefineNetStmt extends Stmt {
-  constructor(public name: string, public words: Array<string>) {
+  constructor(
+    public name: string,
+    public words: Array<string>,
+    public meta: StmtMeta
+  ) {
     super()
   }
 

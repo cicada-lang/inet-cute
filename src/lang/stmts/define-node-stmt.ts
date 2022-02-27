@@ -1,12 +1,13 @@
 import { Definition } from "../definition"
 import { Module } from "../module"
-import { Stmt } from "../stmt"
+import { Stmt, StmtMeta } from "../stmt"
 
 export class DefineNodeStmt extends Stmt {
   constructor(
     public name: string,
     public input: Array<string>,
-    public output: Array<string>
+    public output: Array<string>,
+    public meta: StmtMeta
   ) {
     super()
   }
