@@ -1,5 +1,5 @@
-import { Def } from "../def"
-import * as Defs from "../defs"
+import { Definition } from "../definition"
+import * as Defs from "../definitions"
 import { Net } from "../net"
 import { Port } from "../port"
 import { Rule } from "../rule"
@@ -7,13 +7,13 @@ import { Type } from "../type"
 import { builtInOperators } from "./built-in-operators"
 
 export class Module {
-  defs: Map<string, Def> = new Map()
+  defs: Map<string, Definition> = new Map()
 
   constructor(public url: URL) {
     builtInOperators(this)
   }
 
-  private getDefOrFail(name: string): Def {
+  private getDefOrFail(name: string): Definition {
     const def = this.defs.get(name)
     if (def === undefined) {
       throw new Error(`Undefined name: ${name}`)
@@ -22,9 +22,9 @@ export class Module {
     return def
   }
 
-  private getNodeDefOrFail(name: string): Defs.NodeDef {
+  private getNodeDefOrFail(name: string): Defs.NodeDefinition {
     const def = this.getDefOrFail(name)
-    if (!(def instanceof Defs.NodeDef)) {
+    if (!(def instanceof Defs.NodeDefinition)) {
       throw new Error(
         `I expect Defs.NodeDef, but ${name} is ${def.constructor.name}`
       )
@@ -33,9 +33,9 @@ export class Module {
     return def
   }
 
-  private getNetDefOrFail(name: string): Defs.NetDef {
+  private getNetDefOrFail(name: string): Defs.NetDefinition {
     const def = this.getDefOrFail(name)
-    if (!(def instanceof Defs.NetDef)) {
+    if (!(def instanceof Defs.NetDefinition)) {
       throw new Error(
         `I expect Defs.NetDef, but ${name} is ${def.constructor.name}`
       )
@@ -48,7 +48,7 @@ export class Module {
     this.getDefOrFail(word).apply(net)
   }
 
-  define(name: string, def: Def): this {
+  define(name: string, def: Definition): this {
     this.defs.set(name, def)
     return this
   }
@@ -56,7 +56,7 @@ export class Module {
   defineNode(name: string, input: Array<string>, output: Array<string>): this {
     return this.define(
       name,
-      new Defs.NodeDef(this, name, Type.build(input), Type.build(output))
+      new Defs.NodeDefinition(this, name, Type.build(input), Type.build(output))
     )
   }
 
@@ -64,7 +64,7 @@ export class Module {
     // TODO Type check the words.
     return this.define(
       name,
-      new Defs.NetDef(
+      new Defs.NetDefinition(
         this,
         name,
         words.map((word) => this.getDefOrFail(word))
@@ -73,7 +73,7 @@ export class Module {
   }
 
   defineOperator(name: string, apply: (net: Net) => void): this {
-    return this.define(name, new Defs.OperatorDef(this, name, apply))
+    return this.define(name, new Defs.OperatorDefinition(this, name, apply))
   }
 
   defineRule(start: string, end: string, words: Array<string>): this {

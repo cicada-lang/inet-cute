@@ -1,4 +1,4 @@
-import * as Defs from "../defs"
+import * as Defs from "../definitions"
 import { Module } from "../module"
 import { Net } from "../net"
 import { Port } from "../port"
@@ -9,7 +9,7 @@ export class Node {
 
   id: number
 
-  def: Defs.NodeDef
+  def: Defs.NodeDefinition
 
   mod: Module
   name: string
@@ -22,7 +22,7 @@ export class Node {
   inputPortsReversed: Array<Port>
 
   constructor(
-    def: Defs.NodeDef,
+    def: Defs.NodeDefinition,
     inputTypes: Array<Type>,
     outputTypes: Array<Type>
   ) {

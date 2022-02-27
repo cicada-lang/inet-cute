@@ -1,9 +1,9 @@
-import { Stmt } from "../stmt"
-import { Def } from "../def"
+import { Definition } from "../definition"
 import { Module } from "../module"
+import { Stmt } from "../stmt"
 
 export class DefNodeStmt extends Stmt {
-  constructor(public name: string, public def: (mod: Module) => Def) {
+  constructor(public name: string, public def: (mod: Module) => Definition) {
     super()
   }
 

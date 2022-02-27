@@ -1,8 +1,8 @@
-import { Def } from "../def"
+import { Definition } from "../definition"
 import { Module } from "../module"
 import { Net } from "../net"
 
-export class OperatorDef extends Def {
+export class OperatorDefinition extends Definition {
   constructor(
     public mod: Module,
     public name: string,

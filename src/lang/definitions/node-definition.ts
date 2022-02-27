@@ -1,11 +1,11 @@
-import { Def } from "../def"
+import { Definition } from "../definition"
 import { Module } from "../module"
 import { Net } from "../net"
 import { Node } from "../node"
 import { Rule } from "../rule"
 import { Type } from "../type"
 
-export class NodeDef extends Def {
+export class NodeDefinition extends Definition {
   private rules: Map<string, Rule> = new Map()
 
   constructor(
@@ -21,11 +21,11 @@ export class NodeDef extends Def {
     return this.mod.url.href + "#" + this.name
   }
 
-  defineRule(end: NodeDef, rule: Rule): void {
+  defineRule(end: NodeDefinition, rule: Rule): void {
     this.rules.set(end.fullName, rule)
   }
 
-  getRule(end: NodeDef): Rule | undefined {
+  getRule(end: NodeDefinition): Rule | undefined {
     return this.rules.get(end.fullName)
   }
 
