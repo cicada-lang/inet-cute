@@ -18,35 +18,9 @@ export class Net {
     this.mod = mod
   }
 
-  get edges(): Array<Edge> {
-    return [...this.activeEdges, ...this.normalEdges]
-  }
-
-  connect(node: Node): void {
-    // NOTE Be careful about the order.
-    for (const port of node.inputPortsReversed) {
-      const topPort = this.ports.pop()
-      if (topPort === undefined) {
-        throw new Error(
-          `I expect a port on top of the stach to match: ${port.format()}`
-        )
-      }
-
-      this.connectPorts(topPort, port)
-    }
-
-    this.ports.push(...node.outputPorts)
-
-    this.nodes.push(node)
-  }
-
-  private connectPorts(start: Port, end: Port): void {
-    const rule = this.mod.getRuleByPorts(start, end)
-
-    if (rule) {
-      this.activeEdges.push(new ActiveEdge(start, end, rule))
-    } else {
-      this.normalEdges.push(new Edge(start, end))
+  run(): void {
+    while (this.activeEdges.length > 0) {
+      this.step()
     }
   }
 
@@ -87,6 +61,16 @@ export class Net {
     }
   }
 
+  connectPorts(start: Port, end: Port): void {
+    const rule = this.mod.getRuleByPorts(start, end)
+
+    if (rule) {
+      this.activeEdges.push(new ActiveEdge(start, end, rule))
+    } else {
+      this.normalEdges.push(new Edge(start, end))
+    }
+  }
+
   removeNode(node: Node): void {
     const index = this.nodes.indexOf(node)
     if (index > -1) {
@@ -98,12 +82,6 @@ export class Net {
     const index = this.normalEdges.indexOf(edge)
     if (index > -1) {
       this.normalEdges.splice(index, 1)
-    }
-  }
-
-  run(): void {
-    while (this.activeEdges.length > 0) {
-      this.step()
     }
   }
 }

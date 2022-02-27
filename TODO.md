@@ -5,6 +5,8 @@
   - (A) we should disallow free ports before `step`
   - (B) we can temporarily close the net before `step`
 
+  I choose (B)
+
 - equality between `Net`
 
 - support variable
