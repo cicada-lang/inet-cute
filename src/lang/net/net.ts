@@ -33,30 +33,30 @@ export class Net {
 
     const { start, end, rule } = activeEdge
 
-    const inputPorts: Array<Port> = []
-    const outputPorts: Array<Port> = []
+    const input: Array<Port> = []
+    const output: Array<Port> = []
 
     // NOTE We should disconnect `end` first, then `start`.
-    end.node.disconnect(this, inputPorts, outputPorts)
-    start.node.disconnect(this, inputPorts, outputPorts)
+    end.node.disconnect(this, input, output)
+    start.node.disconnect(this, input, output)
 
-    this.ports.push(...inputPorts)
+    this.ports.push(...input)
 
     rule.reconnect(this)
 
-    if (this.ports.length !== outputPorts.length) {
+    if (this.ports.length !== output.length) {
       throw new Error(
         [
           `Internal error, resulting ports doesn't match prepared output ports`,
           `  resulting ports length: ${this.ports.length}`,
-          `  prepared output ports length: ${outputPorts.length}`,
+          `  prepared output ports length: ${output.length}`,
         ].join("\n")
       )
     }
 
     while (this.ports.length > 0) {
       const start = this.ports.pop() as Port
-      const end = outputPorts.pop() as Port
+      const end = output.pop() as Port
       this.connectPorts(start, end)
     }
   }

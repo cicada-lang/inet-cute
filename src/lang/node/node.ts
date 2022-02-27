@@ -16,10 +16,10 @@ export class Node {
 
   types: Array<Type>
 
-  inputPorts: Array<Port>
-  outputPorts: Array<Port>
+  input: Array<Port>
+  output: Array<Port>
 
-  inputPortsReversed: Array<Port>
+  inputReversed: Array<Port>
 
   constructor(
     def: Defs.NodeDefinition,
@@ -37,10 +37,10 @@ export class Node {
 
     let portCount = 0
 
-    this.inputPorts = inputTypes.map((t) => new Port(this, portCount++))
-    this.outputPorts = outputTypes.map((t) => new Port(this, portCount++))
+    this.input = inputTypes.map((t) => new Port(this, portCount++))
+    this.output = outputTypes.map((t) => new Port(this, portCount++))
 
-    this.inputPortsReversed = [...this.inputPorts].reverse()
+    this.inputReversed = [...this.input].reverse()
   }
 
   private checkPrincipalType(): void {
@@ -66,33 +66,29 @@ export class Node {
   }
 
   // NOTE Do side effect on two port stacks.
-  disconnect(
-    net: Net,
-    inputPorts: Array<Port>,
-    outputPorts: Array<Port>
-  ): void {
-    for (const port of this.inputPorts.filter((port) => !port.isPrincipal())) {
+  disconnect(net: Net, input: Array<Port>, output: Array<Port>): void {
+    for (const port of this.input.filter((port) => !port.isPrincipal())) {
       if (port.edge) {
         if (port.edge.start.node !== this) {
-          inputPorts.push(port.edge.start)
+          input.push(port.edge.start)
         }
 
         if (port.edge.end.node !== this) {
-          inputPorts.push(port.edge.end)
+          input.push(port.edge.end)
         }
 
         net.removeNormalEdge(port.edge)
       }
     }
 
-    for (const port of this.outputPorts.filter((port) => !port.isPrincipal())) {
+    for (const port of this.output.filter((port) => !port.isPrincipal())) {
       if (port.edge) {
         if (port.edge.start.node !== this) {
-          outputPorts.unshift(port.edge.start)
+          output.unshift(port.edge.start)
         }
 
         if (port.edge.end.node !== this) {
-          outputPorts.unshift(port.edge.end)
+          output.unshift(port.edge.end)
         }
 
         net.removeNormalEdge(port.edge)

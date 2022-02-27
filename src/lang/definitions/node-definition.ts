@@ -4,8 +4,6 @@ import { Net } from "../net"
 import { Node } from "../node"
 import { Rule } from "../rule"
 import { Type } from "../type"
-import { ActiveEdge, Edge } from "../edge"
-import { Port } from "../port"
 
 export class NodeDefinition extends Definition {
   private rules: Map<string, Rule> = new Map()
@@ -39,7 +37,7 @@ export class NodeDefinition extends Definition {
     const node = this.build()
 
     // NOTE Be careful about the order.
-    for (const port of node.inputPortsReversed) {
+    for (const port of node.inputReversed) {
       const top = net.ports.pop()
       if (top === undefined) {
         throw new Error(
@@ -50,7 +48,7 @@ export class NodeDefinition extends Definition {
       net.connectPorts(top, port)
     }
 
-    net.ports.push(...node.outputPorts)
+    net.ports.push(...node.output)
     net.nodes.push(node)
   }
 }
