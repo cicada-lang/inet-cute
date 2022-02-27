@@ -1,7 +1,6 @@
 import { Definition } from "../definition"
 import * as Defs from "../definitions"
 import { Module } from "../module"
-import { Net } from "../net"
 
 export class Rule {
   constructor(

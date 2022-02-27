@@ -1,7 +1,7 @@
 import { Net } from "../net"
+import { Node } from "../node"
 import { Port } from "../port"
 import { Rule } from "../rule"
-import { Node } from "../node"
 
 export class Edge {
   start: Port
@@ -56,7 +56,7 @@ export class Action extends Edge {
 
     while (net.ports.length > 0) {
       const start = net.ports.pop() as Port
-      const end = output.pop() as Port
+      const end = output.shift() as Port
       net.connectPorts(start, end)
     }
   }
@@ -73,15 +73,15 @@ function disconnect(
     if (port.edge) {
       if (port.edge.start.node !== node) input.push(port.edge.start)
       if (port.edge.end.node !== node) input.push(port.edge.end)
-      net.removeNormalEdge(port.edge)
+      net.removeEdge(port.edge)
     }
   }
 
   for (const port of node.output.filter((port) => !port.isPrincipal())) {
     if (port.edge) {
-      if (port.edge.start.node !== node) output.unshift(port.edge.start)
-      if (port.edge.end.node !== node) output.unshift(port.edge.end)
-      net.removeNormalEdge(port.edge)
+      if (port.edge.start.node !== node) output.push(port.edge.start)
+      if (port.edge.end.node !== node) output.push(port.edge.end)
+      net.removeEdge(port.edge)
     }
   }
 

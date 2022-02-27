@@ -44,7 +44,7 @@ export class Net {
     }
   }
 
-  removeNormalEdge(edge: Edge): void {
+  removeEdge(edge: Edge): void {
     const index = this.edges.indexOf(edge)
     if (index > -1) {
       this.edges.splice(index, 1)

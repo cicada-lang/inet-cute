@@ -1,6 +1,5 @@
 import * as Defs from "../definitions"
 import { Module } from "../module"
-import { Net } from "../net"
 import { Port } from "../port"
 import { Type } from "../type"
 
