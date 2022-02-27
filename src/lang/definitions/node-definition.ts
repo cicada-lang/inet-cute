@@ -40,14 +40,14 @@ export class NodeDefinition extends Definition {
 
     // NOTE Be careful about the order.
     for (const port of node.inputPortsReversed) {
-      const topPort = net.ports.pop()
-      if (topPort === undefined) {
+      const top = net.ports.pop()
+      if (top === undefined) {
         throw new Error(
-          `I expect a port on top of the stach to match: ${port.format()}`
+          `I expect a port on top of the stack to match: ${port.format()}`
         )
       }
 
-      net.connectPorts(topPort, port)
+      net.connectPorts(top, port)
     }
 
     net.ports.push(...node.outputPorts)
