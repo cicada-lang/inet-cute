@@ -3,7 +3,6 @@ import * as Defs from "../definitions"
 import { Net } from "../net"
 import { Port } from "../port"
 import { Rule } from "../rule"
-import { Type } from "../type"
 import { builtInOperators } from "./built-in-operators"
 
 export class Module {
