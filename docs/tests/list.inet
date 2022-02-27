@@ -10,13 +10,6 @@
 (define-node main (-> [TrivialList *] []))
 
 (define-net six_soles (-> [] [])
-  [null
-   sole cons
-   sole cons
-   sole cons
-   null
-   sole cons
-   sole cons
-   sole cons
-   append
-   main])
+  [null sole cons sole cons sole cons
+   null sole cons sole cons sole cons
+   append main])
