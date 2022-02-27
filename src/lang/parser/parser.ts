@@ -5,7 +5,7 @@ import * as matchers from "./matchers"
 export class Parser {
   parseStmts = pt.gen_parse({
     preprocess: pt.preprocess.erase_comment,
-    lexer: pt.lexers.common,
+    lexer: pt.lexers.lisp,
     grammar: pt.grammar_start(grammars, "stmts"),
     matcher: matchers.stmts_matcher,
   })
