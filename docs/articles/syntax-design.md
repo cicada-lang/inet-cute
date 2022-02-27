@@ -6,7 +6,7 @@ title: Design Syntax
 
 Use postfix notation to build a net.
 
-```scheme
+```inet
 (define-node Nat (-> [] [Type *]))
 (define-node zero (-> [] [Nat *]))
 (define-node add1 (-> [] [Nat *]))
@@ -15,7 +15,7 @@ Use postfix notation to build a net.
 
 Build a net.
 
-```scheme
+```inet
 (define-net two (-> [] [Nat])
   [zero add1 zero add1 add])
 ```
@@ -34,7 +34,7 @@ input and output will
 A rule specify how to disconnect and reconnect,
 based on a matching active pair.
 
-```scheme
+```inet
 (define-rule [zero add] [])
 (define-rule [add1 add] [add add1])
 ```
@@ -49,27 +49,27 @@ ports on stack is already specified.
 
 ## K of CL
 
-```scheme
+```inet
 (define-node k0 (-> [] [t *]))
 (define-node k1 (-> [t] [t *]))
 (define-node apply (-> [Arg Fun *] [Ret]))
 ```
 
-```scheme
+```inet
 (define-rule [k0 apply] [k1])
 (define-rule [k1 apply] [drop])
 ```
 
 ## List
 
-```scheme
+```inet
 (define-rule [null append] [])
 (define-rule [cons append] [rot rot append swap cons])
 ```
 
 ## Circle
 
-```scheme
+```inet
 (define-node List (-> [Type] [Type *]))
 (define-node DiffList (-> [Type] [Type *]))
 (define-node diff (-> [A List * A] [A DiffList]))
@@ -79,7 +79,7 @@ Use variable to store port, to build circle net.
 
 - `wire` place its two ports on the stack.
 
-```scheme
+```inet
 (define-net _ (-> [] [A DiffList])
   [wire diff])
 
