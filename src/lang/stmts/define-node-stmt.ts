@@ -1,6 +1,6 @@
+import * as Defs from "../definitions"
 import { Module } from "../module"
 import { Stmt, StmtMeta } from "../stmt"
-import * as Defs from "../definitions"
 import { Type } from "../type"
 
 export class DefineNodeStmt extends Stmt {

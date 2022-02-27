@@ -1,7 +1,6 @@
 import { Module } from "../module"
-import { Stmt, StmtMeta } from "../stmt"
 import { Rule } from "../rule"
-import * as Defs from "../definitions"
+import { Stmt, StmtMeta } from "../stmt"
 
 export class DefineRuleStmt extends Stmt {
   constructor(
