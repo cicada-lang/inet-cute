@@ -12,13 +12,13 @@ export class NetRenderer {
   renderToDot(net: Net): string {
     const lines: Array<string> = []
 
-    for (const edge of net.normalEdges) {
+    for (const edge of net.edges) {
       const start = `${edge.start.node.name}_${edge.start.node.id}`
       const end = `${edge.end.node.name}_${edge.end.node.id}`
       lines.push(`${start} -- ${end};`)
     }
 
-    for (const edge of net.activeEdges) {
+    for (const edge of net.actions) {
       const start = `${edge.start.node.name}_${edge.start.node.id}`
       const end = `${edge.end.node.name}_${edge.end.node.id}`
       lines.push(`${start} -- ${end} [color=red];`)
