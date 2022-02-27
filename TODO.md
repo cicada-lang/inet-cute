@@ -1,6 +1,5 @@
-- `parser-tester.ts` and `parser/tests/`
-- remove inner tests
 - move methods from `Module` to `Stmts`
+- `parser-tester.ts` and `parser/tests/`
 
 # semantic
 
