@@ -1,5 +1,8 @@
 - move methods from `Module` to `Stmts`
+
 - `parser-tester.ts` and `parser/tests/`
+
+- improve sexp parser
 
 # semantic
 
