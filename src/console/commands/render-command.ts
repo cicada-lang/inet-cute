@@ -9,11 +9,7 @@ import { Parser } from "../../lang/parser"
 import { NetRenderer } from "../../renderers/net-renderer"
 
 type Args = { mod: string }
-type Opts = {
-  net: string
-  initial?: string
-  finial?: string
-}
+type Opts = { name?: string }
 
 export class RenderCommand extends Command<Args, Opts> {
   name = "render"
@@ -21,11 +17,7 @@ export class RenderCommand extends Command<Args, Opts> {
   description = "Render a net of a module to initial and finial SVG files"
 
   args = { mod: ty.string() }
-  opts = {
-    net: ty.string(),
-    initial: ty.optional(ty.string()),
-    finial: ty.optional(ty.string()),
-  }
+  opts = { name: ty.optional(ty.string()) }
 
   // prettier-ignore
   help(runner: CommandRunner): string {
@@ -38,11 +30,13 @@ export class RenderCommand extends Command<Args, Opts> {
       ``,
       `It supports ${blue(".inet")} file extensions.`,
       ``,
-      blue(`  ${runner.name} ${this.name} docs/tests/nat.inet --net two`),
+      blue(`  ${runner.name} ${this.name} docs/tests/nat.inet --name two`),
       ``,
       `The output files of the about command will be:`,
       `  - docs/tests/nat.inet.nat.initial.svg`,
       `  - docs/tests/nat.inet.nat.finial.svg`,
+      ``,
+      `Without explicit given a name, all named nets in the module will be rendered.`,
       ``,
     ].join("\n")
   }
@@ -60,14 +54,25 @@ export class RenderCommand extends Command<Args, Opts> {
       stmt.execute(mod)
     }
 
-    const net = mod.buildNet(argv.net)
-
-    renderFile(net, argv.initial || `${file}.${argv.net}.initial.svg`)
-
-    net.run()
-
-    renderFile(net, argv.finial || `${file}.${argv.net}.finial.svg`)
+    if (argv.name) {
+      renderNet(mod, file, argv.name)
+    } else {
+      for (const name of mod.allNetNames()) {
+        renderNet(mod, file, name)
+      }
+    }
   }
+}
+
+async function renderNet(
+  mod: Module,
+  file: string,
+  name: string
+): Promise<void> {
+  const net = mod.buildNet(name)
+  renderFile(net, `${file}.${name}.initial.svg`)
+  net.run()
+  renderFile(net, `${file}.${name}.finial.svg`)
 }
 
 async function renderFile(net: Net, output: string): Promise<void> {

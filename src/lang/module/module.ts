@@ -104,4 +104,10 @@ export class Module {
     this.getNetDefOrFail(name).apply(net)
     return net
   }
+
+  allNetNames(): Array<string> {
+    return Array.from(this.defs.values())
+      .filter((def) => def instanceof Defs.NetDefinition)
+      .map((def) => def.name)
+  }
 }
