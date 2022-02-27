@@ -1,10 +1,7 @@
-# syntax
-
-- use `partech`
-
-# workflow
-
+- matchers for all `Stmts`
 - setup command line tools
+- remove inner tests
+- move methods from `Module` to `Stmts`
 
 # semantic
 
