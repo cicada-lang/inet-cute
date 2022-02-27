@@ -6,19 +6,13 @@ import { Type } from "../type"
 
 export class Node {
   static counter = 0
-
   id: number
-
   def: Defs.NodeDefinition
-
   mod: Module
   name: string
-
   types: Array<Type>
-
   input: Array<Port>
   output: Array<Port>
-
   inputReversed: Array<Port>
 
   constructor(
@@ -27,19 +21,14 @@ export class Node {
     outputTypes: Array<Type>
   ) {
     this.id = Node.counter++
-
     this.def = def
     this.mod = def.mod
     this.name = def.name
-
     this.types = [...inputTypes, ...outputTypes]
     this.checkPrincipalType()
-
     let portCount = 0
-
     this.input = inputTypes.map((t) => new Port(this, portCount++))
     this.output = outputTypes.map((t) => new Port(this, portCount++))
-
     this.inputReversed = [...this.input].reverse()
   }
 

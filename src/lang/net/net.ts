@@ -5,13 +5,10 @@ import { Port } from "../port"
 
 export class Net {
   mod: Module
-
   nodes: Array<Node> = new Array()
-
   normalEdges: Array<Edge> = new Array()
   activeEdges: Array<ActiveEdge> = new Array()
-
-  // NOTE We use `ports` as a stack to build net.
+  // NOTE We use `ports` as a stack to build the net.
   ports: Array<Port> = new Array()
 
   constructor(mod: Module) {
