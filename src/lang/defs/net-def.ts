@@ -11,9 +11,9 @@ export class NetDef extends Def {
     super()
   }
 
-  execute(net: Net): void {
+  apply(net: Net): void {
     for (const def of this.defs) {
-      def.execute(net)
+      def.apply(net)
     }
   }
 }

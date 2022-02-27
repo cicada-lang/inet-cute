@@ -45,7 +45,7 @@ export class Module {
   }
 
   apply(net: Net, word: string): void {
-    this.getDefOrFail(word).execute(net)
+    this.getDefOrFail(word).apply(net)
   }
 
   defineNode(name: string, input: Array<string>, output: Array<string>): this {
@@ -71,8 +71,8 @@ export class Module {
     return this
   }
 
-  defineOperator(name: string, execute: (net: Net) => void): this {
-    this.defs.set(name, new Defs.OperatorDef(this, name, execute))
+  defineOperator(name: string, apply: (net: Net) => void): this {
+    this.defs.set(name, new Defs.OperatorDef(this, name, apply))
 
     return this
   }
@@ -102,7 +102,7 @@ export class Module {
 
   buildNet(name: string): Net {
     const net = new Net(this)
-    this.getNetDefOrFail(name).execute(net)
+    this.getNetDefOrFail(name).apply(net)
     return net
   }
 }

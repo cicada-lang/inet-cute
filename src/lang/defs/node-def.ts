@@ -33,7 +33,7 @@ export class NodeDef extends Def {
     return new Node(this, this.input, this.output)
   }
 
-  execute(net: Net): void {
+  apply(net: Net): void {
     net.connect(this.build())
   }
 }

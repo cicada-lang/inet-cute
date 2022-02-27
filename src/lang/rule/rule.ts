@@ -14,7 +14,7 @@ export class Rule {
   // NOTE Do side effect on net.
   reconnect(net: Net): void {
     for (const def of this.defs) {
-      def.execute(net)
+      def.apply(net)
     }
   }
 }
