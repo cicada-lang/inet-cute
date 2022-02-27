@@ -1,4 +1,3 @@
-- rename `RunCommand` to `RenderCommand`
 - `parser-tester.ts` and `parser/tests/`
 - remove inner tests
 - move methods from `Module` to `Stmts`

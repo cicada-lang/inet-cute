@@ -1,1 +1,1 @@
-export * from "./run-command"
+export * from "./render-command"
