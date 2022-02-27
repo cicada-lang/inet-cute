@@ -1,6 +1,7 @@
 import { Net } from "../net"
 import { Port } from "../port"
 import { Rule } from "../rule"
+import { Node } from "../node"
 
 export class Edge {
   start: Port
@@ -26,17 +27,23 @@ export class Action extends Edge {
   }
 
   act(net: Net): void {
+    // NOTE The state of action.
     const input: Array<Port> = []
     const output: Array<Port> = []
 
-    // NOTE We should disconnect `end` first, then `start`.
-    this.end.node.disconnect(net, input, output)
-    this.start.node.disconnect(net, input, output)
+    // NOTE disconnect by start and end nodes
+    //   We should disconnect `end` first, then `start`.
+    disconnect(this.end.node, net, input, output)
+    disconnect(this.start.node, net, input, output)
 
     net.ports.push(...input)
 
-    this.rule.reconnect(net)
+    // NOTE reconnect by rule
+    for (const def of this.rule.defs) {
+      def.apply(net)
+    }
 
+    // NOTE reconnect by output queue
     if (net.ports.length !== output.length) {
       throw new Error(
         [
@@ -53,4 +60,30 @@ export class Action extends Edge {
       net.connectPorts(start, end)
     }
   }
+}
+
+// NOTE Do side effect on two port stacks.
+function disconnect(
+  node: Node,
+  net: Net,
+  input: Array<Port>,
+  output: Array<Port>
+): void {
+  for (const port of node.input.filter((port) => !port.isPrincipal())) {
+    if (port.edge) {
+      if (port.edge.start.node !== node) input.push(port.edge.start)
+      if (port.edge.end.node !== node) input.push(port.edge.end)
+      net.removeNormalEdge(port.edge)
+    }
+  }
+
+  for (const port of node.output.filter((port) => !port.isPrincipal())) {
+    if (port.edge) {
+      if (port.edge.start.node !== node) output.unshift(port.edge.start)
+      if (port.edge.end.node !== node) output.unshift(port.edge.end)
+      net.removeNormalEdge(port.edge)
+    }
+  }
+
+  net.removeNode(node)
 }

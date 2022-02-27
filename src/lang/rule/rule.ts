@@ -10,11 +10,4 @@ export class Rule {
     public end: Defs.NodeDefinition,
     public defs: Array<Definition>
   ) {}
-
-  // NOTE Do side effect on net.
-  reconnect(net: Net): void {
-    for (const def of this.defs) {
-      def.apply(net)
-    }
-  }
 }
