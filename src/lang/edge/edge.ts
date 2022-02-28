@@ -35,6 +35,7 @@ export class Action extends Edge {
 
     net.ports.push(...input)
 
+    // NOTE Reconnect by rule.
     for (const def of this.rule.defs) {
       def.apply(net)
     }
