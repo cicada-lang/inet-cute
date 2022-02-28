@@ -15,6 +15,8 @@
 
 - setup website to render inet online
 
+  - `inet.cicada-lang.org`
+
 # experiments
 
 - use inet to encode lambda calculus
