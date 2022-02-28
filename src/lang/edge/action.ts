@@ -49,7 +49,13 @@ function disconnectInput(
   input: Array<Port>
 ): void {
   for (const port of ports) {
-    if (!port.isPrincipal() && port.connection !== undefined) {
+    if (!port.isPrincipal()) {
+      if (port.connection === undefined) {
+        throw new Errors.InternalError(
+          "I meet a port without connection during disconnecting input."
+        )
+      }
+
       input.push(port.connection.port)
       net.removeEdge(port.connection.edge)
     }
@@ -62,7 +68,13 @@ function disconnectOutput(
   output: Array<Port>
 ): void {
   for (const port of ports) {
-    if (!port.isPrincipal() && port.connection !== undefined) {
+    if (!port.isPrincipal()) {
+      if (port.connection === undefined) {
+        throw new Errors.InternalError(
+          "I meet a port without connection during disconnecting output."
+        )
+      }
+
       output.unshift(port.connection.port)
       net.removeEdge(port.connection.edge)
     }
