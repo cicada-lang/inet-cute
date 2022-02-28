@@ -9,12 +9,11 @@ export class Edge {
 
   constructor(start: Port, end: Port) {
     // TODO check port type.
-
     this.start = start
     this.end = end
 
-    start.edge = this
-    end.edge = this
+    start.connection = { edge: this, port: end }
+    end.connection = { edge: this, port: start }
   }
 }
 
@@ -31,59 +30,70 @@ export class Action extends Edge {
     const input: Array<Port> = []
     const output: Array<Port> = []
 
-    // NOTE disconnect by start and end nodes
-    //   We should disconnect `end` first, then `start`.
-    disconnect(this.end.node, net, input, output)
-    disconnect(this.start.node, net, input, output)
+    disconnectNode(net, this.end.node, input, output)
+    disconnectNode(net, this.start.node, input, output)
 
     net.ports.push(...input)
 
-    // NOTE reconnect by rule
     for (const def of this.rule.defs) {
       def.apply(net)
     }
 
-    // NOTE reconnect by output queue
-    if (net.ports.length !== output.length) {
-      throw new Error(
-        [
-          `Internal error, resulting ports doesn't match prepared output ports`,
-          `  resulting ports length: ${net.ports.length}`,
-          `  prepared output ports length: ${output.length}`,
-        ].join("\n")
-      )
-    }
+    reconnectOutput(net, output)
+  }
+}
 
-    while (net.ports.length > 0) {
-      const start = net.ports.pop() as Port
-      const end = output.shift() as Port
-      net.connectPorts(start, end)
+function disconnectNode(
+  net: Net,
+  node: Node,
+  input: Array<Port>,
+  output: Array<Port>
+): void {
+  disconnectInput(net, node.input, input)
+  disconnectOutput(net, node.output, output)
+  net.removeNode(node)
+}
+
+function disconnectInput(
+  net: Net,
+  ports: Array<Port>,
+  input: Array<Port>
+): void {
+  for (const port of ports) {
+    if (!port.isPrincipal() && port.connection !== undefined) {
+      input.push(port.connection.port)
+      net.removeEdge(port.connection.edge)
     }
   }
 }
 
-// NOTE Do side effect on two port stacks.
-function disconnect(
-  node: Node,
+function disconnectOutput(
   net: Net,
-  input: Array<Port>,
+  ports: Array<Port>,
   output: Array<Port>
 ): void {
-  for (const port of node.input.filter((port) => !port.isPrincipal())) {
-    if (port.edge) {
-      if (port.edge.start.node !== node) input.push(port.edge.start)
-      if (port.edge.end.node !== node) input.push(port.edge.end)
-      net.removeEdge(port.edge)
+  for (const port of ports) {
+    if (!port.isPrincipal() && port.connection !== undefined) {
+      output.unshift(port.connection.port)
+      net.removeEdge(port.connection.edge)
     }
   }
+}
 
-  for (const port of node.output.filter((port) => !port.isPrincipal())) {
-    if (port.edge) {
-      if (port.edge.start.node !== node) output.push(port.edge.start)
-      if (port.edge.end.node !== node) output.push(port.edge.end)
-      net.removeEdge(port.edge)
-    }
+function reconnectOutput(net: Net, output: Array<Port>): void {
+  if (net.ports.length !== output.length) {
+    throw new Error(
+      [
+        `Internal error, resulting ports doesn't match prepared output ports`,
+        `  resulting ports length: ${net.ports.length}`,
+        `  prepared output ports length: ${output.length}`,
+      ].join("\n")
+    )
   }
 
-  net.removeNode(node)
+  while (net.ports.length > 0) {
+    const start = net.ports.pop() as Port
+    const end = output.pop() as Port
+    net.connectPorts(start, end)
+  }
 }

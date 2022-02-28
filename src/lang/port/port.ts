@@ -6,7 +6,10 @@ export class Port {
   node: Node
   index: number
   t: Type
-  edge?: Edge
+  connection?: {
+    edge: Edge
+    port: Port
+  }
 
   constructor(node: Node, index: number) {
     this.node = node
