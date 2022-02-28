@@ -1,21 +1,15 @@
 # semantic
 
 - `NetRenderer` show free ports
-
-- equality between `Net`
-
 - support variable
-
 - support module
 
 # simple type
 
+- `TermType` & `define-type`
+- `define-net` -- type check words composition
+- `define-node` -- type check
 - `Edge` -- type check the two ports
-
-- `Module.defineNet` -- type check words composition
-
-- `TermType`
-  - `Module.defineType`
 
 # website
 
@@ -25,6 +19,11 @@
 
 - use inet to encode lambda calculus
 - use inet to encode class, object and message sending
+
+# dependent type
+
+- equality between `Net`
+- use `Net` as type
 
 # later
 
