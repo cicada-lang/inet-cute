@@ -45,7 +45,7 @@ export class NodeDefinition extends Definition {
         )
       }
 
-      net.connectPorts(top, port)
+      net.connect(top, port)
     }
 
     net.ports.push(...node.output)

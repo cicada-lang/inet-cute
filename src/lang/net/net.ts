@@ -27,7 +27,7 @@ export class Net {
     else action.act(this)
   }
 
-  connectPorts(start: Port, end: Port): void {
+  connect(start: Port, end: Port): void {
     const rule = this.mod.getRuleByPorts(start, end)
 
     if (rule) {
