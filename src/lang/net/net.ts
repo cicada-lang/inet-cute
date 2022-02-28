@@ -1,8 +1,10 @@
+import * as Defs from "../definitions"
 import { Action, Edge } from "../edge"
 import * as Errors from "../errors"
 import { Module } from "../module"
 import { Node } from "../node"
 import { Port } from "../port"
+import { PrincipalType } from "../type"
 
 export class Net {
   mod: Module
@@ -17,9 +19,42 @@ export class Net {
   }
 
   run(): void {
-    while (this.actions.length > 0) {
-      this.step()
+    const closer = this.closeFreePorts()
+    while (this.actions.length > 0) this.step()
+    this.releaseFreePorts(closer)
+  }
+
+  private closeFreePorts(): Node | undefined {
+    if (this.ports.length === 0) return undefined
+
+    const name = "*free-ports-closer*"
+
+    // NOTE Maintain the "one principal port" constraint.
+    const inputTypes = this.ports
+      .map((port) => port.t)
+      .map((t) => (t.isPrincipal() ? (t as PrincipalType).t : t))
+      .reverse()
+
+    inputTypes[0] = new PrincipalType(inputTypes[0])
+
+    return new Defs.NodeDefinition(this.mod, name, inputTypes, []).apply(this)
+  }
+
+  private releaseFreePorts(closer: Node | undefined): void {
+    if (closer === undefined) return
+
+    for (const port of closer.input.reverse()) {
+      if (port === undefined) return
+
+      if (port.connection === undefined) {
+        throw new Errors.InternalError("I expect port to have connection.")
+      }
+
+      this.ports.push(port.connection.port)
+      this.removeEdge(port.connection.edge)
     }
+
+    this.removeNode(closer)
   }
 
   private step(): void {

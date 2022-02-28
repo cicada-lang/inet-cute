@@ -5,7 +5,5 @@
 (define-rule [zero add] [])
 (define-rule [add1 add] [add add1])
 
-(define-node main (-> [Nat *] []))
-
-(define-net two (-> [] [])
-  [zero add1 zero add1 add main])
+(define-net two (-> [] [Nat])
+  [zero add1 zero add1 add])

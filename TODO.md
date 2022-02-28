@@ -1,11 +1,6 @@
 # semantic
 
-- `Net.step` -- handle free ports
-
-  - (A) we should disallow free ports before `step`
-  - (B) we can temporarily close the net before `step`
-
-  I choose (B)
+- `NetRenderer` show free ports
 
 - equality between `Net`
 

@@ -29,11 +29,11 @@ export class NodeDefinition extends Definition {
     return this.rules.get(end.fullName)
   }
 
-  private build(): Node {
+  build(): Node {
     return new Node(this, this.input, this.output)
   }
 
-  apply(net: Net): void {
+  apply(net: Net): Node {
     const node = this.build()
 
     // NOTE Be careful about the order.
@@ -50,5 +50,7 @@ export class NodeDefinition extends Definition {
 
     net.ports.push(...node.output)
     net.nodes.push(node)
+
+    return node
   }
 }

@@ -13,15 +13,15 @@ export class NetRenderer {
     const lines: Array<string> = []
 
     for (const edge of net.edges) {
-      const start = `${edge.start.node.name}_${edge.start.node.id}`
-      const end = `${edge.end.node.name}_${edge.end.node.id}`
-      lines.push(`${start} -- ${end};`)
+      const start = `${edge.start.node.name}#${edge.start.node.id}`
+      const end = `${edge.end.node.name}#${edge.end.node.id}`
+      lines.push(`"${start}" -- "${end}";`)
     }
 
     for (const edge of net.actions) {
-      const start = `${edge.start.node.name}_${edge.start.node.id}`
-      const end = `${edge.end.node.name}_${edge.end.node.id}`
-      lines.push(`${start} -- ${end} [color=red];`)
+      const start = `${edge.start.node.name}#${edge.start.node.id}`
+      const end = `${edge.end.node.name}#${edge.end.node.id}`
+      lines.push(`"${start}" -- "${end}" [color=red];`)
     }
 
     const body = lines.join(" ")

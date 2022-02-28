@@ -7,9 +7,7 @@
 (define-rule [null append] [])
 (define-rule [cons append] [rot rot append swap cons])
 
-(define-node main (-> [TrivialList *] []))
-
-(define-net six_soles (-> [] [])
+(define-net six_soles (-> [] [TrivialList])
   [null sole cons sole cons sole cons
    null sole cons sole cons sole cons
-   append main])
+   append])
