@@ -81,14 +81,14 @@ export class Net {
 
   removeNode(node: Node): void {
     const index = this.nodes.indexOf(node)
-    if (index > -1) {
+    if (index !== -1) {
       this.nodes.splice(index, 1)
     }
   }
 
   removeEdge(edge: Edge): void {
     const index = this.edges.indexOf(edge)
-    if (index > -1) {
+    if (index !== -1) {
       this.edges.splice(index, 1)
     }
   }
