@@ -1,0 +1,33 @@
+(define-node sole (-> [] [Trivial *]))
+
+(define-node null (-> [] [TrivialList *]))
+(define-node cons (-> [TrivialList Trivial] [Nat *]))
+(define-node append (-> [TrivialList TrivialList *] [TrivialList]))
+
+(define-rule [null append] [])
+(define-rule [cons append] [rot rot append swap cons])
+
+(define-node diff (-> [TrivialList TrivialList *] [TrivialDiffList]))
+(define-node diff-append (-> [TrivialDiffList TrivialDiffList *] [TrivialDiffList]))
+(define-node open (-> [TrivialList TrivialDiffList *] [TrivialList]))
+
+// (define-rule
+//   [v y x diff diff-append]
+//   [(w) x diff
+//    (w) v open y connect])
+
+// (define-rule
+//   [diff diff-append]
+//   [(let v y x) (wire w0 w1)
+//    w0 x diff w1 v open y connect])
+
+(define-net diff-six-soles (-> [] [TrivialList])
+  [null sole cons sole cons sole cons
+   null sole cons sole cons sole cons
+   diff
+
+   null sole cons sole cons sole cons
+   null sole cons sole cons sole cons
+   diff
+
+   diff-append])

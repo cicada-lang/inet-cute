@@ -30,6 +30,11 @@
 
 # dependent type
 
+```scheme
+(define-type Trivial (-> [] [Type *]))
+(define-type List (-> [Type] [Type *]))
+```
+
 - equality between `Net`
 - use `Net` as type
 
