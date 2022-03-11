@@ -1,8 +1,6 @@
 # semantic
 
-- `NetRenderer` show free ports
 - support variable
-- support module
 
 # simple type
 
@@ -10,6 +8,14 @@
 - `define-net` -- type check words composition
 - `define-node` -- type check
 - `Edge` -- type check the two ports
+
+- `Node` with optionally named port
+
+- `NetRenderer` show free port names
+
+# module
+
+- support module
 
 # website
 
