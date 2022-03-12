@@ -68,15 +68,32 @@ A type has a unique name and a arity.
 
 (define-type List 1)
 
-(define-constructor null (forall (A) [] [A List]))
-(define-constructor cons (forall (A) [A List A] [List]))
+(define-constructor null
+  (forall (A)
+    []
+    [A List]))
 
-(define-eliminator append (forall (A) [A List A List] [A List]))
+(define-constructor cons
+  (forall (A)
+    [A List, A]
+    [A List]))
 
-(define-rule [null append])
+(define-eliminator append
+  (forall (A)
+    [A List, A List]
+    [A List]))
 
-(define-rule [cons append]
-  rot rot append swap cons)
+(define-rule
+  [null append]
+  [])
+
+(define-rule
+  [cons append]
+  [rot rot append swap cons])
+
+(define-rule
+  [that tail head cons append]
+  [that tail append head cons])
 
 (define-net six-soles (forall (A) [] [A List])
   null sole cons sole cons sole cons
@@ -91,8 +108,26 @@ A type has a unique name and a arity.
 
 (define-constructor diff
   (forall (A)
-    [A List A List]
+    [A List, A List]
     [A DiffList]))
+
+(define-eliminator diff-append
+  (forall (A)
+    [A DiffList, A DiffList]
+    [A DiffList]))
+
+(define-eliminator diff-open
+  (forall (A)
+    [A DiffList, A DiffList]
+    [A DiffList]))
+
+(define-rule
+  [that left right diff diff-append]
+  [that left diff-open right diff])
+
+(define-rule
+  [that left right diff diff-open]
+  [right that left connect diff-open])
 ```
 
 `wire` place the two ports of an edge on the stack.
