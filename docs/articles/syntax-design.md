@@ -7,10 +7,12 @@ title: Design Syntax
 Use postfix notation to build a net.
 
 ```inet
-(define-node Nat (-> [] [Type *]))
-(define-node zero (-> [] [Nat *]))
-(define-node add1 (-> [] [Nat *]))
-(define-node add (-> [Nat Nat *] [Nat]))
+(define-type Nat (-> [] [Type]))
+
+(define-node+ zero (-> [] [Nat]))
+(define-node+ add1 (-> [] [Nat]))
+
+(define-node- add (-> [Nat Nat] [Nat]))
 ```
 
 Build a net.
@@ -50,9 +52,9 @@ ports on stack is already specified.
 ## K of CL
 
 ```inet
-(define-node k0 (-> [] [t *]))
-(define-node k1 (-> [t] [t *]))
-(define-node apply (-> [Arg Fun *] [Ret]))
+(define-node+ k0 (forall (T) [] [T]))
+(define-node+ k1 (forall (T) [T] [T]))
+(define-node- apply (forall (Arg Fun Ret) [Arg Fun] [Ret]))
 ```
 
 ```inet
@@ -70,9 +72,9 @@ ports on stack is already specified.
 ## Circle
 
 ```inet
-(define-node List (-> [Type] [Type *]))
-(define-node DiffList (-> [Type] [Type *]))
-(define-node diff (-> [A List * A] [A DiffList]))
+(define-type List (-> [Type] [Type]))
+(define-type DiffList (-> [Type] [Type]))
+(define-node+ diff (forall (A) [A List A List] [A DiffList]))
 ```
 
 Use variable to store port, to build circle net.
@@ -80,10 +82,10 @@ Use variable to store port, to build circle net.
 - `wire` place its two ports on the stack.
 
 ```inet
-(define-net _ (-> [] [A DiffList])
+(define-net _ (forall (A) [] [A DiffList])
   [wire diff])
 
-(define-net _ (-> [Nat] [DiffList])
+(define-net _ (forall (A) [] [A DiffList])
   [wire 3 cons diff
    wire 2 cons 1 cons diff
    append])
