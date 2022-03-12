@@ -36,9 +36,7 @@ export const stmt = {
       { output: "words" },
       '"]"',
       '")"',
-      '"["',
       { words: "words" },
-      '"]"',
       '")"',
     ],
     "stmt:define-rule": [

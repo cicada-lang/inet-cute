@@ -56,7 +56,7 @@ A type has a unique name and a arity.
 (define-rule [add1 add] [add add1])
 
 (define-net two (-> [] [Nat])
-  [zero add1 zero add1 add])
+  zero add1 zero add1 add)
 ```
 
 # List

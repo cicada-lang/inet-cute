@@ -1,13 +1,26 @@
 (define-node sole (-> [] [Trivial *]))
 
-(define-node null (-> [] [TrivialList *]))
-(define-node cons (-> [TrivialList Trivial] [Nat *]))
-(define-node append (-> [TrivialList TrivialList *] [TrivialList]))
+(define-node null
+  (-> []
+      [TrivialList *]))
 
-(define-rule [null append] [])
-(define-rule [cons append] [rot rot append swap cons])
+(define-node cons
+  (-> [TrivialList Trivial]
+      [Nat *]))
+
+(define-node append
+  (-> [TrivialList TrivialList *]
+      [TrivialList]))
+
+(define-rule
+  [null append]
+  [])
+
+(define-rule
+  [cons append]
+  [rot rot append swap cons])
 
 (define-net six-soles (-> [] [TrivialList])
-  [null sole cons sole cons sole cons
-   null sole cons sole cons sole cons
-   append])
+  null sole cons sole cons sole cons
+  null sole cons sole cons sole cons
+  append)

@@ -19,7 +19,7 @@ Build a net.
 
 ```inet
 (define-net two (-> [] [Nat])
-  [zero add1 zero add1 add])
+  zero add1 zero add1 add)
 ```
 
 # Type of node and net
@@ -83,10 +83,10 @@ Use variable to store port, to build circle net.
 
 ```inet
 (define-net _ (forall (A) [] [A DiffList])
-  [wire diff])
+  wire diff)
 
 (define-net _ (forall (A) [] [A DiffList])
-  [wire 3 cons diff
-   wire 2 cons 1 cons diff
-   append])
+  wire 3 cons diff
+  wire 2 cons 1 cons diff
+  append)
 ```
