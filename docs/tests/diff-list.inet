@@ -4,8 +4,13 @@
 (define-node cons (-> [TrivialList Trivial] [Nat *]))
 (define-node append (-> [TrivialList TrivialList *] [TrivialList]))
 
-(define-rule [null append] [])
-(define-rule [cons append] [rot rot append swap cons])
+(define-rule
+  [null append]
+  [])
+
+(define-rule
+  [cons append]
+  [rot rot append swap cons])
 
 (define-node diff (-> [TrivialList TrivialList] [TrivialDiffList *]))
 (define-node diff-append (-> [TrivialDiffList TrivialDiffList *] [TrivialDiffList]))
@@ -13,19 +18,13 @@
 
 (define-rule
   [diff diff-append]
-  [inspect rot inspect rot inspect swap inspect diff-open swap diff])
+  [rot rot swap diff-open swap diff])
 
 (define-rule
   [diff diff-open]
   [rot connect])
 
-(define-node wire (-> [] [TrivialDiffList TrivialDiffList *]))
-
-(define-net example-wire (-> [] [TrivialDiffList TrivialDiffList *])
-  [wire wire connect])
-
-(define-net example-diff (-> [] [TrivialDiffList])
-  [wire diff])
+(define-node wire (-> [] [Wire Wire *]))
 
 (define-net example-diff-append (-> [] [TrivialDiffList])
   [wire sole cons diff

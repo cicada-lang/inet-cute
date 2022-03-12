@@ -18,9 +18,9 @@ export class NetRenderer {
     for (const edge of net.edges) {
       const start = edge.start.node.format()
       const end = edge.end.node.format()
-      const indexes = `${edge.start.index}-${edge.end.index}`
+      const indexes = `${edge.end.index}-${edge.start.index}`
       lines.push(
-        `"${start}" -- "${end}" [${edgeAttributes}, label="${indexes}"];`
+        `"${end}" -- "${start}" [${edgeAttributes} label="${indexes}"];`
       )
       lines.push(`"${start}" [${nodeAttributes}];`)
       lines.push(`"${end}" [${nodeAttributes}];`)
@@ -29,9 +29,9 @@ export class NetRenderer {
     for (const edge of net.actions) {
       const start = edge.start.node.format()
       const end = edge.end.node.format()
-      const indexes = `${edge.start.index}-${edge.end.index}`
+      const indexes = `${edge.end.index}-${edge.start.index}`
       lines.push(
-        `"${start}" -- "${end}" [${edgeAttributes}, label="${indexes}", color=red, penwidth=2];`
+        `"${end}" -- "${start}" [${edgeAttributes} label="${indexes}" color=red];`
       )
       lines.push(`"${start}" [${nodeAttributes}];`)
       lines.push(`"${end}" [${nodeAttributes}];`)
@@ -40,12 +40,13 @@ export class NetRenderer {
     for (const port of net.ports) {
       const start = port.node.format()
       const end = port.format()
-      lines.push(`"${start}" -- "${end}" [${edgeAttributes}];`)
+      lines.push(`"${end}" -- "${start}" [${edgeAttributes}];`)
       lines.push(`"${start}" [${nodeAttributes}];`)
-      lines.push(`"${end}" [shape=none, height=0, width=0];`)
+      lines.push(`"${end}" [shape=none height=0 width=0];`)
     }
 
     const body = lines.join(" ")
+
     return `graph { ${body} }`
   }
 }

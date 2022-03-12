@@ -1,6 +1,7 @@
 # semantic
 
-- support `connect` operator
+- `wire` as operator
+- clean up `wire`
 
 - support variable
 
