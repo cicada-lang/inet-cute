@@ -2,7 +2,7 @@
 title: Notes about Interaction Nets
 ---
 
-Interaction Nets is a study of typed undirected graphs,
+Interaction nets is a study of typed undirected graphs,
 and using them to model computations.
 
 A graph is typed, in the sense that
@@ -11,9 +11,11 @@ when connecting two nodes by an edge,
 ports on these nodes will be consumed,
 and the type of ports must matches.
 
+A node has a unique name.
+
 A node's ports are split into two lists, input ports and output ports.
 
-```inet
+```clojure
 (define-node <node>
   (-> [<input-port> ...]
       [<output-port> ...]))
@@ -28,7 +30,7 @@ We distinguish two kinds of nodes
 
 Using this convention, we do not need to label which port is principal port.
 
-```inet
+```clojure
 (define-constructor <node>
   (-> [<input-port> ...]
       [<output-port> ...]))
@@ -36,4 +38,71 @@ Using this convention, we do not need to label which port is principal port.
 (define-eliminator <node>
   (-> [<input-port> ...]
       [<output-port> ...]))
+```
+
+A type has a unique name and a arity.
+
+# Nat
+
+```clojure
+(define-type Nat 0)
+
+(define-constructor zero (-> [] [Nat]))
+(define-constructor add1 (-> [Nat] [Nat]))
+
+(define-eliminator add (-> [Nat Nat] [Nat]))
+
+(define-rule [zero add] [])
+(define-rule [add1 add] [add add1])
+
+(define-net two (-> [] [Nat])
+  [zero add1 zero add1 add])
+```
+
+# List
+
+```clojure
+(define-type Trivial 0)
+
+(define-constructor sole (-> [] [Trivial]))
+
+(define-type List 1)
+
+(define-constructor null (forall (A) [] [A List]))
+(define-constructor cons (forall (A) [A List A] [List]))
+
+(define-eliminator append (forall (A) [A List A List] [A List]))
+
+(define-rule [null append])
+
+(define-rule [cons append]
+  rot rot append swap cons)
+
+(define-net six-soles (forall (A) [] [A List])
+  null sole cons sole cons sole cons
+  null sole cons sole cons sole cons
+  append)
+```
+
+# DiffList
+
+```clojure
+(define-type DiffList 1)
+
+(define-constructor diff
+  (forall (A)
+    [A List A List]
+    [A DiffList]))
+```
+
+`wire` place the two ports of an edge on the stack.
+
+```clojure
+(define-net _ (forall (A) [] [A DiffList])
+  wire diff)
+
+(define-net _ (forall (A) [] [A DiffList])
+  wire sole cons diff
+  wire sole cons sole cons diff
+  append)
 ```
