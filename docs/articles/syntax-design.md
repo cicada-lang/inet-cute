@@ -9,10 +9,10 @@ Use postfix notation to build a net.
 ```inet
 (define-type Nat (-> [] [Type]))
 
-(define-node+ zero (-> [] [Nat]))
-(define-node+ add1 (-> [] [Nat]))
+(define-constructor zero (-> [] [Nat]))
+(define-constructor add1 (-> [] [Nat]))
 
-(define-node- add (-> [Nat Nat] [Nat]))
+(define-eliminator add (-> [Nat Nat] [Nat]))
 ```
 
 Build a net.
@@ -52,9 +52,9 @@ ports on stack is already specified.
 ## K of CL
 
 ```inet
-(define-node+ k0 (forall (T) [] [T]))
-(define-node+ k1 (forall (T) [T] [T]))
-(define-node- apply (forall (Arg Fun Ret) [Arg Fun] [Ret]))
+(define-constructor k0 (forall (T) [] [T]))
+(define-constructor k1 (forall (T) [T] [T]))
+(define-eliminator (forall (Arg Fun Ret) [Arg Fun] [Ret]))
 ```
 
 ```inet
@@ -74,7 +74,7 @@ ports on stack is already specified.
 ```inet
 (define-type List (-> [Type] [Type]))
 (define-type DiffList (-> [Type] [Type]))
-(define-node+ diff (forall (A) [A List A List] [A DiffList]))
+(define-constructor diff (forall (A) [A List A List] [A DiffList]))
 ```
 
 Use variable to store port, to build circle net.
