@@ -23,7 +23,7 @@ export function builtInOperators(mod: Module): void {
 
   mod.defineOperator("inspect", (net) => {
     const top = net.ports.pop() as Port
-    console.log(top.format())
+    console.log(top.inspect())
     net.ports.push(top)
   })
 }
