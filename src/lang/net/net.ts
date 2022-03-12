@@ -21,7 +21,24 @@ export class Net {
   run(): void {
     const closer = this.closeFreePorts()
     while (this.actions.length > 0) this.step()
+    this.clreanUpWires()
     this.releaseFreePorts(closer)
+  }
+
+  wires: Array<{ start: Port; end: Port }> = new Array()
+
+  private clreanUpWires(): void {
+    for (const wire of this.wires) {
+      if (wire.start.connection && wire.end.connection) {
+        this.removeEdge(wire.start.connection.edge)
+        this.removeEdge(wire.end.connection.edge)
+
+        this.removeNode(wire.start.node)
+        this.removeNode(wire.end.node)
+
+        this.connect(wire.start.connection.port, wire.end.connection.port)
+      }
+    }
   }
 
   private closeFreePorts(): Node | undefined {

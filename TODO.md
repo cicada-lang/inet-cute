@@ -1,6 +1,6 @@
 # semantic
 
-- clean up `wire`
+- debug `diff-append`
 
 - support variable
 
