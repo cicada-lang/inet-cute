@@ -4,12 +4,14 @@ import { Net } from "../net"
 import { Port } from "../port"
 import { Rule } from "../rule"
 import { builtInOperators } from "./built-in-operators"
+import { builtInNodes } from "./built-in-nodes"
 
 export class Module {
   defs: Map<string, Definition> = new Map()
 
   constructor(public url: URL) {
     builtInOperators(this)
+    builtInNodes(this)
   }
 
   getDefOrFail(name: string): Definition {

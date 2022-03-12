@@ -24,8 +24,6 @@
   [diff diff-open]
   [rot connect])
 
-(define-node wire (-> [] [Wire Wire *]))
-
 (define-net example-diff-append (-> [] [TrivialDiffList])
   [wire sole cons diff
    wire sole cons sole cons diff

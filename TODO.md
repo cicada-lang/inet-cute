@@ -1,6 +1,5 @@
 # semantic
 
-- `wire` as operator
 - clean up `wire`
 
 - support variable
