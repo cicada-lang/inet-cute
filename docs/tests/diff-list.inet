@@ -22,7 +22,7 @@
 
 (define-rule
   [diff diff-open]
-  [rot connect])
+  [rot rot connect])
 
 (define-net example-diff-append (-> [] [TrivialDiffList])
   [wire sole cons diff

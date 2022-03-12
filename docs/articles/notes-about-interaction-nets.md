@@ -127,7 +127,7 @@ A type has a unique name and a arity.
 
 (define-rule
   [that left right diff diff-open]
-  [right that connect left])
+  [that left connect right])
 ```
 
 `wire` place the two ports of an edge on the stack.

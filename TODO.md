@@ -1,7 +1,5 @@
 # semantic
 
-- debug `diff-append`
-
 - support variable
 
 # simple type
