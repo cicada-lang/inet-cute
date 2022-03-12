@@ -8,7 +8,7 @@ A net is a typed undirected graph.
 
 A graph is typed, if each node has fixed numebr of typed ports.
 
-one connection consumes two ports.
+One connection consumes two ports.
 
 When we want to connect two nodes by an edge,
 the connection must go through the ports of the nodes,
