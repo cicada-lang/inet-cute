@@ -1,5 +1,7 @@
 # semantic
 
+- support `connect` operator
+
 - support variable
 
 # simple type

@@ -14,4 +14,16 @@ export function builtInOperators(mod: Module): void {
     const x0 = net.ports.pop() as Port
     net.ports.push(x1, x2, x0)
   })
+
+  mod.defineOperator("connect", (net) => {
+    const start = net.ports.pop() as Port
+    const end = net.ports.pop() as Port
+    net.connect(start, end)
+  })
+
+  mod.defineOperator("inspect", (net) => {
+    const top = net.ports.pop() as Port
+    console.log(top.format())
+    net.ports.push(top)
+  })
 }

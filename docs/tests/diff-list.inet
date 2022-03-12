@@ -11,23 +11,23 @@
 (define-node diff-append (-> [TrivialDiffList TrivialDiffList *] [TrivialDiffList]))
 (define-node diff-open (-> [TrivialDiffList TrivialDiffList *] [TrivialDiffList]))
 
-// (define-rule
-//   [v y x diff diff-append]
-//   [(w) x diff
-//    (w) v open y connect])
+(define-rule
+  [diff diff-append]
+  [inspect rot inspect rot inspect swap inspect diff-open swap diff])
 
-// (define-rule
-//   [diff diff-append]
-//   [(let v y x) (wire w0 w1)
-//    w0 x diff w1 v open y connect])
+(define-rule
+  [diff diff-open]
+  [rot connect])
 
-(define-net diff-six-soles (-> [] [TrivialList])
-  [null sole cons sole cons sole cons
-   null sole cons sole cons sole cons
-   diff
+(define-node wire (-> [] [TrivialDiffList TrivialDiffList *]))
 
-   null sole cons sole cons sole cons
-   null sole cons sole cons sole cons
-   diff
+(define-net example-wire (-> [] [TrivialDiffList TrivialDiffList *])
+  [wire wire connect])
 
+(define-net example-diff (-> [] [TrivialDiffList])
+  [wire diff])
+
+(define-net example-diff-append (-> [] [TrivialDiffList])
+  [wire sole cons diff
+   wire sole cons sole cons diff
    diff-append])

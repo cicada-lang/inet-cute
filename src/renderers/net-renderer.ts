@@ -16,26 +16,30 @@ export class NetRenderer {
     const edgeAttributes = `penwidth=1`
 
     for (const edge of net.edges) {
-      const start = `${edge.start.node.name}#${edge.start.node.id}`
-      const end = `${edge.end.node.name}#${edge.end.node.id}`
-      lines.push(`"${start}" -- "${end}" [${edgeAttributes}];`)
+      const start = edge.start.node.format()
+      const end = edge.end.node.format()
+      const indexes = `${edge.start.index}-${edge.end.index}`
+      lines.push(
+        `"${start}" -- "${end}" [${edgeAttributes}, label="${indexes}"];`
+      )
       lines.push(`"${start}" [${nodeAttributes}];`)
       lines.push(`"${end}" [${nodeAttributes}];`)
     }
 
     for (const edge of net.actions) {
-      const start = `${edge.start.node.name}#${edge.start.node.id}`
-      const end = `${edge.end.node.name}#${edge.end.node.id}`
+      const start = edge.start.node.format()
+      const end = edge.end.node.format()
+      const indexes = `${edge.start.index}-${edge.end.index}`
       lines.push(
-        `"${start}" -- "${end}" [${edgeAttributes}, color=red, penwidth=2];`
+        `"${start}" -- "${end}" [${edgeAttributes}, label="${indexes}", color=red, penwidth=2];`
       )
       lines.push(`"${start}" [${nodeAttributes}];`)
       lines.push(`"${end}" [${nodeAttributes}];`)
     }
 
     for (const port of net.ports) {
-      const start = `${port.node.name}#${port.node.id}`
-      const end = `${port.index}`
+      const start = port.node.format()
+      const end = port.format()
       lines.push(`"${start}" -- "${end}" [${edgeAttributes}];`)
       lines.push(`"${start}" [${nodeAttributes}];`)
       lines.push(`"${end}" [shape=none, height=0, width=0];`)

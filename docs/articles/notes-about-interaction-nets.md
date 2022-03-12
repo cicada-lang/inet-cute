@@ -118,16 +118,16 @@ A type has a unique name and a arity.
 
 (define-eliminator diff-open
   (forall (A)
-    [A DiffList, A DiffList]
-    [A DiffList]))
+    [A List, A DiffList]
+    [A List]))
 
 (define-rule
   [that left right diff diff-append]
-  [that left diff-open right diff])
+  [left that diff-open right diff])
 
 (define-rule
   [that left right diff diff-open]
-  [right that left connect diff-open])
+  [right that connect left])
 ```
 
 `wire` place the two ports of an edge on the stack.
@@ -139,5 +139,5 @@ A type has a unique name and a arity.
 (define-net _ (forall (A) [] [A DiffList])
   wire sole cons diff
   wire sole cons sole cons diff
-  append)
+  diff-append)
 ```

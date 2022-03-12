@@ -50,6 +50,6 @@ export class Node {
   }
 
   format(): string {
-    return this.name
+    return `${this.name}#${this.id}`
   }
 }
