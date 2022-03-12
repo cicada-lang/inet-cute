@@ -65,6 +65,7 @@ export class Module {
   buildNet(name: string): Net {
     const net = new Net(this)
     this.getNetDefOrFail(name).apply(net)
+    net.cleanUpWires()
     return net
   }
 
