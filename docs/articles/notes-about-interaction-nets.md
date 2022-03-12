@@ -2,18 +2,29 @@
 title: Notes about Interaction Nets
 ---
 
-Interaction nets is a study of typed undirected graphs,
-and using them to model computations.
+# Net -- typed undirected graph
 
-A graph is typed, in the sense that
-each node has fixed numebr of typed ports,
-when connecting two nodes by an edge,
-ports on these nodes will be consumed,
-and the type of ports must matches.
+A net is a typed undirected graph.
+
+A graph is typed, if each node has fixed numebr of typed ports.
+
+one connection consumes two ports.
+
+When we want to connect two nodes by an edge,
+the connection must go through the ports of the nodes,
+and the type of the ports must matches.
+
+> [Interaction nets](https://en.wikipedia.org/wiki/Interaction_nets)
+> studies how to use interaction
+> between nodes of net
+> to model computations.
+
+# Node and its ports
 
 A node has a unique name.
 
-A node's ports are split into two lists, input ports and output ports.
+A node's ports are split into two lists,
+_input ports_ and _output ports_.
 
 ```clojure
 (define-node <node>
@@ -21,14 +32,17 @@ A node's ports are split into two lists, input ports and output ports.
       [<output-port> ...]))
 ```
 
-A node has one principal port, which might be input port or output port.
+A node has one **principal port**,
+which might be input port or output port.
 
 We distinguish two kinds of nodes
 
-- constructor, whose principal port is its last output ports.
-- eliminator, whose principal port is its last input ports.
+- **constructor**, whose principal port is its last output ports.
+- **eliminator**, whose principal port is its last input ports.
 
-Using this convention, we do not need to label which port is principal port.
+Using this convention,
+we do not need to label
+which port is principal port.
 
 ```clojure
 (define-constructor <node>
@@ -40,9 +54,33 @@ Using this convention, we do not need to label which port is principal port.
       [<output-port> ...]))
 ```
 
+# Type
+
 A type has a unique name and a arity.
 
-# Nat
+# Building nets
+
+We use *postfix notation* to build nets
+with the help of *a stack of ports*.
+
+When we call a node,
+it connects its input ports to ports on the stack,
+meanwhile consuming them,
+then it put its output ports back to the stack.
+
+# Rule
+
+A rule specifies
+how to disconnect two nodes (active pair)
+and reconnect them.
+
+After disconnecting, we put input ports back to the stack.
+
+- A convention is used to help specify how to do this.
+
+# Examples
+
+## Nat
 
 ```clojure
 (define-type Nat 0)
@@ -59,7 +97,7 @@ A type has a unique name and a arity.
   zero add1 zero add1 add)
 ```
 
-# List
+## List
 
 ```clojure
 (define-type Trivial 0)
@@ -101,7 +139,7 @@ A type has a unique name and a arity.
   append)
 ```
 
-# DiffList
+## DiffList
 
 ```clojure
 (define-type DiffList 1)

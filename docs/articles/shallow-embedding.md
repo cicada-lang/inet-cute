@@ -1,3 +1,11 @@
+---
+title: Shallow Embedding
+---
+
+Alternative to design sexp-based language,
+one might shallow embed the DSL to JavaScript.
+
+```typescript
 Module.create()
   .node(`sole`, { output: `Trivial *` })
   .node(`null`, { output: `TrivialList *` })
@@ -15,3 +23,4 @@ Module.create()
      append
    `,
   })
+```
