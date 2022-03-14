@@ -56,7 +56,7 @@ which port is principal port.
 
 # Type
 
-A type has a unique name and a arity.
+A type has a unique name and an arity.
 
 # Building nets
 
