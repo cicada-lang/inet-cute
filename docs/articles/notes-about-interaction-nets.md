@@ -166,7 +166,10 @@ After disconnecting, we put input ports back to the stack.
   [that left connect right])
 ```
 
-`wire` places the two ports of an edge on the stack.
+`wire` places the two ports of a special edge on the stack.
+
+If a wire's two ports are connected with port `A` and `B`,
+after building a net, we remove the wire, and connect `A` with `B`.
 
 ```clojure
 (define-net _ (forall (A) [] [A DiffList])
