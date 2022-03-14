@@ -12,7 +12,7 @@ One connection consumes two ports.
 
 When we want to connect two nodes by an edge,
 the connection must go through the ports of the nodes,
-and the type of the ports must matches.
+and the types of the ports must match with each other.
 
 > [Interaction nets](https://en.wikipedia.org/wiki/Interaction_nets)
 > studies how to use interaction
