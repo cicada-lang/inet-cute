@@ -111,12 +111,12 @@ After disconnecting, we put input ports back to the stack.
 
 (define-constructor cons
   (forall (A)
-    [A List, A]
+    [A List A]
     [A List]))
 
 (define-eliminator append
   (forall (A)
-    [A List, A List]
+    [A List A List]
     [A List]))
 
 (define-rule
@@ -144,17 +144,17 @@ After disconnecting, we put input ports back to the stack.
 
 (define-constructor diff
   (forall (A)
-    [A List, A List]
+    [A List A List]
     [A DiffList]))
 
 (define-eliminator diff-append
   (forall (A)
-    [A DiffList, A DiffList]
+    [A DiffList A DiffList]
     [A DiffList]))
 
 (define-eliminator diff-open
   (forall (A)
-    [A List, A DiffList]
+    [A List A DiffList]
     [A List]))
 
 (define-rule
