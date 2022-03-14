@@ -65,7 +65,7 @@ with the help of *a stack of ports*.
 
 When we call a node,
 it connects its input ports to ports on the stack,
-meanwhile consuming them,
+and consumes them,
 then it put its output ports back to the stack.
 
 # Rule
