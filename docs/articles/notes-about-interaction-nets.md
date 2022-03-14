@@ -76,8 +76,6 @@ and reconnect them.
 
 After disconnecting, we put input ports back to the stack.
 
-- A convention is used to help specify how to do this.
-
 # Examples
 
 ## Nat
