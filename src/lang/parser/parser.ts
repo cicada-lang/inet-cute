@@ -1,12 +1,12 @@
 import {
-  Parser as SexpParser,
   Lexer,
+  list,
+  match,
+  matchList,
+  matchSymbol,
+  Parser as SexpParser,
   Sexp,
   v,
-  list,
-  Pattern,
-  PatternExp,
-  Sexps,
 } from "@cicada-lang/sexp"
 import { Stmt } from "../stmt"
 import * as Stmts from "../stmts"
@@ -34,38 +34,6 @@ export class Parser {
   parseStmts(text: string): Array<Stmt> {
     return this.parser.parseMany(text).map(matchStmt)
   }
-}
-
-function matchSymbol(sexp: Sexp): string {
-  if (!(sexp instanceof Sexps.Sym)) {
-    throw new Error(`I expect the sexp to be a symbol`)
-  }
-
-  return sexp.value
-}
-
-function matchList<A>(sexp: Sexp, matcher: (sexp: Sexp) => A): Array<A> {
-  if (sexp instanceof Sexps.Null) {
-    return []
-  }
-
-  if (sexp instanceof Sexps.Cons) {
-    return [matcher(sexp.head), ...matchList(sexp.tail, matcher)]
-  }
-
-  throw new Error(`I expect the sexp to be a list`)
-}
-
-function match<A>(
-  sexp: Sexp,
-  entries: Array<[PatternExp, (results: Record<string, Sexp>) => A]>
-): A {
-  for (const [pattern, f] of entries) {
-    const results = sexp.match(pattern)
-    if (results !== undefined) return f(results)
-  }
-
-  throw new Error("Pattern mismatch.")
 }
 
 function matchStmt(sexp: Sexp): Stmt {

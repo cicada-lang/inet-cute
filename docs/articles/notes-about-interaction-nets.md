@@ -60,8 +60,8 @@ A type has a unique name and an arity.
 
 # Building nets
 
-We use *postfix notation* to build nets
-with the help of *a stack of ports*.
+We use _postfix notation_ to build nets
+with the help of _a stack of ports_.
 
 When we call a node,
 it connects its input ports to ports on the stack,
