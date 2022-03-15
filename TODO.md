@@ -1,3 +1,5 @@
+- move helper functions to `@cicada-lang/sexp`
+
 # semantic
 
 - support variable
