@@ -45,11 +45,11 @@ we do not need to label
 which port is principal port.
 
 ```clojure
-(define-constructor <node>
+(define-cons <node>
   (-> [<input-port> ...]
       [<output-port> ...]))
 
-(define-eliminator <node>
+(define-elim <node>
   (-> [<input-port> ...]
       [<output-port> ...]))
 ```
@@ -83,10 +83,10 @@ After disconnecting, we put input ports back to the stack.
 ```clojure
 (define-type Nat 0)
 
-(define-constructor zero (-> [] [Nat]))
-(define-constructor add1 (-> [Nat] [Nat]))
+(define-cons zero (-> [] [Nat]))
+(define-cons add1 (-> [Nat] [Nat]))
 
-(define-eliminator add (-> [Nat Nat] [Nat]))
+(define-elim add (-> [Nat Nat] [Nat]))
 
 (define-rule [zero add] [])
 (define-rule [add1 add] [add add1])
@@ -100,21 +100,21 @@ After disconnecting, we put input ports back to the stack.
 ```clojure
 (define-type Trivial 0)
 
-(define-constructor sole (-> [] [Trivial]))
+(define-cons sole (-> [] [Trivial]))
 
 (define-type List 1)
 
-(define-constructor null
+(define-cons null
   (forall (A)
     []
     [A List]))
 
-(define-constructor cons
+(define-cons cons
   (forall (A)
     [A List A]
     [A List]))
 
-(define-eliminator append
+(define-elim append
   (forall (A)
     [A List A List]
     [A List]))
@@ -142,17 +142,17 @@ After disconnecting, we put input ports back to the stack.
 ```clojure
 (define-type DiffList 1)
 
-(define-constructor diff
+(define-cons diff
   (forall (A)
     [A List A List]
     [A DiffList]))
 
-(define-eliminator diff-append
+(define-elim diff-append
   (forall (A)
     [A DiffList A DiffList]
     [A DiffList]))
 
-(define-eliminator diff-open
+(define-elim diff-open
   (forall (A)
     [A List A DiffList]
     [A List]))

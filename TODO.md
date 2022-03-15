@@ -1,7 +1,10 @@
+- `define-cons` & `define-elim` instead of `define-node`
+
 - `TermType` & `define-type`
 
+- `define-cons` & `define-elim` -- type check
+
 - `define-net` -- type check words composition
-- `define-node` -- type check
 
 - `Edge` -- type check the two ports
 
