@@ -14,10 +14,6 @@
 
   - `NetRenderer` show free port names
 
-# module
-
-- support module
-
 # website
 
 - setup website to render inet online

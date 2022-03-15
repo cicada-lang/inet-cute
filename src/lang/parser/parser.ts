@@ -20,9 +20,8 @@ const lexer = new Lexer({
   parentheses: [
     { start: "(", end: ")" },
     { start: "[", end: "]" },
-    { start: "{", end: "}" },
   ],
-  comments: [";", "//"],
+  comments: [";"],
   nulls: [],
 })
 
