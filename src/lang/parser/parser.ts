@@ -1,5 +1,4 @@
 import {
-  Lexer,
   list,
   match,
   matchList,
@@ -11,7 +10,7 @@ import {
 import { Stmt } from "../stmt"
 import * as Stmts from "../stmts"
 
-const lexer = new Lexer({
+const parser = Parser.create({
   quotes: [
     { mark: "'", symbol: "quote" },
     { mark: ",", symbol: "unquote" },
@@ -22,10 +21,7 @@ const lexer = new Lexer({
     { start: "[", end: "]" },
   ],
   comments: [";"],
-  nulls: [],
 })
-
-const parser = new Parser({ lexer })
 
 export function parseStmts(text: string): Array<Stmt> {
   const sexps = parser.parseMany(text)
