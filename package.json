@@ -30,7 +30,8 @@
   },
   "dependencies": {
     "@cicada-lang/partech": "^0.1.19",
-    "@enchanterjs/enchanter": "^0.1.40",
+    "@cicada-lang/sexp": "^0.0.3",
+    "@enchanterjs/enchanter": "^0.1.41",
     "@hpcc-js/wasm": "^1.13.0",
     "@xieyuheng/ty": "^0.1.12",
     "axios": "^0.26.1",
