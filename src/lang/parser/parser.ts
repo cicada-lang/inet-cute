@@ -4,36 +4,33 @@ import {
   match,
   matchList,
   matchSymbol,
-  Parser as SexpParser,
+  Parser,
   Sexp,
   v,
 } from "@cicada-lang/sexp"
 import { Stmt } from "../stmt"
 import * as Stmts from "../stmts"
 
-export class Parser {
-  lexer = new Lexer({
-    quotes: [
-      { mark: "'", symbol: "quote" },
-      { mark: ",", symbol: "unquote" },
-      { mark: "`", symbol: "quasiquote" },
-    ],
-    parentheses: [
-      { start: "(", end: ")" },
-      { start: "[", end: "]" },
-      { start: "{", end: "}" },
-    ],
-    comments: [";", "//"],
-    nulls: [],
-  })
+const lexer = new Lexer({
+  quotes: [
+    { mark: "'", symbol: "quote" },
+    { mark: ",", symbol: "unquote" },
+    { mark: "`", symbol: "quasiquote" },
+  ],
+  parentheses: [
+    { start: "(", end: ")" },
+    { start: "[", end: "]" },
+    { start: "{", end: "}" },
+  ],
+  comments: [";", "//"],
+  nulls: [],
+})
 
-  parser = new SexpParser({
-    lexer: this.lexer,
-  })
+const parser = new Parser({ lexer })
 
-  parseStmts(text: string): Array<Stmt> {
-    return this.parser.parseMany(text).map(matchStmt)
-  }
+export function parseStmts(text: string): Array<Stmt> {
+  const sexps = parser.parseMany(text)
+  return sexps.map(matchStmt)
 }
 
 function matchStmt(sexp: Sexp): Stmt {
