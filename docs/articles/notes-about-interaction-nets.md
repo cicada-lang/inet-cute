@@ -26,12 +26,6 @@ A node has a unique name.
 A node's ports are split into two lists,
 _input ports_ and _output ports_.
 
-```clojure
-(define-node <node>
-  (-> [<input-port> ...]
-      [<output-port> ...]))
-```
-
 A node has one **principal port**,
 which might be input port or output port.
 

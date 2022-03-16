@@ -1,9 +1,12 @@
 - `define-type` -- `TermType`
+
+- `forall` for generic type variables
+
 - `define-cons` & `define-elim` -- type check
 - `define-net` -- type check words composition
+
 - `define-net` -- support variables `(let ...)`
 - `define-rule` -- support variables `(let ...)`
-- `define-rules`
 
 - `Edge` -- type check the two ports
 - `Node` with optionally named port
