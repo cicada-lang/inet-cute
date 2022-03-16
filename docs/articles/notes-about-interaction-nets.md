@@ -89,13 +89,17 @@ After disconnecting, we put input ports back to the stack.
   zero add1 zero add1 add)
 ```
 
-## List
+## Trivial
 
 ```clojure
 (define-type Trivial 0)
 
 (define-cons sole (-> [] [Trivial]))
+```
 
+## List
+
+```clojure
 (define-type List 1)
 
 (define-cons null
@@ -129,6 +133,40 @@ After disconnecting, we put input ports back to the stack.
   null sole cons sole cons sole cons
   null sole cons sole cons sole cons
   append)
+```
+
+## Vector
+
+```clojure
+(define-type Vector (-> [Nat Type] [Type]))
+
+(define-cons null-vector
+  (forall (A)
+    []
+    [zero A Vector]))
+
+(define-cons cons-vector
+  (forall ([A Type] [prev Nat])
+    [prev A Vector A]
+    [prev add1 A Vector]))
+
+(define-elim vector-append
+  (forall ([A Type] [x y Nat])
+    [x A Vector y A Vector]
+    [x y add A Vector]))
+
+(define-rule
+  [null-vector vector-append]
+  [])
+
+(define-rule
+  [that tail head cons-vector vector-append]
+  [that tail vector-append head cons-vector])
+
+(define-net _ (forall (A) [] [six A Vector])
+  null-vector sole cons-vector sole cons-vector sole cons-vector
+  null-vector sole cons-vector sole cons-vector sole cons-vector
+  vector-append)
 ```
 
 ## DiffList

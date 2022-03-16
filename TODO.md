@@ -1,3 +1,5 @@
+- `type-definition.ts` -- `apply`
+
 - `define-type` -- `TermType`
 
 - `forall` for generic type variables
@@ -39,10 +41,16 @@
 
 # dependent type
 
-```scheme
-(define-type Trivial (-> [] [Type))
-(define-type List (-> [Type] [Type]))
-```
-
 - equality between `Net`
+
 - use `Net` as type
+
+  examples:
+
+  ```scheme
+  (define-type Trivial 0)
+  (define-cons Trivial (-> [] [Type))
+
+  (define-type List 1)
+  (define-cons List (-> [Type] [Type]))
+  ```
