@@ -1,3 +1,9 @@
+- `Word`
+
+- `Word.cut` & `Word.execute`
+
+# type check
+
 - `type-definition.ts` -- `apply`
 
 - `define-type` -- `TermType`
@@ -7,10 +13,13 @@
 - `define-cons` & `define-elim` -- type check
 - `define-net` -- type check words composition
 
+- `Edge` -- type check the two ports
+
+# variable
+
 - `define-net` -- support variables `(let ...)`
 - `define-rule` -- support variables `(let ...)`
 
-- `Edge` -- type check the two ports
 - `Node` with optionally named port
   - `NetRenderer` show free port names
 
