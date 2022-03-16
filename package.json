@@ -29,7 +29,6 @@
     "typescript": "^4.6.2"
   },
   "dependencies": {
-    "@cicada-lang/partech": "^0.1.19",
     "@cicada-lang/sexp": "^0.0.10",
     "@enchanterjs/enchanter": "^0.1.41",
     "@hpcc-js/wasm": "^1.13.0",
