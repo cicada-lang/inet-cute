@@ -1,6 +1,12 @@
-- `Word`
+# dependent types
 
+> Two levels of computations, execute and cut.
+
+- `Word`
 - `Word.cut` & `Word.execute`
+
+- equality between `Net`
+- use `Net` as type
 
 # type check
 
@@ -47,19 +53,3 @@
 
 - use inet to encode lambda calculus
 - use inet to encode class, object and message sending
-
-# dependent type
-
-- equality between `Net`
-
-- use `Net` as type
-
-  examples:
-
-  ```scheme
-  (define-type Trivial 0)
-  (define-cons Trivial (-> [] [Type))
-
-  (define-type List 1)
-  (define-cons List (-> [Type] [Type]))
-  ```
