@@ -1,4 +1,4 @@
-# Interaction Nets | JavaScript
+# Interaction Nets
 
 An implementation of [Interaction Nets](https://en.wikipedia.org/wiki/Interaction_nets) in JavaScript.
 
