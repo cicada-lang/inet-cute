@@ -85,7 +85,8 @@ After disconnecting, we put input ports back to the stack.
 (define-rule (add1 add) (add add1))
 
 (claim-net two Nat)
-(define-net two zero add1 zero add1 add)
+(define-net two
+  zero add1 zero add1 add)
 ```
 
 ## Trivial
