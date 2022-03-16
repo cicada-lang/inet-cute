@@ -106,6 +106,19 @@ After disconnecting, we put input ports back to the stack.
 (define-rule (null append) ())
 (define-rule (cons append) (rot rot append swap cons))
 
+(define-type List 1)
+(define-cons null (vague A Type) A List)
+(define-cons cons (vague A Type) (- A) (- A List) A List)
+(define-elim append (implicit A Type) (- A List) (- A List) A List)
+(define-rule (null append) ())
+(define-rule (cons append) (rot rot append swap cons))
+
+(define-cons null 0)
+(define-cons cons 1)
+(define-elim append 2)
+(define-rule (null append) ())
+(define-rule (cons append) (rot rot append swap cons))
+
 (define-rule
   (that tail head cons append)
   (that tail append head cons))
@@ -135,18 +148,19 @@ After disconnecting, we put input ports back to the stack.
 (define-type Vector (- Type) (- Nat) Type)
 
 (define-cons null-vector
-  (: A Type)
-  zero A Vector)
+  (vague ((A Type))
+    zero A Vector))
 
 (define-cons cons-vector
-  (: A Type) (: prev Nat)
-  (- A) (- prev A Vector)
-  prev add1 A Vector)
+  (vague ((A Type) (prev Nat))
+    (- A) (- prev A Vector)
+    prev add1 A Vector))
 
 (define-elim vector-append
-  (: A Type)
-  (: y Nat) (: x Nat)
-  (- y A Vector) (- x A Vector)
+  (implicit ((A Type) (y Nat))
+    (- y A Vector))
+  (implicit ((x Nat))
+    (- x A Vector))
   x y add A Vector)
 
 (define-rule
