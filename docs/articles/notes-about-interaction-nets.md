@@ -31,8 +31,8 @@ which might be input port or output port.
 
 We distinguish two kinds of nodes
 
-- **constructor**, whose principal port is its last output ports.
-- **eliminator**, whose principal port is its last input ports.
+- **Constructor (cons)**, whose principal port is its last output ports.
+- **Eliminator (elim)**, whose principal port is its first input ports.
 
 Using this convention,
 we do not need to label
@@ -40,12 +40,12 @@ which port is principal port.
 
 ```clojure
 (define-cons <node>
-  (-> [<input-port> ...]
-      [<output-port> ...]))
+  (- <input-port>) ...
+  <output-port> ...)
 
 (define-elim <node>
-  (-> [<input-port> ...]
-      [<output-port> ...]))
+  (- <input-port>) ...
+  <output-port> ...)
 ```
 
 # Type
@@ -77,59 +77,52 @@ After disconnecting, we put input ports back to the stack.
 ```clojure
 (define-type Nat 0)
 
-(define-cons zero (-> [] [Nat]))
-(define-cons add1 (-> [Nat] [Nat]))
+(define-cons zero Nat)
+(define-cons add1 (- Nat) Nat)
+(define-elim add (- Nat) (- Nat) Nat)
 
-(define-elim add (-> [Nat Nat] [Nat]))
+(define-rule (zero add) ())
+(define-rule (add1 add) (add add1))
 
-(define-rule [zero add] [])
-(define-rule [add1 add] [add add1])
-
-(define-net two (-> [] [Nat])
-  zero add1 zero add1 add)
+(claim-net two Nat)
+(define-net two zero add1 zero add1 add)
 ```
 
 ## Trivial
 
 ```clojure
 (define-type Trivial 0)
-
-(define-cons sole (-> [] [Trivial]))
+(define-cons sole Trivial)
 ```
 
 ## List
 
 ```clojure
 (define-type List 1)
-
-(define-cons null
-  (forall (A)
-    []
-    [A List]))
-
-(define-cons cons
-  (forall (A)
-    [A List A]
-    [A List]))
-
-(define-elim append
-  (forall (A)
-    [A List A List]
-    [A List]))
+(define-cons null (: A Type) A List)
+(define-cons cons (: A Type) (- A) (- A List) A List)
+(define-elim append (: A Type) (- A List) (- A List) A List)
+(define-rule (null append) ())
+(define-rule (cons append) (rot rot append swap cons))
 
 (define-rule
-  [null append]
-  [])
+  (that tail head cons append)
+  (that tail append head cons))
 
 (define-rule
-  [cons append]
-  [rot rot append swap cons])
+  (cons append)
+  ((let that tail head)  that tail append head cons))
 
 (define-rule
-  [that tail head cons append]
-  [that tail append head cons])
+  (cons append)
+  ((let head) (let tail) (let that) that tail append head cons))
 
-(define-net six-soles (forall (A) [] [A List])
+(define-rule
+  (cons append)
+  ((let head) append head cons))
+
+(claim-net six-soles (: A Type) A List)
+(define-net six-soles
   null sole cons sole cons sole cons
   null sole cons sole cons sole cons
   append)
@@ -138,17 +131,16 @@ After disconnecting, we put input ports back to the stack.
 ## Vector
 
 ```clojure
-(define-type Vector (-> [Nat Type] [Type]))
+(define-type Vector (- Type) (- Nat) Type)
 
 (define-cons null-vector
-  (forall (A)
-    []
-    [zero A Vector]))
+  (: A Type)
+  zero A Vector)
 
 (define-cons cons-vector
-  (forall ([A Type] [prev Nat])
-    [prev A Vector A]
-    [prev add1 A Vector]))
+  (: A Type) (: prev Nat)
+  (- A) (- prev A Vector)
+  prev add1 A Vector)
 
 (define-elim vector-append
   (forall ([A Type] [x y Nat])
@@ -156,14 +148,15 @@ After disconnecting, we put input ports back to the stack.
     [x y add A Vector]))
 
 (define-rule
-  [null-vector vector-append]
-  [])
+  (null-vector vector-append)
+  ())
 
 (define-rule
-  [that tail head cons-vector vector-append]
-  [that tail vector-append head cons-vector])
+  (that tail head cons-vector vector-append)
+  (that tail vector-append head cons-vector))
 
-(define-net _ (forall (A) [] [six A Vector])
+(claim-net _ (forall (A) [] [six A Vector]))
+(define-net _
   null-vector sole cons-vector sole cons-vector sole cons-vector
   null-vector sole cons-vector sole cons-vector sole cons-vector
   vector-append)
@@ -190,12 +183,12 @@ After disconnecting, we put input ports back to the stack.
     [A List]))
 
 (define-rule
-  [that left right diff diff-append]
-  [left that diff-open right diff])
+  (that left right diff diff-append)
+  (left that diff-open right diff))
 
 (define-rule
-  [that left right diff diff-open]
-  [that left connect right])
+  (that left right diff diff-open)
+  (that left connect right))
 ```
 
 `wire` places the two ports of a special edge on the stack.

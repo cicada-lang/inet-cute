@@ -1,3 +1,5 @@
+- `notes-about-interaction-nets` use pure postfix notation
+
 - `type-definition.ts` -- `apply`
 
 - `define-type` -- `TermType`
