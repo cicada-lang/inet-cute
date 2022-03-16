@@ -75,7 +75,7 @@ After disconnecting, we put input ports back to the stack.
 ## Nat
 
 ```clojure
-(define-type Nat 0)
+(define-type Nat)
 
 (define-cons zero Nat)
 (define-cons add1 (- Nat) Nat)
@@ -92,30 +92,30 @@ After disconnecting, we put input ports back to the stack.
 ## Trivial
 
 ```clojure
-(define-type Trivial 0)
+(define-type Trivial)
 (define-cons sole Trivial)
 ```
 
 ## List
 
 ```clojure
-(define-type List 1)
-(define-cons null (: A Type) A List)
-(define-cons cons (: A Type) (- A) (- A List) A List)
-(define-elim append (: A Type) (- A List) (- A List) A List)
-(define-rule (null append) ())
-(define-rule (cons append) (rot rot append swap cons))
+(define-type List (- Type))
 
-(define-type List 1)
-(define-cons null (vague A Type) A List)
-(define-cons cons (vague A Type) (- A) (- A List) A List)
-(define-elim append (implicit A Type) (- A List) (- A List) A List)
-(define-rule (null append) ())
-(define-rule (cons append) (rot rot append swap cons))
+(define-cons null
+  (vague ([A Type])
+    A List))
 
-(define-cons null 0)
-(define-cons cons 1)
-(define-elim append 2)
+(define-cons cons
+  (vague ([A Type])
+    (- A) (- A List)
+    A List))
+
+(define-elim append
+  (implicit ([A Type])
+    (- A List))
+  (- A List)
+  A List)
+
 (define-rule (null append) ())
 (define-rule (cons append) (rot rot append swap cons))
 
@@ -135,7 +135,7 @@ After disconnecting, we put input ports back to the stack.
   (cons append)
   ((let head) append head cons))
 
-(claim-net six-soles (: A Type) A List)
+(claim-net six-soles Trivial List)
 (define-net six-soles
   null sole cons sole cons sole cons
   null sole cons sole cons sole cons
@@ -145,7 +145,7 @@ After disconnecting, we put input ports back to the stack.
 ## Vector
 
 ```clojure
-(define-type Vector (- Type) (- Nat) Type)
+(define-type Vector (- Type) (- Nat))
 
 (define-cons null-vector
   (vague ((A Type))
@@ -171,7 +171,7 @@ After disconnecting, we put input ports back to the stack.
   (that tail head cons-vector vector-append)
   (that tail vector-append head cons-vector))
 
-(check-net ((: A Type) six A Vector)
+(check-net (six Trivial Vector)
   null-vector sole cons-vector sole cons-vector sole cons-vector
   null-vector sole cons-vector sole cons-vector sole cons-vector
   vector-append)
@@ -180,21 +180,23 @@ After disconnecting, we put input ports back to the stack.
 ## DiffList
 
 ```clojure
-(define-type DiffList 1)
+(define-type DiffList (- Type))
 
 (define-cons diff
-  (: A Type)
-  (- A List) (- A List)
-  A DiffList)
+  (vague ((A Type))
+    (- A List) (- A List)
+    A DiffList))
 
 (define-elim diff-append
-  (: A Type)
-  (- A DiffList) (- A DiffList)
+  (implicit ((A Type))
+    (- A DiffList))
+  (- A DiffList)
   A DiffList)
 
 (define-elim diff-open
-  (: A Type)
-  (- A DiffList) (- A List)
+  (implicit ((A Type))
+    (- A DiffList))
+  (- A List)
   A List)
 
 (define-rule
@@ -212,10 +214,10 @@ If a wire's two ports are connected with port `A` and `B`,
 after building a net, we remove the wire, and connect `A` with `B`.
 
 ```clojure
-(check-net ((: A Type) A DiffList)
+(check-net (Trivial DiffList)
   wire diff)
 
-(check ((: A Type) A DiffList)
+(check-net (Trivial DiffList)
   wire sole cons diff
   wire sole cons sole cons diff
   diff-append)
