@@ -2,7 +2,7 @@
 
 An implementation of [Interaction Nets](https://en.wikipedia.org/wiki/Interaction_nets) in JavaScript.
 
-- Use [S-expression](https://en.wikipedia.org/wiki/S-expression) as overall syntax.
+- Use [S-expression](https://github.com/cicada-lang/sexp) as overall syntax.
 - Use Forth-like postfix stack-based syntax to build Interaction Nets.
 
 ## Installation
