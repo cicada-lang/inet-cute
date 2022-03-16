@@ -2,7 +2,7 @@
 - `define-cons` & `define-elim` -- type check
 - `define-net` -- type check words composition
 - `define-net` -- support variables `(let ...)`
-- `define-rule`
+- `define-rule` -- support variables `(let ...)`
 - `define-rules`
 
 - `Edge` -- type check the two ports
