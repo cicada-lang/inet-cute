@@ -75,7 +75,7 @@ After disconnecting, we put input ports back to the stack.
 ## Nat
 
 ```clojure
-(define-type Nat)
+(define-type Nat Type)
 
 (define-cons zero Nat)
 (define-cons add1 (- Nat) Nat)
@@ -94,14 +94,14 @@ After disconnecting, we put input ports back to the stack.
 ## Trivial
 
 ```clojure
-(define-type Trivial)
+(define-type Trivial Type)
 (define-cons sole Trivial)
 ```
 
 ## List
 
 ```clojure
-(define-type List (- Type))
+(define-type List (- Type) Type)
 
 (define-cons null
   (vague ([A Type])
@@ -147,7 +147,7 @@ After disconnecting, we put input ports back to the stack.
 ## Vector
 
 ```clojure
-(define-type Vector (- Type) (- Nat))
+(define-type Vector (- Type) (- Nat) Type)
 
 (define-cons null-vector
   (vague ((A Type))
@@ -182,7 +182,7 @@ After disconnecting, we put input ports back to the stack.
 ## DiffList
 
 ```clojure
-(define-type DiffList (- Type))
+(define-type DiffList (- Type) Type)
 
 (define-cons diff
   (vague ((A Type))
