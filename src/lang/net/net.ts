@@ -4,7 +4,7 @@ import * as Errors from "../errors"
 import { Module } from "../module"
 import { Node } from "../node"
 import { Port } from "../port"
-import { PrincipalType } from "../type"
+import { PrincipalType } from "../types"
 
 export class Net {
   mod: Module

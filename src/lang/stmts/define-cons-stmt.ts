@@ -1,7 +1,7 @@
 import * as Defs from "../definitions"
 import { Module } from "../module"
 import { Stmt, StmtMeta } from "../stmt"
-import { Type } from "../type"
+import { buildTypes } from "../types"
 
 export class DefineConsStmt extends Stmt {
   constructor(
@@ -19,8 +19,8 @@ export class DefineConsStmt extends Stmt {
       new Defs.NodeDefinition(
         mod,
         this.name,
-        Type.build(this.input),
-        Type.build([...this.output, "*"])
+        buildTypes(this.input),
+        buildTypes([...this.output, "*"])
       )
     )
   }

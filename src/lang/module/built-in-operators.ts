@@ -1,7 +1,7 @@
 import * as Defs from "../definitions"
 import { Module } from "../module"
 import { Port } from "../port"
-import { Type } from "../type"
+import { buildTypes } from "../types"
 
 export function builtInOperators(mod: Module): void {
   mod.defineOperator("swap", (net) => {
@@ -28,7 +28,7 @@ export function builtInOperators(mod: Module): void {
       mod,
       "wire",
       [],
-      Type.build(["Wire", "Wire", "*"])
+      buildTypes(["Wire", "Wire", "*"])
     )
     const node = def.build()
 
