@@ -1,55 +1,47 @@
 (define-cons sole
-  (-> []
-      [Trivial]))
+  (-> ()
+      (Trivial)))
 
 (define-cons null
-  (-> []
-      [TrivialList]))
+  (-> ()
+      (TrivialList)))
 
 (define-cons cons
-  (-> [TrivialList Trivial]
-      [Nat]))
+  (-> (TrivialList Trivial)
+      (Nat)))
 
 (define-elim append
-  (-> [TrivialList TrivialList]
-      [TrivialList]))
+  (-> (TrivialList TrivialList)
+      (TrivialList)))
 
 (define-rule
-  [null append]
-  [])
+  (null append)
+  ())
 
 (define-rule
-  [cons append]
-  [rot rot append swap cons])
+  (cons append)
+  (rot rot append swap cons))
 
 (define-cons diff
-  (-> [TrivialList TrivialList]
-      [TrivialDiffList]))
+  (-> (TrivialList TrivialList)
+      (TrivialDiffList)))
 
 (define-cons diff-open
-  (-> [TrivialDiffList TrivialDiffList]
-      [TrivialDiffList]))
+  (-> (TrivialDiffList TrivialDiffList)
+      (TrivialDiffList)))
 
 (define-elim diff-append
-  (-> [TrivialDiffList TrivialDiffList]
-      [TrivialDiffList]))
-
-(define-rule
-  [diff diff-append]
-  [rot rot swap diff-open swap diff])
-
-(define-rule
-  [diff diff-open]
-  [rot rot connect])
+  (-> (TrivialDiffList TrivialDiffList)
+      (TrivialDiffList)))
 
 (define-net diff-append-example-1
-  (-> [] [TrivialDiffList])
+  (-> () (TrivialDiffList))
   wire sole cons diff
   wire sole cons sole cons diff
   diff-append)
 
 (define-net diff-append-example-2
-  (-> [] [TrivialDiffList])
+  (-> () (TrivialDiffList))
   wire sole cons sole cons diff
   wire sole cons sole cons diff
   diff-append)
