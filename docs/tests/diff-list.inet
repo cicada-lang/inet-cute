@@ -1,15 +1,17 @@
-(define-node sole (-> [] [Trivial *]))
-
-(define-node null
+(define-cons sole
   (-> []
-      [TrivialList *]))
+      [Trivial]))
 
-(define-node cons
+(define-cons null
+  (-> []
+      [TrivialList]))
+
+(define-cons cons
   (-> [TrivialList Trivial]
-      [Nat *]))
+      [Nat]))
 
-(define-node append
-  (-> [TrivialList TrivialList *]
+(define-elim append
+  (-> [TrivialList TrivialList]
       [TrivialList]))
 
 (define-rule
@@ -20,16 +22,16 @@
   [cons append]
   [rot rot append swap cons])
 
-(define-node diff
+(define-cons diff
   (-> [TrivialList TrivialList]
-      [TrivialDiffList *]))
-
-(define-node diff-append
-  (-> [TrivialDiffList TrivialDiffList *]
       [TrivialDiffList]))
 
-(define-node diff-open
-  (-> [TrivialDiffList TrivialDiffList *]
+(define-cons diff-open
+  (-> [TrivialDiffList TrivialDiffList]
+      [TrivialDiffList]))
+
+(define-elim diff-append
+  (-> [TrivialDiffList TrivialDiffList]
       [TrivialDiffList]))
 
 (define-rule

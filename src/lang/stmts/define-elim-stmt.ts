@@ -3,7 +3,7 @@ import { Module } from "../module"
 import { Stmt, StmtMeta } from "../stmt"
 import { Type } from "../type"
 
-export class DefineNodeStmt extends Stmt {
+export class DefineElimStmt extends Stmt {
   constructor(
     public name: string,
     public input: Array<string>,
@@ -19,7 +19,7 @@ export class DefineNodeStmt extends Stmt {
       new Defs.NodeDefinition(
         mod,
         this.name,
-        Type.build(this.input),
+        Type.build([...this.input, "*"]),
         Type.build(this.output)
       )
     )

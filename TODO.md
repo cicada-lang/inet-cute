@@ -1,17 +1,12 @@
-- `define-cons` & `define-elim` instead of `define-node`
-
-- `TermType` & `define-type`
-
+- `define-type` -- `TermType`
 - `define-cons` & `define-elim` -- type check
-
 - `define-net` -- type check words composition
+- `define-net` -- support variables `(let ...)`
+- `define-rule`
+- `define-rules`
 
 - `Edge` -- type check the two ports
-
-- support variable in `define-net`'s body
-
 - `Node` with optionally named port
-
   - `NetRenderer` show free port names
 
 # website

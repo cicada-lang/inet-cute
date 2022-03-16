@@ -1,15 +1,17 @@
-(define-node sole (-> [] [Trivial *]))
-
-(define-node null
+(define-cons sole
   (-> []
-      [TrivialList *]))
+      [Trivial]))
 
-(define-node cons
+(define-cons null
+  (-> []
+      [TrivialList]))
+
+(define-cons cons
   (-> [TrivialList Trivial]
-      [Nat *]))
+      [Nat]))
 
-(define-node append
-  (-> [TrivialList TrivialList *]
+(define-elim append
+  (-> [TrivialList TrivialList]
       [TrivialList]))
 
 (define-rule

@@ -7,9 +7,19 @@ import * as Stmts from "../stmts"
 export function matchStmt(sexp: Sexp): Stmt {
   return match<Stmt>(sexp, [
     [
-      ["define-node", v("name"), ["->", v("input"), v("output")]],
+      ["define-cons", v("name"), ["->", v("input"), v("output")]],
       ({ name, input, output }) =>
-        new Stmts.DefineNodeStmt(
+        new Stmts.DefineConsStmt(
+          matchSymbol(name),
+          matchWords(input),
+          matchWords(output),
+          { span: sexp.span }
+        ),
+    ],
+    [
+      ["define-elim", v("name"), ["->", v("input"), v("output")]],
+      ({ name, input, output }) =>
+        new Stmts.DefineElimStmt(
           matchSymbol(name),
           matchWords(input),
           matchWords(output),
