@@ -143,9 +143,10 @@ After disconnecting, we put input ports back to the stack.
   prev add1 A Vector)
 
 (define-elim vector-append
-  (forall ([A Type] [x y Nat])
-    [x A Vector y A Vector]
-    [x y add A Vector]))
+  (: A Type)
+  (: y Nat) (: x Nat)
+  (- y A Vector) (- x A Vector)
+  x y add A Vector)
 
 (define-rule
   (null-vector vector-append)
@@ -155,8 +156,7 @@ After disconnecting, we put input ports back to the stack.
   (that tail head cons-vector vector-append)
   (that tail vector-append head cons-vector))
 
-(claim-net _ (forall (A) [] [six A Vector]))
-(define-net _
+(check-net ((: A Type) six A Vector)
   null-vector sole cons-vector sole cons-vector sole cons-vector
   null-vector sole cons-vector sole cons-vector sole cons-vector
   vector-append)
@@ -168,19 +168,19 @@ After disconnecting, we put input ports back to the stack.
 (define-type DiffList 1)
 
 (define-cons diff
-  (forall (A)
-    [A List A List]
-    [A DiffList]))
+  (: A Type)
+  (- A List) (- A List)
+  A DiffList)
 
 (define-elim diff-append
-  (forall (A)
-    [A DiffList A DiffList]
-    [A DiffList]))
+  (: A Type)
+  (- A DiffList) (- A DiffList)
+  A DiffList)
 
 (define-elim diff-open
-  (forall (A)
-    [A List A DiffList]
-    [A List]))
+  (: A Type)
+  (- A DiffList) (- A List)
+  A List)
 
 (define-rule
   (that left right diff diff-append)
@@ -197,10 +197,10 @@ If a wire's two ports are connected with port `A` and `B`,
 after building a net, we remove the wire, and connect `A` with `B`.
 
 ```clojure
-(define-net _ (forall (A) [] [A DiffList])
+(check-net ((: A Type) A DiffList)
   wire diff)
 
-(define-net _ (forall (A) [] [A DiffList])
+(check ((: A Type) A DiffList)
   wire sole cons diff
   wire sole cons sole cons diff
   diff-append)
