@@ -17,7 +17,7 @@ The command line program is called `inet`.
 
 ### Natual number
 
-```scheme
+```clojure
 (define-cons zero 0)
 (define-cons add1 1)
 
@@ -33,7 +33,7 @@ The command line program is called `inet`.
 
 ### List
 
-```scheme
+```clojure
 ;; A trivial data for testing.
 (define-cons sole 0)
 
@@ -52,7 +52,9 @@ The command line program is called `inet`.
 
 ### Difference list
 
-```scheme
+[Wikipedia / Difference list](https://en.wikipedia.org/wiki/Difference_list).
+
+```clojure
 (define-cons diff 2)
 
 (define-elim diff-append 2)
