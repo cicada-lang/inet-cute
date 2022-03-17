@@ -5,13 +5,41 @@ An implementation of [Interaction Nets](https://en.wikipedia.org/wiki/Interactio
 - Use [S-expression](https://github.com/cicada-lang/sexp) as overall syntax.
 - Use Forth-like postfix stack-based syntax to build Interaction Nets.
 
-## Installation
+## Introduction
 
-```
-npm -g i @cicada-lang/inet
-```
+Interaction nets is an interesting computation model designed by Yves Lafont at 1990,
+It uses undirected graph and graph rewriting to express computations.
 
-The command line program is called `inet`.
+It is interesting because:
+
+> Our interaction nets are deterministic in a strong sense:
+>
+> not only the result, but also the computation is unique,
+> up to trivial commutations.
+>
+> -- Interaction Combinators, Yves Lafont, 1997
+
+A _net_ is a (maybe typed) undirected graph.
+in which a node has a fixed numebr of (typed) _ports_.
+
+When we want to connect two nodes by an edge,
+the connection must go through the ports of the nodes,
+(and if typed, the types of the ports must match with each other).
+
+One connection will consume two ports.
+
+We can use _rules_ to specify interactions between nodes.
+
+First we need some constraints:
+
+- A node's ports are split into two lists -- _input ports_ and _output ports_.
+- A node has one _principal port_, which might be in input ports or in output ports.
+
+If two nodes are connected through their principal ports (a.k.a. active pair),
+we can write a _rule_ to specify how to disconnect these two nodes
+and reconnect them, during the reconnection we might add new nodes and edges.
+
+> **Documentation work in progress.**
 
 ## References
 
@@ -24,6 +52,14 @@ Books:
 
 - [Models of Computation -- An Introduction to Computability Theory, Maribel Fernández, 2009](./docs/books/models-of-computation--maribel-fernández.pdf).
   - Chapter 7. Interaction-Based Models of Computation.
+
+## Installation
+
+```
+npm -g i @cicada-lang/inet
+```
+
+The command line program is called `inet`.
 
 ## Examples
 
