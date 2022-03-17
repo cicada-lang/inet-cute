@@ -14,12 +14,12 @@
 (define-rule (diff diff-open)
   (let right) connect right)
 
-(define-net example-1
+(define-net one-two-soles
   wire sole cons diff
   wire sole cons sole cons diff
   diff-append)
 
-(define-net example-2
+(define-net two-two-soles
   wire sole cons sole cons diff
   wire sole cons sole cons diff
   diff-append)

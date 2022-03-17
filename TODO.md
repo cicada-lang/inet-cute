@@ -1,4 +1,6 @@
-# website
+- examples in readme -- with svg
+
+- docs on readonlylink
 
 - setup website to render inet online
 
@@ -11,9 +13,6 @@
     - encode code in the url -- like ts playground
 
 - link to playground from readonlylink code block
-
-- docs in readme
-- docs on readonlylink
 
 # later
 

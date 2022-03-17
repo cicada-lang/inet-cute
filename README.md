@@ -13,6 +13,68 @@ npm -g i @cicada-lang/inet
 
 The command line program is called `inet`.
 
+## Examples
+
+### Natual number
+
+```scheme
+(define-cons zero 0)
+(define-cons add1 1)
+
+(define-elim add 2)
+(define-rule (zero add))
+(define-rule (add1 add) add add1)
+
+(define-net two
+  zero add1
+  zero add1
+  add)
+```
+
+### List
+
+```scheme
+;; A trivial data for testing.
+(define-cons sole 0)
+
+(define-cons null 0)
+(define-cons cons 2)
+
+(define-elim append 2)
+(define-rule (null append))
+(define-rule (cons append) (let head) append head cons)
+
+(define-net six-soles
+  null sole cons sole cons sole cons
+  null sole cons sole cons sole cons
+  append)
+```
+
+### Difference list
+
+```scheme
+(define-cons diff 2)
+
+(define-elim diff-append 2)
+(define-rule (diff diff-append)
+  (let that left right)
+  left that diff-open right diff)
+
+(define-elim diff-open 2)
+(define-rule (diff diff-open)
+  (let right) connect right)
+
+(define-net one-two-soles
+  wire sole cons diff
+  wire sole cons sole cons diff
+  diff-append)
+
+(define-net two-two-soles
+  wire sole cons sole cons diff
+  wire sole cons sole cons diff
+  diff-append)
+```
+
 ## Development
 
 ```
