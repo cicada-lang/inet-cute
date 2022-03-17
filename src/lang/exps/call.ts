@@ -3,7 +3,11 @@ import { Module } from "../module"
 import { Net } from "../net"
 
 export class Call extends Exp {
+  constructor(public name: string) {
+    super()
+  }
+
   apply(mod: Module, net: Net): void {
-    throw new Error("TODO")
+    return mod.getDefOrFail(this.name).apply(net)
   }
 }
