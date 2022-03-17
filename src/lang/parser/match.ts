@@ -1,4 +1,9 @@
-import { match, matchList, matchSymbol } from "@cicada-lang/sexp/lib/match"
+import {
+  match,
+  matchList,
+  matchNumber,
+  matchSymbol,
+} from "@cicada-lang/sexp/lib/match"
 import { list, v } from "@cicada-lang/sexp/lib/pattern-exp"
 import { Sexp } from "@cicada-lang/sexp/lib/sexp"
 import { Stmt } from "../stmt"
@@ -7,22 +12,42 @@ import * as Stmts from "../stmts"
 export function matchStmt(sexp: Sexp): Stmt {
   return match<Stmt>(sexp, [
     [
-      ["define-cons", v("name"), ["->", v("input"), v("output")]],
-      ({ name, input, output }) =>
+      ["define-cons", v("name"), v("inputArity"), v("outputArity")],
+      ({ name, inputArity, outputArity }) =>
         new Stmts.DefineConsStmt(
           matchSymbol(name),
-          matchWords(input),
-          matchWords(output),
+          matchNumber(inputArity),
+          matchNumber(outputArity),
           { span: sexp.span }
         ),
     ],
     [
-      ["define-elim", v("name"), ["->", v("input"), v("output")]],
-      ({ name, input, output }) =>
+      ["define-cons", v("name"), v("inputArity")],
+      ({ name, inputArity }) =>
+        new Stmts.DefineConsStmt(
+          matchSymbol(name),
+          matchNumber(inputArity),
+          1,
+          { span: sexp.span }
+        ),
+    ],
+    [
+      ["define-elim", v("name"), v("inputArity"), v("outputArity")],
+      ({ name, inputArity, outputArity }) =>
         new Stmts.DefineElimStmt(
           matchSymbol(name),
-          matchWords(input),
-          matchWords(output),
+          matchNumber(inputArity),
+          matchNumber(outputArity),
+          { span: sexp.span }
+        ),
+    ],
+    [
+      ["define-elim", v("name"), v("inputArity")],
+      ({ name, inputArity }) =>
+        new Stmts.DefineElimStmt(
+          matchSymbol(name),
+          matchNumber(inputArity),
+          1,
           { span: sexp.span }
         ),
     ],

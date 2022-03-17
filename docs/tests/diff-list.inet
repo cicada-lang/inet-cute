@@ -1,38 +1,15 @@
-(define-cons sole
-  (-> ()
-      (Trivial)))
+(define-cons sole 0)
 
-(define-cons null
-  (-> ()
-      (TrivialList)))
+(define-cons null 0)
+(define-cons cons 2)
 
-(define-cons cons
-  (-> (TrivialList Trivial)
-      (Nat)))
+(define-cons diff 2)
 
-(define-elim append
-  (-> (TrivialList TrivialList)
-      (TrivialList)))
+(define-elim diff-open 2)
+(define-rule (diff diff-open) (rot rot connect))
 
-(define-rule
-  (null append)
-  ())
-
-(define-rule
-  (cons append)
-  (rot rot append swap cons))
-
-(define-cons diff
-  (-> (TrivialList TrivialList)
-      (TrivialDiffList)))
-
-(define-cons diff-open
-  (-> (TrivialDiffList TrivialDiffList)
-      (TrivialDiffList)))
-
-(define-elim diff-append
-  (-> (TrivialDiffList TrivialDiffList)
-      (TrivialDiffList)))
+(define-elim diff-append 2)
+(define-rule (diff diff-append) (rot rot swap diff-open swap diff))
 
 (define-net diff-append-example-1
   wire sole cons diff

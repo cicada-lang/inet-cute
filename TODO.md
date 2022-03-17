@@ -1,7 +1,3 @@
-> Do an untyped version of the language first.
-
-- define node by arity
-
 # variable
 
 - `define-net` -- support variables `(let ...)`

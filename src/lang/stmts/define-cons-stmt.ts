@@ -6,8 +6,8 @@ import { buildTypes } from "../types"
 export class DefineConsStmt extends Stmt {
   constructor(
     public name: string,
-    public input: Array<string>,
-    public output: Array<string>,
+    public inputArity: number,
+    public outputArity: number,
     public meta: StmtMeta
   ) {
     super()
@@ -19,8 +19,8 @@ export class DefineConsStmt extends Stmt {
       new Defs.NodeDefinition(
         mod,
         this.name,
-        buildTypes(this.input),
-        buildTypes([...this.output, "*"])
+        buildTypes(Array(this.inputArity).fill("Any")),
+        buildTypes([...Array(this.outputArity).fill("Any"), "*"])
       )
     )
   }
