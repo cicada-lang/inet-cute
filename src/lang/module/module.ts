@@ -25,7 +25,7 @@ export class Module {
     const def = this.getDefOrFail(name)
     if (!(def instanceof Defs.NodeDefinition)) {
       throw new Error(
-        `I expect Defs.NodeDef, but ${name} is ${def.constructor.name}`
+        `I expect a node definition, but ${name} is ${def.constructor.name}`
       )
     }
 
@@ -36,7 +36,7 @@ export class Module {
     const def = this.getDefOrFail(name)
     if (!(def instanceof Defs.NetDefinition)) {
       throw new Error(
-        `I expect Defs.NetDef, but ${name} is ${def.constructor.name}`
+        `I expect a net definition, but ${name} is ${def.constructor.name}`
       )
     }
 
