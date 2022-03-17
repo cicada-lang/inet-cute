@@ -75,6 +75,6 @@ export function matchStmt(sexp: Sexp): Stmt {
 
 function matchExps(sexp: Sexp): Array<Exp> {
   return matchList(sexp, (sexp) => {
-    return new Exps.Call(matchSymbol(sexp))
+    return new Exps.Call(matchSymbol(sexp), sexp.span)
   })
 }
