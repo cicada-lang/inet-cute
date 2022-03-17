@@ -22,7 +22,7 @@ Papers:
 
 Books:
 
-- [Models of Computation -- An Introduction to Computability Theory, Maribel Fernández, 2009](models-of-computation--maribel-fernández.pdf).
+- [Models of Computation -- An Introduction to Computability Theory, Maribel Fernández, 2009](./docs/books/models-of-computation--maribel-fernández.pdf).
   - Chapter 7. Interaction-Based Models of Computation.
 
 ## Examples
