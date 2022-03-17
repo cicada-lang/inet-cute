@@ -5,14 +5,14 @@
 
 (define-cons diff 2)
 
-(define-elim diff-open 2)
-(define-rule (diff diff-open)
-  ((let right) connect right))
-
 (define-elim diff-append 2)
 (define-rule (diff diff-append)
   ((let that left right)
    left that diff-open right diff))
+
+(define-elim diff-open 2)
+(define-rule (diff diff-open)
+  ((let right) connect right))
 
 (define-net example-1
   wire sole cons diff
