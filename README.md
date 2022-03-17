@@ -31,6 +31,18 @@ The command line program is called `inet`.
   add)
 ```
 
+```
+inet render docs/tests/nat.inet
+```
+
+`two` initial:
+
+![](./docs/tests/nat.inet.two.initial.svg)
+
+`two` finial:
+
+![](./docs/tests/nat.inet.two.finial.svg)
+
 ### List
 
 ```clojure
@@ -49,6 +61,18 @@ The command line program is called `inet`.
   null sole cons sole cons sole cons
   append)
 ```
+
+```
+inet render docs/tests/list.inet
+```
+
+`six-soles` initial:
+
+![](./docs/tests/list.inet.six-soles.initial.svg)
+
+`six-soles` finial:
+
+![](./docs/tests/list.inet.six-soles.finial.svg)
 
 ### Difference list
 
@@ -76,6 +100,26 @@ The command line program is called `inet`.
   wire sole cons sole cons diff
   diff-append)
 ```
+
+```
+inet render docs/tests/diff-list.inet
+```
+
+`one-two-soles` initial:
+
+![](./docs/tests/diff-list.inet.one-two-soles.initial.svg)
+
+`one-two-soles` finial:
+
+![](./docs/tests/diff-list.inet.one-two-soles.finial.svg)
+
+`two-two-soles` initial:
+
+![](./docs/tests/diff-list.inet.two-two-soles.initial.svg)
+
+`two-two-soles` finial:
+
+![](./docs/tests/diff-list.inet.two-two-soles.finial.svg)
 
 ## Development
 

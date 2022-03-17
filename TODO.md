@@ -1,5 +1,3 @@
-- examples in readme -- with svg
-
 - docs on readonlylink
 
 - setup website to render inet online
