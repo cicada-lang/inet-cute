@@ -22,7 +22,7 @@ export class Action extends Edge {
     disconnectNode(net, this.end.node, input, output)
     disconnectNode(net, this.start.node, input, output)
 
-    net.ports.push(...input)
+    net.portStack.push(...input)
 
     // NOTE Reconnect by rule.
     for (const exp of this.rule.exps) {
@@ -83,18 +83,18 @@ function disconnectOutput(
 }
 
 function reconnectOutput(net: Net, output: Array<Port>): void {
-  if (net.ports.length !== output.length) {
+  if (net.portStack.length !== output.length) {
     throw new InternalError(
       [
         `Resulting ports doesn't match prepared output ports`,
-        `  resulting ports length: ${net.ports.length}`,
+        `  resulting ports length: ${net.portStack.length}`,
         `  prepared output ports length: ${output.length}`,
       ].join("\n")
     )
   }
 
-  while (net.ports.length > 0) {
-    const start = net.ports.pop() as Port
+  while (net.portStack.length > 0) {
+    const start = net.portStack.pop() as Port
     const end = output.pop() as Port
     net.connect(start, end)
   }

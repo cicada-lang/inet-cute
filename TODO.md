@@ -1,7 +1,5 @@
 # variable
 
-- `Net` has `variables`
-
 - `exps/Let` -- `apply` -- set `Net.variables`
 - `exps/Let` -- `apply` -- maybe get from `Net.variables`
 

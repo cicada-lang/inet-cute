@@ -11,8 +11,8 @@ export class Net {
   nodes: Array<Node> = new Array()
   edges: Array<Edge> = new Array()
   actions: Array<Action> = new Array()
-  // NOTE We use `ports` as a stack to build the net.
-  ports: Array<Port> = new Array()
+  portStack: Array<Port> = new Array()
+  portStore: Map<string, Port> = new Map()
 
   constructor(mod: Module) {
     this.mod = mod
@@ -44,12 +44,12 @@ export class Net {
   }
 
   private closeFreePorts(): Node | undefined {
-    if (this.ports.length === 0) return undefined
+    if (this.portStack.length === 0) return undefined
 
     const name = "*free-ports-closer*"
 
     // NOTE Maintain the "one principal port" constraint.
-    const inputTypes = this.ports
+    const inputTypes = this.portStack
       .map((port) => port.t)
       .map((t) => (t.isPrincipal() ? (t as PrincipalType).t : t))
       .reverse()
@@ -69,7 +69,7 @@ export class Net {
         throw new InternalError("I expect port to have connection.")
       }
 
-      this.ports.push(port.connection.port)
+      this.portStack.push(port.connection.port)
       this.removeEdge(port.connection.edge)
     }
 
@@ -77,7 +77,7 @@ export class Net {
   }
 
   private step(): void {
-    if (this.ports.length !== 0) {
+    if (this.portStack.length !== 0) {
       throw new InternalError("I can not handle free port during stepping.")
     }
 

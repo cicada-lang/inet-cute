@@ -38,7 +38,7 @@ export class NodeDefinition extends Definition {
 
     // NOTE Be careful about the order.
     for (const port of node.inputReversed) {
-      const top = net.ports.pop()
+      const top = net.portStack.pop()
       if (top === undefined) {
         throw new Error(
           `I expect a port on top of the stack to match: ${port.format()}`
@@ -48,7 +48,7 @@ export class NodeDefinition extends Definition {
       net.connect(top, port)
     }
 
-    net.ports.push(...node.output)
+    net.portStack.push(...node.output)
     net.nodes.push(node)
 
     return node
