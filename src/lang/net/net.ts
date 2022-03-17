@@ -1,6 +1,6 @@
 import * as Defs from "../definitions"
 import { Action, Edge } from "../edge"
-import * as Errors from "../errors"
+import { InternalError } from "../errors"
 import { Module } from "../module"
 import { Node } from "../node"
 import { Port } from "../port"
@@ -66,7 +66,7 @@ export class Net {
       if (port === undefined) return
 
       if (port.connection === undefined) {
-        throw new Errors.InternalError("I expect port to have connection.")
+        throw new InternalError("I expect port to have connection.")
       }
 
       this.ports.push(port.connection.port)
@@ -78,9 +78,7 @@ export class Net {
 
   private step(): void {
     if (this.ports.length !== 0) {
-      throw new Errors.InternalError(
-        "I can not handle free port during stepping."
-      )
+      throw new InternalError("I can not handle free port during stepping.")
     }
 
     const action = this.actions.pop()

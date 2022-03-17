@@ -1,5 +1,5 @@
 import { Edge } from "../edge"
-import * as Errors from "../errors"
+import { InternalError } from "../errors"
 import { Module } from "../module"
 import { Net } from "../net"
 import { Node } from "../node"
@@ -52,7 +52,7 @@ function disconnectInput(
   for (const port of ports) {
     if (!port.isPrincipal()) {
       if (port.connection === undefined) {
-        throw new Errors.InternalError(
+        throw new InternalError(
           "I meet a port without connection during disconnecting input."
         )
       }
@@ -71,7 +71,7 @@ function disconnectOutput(
   for (const port of ports) {
     if (!port.isPrincipal()) {
       if (port.connection === undefined) {
-        throw new Errors.InternalError(
+        throw new InternalError(
           "I meet a port without connection during disconnecting output."
         )
       }
@@ -84,7 +84,7 @@ function disconnectOutput(
 
 function reconnectOutput(net: Net, output: Array<Port>): void {
   if (net.ports.length !== output.length) {
-    throw new Errors.InternalError(
+    throw new InternalError(
       [
         `Resulting ports doesn't match prepared output ports`,
         `  resulting ports length: ${net.ports.length}`,

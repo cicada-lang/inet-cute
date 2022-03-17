@@ -1,12 +1,9 @@
 # variable
 
-- `exps/Let` -- `apply`
+- `Net` has `variables`
 
-- `define-net` -- support variables `(let ...)`
-- `define-rule` -- support variables `(let ...)`
-
-- `Node` with optionally named port
-  - `NetRenderer` show free port names
+- `exps/Let` -- `apply` -- set `Net.variables`
+- `exps/Let` -- `apply` -- maybe get from `Net.variables`
 
 # website
 
@@ -22,9 +19,16 @@
 
 - link to playground from readonlylink code block
 
-- docs
+- docs in readme
+- docs on readonlylink
 
-# render
+# later
+
+- `Node` with optionally named port
+  - `NetRenderer` show free port names
+
+- stmt.format
+- exp.format
 
 - `NetRenderer` control order
 
