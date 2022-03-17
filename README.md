@@ -13,6 +13,18 @@ npm -g i @cicada-lang/inet
 
 The command line program is called `inet`.
 
+## References
+
+Papers:
+
+- [Interaction Nets, Yves Lafont, 1990 (the founding paper)](./docs/papers/interaction-nets.pdf).
+- [Interaction Combinators, Yves Lafont, 1997](./docs/papers/interaction-combinators.pdf).
+
+Books:
+
+- [Models of Computation -- An Introduction to Computability Theory, Maribel Fernández, 2009](models-of-computation--maribel-fernández.pdf).
+  - Chapter 7. Interaction-Based Models of Computation.
+
 ## Examples
 
 ### Natual number
