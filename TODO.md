@@ -1,12 +1,12 @@
 # variable
 
-- `exps/Let`
-- `exps/Call`
-
 - `exp.apply`
 
   - fix `define-rule-stmt` & `rule`
   - fix `define-net-stmt` & `net-definition`
+
+- `exps/Let` -- `apply`
+- `exps/Call` -- `apply`
 
 - `define-net` -- support variables `(let ...)`
 - `define-rule` -- support variables `(let ...)`
