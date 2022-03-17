@@ -1,3 +1,4 @@
+import { Exp } from "../exp"
 import { Module } from "../module"
 import { Rule } from "../rule"
 import { Stmt, StmtMeta } from "../stmt"
@@ -6,7 +7,7 @@ export class DefineRuleStmt extends Stmt {
   constructor(
     public start: string,
     public end: string,
-    public exps: Array<string>,
+    public exps: Array<Exp>,
     public meta: StmtMeta
   ) {
     super()
@@ -18,12 +19,7 @@ export class DefineRuleStmt extends Stmt {
 
     startNodeDef.defineRule(
       endNodeDef,
-      new Rule(
-        mod,
-        startNodeDef,
-        endNodeDef,
-        this.exps.map((exp) => mod.getDefOrFail(exp))
-      )
+      new Rule(mod, startNodeDef, endNodeDef, this.exps)
     )
   }
 }

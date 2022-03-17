@@ -1,5 +1,6 @@
 import { Edge } from "../edge"
 import * as Errors from "../errors"
+import { Module } from "../module"
 import { Net } from "../net"
 import { Node } from "../node"
 import { Port } from "../port"
@@ -13,7 +14,7 @@ export class Action extends Edge {
     this.rule = rule
   }
 
-  act(net: Net): void {
+  act(mod: Module, net: Net): void {
     // NOTE The state of action.
     const input: Array<Port> = []
     const output: Array<Port> = []
@@ -24,8 +25,8 @@ export class Action extends Edge {
     net.ports.push(...input)
 
     // NOTE Reconnect by rule.
-    for (const def of this.rule.defs) {
-      def.apply(net)
+    for (const exp of this.rule.exps) {
+      exp.apply(mod, net)
     }
 
     reconnectOutput(net, output)

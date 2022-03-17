@@ -85,7 +85,7 @@ export class Net {
 
     const action = this.actions.pop()
     if (action === undefined) return
-    else action.act(this)
+    else action.act(this.mod, this)
   }
 
   connect(start: Port, end: Port): void {

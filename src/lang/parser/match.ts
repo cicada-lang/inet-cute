@@ -6,6 +6,8 @@ import {
 } from "@cicada-lang/sexp/lib/match"
 import { list, v } from "@cicada-lang/sexp/lib/pattern-exp"
 import { Sexp } from "@cicada-lang/sexp/lib/sexp"
+import { Exp } from "../exp"
+import * as Exps from "../exps"
 import { Stmt } from "../stmt"
 import * as Stmts from "../stmts"
 
@@ -71,6 +73,8 @@ export function matchStmt(sexp: Sexp): Stmt {
   ])
 }
 
-function matchExps(sexp: Sexp): Array<string> {
-  return matchList(sexp, matchSymbol)
+function matchExps(sexp: Sexp): Array<Exp> {
+  return matchList(sexp, (sexp) => {
+    return new Exps.Call(matchSymbol(sexp))
+  })
 }
