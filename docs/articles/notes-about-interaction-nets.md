@@ -224,3 +224,86 @@ after building a net, we remove the wire, and connect `A` with `B`.
   wire sole cons sole cons diff
   diff-append)
 ```
+
+# Examples (untyped)
+
+## Nat
+
+```clojure
+(define-cons zero 0)
+(define-cons add1 1)
+
+(define-elim add 2)
+(define-rule (zero add) ())
+(define-rule (add1 add) (add add1))
+
+(define-net two
+  zero add1
+  zero add1
+  add)
+```
+
+## Trivial
+
+```clojure
+(define-cons sole 0)
+```
+
+## List
+
+```clojure
+(define-cons null 0)
+(define-cons cons 2)
+
+(define-elim append 2)
+(define-rule (null append) ())
+(define-rule (cons append) (rot rot append swap cons))
+
+(define-rule
+  (that tail head cons append)
+  (that tail append head cons))
+
+(define-rule
+  (cons append)
+  ((let that tail head)  that tail append head cons))
+
+(define-rule
+  (cons append)
+  ((let head) (let tail) (let that) that tail append head cons))
+
+(define-rule
+  (cons append)
+  ((let head) append head cons))
+
+(define-net six-soles
+  null sole cons sole cons sole cons
+  null sole cons sole cons sole cons
+  append)
+```
+
+## DiffList
+
+```clojure
+(define-cons diff 2)
+
+(define-elim diff-append 2)
+(define-elim diff-open 2)
+
+(define-rule
+  (that left right diff diff-append)
+  (left that diff-open right diff))
+
+(define-rule
+  (that left right diff diff-open)
+  (that left connect right))
+```
+
+```clojure
+(define-net _
+  wire diff)
+
+(define-net _
+  wire sole cons diff
+  wire sole cons sole cons diff
+  diff-append)
+```
