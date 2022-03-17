@@ -2,8 +2,8 @@
 (define-cons add1 1)
 
 (define-elim add 2)
-(define-rule (zero add) ())
-(define-rule (add1 add) (add add1))
+(define-rule (zero add))
+(define-rule (add1 add) add add1)
 
 (define-net two
   zero add1

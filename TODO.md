@@ -1,5 +1,3 @@
-- simplify `define-rule` syntax
-
 # website
 
 - setup website to render inet online

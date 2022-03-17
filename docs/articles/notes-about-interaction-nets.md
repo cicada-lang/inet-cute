@@ -81,8 +81,9 @@ After disconnecting, we put input ports back to the stack.
 (define-cons add1 (- Nat) Nat)
 (define-elim add (- Nat) (- Nat) Nat)
 
-(define-rule (zero add) ())
-(define-rule (add1 add) (add add1))
+(define-rule (zero add))
+(define-rule (add1 add)
+  add add1)
 
 (claim-net two Nat)
 (define-net two
@@ -118,24 +119,20 @@ After disconnecting, we put input ports back to the stack.
   (- A List)
   A List)
 
-(define-rule (null append) ())
-(define-rule (cons append) (rot rot append swap cons))
+(define-rule (null append))
+(define-rule (cons append)
+  rot rot append swap cons)
 
-(define-rule
-  (that tail head cons append)
-  (that tail append head cons))
+(define-rule (cons append)
+  (let that tail head)
+  that tail append head cons)
 
-(define-rule
-  (cons append)
-  ((let that tail head)  that tail append head cons))
+(define-rule (cons append)
+  (let head) (let tail) (let that)
+  that tail append head cons)
 
-(define-rule
-  (cons append)
-  ((let head) (let tail) (let that) that tail append head cons))
-
-(define-rule
-  (cons append)
-  ((let head) append head cons))
+(define-rule (cons append)
+  (let head) append head cons)
 
 (claim-net six-soles Trivial List)
 (define-net six-soles
@@ -165,13 +162,10 @@ After disconnecting, we put input ports back to the stack.
     (- x A Vector))
   x y add A Vector)
 
-(define-rule
-  (null-vector vector-append)
-  ())
+(define-rule (null-vector vector-append))
 
-(define-rule
-  (that tail head cons-vector vector-append)
-  (that tail vector-append head cons-vector))
+(define-rule (cons-vector vector-append)
+  (let head) vector-append head cons-vector)
 
 (check-net (six Trivial Vector)
   null-vector sole cons-vector sole cons-vector sole cons-vector
@@ -201,13 +195,13 @@ After disconnecting, we put input ports back to the stack.
   (- A List)
   A List)
 
-(define-rule
-  (that left right diff diff-open)
-  (that left connect right))
+(define-rule (diff diff-open)
+  (let that left right)
+  that left connect right)
 
-(define-rule
-  (that left right diff diff-append)
-  (left that diff-open right diff))
+(define-rule (diff diff-append)
+  (let that left right)
+  left that diff-open right diff)
 ```
 
 `wire` places the two ports of a special edge on the stack.
@@ -220,89 +214,6 @@ after building a net, we remove the wire, and connect `A` with `B`.
   wire diff)
 
 (check-net (Trivial DiffList)
-  wire sole cons diff
-  wire sole cons sole cons diff
-  diff-append)
-```
-
-# Examples (untyped)
-
-## Nat
-
-```clojure
-(define-cons zero 0)
-(define-cons add1 1)
-
-(define-elim add 2)
-(define-rule (zero add) ())
-(define-rule (add1 add) (add add1))
-
-(define-net two
-  zero add1
-  zero add1
-  add)
-```
-
-## Trivial
-
-```clojure
-(define-cons sole 0)
-```
-
-## List
-
-```clojure
-(define-cons null 0)
-(define-cons cons 2)
-
-(define-elim append 2)
-(define-rule (null append) ())
-(define-rule (cons append) (rot rot append swap cons))
-
-(define-rule
-  (that tail head cons append)
-  (that tail append head cons))
-
-(define-rule
-  (cons append)
-  ((let that tail head)  that tail append head cons))
-
-(define-rule
-  (cons append)
-  ((let head) (let tail) (let that) that tail append head cons))
-
-(define-rule
-  (cons append)
-  ((let head) append head cons))
-
-(define-net six-soles
-  null sole cons sole cons sole cons
-  null sole cons sole cons sole cons
-  append)
-```
-
-## DiffList
-
-```clojure
-(define-cons diff 2)
-
-(define-elim diff-append 2)
-(define-elim diff-open 2)
-
-(define-rule
-  (that left right diff diff-append)
-  (left that diff-open right diff))
-
-(define-rule
-  (that left right diff diff-open)
-  (that left connect right))
-```
-
-```clojure
-(define-net _
-  wire diff)
-
-(define-net _
   wire sole cons diff
   wire sole cons sole cons diff
   diff-append)

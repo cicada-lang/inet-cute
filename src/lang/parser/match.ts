@@ -59,7 +59,7 @@ export function matchStmt(sexp: Sexp): Stmt {
         new Stmts.DefineNetStmt(matchSymbol(name), matchExps(exps), sexp.span),
     ],
     [
-      ["define-rule", [v("start"), v("end")], v("exps")],
+      list(["define-rule", [v("start"), v("end")]], v("exps")),
       ({ start, end, exps }) =>
         new Stmts.DefineRuleStmt(
           matchSymbol(start),

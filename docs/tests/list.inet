@@ -4,8 +4,8 @@
 (define-cons cons 2)
 
 (define-elim append 2)
-(define-rule (null append) ())
-(define-rule (cons append) ((let head) append head cons))
+(define-rule (null append))
+(define-rule (cons append) (let head) append head cons)
 
 (define-net six-soles
   null sole cons sole cons sole cons
