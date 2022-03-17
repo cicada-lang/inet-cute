@@ -11,12 +11,12 @@
 (define-elim diff-append 2)
 (define-rule (diff diff-append) (rot rot swap diff-open swap diff))
 
-(define-net diff-append-example-1
+(define-net example-1
   wire sole cons diff
   wire sole cons sole cons diff
   diff-append)
 
-(define-net diff-append-example-2
+(define-net example-2
   wire sole cons sole cons diff
   wire sole cons sole cons diff
   diff-append)
