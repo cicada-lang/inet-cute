@@ -6,7 +6,7 @@ export class DefineRuleStmt extends Stmt {
   constructor(
     public start: string,
     public end: string,
-    public words: Array<string>,
+    public exps: Array<string>,
     public meta: StmtMeta
   ) {
     super()
@@ -22,7 +22,7 @@ export class DefineRuleStmt extends Stmt {
         mod,
         startNodeDef,
         endNodeDef,
-        this.words.map((word) => mod.getDefOrFail(word))
+        this.exps.map((exp) => mod.getDefOrFail(exp))
       )
     )
   }

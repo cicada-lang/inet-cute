@@ -1,5 +1,10 @@
 # variable
 
+- `exp` & `exps`
+
+- `exps/Let`
+- `exps/Call`
+
 - `define-net` -- support variables `(let ...)`
 - `define-rule` -- support variables `(let ...)`
 
@@ -37,7 +42,6 @@
 
 > Two levels of computations, execute and cut.
 
-- `Word`
 - `Word.cut` & `Word.execute`
 
 - equality between `Net`

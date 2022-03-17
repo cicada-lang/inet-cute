@@ -52,25 +52,25 @@ export function matchStmt(sexp: Sexp): Stmt {
         ),
     ],
     [
-      list(["define-net", v("name")], v("words")),
-      ({ name, input, output, words }) =>
-        new Stmts.DefineNetStmt(matchSymbol(name), matchWords(words), {
+      list(["define-net", v("name")], v("exps")),
+      ({ name, input, output, exps }) =>
+        new Stmts.DefineNetStmt(matchSymbol(name), matchExps(exps), {
           span: sexp.span,
         }),
     ],
     [
-      ["define-rule", [v("start"), v("end")], v("words")],
-      ({ start, end, words }) =>
+      ["define-rule", [v("start"), v("end")], v("exps")],
+      ({ start, end, exps }) =>
         new Stmts.DefineRuleStmt(
           matchSymbol(start),
           matchSymbol(end),
-          matchWords(words),
+          matchExps(exps),
           { span: sexp.span }
         ),
     ],
   ])
 }
 
-function matchWords(sexp: Sexp): Array<string> {
+function matchExps(sexp: Sexp): Array<string> {
   return matchList(sexp, matchSymbol)
 }

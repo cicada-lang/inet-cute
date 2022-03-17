@@ -2,30 +2,30 @@ import { Type } from "../type"
 import * as Types from "../types"
 
 export class TypeBuilder {
-  words: Array<string>
+  exps: Array<string>
 
-  constructor(words: Array<string>) {
-    this.words = words
+  constructor(exps: Array<string>) {
+    this.exps = exps
   }
 
   build(): Array<Type> {
     const types: Array<Type> = []
-    for (const word of this.words) {
-      if (word === "*") {
+    for (const exp of this.exps) {
+      if (exp === "*") {
         const t = types.pop()
         if (t === undefined) {
           throw new Error(
             [
               `Fail to build type,`,
               `I expect a type on the stack when applying *`,
-              `  words: ${this.words}`,
+              `  exps: ${this.exps}`,
             ].join("\n")
           )
         } else {
           types.push(new Types.PrincipalType(t))
         }
       } else {
-        types.push(new Types.AtomType(word))
+        types.push(new Types.AtomType(exp))
       }
     }
 

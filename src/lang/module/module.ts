@@ -43,8 +43,8 @@ export class Module {
     return def
   }
 
-  apply(net: Net, word: string): void {
-    this.getDefOrFail(word).apply(net)
+  apply(net: Net, exp: string): void {
+    this.getDefOrFail(exp).apply(net)
   }
 
   define(name: string, def: Definition): this {
