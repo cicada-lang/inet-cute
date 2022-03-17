@@ -27,10 +27,7 @@ export function matchStmt(sexp: Sexp): Stmt {
         ),
     ],
     [
-      list(
-        ["define-net", v("name"), ["->", v("input"), v("output")]],
-        v("words")
-      ),
+      list(["define-net", v("name")], v("words")),
       ({ name, input, output, words }) =>
         new Stmts.DefineNetStmt(matchSymbol(name), matchWords(words), {
           span: sexp.span,

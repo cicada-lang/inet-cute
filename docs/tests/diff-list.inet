@@ -35,13 +35,11 @@
       (TrivialDiffList)))
 
 (define-net diff-append-example-1
-  (-> () (TrivialDiffList))
   wire sole cons diff
   wire sole cons sole cons diff
   diff-append)
 
 (define-net diff-append-example-2
-  (-> () (TrivialDiffList))
   wire sole cons sole cons diff
   wire sole cons sole cons diff
   diff-append)

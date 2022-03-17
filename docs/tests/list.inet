@@ -22,7 +22,7 @@
   (cons append)
   (rot rot append swap cons))
 
-(define-net six-soles (-> () (TrivialList))
+(define-net six-soles
   null sole cons sole cons sole cons
   null sole cons sole cons sole cons
   append)
