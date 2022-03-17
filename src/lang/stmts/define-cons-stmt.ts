@@ -1,6 +1,7 @@
+import { Span } from "@cicada-lang/sexp/lib/span"
 import * as Defs from "../definitions"
 import { Module } from "../module"
-import { Stmt, StmtMeta } from "../stmt"
+import { Stmt } from "../stmt"
 import { buildTypes } from "../types"
 
 export class DefineConsStmt extends Stmt {
@@ -8,7 +9,7 @@ export class DefineConsStmt extends Stmt {
     public name: string,
     public inputArity: number,
     public outputArity: number,
-    public meta: StmtMeta
+    public span: Span
   ) {
     super()
   }

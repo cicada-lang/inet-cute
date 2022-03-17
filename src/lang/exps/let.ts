@@ -4,7 +4,7 @@ import { Module } from "../module"
 import { Net } from "../net"
 
 export class Let extends Exp {
-  constructor(public span: Span) {
+  constructor(public names: Array<string>, public span: Span) {
     super()
   }
 

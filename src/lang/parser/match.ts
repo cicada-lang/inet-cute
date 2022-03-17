@@ -20,7 +20,7 @@ export function matchStmt(sexp: Sexp): Stmt {
           matchSymbol(name),
           matchNumber(inputArity),
           matchNumber(outputArity),
-          { span: sexp.span }
+          sexp.span
         ),
     ],
     [
@@ -30,7 +30,7 @@ export function matchStmt(sexp: Sexp): Stmt {
           matchSymbol(name),
           matchNumber(inputArity),
           1,
-          { span: sexp.span }
+          sexp.span
         ),
     ],
     [
@@ -40,7 +40,7 @@ export function matchStmt(sexp: Sexp): Stmt {
           matchSymbol(name),
           matchNumber(inputArity),
           matchNumber(outputArity),
-          { span: sexp.span }
+          sexp.span
         ),
     ],
     [
@@ -50,15 +50,13 @@ export function matchStmt(sexp: Sexp): Stmt {
           matchSymbol(name),
           matchNumber(inputArity),
           1,
-          { span: sexp.span }
+          sexp.span
         ),
     ],
     [
       list(["define-net", v("name")], v("exps")),
       ({ name, input, output, exps }) =>
-        new Stmts.DefineNetStmt(matchSymbol(name), matchExps(exps), {
-          span: sexp.span,
-        }),
+        new Stmts.DefineNetStmt(matchSymbol(name), matchExps(exps), sexp.span),
     ],
     [
       ["define-rule", [v("start"), v("end")], v("exps")],
@@ -67,14 +65,22 @@ export function matchStmt(sexp: Sexp): Stmt {
           matchSymbol(start),
           matchSymbol(end),
           matchExps(exps),
-          { span: sexp.span }
+          sexp.span
         ),
     ],
   ])
 }
 
 function matchExps(sexp: Sexp): Array<Exp> {
-  return matchList(sexp, (sexp) => {
-    return new Exps.Call(matchSymbol(sexp), sexp.span)
-  })
+  return matchList(sexp, matchExp)
+}
+
+function matchExp(sexp: Sexp): Exp {
+  return match<Exp>(sexp, [
+    [
+      list(["let"], v("names")),
+      ({ names }) => new Exps.Let(matchList(names, matchSymbol), sexp.span),
+    ],
+    [v("name"), ({ name }) => new Exps.Call(matchSymbol(sexp), sexp.span)],
+  ])
 }

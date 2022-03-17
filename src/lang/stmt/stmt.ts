@@ -1,13 +1,8 @@
-import pt from "@cicada-lang/partech"
+import { Span } from "@cicada-lang/sexp/lib/span"
 import { Module } from "../module"
 
-export interface StmtMeta {
-  span: pt.Span
-}
-
 export abstract class Stmt {
-  abstract meta: StmtMeta
-
+  abstract span: Span
   abstract execute(mod: Module): Promise<void>
   // abstract format(): string
 }

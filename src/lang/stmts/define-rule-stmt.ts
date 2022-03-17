@@ -1,14 +1,15 @@
+import { Span } from "@cicada-lang/sexp/lib/span"
 import { Exp } from "../exp"
 import { Module } from "../module"
 import { Rule } from "../rule"
-import { Stmt, StmtMeta } from "../stmt"
+import { Stmt } from "../stmt"
 
 export class DefineRuleStmt extends Stmt {
   constructor(
     public start: string,
     public end: string,
     public exps: Array<Exp>,
-    public meta: StmtMeta
+    public span: Span
   ) {
     super()
   }
