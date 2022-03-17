@@ -6,4 +6,6 @@
 (define-rule (add1 add) (add add1))
 
 (define-net two
-  zero add1 zero add1 add)
+  zero add1
+  zero add1
+  add)

@@ -202,12 +202,12 @@ After disconnecting, we put input ports back to the stack.
   A List)
 
 (define-rule
-  (that left right diff diff-append)
-  (left that diff-open right diff))
-
-(define-rule
   (that left right diff diff-open)
   (that left connect right))
+
+(define-rule
+  (that left right diff diff-append)
+  (left that diff-open right diff))
 ```
 
 `wire` places the two ports of a special edge on the stack.

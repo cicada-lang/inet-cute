@@ -6,10 +6,13 @@
 (define-cons diff 2)
 
 (define-elim diff-open 2)
-(define-rule (diff diff-open) (rot rot connect))
+(define-rule (diff diff-open)
+  ((let right) connect right))
 
 (define-elim diff-append 2)
-(define-rule (diff diff-append) (rot rot swap diff-open swap diff))
+(define-rule (diff diff-append)
+  ((let that left right)
+   left that diff-open right diff))
 
 (define-net example-1
   wire sole cons diff

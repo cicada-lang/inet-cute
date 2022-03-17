@@ -9,6 +9,12 @@ export class Call extends Exp {
   }
 
   apply(mod: Module, net: Net): void {
-    return mod.getDefOrFail(this.name).apply(net)
+    const found = net.portStore.get(this.name)
+    if (found !== undefined) {
+      net.portStore.delete(this.name)
+      net.portStack.push(found)
+    } else {
+      mod.getDefOrFail(this.name).apply(net)
+    }
   }
 }

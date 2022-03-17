@@ -5,7 +5,7 @@
 
 (define-elim append 2)
 (define-rule (null append) ())
-(define-rule (cons append) (rot rot append swap cons))
+(define-rule (cons append) ((let head) append head cons))
 
 (define-net six-soles
   null sole cons sole cons sole cons

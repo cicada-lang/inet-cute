@@ -1,7 +1,4 @@
-# variable
-
-- `exps/Let` -- `apply` -- set `Net.variables`
-- `exps/Let` -- `apply` -- maybe get from `Net.variables`
+- simplify `define-rule` syntax
 
 # website
 
