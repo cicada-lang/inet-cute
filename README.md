@@ -35,13 +35,9 @@ The command line program is called `inet`.
 inet render docs/tests/nat.inet
 ```
 
-`two` initial:
-
-![](./docs/tests/nat.inet.two.initial.svg)
-
-`two` finial:
-
-![](./docs/tests/nat.inet.two.finial.svg)
+| `two` initial                              | `two` finial                              |
+| ------------------------------------------ | ----------------------------------------- |
+| ![](./docs/tests/nat.inet.two.initial.svg) | ![](./docs/tests/nat.inet.two.finial.svg) |
 
 ### List
 
@@ -66,13 +62,9 @@ inet render docs/tests/nat.inet
 inet render docs/tests/list.inet
 ```
 
-`six-soles` initial:
-
-![](./docs/tests/list.inet.six-soles.initial.svg)
-
-`six-soles` finial:
-
-![](./docs/tests/list.inet.six-soles.finial.svg)
+| `six-soles` initial                               | `six-soles` finial                               |
+| ------------------------------------------------- | ------------------------------------------------ |
+| ![](./docs/tests/list.inet.six-soles.initial.svg) | ![](./docs/tests/list.inet.six-soles.finial.svg) |
 
 ### Difference list
 
@@ -105,21 +97,13 @@ inet render docs/tests/list.inet
 inet render docs/tests/diff-list.inet
 ```
 
-`one-two-soles` initial:
+| `one-two-soles` initial                                    | `one-two-soles` finial                                    |
+| ---------------------------------------------------------- | --------------------------------------------------------- |
+| ![](./docs/tests/diff-list.inet.one-two-soles.initial.svg) | ![](./docs/tests/diff-list.inet.one-two-soles.finial.svg) |
 
-![](./docs/tests/diff-list.inet.one-two-soles.initial.svg)
-
-`one-two-soles` finial:
-
-![](./docs/tests/diff-list.inet.one-two-soles.finial.svg)
-
-`two-two-soles` initial:
-
-![](./docs/tests/diff-list.inet.two-two-soles.initial.svg)
-
-`two-two-soles` finial:
-
-![](./docs/tests/diff-list.inet.two-two-soles.finial.svg)
+| `two-two-soles` initial                                    | `two-two-soles` finial                                    |
+| ---------------------------------------------------------- | --------------------------------------------------------- |
+| ![](./docs/tests/diff-list.inet.two-two-soles.initial.svg) | ![](./docs/tests/diff-list.inet.two-two-soles.finial.svg) |
 
 ## Development
 
