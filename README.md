@@ -1,6 +1,6 @@
 # Interaction Nets
 
-[ [PLAYGROUND](https://inet.cicada-lang.org/playground) ]
+[ [PLAYGROUND](https://inet.cicada-lang.org/playground/KGRlZmluZS1jb25zIHplcm8gMCkKKGRlZmluZS1jb25zIGFkZDEgMSkKCihkZWZpbmUtZWxpbSBhZGQgMikKKGRlZmluZS1ydWxlICh6ZXJvIGFkZCkpCihkZWZpbmUtcnVsZSAoYWRkMSBhZGQpIGFkZCBhZGQxKQoKKGRlZmluZS1uZXQgdHdvCiAgemVybyBhZGQxCiAgemVybyBhZGQxCiAgYWRkKQoKKGRlZmluZS1uZXQgZm91cgogIHR3byB0d28gYWRkKQo) ]
 
 An implementation of [Interaction Nets](https://en.wikipedia.org/wiki/Interaction_nets) in JavaScript.
 
@@ -37,7 +37,7 @@ Books:
 
 ### Online playground
 
-Visit the [INet Playground](https://inet.cicada-lang.org/playground).
+Visit the [INet Playground](https://inet.cicada-lang.org/playground/KGRlZmluZS1jb25zIHplcm8gMCkKKGRlZmluZS1jb25zIGFkZDEgMSkKCihkZWZpbmUtZWxpbSBhZGQgMikKKGRlZmluZS1ydWxlICh6ZXJvIGFkZCkpCihkZWZpbmUtcnVsZSAoYWRkMSBhZGQpIGFkZCBhZGQxKQoKKGRlZmluZS1uZXQgdHdvCiAgemVybyBhZGQxCiAgemVybyBhZGQxCiAgYWRkKQoKKGRlZmluZS1uZXQgZm91cgogIHR3byB0d28gYWRkKQo).
 
 ### Command line tool
 
