@@ -71,6 +71,8 @@ npm -g i @cicada-lang/inet
 inet render docs/tests/nat.inet
 ```
 
+[ [PLAYGROUND](https://inet.cicada-lang.org/playground/KGRlZmluZS1jb25zIHplcm8gMCkKKGRlZmluZS1jb25zIGFkZDEgMSkKCihkZWZpbmUtZWxpbSBhZGQgMikKKGRlZmluZS1ydWxlICh6ZXJvIGFkZCkpCihkZWZpbmUtcnVsZSAoYWRkMSBhZGQpIGFkZCBhZGQxKQoKKGRlZmluZS1uZXQgdHdvCiAgemVybyBhZGQxCiAgemVybyBhZGQxCiAgYWRkKQoKKGRlZmluZS1uZXQgZm91cgogIHR3byB0d28gYWRkKQo) ]
+
 | two.initial                                | two.finial                                |
 | ------------------------------------------ | ----------------------------------------- |
 | ![](./docs/tests/nat.inet.two.initial.svg) | ![](./docs/tests/nat.inet.two.finial.svg) |
@@ -78,8 +80,7 @@ inet render docs/tests/nat.inet
 ### List
 
 ```clojure
-;; A trivial data for testing.
-(define-cons sole 0)
+(define-cons sole 0) ;; Trivial data for testing.
 
 (define-cons null 0)
 (define-cons cons 2)
@@ -98,6 +99,8 @@ inet render docs/tests/nat.inet
 inet render docs/tests/list.inet
 ```
 
+[ [PLAYGROUND](https://inet.cicada-lang.org/playground/KGRlZmluZS1jb25zIHNvbGUgMCkgOzsgVHJpdmlhbCBkYXRhIGZvciB0ZXN0aW5nLgoKKGRlZmluZS1jb25zIG51bGwgMCkKKGRlZmluZS1jb25zIGNvbnMgMikKCihkZWZpbmUtZWxpbSBhcHBlbmQgMikKKGRlZmluZS1ydWxlIChudWxsIGFwcGVuZCkpCihkZWZpbmUtcnVsZSAoY29ucyBhcHBlbmQpIChsZXQgaGVhZCkgYXBwZW5kIGhlYWQgY29ucykKCihkZWZpbmUtbmV0IHNpeC1zb2xlcwogIG51bGwgc29sZSBjb25zIHNvbGUgY29ucyBzb2xlIGNvbnMKICBudWxsIHNvbGUgY29ucyBzb2xlIGNvbnMgc29sZSBjb25zCiAgYXBwZW5kKQ) ]
+
 | six-soles.initial                                 | six-soles.finial                                 |
 | ------------------------------------------------- | ------------------------------------------------ |
 | ![](./docs/tests/list.inet.six-soles.initial.svg) | ![](./docs/tests/list.inet.six-soles.finial.svg) |
@@ -107,6 +110,11 @@ inet render docs/tests/list.inet
 [Wikipedia / Difference list](https://en.wikipedia.org/wiki/Difference_list).
 
 ```clojure
+(define-cons sole 0) ;; Trivial data for testing.
+
+(define-cons null 0)
+(define-cons cons 2)
+
 (define-cons diff 2)
 
 (define-elim diff-append 2)
@@ -132,6 +140,8 @@ inet render docs/tests/list.inet
 ```
 inet render docs/tests/diff-list.inet
 ```
+
+[ [PLAYGROUND](https://inet.cicada-lang.org/playground/KGRlZmluZS1jb25zIHNvbGUgMCkgOzsgVHJpdmlhbCBkYXRhIGZvciB0ZXN0aW5nLgoKKGRlZmluZS1jb25zIG51bGwgMCkKKGRlZmluZS1jb25zIGNvbnMgMikKCihkZWZpbmUtY29ucyBkaWZmIDIpCgooZGVmaW5lLWVsaW0gZGlmZi1hcHBlbmQgMikKKGRlZmluZS1ydWxlIChkaWZmIGRpZmYtYXBwZW5kKQogIChsZXQgdGhhdCBsZWZ0IHJpZ2h0KQogIGxlZnQgdGhhdCBkaWZmLW9wZW4gcmlnaHQgZGlmZikKCihkZWZpbmUtZWxpbSBkaWZmLW9wZW4gMikKKGRlZmluZS1ydWxlIChkaWZmIGRpZmYtb3BlbikKICAobGV0IHJpZ2h0KSBjb25uZWN0IHJpZ2h0KQoKKGRlZmluZS1uZXQgb25lLXR3by1zb2xlcwogIHdpcmUgc29sZSBjb25zIGRpZmYKICB3aXJlIHNvbGUgY29ucyBzb2xlIGNvbnMgZGlmZgogIGRpZmYtYXBwZW5kKQoKKGRlZmluZS1uZXQgdHdvLXR3by1zb2xlcwogIHdpcmUgc29sZSBjb25zIHNvbGUgY29ucyBkaWZmCiAgd2lyZSBzb2xlIGNvbnMgc29sZSBjb25zIGRpZmYKICBkaWZmLWFwcGVuZCk) ]
 
 | one-two-soles.initial                                      | one-two-soles.finial                                      |
 | ---------------------------------------------------------- | --------------------------------------------------------- |
