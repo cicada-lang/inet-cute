@@ -1,5 +1,7 @@
 # Interaction Nets
 
+[ [PLAYGROUND](https://inet.cicada-lang.org/playground) ]
+
 An implementation of [Interaction Nets](https://en.wikipedia.org/wiki/Interaction_nets) in JavaScript.
 
 - Use [S-expression](https://github.com/cicada-lang/sexp) as overall syntax.
