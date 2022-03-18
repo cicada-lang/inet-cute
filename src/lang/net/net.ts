@@ -1,5 +1,6 @@
+import { Action } from "../action"
 import * as Defs from "../definitions"
-import { Action, Edge } from "../edge"
+import { Edge } from "../edge"
 import { InternalError } from "../errors"
 import { Module } from "../module"
 import { Node } from "../node"

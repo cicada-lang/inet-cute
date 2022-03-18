@@ -1,5 +1,3 @@
-- `action/`
-
 # later
 
 - `Node` with optionally named port
