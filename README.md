@@ -33,13 +33,21 @@ Books:
 - [Models of Computation -- An Introduction to Computability Theory, Maribel Fernández, 2009](./docs/books/models-of-computation--maribel-fernández.pdf).
   - Chapter 7. Interaction-Based Models of Computation.
 
-## Installation
+## Usage
+
+### Online playground
+
+Visit the [INet Playground](https://inet.cicada-lang.org/playground).
+
+### Command line tool
+
+The command line program is called `inet`.
+
+Install it by the following command:
 
 ```
 npm -g i @cicada-lang/inet
 ```
-
-The command line program is called `inet`.
 
 ## Examples
 
