@@ -9,3 +9,6 @@
   zero add1
   zero add1
   add)
+
+(define-net four
+  two two add)
