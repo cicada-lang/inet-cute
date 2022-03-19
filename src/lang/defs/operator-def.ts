@@ -6,7 +6,7 @@ export class OperatorDef extends Def {
   constructor(
     public mod: Module,
     public name: string,
-    public apply: (net: Net) => void
+    public refer: (net: Net) => void
   ) {
     super()
   }

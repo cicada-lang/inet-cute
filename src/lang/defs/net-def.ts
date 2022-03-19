@@ -12,7 +12,7 @@ export class NetDef extends Def {
     super()
   }
 
-  apply(net: Net): void {
+  refer(net: Net): void {
     for (const exp of this.exps) {
       exp.apply(this.mod, net)
     }

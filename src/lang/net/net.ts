@@ -57,7 +57,7 @@ export class Net {
 
     inputTypes[0] = new PrincipalType(inputTypes[0])
 
-    return new Defs.NodeDef(this.mod, name, inputTypes, []).apply(this)
+    return new Defs.NodeDef(this.mod, name, inputTypes, []).refer(this)
   }
 
   private releaseFreePorts(closer: Node | undefined): void {

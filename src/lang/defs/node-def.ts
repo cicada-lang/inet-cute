@@ -33,7 +33,7 @@ export class NodeDef extends Def {
     return new Node(this, this.input, this.output)
   }
 
-  apply(net: Net): Node {
+  refer(net: Net): Node {
     const node = this.build()
 
     // NOTE Be careful about the order.

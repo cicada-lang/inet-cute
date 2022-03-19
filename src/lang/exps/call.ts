@@ -14,7 +14,7 @@ export class Call extends Exp {
       net.portStore.delete(this.name)
       net.portStack.push(found)
     } else {
-      mod.getDefOrFail(this.name).apply(net)
+      mod.getDefOrFail(this.name).refer(net)
     }
   }
 }

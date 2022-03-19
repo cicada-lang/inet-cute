@@ -7,7 +7,7 @@ export class TypeDef extends Def {
     super()
   }
 
-  apply(net: Net): void {
+  refer(net: Net): void {
     throw new Error("TODO")
   }
 }
