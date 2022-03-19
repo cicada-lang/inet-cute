@@ -1,10 +1,10 @@
 import { Def } from "../def"
-import { Module } from "../module"
+import { Mod } from "../mod"
 import { Net } from "../net"
 
 export class OperatorDef extends Def {
   constructor(
-    public mod: Module,
+    public mod: Mod,
     public name: string,
     public refer: (net: Net) => void
   ) {

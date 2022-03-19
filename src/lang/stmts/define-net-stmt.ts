@@ -1,7 +1,7 @@
 import { Span } from "@cicada-lang/sexp/lib/span"
 import * as Defs from "../defs"
 import { Exp } from "../exp"
-import { Module } from "../module"
+import { Mod } from "../mod"
 import { Stmt } from "../stmt"
 
 export class DefineNetStmt extends Stmt {
@@ -9,7 +9,7 @@ export class DefineNetStmt extends Stmt {
     super()
   }
 
-  async execute(mod: Module): Promise<void> {
+  async execute(mod: Mod): Promise<void> {
     // TODO Type check the exps.
     mod.define(this.name, new Defs.NetDef(mod, this.name, this.exps))
   }

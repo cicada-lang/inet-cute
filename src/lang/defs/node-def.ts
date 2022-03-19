@@ -1,5 +1,5 @@
 import { Def } from "../def"
-import { Module } from "../module"
+import { Mod } from "../mod"
 import { Net } from "../net"
 import { Node } from "../node"
 import { Rule } from "../rule"
@@ -9,7 +9,7 @@ export class NodeDef extends Def {
   private rules: Map<string, Rule> = new Map()
 
   constructor(
-    public mod: Module,
+    public mod: Mod,
     public name: string,
     public input: Array<Type>,
     public output: Array<Type>

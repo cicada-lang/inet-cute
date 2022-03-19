@@ -1,6 +1,6 @@
 import { Edge } from "../edge"
 import { InternalError } from "../errors"
-import { Module } from "../module"
+import { Mod } from "../mod"
 import { Net } from "../net"
 import { Node } from "../node"
 import { Port } from "../port"
@@ -14,7 +14,7 @@ export class Action extends Edge {
     this.rule = rule
   }
 
-  act(mod: Module, net: Net): void {
+  act(mod: Mod, net: Net): void {
     // NOTE The state of action.
     const input: Array<Port> = []
     const output: Array<Port> = []

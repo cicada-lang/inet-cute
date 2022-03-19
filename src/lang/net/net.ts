@@ -2,20 +2,20 @@ import { Action } from "../action"
 import * as Defs from "../defs"
 import { Edge } from "../edge"
 import { InternalError } from "../errors"
-import { Module } from "../module"
+import { Mod } from "../mod"
 import { Node } from "../node"
 import { Port } from "../port"
 import { PrincipalType } from "../types"
 
 export class Net {
-  mod: Module
+  mod: Mod
   nodes: Array<Node> = new Array()
   edges: Array<Edge> = new Array()
   actions: Array<Action> = new Array()
   portStack: Array<Port> = new Array()
   portStore: Map<string, Port> = new Map()
 
-  constructor(mod: Module) {
+  constructor(mod: Mod) {
     this.mod = mod
   }
 

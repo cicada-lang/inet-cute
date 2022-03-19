@@ -5,7 +5,7 @@ import { Port } from "../port"
 import { Rule } from "../rule"
 import { builtInOperators } from "./built-in-operators"
 
-export class Module {
+export class Mod {
   defs: Map<string, Def> = new Map()
 
   constructor(public url: URL) {

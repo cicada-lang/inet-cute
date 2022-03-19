@@ -1,6 +1,6 @@
 import { Span } from "@cicada-lang/sexp/lib/span"
 import { Exp } from "../exp"
-import { Module } from "../module"
+import { Mod } from "../mod"
 import { Net } from "../net"
 
 export class Call extends Exp {
@@ -8,7 +8,7 @@ export class Call extends Exp {
     super()
   }
 
-  apply(mod: Module, net: Net): void {
+  apply(mod: Mod, net: Net): void {
     const found = net.portStore.get(this.name)
     if (found !== undefined) {
       net.portStore.delete(this.name)

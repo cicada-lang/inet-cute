@@ -1,8 +1,8 @@
-import { Module } from "../module"
+import { Mod } from "../mod"
 import { Net } from "../net"
 
 export abstract class Def {
-  abstract mod: Module
+  abstract mod: Mod
   abstract name: string
   abstract refer(net: Net): void
 }

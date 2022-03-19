@@ -1,9 +1,9 @@
 import * as Defs from "../defs"
-import { Module } from "../module"
+import { Mod } from "../mod"
 import { Port } from "../port"
 import { buildTypes } from "../types"
 
-export function builtInOperators(mod: Module): void {
+export function builtInOperators(mod: Mod): void {
   mod.defineOperator("swap", (net) => {
     const x1 = net.portStack.pop() as Port
     const x0 = net.portStack.pop() as Port

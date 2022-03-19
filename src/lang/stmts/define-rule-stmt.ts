@@ -1,6 +1,6 @@
 import { Span } from "@cicada-lang/sexp/lib/span"
 import { Exp } from "../exp"
-import { Module } from "../module"
+import { Mod } from "../mod"
 import { Rule } from "../rule"
 import { Stmt } from "../stmt"
 
@@ -14,7 +14,7 @@ export class DefineRuleStmt extends Stmt {
     super()
   }
 
-  async execute(mod: Module): Promise<void> {
+  async execute(mod: Mod): Promise<void> {
     const startNodeDef = mod.getNodeDefOrFail(this.start)
     const endNodeDef = mod.getNodeDefOrFail(this.end)
 

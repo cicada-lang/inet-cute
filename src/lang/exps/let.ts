@@ -1,6 +1,6 @@
 import { Span } from "@cicada-lang/sexp/lib/span"
 import { Exp } from "../exp"
-import { Module } from "../module"
+import { Mod } from "../mod"
 import { Net } from "../net"
 
 export class Let extends Exp {
@@ -8,13 +8,13 @@ export class Let extends Exp {
     super()
   }
 
-  apply(mod: Module, net: Net): void {
+  apply(mod: Mod, net: Net): void {
     for (const name of [...this.names].reverse()) {
       this.applyName(mod, net, name)
     }
   }
 
-  private applyName(mod: Module, net: Net, name: string): void {
+  private applyName(mod: Mod, net: Net, name: string): void {
     const found = net.portStore.get(name)
     if (found !== undefined) {
       throw new Error(

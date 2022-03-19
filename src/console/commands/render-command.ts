@@ -3,7 +3,7 @@ import { CommandRunner } from "@enchanterjs/enchanter/lib/command-runner"
 import ty from "@xieyuheng/ty"
 import fs from "fs"
 import Path from "path"
-import { Module } from "../../lang/module"
+import { Mod } from "../../lang/mod"
 import { Net } from "../../lang/net"
 import { parseStmts } from "../../lang/parser"
 import { NetRenderer } from "../../renderers/net-renderer"
@@ -44,7 +44,7 @@ export class RenderCommand extends Command<Args, Opts> {
   async execute(argv: Args & Opts): Promise<void> {
     const file = Path.resolve(argv.mod)
     const url = new URL(`file:${file}`)
-    const mod = new Module(url)
+    const mod = new Mod(url)
 
     const text = await fs.promises.readFile(file, "utf8")
     const stmts = parseStmts(text)
@@ -63,11 +63,7 @@ export class RenderCommand extends Command<Args, Opts> {
   }
 }
 
-async function renderNet(
-  mod: Module,
-  file: string,
-  name: string
-): Promise<void> {
+async function renderNet(mod: Mod, file: string, name: string): Promise<void> {
   const net = mod.buildNet(name)
   renderFile(net, `${file}.${name}.initial.svg`)
   net.run()

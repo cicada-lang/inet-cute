@@ -1,5 +1,5 @@
 import * as Defs from "../defs"
-import { Module } from "../module"
+import { Mod } from "../mod"
 import { Port } from "../port"
 import { Type } from "../type"
 
@@ -7,7 +7,7 @@ export class Node {
   static counter = 0
   id: number
   def: Defs.NodeDef
-  mod: Module
+  mod: Mod
   name: string
   types: Array<Type>
   input: Array<Port>

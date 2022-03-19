@@ -1,6 +1,6 @@
 import { Span } from "@cicada-lang/sexp/lib/span"
 import * as Defs from "../defs"
-import { Module } from "../module"
+import { Mod } from "../mod"
 import { Stmt } from "../stmt"
 import { buildTypes } from "../types"
 
@@ -14,7 +14,7 @@ export class DefineConsStmt extends Stmt {
     super()
   }
 
-  async execute(mod: Module): Promise<void> {
+  async execute(mod: Mod): Promise<void> {
     mod.define(
       this.name,
       new Defs.NodeDef(
