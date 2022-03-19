@@ -1,9 +1,9 @@
-import { Definition } from "../definition"
+import { Def } from "../def"
 import { Exp } from "../exp"
 import { Module } from "../module"
 import { Net } from "../net"
 
-export class NetDefinition extends Definition {
+export class NetDef extends Def {
   constructor(
     public mod: Module,
     public name: string,

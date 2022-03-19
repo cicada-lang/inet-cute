@@ -1,4 +1,4 @@
-import * as Defs from "../definitions"
+import * as Defs from "../defs"
 import { Module } from "../module"
 import { Port } from "../port"
 import { Type } from "../type"
@@ -6,7 +6,7 @@ import { Type } from "../type"
 export class Node {
   static counter = 0
   id: number
-  def: Defs.NodeDefinition
+  def: Defs.NodeDef
   mod: Module
   name: string
   types: Array<Type>
@@ -15,7 +15,7 @@ export class Node {
   inputReversed: Array<Port>
 
   constructor(
-    def: Defs.NodeDefinition,
+    def: Defs.NodeDef,
     inputTypes: Array<Type>,
     outputTypes: Array<Type>
   ) {

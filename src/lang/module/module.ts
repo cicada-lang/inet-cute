@@ -1,18 +1,18 @@
-import { Definition } from "../definition"
-import * as Defs from "../definitions"
+import { Def } from "../def"
+import * as Defs from "../defs"
 import { Net } from "../net"
 import { Port } from "../port"
 import { Rule } from "../rule"
 import { builtInOperators } from "./built-in-operators"
 
 export class Module {
-  defs: Map<string, Definition> = new Map()
+  defs: Map<string, Def> = new Map()
 
   constructor(public url: URL) {
     builtInOperators(this)
   }
 
-  getDefOrFail(name: string): Definition {
+  getDefOrFail(name: string): Def {
     const def = this.defs.get(name)
     if (def === undefined) {
       throw new Error(`Undefined name: ${name}`)
@@ -21,9 +21,9 @@ export class Module {
     return def
   }
 
-  getNodeDefOrFail(name: string): Defs.NodeDefinition {
+  getNodeDefOrFail(name: string): Defs.NodeDef {
     const def = this.getDefOrFail(name)
-    if (!(def instanceof Defs.NodeDefinition)) {
+    if (!(def instanceof Defs.NodeDef)) {
       throw new Error(
         `I expect a node definition, but ${name} is ${def.constructor.name}`
       )
@@ -32,9 +32,9 @@ export class Module {
     return def
   }
 
-  private getNetDefOrFail(name: string): Defs.NetDefinition {
+  private getNetDefOrFail(name: string): Defs.NetDef {
     const def = this.getDefOrFail(name)
-    if (!(def instanceof Defs.NetDefinition)) {
+    if (!(def instanceof Defs.NetDef)) {
       throw new Error(
         `I expect a net definition, but ${name} is ${def.constructor.name}`
       )
@@ -47,13 +47,13 @@ export class Module {
     this.getDefOrFail(exp).apply(net)
   }
 
-  define(name: string, def: Definition): this {
+  define(name: string, def: Def): this {
     this.defs.set(name, def)
     return this
   }
 
   defineOperator(name: string, apply: (net: Net) => void): this {
-    return this.define(name, new Defs.OperatorDefinition(this, name, apply))
+    return this.define(name, new Defs.OperatorDef(this, name, apply))
   }
 
   getRuleByPorts(start: Port, end: Port): Rule | undefined {
@@ -71,7 +71,7 @@ export class Module {
 
   allNetNames(): Array<string> {
     return Array.from(this.defs.values())
-      .filter((def) => def instanceof Defs.NetDefinition)
+      .filter((def) => def instanceof Defs.NetDef)
       .map((def) => def.name)
   }
 }

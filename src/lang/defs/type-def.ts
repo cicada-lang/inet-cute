@@ -1,8 +1,8 @@
-import { Definition } from "../definition"
+import { Def } from "../def"
 import { Module } from "../module"
 import { Net } from "../net"
 
-export class TypeDefinition extends Definition {
+export class TypeDef extends Def {
   constructor(public mod: Module, public name: string, public arity: number) {
     super()
   }

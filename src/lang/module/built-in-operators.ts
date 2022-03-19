@@ -1,4 +1,4 @@
-import * as Defs from "../definitions"
+import * as Defs from "../defs"
 import { Module } from "../module"
 import { Port } from "../port"
 import { buildTypes } from "../types"
@@ -24,7 +24,7 @@ export function builtInOperators(mod: Module): void {
   })
 
   mod.defineOperator("wire", (net) => {
-    const def = new Defs.NodeDefinition(
+    const def = new Defs.NodeDef(
       mod,
       "wire",
       [],

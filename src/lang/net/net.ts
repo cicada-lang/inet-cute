@@ -1,5 +1,5 @@
 import { Action } from "../action"
-import * as Defs from "../definitions"
+import * as Defs from "../defs"
 import { Edge } from "../edge"
 import { InternalError } from "../errors"
 import { Module } from "../module"
@@ -57,7 +57,7 @@ export class Net {
 
     inputTypes[0] = new PrincipalType(inputTypes[0])
 
-    return new Defs.NodeDefinition(this.mod, name, inputTypes, []).apply(this)
+    return new Defs.NodeDef(this.mod, name, inputTypes, []).apply(this)
   }
 
   private releaseFreePorts(closer: Node | undefined): void {
