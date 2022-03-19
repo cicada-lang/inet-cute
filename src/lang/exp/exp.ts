@@ -1,6 +1,6 @@
-import { Span } from "@cicada-lang/sexp/lib/span"
 import { Mod } from "../mod"
 import { Net } from "../net"
+import { Span } from "../span"
 
 export abstract class Exp {
   abstract span: Span

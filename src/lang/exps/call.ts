@@ -1,7 +1,7 @@
-import { Span } from "@cicada-lang/sexp/lib/span"
 import { Exp } from "../exp"
 import { Mod } from "../mod"
 import { Net } from "../net"
+import { Span } from "../span"
 
 export class Call extends Exp {
   constructor(public name: string, public span: Span) {

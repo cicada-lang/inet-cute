@@ -1,7 +1,7 @@
-import { Span } from "@cicada-lang/sexp/lib/span"
 import { Exp } from "../exp"
 import { Mod } from "../mod"
 import { Rule } from "../rule"
+import { Span } from "../span"
 import { Stmt } from "../stmt"
 
 export class DefineRuleStmt extends Stmt {

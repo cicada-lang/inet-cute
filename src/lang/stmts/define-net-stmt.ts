@@ -1,7 +1,7 @@
-import { Span } from "@cicada-lang/sexp/lib/span"
 import * as Defs from "../defs"
 import { Exp } from "../exp"
 import { Mod } from "../mod"
+import { Span } from "../span"
 import { Stmt } from "../stmt"
 
 export class DefineNetStmt extends Stmt {
