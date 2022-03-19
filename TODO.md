@@ -1,4 +1,4 @@
-- our Parser extends SexpParser
+- `Parser.parseStmts` should not log error
 
 # later
 

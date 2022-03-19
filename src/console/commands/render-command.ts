@@ -5,7 +5,7 @@ import fs from "fs"
 import Path from "path"
 import { Mod } from "../../lang/mod"
 import { Net } from "../../lang/net"
-import { parseStmts } from "../../lang/parser"
+import { Parser } from "../../lang/parser"
 import { NetRenderer } from "../../renderers/net-renderer"
 
 type Args = { mod: string }
@@ -47,7 +47,8 @@ export class RenderCommand extends Command<Args, Opts> {
     const mod = new Mod(url)
 
     const text = await fs.promises.readFile(file, "utf8")
-    const stmts = parseStmts(text)
+    const parser = new Parser()
+    const stmts = parser.parseStmts(text)
 
     for (const stmt of stmts) {
       stmt.execute(mod)
