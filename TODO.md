@@ -26,7 +26,7 @@
 
 # type check
 
-- `type-definition.ts` -- `apply`
+- `type-def.ts` -- `apply`
 
 - `define-type` -- `TermType`
 
