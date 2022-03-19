@@ -19,6 +19,6 @@ export class Parser extends SexpParser {
   }
 
   parseStmts(text: string): Array<Stmt> {
-    return this.parseMany(text).map(matchStmt)
+    return this.parseSexps(text).map(matchStmt)
   }
 }
