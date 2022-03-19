@@ -1,3 +1,4 @@
+import { ParsingError } from "@cicada-lang/sexp/lib/errors"
 import { Command } from "@enchanterjs/enchanter/lib/command"
 import { CommandRunner } from "@enchanterjs/enchanter/lib/command-runner"
 import ty from "@xieyuheng/ty"
@@ -48,18 +49,28 @@ export class RenderCommand extends Command<Args, Opts> {
 
     const text = await fs.promises.readFile(file, "utf8")
     const parser = new Parser()
-    const stmts = parser.parseStmts(text)
 
-    for (const stmt of stmts) {
-      stmt.execute(mod)
-    }
+    try {
+      const stmts = parser.parseStmts(text)
 
-    if (argv.name) {
-      renderNet(mod, file, argv.name)
-    } else {
-      for (const name of mod.allNetNames()) {
-        renderNet(mod, file, name)
+      for (const stmt of stmts) {
+        stmt.execute(mod)
       }
+
+      if (argv.name) {
+        renderNet(mod, file, argv.name)
+      } else {
+        for (const name of mod.allNetNames()) {
+          renderNet(mod, file, name)
+        }
+      }
+    } catch (error) {
+      if (error instanceof ParsingError) {
+        const report = error.span.report(text)
+        console.error(report)
+      }
+
+      throw error
     }
   }
 }
