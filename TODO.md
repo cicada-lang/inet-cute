@@ -1,3 +1,9 @@
+# prefix notations
+
+- we can also use `let` to handle multi return value when building graph.
+  - thus postfix notation is not needed.
+  - postfix notation is not good because of editing problem
+
 # later
 
 - `Node` with optionally named port
