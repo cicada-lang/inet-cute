@@ -7,8 +7,8 @@ An implementation of [Interaction Nets](https://en.wikipedia.org/wiki/Interactio
 
 ## Introduction
 
-Interaction nets is an interesting computation model designed by Yves Lafont at 1990,
-It uses undirected graph and graph rewriting to express computations.
+Interaction nets is an interesting computation model designed by Yves Lafont in 1990,
+It uses undirected graphs and graph rewriting to express computations.
 
 It is interesting because:
 
