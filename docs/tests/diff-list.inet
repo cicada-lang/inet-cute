@@ -7,12 +7,14 @@
 
 (define-elim diff-append 2)
 (define-rule (diff diff-append)
-  (let that left right)
-  left that diff-open right diff)
+  (let diff-list end start)
+  end diff-list diff-open start diff)
 
 (define-elim diff-open 2)
 (define-rule (diff diff-open)
-  (let right) connect right)
+  (let list end start)
+  list end connect
+  start)
 
 (define-net one-two-soles
   wire sole cons diff

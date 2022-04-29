@@ -1,0 +1,33 @@
+(define-cons sole 0)
+
+(define-cons null 0)
+(define-cons cons 2)
+
+(define-cons diff 2)
+
+(define-elim diff-append 2)
+
+(define-rule
+  (diff-append (diff start end) diff-list)
+  (diff start (diff-open diff-list end)))
+
+(define-elim diff-open 2)
+
+(define-rule
+  (diff-open (diff start end) list)
+  (connect end list)
+  start)
+
+(define-net one-two-soles
+  (let-wire x)
+  (let-wire y)
+  (diff-append
+   (diff (cons sole x) x)
+   (diff (cons sole (cons sole y)) y)))
+
+(define-net two-two-soles
+  (let-wire x)
+  (let-wire y)
+  (diff-append
+   (diff (cons sole (cons sole x)) x)
+   (diff (cons sole (cons sole y)) y)))
