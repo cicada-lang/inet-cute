@@ -1,3 +1,8 @@
+# linear prolog
+
+- from the example of `diff-list`,
+  we know that inet is like linear logic programming.
+
 # prefix notations
 
 - we can also use `let` to handle multi return value when building graph.
