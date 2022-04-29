@@ -1,3 +1,8 @@
+> [Question] Maybe postfix notation is good for
+> linear logic and sequenct calculus.
+
+- learn from Troelstra and Girard.
+
 # linear prolog
 
 - from the example of `diff-list`,
@@ -35,9 +40,6 @@
       - Example semantics:
         - Return Stack of values in Forth.
         - Tactic in Coq.
-
-    - [Question] Maybe postfix notation is good for
-      linear logic and sequenct calculus.
 
 # later
 
