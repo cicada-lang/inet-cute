@@ -25,6 +25,8 @@
       where during interaction with user,
       the context can be reported as feedback.
 
+      Dance with expressions in context.
+
       - Example semantics:
         - Return Stack of values in Forth.
         - Tactic in Coq.
