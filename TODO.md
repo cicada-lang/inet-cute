@@ -3,6 +3,10 @@
 
 - learn from Troelstra and Girard.
 
+# linear logic as type system of inet
+
+- learn from Lafont
+
 # linear prolog
 
 - from the example of `diff-list`,
