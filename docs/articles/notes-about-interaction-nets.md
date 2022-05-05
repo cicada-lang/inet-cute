@@ -105,17 +105,17 @@ After disconnecting, we put input ports back to the stack.
 (define-type List (- Type) Type)
 
 (define-cons null
-  (vague ([A Type])
-    A List))
+  (vague ((A Type)))
+  A List)
 
 (define-cons cons
-  (vague ([A Type])
-    (- A) (- A List)
-    A List))
+  (vague ((A Type)))
+  (- A) (- A List)
+  A List)
 
 (define-elim append
-  (implicit ([A Type])
-    (- A List))
+  (implicit ((A Type)))
+  (- A List)
   (- A List)
   A List)
 
@@ -147,19 +147,19 @@ After disconnecting, we put input ports back to the stack.
 (define-type Vector (- Type) (- Nat) Type)
 
 (define-cons null-vector
-  (vague ((A Type))
-    zero A Vector))
+  (vague ((A Type)))
+  zero A Vector)
 
 (define-cons cons-vector
-  (vague ((A Type) (prev Nat))
-    (- A) (- prev A Vector)
-    prev add1 A Vector))
+  (vague ((A Type) (prev Nat)))
+  (- A) (- prev A Vector)
+  prev add1 A Vector)
 
 (define-elim vector-append
-  (implicit ((A Type) (y Nat))
-    (- y A Vector))
-  (implicit ((x Nat))
-    (- x A Vector))
+  (implicit ((A Type) (y Nat)))
+  (- y A Vector)
+  (implicit ((x Nat)))
+  (- x A Vector)
   x y add A Vector)
 
 (define-rule (null-vector vector-append))
@@ -179,19 +179,19 @@ After disconnecting, we put input ports back to the stack.
 (define-type DiffList (- Type) Type)
 
 (define-cons diff
-  (vague ((A Type))
-    (- A List) (- A List)
-    A DiffList))
+  (vague ((A Type)))
+  (- A List) (- A List)
+  A DiffList)
 
 (define-elim diff-append
-  (implicit ((A Type))
-    (- A DiffList))
+  (implicit ((A Type)))
+  (- A DiffList)
   (- A DiffList)
   A DiffList)
 
 (define-elim diff-open
-  (implicit ((A Type))
-    (- A DiffList))
+  (implicit ((A Type)))
+  (- A DiffList)
   (- A List)
   A List)
 
