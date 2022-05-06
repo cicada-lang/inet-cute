@@ -1,8 +1,3 @@
-> [Question] Maybe postfix notation is good for
-> linear logic and sequenct calculus.
-
-- learn from Troelstra and Girard.
-
 # linear logic as type system of inet
 
 - learn from Lafont
@@ -30,6 +25,10 @@
       i.e. no parentheses to help us know the border of applications.
 
   - Pros:
+
+    - Postfix notation is the term for sequenct calculus, where
+      - cut rule -- concatenation (or say composition)
+      - exchange rule -- permutation operators like swap
 
     - Natural for function composition which is associative.
 
