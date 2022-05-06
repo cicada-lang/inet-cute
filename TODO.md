@@ -26,14 +26,14 @@
 
   - Pros:
 
-    - Postfix notation is the term for sequenct calculus of linear logic,
+    - Postfix notation is the term for sequent calculus of linear logic,
       specially when rules are written in right-side style
       and the comma is understand as "through".
 
       - cut rule -- concatenation (or say composition)
       - exchange rule -- permutation operators like swap
 
-      For sequenct calculus of intuitionistic logic,
+      For sequent calculus of intuitionistic logic,
       postfix notation is also the term,
       where multiple return value should be understand as "and".
 
