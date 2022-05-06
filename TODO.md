@@ -40,6 +40,8 @@
       Note that,
       - for linear logic, we use the stack to build graph (interaction net).
       - for intuitionistic logic, we use the stack to do computation directly.
+        - the proof of cut-elimination theorem should give us an algorithm to
+          reduce terms to normal form.
 
     - Natural for function composition which is associative.
 
