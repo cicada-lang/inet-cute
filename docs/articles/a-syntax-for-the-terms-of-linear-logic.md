@@ -129,7 +129,7 @@ rule add1 add {
   add add1
 }
 
-claim two { Nat }
+claim two { -- Nat }
 define two {
   zero add1
   zero add1
@@ -187,7 +187,7 @@ rule cons append {
   let (head) append head cons
 ]
 
-claim six-soles { Trivial List }
+claim six-soles { -- Trivial List }
 
 define six-soles {
   null sole cons sole cons sole cons
@@ -241,7 +241,7 @@ check { -- six Trivial Vector } {
 ```inet
 // |- ~List(A), ~List(A), DiffList(A)
 
-claim diff {
+constructor diff {
   vague (A: Type)
   A List A List
   ------
