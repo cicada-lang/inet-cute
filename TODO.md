@@ -1,7 +1,5 @@
 > linear logic as type system of inet
 
-- move paper to `docs/articles`
-
 - extract note of postfix notations
 
 - implement simple type for inet

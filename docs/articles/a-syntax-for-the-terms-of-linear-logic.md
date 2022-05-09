@@ -214,24 +214,26 @@ constructor cons-vector {
   prev add1 A Vector
 }
 
-TODO
+eliminator vector-append {
+  implicit (A: Type, y: Nat)
+  y A Vector
+  implicit (x: Nat)
+  x A Vector
+  ------
+  x y add A Vector
+}
 
-(eliminator vector-append
-  (implicit ((A Type) (y Nat)))
-  (- y A Vector)
-  (implicit ((x Nat)))
-  (- x A Vector)
-  x y add A Vector)
+rule null-vector vector-append {}
 
-(rule (null-vector vector-append))
+rule cons-vector vector-append {
+  let (head) vector-append head cons-vector
+}
 
-(rule (cons-vector vector-append)
-  (let head) vector-append head cons-vector)
-
-(check-net (six Trivial Vector)
+check { -- six Trivial Vector } {
   null-vector sole cons-vector sole cons-vector sole cons-vector
   null-vector sole cons-vector sole cons-vector sole cons-vector
-  vector-append)
+  vector-append
+}
 ```
 
 ## DiffList
@@ -247,33 +249,41 @@ claim diff {
 }
 ```
 
-```clojure
-(type DiffList (- Type) Type)
+```inet
+type DiffList { Type -- Type }
 
-(constructor diff
-  (vague ((A Type)))
-  (- A List) (- A List)
-  A DiffList)
+constructor diff {
+  vague (A: Type)
+  A List A List
+  ------
+  A DiffList
+}
 
-(eliminator diff-append
-  (implicit ((A Type)))
-  (- A DiffList)
-  (- A DiffList)
-  A DiffList)
+eliminator diff-append {
+  implicit (A: Type)
+  A DiffList
+  A DiffList
+  ------
+  A DiffList
+}
 
-(eliminator diff-open
-  (implicit ((A Type)))
-  (- A DiffList)
-  (- A List)
-  A List)
+eliminator diff-open {
+  implicit (A: Type)
+  A DiffList
+  A List
+  ------
+  A List
+}
 
-(rule (diff diff-open)
-  (let that left right)
-  that left connect right)
+rule diff diff-open {
+  let (that, left, right)
+  that left connect right
+}
 
-(rule (diff diff-append)
-  (let that left right)
-  left that diff-open right diff)
+rule diff diff-append {
+  let (that, left, right)
+  left that diff-open right diff
+}
 ```
 
 `wire` places the two ports of a special edge on the stack.
@@ -281,12 +291,14 @@ claim diff {
 If a wire's two ports are connected with port `A` and `B`,
 after building a net, we remove the wire, and connect `A` with `B`.
 
-```clojure
-(check-net (Trivial DiffList)
-  wire diff)
+```inet
+check { -- Trivial DiffList } {
+  wire diff
+}
 
-(check-net (Trivial DiffList)
+check { -- Trivial DiffList } {
   wire sole cons diff
   wire sole cons sole cons diff
-  diff-append)
+  diff-append
+}
 ```
