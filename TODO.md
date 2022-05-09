@@ -11,6 +11,10 @@
 
     - compare with simple typed lambda calculus' logic
 
+- how to understand additive connectives?
+  - conj -- `with` -- like `times` but can do projection only once?
+  - disj -- `plus` -- maybe need new primitive operator about parallelism
+
 # linear prolog
 
 - from the example of `diff-list`,
