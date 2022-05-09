@@ -1,6 +1,15 @@
-# linear logic as type system of inet
+> linear logic as type system of inet
 
-- learn from Lafont
+- move paper to `docs/articles`
+
+- extract note of postfix notations
+
+- implement simple type for inet
+
+  - is this first order theory?
+    i.e. without dependent type -- not as a foundation of mathematics
+
+    - compare with simple typed lambda calculus' logic
 
 # linear prolog
 
