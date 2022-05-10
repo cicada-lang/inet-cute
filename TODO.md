@@ -1,7 +1,11 @@
 # the paper
 
 - understand proof-nets for all connectives
+
+  - proof-nets--the-parallel-syntax-for-proof-theory--1995.pdf
+
 - phase space and monoid -- understand the model theory of linear logic
+
 - coherent space -- understand the denotational semantics of linear logic
 
 # simple types
