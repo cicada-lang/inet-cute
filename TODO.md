@@ -2,14 +2,14 @@
 
 > linear logic as type system of inet
 
-- is linear logic with simple types a first order theory?
+- Is linear logic with simple types a first order theory?
   i.e. without dependent type -- not as a foundation of mathematics
 
   - compare with simple typed lambda calculus' logic
 
 # linear prolog
 
-- from the example of `diff-list`,
+- From the example of `diff-list`,
   we know that inet is like linear logic programming.
 
 # later
