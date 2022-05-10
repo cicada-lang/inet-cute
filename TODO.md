@@ -3,6 +3,8 @@
 - understand proof-nets for all connectives
 
   - proof-nets--the-parallel-syntax-for-proof-theory--1995.pdf
+  - "The linear abstract machine", Lafont, 1990.
+  - "From proof-nets", Lafont, 1995
 
 - phase space and monoid -- understand the model theory of linear logic
 
