@@ -1,3 +1,9 @@
+# the paper
+
+- understand proof-nets for all connectives
+- phase space and monoid -- understand the model theory of linear logic
+- coherent space -- understand the denotational semantics of linear logic
+
 # simple types
 
 > linear logic as type system of inet
