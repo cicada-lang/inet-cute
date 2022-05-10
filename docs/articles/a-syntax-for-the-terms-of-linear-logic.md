@@ -115,6 +115,19 @@ eliminator <node> {
 }
 ```
 
+# Session types
+
+According to on Frank Pfenning's works,
+additive connectives of linear logic should be viewed as
+concurrency by message passing via channel.
+
+A linear logic proposition can be viewed the type of a channel.
+
+- **[problem]** Is alternative understanding of additive connectives possible?
+
+  - The additive conj -- `with` -- like `times` but can do projection only once?
+  - The additive disj -- `plus` -- maybe need new primitive operator about parallelism.
+
 # Type
 
 A type has a unique name and an arity.

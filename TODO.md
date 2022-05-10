@@ -1,16 +1,11 @@
+# simple types
+
 > linear logic as type system of inet
 
-- how to understand additive connectives?
+- is linear logic with simple types a first order theory?
+  i.e. without dependent type -- not as a foundation of mathematics
 
-  - conj -- `with` -- like `times` but can do projection only once?
-  - disj -- `plus` -- maybe need new primitive operator about parallelism
-
-- implement simple type for inet
-
-  - is this first order theory?
-    i.e. without dependent type -- not as a foundation of mathematics
-
-    - compare with simple typed lambda calculus' logic
+  - compare with simple typed lambda calculus' logic
 
 # linear prolog
 
