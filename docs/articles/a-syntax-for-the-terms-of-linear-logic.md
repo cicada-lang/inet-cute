@@ -11,8 +11,6 @@ keywords: [Sequent Calculus, Linear Logic, Interaction Nets, Syntax Design]
 By syntax, I mean expression implemented by syntax tree, not graph
 (if we use graph, we can draw interaction nets directly).
 
-And I use "syntax" as a countable noun syntaxes
-
 # TODO V.S. The Linear Abstract Machine
 
 # TODO Cut rule
