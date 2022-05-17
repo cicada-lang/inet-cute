@@ -1,11 +1,9 @@
-import { CommandRunner } from "@enchanterjs/enchanter/lib/command-runner"
-import * as CommandRunners from "@enchanterjs/enchanter/lib/command-runners"
-import { CommonHelpCommand } from "@enchanterjs/enchanter/lib/commands"
+import { CommandRunner, CommandRunners } from "@xieyuheng/command-line"
 import * as Commands from "./commands"
 
 export function createCommandRunner(): CommandRunner {
   return new CommandRunners.CommonCommandRunner({
-    defaultCommand: new CommonHelpCommand(),
-    commands: [new Commands.RenderCommand(), new CommonHelpCommand()],
+    defaultCommand: new Commands.CommonHelpCommand(),
+    commands: [new Commands.RenderCommand(), new Commands.CommonHelpCommand()],
   })
 }

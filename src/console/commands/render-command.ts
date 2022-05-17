@@ -1,6 +1,5 @@
 import { ParsingError } from "@cicada-lang/sexp/lib/errors"
-import { Command } from "@enchanterjs/enchanter/lib/command"
-import { CommandRunner } from "@enchanterjs/enchanter/lib/command-runner"
+import { Command, CommandRunner } from "@xieyuheng/command-line"
 import ty from "@xieyuheng/ty"
 import fs from "fs"
 import Path from "path"
