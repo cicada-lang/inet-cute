@@ -1,6 +1,6 @@
 {
   "name": "@cicada-lang/inet",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "repository": "github:cicada-lang/inet",
   "engines": {
     "node": "< 18"
