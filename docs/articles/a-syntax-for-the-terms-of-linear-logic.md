@@ -81,7 +81,7 @@ and the types of the ports must match with each other.
 
 # Node and its ports
 
-A node has a unique name.
+A node has a name.
 
 A node's ports are split into two lists,
 _input ports_ and _output ports_.
@@ -128,7 +128,7 @@ A linear logic proposition can be viewed the type of a channel.
 
 # Type
 
-A type has a unique name and an arity.
+A type has a name and an arity.
 
 # Building nets
 
