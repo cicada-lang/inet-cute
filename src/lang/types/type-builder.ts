@@ -19,7 +19,7 @@ export class TypeBuilder {
               `Fail to build type,`,
               `I expect a type on the stack when applying *`,
               `  exps: ${this.exps}`,
-            ].join("\n")
+            ].join("\n"),
           )
         } else {
           types.push(new Types.PrincipalType(t))

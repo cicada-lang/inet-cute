@@ -4,7 +4,10 @@ import { Net } from "../net"
 import { Span } from "../span"
 
 export class Call extends Exp {
-  constructor(public name: string, public span: Span) {
+  constructor(
+    public name: string,
+    public span: Span,
+  ) {
     super()
   }
 

@@ -4,7 +4,10 @@ import { Net } from "../net"
 import { Span } from "../span"
 
 export class Let extends Exp {
-  constructor(public names: Array<string>, public span: Span) {
+  constructor(
+    public names: Array<string>,
+    public span: Span,
+  ) {
     super()
   }
 
@@ -18,14 +21,14 @@ export class Let extends Exp {
     const found = net.portStore.get(name)
     if (found !== undefined) {
       throw new Error(
-        `Fail to save port to variable ${name}, because the variable is used.`
+        `Fail to save port to variable ${name}, because the variable is used.`,
       )
     }
 
     const port = net.portStack.pop()
     if (port === undefined) {
       throw new Error(
-        `Fail to save port to variable ${name}, because the port store is empty.`
+        `Fail to save port to variable ${name}, because the port store is empty.`,
       )
     }
 

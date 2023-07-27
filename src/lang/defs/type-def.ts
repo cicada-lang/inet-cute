@@ -3,7 +3,11 @@ import { Mod } from "../mod"
 import { Net } from "../net"
 
 export class TypeDef extends Def {
-  constructor(public mod: Mod, public name: string, public arity: number) {
+  constructor(
+    public mod: Mod,
+    public name: string,
+    public arity: number,
+  ) {
     super()
   }
 

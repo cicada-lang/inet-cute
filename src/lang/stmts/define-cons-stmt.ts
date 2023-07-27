@@ -9,7 +9,7 @@ export class DefineConsStmt extends Stmt {
     public name: string,
     public inputArity: number,
     public outputArity: number,
-    public span: Span
+    public span: Span,
   ) {
     super()
   }
@@ -21,8 +21,8 @@ export class DefineConsStmt extends Stmt {
         mod,
         this.name,
         buildTypes(Array(this.inputArity).fill("Any")),
-        buildTypes([...Array(this.outputArity).fill("Any"), "*"])
-      )
+        buildTypes([...Array(this.outputArity).fill("Any"), "*"]),
+      ),
     )
   }
 }

@@ -37,7 +37,7 @@ function disconnectNode(
   net: Net,
   node: Node,
   input: Array<Port>,
-  output: Array<Port>
+  output: Array<Port>,
 ): void {
   disconnectInput(net, node.input, input)
   disconnectOutput(net, node.output, output)
@@ -47,13 +47,13 @@ function disconnectNode(
 function disconnectInput(
   net: Net,
   ports: Array<Port>,
-  input: Array<Port>
+  input: Array<Port>,
 ): void {
   for (const port of ports) {
     if (!port.isPrincipal()) {
       if (port.connection === undefined) {
         throw new InternalError(
-          "I meet a port without connection during disconnecting input."
+          "I meet a port without connection during disconnecting input.",
         )
       }
 
@@ -66,13 +66,13 @@ function disconnectInput(
 function disconnectOutput(
   net: Net,
   ports: Array<Port>,
-  output: Array<Port>
+  output: Array<Port>,
 ): void {
   for (const port of ports) {
     if (!port.isPrincipal()) {
       if (port.connection === undefined) {
         throw new InternalError(
-          "I meet a port without connection during disconnecting output."
+          "I meet a port without connection during disconnecting output.",
         )
       }
 
@@ -89,7 +89,7 @@ function reconnectOutput(net: Net, output: Array<Port>): void {
         `Resulting ports doesn't match prepared output ports`,
         `  resulting ports length: ${net.portStack.length}`,
         `  prepared output ports length: ${output.length}`,
-      ].join("\n")
+      ].join("\n"),
     )
   }
 

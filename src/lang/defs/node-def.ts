@@ -12,7 +12,7 @@ export class NodeDef extends Def {
     public mod: Mod,
     public name: string,
     public input: Array<Type>,
-    public output: Array<Type>
+    public output: Array<Type>,
   ) {
     super()
   }
@@ -41,7 +41,7 @@ export class NodeDef extends Def {
       const top = net.portStack.pop()
       if (top === undefined) {
         throw new Error(
-          `I expect a port on top of the stack to match: ${port.format()}`
+          `I expect a port on top of the stack to match: ${port.format()}`,
         )
       }
 

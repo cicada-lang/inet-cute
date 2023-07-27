@@ -17,7 +17,7 @@ export class Node {
   constructor(
     def: Defs.NodeDef,
     inputTypes: Array<Type>,
-    outputTypes: Array<Type>
+    outputTypes: Array<Type>,
   ) {
     this.id = Node.counter++
     this.def = def
@@ -40,7 +40,7 @@ export class Node {
           `  number of principal types: ${principalTypes.length}`,
           `  id: ${this.id}`,
           `  name: ${this.name}`,
-        ].join("\n")
+        ].join("\n"),
       )
     }
   }

@@ -7,6 +7,6 @@ export class Rule {
     public mod: Mod,
     public start: Defs.NodeDef,
     public end: Defs.NodeDef,
-    public exps: Array<Exp>
+    public exps: Array<Exp>,
   ) {}
 }

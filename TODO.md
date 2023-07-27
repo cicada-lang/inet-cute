@@ -1,5 +1,7 @@
 refactor the exp from class to type
 
+use new syntex
+
 # the paper
 
 - phase space and monoid -- understand the model theory of linear logic

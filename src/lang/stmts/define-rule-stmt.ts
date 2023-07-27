@@ -9,7 +9,7 @@ export class DefineRuleStmt extends Stmt {
     public start: string,
     public end: string,
     public exps: Array<Exp>,
-    public span: Span
+    public span: Span,
   ) {
     super()
   }
@@ -20,7 +20,7 @@ export class DefineRuleStmt extends Stmt {
 
     startNodeDef.defineRule(
       endNodeDef,
-      new Rule(mod, startNodeDef, endNodeDef, this.exps)
+      new Rule(mod, startNodeDef, endNodeDef, this.exps),
     )
   }
 }

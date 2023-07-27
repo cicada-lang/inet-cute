@@ -20,7 +20,7 @@ export function matchStmt(sexp: Sexp): Stmt {
           matchSymbol(name),
           matchNumber(inputArity),
           matchNumber(outputArity),
-          sexp.span
+          sexp.span,
         ),
     ],
     [
@@ -30,7 +30,7 @@ export function matchStmt(sexp: Sexp): Stmt {
           matchSymbol(name),
           matchNumber(inputArity),
           1,
-          sexp.span
+          sexp.span,
         ),
     ],
     [
@@ -40,7 +40,7 @@ export function matchStmt(sexp: Sexp): Stmt {
           matchSymbol(name),
           matchNumber(inputArity),
           matchNumber(outputArity),
-          sexp.span
+          sexp.span,
         ),
     ],
     [
@@ -50,7 +50,7 @@ export function matchStmt(sexp: Sexp): Stmt {
           matchSymbol(name),
           matchNumber(inputArity),
           1,
-          sexp.span
+          sexp.span,
         ),
     ],
     [
@@ -65,7 +65,7 @@ export function matchStmt(sexp: Sexp): Stmt {
           matchSymbol(start),
           matchSymbol(end),
           matchExps(exps),
-          sexp.span
+          sexp.span,
         ),
     ],
   ])

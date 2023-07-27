@@ -4,7 +4,11 @@ import { Mod } from "../mod"
 import { Net } from "../net"
 
 export class NetDef extends Def {
-  constructor(public mod: Mod, public name: string, public exps: Array<Exp>) {
+  constructor(
+    public mod: Mod,
+    public name: string,
+    public exps: Array<Exp>,
+  ) {
     super()
   }
 

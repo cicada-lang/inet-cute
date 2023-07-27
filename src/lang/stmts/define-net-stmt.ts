@@ -5,7 +5,11 @@ import { Span } from "../span"
 import { Stmt } from "../stmt"
 
 export class DefineNetStmt extends Stmt {
-  constructor(public name: string, public exps: Array<Exp>, public span: Span) {
+  constructor(
+    public name: string,
+    public exps: Array<Exp>,
+    public span: Span,
+  ) {
     super()
   }
 

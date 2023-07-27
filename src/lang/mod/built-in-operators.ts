@@ -28,7 +28,7 @@ export function builtInOperators(mod: Mod): void {
       mod,
       "wire",
       [],
-      buildTypes(["Any", "Any", "*"])
+      buildTypes(["Any", "Any", "*"]),
     )
     const node = def.build()
 

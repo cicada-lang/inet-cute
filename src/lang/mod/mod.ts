@@ -25,7 +25,7 @@ export class Mod {
     const def = this.getDefOrFail(name)
     if (!(def instanceof Defs.NodeDef)) {
       throw new Error(
-        `I expect a node definition, but ${name} is ${def.constructor.name}`
+        `I expect a node definition, but ${name} is ${def.constructor.name}`,
       )
     }
 
@@ -36,7 +36,7 @@ export class Mod {
     const def = this.getDefOrFail(name)
     if (!(def instanceof Defs.NetDef)) {
       throw new Error(
-        `I expect a net definition, but ${name} is ${def.constructor.name}`
+        `I expect a net definition, but ${name} is ${def.constructor.name}`,
       )
     }
 
