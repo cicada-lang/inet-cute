@@ -5,37 +5,28 @@
   "files": [
     "lib"
   ],
-  "scripts": {
-    "build": "tsc",
-    "watch": "tsc --watch",
-    "test:js": "test-runner test node 'lib/**/*.test.js'",
-    "test:render": "test-runner test './bin/inet.js render' 'docs/tests/**/*.inet'",
-    "test": "npm-run-all test:*",
-    "format": "prettier src docs --write"
-  },
   "bin": {
     "inet": "bin/inet.js"
   },
-  "prettier": {
-    "semi": false,
-    "trailingComma": "es5"
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "test:js": "test-runner test node 'lib/**/*.test.js'",
+    "test:render": "test-runner test './bin/inet.js render' 'docs/tests/**/*.inet'",
+    "test": "npm run test:js && npm run test:render",
+    "format": "prettier src docs --write"
   },
   "devDependencies": {
-    "@types/node": "^18.11.17",
+    "@types/node": "^20.4.5",
     "@xieyuheng/test-runner": "^0.2.7",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.8.1",
-    "prettier-plugin-organize-imports": "^3.2.1",
-    "typescript": "^4.9.4"
+    "prettier": "^3.0.0",
+    "prettier-plugin-organize-imports": "^3.2.3",
+    "typescript": "^5.1.6"
   },
   "dependencies": {
     "@cicada-lang/sexp": "^0.0.36",
     "@xieyuheng/command-line": "^0.0.10",
-    "@xieyuheng/ty": "^0.1.20",
-    "fast-deep-equal": "^3.1.3",
-    "node-watch": "^0.7.3",
-    "picocolors": "^1.0.0",
-    "readdirp": "^3.6.0"
+    "@xieyuheng/ty": "^0.1.22"
   },
   "license": "GPL-3.0-or-later"
 }

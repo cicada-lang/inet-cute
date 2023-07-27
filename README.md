@@ -45,10 +45,10 @@ npm -g i @cicada-lang/inet
 ## Development
 
 ```
-npm install    // Install dependencies
-npm run build  // Compile `src/` to `lib/`
-npm run watch  // Watch the compilation
-npm run test   // Run test
+npm install          // Install dependencies
+npm run build        // Compile `src/` to `lib/`
+npm run build:watch  // Watch the compilation
+npm run test         // Run test
 ```
 
 ## Contributions
