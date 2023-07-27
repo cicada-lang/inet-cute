@@ -4,66 +4,66 @@ use new syntex
 
 # the paper
 
-- phase space and monoid -- understand the model theory of linear logic
+phase space and monoid -- understand the model theory of linear logic
 
-- coherent space -- understand the denotational semantics of linear logic
+coherent space -- understand the denotational semantics of linear logic
 
-- understand proof-nets for all connectives
+understand proof-nets for all connectives
 
-  - proof-nets--the-parallel-syntax-for-proof-theory--1995.pdf
-  - "The linear abstract machine", Lafont, 1990.
-  - "From proof-nets", Lafont, 1995
+- proof-nets--the-parallel-syntax-for-proof-theory--1995.pdf
+- "The linear abstract machine", Lafont, 1990.
+- "From proof-nets", Lafont, 1995
 
 # simple types
 
 > linear logic as type system of inet
 
-- Is linear logic with simple types a first order theory?
-  i.e. without dependent type -- not as a foundation of mathematics
+Is linear logic with simple types a first order theory?
+i.e. without dependent type -- not as a foundation of mathematics
 
-  - compare with simple typed lambda calculus' logic
+- compare with simple typed lambda calculus' logic
 
 # linear prolog
 
-- From the example of `diff-list`,
-  we know that inet is like linear logic programming.
+From the example of `diff-list`,
+we know that inet is like linear logic programming.
 
 # later
 
-- `Node` with optionally named port
+`Node` with optionally named port
 
-  - `NetRenderer` show free port names
+- `NetRenderer` show free port names
 
-- stmt.format
-- exp.format
+stmt.format
+exp.format
 
-- `NetRenderer` control order
+`NetRenderer` control order
 
-  - need to use builder pattern, just like building SQL query
+- need to use builder pattern, just like building SQL query
 
 # experiments
 
-- use inet to encode lambda calculus
-- use inet to encode class, object and message sending
+use inet to encode lambda calculus
+use inet to encode class, object and message sending
 
 # dependent types
 
-> Two levels of computations, execute and cut.
+Two levels of computations, execute and cut.
 
-- `Word.cut` & `Word.execute`
+`Word.cut` & `Word.execute`
 
-- equality between `Net`
-- use `Net` as type
+equality between `Net`
+use `Net` as type
 
 # type check
 
-- `type-def.ts` -- `apply`
+`type-def.ts` -- `apply`
 
-- `deftype` -- `TermType`
+`deftype` -- `TermType`
 
-- `forall` for generic type variables
+`forall` for generic type variables
 
-- `defnode` -- type check
-- `defnet` -- type check words composition
+`defnode` -- type check
+`defnet` -- type check words composition
 
-- `Edge` -- type check the two ports
+`Edge` -- type check the two ports
