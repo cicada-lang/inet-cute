@@ -18,16 +18,16 @@ where we give many choices and compare them?
 
 Use `defnode` to define a node.
 
-`->` separates input ports from output ports in the definition.
+`--` separates input ports from output ports in the definition.
 
 Use `!` as prefix to mark the principle port.
 
 ```inet
-defnode zero -> !return: Nat end
+defnode zero -- !return: Nat end
 
-defnode add1 prev: Nat -> !return: Nat end
+defnode add1 prev: Nat -- !return: Nat end
 
-defnode add !x: Nat y: Nat -> return: Nat end
+defnode add !x: Nat y: Nat -- return: Nat end
 ```
 
 If there is only one output port,
@@ -35,11 +35,11 @@ the `return` is the default name,
 thus can be omitted.
 
 ```inet
-defnode zero -> !Nat end
+defnode zero -- !Nat end
 
-defnode add1 prev: Nat -> !Nat end
+defnode add1 prev: Nat -- !Nat end
 
-defnode add !x: Nat y: Nat -> Nat end
+defnode add !x: Nat y: Nat -- Nat end
 ```
 
 Use `defrule` to define a rule,
@@ -85,20 +85,20 @@ end
 We use a simple type system like Haskell (for now).
 
 ```inet
-defnode sole -> !Sole end
+defnode sole -- !Sole end
 
-defnode null -> !List('a) end
+defnode null -- !List('a) end
 
 defnode cons
   head: List('a)
   tail: List('a)
-  -> !List('a)
+  -- !List('a)
 end
 
 defnode append
   left: !List('a)
   right: List('a)
-  -> List('a)
+  -- List('a)
 end
 
 defrule null append
@@ -133,19 +133,19 @@ end
 defnode diff
   left: List('a)
   right: List('a)
-  -> !DiffList('a)
+  -- !DiffList('a)
 end
 
 defnode diff_append
   !left: DiffList('a)
   right: DiffList('a)
-  -> DiffList('a)
+  -- DiffList('a)
 end
 
 defnode diff_open
   !DiffList('a)
   list: List('a)
-  -> List('a)
+  -- List('a)
 end
 
 defrule diff diff_append

@@ -59,11 +59,11 @@ use new syntex
 
 - `type-def.ts` -- `apply`
 
-- `define-type` -- `TermType`
+- `deftype` -- `TermType`
 
 - `forall` for generic type variables
 
-- `define-cons` & `define-elim` -- type check
-- `define-net` -- type check words composition
+- `defnode` -- type check
+- `defnet` -- type check words composition
 
 - `Edge` -- type check the two ports
