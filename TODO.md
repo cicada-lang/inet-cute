@@ -1,3 +1,7 @@
+remove the render
+
+refactor the exp from class to type
+
 # the paper
 
 - phase space and monoid -- understand the model theory of linear logic

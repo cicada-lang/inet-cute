@@ -1,0 +1,39 @@
+<metadata theme-color="white" />
+
+<front-cover>
+  Notes about the 1990 "Interaction Nets" paper, by Yves Lafont.
+</front-cover>
+
+<question>
+  What is interaction net (inet)?
+
+  <answer>
+    Interaction net is a linear computation model
+    based (indirected) graph.
+  </answer>
+</question>
+
+<question>
+  What is a computation model?
+
+  <answer>
+    Computation is directed changes.
+
+    A computation model is a group of rules about how to change.
+
+    An initial state is a program,
+    let it start changing by the rules,
+    is computation.
+  </answer>
+</question>
+
+<question>
+  What does "linear" mean in "linear computation model"?
+
+  <answer>
+    Linear means when a variable is used,
+    the value in the variable is taken out,
+    to use the variable again,
+    a new value must be put in.
+  </answer>
+</question>
