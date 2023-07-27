@@ -1,5 +1,3 @@
-remove the render
-
 refactor the exp from class to type
 
 # the paper

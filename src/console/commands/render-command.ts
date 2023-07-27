@@ -14,7 +14,7 @@ type Opts = { name?: string }
 export class RenderCommand extends Command<Args, Opts> {
   name = "render"
 
-  description = "Render a net of a module to initial and finial SVG files"
+  description = "Render a net of a module to initial and finial TXT files"
 
   args = { mod: ty.string() }
   opts = { name: ty.optional(ty.string()) }
@@ -24,7 +24,7 @@ export class RenderCommand extends Command<Args, Opts> {
     const { blue } = this.colors
 
     return [
-      `Given a module and a net, the ${blue(this.name)} command renders two SVG files,`,
+      `Given a module and a net, the ${blue(this.name)} command renders two TXT files,`,
       `one for the initial state of the net,`,
       `another for the finial state after all reductions.`,
       ``,
@@ -33,8 +33,8 @@ export class RenderCommand extends Command<Args, Opts> {
       blue(`  ${runner.name} ${this.name} docs/tests/nat.inet --name two`),
       ``,
       `The output files of the about command will be:`,
-      `  - docs/tests/nat.inet.nat.initial.svg`,
-      `  - docs/tests/nat.inet.nat.finial.svg`,
+      `  - docs/tests/nat.inet.nat.initial.txt`,
+      `  - docs/tests/nat.inet.nat.finial.txt`,
       ``,
       `Without explicit given a name, all named nets in the module will be rendered.`,
       ``,
@@ -76,9 +76,9 @@ export class RenderCommand extends Command<Args, Opts> {
 
 async function renderNet(mod: Mod, file: string, name: string): Promise<void> {
   const net = mod.buildNet(name)
-  renderFile(net, `${file}.${name}.initial.svg`)
+  renderFile(net, `${file}.${name}.initial.txt`)
   net.run()
-  renderFile(net, `${file}.${name}.finial.svg`)
+  renderFile(net, `${file}.${name}.finial.txt`)
 }
 
 async function renderFile(net: Net, output: string): Promise<void> {
