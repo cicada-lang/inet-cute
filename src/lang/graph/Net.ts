@@ -1,7 +1,8 @@
 import { InternalError } from "../errors"
-import { Action, Edge, Node, Port, createEdge } from "../graph"
+import { Action, Edge, Node, Port } from "../graph"
 import { Mod } from "../mod"
 import { netCloseFreePorts } from "./netCloseFreePorts"
+import { netConnect } from "./netConnect"
 import { netReleaseFreePorts } from "./netReleaseFreePorts"
 import { netRemoveEdge } from "./netRemoveEdge"
 import { netRemoveNode } from "./netRemoveNode"
@@ -36,7 +37,7 @@ export class Net {
         netRemoveNode(this, wire.start.node)
         netRemoveNode(this, wire.end.node)
 
-        this.connect(wire.start.connection.port, wire.end.connection.port)
+        netConnect(this, wire.start.connection.port, wire.end.connection.port)
       }
     }
 
@@ -51,15 +52,5 @@ export class Net {
     const action = this.actions.pop()
     if (action === undefined) return
     else action.act(this.mod, this)
-  }
-
-  connect(start: Port, end: Port): void {
-    const rule = this.mod.getRuleByPorts(start, end)
-
-    if (rule) {
-      this.actions.push(new Action(start, end, rule))
-    } else {
-      this.edges.push(createEdge(start, end))
-    }
   }
 }

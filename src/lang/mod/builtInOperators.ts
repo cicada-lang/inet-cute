@@ -1,6 +1,7 @@
 import { Mod } from "."
 import * as Defs from "../defs"
 import { Port } from "../graph"
+import { netConnect } from "../graph/netConnect"
 import { buildTypes } from "../types"
 
 export function builtInOperators(mod: Mod): void {
@@ -20,7 +21,7 @@ export function builtInOperators(mod: Mod): void {
   mod.defineOperator("connect", (net) => {
     const start = net.portStack.pop() as Port
     const end = net.portStack.pop() as Port
-    net.connect(start, end)
+    netConnect(net, start, end)
   })
 
   mod.defineOperator("wire", (net) => {

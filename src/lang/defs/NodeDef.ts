@@ -1,5 +1,6 @@
 import { Def } from "../def"
 import { Net, Node, createNode } from "../graph"
+import { netConnect } from "../graph/netConnect"
 import { Mod } from "../mod"
 import { Rule } from "../rule"
 import { Type } from "../type"
@@ -42,7 +43,7 @@ export class NodeDef extends Def {
         throw new Error(`I expect a port on top of the stack`)
       }
 
-      net.connect(top, port)
+      netConnect(net, top, port)
     }
 
     net.portStack.push(...node.output)

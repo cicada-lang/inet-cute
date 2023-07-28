@@ -1,5 +1,3 @@
-extract `netConnect`
-
 extract `netCleanUpWires`
 extract `netStep`
 extract `netRun`

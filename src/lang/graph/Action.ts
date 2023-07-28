@@ -2,6 +2,7 @@ import { InternalError } from "../errors"
 import { Net, Node, Port } from "../graph"
 import { Mod } from "../mod"
 import { Rule } from "../rule"
+import { netConnect } from "./netConnect"
 import { netRemoveEdge } from "./netRemoveEdge"
 import { netRemoveNode } from "./netRemoveNode"
 
@@ -94,6 +95,6 @@ function reconnectOutput(net: Net, output: Array<Port>): void {
   while (net.portStack.length > 0) {
     const start = net.portStack.pop() as Port
     const end = output.pop() as Port
-    net.connect(start, end)
+    netConnect(net, start, end)
   }
 }
