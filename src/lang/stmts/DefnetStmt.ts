@@ -1,5 +1,6 @@
 import * as Definitions from "../definitions"
 import { Mod } from "../mod"
+import { define } from "../mod/define"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { Word } from "../word"
@@ -14,7 +15,8 @@ export class DefnetStmt extends Stmt {
   }
 
   async execute(mod: Mod): Promise<void> {
-    mod.define(
+    define(
+      mod,
       this.name,
       new Definitions.NetDefinition(mod, this.name, this.words),
     )

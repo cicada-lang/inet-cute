@@ -19,3 +19,11 @@ is not only ports, but also strings, numbers and objects.
 Like in graph database, where a node in graph is a container,
 in which there can be an object.
 Maybe we can view our graph as container too.
+
+For syntax of a graph-based language, it is obvious that
+we need to use powerful computation to construct the syntax,
+is this also true for other syntax?
+For examples, more complicated one like cell-complex,
+and more simple one like tree.
+
+- See minimalist program of generative grammar.

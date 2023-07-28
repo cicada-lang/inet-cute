@@ -1,5 +1,6 @@
 import * as Definitions from "../definitions"
 import { Mod } from "../mod"
+import { define } from "../mod/define"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { createTrivialTypes } from "../type"
@@ -15,7 +16,8 @@ export class DefelimStmt extends Stmt {
   }
 
   async execute(mod: Mod): Promise<void> {
-    mod.define(
+    define(
+      mod,
       this.name,
       new Definitions.NodeDefinition(
         mod,

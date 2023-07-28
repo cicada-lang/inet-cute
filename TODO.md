@@ -1,4 +1,4 @@
-[mod] extract `define` `defineOperator`
+[mod] extract `defineOperator`
 
 `NodeDefinition` should not have `rules` -- use `RuleDefinition`
 
