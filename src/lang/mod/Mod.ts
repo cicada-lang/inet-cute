@@ -44,20 +44,12 @@ export class Mod {
     return definition
   }
 
-  apply(net: Net, exp: string): void {
-    this.getDefinitionOrFail(exp).meaning(net)
-  }
-
-  define(name: string, definition: Definition): this {
+  define(name: string, definition: Definition): void {
     this.definitions.set(name, definition)
-    return this
   }
 
-  defineOperator(name: string, apply: (net: Net) => void): this {
-    return this.define(
-      name,
-      new Definitions.OperatorDefinition(this, name, apply),
-    )
+  defineOperator(name: string, apply: (net: Net) => void): void {
+    this.define(name, new Definitions.OperatorDefinition(this, name, apply))
   }
 
   getRuleByPorts(start: Port, end: Port): Rule | undefined {
