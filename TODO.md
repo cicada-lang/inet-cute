@@ -1,4 +1,8 @@
-[mod] extract `modBuildNet`
+[mod] extract `modAllNetNames`
+
+[mod] extract all methods of `Mod`
+
+[mod] `createMod` -- `Mod` should be a type -- instead of a class
 
 `NodeDefinition` should not have `rules` -- use `RuleDefinition`
 

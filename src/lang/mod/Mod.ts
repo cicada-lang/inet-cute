@@ -1,8 +1,6 @@
 import { Definition } from "../definition"
 import * as Definitions from "../definitions"
-import { Net, Port } from "../graph"
-import { createNet } from "../graph/createNet"
-import { netCleanUpWires } from "../graph/netCleanUpWires"
+import { Port } from "../graph"
 import { Rule } from "../rule"
 import { defineBuiltInOperators } from "./defineBuiltInOperators"
 
@@ -33,7 +31,7 @@ export class Mod {
     return definition
   }
 
-  private lookupNetDefinitionOrFail(name: string): Definitions.NetDefinition {
+  lookupNetDefinitionOrFail(name: string): Definitions.NetDefinition {
     const definition = this.lookupDefinitionOrFail(name)
     if (!(definition instanceof Definitions.NetDefinition)) {
       throw new Error(
@@ -48,13 +46,6 @@ export class Mod {
     if (start.isPrincipal && end.isPrincipal) {
       return start.node.definition.lookupRule(end.node.definition)
     }
-  }
-
-  buildNet(name: string): Net {
-    const net = createNet(this)
-    this.lookupNetDefinitionOrFail(name).meaning(net)
-    netCleanUpWires(net)
-    return net
   }
 
   allNetNames(): Array<string> {
