@@ -1,12 +1,12 @@
-import * as Defs from "../defs"
+import * as Definitions from "../definitions"
 import { Node, createPort } from "../graph"
 import { Type } from "../type"
 
 let counter = 0
 
 export function createNode(
-  kind: Defs.NodeKind,
-  def: Defs.NodeDef,
+  kind: Definitions.NodeKind,
+  def: Definitions.NodeDefinition,
   inputTypes: Array<Type>,
   outputTypes: Array<Type>,
 ): Node {

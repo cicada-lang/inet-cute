@@ -1,4 +1,4 @@
-import * as Defs from "../defs"
+import * as Definitions from "../definitions"
 import { Node } from "../graph"
 import { Net } from "./Net"
 
@@ -10,5 +10,11 @@ export function netCloseFreePorts(net: Net): Node | undefined {
   // NOTE Maintain the "one principal port" constraint.
   const inputTypes = net.portStack.map((port) => port.t).reverse()
 
-  return new Defs.NodeDef(net.mod, "Elim", name, inputTypes, []).meaning(net)
+  return new Definitions.NodeDefinition(
+    net.mod,
+    "Elim",
+    name,
+    inputTypes,
+    [],
+  ).meaning(net)
 }

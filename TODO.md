@@ -1,5 +1,3 @@
-rename `def/` to `definition/`
-
 `RuleDefinition`
 
 `rules` should be part of `Mod` not `Node`

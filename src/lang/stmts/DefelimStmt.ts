@@ -1,4 +1,4 @@
-import * as Defs from "../defs"
+import * as Definitions from "../definitions"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
@@ -17,7 +17,7 @@ export class DefelimStmt extends Stmt {
   async execute(mod: Mod): Promise<void> {
     mod.define(
       this.name,
-      new Defs.NodeDef(
+      new Definitions.NodeDefinition(
         mod,
         "Elim",
         this.name,

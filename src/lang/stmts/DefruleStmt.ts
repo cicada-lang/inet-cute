@@ -15,12 +15,12 @@ export class DefruleStmt extends Stmt {
   }
 
   async execute(mod: Mod): Promise<void> {
-    const startNodeDef = mod.getNodeDefOrFail(this.start)
-    const endNodeDef = mod.getNodeDefOrFail(this.end)
+    const startNodeDefinition = mod.getNodeDefinitionOrFail(this.start)
+    const endNodeDefinition = mod.getNodeDefinitionOrFail(this.end)
 
-    startNodeDef.defineRule(
-      endNodeDef,
-      new Rule(mod, startNodeDef, endNodeDef, this.words),
+    startNodeDefinition.defineRule(
+      endNodeDefinition,
+      new Rule(mod, startNodeDefinition, endNodeDefinition, this.words),
     )
   }
 }
