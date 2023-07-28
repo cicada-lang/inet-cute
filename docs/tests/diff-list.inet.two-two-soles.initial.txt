@@ -34,3 +34,6 @@ cons#22
 diff-append#26 -- diff#25 [label="1-2" color=red]
 diff#25
 diff-append#26
+diff-append#26(2) -- diff-append#26
+diff-append#26
+diff-append#26(2)

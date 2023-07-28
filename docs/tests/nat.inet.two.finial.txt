@@ -4,3 +4,6 @@ add1#1
 add1#7 -- add1#1 [label="0-1"]
 add1#1
 add1#7
+add1#7(1) -- add1#7
+add1#7
+add1#7(1)

@@ -28,3 +28,6 @@ add#12
 add#17 -- add1#16 [label="1-1" color=red]
 add1#16
 add#17
+add#18(2) -- add#18
+add#18
+add#18(2)

@@ -40,3 +40,6 @@ append#14
 append#14 -- cons#13 [label="1-2" color=red]
 cons#13
 append#14
+append#14(2) -- append#14
+append#14
+append#14(2)

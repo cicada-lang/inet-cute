@@ -19,3 +19,6 @@ cons#6
 diff#13 -- cons#2 [label="0-2"]
 cons#2
 diff#13
+diff#13(2) -- diff#13
+diff#13
+diff#13(2)
