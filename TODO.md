@@ -1,5 +1,4 @@
 extract `netCleanUpWires`
-extract `netReleaseFreePorts`
 extract `netStep`
 extract `netRun`
 

@@ -5,6 +5,7 @@ import { Mod } from "../mod"
 import { Node } from "../node"
 import { Port } from "../port"
 import { netCloseFreePorts } from "./netCloseFreePorts"
+import { netReleaseFreePorts } from "./netReleaseFreePorts"
 
 export class Net {
   mod: Mod
@@ -23,7 +24,7 @@ export class Net {
     const closer = netCloseFreePorts(this)
     while (this.actions.length > 0) this.step()
     this.cleanUpWires()
-    this.releaseFreePorts(closer)
+    netReleaseFreePorts(this, closer)
   }
 
   cleanUpWires(): void {
@@ -40,23 +41,6 @@ export class Net {
     }
 
     this.wires = []
-  }
-
-  private releaseFreePorts(closer: Node | undefined): void {
-    if (closer === undefined) return
-
-    for (const port of closer.input.reverse()) {
-      if (port === undefined) return
-
-      if (port.connection === undefined) {
-        throw new InternalError("I expect port to have connection.")
-      }
-
-      this.portStack.push(port.connection.port)
-      this.removeEdge(port.connection.edge)
-    }
-
-    this.removeNode(closer)
   }
 
   private step(): void {
