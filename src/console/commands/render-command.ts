@@ -4,6 +4,7 @@ import ty from "@xieyuheng/ty"
 import fs from "fs"
 import Path from "path"
 import { Net } from "../../lang/graph"
+import { netRun } from "../../lang/graph/netRun"
 import { Mod } from "../../lang/mod"
 import { Parser } from "../../lang/syntax"
 import { NetRenderer } from "../../renderers/NetRenderer"
@@ -77,7 +78,7 @@ export class RenderCommand extends Command<Args, Opts> {
 async function renderNet(mod: Mod, file: string, name: string): Promise<void> {
   const net = mod.buildNet(name)
   renderFile(net, `${file}.${name}.initial.txt`)
-  net.run()
+  netRun(net)
   renderFile(net, `${file}.${name}.finial.txt`)
 }
 

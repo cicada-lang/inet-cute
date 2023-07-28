@@ -1,5 +1,6 @@
-extract `netStep`
 extract `netRun`
+
+command change render command to simple run command
 
 quit using `def/` and `defs/`
 
