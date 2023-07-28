@@ -1,6 +1,5 @@
 import * as Defs from "../defs"
-import { Node } from "../graph"
-import { createPort } from "../graph"
+import { Node, createPort } from "../graph"
 import { Type } from "../type"
 
 let counter = 0

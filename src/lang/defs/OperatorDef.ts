@@ -1,6 +1,6 @@
 import { Def } from "../def"
-import { Mod } from "../mod"
 import { Net } from "../graph"
+import { Mod } from "../mod"
 
 export class OperatorDef extends Def {
   constructor(

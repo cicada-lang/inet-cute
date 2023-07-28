@@ -1,5 +1,5 @@
-import { Mod } from "../mod"
 import { Net } from "../graph"
+import { Mod } from "../mod"
 import { Span } from "../span"
 
 export abstract class Exp {
