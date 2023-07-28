@@ -5,7 +5,7 @@ import { Type } from "../type"
 
 export type Node = {
   id: number
-  def: Definitions.NodeDefinition
+  definition: Definitions.NodeDefinition
   mod: Mod
   name: string
   types: Array<Type>

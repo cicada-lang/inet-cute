@@ -6,15 +6,15 @@ let counter = 0
 
 export function createNode(
   kind: Definitions.NodeKind,
-  def: Definitions.NodeDefinition,
+  definition: Definitions.NodeDefinition,
   inputTypes: Array<Type>,
   outputTypes: Array<Type>,
 ): Node {
   const node: Node = {
     id: counter++,
-    def: def,
-    mod: def.mod,
-    name: def.name,
+    definition,
+    mod: definition.mod,
+    name: definition.name,
     types: [...inputTypes, ...outputTypes],
     input: [],
     output: [],

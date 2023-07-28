@@ -14,42 +14,42 @@ export class Mod {
   }
 
   getDefinitionOrFail(name: string): Definition {
-    const def = this.definitions.get(name)
-    if (def === undefined) {
+    const definition = this.definitions.get(name)
+    if (definition === undefined) {
       throw new Error(`Undefined name: ${name}`)
     }
 
-    return def
+    return definition
   }
 
   getNodeDefinitionOrFail(name: string): Definitions.NodeDefinition {
-    const def = this.getDefinitionOrFail(name)
-    if (!(def instanceof Definitions.NodeDefinition)) {
+    const definition = this.getDefinitionOrFail(name)
+    if (!(definition instanceof Definitions.NodeDefinition)) {
       throw new Error(
-        `I expect a node definition, but ${name} is ${def.constructor.name}`,
+        `I expect a node definition, but ${name} is ${definition.constructor.name}`,
       )
     }
 
-    return def
+    return definition
   }
 
   private getNetDefinitionOrFail(name: string): Definitions.NetDefinition {
-    const def = this.getDefinitionOrFail(name)
-    if (!(def instanceof Definitions.NetDefinition)) {
+    const definition = this.getDefinitionOrFail(name)
+    if (!(definition instanceof Definitions.NetDefinition)) {
       throw new Error(
-        `I expect a net definition, but ${name} is ${def.constructor.name}`,
+        `I expect a net definition, but ${name} is ${definition.constructor.name}`,
       )
     }
 
-    return def
+    return definition
   }
 
   apply(net: Net, exp: string): void {
     this.getDefinitionOrFail(exp).meaning(net)
   }
 
-  define(name: string, def: Definition): this {
-    this.definitions.set(name, def)
+  define(name: string, definition: Definition): this {
+    this.definitions.set(name, definition)
     return this
   }
 
@@ -62,7 +62,7 @@ export class Mod {
 
   getRuleByPorts(start: Port, end: Port): Rule | undefined {
     if (start.isPrincipal && end.isPrincipal) {
-      return start.node.def.getRule(end.node.def)
+      return start.node.definition.getRule(end.node.definition)
     }
   }
 
@@ -75,7 +75,7 @@ export class Mod {
 
   allNetNames(): Array<string> {
     return Array.from(this.definitions.values())
-      .filter((def) => def instanceof Definitions.NetDefinition)
-      .map((def) => def.name)
+      .filter((definition) => definition instanceof Definitions.NetDefinition)
+      .map((definition) => definition.name)
   }
 }
