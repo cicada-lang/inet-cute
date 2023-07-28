@@ -1,4 +1,17 @@
-quit using `def/` and `defs/`
+should not use `PrincipalType` -- `isPrincipal` is a property of port
+
+- `NodeDef` has `kind`
+- `createNode` take `kind`
+
+`createTrivialTypes`
+
+`Type` should be type instead of class
+
+[maybe] quit using `def/` and `defs/`
+
+- but maybe to use `def/` is to have one namespace -- which is better
+
+  - maybe we should use `values`
 
 - `Mod` should have namespaces for
 
@@ -10,6 +23,8 @@ quit using `def/` and `defs/`
 
 `rules` should be part of `Mod` not `Node`
 
+`Node` should not have `def` -- which is used to `getRule`
+
 quit using `Action`
 
 `Action` should be type instead of class
@@ -17,12 +32,6 @@ quit using `Action`
 use new syntex
 
 use named port
-
-refactor the exp from class to type
-
-should not use `PrincipalType` -- `isPrincipal` is a property of port
-
-`Type` should be type instead of class
 
 `NetRenderer` -- format to simple text representation of graph
 
@@ -61,7 +70,6 @@ we know that inet is like linear logic programming.
 - `NetRenderer` show free port names
 
 stmt.format
-exp.format
 
 `NetRenderer` control order
 
