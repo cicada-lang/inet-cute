@@ -22,12 +22,4 @@ export class Port {
   format(): string {
     return `${this.node.format()}(${this.index})`
   }
-
-  inspect(): any {
-    return {
-      node: this.node.format(),
-      index: this.index,
-      t: this.t.format(),
-    }
-  }
 }

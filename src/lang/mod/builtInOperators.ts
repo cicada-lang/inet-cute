@@ -39,10 +39,4 @@ export function builtInOperators(mod: Mod): void {
 
     net.wires.push({ start, end })
   })
-
-  mod.defineOperator("inspect", (net) => {
-    const top = net.portStack.pop() as Port
-    console.log(top.inspect())
-    net.portStack.push(top)
-  })
 }
