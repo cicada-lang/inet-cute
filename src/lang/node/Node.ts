@@ -12,7 +12,7 @@ export class Node {
   types: Array<Type>
   input: Array<Port>
   output: Array<Port>
-  inputReversed: Array<Port>
+
 
   constructor(
     def: Defs.NodeDef,
@@ -27,9 +27,8 @@ export class Node {
     let portCount = 0
     this.input = inputTypes.map((t) => new Port(this, portCount++))
     this.output = outputTypes.map((t) => new Port(this, portCount++))
-    this.inputReversed = [...this.input].reverse()
-  }
 
+  }
 
   get arity(): number {
     return this.types.length - 1

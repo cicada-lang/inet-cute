@@ -37,7 +37,7 @@ export class NodeDef extends Def {
     const node = this.build()
 
     // NOTE Be careful about the order.
-    for (const port of node.inputReversed) {
+    for (const port of [...node.input].reverse()) {
       const top = net.portStack.pop()
       if (top === undefined) {
         throw new Error(
