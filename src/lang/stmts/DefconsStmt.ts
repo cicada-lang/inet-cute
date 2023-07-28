@@ -22,7 +22,7 @@ export class DefconsStmt extends Stmt {
         "Cons",
         this.name,
         buildTypes(Array(this.inputArity).fill("Any")),
-        buildTypes([...Array(this.outputArity).fill("Any"), "*"]),
+        buildTypes(Array(this.outputArity).fill("Any")),
       ),
     )
   }

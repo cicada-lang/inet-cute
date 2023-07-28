@@ -22,7 +22,7 @@ export class TypeBuilder {
             ].join("\n"),
           )
         } else {
-          types.push(new Types.PrincipalType(t))
+          throw new Error()
         }
       } else {
         types.push(new Types.AtomType(word))

@@ -25,5 +25,19 @@ export function createNode(
   node.input = inputTypes.map((t) => createPort(node, portCount++))
   node.output = outputTypes.map((t) => createPort(node, portCount++))
 
+  if (kind === "Cons") {
+    const lastPort = node.output[node.output.length - 1]
+    if (lastPort) {
+      lastPort.isPrincipal = true
+    }
+  }
+
+  if (kind === "Elim") {
+    const lastPort = node.input[node.input.length - 1]
+    if (lastPort) {
+      lastPort.isPrincipal = true
+    }
+  }
+
   return node
 }

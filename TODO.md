@@ -1,5 +1,3 @@
-should not use `PrincipalType` -- `isPrincipal` is a property of port
-
 `createTrivialTypes`
 
 `Type` should be type instead of class

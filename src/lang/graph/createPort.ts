@@ -7,6 +7,6 @@ export function createPort(node: Node, index: number): Port {
     node,
     index,
     t,
-    isPrincipal: t.isPrincipal(),
+    isPrincipal: false,
   }
 }
