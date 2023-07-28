@@ -1,6 +1,6 @@
 import * as Defs from "../defs"
 import { Mod } from "../mod"
-import { Port, createPort } from "../port"
+import { Port } from "../port"
 import { Type } from "../type"
 
 export type Node = {

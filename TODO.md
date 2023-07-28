@@ -1,13 +1,20 @@
-`Node` has `kind` or `"Elim"` or `"Cons"`
-
-remove `Type` for now
+extract `netCleanUpWires`
+extract `netReleaseFreePorts`
+extract `netStep`
+extract `netRun`
 
 `Net` should be type instead of class
 `Action` should be type instead of class
 
+use new syntex
+
+use named port
+
 refactor the exp from class to type
 
-use new syntex
+should not use `PrincipalType` -- `isPrincipal` is a property of port
+
+`Type` should be type instead of class
 
 # the paper
 

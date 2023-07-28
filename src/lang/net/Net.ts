@@ -1,11 +1,10 @@
 import { Action } from "../action"
-import * as Defs from "../defs"
 import { Edge, createEdge } from "../edge"
 import { InternalError } from "../errors"
 import { Mod } from "../mod"
 import { Node } from "../node"
 import { Port } from "../port"
-import { PrincipalType } from "../types"
+import { netCloseFreePorts } from "./netCloseFreePorts"
 
 export class Net {
   mod: Mod
@@ -14,19 +13,18 @@ export class Net {
   actions: Array<Action> = new Array()
   portStack: Array<Port> = new Array()
   portStore: Map<string, Port> = new Map()
+  wires: Array<{ start: Port; end: Port }> = new Array()
 
   constructor(mod: Mod) {
     this.mod = mod
   }
 
   run(): void {
-    const closer = this.closeFreePorts()
+    const closer = netCloseFreePorts(this)
     while (this.actions.length > 0) this.step()
     this.cleanUpWires()
     this.releaseFreePorts(closer)
   }
-
-  wires: Array<{ start: Port; end: Port }> = new Array()
 
   cleanUpWires(): void {
     for (const wire of this.wires) {
@@ -42,22 +40,6 @@ export class Net {
     }
 
     this.wires = []
-  }
-
-  private closeFreePorts(): Node | undefined {
-    if (this.portStack.length === 0) return undefined
-
-    const name = "*free-ports-closer*"
-
-    // NOTE Maintain the "one principal port" constraint.
-    const inputTypes = this.portStack
-      .map((port) => port.t)
-      .map((t) => (t.isPrincipal() ? (t as PrincipalType).t : t))
-      .reverse()
-
-    inputTypes[0] = new PrincipalType(inputTypes[0])
-
-    return new Defs.NodeDef(this.mod, name, inputTypes, []).refer(this)
   }
 
   private releaseFreePorts(closer: Node | undefined): void {

@@ -1,8 +1,7 @@
 import * as Defs from "../defs"
-import { Mod } from "../mod"
-import { Port, createPort } from "../port"
-import { Type } from "../type"
 import { Node } from "../node"
+import { createPort } from "../port"
+import { Type } from "../type"
 
 let counter = 0
 
@@ -11,8 +10,6 @@ export function createNode(
   inputTypes: Array<Type>,
   outputTypes: Array<Type>,
 ): Node {
-
-
   const node: Node = {
     id: counter++,
     def: def,
@@ -20,7 +17,7 @@ export function createNode(
     name: def.name,
     types: [...inputTypes, ...outputTypes],
     input: [],
-    output: []
+    output: [],
   }
 
   let portCount = 0

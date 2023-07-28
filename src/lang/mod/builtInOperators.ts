@@ -1,5 +1,5 @@
-import * as Defs from "../defs"
 import { Mod } from "."
+import * as Defs from "../defs"
 import { Port } from "../port"
 import { buildTypes } from "../types"
 

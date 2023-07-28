@@ -1,4 +1,3 @@
-import { Edge } from "../edge"
 import { InternalError } from "../errors"
 import { Mod } from "../mod"
 import { Net } from "../net"

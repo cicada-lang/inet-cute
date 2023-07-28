@@ -14,7 +14,6 @@ export class DefnetStmt extends Stmt {
   }
 
   async execute(mod: Mod): Promise<void> {
-    // TODO Type check the exps.
     mod.define(this.name, new Defs.NetDef(mod, this.name, this.exps))
   }
 }

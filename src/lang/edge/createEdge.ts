@@ -1,5 +1,5 @@
-import { Port } from "../port"
 import { Edge } from "../edge"
+import { Port } from "../port"
 
 export function createEdge(start: Port, end: Port): Edge {
   const edge = { start, end }
