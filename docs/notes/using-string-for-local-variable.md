@@ -13,3 +13,7 @@ defn cons append
   "head" get cons
 end
 ```
+
+How about keywords like `put`, but need a code block?
+
+TODO

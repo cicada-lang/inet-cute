@@ -45,7 +45,7 @@ export class Mod {
   }
 
   apply(net: Net, exp: string): void {
-    this.getDefOrFail(exp).refer(net)
+    this.getDefOrFail(exp).meaning(net)
   }
 
   define(name: string, def: Def): this {
@@ -65,7 +65,7 @@ export class Mod {
 
   buildNet(name: string): Net {
     const net = createNet(this)
-    this.getNetDefOrFail(name).refer(net)
+    this.getNetDefOrFail(name).meaning(net)
     netCleanUpWires(net)
     return net
   }

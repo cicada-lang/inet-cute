@@ -36,7 +36,7 @@ export class NodeDef extends Def {
     return createNode(this.kind, this, this.input, this.output)
   }
 
-  refer(net: Net): Node {
+  meaning(net: Net): Node {
     const node = this.build()
 
     // NOTE Be careful about the order.

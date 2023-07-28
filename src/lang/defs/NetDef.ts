@@ -12,7 +12,7 @@ export class NetDef extends Def {
     super()
   }
 
-  refer(net: Net): void {
+  meaning(net: Net): void {
     for (const word of this.words) {
       word.apply(this.mod, net)
     }

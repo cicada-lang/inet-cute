@@ -10,5 +10,5 @@ export function netCloseFreePorts(net: Net): Node | undefined {
   // NOTE Maintain the "one principal port" constraint.
   const inputTypes = net.portStack.map((port) => port.t).reverse()
 
-  return new Defs.NodeDef(net.mod, "Elim", name, inputTypes, []).refer(net)
+  return new Defs.NodeDef(net.mod, "Elim", name, inputTypes, []).meaning(net)
 }

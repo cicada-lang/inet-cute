@@ -1,16 +1,6 @@
-[maybe] quit using `def/` and `defs/`
+rename `def/` to `definition/`
 
-- but maybe to use `def/` is to have one namespace -- which is better
-
-  - maybe we should use `values`
-
-- `Mod` should have namespaces for
-
-  - types
-  - nodes
-  - rules
-  - nets
-  - operators
+`RuleDefinition`
 
 `rules` should be part of `Mod` not `Node`
 
