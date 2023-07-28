@@ -12,8 +12,6 @@ quit using `def/` and `defs/`
 
 quit using `Action`
 
-`Net` should be type instead of class
-
 `Action` should be type instead of class
 
 use new syntex

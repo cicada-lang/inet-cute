@@ -1,17 +1,13 @@
 import { Action, Edge, Node, Port } from "../graph"
 import { Mod } from "../mod"
 
-export class Net {
+export type Net = {
   mod: Mod
-  nodes: Array<Node> = new Array()
-  edges: Array<Edge> = new Array()
-  actions: Array<Action> = new Array()
-  portStack: Array<Port> = new Array()
+  nodes: Array<Node>
+  edges: Array<Edge>
+  actions: Array<Action>
+  portStack: Array<Port>
   // for named local variables.
-  portStore: Map<string, Port> = new Map()
-  wires: Array<{ start: Port; end: Port }> = new Array()
-
-  constructor(mod: Mod) {
-    this.mod = mod
-  }
+  portStore: Map<string, Port>
+  wires: Array<{ start: Port; end: Port }>
 }
