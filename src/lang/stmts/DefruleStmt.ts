@@ -4,7 +4,7 @@ import { Rule } from "../rule"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 
-export class DefRuleStmt extends Stmt {
+export class DefruleStmt extends Stmt {
   constructor(
     public start: string,
     public end: string,
