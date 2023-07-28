@@ -1,11 +1,9 @@
 import { InternalError } from "../errors"
 import { Action, Edge, Node, Port } from "../graph"
 import { Mod } from "../mod"
+import { netCleanUpWires } from "./netCleanUpWires"
 import { netCloseFreePorts } from "./netCloseFreePorts"
-import { netConnect } from "./netConnect"
 import { netReleaseFreePorts } from "./netReleaseFreePorts"
-import { netRemoveEdge } from "./netRemoveEdge"
-import { netRemoveNode } from "./netRemoveNode"
 
 export class Net {
   mod: Mod
@@ -24,24 +22,8 @@ export class Net {
   run(): void {
     const closer = netCloseFreePorts(this)
     while (this.actions.length > 0) this.step()
-    this.cleanUpWires()
+    netCleanUpWires(this)
     netReleaseFreePorts(this, closer)
-  }
-
-  cleanUpWires(): void {
-    for (const wire of this.wires) {
-      if (wire.start.connection && wire.end.connection) {
-        netRemoveEdge(this, wire.start.connection.edge)
-        netRemoveEdge(this, wire.end.connection.edge)
-
-        netRemoveNode(this, wire.start.node)
-        netRemoveNode(this, wire.end.node)
-
-        netConnect(this, wire.start.connection.port, wire.end.connection.port)
-      }
-    }
-
-    this.wires = []
   }
 
   private step(): void {

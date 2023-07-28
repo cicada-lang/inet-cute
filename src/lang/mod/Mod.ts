@@ -1,6 +1,7 @@
 import { Def } from "../def"
 import * as Defs from "../defs"
 import { Net, Port } from "../graph"
+import { netCleanUpWires } from "../graph/netCleanUpWires"
 import { Rule } from "../rule"
 import { builtInOperators } from "./builtInOperators"
 
@@ -64,7 +65,7 @@ export class Mod {
   buildNet(name: string): Net {
     const net = new Net(this)
     this.getNetDefOrFail(name).refer(net)
-    net.cleanUpWires()
+    netCleanUpWires(net)
     return net
   }
 

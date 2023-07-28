@@ -1,4 +1,3 @@
-extract `netCleanUpWires`
 extract `netStep`
 extract `netRun`
 
