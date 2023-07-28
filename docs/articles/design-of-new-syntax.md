@@ -85,7 +85,7 @@ end
 We use a simple type system like Haskell (for now).
 
 ```inet
-defnode sole -- !Sole end
+defnode sole -- !Trivial end
 
 defnode null -- !List('a) end
 

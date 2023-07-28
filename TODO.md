@@ -1,5 +1,3 @@
-`createTrivialTypes`
-
 `Type` should be type instead of class
 
 [maybe] quit using `def/` and `defs/`

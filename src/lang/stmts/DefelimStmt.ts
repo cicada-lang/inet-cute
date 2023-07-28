@@ -2,7 +2,7 @@ import * as Defs from "../defs"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
-import { buildTypes } from "../types"
+import { createTrivialTypes } from "../type"
 
 export class DefelimStmt extends Stmt {
   constructor(
@@ -21,8 +21,8 @@ export class DefelimStmt extends Stmt {
         mod,
         "Elim",
         this.name,
-        buildTypes(Array(this.inputArity).fill("Any")),
-        buildTypes(Array(this.outputArity).fill("Any")),
+        createTrivialTypes(this.inputArity),
+        createTrivialTypes(this.outputArity),
       ),
     )
   }
