@@ -1,37 +1,37 @@
-cons#16 -- sole#15 [label="1-0"]
+cons#16 -- sole#15 [label="0-0"]
 sole#15
 cons#16
-cons#18 -- sole#17 [label="1-0"]
+cons#18 -- sole#17 [label="0-0"]
 sole#17
 cons#18
-cons#18 -- cons#16 [label="0-2"]
+cons#18 -- cons#16 [label="1-2"]
 cons#16
 cons#18
-diff#19 -- cons#18 [label="1-2"]
+diff#19 -- cons#18 [label="0-2"]
 cons#18
 diff#19
-cons#22 -- sole#21 [label="1-0"]
+cons#22 -- sole#21 [label="0-0"]
 sole#21
 cons#22
-cons#24 -- sole#23 [label="1-0"]
+cons#24 -- sole#23 [label="0-0"]
 sole#23
 cons#24
-cons#24 -- cons#22 [label="0-2"]
+cons#24 -- cons#22 [label="1-2"]
 cons#22
 cons#24
-diff#25 -- cons#24 [label="1-2"]
+diff#25 -- cons#24 [label="0-2"]
 cons#24
 diff#25
-diff-append#26 -- diff#19 [label="0-2"]
+diff-append#26 -- diff#19 [label="1-2"]
 diff#19
 diff-append#26
-cons#16 -- diff#19 [label="0-0"]
+cons#16 -- diff#19 [label="1-1"]
 diff#19
 cons#16
-cons#22 -- diff#25 [label="0-0"]
+cons#22 -- diff#25 [label="1-1"]
 diff#25
 cons#22
-diff-append#26 -- diff#25 [label="1-2" color=red]
+diff-append#26 -- diff#25 [label="0-2" color=red]
 diff#25
 diff-append#26
 diff-append#26(2) -- diff-append#26

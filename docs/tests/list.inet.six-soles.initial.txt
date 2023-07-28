@@ -1,43 +1,43 @@
-cons#2 -- sole#1 [label="1-0"]
+cons#2 -- sole#1 [label="0-0"]
 sole#1
 cons#2
-cons#2 -- null#0 [label="0-0"]
+cons#2 -- null#0 [label="1-0"]
 null#0
 cons#2
-cons#4 -- sole#3 [label="1-0"]
+cons#4 -- sole#3 [label="0-0"]
 sole#3
 cons#4
-cons#4 -- cons#2 [label="0-2"]
+cons#4 -- cons#2 [label="1-2"]
 cons#2
 cons#4
-cons#6 -- sole#5 [label="1-0"]
+cons#6 -- sole#5 [label="0-0"]
 sole#5
 cons#6
-cons#6 -- cons#4 [label="0-2"]
+cons#6 -- cons#4 [label="1-2"]
 cons#4
 cons#6
-cons#9 -- sole#8 [label="1-0"]
+cons#9 -- sole#8 [label="0-0"]
 sole#8
 cons#9
-cons#9 -- null#7 [label="0-0"]
+cons#9 -- null#7 [label="1-0"]
 null#7
 cons#9
-cons#11 -- sole#10 [label="1-0"]
+cons#11 -- sole#10 [label="0-0"]
 sole#10
 cons#11
-cons#11 -- cons#9 [label="0-2"]
+cons#11 -- cons#9 [label="1-2"]
 cons#9
 cons#11
-cons#13 -- sole#12 [label="1-0"]
+cons#13 -- sole#12 [label="0-0"]
 sole#12
 cons#13
-cons#13 -- cons#11 [label="0-2"]
+cons#13 -- cons#11 [label="1-2"]
 cons#11
 cons#13
-append#14 -- cons#6 [label="0-2"]
+append#14 -- cons#6 [label="1-2"]
 cons#6
 append#14
-append#14 -- cons#13 [label="1-2" color=red]
+append#14 -- cons#13 [label="0-2" color=red]
 cons#13
 append#14
 append#14(2) -- append#14

@@ -33,9 +33,9 @@ export function createNode(
   }
 
   if (kind === "Elim") {
-    const lastPort = node.input[node.input.length - 1]
-    if (lastPort) {
-      lastPort.isPrincipal = true
+    const firstPort = node.input[0]
+    if (firstPort) {
+      firstPort.isPrincipal = true
     }
   }
 

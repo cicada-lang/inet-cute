@@ -40,7 +40,7 @@ export class NodeDefinition extends Definition {
     const node = this.build()
 
     // NOTE Be careful about the order.
-    for (const port of [...node.input].reverse()) {
+    for (const port of node.input) {
       const top = net.portStack.pop()
       if (top === undefined) {
         throw new Error(`I expect a port on top of the stack`)
