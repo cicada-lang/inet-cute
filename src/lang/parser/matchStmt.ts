@@ -24,32 +24,12 @@ export function matchStmt(sexp: Sexp): Stmt {
         ),
     ],
     [
-      ["defcons", v("name"), v("inputArity")],
-      ({ name, inputArity }) =>
-        new Stmts.DefconsStmt(
-          matchSymbol(name),
-          matchNumber(inputArity),
-          1,
-          sexp.span,
-        ),
-    ],
-    [
       ["defelim", v("name"), v("inputArity"), v("outputArity")],
       ({ name, inputArity, outputArity }) =>
         new Stmts.DefelimStmt(
           matchSymbol(name),
           matchNumber(inputArity),
           matchNumber(outputArity),
-          sexp.span,
-        ),
-    ],
-    [
-      ["defelim", v("name"), v("inputArity")],
-      ({ name, inputArity }) =>
-        new Stmts.DefelimStmt(
-          matchSymbol(name),
-          matchNumber(inputArity),
-          1,
           sexp.span,
         ),
     ],

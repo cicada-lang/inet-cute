@@ -1,4 +1,4 @@
-`Node` has `principalIndex`
+`Node` has `kind` or `"Elim"` or `"Cons"`
 
 remove `Type` for now
 

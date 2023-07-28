@@ -1,16 +1,18 @@
-(defcons sole 0)
+(defcons sole 0 1)
 
-(defcons null 0)
-(defcons cons 2)
+(defcons null 0 1)
+(defcons cons 2 1)
 
-(defcons diff 2)
+(defcons diff 2 1)
 
-(defelim diff-append 2)
+(defelim diff-append 2 1)
+
 (defrule (diff diff-append)
   (let diff-list end start)
   end diff-list diff-open start diff)
 
-(defelim diff-open 2)
+(defelim diff-open 2 1)
+
 (defrule (diff diff-open)
   (let list end start)
   list end connect

@@ -1,8 +1,11 @@
-(defcons zero 0)
-(defcons add1 1)
+(defcons zero 0 1)
 
-(defelim add 2)
+(defcons add1 1 1)
+
+(defelim add 2 1)
+
 (defrule (zero add))
+
 (defrule (add1 add) add add1)
 
 (defnet two
