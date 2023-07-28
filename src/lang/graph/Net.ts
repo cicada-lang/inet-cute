@@ -1,9 +1,6 @@
-import { Action } from "../action"
-import { Edge, createEdge } from "../edge"
 import { InternalError } from "../errors"
+import { Action, Edge, Node, Port, createEdge } from "../graph"
 import { Mod } from "../mod"
-import { Node } from "../node"
-import { Port } from "../port"
 import { netCloseFreePorts } from "./netCloseFreePorts"
 import { netReleaseFreePorts } from "./netReleaseFreePorts"
 
@@ -13,7 +10,7 @@ export class Net {
   edges: Array<Edge> = new Array()
   actions: Array<Action> = new Array()
   portStack: Array<Port> = new Array()
-  // for named local variables.  
+  // for named local variables.
   portStore: Map<string, Port> = new Map()
   wires: Array<{ start: Port; end: Port }> = new Array()
 

@@ -1,7 +1,7 @@
 import { Def } from "../def"
 import * as Defs from "../defs"
-import { Net } from "../net"
-import { Port } from "../port"
+import { Net } from "../graph"
+import { Port } from "../graph"
 import { Rule } from "../rule"
 import { builtInOperators } from "./builtInOperators"
 

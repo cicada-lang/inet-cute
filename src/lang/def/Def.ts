@@ -1,5 +1,5 @@
 import { Mod } from "../mod"
-import { Net } from "../net"
+import { Net } from "../graph"
 
 export abstract class Def {
   abstract mod: Mod

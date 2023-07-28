@@ -1,5 +1,5 @@
-import { Edge } from "../edge"
-import { Node } from "../node"
+import { Edge } from "../graph"
+import { Node } from "../graph"
 import { Type } from "../type"
 
 export type Port = {

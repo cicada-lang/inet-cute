@@ -1,5 +1,5 @@
-import { Node } from "../node"
-import { Port } from "../port"
+import { Node } from "../graph"
+import { Port } from "../graph"
 
 export function createPort(node: Node, index: number): Port {
   const t = node.types[index]

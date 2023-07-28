@@ -1,5 +1,3 @@
-move `net` and `node` and friends to `graph/`
-
 rename `Exp` to `Word`
 
 extract `netRemoveNode`

@@ -1,5 +1,5 @@
 import { InternalError } from "../errors"
-import { Node } from "../node"
+import { Node } from "../graph"
 import { Net } from "./Net"
 
 export function netReleaseFreePorts(net: Net, closer: Node | undefined): void {

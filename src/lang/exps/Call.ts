@@ -1,6 +1,6 @@
 import { Exp } from "../exp"
 import { Mod } from "../mod"
-import { Net } from "../net"
+import { Net } from "../graph"
 import { Span } from "../span"
 
 export class Call extends Exp {

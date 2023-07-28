@@ -1,8 +1,8 @@
 import { InternalError } from "../errors"
 import { Mod } from "../mod"
-import { Net } from "../net"
-import { Node } from "../node"
-import { Port } from "../port"
+import { Net } from "../graph"
+import { Node } from "../graph"
+import { Port } from "../graph"
 import { Rule } from "../rule"
 
 export class Action {

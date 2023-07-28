@@ -1,5 +1,5 @@
 import * as Defs from "../defs"
-import { Node } from "../node"
+import { Node } from "../graph"
 import { PrincipalType } from "../types"
 import { Net } from "./Net"
 

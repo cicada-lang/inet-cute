@@ -1,7 +1,7 @@
 import { Def } from "../def"
 import { Mod } from "../mod"
-import { Net } from "../net"
-import { Node, createNode } from "../node"
+import { Net } from "../graph"
+import { Node, createNode } from "../graph"
 import { Rule } from "../rule"
 import { Type } from "../type"
 

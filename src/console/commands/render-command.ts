@@ -4,7 +4,7 @@ import ty from "@xieyuheng/ty"
 import fs from "fs"
 import Path from "path"
 import { Mod } from "../../lang/mod"
-import { Net } from "../../lang/net"
+import { Net } from "../../lang/graph"
 import { Parser } from "../../lang/syntax"
 import { NetRenderer } from "../../renderers/NetRenderer"
 

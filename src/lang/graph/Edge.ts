@@ -1,4 +1,4 @@
-import { Port } from "../port"
+import { Port } from "../graph"
 
 export type Edge = {
   start: Port

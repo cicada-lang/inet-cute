@@ -1,6 +1,6 @@
 import { Mod } from "."
 import * as Defs from "../defs"
-import { Port } from "../port"
+import { Port } from "../graph"
 import { buildTypes } from "../types"
 
 export function builtInOperators(mod: Mod): void {

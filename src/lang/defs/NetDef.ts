@@ -1,7 +1,7 @@
 import { Def } from "../def"
 import { Exp } from "../exp"
 import { Mod } from "../mod"
-import { Net } from "../net"
+import { Net } from "../graph"
 
 export class NetDef extends Def {
   constructor(

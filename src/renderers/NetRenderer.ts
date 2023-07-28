@@ -1,4 +1,4 @@
-import { Net } from "../lang/net"
+import { Net } from "../lang/graph"
 import { formatNode } from "./formatNode"
 
 export class NetRenderer {
