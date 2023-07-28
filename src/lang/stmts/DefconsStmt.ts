@@ -4,7 +4,7 @@ import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { buildTypes } from "../types"
 
-export class DefineConsStmt extends Stmt {
+export class DefConsStmt extends Stmt {
   constructor(
     public name: string,
     public inputArity: number,

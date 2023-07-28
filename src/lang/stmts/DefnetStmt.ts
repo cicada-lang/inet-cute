@@ -4,7 +4,7 @@ import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 
-export class DefineNetStmt extends Stmt {
+export class DefNetStmt extends Stmt {
   constructor(
     public name: string,
     public exps: Array<Exp>,
