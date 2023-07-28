@@ -1,5 +1,3 @@
-`Port` should be type instead of class
-
 remove `Type` for now
 
 `Node` should be type instead of class

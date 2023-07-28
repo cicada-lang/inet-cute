@@ -1,6 +1,6 @@
 import * as Defs from "../defs"
 import { Mod } from "../mod"
-import { Port } from "../port"
+import { Port, createPort } from "../port"
 import { Type } from "../type"
 
 export class Node {
@@ -13,7 +13,6 @@ export class Node {
   input: Array<Port>
   output: Array<Port>
 
-
   constructor(
     def: Defs.NodeDef,
     inputTypes: Array<Type>,
@@ -25,9 +24,8 @@ export class Node {
     this.name = def.name
     this.types = [...inputTypes, ...outputTypes]
     let portCount = 0
-    this.input = inputTypes.map((t) => new Port(this, portCount++))
-    this.output = outputTypes.map((t) => new Port(this, portCount++))
-
+    this.input = inputTypes.map((t) => createPort(this, portCount++))
+    this.output = outputTypes.map((t) => createPort(this, portCount++))
   }
 
   get arity(): number {

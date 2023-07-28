@@ -29,7 +29,7 @@ export class NetRenderer {
 
     for (const port of net.portStack) {
       const start = port.node.format()
-      const end = port.format()
+      const end = `${port.node.format()}(${port.index})`
       lines.push(`"${end}" -- "${start}";`)
       lines.push(`"${start}";`)
       lines.push(`"${end}";`)

@@ -40,9 +40,7 @@ export class NodeDef extends Def {
     for (const port of [...node.input].reverse()) {
       const top = net.portStack.pop()
       if (top === undefined) {
-        throw new Error(
-          `I expect a port on top of the stack to match: ${port.format()}`,
-        )
+        throw new Error(`I expect a port on top of the stack`)
       }
 
       net.connect(top, port)
