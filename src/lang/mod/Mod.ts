@@ -4,7 +4,6 @@ import { Net, Port } from "../graph"
 import { createNet } from "../graph/createNet"
 import { netCleanUpWires } from "../graph/netCleanUpWires"
 import { Rule } from "../rule"
-import { define } from "./define"
 import { defineBuiltInOperators } from "./defineBuiltInOperators"
 
 export class Mod {
@@ -43,10 +42,6 @@ export class Mod {
     }
 
     return definition
-  }
-
-  defineOperator(name: string, apply: (net: Net) => void): void {
-    define(this, name, new Definitions.OperatorDefinition(this, name, apply))
   }
 
   getRuleByPorts(start: Port, end: Port): Rule | undefined {
