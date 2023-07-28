@@ -6,7 +6,7 @@ import Path from "path"
 import { Mod } from "../../lang/mod"
 import { Net } from "../../lang/net"
 import { Parser } from "../../lang/parser"
-import { NetRenderer } from "../../renderers/net-renderer"
+import { NetRenderer } from "../../renderers/NetRenderer"
 
 type Args = { mod: string }
 type Opts = { name?: string }

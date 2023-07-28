@@ -1,8 +1,9 @@
-fix naming convention
+`Edge` should be type instead of class
+`Net` should be type instead of class
+`Node` should be type instead of class
+`Port` should be type instead of class
 
 refactor the exp from class to type
-
-- use explicit id instead of relay on object address
 
 use new syntex
 

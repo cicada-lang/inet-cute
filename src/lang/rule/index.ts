@@ -1,1 +1,1 @@
-export * from "./rule"
+export * from "./Rule"

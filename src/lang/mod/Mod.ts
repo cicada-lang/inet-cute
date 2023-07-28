@@ -3,7 +3,7 @@ import * as Defs from "../defs"
 import { Net } from "../net"
 import { Port } from "../port"
 import { Rule } from "../rule"
-import { builtInOperators } from "./built-in-operators"
+import { builtInOperators } from "./builtInOperators"
 
 export class Mod {
   defs: Map<string, Def> = new Map()

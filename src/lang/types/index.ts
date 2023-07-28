@@ -1,7 +1,7 @@
 // organize-imports-ignore
 
-export * from "./atom-type"
-export * from "./principal-type"
+export * from "./AtomType"
+export * from "./PrincipalType"
 
-export * from "./type-builder"
-export * from "./build-types"
+export * from "./TypeBuilder"
+export * from "./buildTypes"

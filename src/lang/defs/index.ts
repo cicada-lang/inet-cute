@@ -1,4 +1,3 @@
-export * from "./net-def"
-export * from "./node-def"
-export * from "./operator-def"
-
+export * from "./NetDef"
+export * from "./NodeDef"
+export * from "./OperatorDef"

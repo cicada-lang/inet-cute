@@ -1,2 +1,2 @@
-export * from "./internal-error"
-export * from "./parsing-error"
+export * from "./InternalError"
+export * from "./ParsingError"

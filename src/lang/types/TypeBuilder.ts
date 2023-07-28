@@ -1,5 +1,5 @@
 import { Type } from "../type"
-import * as Types from "../types"
+import * as Types from "."
 
 export class TypeBuilder {
   exps: Array<string>

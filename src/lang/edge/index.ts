@@ -1,1 +1,1 @@
-export * from "./edge"
+export * from "./Edge"
