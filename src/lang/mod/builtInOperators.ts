@@ -27,6 +27,7 @@ export function builtInOperators(mod: Mod): void {
   mod.defineOperator("wire", (net) => {
     const def = new Defs.NodeDef(
       mod,
+      "Cons",
       "wire",
       [],
       buildTypes(["Any", "Any", "*"]),

@@ -19,6 +19,7 @@ export class DefelimStmt extends Stmt {
       this.name,
       new Defs.NodeDef(
         mod,
+        "Elim",
         this.name,
         buildTypes([...Array(this.inputArity).fill("Any"), "*"]),
         buildTypes(Array(this.outputArity).fill("Any")),

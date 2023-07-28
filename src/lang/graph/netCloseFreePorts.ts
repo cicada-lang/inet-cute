@@ -16,5 +16,5 @@ export function netCloseFreePorts(net: Net): Node | undefined {
 
   inputTypes[0] = new PrincipalType(inputTypes[0])
 
-  return new Defs.NodeDef(net.mod, name, inputTypes, []).refer(net)
+  return new Defs.NodeDef(net.mod, "Elim", name, inputTypes, []).refer(net)
 }

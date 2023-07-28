@@ -1,8 +1,5 @@
 should not use `PrincipalType` -- `isPrincipal` is a property of port
 
-- `NodeDef` has `kind`
-- `createNode` take `kind`
-
 `createTrivialTypes`
 
 `Type` should be type instead of class

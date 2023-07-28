@@ -5,11 +5,14 @@ import { Mod } from "../mod"
 import { Rule } from "../rule"
 import { Type } from "../type"
 
+export type NodeKind = "Cons" | "Elim"
+
 export class NodeDef extends Def {
   private rules: Map<string, Rule> = new Map()
 
   constructor(
     public mod: Mod,
+    public kind: NodeKind,
     public name: string,
     public input: Array<Type>,
     public output: Array<Type>,
@@ -30,7 +33,7 @@ export class NodeDef extends Def {
   }
 
   build(): Node {
-    return createNode(this, this.input, this.output)
+    return createNode(this.kind, this, this.input, this.output)
   }
 
   refer(net: Net): Node {

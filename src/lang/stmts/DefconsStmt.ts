@@ -19,6 +19,7 @@ export class DefconsStmt extends Stmt {
       this.name,
       new Defs.NodeDef(
         mod,
+        "Cons",
         this.name,
         buildTypes(Array(this.inputArity).fill("Any")),
         buildTypes([...Array(this.outputArity).fill("Any"), "*"]),

@@ -5,6 +5,7 @@ import { Type } from "../type"
 let counter = 0
 
 export function createNode(
+  kind: Defs.NodeKind,
   def: Defs.NodeDef,
   inputTypes: Array<Type>,
   outputTypes: Array<Type>,
