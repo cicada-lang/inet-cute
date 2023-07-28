@@ -24,26 +24,12 @@ export class Node {
     this.mod = def.mod
     this.name = def.name
     this.types = [...inputTypes, ...outputTypes]
-    this.checkPrincipalType()
     let portCount = 0
     this.input = inputTypes.map((t) => new Port(this, portCount++))
     this.output = outputTypes.map((t) => new Port(this, portCount++))
     this.inputReversed = [...this.input].reverse()
   }
 
-  private checkPrincipalType(): void {
-    const principalTypes = this.types.filter((t) => t.isPrincipal())
-    if (principalTypes.length !== 1) {
-      throw new Error(
-        [
-          `A node's types should have exactly one principal type`,
-          `  number of principal types: ${principalTypes.length}`,
-          `  id: ${this.id}`,
-          `  name: ${this.name}`,
-        ].join("\n"),
-      )
-    }
-  }
 
   get arity(): number {
     return this.types.length - 1
