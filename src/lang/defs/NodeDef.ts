@@ -1,7 +1,7 @@
 import { Def } from "../def"
 import { Mod } from "../mod"
 import { Net } from "../net"
-import { Node } from "../node"
+import { Node, createNode } from "../node"
 import { Rule } from "../rule"
 import { Type } from "../type"
 
@@ -30,7 +30,7 @@ export class NodeDef extends Def {
   }
 
   build(): Node {
-    return new Node(this, this.input, this.output)
+    return createNode(this, this.input, this.output)
   }
 
   refer(net: Net): Node {

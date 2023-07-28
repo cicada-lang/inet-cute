@@ -1,5 +1,3 @@
-`Node` should be type instead of class
-
 `Node` has `principalIndex`
 
 remove `Type` for now
