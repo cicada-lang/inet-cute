@@ -1,4 +1,8 @@
+fix naming convention
+
 refactor the exp from class to type
+
+- use explicit id instead of relay on object address
 
 use new syntex
 
