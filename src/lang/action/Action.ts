@@ -49,7 +49,7 @@ function disconnectInput(
   input: Array<Port>,
 ): void {
   for (const port of ports) {
-    if (!port.isPrincipal()) {
+    if (!port.isPrincipal) {
       if (port.connection === undefined) {
         throw new InternalError(
           "I meet a port without connection during disconnecting input.",
@@ -68,7 +68,7 @@ function disconnectOutput(
   output: Array<Port>,
 ): void {
   for (const port of ports) {
-    if (!port.isPrincipal()) {
+    if (!port.isPrincipal) {
       if (port.connection === undefined) {
         throw new InternalError(
           "I meet a port without connection during disconnecting output.",

@@ -1,4 +1,7 @@
 `Port` should be type instead of class
+
+remove `Type` for now
+
 `Node` should be type instead of class
 `Net` should be type instead of class
 `Action` should be type instead of class

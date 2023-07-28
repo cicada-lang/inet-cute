@@ -57,7 +57,7 @@ export class Mod {
   }
 
   getRuleByPorts(start: Port, end: Port): Rule | undefined {
-    if (start.isPrincipal() && end.isPrincipal()) {
+    if (start.isPrincipal && end.isPrincipal) {
       return start.node.def.getRule(end.node.def)
     }
   }

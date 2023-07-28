@@ -6,6 +6,7 @@ export class Port {
   node: Node
   index: number
   t: Type
+  isPrincipal: boolean
   connection?: {
     edge: Edge
     port: Port
@@ -15,6 +16,7 @@ export class Port {
     this.node = node
     this.index = index
     this.t = node.types[index]
+    this.isPrincipal = this.t.isPrincipal()
   }
 
   format(): string {
@@ -27,9 +29,5 @@ export class Port {
       index: this.index,
       t: this.t.format(),
     }
-  }
-
-  isPrincipal(): boolean {
-    return this.t.isPrincipal()
   }
 }
