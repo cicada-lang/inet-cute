@@ -6,6 +6,7 @@ import Path from "path"
 import { Net } from "../../lang/graph"
 import { netRun } from "../../lang/graph/netRun"
 import { Mod } from "../../lang/mod"
+import { modAllNetNames } from "../../lang/mod/modAllNetNames"
 import { modBuildNet } from "../../lang/mod/modBuildNet"
 import { Parser } from "../../lang/syntax"
 import { NetRenderer } from "../../renderers/NetRenderer"
@@ -61,7 +62,7 @@ export class RenderCommand extends Command<Args, Opts> {
       if (argv.name) {
         renderNet(mod, file, argv.name)
       } else {
-        for (const name of mod.allNetNames()) {
+        for (const name of modAllNetNames(mod)) {
           renderNet(mod, file, name)
         }
       }

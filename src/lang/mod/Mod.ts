@@ -47,10 +47,4 @@ export class Mod {
       return start.node.definition.lookupRule(end.node.definition)
     }
   }
-
-  allNetNames(): Array<string> {
-    return Array.from(this.definitions.values())
-      .filter((definition) => definition instanceof Definitions.NetDefinition)
-      .map((definition) => definition.name)
-  }
 }
