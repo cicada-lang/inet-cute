@@ -1,8 +1,6 @@
-# Interaction Nets
+# INet
 
-An implementation of [Interaction Nets](https://en.wikipedia.org/wiki/Interaction_nets) in JavaScript.
-
-- Use Forth-like postfix stack-based syntax to build Interaction Nets.
+A programming language based on [Interaction Nets](https://en.wikipedia.org/wiki/Interaction_nets).
 
 ## Introduction
 
@@ -12,7 +10,6 @@ It uses undirected graphs and graph rewriting to express computations.
 It is interesting because:
 
 > Our interaction nets are deterministic in a strong sense:
->
 > not only the result, but also the computation is unique,
 > up to trivial commutations.
 >
