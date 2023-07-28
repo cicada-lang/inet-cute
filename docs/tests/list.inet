@@ -1,13 +1,13 @@
-(define-cons sole 0)
+(defcons sole 0)
 
-(define-cons null 0)
-(define-cons cons 2)
+(defcons null 0)
+(defcons cons 2)
 
-(define-elim append 2)
-(define-rule (null append))
-(define-rule (cons append) (let head) append head cons)
+(defelim append 2)
+(defrule (null append))
+(defrule (cons append) (let head) append head cons)
 
-(define-net six-soles
+(defnet six-soles
   null sole cons sole cons sole cons
   null sole cons sole cons sole cons
   append)

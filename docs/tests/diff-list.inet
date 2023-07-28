@@ -1,27 +1,27 @@
-(define-cons sole 0)
+(defcons sole 0)
 
-(define-cons null 0)
-(define-cons cons 2)
+(defcons null 0)
+(defcons cons 2)
 
-(define-cons diff 2)
+(defcons diff 2)
 
-(define-elim diff-append 2)
-(define-rule (diff diff-append)
+(defelim diff-append 2)
+(defrule (diff diff-append)
   (let diff-list end start)
   end diff-list diff-open start diff)
 
-(define-elim diff-open 2)
-(define-rule (diff diff-open)
+(defelim diff-open 2)
+(defrule (diff diff-open)
   (let list end start)
   list end connect
   start)
 
-(define-net one-two-soles
+(defnet one-two-soles
   wire sole cons diff
   wire sole cons sole cons diff
   diff-append)
 
-(define-net two-two-soles
+(defnet two-two-soles
   wire sole cons sole cons diff
   wire sole cons sole cons diff
   diff-append)

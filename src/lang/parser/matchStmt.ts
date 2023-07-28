@@ -14,7 +14,7 @@ import * as Stmts from "../stmts"
 export function matchStmt(sexp: Sexp): Stmt {
   return match<Stmt>(sexp, [
     [
-      ["define-cons", v("name"), v("inputArity"), v("outputArity")],
+      ["defcons", v("name"), v("inputArity"), v("outputArity")],
       ({ name, inputArity, outputArity }) =>
         new Stmts.DefConsStmt(
           matchSymbol(name),
@@ -24,7 +24,7 @@ export function matchStmt(sexp: Sexp): Stmt {
         ),
     ],
     [
-      ["define-cons", v("name"), v("inputArity")],
+      ["defcons", v("name"), v("inputArity")],
       ({ name, inputArity }) =>
         new Stmts.DefConsStmt(
           matchSymbol(name),
@@ -34,7 +34,7 @@ export function matchStmt(sexp: Sexp): Stmt {
         ),
     ],
     [
-      ["define-elim", v("name"), v("inputArity"), v("outputArity")],
+      ["defelim", v("name"), v("inputArity"), v("outputArity")],
       ({ name, inputArity, outputArity }) =>
         new Stmts.DefElimStmt(
           matchSymbol(name),
@@ -44,7 +44,7 @@ export function matchStmt(sexp: Sexp): Stmt {
         ),
     ],
     [
-      ["define-elim", v("name"), v("inputArity")],
+      ["defelim", v("name"), v("inputArity")],
       ({ name, inputArity }) =>
         new Stmts.DefElimStmt(
           matchSymbol(name),
@@ -54,12 +54,12 @@ export function matchStmt(sexp: Sexp): Stmt {
         ),
     ],
     [
-      list(["define-net", v("name")], v("exps")),
+      list(["defnet", v("name")], v("exps")),
       ({ name, input, output, exps }) =>
         new Stmts.DefNetStmt(matchSymbol(name), matchExps(exps), sexp.span),
     ],
     [
-      list(["define-rule", [v("start"), v("end")]], v("exps")),
+      list(["defrule", [v("start"), v("end")]], v("exps")),
       ({ start, end, exps }) =>
         new Stmts.DefRuleStmt(
           matchSymbol(start),
