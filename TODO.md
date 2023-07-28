@@ -1,6 +1,9 @@
+`Node` should be type instead of class
+
+`Node` has `principalIndex`
+
 remove `Type` for now
 
-`Node` should be type instead of class
 `Net` should be type instead of class
 `Action` should be type instead of class
 

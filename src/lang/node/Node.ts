@@ -3,8 +3,9 @@ import { Mod } from "../mod"
 import { Port, createPort } from "../port"
 import { Type } from "../type"
 
+let counter = 0
+
 export class Node {
-  static counter = 0
   id: number
   def: Defs.NodeDef
   mod: Mod
@@ -18,7 +19,7 @@ export class Node {
     inputTypes: Array<Type>,
     outputTypes: Array<Type>,
   ) {
-    this.id = Node.counter++
+    this.id = counter++
     this.def = def
     this.mod = def.mod
     this.name = def.name
@@ -26,13 +27,5 @@ export class Node {
     let portCount = 0
     this.input = inputTypes.map((t) => createPort(this, portCount++))
     this.output = outputTypes.map((t) => createPort(this, portCount++))
-  }
-
-  get arity(): number {
-    return this.types.length - 1
-  }
-
-  format(): string {
-    return `${this.name}#${this.id}`
   }
 }

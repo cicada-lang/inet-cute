@@ -1,4 +1,5 @@
 import { Net } from "../lang/net"
+import { formatNode } from "./formatNode"
 
 export class NetRenderer {
   async render(net: Net): Promise<string> {
@@ -10,8 +11,8 @@ export class NetRenderer {
     const lines: Array<string> = []
 
     for (const edge of net.edges) {
-      const start = edge.start.node.format()
-      const end = edge.end.node.format()
+      const start = formatNode(edge.start.node)
+      const end = formatNode(edge.end.node)
       const indexes = `${edge.end.index}-${edge.start.index}`
       lines.push(`"${end}" -- "${start}" [label="${indexes}"];`)
       lines.push(`"${start}";`)
@@ -19,8 +20,8 @@ export class NetRenderer {
     }
 
     for (const edge of net.actions) {
-      const start = edge.start.node.format()
-      const end = edge.end.node.format()
+      const start = formatNode(edge.start.node)
+      const end = formatNode(edge.end.node)
       const indexes = `${edge.end.index}-${edge.start.index}`
       lines.push(`"${end}" -- "${start}" [label="${indexes}" color=red];`)
       lines.push(`"${start}";`)
@@ -28,8 +29,8 @@ export class NetRenderer {
     }
 
     for (const port of net.portStack) {
-      const start = port.node.format()
-      const end = `${port.node.format()}(${port.index})`
+      const start = formatNode(port.node)
+      const end = `${formatNode(port.node)}(${port.index})`
       lines.push(`"${end}" -- "${start}";`)
       lines.push(`"${start}";`)
       lines.push(`"${end}";`)
