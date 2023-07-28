@@ -1,17 +1,14 @@
-extract `netRun`
-
-command change render command to simple run command
-
 quit using `def/` and `defs/`
 
 - `Mod` should have namespaces for
+
   - types
   - nodes
   - rules
   - nets
   - operators
 
-rule should be part of `Mod` not `Node`
+`rules` should be part of `Mod` not `Node`
 
 quit using `Action`
 
@@ -42,6 +39,8 @@ understand proof-nets for all connectives
 - proof-nets--the-parallel-syntax-for-proof-theory--1995.pdf
 - "The linear abstract machine", Lafont, 1990.
 - "From proof-nets", Lafont, 1995
+
+command change render command to simple run command
 
 # simple types
 
