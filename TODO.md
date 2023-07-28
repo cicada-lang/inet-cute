@@ -1,5 +1,3 @@
-`Type` should be type instead of class
-
 [maybe] quit using `def/` and `defs/`
 
 - but maybe to use `def/` is to have one namespace -- which is better
@@ -24,9 +22,15 @@ quit using `Action`
 
 use new syntex
 
-use named port
+`Node` with optionally named port
+
+- `NetRenderer` show free port names
 
 `NetRenderer` -- format to simple text representation of graph
+
+- learn from knuth's c code
+
+change the `render` command to simple `run` command
 
 # the paper
 
@@ -40,8 +44,6 @@ understand proof-nets for all connectives
 - "The linear abstract machine", Lafont, 1990.
 - "From proof-nets", Lafont, 1995
 
-command change render command to simple run command
-
 # simple types
 
 > linear logic as type system of inet
@@ -53,44 +55,21 @@ i.e. without dependent type -- not as a foundation of mathematics
 
 # linear prolog
 
-From the example of `diff-list`,
-we know that inet is like linear logic programming.
-
-# later
-
-`Node` with optionally named port
-
-- `NetRenderer` show free port names
-
-stmt.format
-
-`NetRenderer` control order
-
-- need to use builder pattern, just like building SQL query
+From the example of `diff-list`, we know that
+inet is like linear logic programming.
 
 # experiments
 
 use inet to encode lambda calculus
+
 use inet to encode class, object and message sending
-
-# dependent types
-
-Two levels of computations, execute and cut.
-
-`Word.cut` & `Word.execute`
-
-equality between `Net`
-use `Net` as type
 
 # type check
 
-`type-def.ts` -- `apply`
-
-`deftype` -- `TermType`
-
-`forall` for generic type variables
+`deftype` -- `TermType` -- use `'a` for name of pattern like in haskell
 
 `defnode` -- type check
+
 `defnet` -- type check words composition
 
 `Edge` -- type check the two ports
