@@ -20,7 +20,7 @@ quit using `Action`
 
 `Action` should be type instead of class
 
-use new syntex
+use new syntax
 
 `Node` with optionally named port
 
