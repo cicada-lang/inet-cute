@@ -1,5 +1,3 @@
-rename `Exp` to `Word`
-
 extract `netRemoveNode`
 
 extract `netRemoveEdge`
@@ -9,6 +7,15 @@ extract `netConnect`
 extract `netCleanUpWires`
 extract `netStep`
 extract `netRun`
+
+quit using `def/` and `defs/`
+
+- `Mod` should have namespaces for
+  - types
+  - nodes
+  - rules
+  - nets
+  - operators
 
 rule should be part of `Mod` not `Node`
 

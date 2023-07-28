@@ -1,20 +1,20 @@
 import { Def } from "../def"
-import { Exp } from "../exp"
 import { Net } from "../graph"
 import { Mod } from "../mod"
+import { Word } from "../word"
 
 export class NetDef extends Def {
   constructor(
     public mod: Mod,
     public name: string,
-    public exps: Array<Exp>,
+    public words: Array<Word>,
   ) {
     super()
   }
 
   refer(net: Net): void {
-    for (const exp of this.exps) {
-      exp.apply(this.mod, net)
+    for (const word of this.words) {
+      word.apply(this.mod, net)
     }
   }
 }

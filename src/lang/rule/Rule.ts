@@ -1,12 +1,12 @@
 import * as Defs from "../defs"
-import { Exp } from "../exp"
 import { Mod } from "../mod"
+import { Word } from "../word"
 
 export class Rule {
   constructor(
     public mod: Mod,
     public start: Defs.NodeDef,
     public end: Defs.NodeDef,
-    public exps: Array<Exp>,
+    public words: Array<Word>,
   ) {}
 }

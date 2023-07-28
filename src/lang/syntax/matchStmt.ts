@@ -6,10 +6,10 @@ import {
 } from "@cicada-lang/sexp/lib/match"
 import { list, v } from "@cicada-lang/sexp/lib/pattern-exp"
 import { Sexp } from "@cicada-lang/sexp/lib/sexp"
-import { Exp } from "../exp"
-import * as Exps from "../exps"
 import { Stmt } from "../stmt"
 import * as Stmts from "../stmts"
+import { Word } from "../word"
+import * as Exps from "../words"
 
 export function matchStmt(sexp: Sexp): Stmt {
   return match<Stmt>(sexp, [
@@ -34,29 +34,29 @@ export function matchStmt(sexp: Sexp): Stmt {
         ),
     ],
     [
-      list(["defnet", v("name")], v("exps")),
-      ({ name, input, output, exps }) =>
-        new Stmts.DefnetStmt(matchSymbol(name), matchExps(exps), sexp.span),
+      list(["defnet", v("name")], v("words")),
+      ({ name, input, output, words }) =>
+        new Stmts.DefnetStmt(matchSymbol(name), matchExps(words), sexp.span),
     ],
     [
-      list(["defrule", [v("start"), v("end")]], v("exps")),
-      ({ start, end, exps }) =>
+      list(["defrule", [v("start"), v("end")]], v("words")),
+      ({ start, end, words }) =>
         new Stmts.DefruleStmt(
           matchSymbol(start),
           matchSymbol(end),
-          matchExps(exps),
+          matchExps(words),
           sexp.span,
         ),
     ],
   ])
 }
 
-function matchExps(sexp: Sexp): Array<Exp> {
+function matchExps(sexp: Sexp): Array<Word> {
   return matchList(sexp, matchExp)
 }
 
-function matchExp(sexp: Sexp): Exp {
-  return match<Exp>(sexp, [
+function matchExp(sexp: Sexp): Word {
+  return match<Word>(sexp, [
     [
       list(["let"], v("names")),
       ({ names }) => new Exps.Let(matchList(names, matchSymbol), sexp.span),

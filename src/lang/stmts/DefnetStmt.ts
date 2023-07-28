@@ -1,19 +1,19 @@
 import * as Defs from "../defs"
-import { Exp } from "../exp"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
+import { Word } from "../word"
 
 export class DefnetStmt extends Stmt {
   constructor(
     public name: string,
-    public exps: Array<Exp>,
+    public words: Array<Word>,
     public span: Span,
   ) {
     super()
   }
 
   async execute(mod: Mod): Promise<void> {
-    mod.define(this.name, new Defs.NetDef(mod, this.name, this.exps))
+    mod.define(this.name, new Defs.NetDef(mod, this.name, this.words))
   }
 }

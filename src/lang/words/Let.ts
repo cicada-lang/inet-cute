@@ -1,9 +1,9 @@
-import { Exp } from "../exp"
 import { Net } from "../graph"
 import { Mod } from "../mod"
 import { Span } from "../span"
+import { Word } from "../word"
 
-export class Let extends Exp {
+export class Let extends Word {
   constructor(
     public names: Array<string>,
     public span: Span,

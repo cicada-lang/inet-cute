@@ -21,8 +21,8 @@ export class Action {
     net.portStack.push(...input)
 
     // NOTE Reconnect by rule.
-    for (const exp of this.rule.exps) {
-      exp.apply(mod, net)
+    for (const word of this.rule.words) {
+      word.apply(mod, net)
     }
 
     reconnectOutput(net, output)

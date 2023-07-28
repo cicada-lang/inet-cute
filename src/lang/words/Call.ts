@@ -1,9 +1,9 @@
-import { Exp } from "../exp"
 import { Net } from "../graph"
 import { Mod } from "../mod"
 import { Span } from "../span"
+import { Word } from "../word"
 
-export class Call extends Exp {
+export class Call extends Word {
   constructor(
     public name: string,
     public span: Span,

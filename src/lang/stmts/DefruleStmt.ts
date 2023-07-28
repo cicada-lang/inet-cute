@@ -1,14 +1,14 @@
-import { Exp } from "../exp"
 import { Mod } from "../mod"
 import { Rule } from "../rule"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
+import { Word } from "../word"
 
 export class DefruleStmt extends Stmt {
   constructor(
     public start: string,
     public end: string,
-    public exps: Array<Exp>,
+    public words: Array<Word>,
     public span: Span,
   ) {
     super()
@@ -20,7 +20,7 @@ export class DefruleStmt extends Stmt {
 
     startNodeDef.defineRule(
       endNodeDef,
-      new Rule(mod, startNodeDef, endNodeDef, this.exps),
+      new Rule(mod, startNodeDef, endNodeDef, this.words),
     )
   }
 }
