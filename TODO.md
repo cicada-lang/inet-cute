@@ -1,8 +1,23 @@
+move `net` and `node` and friends to `graph/`
+
+rename `Exp` to `Word`
+
+extract `netRemoveNode`
+
+extract `netRemoveEdge`
+
+extract `netConnect`
+
 extract `netCleanUpWires`
 extract `netStep`
 extract `netRun`
 
+rule should be part of `Mod` not `Node`
+
+quit using `Action`
+
 `Net` should be type instead of class
+
 `Action` should be type instead of class
 
 use new syntex
@@ -14,6 +29,8 @@ refactor the exp from class to type
 should not use `PrincipalType` -- `isPrincipal` is a property of port
 
 `Type` should be type instead of class
+
+`NetRenderer` -- format to simple text representation of graph
 
 # the paper
 

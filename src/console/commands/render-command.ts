@@ -5,7 +5,7 @@ import fs from "fs"
 import Path from "path"
 import { Mod } from "../../lang/mod"
 import { Net } from "../../lang/net"
-import { Parser } from "../../lang/parser"
+import { Parser } from "../../lang/syntax"
 import { NetRenderer } from "../../renderers/NetRenderer"
 
 type Args = { mod: string }

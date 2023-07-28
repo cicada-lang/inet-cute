@@ -13,6 +13,7 @@ export class Net {
   edges: Array<Edge> = new Array()
   actions: Array<Action> = new Array()
   portStack: Array<Port> = new Array()
+  // for named local variables.  
   portStore: Map<string, Port> = new Map()
   wires: Array<{ start: Port; end: Port }> = new Array()
 
