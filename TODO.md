@@ -1,7 +1,3 @@
-extract `netRemoveNode`
-
-extract `netRemoveEdge`
-
 extract `netConnect`
 
 extract `netCleanUpWires`

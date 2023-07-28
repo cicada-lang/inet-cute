@@ -2,6 +2,8 @@ import { InternalError } from "../errors"
 import { Net, Node, Port } from "../graph"
 import { Mod } from "../mod"
 import { Rule } from "../rule"
+import { netRemoveEdge } from "./netRemoveEdge"
+import { netRemoveNode } from "./netRemoveNode"
 
 export class Action {
   constructor(
@@ -37,7 +39,7 @@ function disconnectNode(
 ): void {
   disconnectInput(net, node.input, input)
   disconnectOutput(net, node.output, output)
-  net.removeNode(node)
+  netRemoveNode(net, node)
 }
 
 function disconnectInput(
@@ -54,7 +56,7 @@ function disconnectInput(
       }
 
       input.push(port.connection.port)
-      net.removeEdge(port.connection.edge)
+      netRemoveEdge(net, port.connection.edge)
     }
   }
 }
@@ -73,7 +75,7 @@ function disconnectOutput(
       }
 
       output.unshift(port.connection.port)
-      net.removeEdge(port.connection.edge)
+      netRemoveEdge(net, port.connection.edge)
     }
   }
 }

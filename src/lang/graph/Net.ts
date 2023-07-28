@@ -3,6 +3,8 @@ import { Action, Edge, Node, Port, createEdge } from "../graph"
 import { Mod } from "../mod"
 import { netCloseFreePorts } from "./netCloseFreePorts"
 import { netReleaseFreePorts } from "./netReleaseFreePorts"
+import { netRemoveEdge } from "./netRemoveEdge"
+import { netRemoveNode } from "./netRemoveNode"
 
 export class Net {
   mod: Mod
@@ -28,11 +30,11 @@ export class Net {
   cleanUpWires(): void {
     for (const wire of this.wires) {
       if (wire.start.connection && wire.end.connection) {
-        this.removeEdge(wire.start.connection.edge)
-        this.removeEdge(wire.end.connection.edge)
+        netRemoveEdge(this, wire.start.connection.edge)
+        netRemoveEdge(this, wire.end.connection.edge)
 
-        this.removeNode(wire.start.node)
-        this.removeNode(wire.end.node)
+        netRemoveNode(this, wire.start.node)
+        netRemoveNode(this, wire.end.node)
 
         this.connect(wire.start.connection.port, wire.end.connection.port)
       }
@@ -58,20 +60,6 @@ export class Net {
       this.actions.push(new Action(start, end, rule))
     } else {
       this.edges.push(createEdge(start, end))
-    }
-  }
-
-  removeNode(node: Node): void {
-    const index = this.nodes.indexOf(node)
-    if (index !== -1) {
-      this.nodes.splice(index, 1)
-    }
-  }
-
-  removeEdge(edge: Edge): void {
-    const index = this.edges.indexOf(edge)
-    if (index !== -1) {
-      this.edges.splice(index, 1)
     }
   }
 }
