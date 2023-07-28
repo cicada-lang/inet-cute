@@ -7,14 +7,14 @@ import { Rule } from "../rule"
 import { defineBuiltInOperators } from "./defineBuiltInOperators"
 
 export class Mod {
-  defs: Map<string, Definition> = new Map()
+  definitions: Map<string, Definition> = new Map()
 
   constructor(public url: URL) {
     defineBuiltInOperators(this)
   }
 
-  getDefOrFail(name: string): Definition {
-    const def = this.defs.get(name)
+  getDefinitionOrFail(name: string): Definition {
+    const def = this.definitions.get(name)
     if (def === undefined) {
       throw new Error(`Undefined name: ${name}`)
     }
@@ -23,7 +23,7 @@ export class Mod {
   }
 
   getNodeDefinitionOrFail(name: string): Definitions.NodeDefinition {
-    const def = this.getDefOrFail(name)
+    const def = this.getDefinitionOrFail(name)
     if (!(def instanceof Definitions.NodeDefinition)) {
       throw new Error(
         `I expect a node definition, but ${name} is ${def.constructor.name}`,
@@ -33,8 +33,8 @@ export class Mod {
     return def
   }
 
-  private getNetDefOrFail(name: string): Definitions.NetDefinition {
-    const def = this.getDefOrFail(name)
+  private getNetDefinitionOrFail(name: string): Definitions.NetDefinition {
+    const def = this.getDefinitionOrFail(name)
     if (!(def instanceof Definitions.NetDefinition)) {
       throw new Error(
         `I expect a net definition, but ${name} is ${def.constructor.name}`,
@@ -45,11 +45,11 @@ export class Mod {
   }
 
   apply(net: Net, exp: string): void {
-    this.getDefOrFail(exp).meaning(net)
+    this.getDefinitionOrFail(exp).meaning(net)
   }
 
   define(name: string, def: Definition): this {
-    this.defs.set(name, def)
+    this.definitions.set(name, def)
     return this
   }
 
@@ -68,13 +68,13 @@ export class Mod {
 
   buildNet(name: string): Net {
     const net = createNet(this)
-    this.getNetDefOrFail(name).meaning(net)
+    this.getNetDefinitionOrFail(name).meaning(net)
     netCleanUpWires(net)
     return net
   }
 
   allNetNames(): Array<string> {
-    return Array.from(this.defs.values())
+    return Array.from(this.definitions.values())
       .filter((def) => def instanceof Definitions.NetDefinition)
       .map((def) => def.name)
   }
