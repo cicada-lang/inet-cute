@@ -28,7 +28,7 @@ export class NodeDefinition extends Definition {
     this.rules.set(end.fullName, rule)
   }
 
-  getRule(end: NodeDefinition): Rule | undefined {
+  lookupRule(end: NodeDefinition): Rule | undefined {
     return this.rules.get(end.fullName)
   }
 

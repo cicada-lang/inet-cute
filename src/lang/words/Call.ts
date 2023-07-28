@@ -17,7 +17,7 @@ export class Call extends Word {
       net.portStore.delete(this.name)
       net.portStack.push(found)
     } else {
-      mod.getDefinitionOrFail(this.name).meaning(net)
+      mod.lookupDefinitionOrFail(this.name).meaning(net)
     }
   }
 }

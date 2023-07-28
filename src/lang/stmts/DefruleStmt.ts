@@ -15,8 +15,8 @@ export class DefruleStmt extends Stmt {
   }
 
   async execute(mod: Mod): Promise<void> {
-    const startNodeDefinition = mod.getNodeDefinitionOrFail(this.start)
-    const endNodeDefinition = mod.getNodeDefinitionOrFail(this.end)
+    const startNodeDefinition = mod.lookupNodeDefinitionOrFail(this.start)
+    const endNodeDefinition = mod.lookupNodeDefinitionOrFail(this.end)
 
     startNodeDefinition.defineRule(
       endNodeDefinition,

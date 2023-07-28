@@ -13,7 +13,7 @@ export class Mod {
     defineBuiltInOperators(this)
   }
 
-  getDefinitionOrFail(name: string): Definition {
+  lookupDefinitionOrFail(name: string): Definition {
     const definition = this.definitions.get(name)
     if (definition === undefined) {
       throw new Error(`Undefined name: ${name}`)
@@ -22,8 +22,8 @@ export class Mod {
     return definition
   }
 
-  getNodeDefinitionOrFail(name: string): Definitions.NodeDefinition {
-    const definition = this.getDefinitionOrFail(name)
+  lookupNodeDefinitionOrFail(name: string): Definitions.NodeDefinition {
+    const definition = this.lookupDefinitionOrFail(name)
     if (!(definition instanceof Definitions.NodeDefinition)) {
       throw new Error(
         `I expect a node definition, but ${name} is ${definition.constructor.name}`,
@@ -33,8 +33,8 @@ export class Mod {
     return definition
   }
 
-  private getNetDefinitionOrFail(name: string): Definitions.NetDefinition {
-    const definition = this.getDefinitionOrFail(name)
+  private lookupNetDefinitionOrFail(name: string): Definitions.NetDefinition {
+    const definition = this.lookupDefinitionOrFail(name)
     if (!(definition instanceof Definitions.NetDefinition)) {
       throw new Error(
         `I expect a net definition, but ${name} is ${definition.constructor.name}`,
@@ -44,15 +44,15 @@ export class Mod {
     return definition
   }
 
-  getRuleByPorts(start: Port, end: Port): Rule | undefined {
+  lookupRuleByPorts(start: Port, end: Port): Rule | undefined {
     if (start.isPrincipal && end.isPrincipal) {
-      return start.node.definition.getRule(end.node.definition)
+      return start.node.definition.lookupRule(end.node.definition)
     }
   }
 
   buildNet(name: string): Net {
     const net = createNet(this)
-    this.getNetDefinitionOrFail(name).meaning(net)
+    this.lookupNetDefinitionOrFail(name).meaning(net)
     netCleanUpWires(net)
     return net
   }
