@@ -6,13 +6,12 @@ import { Node } from "../node"
 import { Port } from "../port"
 import { Rule } from "../rule"
 
-export class Action extends Edge {
-  rule: Rule
-
-  constructor(start: Port, end: Port, rule: Rule) {
-    super(start, end)
-    this.rule = rule
-  }
+export class Action {
+  constructor(
+    public start: Port,
+    public end: Port,
+    public rule: Rule,
+  ) {}
 
   act(mod: Mod, net: Net): void {
     // NOTE The state of action.

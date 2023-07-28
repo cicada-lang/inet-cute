@@ -1,6 +1,6 @@
 import { Action } from "../action"
 import * as Defs from "../defs"
-import { Edge } from "../edge"
+import { Edge, createEdge } from "../edge"
 import { InternalError } from "../errors"
 import { Mod } from "../mod"
 import { Node } from "../node"
@@ -93,7 +93,7 @@ export class Net {
     if (rule) {
       this.actions.push(new Action(start, end, rule))
     } else {
-      this.edges.push(new Edge(start, end))
+      this.edges.push(createEdge(start, end))
     }
   }
 
