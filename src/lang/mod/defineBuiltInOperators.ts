@@ -4,7 +4,7 @@ import { Port } from "../graph"
 import { netConnect } from "../graph/netConnect"
 import { createTrivialTypes } from "../type"
 
-export function builtInOperators(mod: Mod): void {
+export function defineBuiltInOperators(mod: Mod): void {
   mod.defineOperator("swap", (net) => {
     const x1 = net.portStack.pop() as Port
     const x0 = net.portStack.pop() as Port

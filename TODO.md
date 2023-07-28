@@ -1,8 +1,6 @@
-`RuleDefinition`
+`NodeDefinition` should not have `rules` -- use `RuleDefinition`
 
-`rules` should be part of `Mod` not `Node`
-
-`Node` should not have `def` -- which is used to `getRule`
+`Node` should not have `definition` -- which is used to `getRule`
 
 quit using `Action`
 

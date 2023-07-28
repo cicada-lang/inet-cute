@@ -4,13 +4,13 @@ import { Net, Port } from "../graph"
 import { createNet } from "../graph/createNet"
 import { netCleanUpWires } from "../graph/netCleanUpWires"
 import { Rule } from "../rule"
-import { builtInOperators } from "./builtInOperators"
+import { defineBuiltInOperators } from "./defineBuiltInOperators"
 
 export class Mod {
   defs: Map<string, Definition> = new Map()
 
   constructor(public url: URL) {
-    builtInOperators(this)
+    defineBuiltInOperators(this)
   }
 
   getDefOrFail(name: string): Definition {
