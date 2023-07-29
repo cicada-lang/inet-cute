@@ -4,17 +4,7 @@ author: Xie Yuheng
 date: 2023-07-27
 ---
 
-# Intro
-
-First of all, What we need to express?
-What aspects (features, relations) we need to use syntax to distinguish?
-
-Is design of syntax like design of graphic,
-where we give many choices and compare them?
-
-# Examples
-
-## Nat
+# Nat
 
 Use `defnode` to define a node.
 
@@ -79,7 +69,7 @@ defnet four
 end
 ```
 
-## List
+# List
 
 We use a simple type system like Haskell (for now).
 
@@ -126,7 +116,7 @@ defnet six_soles
 end
 ```
 
-## DiffList
+# DiffList
 
 ```inet
 defnode diff
