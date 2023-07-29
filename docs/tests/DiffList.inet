@@ -2,18 +2,38 @@ defnode sole -- return! end
 
 defnode null -- return! end
 
-defnode cons head tail -- return! end
+defnode cons
+  head
+  tail
+  -------
+  return!
+end
 
-defnode diff left right -- return! end
+defnode diff
+  left
+  right
+  ------
+  return!
+end
 
-defnode diff_append left! right -- return end
+defnode diff_append
+  left!
+  right
+  ------
+  return
+end
 
 defru diff diff_append
   (let start) (let fin) (let diff_list)
   fin diff_list diff_open start diff
 end
 
-defnode diff_open diff_list! list -- return end
+defnode diff_open
+  diff_list!
+  list
+  ------
+  return
+end
 
 defru diff diff_open
   (let start) (let fin) (let list)

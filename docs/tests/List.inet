@@ -1,10 +1,26 @@
-defnode sole -- return! end
+defnode sole
+  ------
+  return!
+end
 
-defnode null -- return! end
+defnode null
+  ------
+  return!
+end
 
-defnode cons head tail -- return! end
+defnode cons
+  head
+  tail
+  -------
+  return!
+end
 
-defnode append left! right -- return end
+defnode append
+  left!
+  right
+  ------
+  return
+end
 
 defru null append end
 
