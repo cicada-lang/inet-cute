@@ -1,5 +1,3 @@
-`NodeDefinition.fullName`
-
 quit using `Action`
 
 `Action` should be type instead of class

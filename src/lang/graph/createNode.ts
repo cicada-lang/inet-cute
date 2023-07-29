@@ -1,4 +1,4 @@
-import * as Definitions from "../definitions"
+import { NodeKind } from "../definitions"
 import { Node, createPort } from "../graph"
 import { Mod } from "../mod"
 import { Type } from "../type"
@@ -6,7 +6,7 @@ import { Type } from "../type"
 let counter = 0
 
 export function createNode(
-  kind: Definitions.NodeKind,
+  kind: NodeKind,
   mod: Mod,
   name: string,
   inputTypes: Array<Type>,
