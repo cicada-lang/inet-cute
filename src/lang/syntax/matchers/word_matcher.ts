@@ -5,7 +5,7 @@ import * as Words from "../../words"
 export function word_matcher(tree: pt.Tree): Word {
   return pt.matcher<Word>({
     "word:call": ({ name }, { span }) => new Words.Call(pt.str(name), span),
-    "word:let": ({ name }, { span }) => new Words.Let([pt.str(name)], span),
+    "word:let": ({ name }, { span }) => new Words.Let(pt.str(name), span),
   })(tree)
 }
 
