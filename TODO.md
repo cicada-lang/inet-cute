@@ -1,8 +1,16 @@
 # named port
 
-`Node` with optionally named port
+[syntax] named port
+
+`Node` with named port
 
 `defnode` instead of `defcons` and `defelim`
+
+`PortPush` -- new word
+
+`PortConnect` -- new word
+
+no `defru` just `defrule` -- add feature when very very needed
 
 # render
 
@@ -18,13 +26,15 @@ change the `render` command to simple `run` command
 
 the stack can take other types of values -- not only port
 
-`"head" put` instead of `(let head)`
+`"head" set` instead of `(let head)`
 
 explicit `"name" get` for local variable
 
 # simple types
 
 linear logic as type system of inet
+
+`Node` port name can be optional
 
 `deftype` -- `TermType` -- use `'a` for name of pattern like in haskell
 

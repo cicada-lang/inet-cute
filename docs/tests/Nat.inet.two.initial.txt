@@ -1,15 +1,5 @@
 add1#1 -- zero#0 [label="0-0"]
-zero#0
-add1#1
 add1#3 -- zero#2 [label="0-0"]
-zero#2
-add1#3
 add#4 -- add1#1 [label="1-1"]
-add1#1
-add#4
 add#4 -- add1#3 [label="0-1" color=red]
-add1#3
-add#4
 add#4(2) -- add#4
-add#4
-add#4(2)

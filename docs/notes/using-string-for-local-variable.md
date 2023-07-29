@@ -9,11 +9,11 @@ to get pure postfix syntax.
 
 ```inet
 defn cons append
-  "head" put append
+  "head" set append
   "head" get cons
 end
 ```
 
-How about keywords like `put`, but need a code block?
+How about keywords like `set`, but need a code block?
 
 TODO
