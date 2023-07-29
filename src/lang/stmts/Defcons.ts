@@ -5,11 +5,16 @@ import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { createTrivialTypes } from "../type"
 
+export type PortExp = {
+  name: string
+  isPrincipal: boolean
+}
+
 export class Defcons implements Stmt {
   constructor(
     public name: string,
-    public inputArity: number,
-    public outputArity: number,
+    public input: Array<PortExp>,
+    public output: Array<PortExp>,
     public span: Span,
   ) {}
 
@@ -21,8 +26,8 @@ export class Defcons implements Stmt {
         mod,
         "Cons",
         this.name,
-        createTrivialTypes(this.inputArity),
-        createTrivialTypes(this.outputArity),
+        createTrivialTypes(this.input.length),
+        createTrivialTypes(this.output.length),
       ),
     )
   }

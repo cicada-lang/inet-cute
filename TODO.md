@@ -1,7 +1,5 @@
 # named port
 
-[syntax] named port
-
 `Node` with named port
 
 `defnode` instead of `defcons` and `defelim`

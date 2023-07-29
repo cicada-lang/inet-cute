@@ -5,18 +5,18 @@ import * as matchers from "../matchers"
 
 export function stmt_matcher(tree: pt.Tree): Stmt {
   return pt.matcher<Stmt>({
-    "stmt:defcons": ({ name, inputArity, outputArity }, { span }) =>
+    "stmt:defcons": ({ name, input, output }, { span }) =>
       new Stmts.Defcons(
         pt.str(name),
-        Number(pt.str(inputArity)),
-        Number(pt.str(outputArity)),
+        matchers.ports_matcher(input),
+        matchers.ports_matcher(output),
         span,
       ),
-    "stmt:defelim": ({ name, inputArity, outputArity }, { span }) =>
+    "stmt:defelim": ({ name, input, output }, { span }) =>
       new Stmts.Defelim(
         pt.str(name),
-        Number(pt.str(inputArity)),
-        Number(pt.str(outputArity)),
+        matchers.ports_matcher(input),
+        matchers.ports_matcher(output),
         span,
       ),
     "stmt:defru": ({ start, end, words }, { span }) =>

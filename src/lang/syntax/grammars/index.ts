@@ -6,5 +6,6 @@ export const optional = pt.grammars.optional
 export const dashline = pt.grammars.dashline
 
 export * from "./name"
+export * from "./port"
 export * from "./stmt"
 export * from "./word"

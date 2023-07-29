@@ -1,18 +1,19 @@
-defcons sole 0 1 end
+defcons sole -- return! end
 
-defcons null 0 1 end
-defcons cons 2 1 end
+defcons null -- return! end
 
-defcons diff 2 1 end
+defcons cons head tail -- return! end
 
-defelim diff_append 2 1 end
+defcons diff left right -- return! end
+
+defelim diff_append left! right -- return end
 
 defru diff diff_append
   (let start) (let fin) (let diff_list)
   fin diff_list diff_open start diff
 end
 
-defelim diff_open 2 1 end
+defelim diff_open diff_list! list -- return end
 
 defru diff diff_open
   (let start) (let fin) (let list)

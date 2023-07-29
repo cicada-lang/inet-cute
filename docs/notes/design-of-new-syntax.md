@@ -10,7 +10,7 @@ Use `defnode` to define a node.
 
 `--` separates input ports from output ports in the definition.
 
-Use `!` as postfix to mark the principle port.
+Use `!` as postfix to mark the principal port.
 
 ```inet
 defnode zero -- return: Nat! end

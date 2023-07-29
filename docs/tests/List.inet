@@ -1,10 +1,10 @@
-defcons sole 0 1 end
+defcons sole -- return! end
 
-defcons null 0 1 end
+defcons null -- return! end
 
-defcons cons 2 1 end
+defcons cons head tail -- return! end
 
-defelim append 2 1 end
+defelim append left! right -- return end
 
 defru null append end
 

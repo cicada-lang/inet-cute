@@ -3,15 +3,17 @@ export const stmt = {
     "stmt:defcons": [
       '"defcons"',
       { name: "variable_name" },
-      { inputArity: { $pattern: ["number"] } },
-      { outputArity: { $pattern: ["number"] } },
+      { input: "ports" },
+      "dashline",
+      { output: "ports" },
       '"end"',
     ],
     "stmt:defelim": [
       '"defelim"',
       { name: "variable_name" },
-      { inputArity: { $pattern: ["number"] } },
-      { outputArity: { $pattern: ["number"] } },
+      { input: "ports" },
+      "dashline",
+      { output: "ports" },
       '"end"',
     ],
     "stmt:defru": [

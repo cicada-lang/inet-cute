@@ -4,12 +4,13 @@ import { define } from "../mod/define"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { createTrivialTypes } from "../type"
+import { PortExp } from "./Defcons"
 
 export class Defelim implements Stmt {
   constructor(
     public name: string,
-    public inputArity: number,
-    public outputArity: number,
+    public input: Array<PortExp>,
+    public output: Array<PortExp>,
     public span: Span,
   ) {}
 
@@ -21,8 +22,8 @@ export class Defelim implements Stmt {
         mod,
         "Elim",
         this.name,
-        createTrivialTypes(this.inputArity),
-        createTrivialTypes(this.outputArity),
+        createTrivialTypes(this.input.length),
+        createTrivialTypes(this.output.length),
       ),
     )
   }
