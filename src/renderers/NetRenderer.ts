@@ -19,7 +19,7 @@ export class NetRenderer {
       lines.push(`${end}`)
     }
 
-    for (const edge of net.actions) {
+    for (const edge of net.activeEdges) {
       const start = formatNode(edge.start.node)
       const end = formatNode(edge.end.node)
       const indexes = `${edge.end.index}-${edge.start.index}`

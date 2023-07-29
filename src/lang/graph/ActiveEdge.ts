@@ -6,14 +6,14 @@ import { netConnect } from "./netConnect"
 import { netRemoveEdge } from "./netRemoveEdge"
 import { netRemoveNode } from "./netRemoveNode"
 
-export class Action {
+export class ActiveEdge {
   constructor(
     public start: Port,
     public end: Port,
     public rule: Rule,
   ) {}
 
-  act(mod: Mod, net: Net): void {
+  interact(mod: Mod, net: Net): void {
     // NOTE The state of action.
     const input: Array<Port> = []
     const output: Array<Port> = []

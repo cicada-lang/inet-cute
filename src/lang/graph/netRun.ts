@@ -7,7 +7,7 @@ import { netReleaseFreePorts } from "./netReleaseFreePorts"
 export function netRun(net: Net): void {
   const closer = netCloseFreePorts(net)
 
-  while (net.actions.length > 0) {
+  while (net.activeEdges.length > 0) {
     netStep(net)
   }
 
@@ -20,10 +20,10 @@ function netStep(net: Net): void {
     throw new InternalError("I can not handle free port during stepping.")
   }
 
-  const action = net.actions.pop()
-  if (action === undefined) {
+  const activeEdge = net.activeEdges.pop()
+  if (activeEdge === undefined) {
     return
   } else {
-    action.act(net.mod, net)
+    activeEdge.interact(net.mod, net)
   }
 }

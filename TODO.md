@@ -1,6 +1,8 @@
-quit using `Action`
+[graph] extract `interact`
 
-`Action` should be type instead of class
+quit using `ActiveEdge`
+
+`ActiveEdge` should be type instead of class
 
 use new syntax
 
