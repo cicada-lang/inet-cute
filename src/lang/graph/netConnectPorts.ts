@@ -1,8 +1,8 @@
-import { Net, Port, createEdge } from "../graph"
+import { Net, Port, createEdge } from "."
 import { lookupRuleByPorts } from "../mod/lookupRuleByPorts"
 import { createActiveEdge } from "./createActiveEdge"
 
-export function netConnect(net: Net, start: Port, end: Port): void {
+export function netConnectPorts(net: Net, start: Port, end: Port): void {
   const rule = lookupRuleByPorts(net.mod, start, end)
 
   if (rule) {

@@ -1,5 +1,5 @@
 import { Net } from "./Net"
-import { netConnect } from "./netConnect"
+import { netConnectPorts } from "./netConnectPorts"
 import { netRemoveEdge } from "./netRemoveEdge"
 import { netRemoveNode } from "./netRemoveNode"
 
@@ -12,7 +12,7 @@ export function netCleanUpWires(net: Net): void {
       netRemoveNode(net, wire.start.node)
       netRemoveNode(net, wire.end.node)
 
-      netConnect(net, wire.start.connection.port, wire.end.connection.port)
+      netConnectPorts(net, wire.start.connection.port, wire.end.connection.port)
     }
   }
 

@@ -1,5 +1,3 @@
-[maybe] quit using `ActiveEdge`
-
 use new syntax
 
 `Node` with optionally named port
@@ -11,6 +9,8 @@ use new syntax
 - learn from knuth's c code
 
 change the `render` command to simple `run` command
+
+[maybe] quit using `ActiveEdge`
 
 # the paper
 
