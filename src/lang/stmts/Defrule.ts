@@ -5,7 +5,7 @@ import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { Word } from "../word"
 
-export class DefruleStmt implements Stmt {
+export class Defrule implements Stmt {
   constructor(
     public start: string,
     public end: string,

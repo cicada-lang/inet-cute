@@ -3,12 +3,13 @@ import { Mod } from "../mod"
 import { define } from "../mod/define"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
-import { Word } from "../word"
+import { createTrivialTypes } from "../type"
 
-export class DefnetStmt implements Stmt {
+export class Defelim implements Stmt {
   constructor(
     public name: string,
-    public words: Array<Word>,
+    public inputArity: number,
+    public outputArity: number,
     public span: Span,
   ) {}
 
@@ -16,7 +17,13 @@ export class DefnetStmt implements Stmt {
     define(
       mod,
       this.name,
-      new Definitions.NetDefinition(mod, this.name, this.words),
+      new Definitions.NodeDefinition(
+        mod,
+        "Elim",
+        this.name,
+        createTrivialTypes(this.inputArity),
+        createTrivialTypes(this.outputArity),
+      ),
     )
   }
 }

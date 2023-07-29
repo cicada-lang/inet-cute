@@ -16,7 +16,7 @@ export function matchStmt(sexp: Sexp): Stmt {
     [
       ["defcons", v("name"), v("inputArity"), v("outputArity")],
       ({ name, inputArity, outputArity }) =>
-        new Stmts.DefconsStmt(
+        new Stmts.Defcons(
           matchSymbol(name),
           matchNumber(inputArity),
           matchNumber(outputArity),
@@ -26,7 +26,7 @@ export function matchStmt(sexp: Sexp): Stmt {
     [
       ["defelim", v("name"), v("inputArity"), v("outputArity")],
       ({ name, inputArity, outputArity }) =>
-        new Stmts.DefelimStmt(
+        new Stmts.Defelim(
           matchSymbol(name),
           matchNumber(inputArity),
           matchNumber(outputArity),
@@ -36,12 +36,12 @@ export function matchStmt(sexp: Sexp): Stmt {
     [
       list(["defnet", v("name")], v("words")),
       ({ name, input, output, words }) =>
-        new Stmts.DefnetStmt(matchSymbol(name), matchExps(words), sexp.span),
+        new Stmts.Defnet(matchSymbol(name), matchExps(words), sexp.span),
     ],
     [
       list(["defrule", [v("start"), v("end")]], v("words")),
       ({ start, end, words }) =>
-        new Stmts.DefruleStmt(
+        new Stmts.Defrule(
           matchSymbol(start),
           matchSymbol(end),
           matchExps(words),

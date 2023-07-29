@@ -5,7 +5,7 @@ import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { createTrivialTypes } from "../type"
 
-export class DefelimStmt implements Stmt {
+export class Defcons implements Stmt {
   constructor(
     public name: string,
     public inputArity: number,
@@ -19,7 +19,7 @@ export class DefelimStmt implements Stmt {
       this.name,
       new Definitions.NodeDefinition(
         mod,
-        "Elim",
+        "Cons",
         this.name,
         createTrivialTypes(this.inputArity),
         createTrivialTypes(this.outputArity),
