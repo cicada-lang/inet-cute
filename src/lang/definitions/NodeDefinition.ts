@@ -15,12 +15,14 @@ export class NodeDefinition implements Definition {
     public output: Array<Type>,
   ) {}
 
-  build(): Node {
-    return createNode(this.kind, this.mod, this.name, this.input, this.output)
-  }
-
   meaning(net: Net): Node {
-    const node = this.build()
+    const node = createNode(
+      this.kind,
+      this.mod,
+      this.name,
+      this.input,
+      this.output,
+    )
 
     // NOTE Be careful about the order.
     for (const port of node.input) {

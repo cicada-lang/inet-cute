@@ -1,7 +1,6 @@
-import { Mod } from "."
-import * as Definitions from "../definitions"
-import { Port } from "../graph"
+import { Port, createNode } from "../graph"
 import { netConnect } from "../graph/netConnect"
+import { Mod } from "../mod"
 import { createTrivialTypes } from "../type"
 import { defineOperator } from "./defineOperator"
 
@@ -26,15 +25,7 @@ export function defineBuiltInOperators(mod: Mod): void {
   })
 
   defineOperator(mod, "wire", (net) => {
-    const def = new Definitions.NodeDefinition(
-      mod,
-      "Cons",
-      "wire",
-      [],
-      createTrivialTypes(2),
-    )
-
-    const node = def.build()
+    const node = createNode("Cons", mod, "wire", [], createTrivialTypes(2))
 
     net.portStack.push(...node.output)
     net.nodes.push(node)
