@@ -1,5 +1,6 @@
 import { InternalError } from "../errors"
 import { Net } from "./Net"
+import { interact } from "./interact"
 import { netCleanUpWires } from "./netCleanUpWires"
 import { netCloseFreePorts } from "./netCloseFreePorts"
 import { netReleaseFreePorts } from "./netReleaseFreePorts"
@@ -24,6 +25,6 @@ function netStep(net: Net): void {
   if (activeEdge === undefined) {
     return
   } else {
-    activeEdge.interact(net.mod, net)
+    interact(net.mod, net, activeEdge)
   }
 }
