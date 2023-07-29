@@ -12,6 +12,10 @@
 
 no `defru` just `defrule` -- add feature when very very needed
 
+# bug
+
+why no active edge in `Nat.inet.four.initial`？
+
 # render
 
 `NetRenderer` -- format to simple text representation of graph
