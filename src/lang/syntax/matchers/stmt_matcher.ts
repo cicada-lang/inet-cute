@@ -5,15 +5,8 @@ import * as matchers from "../matchers"
 
 export function stmt_matcher(tree: pt.Tree): Stmt {
   return pt.matcher<Stmt>({
-    "stmt:defcons": ({ name, input, output }, { span }) =>
-      new Stmts.Defcons(
-        pt.str(name),
-        matchers.ports_matcher(input),
-        matchers.ports_matcher(output),
-        span,
-      ),
-    "stmt:defelim": ({ name, input, output }, { span }) =>
-      new Stmts.Defelim(
+    "stmt:defnode": ({ name, input, output }, { span }) =>
+      new Stmts.Defnode(
         pt.str(name),
         matchers.ports_matcher(input),
         matchers.ports_matcher(output),

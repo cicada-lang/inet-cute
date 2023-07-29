@@ -25,7 +25,6 @@ export function defineBuiltInOperators(mod: Mod): void {
 
   defineOperator(mod, "wire", (net) => {
     const node = createNode(
-      "Cons",
       mod,
       "wire",
       [],

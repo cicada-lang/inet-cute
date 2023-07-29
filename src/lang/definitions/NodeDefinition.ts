@@ -4,25 +4,16 @@ import { netConnectPorts } from "../graph/netConnectPorts"
 import { Mod } from "../mod"
 import { PortExp } from "../stmts"
 
-export type NodeKind = "Cons" | "Elim"
-
 export class NodeDefinition implements Definition {
   constructor(
     public mod: Mod,
-    public kind: NodeKind,
     public name: string,
     public input: Array<PortExp>,
     public output: Array<PortExp>,
   ) {}
 
   meaning(net: Net): Node {
-    const node = createNode(
-      this.kind,
-      this.mod,
-      this.name,
-      this.input,
-      this.output,
-    )
+    const node = createNode(this.mod, this.name, this.input, this.output)
 
     // NOTE Be careful about the order.
     for (const port of node.input) {

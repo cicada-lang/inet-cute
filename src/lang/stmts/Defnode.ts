@@ -9,7 +9,7 @@ export type PortExp = {
   isPrincipal: boolean
 }
 
-export class Defcons implements Stmt {
+export class Defnode implements Stmt {
   constructor(
     public name: string,
     public input: Array<PortExp>,
@@ -21,13 +21,7 @@ export class Defcons implements Stmt {
     define(
       mod,
       this.name,
-      new Definitions.NodeDefinition(
-        mod,
-        "Cons",
-        this.name,
-        this.input,
-        this.output,
-      ),
+      new Definitions.NodeDefinition(mod, this.name, this.input, this.output),
     )
   }
 }

@@ -1,8 +1,8 @@
-defcons zero -- return! end
+defnode zero -- return! end
 
-defcons add1 prev -- return! end
+defnode add1 prev -- return! end
 
-defelim add x! y -- return end
+defnode add x! y -- return end
 
 defru zero add end
 

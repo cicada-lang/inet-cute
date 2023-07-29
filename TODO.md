@@ -1,7 +1,5 @@
 # named port
 
-`defnode` instead of `defcons` and `defelim`
-
 `PortPush` -- new word
 
 `PortConnect` -- new word

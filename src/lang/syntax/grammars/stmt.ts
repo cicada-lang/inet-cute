@@ -1,7 +1,7 @@
 export const stmt = {
   $grammar: {
-    "stmt:defcons": [
-      '"defcons"',
+    "stmt:defnode": [
+      '"defnode"',
       { name: "variable_name" },
       { input: "ports" },
       "dashline",
