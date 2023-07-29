@@ -6,6 +6,7 @@ import Path from "path"
 import { Net } from "../../lang/graph"
 import { netRun } from "../../lang/graph/netRun"
 import { Mod } from "../../lang/mod"
+import { createMod } from "../../lang/mod/createMod"
 import { modAllNetNames } from "../../lang/mod/modAllNetNames"
 import { modBuildNet } from "../../lang/mod/modBuildNet"
 import { Parser } from "../../lang/syntax"
@@ -47,7 +48,7 @@ export class RenderCommand extends Command<Args, Opts> {
   async execute(argv: Args & Opts): Promise<void> {
     const file = Path.resolve(argv.mod)
     const url = new URL(`file:${file}`)
-    const mod = new Mod(url)
+    const mod = createMod(url)
 
     const text = await fs.promises.readFile(file, "utf8")
     const parser = new Parser()

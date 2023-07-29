@@ -1,5 +1,3 @@
-[mod] `createMod` -- `Mod` should be a type -- instead of a class
-
 `NodeDefinition` should not have `rules` -- use `RuleDefinition`
 
 `Node` should not have `definition` -- which is used to `getRule`
