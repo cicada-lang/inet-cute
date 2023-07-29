@@ -1,7 +1,5 @@
 `Definition` use pure interface
 
-`Stmt` use pure interface
-
 `NodeDefinition` should not have `rules` -- use `RuleDefinition`
 
 `Node` should not have `definition` -- which is used to `getRule`

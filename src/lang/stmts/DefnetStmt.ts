@@ -5,14 +5,12 @@ import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { Word } from "../word"
 
-export class DefnetStmt extends Stmt {
+export class DefnetStmt implements Stmt {
   constructor(
     public name: string,
     public words: Array<Word>,
     public span: Span,
-  ) {
-    super()
-  }
+  ) {}
 
   async execute(mod: Mod): Promise<void> {
     define(

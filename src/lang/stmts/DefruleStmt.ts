@@ -5,15 +5,13 @@ import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { Word } from "../word"
 
-export class DefruleStmt extends Stmt {
+export class DefruleStmt implements Stmt {
   constructor(
     public start: string,
     public end: string,
     public words: Array<Word>,
     public span: Span,
-  ) {
-    super()
-  }
+  ) {}
 
   async execute(mod: Mod): Promise<void> {
     const startNodeDefinition = modLookupNodeDefinitionOrFail(mod, this.start)
