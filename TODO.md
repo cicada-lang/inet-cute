@@ -1,4 +1,4 @@
-use new syntax
+[syntax] use "@cicada-lang/partech" to implement new syntax
 
 `Node` with optionally named port
 

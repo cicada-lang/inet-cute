@@ -9,7 +9,7 @@ import { Mod } from "../../lang/mod"
 import { createMod } from "../../lang/mod/createMod"
 import { modAllNetNames } from "../../lang/mod/modAllNetNames"
 import { modBuildNet } from "../../lang/mod/modBuildNet"
-import { Parser } from "../../lang/syntax"
+import { parseStmts } from "../../lang/syntax"
 import { NetRenderer } from "../../renderers/NetRenderer"
 
 type Args = { mod: string }
@@ -51,10 +51,9 @@ export class RenderCommand extends Command<Args, Opts> {
     const mod = createMod(url)
 
     const text = await fs.promises.readFile(file, "utf8")
-    const parser = new Parser()
 
     try {
-      const stmts = parser.parseStmts(text)
+      const stmts = parseStmts(text)
 
       for (const stmt of stmts) {
         stmt.execute(mod)
