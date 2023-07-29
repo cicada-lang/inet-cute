@@ -7,7 +7,7 @@ import { Type } from "../type"
 
 export type NodeKind = "Cons" | "Elim"
 
-export class NodeDefinition extends Definition {
+export class NodeDefinition implements Definition {
   private rules: Map<string, Rule> = new Map()
 
   constructor(
@@ -16,9 +16,7 @@ export class NodeDefinition extends Definition {
     public name: string,
     public input: Array<Type>,
     public output: Array<Type>,
-  ) {
-    super()
-  }
+  ) {}
 
   get fullName(): string {
     return this.mod.url.href + "#" + this.name
