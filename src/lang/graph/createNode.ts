@@ -1,7 +1,7 @@
 import { NodeKind } from "../definitions"
 import { Node, createPort } from "../graph"
 import { Mod } from "../mod"
-import { Type } from "../type"
+import { PortExp } from "../stmts"
 
 let counter = 0
 
@@ -9,22 +9,23 @@ export function createNode(
   kind: NodeKind,
   mod: Mod,
   name: string,
-  inputTypes: Array<Type>,
-  outputTypes: Array<Type>,
+  input: Array<PortExp>,
+  output: Array<PortExp>,
 ): Node {
   const node: Node = {
     id: counter++,
     mod,
     name,
-    types: [...inputTypes, ...outputTypes],
     input: [],
     output: [],
   }
 
-  let portCount = 0
-
-  node.input = inputTypes.map((t) => createPort(node, portCount++))
-  node.output = outputTypes.map((t) => createPort(node, portCount++))
+  node.input = input.map(({ name, isPrincipal }) =>
+    createPort(node, name, {}, isPrincipal),
+  )
+  node.output = output.map(({ name, isPrincipal }) =>
+    createPort(node, name, {}, isPrincipal),
+  )
 
   if (kind === "Cons") {
     const lastPort = node.output[node.output.length - 1]

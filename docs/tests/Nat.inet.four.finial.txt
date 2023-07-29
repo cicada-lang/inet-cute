@@ -1,5 +1,5 @@
-(zero#8)-0 0-(add1#9)
-(add1#25)-1 0-(add1#23)
-(add1#27)-1 0-(add1#25)
-(add1#9)-1 0-(add1#27)
-(add1#23)-1
+(zero#8)-return prev-(add1#9)
+(add1#25)-return prev-(add1#23)
+(add1#27)-return prev-(add1#25)
+(add1#9)-return prev-(add1#27)
+(add1#23)-return

@@ -1,12 +1,16 @@
 import { Node, Port } from "../graph"
+import { Type } from "../type"
 
-export function createPort(node: Node, index: number): Port {
-  const t = node.types[index]
-
+export function createPort(
+  node: Node,
+  name: string,
+  t: Type,
+  isPrincipal: boolean,
+): Port {
   return {
     node,
-    index,
+    name,
     t,
-    isPrincipal: false,
+    isPrincipal,
   }
 }

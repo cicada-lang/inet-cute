@@ -3,7 +3,6 @@ import { Mod } from "../mod"
 import { define } from "../mod/define"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
-import { createTrivialTypes } from "../type"
 import { PortExp } from "./Defcons"
 
 export class Defelim implements Stmt {
@@ -22,8 +21,8 @@ export class Defelim implements Stmt {
         mod,
         "Elim",
         this.name,
-        createTrivialTypes(this.input.length),
-        createTrivialTypes(this.output.length),
+        this.input,
+        this.output,
       ),
     )
   }

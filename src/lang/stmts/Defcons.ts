@@ -3,7 +3,6 @@ import { Mod } from "../mod"
 import { define } from "../mod/define"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
-import { createTrivialTypes } from "../type"
 
 export type PortExp = {
   name: string
@@ -26,8 +25,8 @@ export class Defcons implements Stmt {
         mod,
         "Cons",
         this.name,
-        createTrivialTypes(this.input.length),
-        createTrivialTypes(this.output.length),
+        this.input,
+        this.output,
       ),
     )
   }

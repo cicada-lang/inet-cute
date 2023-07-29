@@ -3,7 +3,7 @@ import { Type } from "../type"
 
 export type Port = {
   node: Node
-  index: number
+  name: string
   t: Type
   isPrincipal: boolean
   connection?: {

@@ -2,7 +2,7 @@ import { Definition } from "../definition"
 import { Net, Node, createNode } from "../graph"
 import { netConnectPorts } from "../graph/netConnectPorts"
 import { Mod } from "../mod"
-import { Type } from "../type"
+import { PortExp } from "../stmts"
 
 export type NodeKind = "Cons" | "Elim"
 
@@ -11,8 +11,8 @@ export class NodeDefinition implements Definition {
     public mod: Mod,
     public kind: NodeKind,
     public name: string,
-    public input: Array<Type>,
-    public output: Array<Type>,
+    public input: Array<PortExp>,
+    public output: Array<PortExp>,
   ) {}
 
   meaning(net: Net): Node {

@@ -1,7 +1,6 @@
 import { Port, createNode } from "../graph"
 import { netConnectPorts } from "../graph/netConnectPorts"
 import { Mod } from "../mod"
-import { createTrivialTypes } from "../type"
 import { defineOperator } from "./defineOperator"
 
 export function defineBuiltInOperators(mod: Mod): void {
@@ -25,7 +24,16 @@ export function defineBuiltInOperators(mod: Mod): void {
   })
 
   defineOperator(mod, "wire", (net) => {
-    const node = createNode("Cons", mod, "wire", [], createTrivialTypes(2))
+    const node = createNode(
+      "Cons",
+      mod,
+      "wire",
+      [],
+      [
+        { name: "left", isPrincipal: false },
+        { name: "right", isPrincipal: true },
+      ],
+    )
 
     net.portStack.push(...node.output)
     net.nodes.push(node)
