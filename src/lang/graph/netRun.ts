@@ -21,6 +21,9 @@ function netStep(net: Net): void {
   }
 
   const action = net.actions.pop()
-  if (action === undefined) return
-  else action.act(net.mod, net)
+  if (action === undefined) {
+    return
+  } else {
+    action.act(net.mod, net)
+  }
 }
