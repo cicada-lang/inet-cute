@@ -2,14 +2,11 @@ import { Definition } from "../definition"
 import { Net, Node, createNode } from "../graph"
 import { netConnect } from "../graph/netConnect"
 import { Mod } from "../mod"
-import { Rule } from "../rule"
 import { Type } from "../type"
 
 export type NodeKind = "Cons" | "Elim"
 
 export class NodeDefinition implements Definition {
-  private rules: Map<string, Rule> = new Map()
-
   constructor(
     public mod: Mod,
     public kind: NodeKind,
@@ -20,14 +17,6 @@ export class NodeDefinition implements Definition {
 
   get fullName(): string {
     return this.mod.url.href + "#" + this.name
-  }
-
-  defineRule(end: NodeDefinition, rule: Rule): void {
-    this.rules.set(end.fullName, rule)
-  }
-
-  lookupRule(end: NodeDefinition): Rule | undefined {
-    return this.rules.get(end.fullName)
   }
 
   build(): Node {

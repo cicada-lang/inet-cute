@@ -1,6 +1,8 @@
-`NodeDefinition` should not have `rules` -- use `RuleDefinition`
+[mod] drop mod prefix of lookup
 
-`Node` should not have `definition` -- which is used to `getRule`
+`NodeDefinition.fullName`
+
+`Node` should not have `definition` -- which is used to `lookupRule`
 
 quit using `Action`
 

@@ -1,6 +1,7 @@
 import { Port } from "../graph"
 import { Rule } from "../rule"
 import { Mod } from "./Mod"
+import { modLookupRule } from "./modLookupRule"
 
 export function modLookupRuleByPorts(
   mod: Mod,
@@ -8,6 +9,6 @@ export function modLookupRuleByPorts(
   end: Port,
 ): Rule | undefined {
   if (start.isPrincipal && end.isPrincipal) {
-    return start.node.definition.lookupRule(end.node.definition)
+    return modLookupRule(mod, start.node.name, end.node.name)
   }
 }
