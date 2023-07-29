@@ -1,6 +1,6 @@
 import { Net } from "../graph"
 import { Mod } from "../mod"
-import { modLookupDefinitionOrFail } from "../mod/modLookupDefinitionOrFail"
+import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { Span } from "../span"
 import { Word } from "../word"
 
@@ -16,7 +16,7 @@ export class Call implements Word {
       net.portStore.delete(this.name)
       net.portStack.push(found)
     } else {
-      modLookupDefinitionOrFail(mod, this.name).meaning(net)
+      lookupDefinitionOrFail(mod, this.name).meaning(net)
     }
   }
 }

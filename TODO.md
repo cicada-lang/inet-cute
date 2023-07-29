@@ -1,5 +1,3 @@
-[mod] drop mod prefix of lookup
-
 `NodeDefinition.fullName`
 
 `Node` should not have `definition` -- which is used to `lookupRule`

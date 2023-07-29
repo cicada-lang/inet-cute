@@ -1,7 +1,7 @@
 import { Rule } from "../rule"
 import { Word } from "../word"
 import { Mod } from "./Mod"
-import { modLookupNodeDefinitionOrFail } from "./modLookupNodeDefinitionOrFail"
+import { lookupNodeDefinitionOrFail } from "./lookupNodeDefinitionOrFail"
 
 export function defineRule(
   mod: Mod,
@@ -13,8 +13,8 @@ export function defineRule(
     `${start} ${end}`,
     new Rule(
       mod,
-      modLookupNodeDefinitionOrFail(mod, start),
-      modLookupNodeDefinitionOrFail(mod, end),
+      lookupNodeDefinitionOrFail(mod, start),
+      lookupNodeDefinitionOrFail(mod, end),
       words,
     ),
   )

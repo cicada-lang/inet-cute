@@ -1,7 +1,7 @@
 import { Rule } from "../rule"
 import { Mod } from "./Mod"
 
-export function modLookupRule(
+export function lookupRule(
   mod: Mod,
   start: string,
   end: string,
