@@ -1,5 +1,3 @@
-[graph] `ActiveEdge` should be type instead of class
-
 [maybe] quit using `ActiveEdge`
 
 use new syntax
