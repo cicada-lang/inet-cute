@@ -1,20 +1,21 @@
 import * as Definitions from "../definitions"
 import { Node, createPort } from "../graph"
+import { Mod } from "../mod"
 import { Type } from "../type"
 
 let counter = 0
 
 export function createNode(
   kind: Definitions.NodeKind,
-  definition: Definitions.NodeDefinition,
+  mod: Mod,
+  name: string,
   inputTypes: Array<Type>,
   outputTypes: Array<Type>,
 ): Node {
   const node: Node = {
     id: counter++,
-    definition,
-    mod: definition.mod,
-    name: definition.name,
+    mod,
+    name,
     types: [...inputTypes, ...outputTypes],
     input: [],
     output: [],

@@ -1,7 +1,5 @@
 `NodeDefinition.fullName`
 
-`Node` should not have `definition` -- which is used to `lookupRule`
-
 quit using `Action`
 
 `Action` should be type instead of class

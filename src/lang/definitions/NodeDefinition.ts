@@ -20,7 +20,7 @@ export class NodeDefinition implements Definition {
   }
 
   build(): Node {
-    return createNode(this.kind, this, this.input, this.output)
+    return createNode(this.kind, this.mod, this.name, this.input, this.output)
   }
 
   meaning(net: Net): Node {
