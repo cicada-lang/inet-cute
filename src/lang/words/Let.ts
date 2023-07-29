@@ -3,13 +3,11 @@ import { Mod } from "../mod"
 import { Span } from "../span"
 import { Word } from "../word"
 
-export class Let extends Word {
+export class Let implements Word {
   constructor(
     public names: Array<string>,
     public span: Span,
-  ) {
-    super()
-  }
+  ) {}
 
   apply(mod: Mod, net: Net): void {
     for (const name of [...this.names].reverse()) {

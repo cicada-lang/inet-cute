@@ -4,13 +4,11 @@ import { modLookupDefinitionOrFail } from "../mod/modLookupDefinitionOrFail"
 import { Span } from "../span"
 import { Word } from "../word"
 
-export class Call extends Word {
+export class Call implements Word {
   constructor(
     public name: string,
     public span: Span,
-  ) {
-    super()
-  }
+  ) {}
 
   apply(mod: Mod, net: Net): void {
     const found = net.portStore.get(this.name)
