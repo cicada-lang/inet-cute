@@ -15,10 +15,6 @@ export class NodeDefinition implements Definition {
     public output: Array<Type>,
   ) {}
 
-  get fullName(): string {
-    return this.mod.url.href + "#" + this.name
-  }
-
   build(): Node {
     return createNode(this.kind, this.mod, this.name, this.input, this.output)
   }
