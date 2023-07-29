@@ -1,11 +1,11 @@
-cons#2 -- sole#1 [label="0-0"]
-diff#3 -- cons#2 [label="0-2"]
-cons#6 -- sole#5 [label="0-0"]
-cons#8 -- sole#7 [label="0-0"]
-cons#8 -- cons#6 [label="1-2"]
-diff#9 -- cons#8 [label="0-2"]
-diff_append#10 -- diff#3 [label="1-2"]
-cons#2 -- diff#3 [label="1-1"]
-cons#6 -- diff#9 [label="1-1"]
-diff_append#10 -- diff#9 [label="0-2" color=red]
-diff_append#10(2) -- diff_append#10
+(diff#9)-[2]![0]-(diff_append#10)
+(sole#1)-[0] [0]-(cons#2)
+(cons#2)-[2] [0]-(diff#3)
+(sole#5)-[0] [0]-(cons#6)
+(sole#7)-[0] [0]-(cons#8)
+(cons#6)-[2] [1]-(cons#8)
+(cons#8)-[2] [0]-(diff#9)
+(diff#3)-[2] [1]-(diff_append#10)
+(diff#3)-[1] [1]-(cons#2)
+(diff#9)-[1] [1]-(cons#6)
+(diff_append#10)-[2]

@@ -20,7 +20,7 @@ no `defru` just `defrule` -- add feature when very very needed
 
 change the `render` command to simple `run` command
 
-`NetRenderer` show free port names
+`NetRenderer` show port name
 
 # value
 

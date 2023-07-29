@@ -1,11 +1,11 @@
-add1#9 -- zero#8 [label="0-0"]
-add1#11 -- zero#10 [label="0-0"]
-add#12 -- add1#9 [label="1-1"]
-add1#14 -- zero#13 [label="0-0"]
-add1#16 -- zero#15 [label="0-0"]
-add#17 -- add1#14 [label="1-1"]
-add#18 -- add#17 [label="0-2"]
-add#18 -- add#12 [label="1-2"]
-add#12 -- add1#11 [label="0-1" color=red]
-add#17 -- add1#16 [label="0-1" color=red]
-add#18(2) -- add#18
+(add1#11)-[1]![0]-(add#12)
+(add1#16)-[1]![0]-(add#17)
+(zero#8)-[0] [0]-(add1#9)
+(zero#10)-[0] [0]-(add1#11)
+(add1#9)-[1] [1]-(add#12)
+(zero#13)-[0] [0]-(add1#14)
+(zero#15)-[0] [0]-(add1#16)
+(add1#14)-[1] [1]-(add#17)
+(add#17)-[2] [0]-(add#18)
+(add#12)-[2] [1]-(add#18)
+(add#18)-[2]
