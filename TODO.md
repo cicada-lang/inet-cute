@@ -1,8 +1,8 @@
-[syntax] use "@cicada-lang/partech" to implement new syntax
+`"head" let` instead of `(let head)`
 
 `Node` with optionally named port
 
-- `NetRenderer` show free port names
+`defnode` instead of `defcons` and `defelim`
 
 `NetRenderer` -- format to simple text representation of graph
 
@@ -11,6 +11,8 @@
 change the `render` command to simple `run` command
 
 [maybe] quit using `ActiveEdge`
+
+`NetRenderer` show free port names
 
 # the paper
 

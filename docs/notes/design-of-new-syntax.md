@@ -59,13 +59,12 @@ defrule add1 add
 end
 ```
 
-`defn` is a short hand for simple `defrule`,
-to define rules that works like a function.
+`defru` is a short hand for simple `defrule`.
 
 ```inet
-defn zero add end
+defru zero add end
 
-defn add1 add add add1 end
+defru add1 add add add1 end
 ```
 
 ```inet
@@ -111,12 +110,12 @@ defrule cons append
   return-(append)
 end
 
-defn null append end
+defru null append end
 
 # the syntax for `let` and `get` is yet to be designed.
 # I use `<...>` and description for work-in-progress syntax design.
 
-defn cons append
+defru cons append
   <let head> append <get head> cons
 end
 
@@ -158,13 +157,13 @@ defrule diff diff_open
   (diff)-left return-(diff_open)
 end
 
-defn diff diff_append
+defru diff diff_append
   <let diff_list end start>
   <get end> <get diff_list>
   diff_open <get start> diff
 end
 
-defn diff diff_open
+defru diff diff_open
   <let list end start>
   <get list> <get end> connect
   <get start>

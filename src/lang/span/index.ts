@@ -1,1 +1,1 @@
-export { Span } from "@cicada-lang/sexp/lib/span"
+export { Span } from "@cicada-lang/partech/lib/span"

@@ -1,16 +1,17 @@
-(defcons sole 0 1)
+defcons sole 0 1 end
 
-(defcons null 0 1)
+defcons null 0 1 end
 
-(defcons cons 2 1)
+defcons cons 2 1 end
 
-(defelim append 2 1)
+defelim append 2 1 end
 
-(defrule (null append))
+defru null append end
 
-(defrule (cons append) (let head) append head cons)
+defru cons append (let head) append head cons end
 
-(defnet six-soles
+defnet six_soles
   null sole cons sole cons sole cons
   null sole cons sole cons sole cons
-  append)
+  append
+end

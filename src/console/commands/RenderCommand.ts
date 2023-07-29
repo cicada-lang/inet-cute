@@ -1,4 +1,4 @@
-import { ParsingError } from "@cicada-lang/sexp/lib/errors"
+import { ParsingError } from "@cicada-lang/partech/lib/errors"
 import { Command, CommandRunner } from "@xieyuheng/command-line"
 import ty from "@xieyuheng/ty"
 import fs from "fs"
@@ -68,7 +68,7 @@ export class RenderCommand extends Command<Args, Opts> {
       }
     } catch (error) {
       if (error instanceof ParsingError) {
-        const report = error.span.report(text)
+        const report = error.report(text)
         console.error(report)
       }
 

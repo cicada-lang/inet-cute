@@ -1,17 +1,19 @@
-(defcons zero 0 1)
+defcons zero 0 1 end
 
-(defcons add1 1 1)
+defcons add1 1 1 end
 
-(defelim add 2 1)
+defelim add 2 1 end
 
-(defrule (zero add))
+defru zero add end
 
-(defrule (add1 add) add add1)
+defru add1 add add add1 end
 
-(defnet two
+defnet two
   zero add1
   zero add1
-  add)
+  add
+end
 
-(defnet four
-  two two add)
+defnet four
+  two two add
+end

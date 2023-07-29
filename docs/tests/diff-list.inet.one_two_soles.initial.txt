@@ -16,18 +16,18 @@ cons#8
 diff#9 -- cons#8 [label="0-2"]
 cons#8
 diff#9
-diff-append#10 -- diff#3 [label="1-2"]
+diff_append#10 -- diff#3 [label="1-2"]
 diff#3
-diff-append#10
+diff_append#10
 cons#2 -- diff#3 [label="1-1"]
 diff#3
 cons#2
 cons#6 -- diff#9 [label="1-1"]
 diff#9
 cons#6
-diff-append#10 -- diff#9 [label="0-2" color=red]
+diff_append#10 -- diff#9 [label="0-2" color=red]
 diff#9
-diff-append#10
-diff-append#10(2) -- diff-append#10
-diff-append#10
-diff-append#10(2)
+diff_append#10
+diff_append#10(2) -- diff_append#10
+diff_append#10
+diff_append#10(2)
