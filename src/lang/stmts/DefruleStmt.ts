@@ -1,4 +1,5 @@
 import { Mod } from "../mod"
+import { modLookupNodeDefinitionOrFail } from "../mod/modLookupNodeDefinitionOrFail"
 import { Rule } from "../rule"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
@@ -15,8 +16,8 @@ export class DefruleStmt extends Stmt {
   }
 
   async execute(mod: Mod): Promise<void> {
-    const startNodeDefinition = mod.lookupNodeDefinitionOrFail(this.start)
-    const endNodeDefinition = mod.lookupNodeDefinitionOrFail(this.end)
+    const startNodeDefinition = modLookupNodeDefinitionOrFail(mod, this.start)
+    const endNodeDefinition = modLookupNodeDefinitionOrFail(mod, this.end)
 
     startNodeDefinition.defineRule(
       endNodeDefinition,
