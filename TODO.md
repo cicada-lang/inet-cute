@@ -2,11 +2,6 @@
 
 `PortPush` -- new word
 
-- the contexts of `word.apply` are different in `interact` and `NetDefinition`
-
-  - maybe we should let `net` have `activeEdge`
-    but will this hurt parallelization?
-
 `PortConnect` -- new word
 
 no `defru` just `defrule` -- add feature when very very needed
