@@ -1,7 +1,5 @@
 use unicode for subscript number
 
-rename PortConnect to PortReconnect
-
 `connect` v.s. `reconnect`
 
 - `reconnect` is used in `PortReconnect`

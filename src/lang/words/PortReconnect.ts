@@ -5,7 +5,7 @@ import { Mod } from "../mod"
 import { Span } from "../span"
 import { Word, WordOptions } from "../word"
 
-export class PortConnect implements Word {
+export class PortReconnect implements Word {
   constructor(
     public nodeName: string,
     public portName: string,
@@ -16,21 +16,21 @@ export class PortConnect implements Word {
     const { activeEdge } = options
 
     if (activeEdge === undefined) {
-      throw new Error(`[PortConnect.apply] expect current activeEdge`)
+      throw new Error(`[PortReconnect.apply] expect current activeEdge`)
     }
 
     const found = findPortInActiveEdge(this.nodeName, this.portName, activeEdge)
 
     if (found === undefined) {
       throw new Error(
-        `[PortConnect.apply] can not find port: ${this.portName} in active edge`,
+        `[PortReconnect.apply] can not find port: ${this.portName} in active edge`,
       )
     }
 
     const topPort = net.portStack.pop()
 
     if (topPort === undefined) {
-      throw new Error(`[PortConnect.apply] expect top port`)
+      throw new Error(`[PortReconnect.apply] expect top port`)
     }
 
     connectPorts(net, topPort, found)

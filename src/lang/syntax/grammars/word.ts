@@ -8,7 +8,7 @@ export const word = {
       '"-"',
       { portName: "variable_name" },
     ],
-    "word:port_connect": [
+    "word:port_reconnect": [
       { portName: "variable_name" },
       '"-"',
       '"("',
