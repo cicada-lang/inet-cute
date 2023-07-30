@@ -1,5 +1,6 @@
 import { Definition } from "../definition"
 import { Net } from "../graph"
+import { applyWords } from "../graph/applyWords"
 import { Mod } from "../mod"
 import { Word } from "../word"
 
@@ -11,8 +12,6 @@ export class NetDefinition implements Definition {
   ) {}
 
   meaning(net: Net): void {
-    for (const word of this.words) {
-      word.apply(this.mod, net, {})
-    }
+    applyWords(this.mod, net, this.words)
   }
 }

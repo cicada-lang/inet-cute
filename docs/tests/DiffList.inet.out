@@ -10,9 +10,9 @@
 (sole₁)-value head-(cons₂)
 (diff_append₁₀)-return
 
-(diff₂₄)-left tail-(cons₁₇)
-(diff₂₄)-right tail-(cons₁₃)
+(cons₁₃)-tail right-(diff₂₄)
 (cons₁₃)-value value-(cons₁₉)
+(cons₁₇)-tail left-(diff₂₄)
 (cons₁₇)-value tail-(cons₁₉)
 (sole₁₈)-value head-(cons₁₉)
 (sole₁₆)-value head-(cons₁₇)
@@ -33,9 +33,9 @@
 (sole₂₆)-value head-(cons₂₇)
 (diff_append₃₇)-return
 
-(diff₅₃)-left tail-(cons₄₆)
-(diff₅₃)-right tail-(cons₄₀)
+(cons₄₀)-tail right-(diff₅₃)
 (cons₄₂)-value value-(cons₄₈)
+(cons₄₆)-tail left-(diff₅₃)
 (cons₄₆)-value tail-(cons₄₈)
 (sole₄₇)-value head-(cons₄₈)
 (sole₄₅)-value head-(cons₄₆)
