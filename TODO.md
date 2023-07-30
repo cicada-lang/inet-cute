@@ -2,11 +2,11 @@
 
 `deftype` -- use `'a` for the syntax of `TypeVar` -- like in haskell
 
-`defnode` -- type check
+`defnode` -- support type
 
-`defnet` -- type check words composition
+`defrule` -- type check -- cut -- words composition
 
-`Edge` -- type check the two ports
+`defnet` -- type check -- cut -- words composition
 
 # example
 
