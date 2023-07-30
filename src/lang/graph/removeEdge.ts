@@ -1,4 +1,5 @@
-import { Edge, Net } from "."
+import { Edge } from "./Edge"
+import { Net } from "./Net"
 
 export function removeEdge(net: Net, edge: Edge): void {
   const index = net.edges.indexOf(edge)

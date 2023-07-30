@@ -1,6 +1,6 @@
-import { Node } from "."
 import { InternalError } from "../errors"
 import { Net } from "./Net"
+import { Node } from "./Node"
 import { removeEdge } from "./removeEdge"
 import { removeNode } from "./removeNode"
 

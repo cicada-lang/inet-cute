@@ -1,4 +1,5 @@
-import { Net, Node } from "."
+import { Net } from "./Net"
+import { Node } from "./Node"
 
 export function removeNode(net: Net, node: Node): void {
   const index = net.nodes.indexOf(node)

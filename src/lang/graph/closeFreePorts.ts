@@ -1,6 +1,6 @@
-import { Node } from "."
 import * as Definitions from "../definitions"
 import { Net } from "./Net"
+import { Node } from "./Node"
 
 export function closeFreePorts(net: Net): Node | undefined {
   if (net.portStack.length === 0) {
