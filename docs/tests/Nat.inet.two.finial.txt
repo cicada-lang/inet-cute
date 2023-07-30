@@ -1,3 +1,3 @@
-(add1#13)-return prev-(add1#11)
-(zero#4)-return prev-(add1#13)
-(add1#11)-return
+(add1₁₃)-return prev-(add1₁₁)
+(zero₄)-return prev-(add1₁₃)
+(add1₁₁)-return

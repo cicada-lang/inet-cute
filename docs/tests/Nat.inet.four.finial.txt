@@ -1,5 +1,5 @@
-(add1#35)-return prev-(add1#29)
-(add1#37)-return prev-(add1#35)
-(add1#41)-return prev-(add1#37)
-(zero#14)-return prev-(add1#41)
-(add1#29)-return
+(add1₃₅)-return prev-(add1₂₉)
+(add1₃₇)-return prev-(add1₃₅)
+(add1₄₁)-return prev-(add1₃₇)
+(zero₁₄)-return prev-(add1₄₁)
+(add1₂₉)-return

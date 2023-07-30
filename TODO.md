@@ -1,5 +1,3 @@
-use unicode for subscript number
-
 `connect` v.s. `reconnect`
 
 - `reconnect` is used in `PortReconnect`

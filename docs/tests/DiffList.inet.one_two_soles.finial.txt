@@ -1,8 +1,8 @@
-(sole#1)-return head-(cons#2)
-(sole#5)-return head-(cons#6)
-(sole#7)-return head-(cons#8)
-(cons#6)-return tail-(cons#8)
-(cons#6)-tail left-(diff#13)
-(cons#2)-return return-(cons#8)
-(cons#2)-tail right-(diff#13)
-(diff#13)-return
+(sole₁)-return head-(cons₂)
+(sole₅)-return head-(cons₆)
+(sole₇)-return head-(cons₈)
+(cons₆)-return tail-(cons₈)
+(cons₆)-tail left-(diff₁₃)
+(cons₂)-return return-(cons₈)
+(cons₂)-tail right-(diff₁₃)
+(diff₁₃)-return
