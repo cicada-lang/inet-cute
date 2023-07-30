@@ -60,10 +60,10 @@ export class RenderCommand extends Command<Args, Opts> {
       }
 
       if (argv.name) {
-        renderNet(mod, file, argv.name)
+        await renderNet(mod, file, argv.name)
       } else {
         for (const name of modAllNetNames(mod)) {
-          renderNet(mod, file, name)
+          await renderNet(mod, file, name)
         }
       }
     } catch (error) {
