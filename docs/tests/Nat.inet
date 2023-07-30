@@ -1,16 +1,15 @@
-defnode zero -- return! end
+defnode zero -- value! end
 
-defnode add1 prev -- return! end
+defnode add1 prev -- value! end
 
-defnode add x! y -- return end
+defnode add target! addend -- return end
 
 defrule zero add
-  (add)-y return-(add)
+  (add)-addend return-(add)
 end
 
 defrule add1 add
-  (add1)-prev (add)-y
-  add add1
+  (add1)-prev (add)-addend add add1
   return-(add)
 end
 

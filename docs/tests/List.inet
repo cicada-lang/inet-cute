@@ -1,34 +1,34 @@
 defnode sole
   ------
-  return!
+  value!
 end
 
 defnode null
   ------
-  return!
+  value!
 end
 
 defnode cons
   head
   tail
   -------
-  return!
+  value!
 end
 
 defnode append
-  left!
-  right
+  target!
+  rest
   ------
   return
 end
 
 defrule null append
-  (append)-right return-(append)
+  (append)-rest return-(append)
 end
 
 defrule cons append
   (cons)-tail
-  (append)-right
+  (append)-rest
   append
   (cons)-head cons
   return-(append)

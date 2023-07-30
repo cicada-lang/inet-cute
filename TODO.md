@@ -1,5 +1,3 @@
-[bug] why no active edge in `Nat.inet.four.initial`？
-
 `connect` v.s. `reconnect`
 
 - `reconnect` is used in `PortReconnect`

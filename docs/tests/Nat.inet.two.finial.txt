@@ -1,3 +1,3 @@
-(add1₁₃)-return prev-(add1₁₁)
-(zero₄)-return prev-(add1₁₃)
-(add1₁₁)-return
+(add1₁₃)-value prev-(add1₁₁)
+(zero₄)-value prev-(add1₁₃)
+(add1₁₁)-value

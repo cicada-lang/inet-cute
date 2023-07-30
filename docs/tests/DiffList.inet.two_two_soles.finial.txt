@@ -1,10 +1,10 @@
-(sole₁₅)-return head-(cons₁₆)
-(sole₁₇)-return head-(cons₁₈)
-(cons₁₆)-return tail-(cons₁₈)
-(sole₂₁)-return head-(cons₂₂)
-(sole₂₃)-return head-(cons₂₄)
-(cons₂₂)-return tail-(cons₂₄)
+(sole₁₅)-value head-(cons₁₆)
+(sole₁₇)-value head-(cons₁₈)
+(cons₁₆)-value tail-(cons₁₈)
+(sole₂₁)-value head-(cons₂₂)
+(sole₂₃)-value head-(cons₂₄)
+(cons₂₂)-value tail-(cons₂₄)
 (cons₂₂)-tail left-(diff₂₉)
-(cons₁₈)-return return-(cons₂₄)
+(cons₁₈)-value value-(cons₂₄)
 (cons₁₆)-tail right-(diff₂₉)
-(diff₂₉)-return
+(diff₂₉)-value

@@ -1,5 +1,5 @@
-(add1₇)-return!x-(add₈)
-(zero₄)-return prev-(add1₅)
-(zero₆)-return prev-(add1₇)
-(add1₅)-return y-(add₈)
+(add1₇)-value!target-(add₈)
+(zero₄)-value prev-(add1₅)
+(zero₆)-value prev-(add1₇)
+(add1₅)-value addend-(add₈)
 (add₈)-return
