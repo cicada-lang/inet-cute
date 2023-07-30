@@ -17,7 +17,7 @@ export function interact(mod: Mod, net: Net, activeEdge: ActiveEdge): void {
 
   // NOTE Reconnect by rule.
   for (const word of activeEdge.rule.words) {
-    word.apply(mod, net)
+    word.apply(mod, net, { activeEdge })
   }
 
   reconnectOutput(net, output)

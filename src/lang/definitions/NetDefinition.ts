@@ -12,7 +12,7 @@ export class NetDefinition implements Definition {
 
   meaning(net: Net): void {
     for (const word of this.words) {
-      word.apply(this.mod, net)
+      word.apply(this.mod, net, {})
     }
   }
 }
