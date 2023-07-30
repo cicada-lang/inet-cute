@@ -2,8 +2,6 @@ import { Node, createPort } from "../graph"
 import { Mod } from "../mod"
 import { PortExp } from "../stmts"
 
-let counter = 0
-
 export function createNode(
   mod: Mod,
   name: string,
@@ -11,7 +9,7 @@ export function createNode(
   output: Array<PortExp>,
 ): Node {
   const node: Node = {
-    id: counter++,
+    id: mod.nodeCounter++,
     mod,
     name,
     input: [],
