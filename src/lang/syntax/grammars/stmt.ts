@@ -16,8 +16,8 @@ export const stmt = {
       { output: "ports" },
       '"end"',
     ],
-    "stmt:defru": [
-      '"defru"',
+    "stmt:defrule": [
+      '"defrule"',
       { start: "variable_name" },
       { end: "variable_name" },
       { words: "words" },

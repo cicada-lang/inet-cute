@@ -11,12 +11,6 @@ export class Call implements Word {
   ) {}
 
   apply(mod: Mod, net: Net): void {
-    const found = net.portStore.get(this.name)
-    if (found !== undefined) {
-      net.portStore.delete(this.name)
-      net.portStack.push(found)
-    } else {
-      lookupDefinitionOrFail(mod, this.name).meaning(net)
-    }
+    lookupDefinitionOrFail(mod, this.name).meaning(net)
   }
 }

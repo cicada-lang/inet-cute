@@ -7,7 +7,5 @@ export type Net = {
   edges: Array<Edge>
   activeEdges: Array<ActiveEdge>
   portStack: Array<Port>
-  // for named local variables.
-  portStore: Map<string, Port>
   wires: Array<{ start: Port; end: Port }>
 }

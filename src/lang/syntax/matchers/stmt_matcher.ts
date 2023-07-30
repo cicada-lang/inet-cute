@@ -12,7 +12,7 @@ export function stmt_matcher(tree: pt.Tree): Stmt {
         matchers.ports_matcher(output),
         span,
       ),
-    "stmt:defru": ({ start, end, words }, { span }) =>
+    "stmt:defrule": ({ start, end, words }, { span }) =>
       new Stmts.Defrule(
         pt.str(start),
         pt.str(end),

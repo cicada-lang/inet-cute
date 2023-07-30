@@ -4,9 +4,19 @@ defnode add1 prev -- return! end
 
 defnode add x! y -- return end
 
-defru zero add end
+defrule zero add
+  (add)-y return-(add)
+end
 
-defru add1 add add add1 end
+defrule add1 add
+  (add1)-prev (add)-y
+  add add1
+  return-(add)
+end
+
+defnet zero_zero_add
+  zero zero add
+end
 
 defnet two
   zero add1

@@ -23,9 +23,10 @@ defnode diff_append
   return
 end
 
-defru diff diff_append
-  (let start) (let fin) (let diff_list)
-  fin diff_list diff_open start diff
+defrule diff diff_append
+  (diff)-left (diff_append)-right diff_open
+  (diff)-right diff
+  return-(diff_append)
 end
 
 defnode diff_open
@@ -35,10 +36,10 @@ defnode diff_open
   return
 end
 
-defru diff diff_open
-  (let start) (let fin) (let list)
-  list fin connect
-  start
+defrule diff diff_open
+  (diff_open)-list (diff)-left connect
+  (diff)-right
+  return-(diff_open)
 end
 
 defnet one_two_soles

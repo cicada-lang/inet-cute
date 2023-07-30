@@ -22,9 +22,17 @@ defnode append
   return
 end
 
-defru null append end
+defrule null append
+  (append)-right return-(append)
+end
 
-defru cons append (let head) append head cons end
+defrule cons append
+  (cons)-tail
+  (append)-right
+  append
+  (cons)-head cons
+  return-(append)
+end
 
 defnet six_soles
   null sole cons sole cons sole cons

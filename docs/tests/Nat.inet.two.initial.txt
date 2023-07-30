@@ -1,5 +1,5 @@
-(add1#3)-return!x-(add#4)
-(zero#0)-return prev-(add1#1)
-(zero#2)-return prev-(add1#3)
-(add1#1)-return y-(add#4)
-(add#4)-return
+(add1#7)-return!x-(add#8)
+(zero#4)-return prev-(add1#5)
+(zero#6)-return prev-(add1#7)
+(add1#5)-return y-(add#8)
+(add#8)-return

@@ -46,13 +46,13 @@ export function findPortInActiveEdge(
 function findPortInNode(portName: string, node: Node): Port | undefined {
   for (const port of node.input) {
     if (port.name === portName) {
-      return port
+      return port.connection?.port
     }
   }
 
   for (const port of node.output) {
     if (port.name === portName) {
-      return port
+      return port.connection?.port
     }
   }
 }
