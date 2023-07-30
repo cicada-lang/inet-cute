@@ -1,8 +1,10 @@
 # named port
 
-`PortPush` -- new word
+`PortConnect` -- `apply`
 
-`PortConnect` -- new word
+`PortPush` -- syntax
+
+`PortConnect` -- syntax
 
 no `defru` just `defrule` -- add feature when very very needed
 
