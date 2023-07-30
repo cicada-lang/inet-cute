@@ -18,7 +18,7 @@ export class NodeDefinition implements Definition {
 
     // NOTE Be careful about the order.
     for (const port of node.input) {
-      const top = net.portStack.pop()
+      const top = net.ports.pop()
       if (top === undefined) {
         throw new Error(`I expect a port on top of the stack`)
       }
@@ -26,7 +26,7 @@ export class NodeDefinition implements Definition {
       connect(net, top, port)
     }
 
-    net.portStack.push(...node.output)
+    net.ports.push(...node.output)
     net.nodes.push(node)
 
     return node

@@ -7,7 +7,7 @@ export function createNet(mod: Mod): Net {
     nodes: [],
     edges: [],
     activeEdges: [],
-    portStack: [],
+    ports: [],
     wires: [],
   }
 }

@@ -36,7 +36,7 @@ export class PortReconnect implements Word {
 
     disconnect(net, found.connection.edge)
 
-    const topPort = net.portStack.pop()
+    const topPort = net.ports.pop()
 
     if (topPort === undefined) {
       throw new Error(`[PortReconnect.apply] expect top port`)

@@ -1,10 +1,14 @@
+`show` as a stmt which print initial
+
+`run` as a stmt which print finial
+
+change the `render` command to simple `run` command
+
 # format
 
 `formatNet` -- format to simple text representation of graph
 
 - learn from knuth's c code
-
-change the `render` command to simple `run` command
 
 # simple types
 

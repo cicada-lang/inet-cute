@@ -20,7 +20,7 @@ export function releaseFreePorts(net: Net, closer: Node | undefined): void {
       )
     }
 
-    net.portStack.push(port.connection.port)
+    net.ports.push(port.connection.port)
 
     disconnect(net, port.connection.edge)
   }

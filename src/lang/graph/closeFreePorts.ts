@@ -10,14 +10,14 @@ import { Node } from "./Node"
 */
 
 export function closeFreePorts(net: Net): Node | undefined {
-  if (net.portStack.length === 0) {
+  if (net.ports.length === 0) {
     return undefined
   }
 
   return new Definitions.NodeDefinition(
     net.mod,
     "*root*",
-    [...net.portStack],
+    [...net.ports],
     [],
   ).meaning(net)
 }

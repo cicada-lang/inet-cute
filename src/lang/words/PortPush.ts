@@ -35,6 +35,6 @@ export class PortPush implements Word {
 
     disconnect(net, found.connection.edge)
 
-    net.portStack.push(found)
+    net.ports.push(found)
   }
 }

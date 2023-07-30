@@ -16,7 +16,7 @@ export function formatNet(net: Net): string {
     lines.push(`(${start})-${edge.start.name} ${edge.end.name}-(${end})`)
   }
 
-  for (const port of net.portStack) {
+  for (const port of net.ports) {
     lines.push(`(${formatNode(port.node)})-${port.name}`)
   }
 

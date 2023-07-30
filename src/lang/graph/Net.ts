@@ -6,6 +6,6 @@ export type Net = {
   nodes: Array<Node>
   edges: Array<Edge>
   activeEdges: Array<ActiveEdge>
-  portStack: Array<Port>
-  wires: Array<{ start: Port; end: Port }>
+  ports: Array<Port>
+  wires: Array<Edge>
 }
