@@ -9,14 +9,14 @@ export function run(net: Net): void {
   const closer = closeFreePorts(net)
 
   while (net.activeEdges.length > 0) {
-    netStep(net)
+    step(net)
   }
 
   cleanUpWires(net)
   releaseFreePorts(net, closer)
 }
 
-function netStep(net: Net): void {
+function step(net: Net): void {
   if (net.portStack.length !== 0) {
     throw new InternalError("I can not handle free port during stepping.")
   }

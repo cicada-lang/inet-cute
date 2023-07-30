@@ -1,16 +1,14 @@
+[bug] why no active edge in `Nat.inet.four.initial`？
+
 `connect` v.s. `reconnect`
 
 - `reconnect` is used in `PortReconnect`
 
 `interact` -- be sure about memeory leak from `port.connection`
 
-# bug
+# format
 
-why no active edge in `Nat.inet.four.initial`？
-
-# render
-
-`NetRenderer` -- format to simple text representation of graph
+`formatNet` -- format to simple text representation of graph
 
 - learn from knuth's c code
 

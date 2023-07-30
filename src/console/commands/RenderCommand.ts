@@ -3,6 +3,7 @@ import { Command, CommandRunner } from "@xieyuheng/command-line"
 import ty from "@xieyuheng/ty"
 import fs from "fs"
 import Path from "path"
+import { formatNet } from "../../lang/format"
 import { Net } from "../../lang/graph"
 import { run } from "../../lang/graph/run"
 import { Mod } from "../../lang/mod"
@@ -10,7 +11,6 @@ import { createMod } from "../../lang/mod/createMod"
 import { modAllNetNames } from "../../lang/mod/modAllNetNames"
 import { modBuildNet } from "../../lang/mod/modBuildNet"
 import { parseStmts } from "../../lang/syntax"
-import { NetRenderer } from "../../renderers/NetRenderer"
 
 type Args = { mod: string }
 type Opts = { name?: string }
@@ -85,8 +85,7 @@ async function renderNet(mod: Mod, file: string, name: string): Promise<void> {
 }
 
 async function renderFile(net: Net, output: string): Promise<void> {
-  const renderer = new NetRenderer()
-  const text = await renderer.render(net)
+  const text = formatNet(net)
   const path = Path.resolve(output)
   console.log(`- ${path}`)
   await fs.promises.mkdir(Path.dirname(path), { recursive: true })
