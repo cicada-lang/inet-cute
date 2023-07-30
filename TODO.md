@@ -1,6 +1,6 @@
-`show` as a stmt which print initial
+`show ... end` as a stmt which print initial
 
-`run` as a stmt which print finial
+`run ... end` as a stmt which print finial
 
 change the `render` command to simple `run` command
 
@@ -24,6 +24,12 @@ linear logic as type system of inet
 
 `Edge` -- type check the two ports
 
+# value
+
+the stack can take other types of values -- not only port
+
+`"name" set` and `"name" get` for local variable
+
 # experiments
 
 read interaction-combinators.pdf
@@ -43,9 +49,3 @@ understand proof-nets for all connectives
 - proof-nets--the-parallel-syntax-for-proof-theory--1995.pdf
 - "The linear abstract machine", Lafont, 1990.
 - "From proof-nets", Lafont, 1995
-
-# value
-
-the stack can take other types of values -- not only port
-
-`"name" set` and `"name" get` for local variable
