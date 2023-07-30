@@ -1,5 +1,6 @@
 import { Net } from "../graph"
 import { connect } from "../graph/connect"
+import { disconnect } from "../graph/disconnect"
 import { findPortInActiveEdge } from "../graph/findPortInActiveEdge"
 import { Mod } from "../mod"
 import { Span } from "../span"
@@ -33,7 +34,7 @@ export class PortReconnect implements Word {
       )
     }
 
-    delete found.connection
+    disconnect(net, found.connection.edge)
 
     const topPort = net.portStack.pop()
 

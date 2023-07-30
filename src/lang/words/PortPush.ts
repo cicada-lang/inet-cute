@@ -1,4 +1,5 @@
 import { Net } from "../graph"
+import { disconnect } from "../graph/disconnect"
 import { findPortInActiveEdge } from "../graph/findPortInActiveEdge"
 import { Mod } from "../mod"
 import { Span } from "../span"
@@ -32,7 +33,7 @@ export class PortPush implements Word {
       )
     }
 
-    delete found.connection
+    disconnect(net, found.connection.edge)
 
     net.portStack.push(found)
   }
