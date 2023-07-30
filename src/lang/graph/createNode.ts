@@ -1,6 +1,7 @@
 import { Node } from "../graph"
 import { Mod } from "../mod"
 import { PortExp } from "../stmts"
+import * as Types from "../type"
 import { createPort } from "./createPort"
 
 export function createNode(
@@ -18,11 +19,11 @@ export function createNode(
   }
 
   node.input = input.map(({ name, isPrincipal }) =>
-    createPort(node, name, {}, isPrincipal),
+    createPort(node, name, Types.TypeTerm("Trivial", []), isPrincipal),
   )
 
   node.output = output.map(({ name, isPrincipal }) =>
-    createPort(node, name, {}, isPrincipal),
+    createPort(node, name, Types.TypeTerm("Trivial", []), isPrincipal),
   )
 
   return node

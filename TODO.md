@@ -1,6 +1,6 @@
-# simple types
+# type
 
-`deftype` -- `TermType` -- use `'a` for name of pattern like in haskell
+`deftype` -- use `'a` for the syntax of `TypeVar` -- like in haskell
 
 `defnode` -- type check
 
@@ -8,7 +8,7 @@
 
 `Edge` -- type check the two ports
 
-# experiments
+# example
 
 read interaction-combinators.pdf
 
@@ -16,7 +16,7 @@ use inet to encode lambda calculus
 
 use inet to encode class, object and message sending
 
-# paper
+# learn
 
 phase space and monoid -- understand the model theory of linear logic
 
