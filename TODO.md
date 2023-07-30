@@ -1,12 +1,12 @@
 # named port
 
-`PortConnect` -- `apply`
-
 `PortPush` -- syntax
 
 `PortConnect` -- syntax
 
 no `defru` just `defrule` -- add feature when very very needed
+
+- remove `Let` for now
 
 # bug
 

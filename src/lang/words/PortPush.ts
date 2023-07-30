@@ -19,13 +19,17 @@ export class PortPush implements Word {
 
     const found = findPortInActiveEdge(this.nodeName, this.portName, activeEdge)
 
-    if (found !== undefined) {
-      net.portStack.push(found)
+    if (found === undefined) {
+      throw new Error(
+        `[PortPush.apply] can not find port: ${this.portName} in active edge`,
+      )
     }
+
+    net.portStack.push(found)
   }
 }
 
-function findPortInActiveEdge(
+export function findPortInActiveEdge(
   nodeName: string,
   portName: string,
   activeEdge: ActiveEdge,
