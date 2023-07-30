@@ -79,9 +79,9 @@ export class RenderCommand extends Command<Args, Opts> {
 
 async function renderNet(mod: Mod, file: string, name: string): Promise<void> {
   const net = modBuildNet(mod, name)
-  renderFile(net, `${file}.${name}.initial.txt`)
+  await renderFile(net, `${file}.${name}.initial.txt`)
   run(net)
-  renderFile(net, `${file}.${name}.finial.txt`)
+  await renderFile(net, `${file}.${name}.finial.txt`)
 }
 
 async function renderFile(net: Net, output: string): Promise<void> {

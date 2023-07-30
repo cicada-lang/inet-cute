@@ -2,7 +2,7 @@
 (sole₅)-return head-(cons₆)
 (sole₇)-return head-(cons₈)
 (cons₆)-return tail-(cons₈)
-(cons₆)-tail left-(diff₁₃)
+(cons₆)-tail left-(diff₂₆)
 (cons₂)-return return-(cons₈)
-(cons₂)-tail right-(diff₁₃)
-(diff₁₃)-return
+(cons₂)-tail right-(diff₂₆)
+(diff₂₆)-return
