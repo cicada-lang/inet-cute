@@ -1,5 +1,3 @@
-why we need `closeFreePorts` and `releaseFreePorts` in `run`?
-
 # format
 
 `formatNet` -- format to simple text representation of graph

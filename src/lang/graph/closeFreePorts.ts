@@ -2,15 +2,22 @@ import * as Definitions from "../definitions"
 import { Net } from "./Net"
 import { Node } from "./Node"
 
+/*
+
+  For `PortReconnect` to work, the free ports on the stack
+  need to be closed by a temporary root node.
+
+*/
+
 export function closeFreePorts(net: Net): Node | undefined {
   if (net.portStack.length === 0) {
     return undefined
   }
 
-  const name = "*free-ports-closer*"
-
-  // NOTE Maintain the "one principal port" constraint.
-  const input = [...net.portStack].reverse()
-
-  return new Definitions.NodeDefinition(net.mod, name, input, []).meaning(net)
+  return new Definitions.NodeDefinition(
+    net.mod,
+    "*root*",
+    [...net.portStack],
+    [],
+  ).meaning(net)
 }
