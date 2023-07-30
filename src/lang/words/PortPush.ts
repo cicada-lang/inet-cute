@@ -1,4 +1,5 @@
-import { ActiveEdge, Net, Node, Port } from "../graph"
+import { Net } from "../graph"
+import { findPortInActiveEdge } from "../graph/findPortInActiveEdge"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Word, WordOptions } from "../word"
@@ -26,33 +27,5 @@ export class PortPush implements Word {
     }
 
     net.portStack.push(found)
-  }
-}
-
-export function findPortInActiveEdge(
-  nodeName: string,
-  portName: string,
-  activeEdge: ActiveEdge,
-): Port | undefined {
-  if (nodeName === activeEdge.start.node.name) {
-    return findPortInNode(portName, activeEdge.start.node)
-  }
-
-  if (nodeName === activeEdge.end.node.name) {
-    return findPortInNode(portName, activeEdge.end.node)
-  }
-}
-
-function findPortInNode(portName: string, node: Node): Port | undefined {
-  for (const port of node.input) {
-    if (port.name === portName) {
-      return port.connection?.port
-    }
-  }
-
-  for (const port of node.output) {
-    if (port.name === portName) {
-      return port.connection?.port
-    }
   }
 }

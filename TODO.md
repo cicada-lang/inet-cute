@@ -1,4 +1,14 @@
-`interact` -- be sure about memeory leak of `connection`
+drop the `net` prefix for `graph/` functions
+
+use unicode for subscript number
+
+rename PortConnect to PortReconnect
+
+`connect` v.s. `reconnect`
+
+- `reconnect` is used in `PortReconnect`
+
+`interact` -- be sure about memeory leak from `port.connection`
 
 # bug
 

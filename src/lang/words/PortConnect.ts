@@ -1,9 +1,9 @@
 import { Net } from "../graph"
+import { findPortInActiveEdge } from "../graph/findPortInActiveEdge"
 import { netConnectPorts } from "../graph/netConnectPorts"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Word, WordOptions } from "../word"
-import { findPortInActiveEdge } from "./PortPush"
 
 export class PortConnect implements Word {
   constructor(
