@@ -1,5 +1,3 @@
-`run ... end` as a stmt which print finial
-
 change the `render` command to simple `run` command
 
 # simple types

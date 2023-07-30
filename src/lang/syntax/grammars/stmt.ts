@@ -30,6 +30,7 @@ export const stmt = {
       '"end"',
     ],
     "stmt:show": ['"show"', { words: "words" }, '"end"'],
+    "stmt:run": ['"run"', { words: "words" }, '"end"'],
   },
 }
 
