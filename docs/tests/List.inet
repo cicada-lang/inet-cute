@@ -39,3 +39,6 @@ defnet six_soles
   null sole cons sole cons sole cons
   append
 end
+
+show six_soles end
+run six_soles end

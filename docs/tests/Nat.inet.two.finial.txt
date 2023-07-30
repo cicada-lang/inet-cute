@@ -1,3 +1,0 @@
-(add1₁₃)-value prev-(add1₁₁)
-(zero₄)-value prev-(add1₁₃)
-(add1₁₁)-value

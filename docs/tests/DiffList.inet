@@ -53,3 +53,9 @@ defnet two_two_soles
   wire sole cons sole cons diff
   diff_append
 end
+
+show one_two_soles end
+run one_two_soles end
+
+show two_two_soles end
+run two_two_soles end

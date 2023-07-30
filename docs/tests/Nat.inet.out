@@ -1,0 +1,33 @@
+(zero₁)-value!target-(add₂)
+(zero₀)-value addend-(add₂)
+(add₂)-return
+
+(zero₃)-value
+
+(add1₁₀)-value!target-(add₁₁)
+(zero₇)-value prev-(add1₈)
+(zero₉)-value prev-(add1₁₀)
+(add1₈)-value addend-(add₁₁)
+(add₁₁)-return
+
+(add1₂₁)-value prev-(add1₁₉)
+(zero₁₂)-value prev-(add1₂₁)
+(add1₁₉)-value
+
+(add1₂₅)-value!target-(add₂₆)
+(add1₃₀)-value!target-(add₃₁)
+(zero₂₂)-value prev-(add1₂₃)
+(zero₂₄)-value prev-(add1₂₅)
+(add1₂₃)-value addend-(add₂₆)
+(zero₂₇)-value prev-(add1₂₈)
+(zero₂₉)-value prev-(add1₃₀)
+(add1₂₈)-value addend-(add₃₁)
+(add₃₁)-return target-(add₃₂)
+(add₂₆)-return addend-(add₃₂)
+(add₃₂)-return
+
+(add1₅₄)-value prev-(add1₄₈)
+(add1₅₆)-value prev-(add1₅₄)
+(add1₆₀)-value prev-(add1₅₆)
+(zero₃₃)-value prev-(add1₆₀)
+(add1₄₈)-value

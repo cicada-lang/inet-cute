@@ -13,9 +13,8 @@ defrule add1 add
   return-(add)
 end
 
-defnet zero_zero_add
-  zero zero add
-end
+show zero zero add end
+run zero zero add end
 
 defnet two
   zero add1
@@ -26,3 +25,9 @@ end
 defnet four
   two two add
 end
+
+show two end
+run two end
+
+show four end
+run four end

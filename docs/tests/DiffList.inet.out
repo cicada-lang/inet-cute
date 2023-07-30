@@ -1,0 +1,46 @@
+(diff₉)-value!target-(diff_append₁₀)
+(sole₁)-value head-(cons₂)
+(cons₂)-value left-(diff₃)
+(sole₅)-value head-(cons₆)
+(sole₇)-value head-(cons₈)
+(cons₆)-value tail-(cons₈)
+(cons₈)-value left-(diff₉)
+(diff₃)-value rest-(diff_append₁₀)
+(diff₃)-right tail-(cons₂)
+(diff₉)-right tail-(cons₆)
+(diff_append₁₀)-return
+
+(sole₁₂)-value head-(cons₁₃)
+(sole₁₆)-value head-(cons₁₇)
+(sole₁₈)-value head-(cons₁₉)
+(cons₁₇)-value tail-(cons₁₉)
+(cons₁₃)-value value-(cons₁₉)
+(diff₂₄)-right tail-(cons₁₃)
+(diff₂₄)-left tail-(cons₁₇)
+(diff₂₄)-value
+
+(diff₃₆)-value!target-(diff_append₃₇)
+(sole₂₆)-value head-(cons₂₇)
+(sole₂₈)-value head-(cons₂₉)
+(cons₂₇)-value tail-(cons₂₉)
+(cons₂₉)-value left-(diff₃₀)
+(sole₃₂)-value head-(cons₃₃)
+(sole₃₄)-value head-(cons₃₅)
+(cons₃₃)-value tail-(cons₃₅)
+(cons₃₅)-value left-(diff₃₆)
+(diff₃₀)-value rest-(diff_append₃₇)
+(diff₃₀)-right tail-(cons₂₇)
+(diff₃₆)-right tail-(cons₃₃)
+(diff_append₃₇)-return
+
+(sole₃₉)-value head-(cons₄₀)
+(sole₄₁)-value head-(cons₄₂)
+(cons₄₀)-value tail-(cons₄₂)
+(sole₄₅)-value head-(cons₄₆)
+(sole₄₇)-value head-(cons₄₈)
+(cons₄₆)-value tail-(cons₄₈)
+(cons₄₂)-value value-(cons₄₈)
+(diff₅₃)-right tail-(cons₄₀)
+(diff₅₃)-left tail-(cons₄₆)
+(diff₅₃)-value
+

@@ -22,5 +22,6 @@ export class Show implements Stmt {
     cleanUpWires(net)
 
     console.log(formatNet(net))
+    console.log()
   }
 }

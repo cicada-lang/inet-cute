@@ -22,5 +22,6 @@ export class Run implements Stmt {
     run(net)
 
     console.log(formatNet(net))
+    console.log()
   }
 }
