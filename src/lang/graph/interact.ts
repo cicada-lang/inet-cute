@@ -1,7 +1,7 @@
 import { ActiveEdge, Net, Node } from "../graph"
 import { Mod } from "../mod"
-import { netRemoveEdge } from "./netRemoveEdge"
-import { netRemoveNode } from "./netRemoveNode"
+import { removeEdge } from "./removeEdge"
+import { removeNode } from "./removeNode"
 
 export function interact(mod: Mod, net: Net, activeEdge: ActiveEdge): void {
   disconnectNode(net, activeEdge.end.node)
@@ -14,12 +14,12 @@ export function interact(mod: Mod, net: Net, activeEdge: ActiveEdge): void {
 
 function disconnectNode(net: Net, node: Node): void {
   for (const port of node.input) {
-    port.connection && netRemoveEdge(net, port.connection.edge)
+    port.connection && removeEdge(net, port.connection.edge)
   }
 
   for (const port of node.output) {
-    port.connection && netRemoveEdge(net, port.connection.edge)
+    port.connection && removeEdge(net, port.connection.edge)
   }
 
-  netRemoveNode(net, node)
+  removeNode(net, node)
 }

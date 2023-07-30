@@ -1,6 +1,6 @@
 import { Definition } from "../definition"
 import { Net, Node, createNode } from "../graph"
-import { netConnectPorts } from "../graph/netConnectPorts"
+import { connectPorts } from "../graph/connectPorts"
 import { Mod } from "../mod"
 import { PortExp } from "../stmts"
 
@@ -22,7 +22,7 @@ export class NodeDefinition implements Definition {
         throw new Error(`I expect a port on top of the stack`)
       }
 
-      netConnectPorts(net, top, port)
+      connectPorts(net, top, port)
     }
 
     net.portStack.push(...node.output)

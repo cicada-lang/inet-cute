@@ -1,5 +1,3 @@
-drop the `net` prefix for `graph/` functions
-
 use unicode for subscript number
 
 rename PortConnect to PortReconnect

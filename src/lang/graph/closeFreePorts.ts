@@ -1,8 +1,8 @@
+import { Node } from "."
 import * as Definitions from "../definitions"
-import { Node } from "../graph"
 import { Net } from "./Net"
 
-export function netCloseFreePorts(net: Net): Node | undefined {
+export function closeFreePorts(net: Net): Node | undefined {
   if (net.portStack.length === 0) return undefined
 
   const name = "*free-ports-closer*"

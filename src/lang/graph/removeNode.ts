@@ -1,6 +1,6 @@
-import { Net, Node } from "../graph"
+import { Net, Node } from "."
 
-export function netRemoveNode(net: Net, node: Node): void {
+export function removeNode(net: Net, node: Node): void {
   const index = net.nodes.indexOf(node)
   if (index !== -1) {
     net.nodes.splice(index, 1)

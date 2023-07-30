@@ -1,6 +1,6 @@
-import { Edge, Net } from "../graph"
+import { Edge, Net } from "."
 
-export function netRemoveEdge(net: Net, edge: Edge): void {
+export function removeEdge(net: Net, edge: Edge): void {
   const index = net.edges.indexOf(edge)
   if (index !== -1) {
     net.edges.splice(index, 1)

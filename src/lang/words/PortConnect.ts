@@ -1,6 +1,6 @@
 import { Net } from "../graph"
+import { connectPorts } from "../graph/connectPorts"
 import { findPortInActiveEdge } from "../graph/findPortInActiveEdge"
-import { netConnectPorts } from "../graph/netConnectPorts"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Word, WordOptions } from "../word"
@@ -33,6 +33,6 @@ export class PortConnect implements Word {
       throw new Error(`[PortConnect.apply] expect top port`)
     }
 
-    netConnectPorts(net, topPort, found)
+    connectPorts(net, topPort, found)
   }
 }

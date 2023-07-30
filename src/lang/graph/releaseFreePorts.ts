@@ -1,10 +1,10 @@
+import { Node } from "."
 import { InternalError } from "../errors"
-import { Node } from "../graph"
 import { Net } from "./Net"
-import { netRemoveEdge } from "./netRemoveEdge"
-import { netRemoveNode } from "./netRemoveNode"
+import { removeEdge } from "./removeEdge"
+import { removeNode } from "./removeNode"
 
-export function netReleaseFreePorts(net: Net, closer: Node | undefined): void {
+export function releaseFreePorts(net: Net, closer: Node | undefined): void {
   if (closer === undefined) return
 
   for (const port of closer.input.reverse()) {
@@ -15,8 +15,8 @@ export function netReleaseFreePorts(net: Net, closer: Node | undefined): void {
     }
 
     net.portStack.push(port.connection.port)
-    netRemoveEdge(net, port.connection.edge)
+    removeEdge(net, port.connection.edge)
   }
 
-  netRemoveNode(net, closer)
+  removeNode(net, closer)
 }

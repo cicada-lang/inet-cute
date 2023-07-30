@@ -1,19 +1,19 @@
 import { InternalError } from "../errors"
 import { Net } from "./Net"
+import { cleanUpWires } from "./cleanUpWires"
+import { closeFreePorts } from "./closeFreePorts"
 import { interact } from "./interact"
-import { netCleanUpWires } from "./netCleanUpWires"
-import { netCloseFreePorts } from "./netCloseFreePorts"
-import { netReleaseFreePorts } from "./netReleaseFreePorts"
+import { releaseFreePorts } from "./releaseFreePorts"
 
-export function netRun(net: Net): void {
-  const closer = netCloseFreePorts(net)
+export function run(net: Net): void {
+  const closer = closeFreePorts(net)
 
   while (net.activeEdges.length > 0) {
     netStep(net)
   }
 
-  netCleanUpWires(net)
-  netReleaseFreePorts(net, closer)
+  cleanUpWires(net)
+  releaseFreePorts(net, closer)
 }
 
 function netStep(net: Net): void {
