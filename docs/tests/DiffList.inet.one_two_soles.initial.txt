@@ -5,7 +5,7 @@
 (sole₇)-value head-(cons₈)
 (cons₆)-value tail-(cons₈)
 (cons₈)-value left-(diff₉)
-(diff₃)-value right-(diff_append₁₀)
+(diff₃)-value rest-(diff_append₁₀)
 (diff₃)-right tail-(cons₂)
 (diff₉)-right tail-(cons₆)
 (diff_append₁₀)-return

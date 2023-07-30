@@ -7,7 +7,7 @@
 (sole₂₃)-value head-(cons₂₄)
 (cons₂₂)-value tail-(cons₂₄)
 (cons₂₄)-value left-(diff₂₅)
-(diff₁₉)-value right-(diff_append₂₆)
+(diff₁₉)-value rest-(diff_append₂₆)
 (diff₁₉)-right tail-(cons₁₆)
 (diff₂₅)-right tail-(cons₂₂)
 (diff_append₂₆)-return

@@ -18,13 +18,13 @@ end
 
 defnode diff_append
   target!
-  right
+  rest
   ------
   return
 end
 
 defrule diff diff_append
-  (diff)-left (diff_append)-right diff_open
+  (diff)-left (diff_append)-rest diff_open
   (diff)-right diff
   return-(diff_append)
 end
