@@ -1,5 +1,5 @@
 import { Net } from "../graph"
-import { connectPorts } from "../graph/connectPorts"
+import { connect } from "../graph/connect"
 import { findPortInActiveEdge } from "../graph/findPortInActiveEdge"
 import { Mod } from "../mod"
 import { Span } from "../span"
@@ -33,6 +33,6 @@ export class PortReconnect implements Word {
       throw new Error(`[PortReconnect.apply] expect top port`)
     }
 
-    connectPorts(net, topPort, found)
+    connect(net, topPort, found)
   }
 }

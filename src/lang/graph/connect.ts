@@ -2,7 +2,7 @@ import { Net, Port, createEdge } from "."
 import { lookupRuleByPorts } from "../mod/lookupRuleByPorts"
 import { createActiveEdge } from "./createActiveEdge"
 
-export function connectPorts(net: Net, start: Port, end: Port): void {
+export function connect(net: Net, start: Port, end: Port): void {
   const rule = lookupRuleByPorts(net.mod, start, end)
 
   if (rule !== undefined) {

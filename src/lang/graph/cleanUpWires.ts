@@ -1,5 +1,5 @@
 import { Net } from "./Net"
-import { connectPorts } from "./connectPorts"
+import { connect } from "./connect"
 import { removeEdge } from "./removeEdge"
 import { removeNode } from "./removeNode"
 
@@ -12,7 +12,7 @@ export function cleanUpWires(net: Net): void {
       removeNode(net, wire.start.node)
       removeNode(net, wire.end.node)
 
-      connectPorts(net, wire.start.connection.port, wire.end.connection.port)
+      connect(net, wire.start.connection.port, wire.end.connection.port)
     }
   }
 
