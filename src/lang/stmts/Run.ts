@@ -16,7 +16,7 @@ export class Run implements Stmt {
     const net = createNet(mod)
 
     for (const word of this.words) {
-      word.apply(mod, net, {})
+      word.apply(mod, net)
     }
 
     run(net)

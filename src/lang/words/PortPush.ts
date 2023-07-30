@@ -12,8 +12,8 @@ export class PortPush implements Word {
     public span: Span,
   ) {}
 
-  apply(mod: Mod, net: Net, options: WordOptions): void {
-    const { activeEdge } = options
+  apply(mod: Mod, net: Net, options?: WordOptions): void {
+    const { activeEdge } = options || {}
 
     if (activeEdge === undefined) {
       throw new Error(`[PortPush.apply] expect current activeEdge`)

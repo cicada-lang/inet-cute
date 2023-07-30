@@ -8,5 +8,5 @@ export interface WordOptions {
 
 export interface Word {
   span: Span
-  apply(mod: Mod, net: Net, options: WordOptions): void
+  apply(mod: Mod, net: Net, options?: WordOptions): void
 }
