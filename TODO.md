@@ -1,20 +1,8 @@
-`show ... end` as a stmt which print initial
-
 `run ... end` as a stmt which print finial
 
 change the `render` command to simple `run` command
 
-# format
-
-`formatNet` -- format to simple text representation of graph
-
-- learn from knuth's c code
-
 # simple types
-
-linear logic as type system of inet
-
-`Node` port name can be optional
 
 `deftype` -- `TermType` -- use `'a` for name of pattern like in haskell
 
@@ -23,12 +11,6 @@ linear logic as type system of inet
 `defnet` -- type check words composition
 
 `Edge` -- type check the two ports
-
-# value
-
-the stack can take other types of values -- not only port
-
-`"name" set` and `"name" get` for local variable
 
 # experiments
 
@@ -49,3 +31,9 @@ understand proof-nets for all connectives
 - proof-nets--the-parallel-syntax-for-proof-theory--1995.pdf
 - "The linear abstract machine", Lafont, 1990.
 - "From proof-nets", Lafont, 1995
+
+# value
+
+the stack can take other types of values -- not only port
+
+`"name" set` and `"name" get` for local variable
