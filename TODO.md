@@ -1,5 +1,3 @@
-refactor `modBuildNet`
-
 # simple types
 
 `deftype` -- `TermType` -- use `'a` for name of pattern like in haskell
