@@ -1,6 +1,7 @@
 import { Definition } from "../definition"
-import { Net, Node, createNode } from "../graph"
+import { Net, Node } from "../graph"
 import { connect } from "../graph/connect"
+import { createNode } from "../graph/createNode"
 import { Mod } from "../mod"
 import { PortExp } from "../stmts"
 

@@ -27,6 +27,14 @@ export class PortReconnect implements Word {
       )
     }
 
+    if (found.connection === undefined) {
+      throw new Error(
+        `[PortReconnect.apply] I expect the found port to have connection`,
+      )
+    }
+
+    delete found.connection
+
     const topPort = net.portStack.pop()
 
     if (topPort === undefined) {

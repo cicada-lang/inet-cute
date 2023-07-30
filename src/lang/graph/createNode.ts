@@ -1,6 +1,7 @@
-import { Node, createPort } from "../graph"
+import { Node } from "../graph"
 import { Mod } from "../mod"
 import { PortExp } from "../stmts"
+import { createPort } from "./createPort"
 
 export function createNode(
   mod: Mod,

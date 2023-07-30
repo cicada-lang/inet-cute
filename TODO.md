@@ -1,8 +1,4 @@
-`connect` v.s. `reconnect`
-
-- `reconnect` is used in `PortReconnect`
-
-`interact` -- be sure about memeory leak from `port.connection`
+why we need `closeFreePorts` and `releaseFreePorts` in `run`?
 
 # format
 

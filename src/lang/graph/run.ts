@@ -22,9 +22,7 @@ function step(net: Net): void {
   }
 
   const activeEdge = net.activeEdges.pop()
-  if (activeEdge === undefined) {
-    return
-  } else {
+  if (activeEdge !== undefined) {
     interact(net.mod, net, activeEdge)
   }
 }

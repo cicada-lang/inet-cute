@@ -26,9 +26,12 @@ export class PortPush implements Word {
       )
     }
 
-    if (found.connection !== undefined) {
-      console.log(found.connection)
+    if (found.connection === undefined) {
+      throw new Error(
+        `[PortPush.apply] I expect the found port to have connection`,
+      )
     }
+
     delete found.connection
 
     net.portStack.push(found)
