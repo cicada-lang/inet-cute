@@ -1,3 +1,7 @@
+# local variable
+
+[maybe] [local variable] `$name` for set & `name` for get
+
 # type
 
 `deftype` -- use `'a` for the syntax of `TypeVar` -- for now
@@ -24,6 +28,10 @@ use inet to encode lambda calculus
 
 use inet to encode class, object and message sending
 
+# module
+
+module system
+
 # learn
 
 phase space and monoid -- understand the model theory of linear logic
@@ -39,5 +47,3 @@ understand proof-nets for all connectives
 # value
 
 the stack can take other types of values -- not only port
-
-`"name" set` and `"name" get` for local variable
