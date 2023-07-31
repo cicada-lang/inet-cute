@@ -143,3 +143,62 @@
     TODO code of turnstile
   </answer>
 </question>
+
+<question>
+  What is a well typed net?
+
+  <answer>
+    A net is well typed if inputs are connected to
+    outputs of the matching type.
+  </answer>
+</question>
+
+<question>
+  What is a well typed rule?
+
+  <answer>
+    A rule is well typed if:
+
+    (1) In the left side of the rule,
+    one principal is input and another is output,
+    and they have matching types.
+
+    (2) The right side of the rule is well typed,
+    where the types of variable ports
+    are given by the left side.
+  </answer>
+</question>
+
+<question>
+  What is the "completeness" constraint of well typed interaction rules?
+
+  <answer>
+    There is a rule for each pair of matching nodes.
+
+    Thus all active edge can be reduced.
+  </answer>
+</question>
+
+<cloze>
+  A node is called constructor if its principal port
+  is an <blank>output</blank> port.
+
+  A node is called eliminator if its principal port
+  is an <blank>input</blank> port.
+</cloze>
+
+<question>
+  Let N be a net with some free ports.
+
+  If N is well typed, finite and nonempty.
+
+  What is the characteristic of N being irreducible?
+
+  <answer>
+    And if N is irreducible,
+    then starting from any node,
+    you can follow principal ports
+    until you reach a free ports
+    or you loop!
+  </answer>
+</question>
