@@ -14,17 +14,17 @@
 (sole₁)-value head-(cons₂)
 (append₁₄)-return
 
-(null₁₅)-value tail-(cons₄₂)
-(cons₄₂)-value tail-(cons₄₀)
-(sole₁₆)-value head-(cons₄₂)
-(cons₄₀)-value tail-(cons₃₈)
-(sole₂₃)-value head-(cons₄₀)
-(cons₃₈)-value tail-(cons₃₆)
-(sole₁₈)-value head-(cons₃₈)
+(cons₂₁)-value tail-(cons₃₆)
 (cons₃₆)-value tail-(cons₃₄)
-(sole₂₅)-value head-(cons₃₆)
+(sole₂₃)-value head-(cons₃₆)
 (cons₃₄)-value tail-(cons₃₂)
-(sole₂₀)-value head-(cons₃₄)
+(sole₂₅)-value head-(cons₃₄)
 (sole₂₇)-value head-(cons₃₂)
+(cons₁₉)-value tail-(cons₂₁)
+(sole₂₀)-value head-(cons₂₁)
+(cons₁₇)-value tail-(cons₁₉)
+(sole₁₈)-value head-(cons₁₉)
+(null₁₅)-value tail-(cons₁₇)
+(sole₁₆)-value head-(cons₁₇)
 (cons₃₂)-value
 

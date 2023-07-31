@@ -23,7 +23,9 @@ export class NodeDefinition implements Definition {
     for (const port of node.input) {
       const top = net.ports.pop()
       if (top === undefined) {
-        throw new Error(`I expect a port on top of the stack`)
+        throw new Error(
+          `[NodeDefinition.meaning] I expect a port on top of the stack`,
+        )
       }
 
       connect(net, top, port)

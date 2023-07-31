@@ -22,9 +22,7 @@ defrule zero add
 end
 
 defrule add1 add
-  (add1)-prev
-  (add)-addend
-  add add1
+  (add)-addend (add1)-prev add add1
   return-(add)
 end
 

@@ -28,9 +28,7 @@ defrule null append
 end
 
 defrule cons append
-  (cons)-tail
-  (append)-rest
-  append
+  (append)-rest (cons)-tail append
   (cons)-head cons
   return-(append)
 end
