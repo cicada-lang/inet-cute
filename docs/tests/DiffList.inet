@@ -38,7 +38,7 @@ end
 
 defrule diff diff_append
   (diff)-front diff return-(diff_append)
-  (diff)-back (diff_append)-rest diff_open connect
+  (diff_append)-rest diff_open back-(diff)
 end
 
 defnode diff_open
@@ -49,8 +49,8 @@ defnode diff_open
 end
 
 defrule diff diff_open
-  (diff)-back list-(diff_open)
-  (diff)-front return-(diff_open)
+  (diff)-back return-(diff_open)
+  (diff)-front list-(diff_open)
 end
 
 defnet one_two_soles
