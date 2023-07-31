@@ -17,7 +17,7 @@ export class NodeDefinition implements Definition {
     const node = createNode(this.mod, this.name, this.input, this.output)
 
     // NOTE Be careful about the order.
-    for (const port of node.input) {
+    for (const port of [...node.input].reverse()) {
       const top = net.ports.pop()
       if (top === undefined) {
         throw new Error(`I expect a port on top of the stack`)

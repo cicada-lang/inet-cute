@@ -9,15 +9,15 @@ defnode null
 end
 
 defnode cons
-  head
   tail
+  head
   -------
   value!
 end
 
 defnode append
-  target!
   rest
+  target!
   ------
   return
 end

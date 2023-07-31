@@ -2,7 +2,12 @@ defnode zero -- value! end
 
 defnode add1 prev -- value! end
 
-defnode add target! addend -- return end
+defnode add
+  target!
+  addend
+  -------
+  return
+end
 
 defrule zero add
   (add)-addend return-(add)
@@ -16,11 +21,9 @@ end
 show zero zero add end
 run zero zero add end
 
-defnet two
-  zero add1
-  zero add1
-  add
-end
+defnet one zero add1 end
+
+defnet two one one add end
 
 defnet four
   two two add
@@ -31,3 +34,6 @@ run two end
 
 show four end
 run four end
+
+show zero one add end
+run zero one add end
