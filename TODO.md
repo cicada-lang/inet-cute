@@ -1,6 +1,10 @@
 # type
 
-`deftype` -- use `'a` for the syntax of `TypeVar` -- like in haskell
+`deftype` -- use `'a` for the syntax of `TypeVar` -- for now
+
+`TypeDefinition` -- SML do not need to define type?
+
+`freshenTypes` -- consistently add subscript to type variable names
 
 `defnode` -- support type
 
