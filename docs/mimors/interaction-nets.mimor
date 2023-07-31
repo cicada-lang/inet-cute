@@ -1,4 +1,7 @@
-<metadata theme-color="indigo" />
+<metadata
+  theme-color="indigo"
+  keywords="inet, Yves Lafont"
+ />
 
 <front-cover>
   "Interaction Nets", Yves Lafont, 1990.
