@@ -19,8 +19,8 @@ It is interesting because:
 
 Papers:
 
-- [Interaction Nets, Yves Lafont, 1990 (the founding paper)](./docs/papers/interaction-nets.pdf).
-- [Interaction Combinators, Yves Lafont, 1997](./docs/papers/interaction-combinators.pdf).
+- [Interaction Nets, Yves Lafont, 1990 (the founding paper)](./docs/papers/1990-interaction-nets.pdf).
+- [Interaction Combinators, Yves Lafont, 1997](./docs/papers/1997-interaction-combinators.pdf).
 
 Books:
 

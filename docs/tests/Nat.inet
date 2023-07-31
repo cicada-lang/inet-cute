@@ -1,19 +1,19 @@
 defnode zero
   ------
-  value!
+  value! // Nat
 end
 
 defnode add1
-  prev
+  prev // Nat
   ------
-  value!
+  value! // Nat
 end
 
 defnode add
-  target!
-  addend
+  target! // Nat
+  addend // Nat
   -------
-  return
+  return // Nat
 end
 
 defrule zero add

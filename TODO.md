@@ -14,6 +14,10 @@
 
 # example
 
+Nat -- `mul` -- with `nat_dup` and `nat_drop`
+
+Nat -- `max` -- with `max_aux`
+
 read interaction-combinators.pdf
 
 use inet to encode lambda calculus

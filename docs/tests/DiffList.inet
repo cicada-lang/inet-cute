@@ -16,8 +16,8 @@ defnode cons
 end
 
 defnode diff
-  right
-  left
+  front
+  back
   ------
   value!
 end
@@ -30,8 +30,8 @@ defnode diff_append
 end
 
 defrule diff diff_append
-  (diff)-left (diff_append)-rest diff_open
-  (diff)-right diff
+  (diff)-back (diff_append)-rest diff_open
+  (diff)-front diff
   return-(diff_append)
 end
 
@@ -43,8 +43,8 @@ defnode diff_open
 end
 
 defrule diff diff_open
-  (diff_open)-list (diff)-left connect
-  (diff)-right
+  (diff_open)-list (diff)-back connect
+  (diff)-front
   return-(diff_open)
 end
 
