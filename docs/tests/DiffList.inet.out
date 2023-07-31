@@ -10,14 +10,14 @@
 (sole₁)-value head-(cons₂)
 (diff_append₁₀)-return
 
-(cons₁₃)-value back-(diff₂₄)
+(cons₁₃)-value back-(diff₂₃)
 (cons₁₃)-tail tail-(cons₁₇)
-(cons₁₉)-value front-(diff₂₄)
+(cons₁₉)-value front-(diff₂₃)
 (cons₁₇)-value tail-(cons₁₉)
 (sole₁₈)-value head-(cons₁₉)
 (sole₁₆)-value head-(cons₁₇)
 (sole₁₂)-value head-(cons₁₃)
-(diff₂₄)-value
+(diff₂₃)-value
 
 (diff₃₆)-value!target-(diff_append₃₇)
 (diff₃₆)-back tail-(cons₃₃)
@@ -33,14 +33,14 @@
 (sole₂₆)-value head-(cons₂₇)
 (diff_append₃₇)-return
 
-(cons₄₂)-value back-(diff₅₃)
+(cons₄₂)-value back-(diff₅₂)
 (cons₄₀)-tail tail-(cons₄₆)
-(cons₄₈)-value front-(diff₅₃)
+(cons₄₈)-value front-(diff₅₂)
 (cons₄₆)-value tail-(cons₄₈)
 (sole₄₇)-value head-(cons₄₈)
 (sole₄₅)-value head-(cons₄₆)
 (cons₄₀)-value tail-(cons₄₂)
 (sole₄₁)-value head-(cons₄₂)
 (sole₃₉)-value head-(cons₄₀)
-(diff₅₃)-value
+(diff₅₂)-value
 

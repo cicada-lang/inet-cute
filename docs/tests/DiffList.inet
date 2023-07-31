@@ -17,8 +17,8 @@ end
 
 defnode diff
   front // List('a)
-  back // List('a)
   ------
+  back // List('a)
   value! // DiffList('a)
 end
 
@@ -37,9 +37,8 @@ defnode diff_append
 end
 
 defrule diff diff_append
-  (diff)-back (diff_append)-rest diff_open
-  (diff)-front diff
-  return-(diff_append)
+  (diff)-front diff return-(diff_append)
+  (diff)-back (diff_append)-rest diff_open connect
 end
 
 defnode diff_open
@@ -55,14 +54,14 @@ defrule diff diff_open
 end
 
 defnet one_two_soles
-  wire sole cons diff
-  wire sole cons sole cons diff
+  wire sole cons diff rot rot connect
+  wire sole cons sole cons diff rot rot connect
   diff_append
 end
 
 defnet two_two_soles
-  wire sole cons sole cons diff
-  wire sole cons sole cons diff
+  wire sole cons sole cons diff rot rot connect
+  wire sole cons sole cons diff rot rot connect
   diff_append
 end
 

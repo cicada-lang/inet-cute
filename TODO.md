@@ -1,5 +1,3 @@
-`(diff)-back` should be output port
-
 # type
 
 `deftype` -- use `'a` for the syntax of `TypeVar` -- for now
