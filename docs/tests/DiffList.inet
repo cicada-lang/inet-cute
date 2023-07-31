@@ -1,24 +1,30 @@
-defnode sole -- value! end
+defnode sole
+  ------
+  value!
+end
 
-defnode null -- value! end
+defnode null
+  ------
+  value!
+end
 
 defnode cons
-  tail
   head
+  tail
   -------
   value!
 end
 
 defnode diff
-  left
   right
+  left
   ------
   value!
 end
 
 defnode diff_append
-  rest
   target!
+  rest
   ------
   return
 end
@@ -30,8 +36,8 @@ defrule diff diff_append
 end
 
 defnode diff_open
-  list
   target!
+  list
   ------
   return
 end

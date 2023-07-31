@@ -9,21 +9,22 @@ defnode null
 end
 
 defnode cons
-  tail
   head
+  tail
   -------
   value!
 end
 
 defnode append
-  rest
   target!
+  rest
   ------
   return
 end
 
 defrule null append
-  (append)-rest return-(append)
+  (append)-rest
+  return-(append)
 end
 
 defrule cons append
