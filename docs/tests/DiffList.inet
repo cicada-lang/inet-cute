@@ -1,32 +1,39 @@
 defnode sole
   ------
-  value!
+  value! // Trivial
 end
 
 defnode null
   ------
-  value!
+  value! // List('a)
 end
 
 defnode cons
-  head
-  tail
+  head // 'a
+  tail // List('a)
   -------
-  value!
+  value! // List('a)
 end
 
 defnode diff
-  front
-  back
+  front // List('a)
+  back // List('a)
   ------
-  value!
+  value! // DiffList('a)
 end
 
+// Concatenation of lists is performed in linear time
+// with respect to its first argument.
+// Constant time concatenation is possible
+// with difference-lists: the idea consists in
+// plugging the front of the second argument
+// at the back of the first one.
+
 defnode diff_append
-  target!
-  rest
+  target! // DiffList('a)
+  rest // DiffList('a)
   ------
-  return
+  return // DiffList('a)
 end
 
 defrule diff diff_append
@@ -36,16 +43,15 @@ defrule diff diff_append
 end
 
 defnode diff_open
-  target!
-  list
+  target! // DiffList('a)
+  list // List('a)
   ------
-  return
+  return // List('a)
 end
 
 defrule diff diff_open
-  (diff_open)-list (diff)-back connect
-  (diff)-front
-  return-(diff_open)
+  (diff)-back list-(diff_open)
+  (diff)-front return-(diff_open)
 end
 
 defnet one_two_soles
