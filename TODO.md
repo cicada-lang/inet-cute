@@ -1,7 +1,5 @@
 # type
 
-mv `PortExp` to `graph`
-
 `PortExp` take `type`
 
 `freshenTypes` -- consistently add subscript to type variable names

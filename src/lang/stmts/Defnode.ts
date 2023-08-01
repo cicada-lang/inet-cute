@@ -1,13 +1,9 @@
 import * as Definitions from "../definitions"
+import { PortExp } from "../graph/PortExp"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
-
-export type PortExp = {
-  name: string
-  isPrincipal: boolean
-}
 
 export class Defnode implements Stmt {
   constructor(

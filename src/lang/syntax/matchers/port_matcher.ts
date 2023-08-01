@@ -1,5 +1,5 @@
 import * as pt from "@cicada-lang/partech"
-import { PortExp } from "../../stmts"
+import { PortExp } from "../../graph/PortExp"
 
 export function port_matcher(tree: pt.Tree): PortExp {
   return pt.matcher<PortExp>({
