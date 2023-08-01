@@ -11,6 +11,12 @@ export class Call implements Word {
   ) {}
 
   apply(mod: Mod, net: Net): void {
-    lookupDefinitionOrFail(mod, this.name).meaning(net)
+    const found = net.localPorts.get(this.name)
+    if (found !== undefined) {
+      net.ports.push(found)
+      net.localPorts.delete(this.name)
+    } else {
+      lookupDefinitionOrFail(mod, this.name).meaning(net)
+    }
   }
 }

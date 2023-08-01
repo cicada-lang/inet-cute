@@ -1,7 +1,5 @@
 # local variable
 
-`Call` -- handle local get
-
 [syntax] `$name` for set & `name` for get
 
 # type
