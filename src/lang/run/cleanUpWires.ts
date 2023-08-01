@@ -1,7 +1,7 @@
-import { Net } from "../graph/Net"
-import { connect } from "./connect"
-import { disconnect } from "./disconnect"
-import { removeNode } from "./removeNode"
+import { Net } from "../net"
+import { connect } from "../net/connect"
+import { disconnect } from "../net/disconnect"
+import { removeNode } from "../net/removeNode"
 
 export function cleanUpWires(net: Net): void {
   for (const wire of net.wires) {

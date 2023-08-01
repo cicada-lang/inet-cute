@@ -1,5 +1,5 @@
 import { Edge } from "../graph/Edge"
-import { Net } from "../graph/Net"
+import { Net } from "../net"
 
 export function removeEdge(net: Net, edge: Edge): void {
   const index = net.edges.indexOf(edge)

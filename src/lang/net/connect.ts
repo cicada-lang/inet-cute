@@ -1,6 +1,6 @@
-import { Net } from "../graph/Net"
 import { Port } from "../graph/Port"
 import { lookupRuleByPorts } from "../mod/lookupRuleByPorts"
+import { Net } from "../net"
 
 export function connect(net: Net, start: Port, end: Port): void {
   const rule = lookupRuleByPorts(net.mod, start, end)

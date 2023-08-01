@@ -1,5 +1,5 @@
-import { Net } from "../graph/Net"
 import { Node } from "../graph/Node"
+import { Net } from "../net"
 
 export function removeNode(net: Net, node: Node): void {
   const index = net.nodes.indexOf(node)

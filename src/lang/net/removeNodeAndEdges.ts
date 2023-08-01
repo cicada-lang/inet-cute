@@ -1,4 +1,5 @@
-import { Net, Node } from "../graph"
+import { Node } from "../graph"
+import { Net } from "./Net"
 import { removeEdge } from "./removeEdge"
 import { removeNode } from "./removeNode"
 

@@ -1,6 +1,7 @@
-import { ActiveEdge, Net } from "../graph"
+import { ActiveEdge } from "../graph"
 import { Mod } from "../mod"
-import { removeNodeAndEdges } from "./removeNodeAndEdges"
+import { Net } from "../net"
+import { removeNodeAndEdges } from "../net/removeNodeAndEdges"
 
 export function interact(mod: Mod, net: Net, activeEdge: ActiveEdge): void {
   removeNodeAndEdges(net, activeEdge.end.node)

@@ -1,5 +1,5 @@
 import { Edge } from "../graph/Edge"
-import { Net } from "../graph/Net"
+import { Net } from "../net"
 import { removeEdge } from "./removeEdge"
 
 export function disconnect(net: Net, edge: Edge): void {

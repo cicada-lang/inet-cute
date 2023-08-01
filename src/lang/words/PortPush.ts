@@ -1,7 +1,7 @@
-import { Net } from "../graph"
 import { findPortInActiveEdge } from "../graph/findPortInActiveEdge"
 import { Mod } from "../mod"
-import { disconnect } from "../run/disconnect"
+import { Net } from "../net"
+import { disconnect } from "../net/disconnect"
 import { Span } from "../span"
 import { Word, WordOptions } from "../word"
 

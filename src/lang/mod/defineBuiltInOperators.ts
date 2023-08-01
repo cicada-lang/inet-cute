@@ -1,7 +1,7 @@
 import { Port } from "../graph"
 import { createNode } from "../graph/createNode"
 import { Mod } from "../mod"
-import { connect } from "../run/connect"
+import { connect } from "../net/connect"
 import * as Types from "../type"
 import { defineOperator } from "./defineOperator"
 

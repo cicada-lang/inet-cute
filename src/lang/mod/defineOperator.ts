@@ -1,5 +1,5 @@
 import * as Definitions from "../definitions"
-import { Net } from "../graph"
+import { Net } from "../net"
 import { Mod } from "./Mod"
 import { define } from "./define"
 
