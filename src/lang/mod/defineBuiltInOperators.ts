@@ -36,6 +36,7 @@ export function defineBuiltInOperators(mod: Mod): void {
     )
 
     net.ports.push(...node.output)
+
     net.nodes.push(node)
 
     const [start, end] = node.output

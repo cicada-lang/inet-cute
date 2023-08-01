@@ -1,6 +1,8 @@
 # local variable
 
-[maybe] [local variable] `$name` for set & `name` for get
+`Call` -- handle local get
+
+[syntax] `$name` for set & `name` for get
 
 # type
 
