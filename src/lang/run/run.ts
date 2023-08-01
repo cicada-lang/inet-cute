@@ -1,5 +1,5 @@
 import { Net } from "../net"
-import { cleanUpWires } from "./cleanUpWires"
+import { cleanUpWires } from "../net/cleanUpWires"
 import { closeFreePorts } from "./closeFreePorts"
 import { interact } from "./interact"
 import { releaseFreePorts } from "./releaseFreePorts"
