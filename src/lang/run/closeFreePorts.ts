@@ -19,5 +19,5 @@ export function closeFreePorts(net: Net): Node | undefined {
     "*root*",
     [...net.ports],
     [],
-  ).call(net)
+  ).compose(net)
 }

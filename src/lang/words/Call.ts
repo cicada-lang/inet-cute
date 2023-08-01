@@ -16,7 +16,7 @@ export class Call implements Word {
       net.ports.push(found)
       net.localPorts.delete(this.name)
     } else {
-      lookupDefinitionOrFail(mod, this.name).call(net)
+      lookupDefinitionOrFail(mod, this.name).compose(net)
     }
   }
 }

@@ -6,6 +6,6 @@ export class OperatorDefinition implements Definition {
   constructor(
     public mod: Mod,
     public name: string,
-    public call: (net: Net) => void,
+    public compose: (net: Net) => void,
   ) {}
 }

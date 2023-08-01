@@ -9,7 +9,9 @@ export class TypeDefinition implements Definition {
     public arity: number,
   ) {}
 
-  call(net: Net): void {
-    throw new Error(`[TypeDefinition.call] Can not call a type: ${this.name}`)
+  compose(net: Net): void {
+    throw new Error(
+      `[TypeDefinition.compose] Can not compose a type: ${this.name}`,
+    )
   }
 }

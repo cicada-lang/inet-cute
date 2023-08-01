@@ -14,7 +14,7 @@ export class NodeDefinition implements Definition {
     public output: Array<PortExp>,
   ) {}
 
-  call(net: Net): Node {
+  compose(net: Net): Node {
     const node = createNode(this.mod, this.name, this.input, this.output)
 
     // Be careful about the order:
@@ -25,7 +25,7 @@ export class NodeDefinition implements Definition {
       const top = net.ports.pop()
       if (top === undefined) {
         throw new Error(
-          `[NodeDefinition.call] I expect a port on top of the stack`,
+          `[NodeDefinition.compose] I expect a port on top of the stack`,
         )
       }
 
