@@ -1,7 +1,11 @@
+deftype Trivial 0 end
+
 defnode sole
   ------
   value! // Trivial
 end
+
+deftype List 1 end
 
 defnode null
   ------
@@ -14,6 +18,8 @@ defnode cons
   -------
   value! // List('a)
 end
+
+deftype DiffList 1 end
 
 defnode diff
   front // List('a)
