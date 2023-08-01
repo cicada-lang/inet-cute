@@ -1,7 +1,5 @@
 # type
 
-`define` can not redefine
-
 [syntax] `Type` -- use `'a` for the syntax of `TypeVar` -- for now
 
 `freshenTypes` -- consistently add subscript to type variable names
