@@ -1,5 +1,5 @@
+import { composeWords } from "../compose/composeWords"
 import { Definition } from "../definition"
-import { composeWords } from "../graph/composeWords"
 import { Mod } from "../mod"
 import { Net } from "../net"
 import { Word } from "../word"

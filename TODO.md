@@ -1,5 +1,7 @@
 # type
 
+extract `cut/` -- `cutWords`
+
 `defrule` -- check type -- cut -- words composition
 
 `Call` -- `cut`

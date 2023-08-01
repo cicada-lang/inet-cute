@@ -1,5 +1,5 @@
+import { composeWords } from "../compose/composeWords"
 import { formatNet } from "../format"
-import { composeWords } from "../graph/composeWords"
 import { createNet } from "../graph/createNet"
 import { Mod } from "../mod"
 import { Span } from "../span"
