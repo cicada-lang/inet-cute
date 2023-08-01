@@ -1,8 +1,12 @@
 # type
 
-`deftype` -- use `'a` for the syntax of `TypeVar` -- for now
+rename meaning to call
 
-`TypeDefinition` -- SML do not need to define type?
+`TypeDefinition` can not `call`
+
+`deftype`
+
+[syntax] `Type` -- use `'a` for the syntax of `TypeVar` -- for now
 
 `freshenTypes` -- consistently add subscript to type variable names
 
@@ -17,8 +21,6 @@
 Nat -- `mul` -- with `nat_dup` and `nat_drop`
 
 Nat -- `max` -- with `max_aux`
-
-read interaction-combinators.pdf
 
 use inet to encode lambda calculus
 
