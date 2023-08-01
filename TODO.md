@@ -1,11 +1,17 @@
 # type
 
+`ComposeOptions` should not have `activeEdge` -- should have `start` and `end` node
+
+extract `compose`
+
+- let `Word` be algebraic data type
+
 `defrule` -- check type -- cut -- words composition
 
-`Call` -- `cut`
-`LocalSet` -- `cut`
-`PortPush` -- `cut`
-`PortReconnect` -- `cut`
+`cut` -- `Call`
+`cut` -- `LocalSet`
+`cut` -- `PortPush`
+`cut` -- `PortReconnect`
 
 `Definition.cut`
 
