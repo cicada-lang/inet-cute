@@ -1,8 +1,6 @@
 # type
 
-`TypeDefinition` can not `call`
-
-`deftype`
+`define` can not redefine
 
 [syntax] `Type` -- use `'a` for the syntax of `TypeVar` -- for now
 
@@ -13,6 +11,29 @@
 `defrule` -- type check -- cut -- words composition
 
 `defnet` -- type check -- cut -- words composition
+
+[maybe] `defdata`
+
+```inet
+defdata Nat
+  case zero -- value!: Nat end
+  case add1 prev: Nat -- value!: Nat end
+end
+
+defdata List('a)
+  case null
+    ------
+    value! // List('a)
+  end
+
+  case cons
+    head // 'a
+    tail // List('a)
+    -------
+    value! // List('a)
+  end
+end
+```
 
 # example
 

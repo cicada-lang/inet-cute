@@ -1,3 +1,5 @@
+deftype Nat 0 end
+
 defnode zero
   ------
   value! // Nat

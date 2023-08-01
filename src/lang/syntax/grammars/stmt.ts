@@ -29,6 +29,12 @@ export const stmt = {
       { words: "words" },
       '"end"',
     ],
+    "stmt:deftype": [
+      '"deftype"',
+      { name: "variable_name" },
+      { arity: { $pattern: ["number"] } },
+      '"end"',
+    ],
     "stmt:show": ['"show"', { words: "words" }, '"end"'],
     "stmt:run": ['"run"', { words: "words" }, '"end"'],
   },

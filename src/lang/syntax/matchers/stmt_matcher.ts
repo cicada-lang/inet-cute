@@ -21,6 +21,8 @@ export function stmt_matcher(tree: pt.Tree): Stmt {
       ),
     "stmt:defnet": ({ name, words }, { span }) =>
       new Stmts.Defnet(pt.str(name), matchers.words_matcher(words), span),
+    "stmt:deftype": ({ name, arity }, { span }) =>
+      new Stmts.Deftype(pt.str(name), Number.parseFloat(pt.str(arity)), span),
     "stmt:show": ({ words }, { span }) =>
       new Stmts.Show(matchers.words_matcher(words), span),
     "stmt:run": ({ words }, { span }) =>
