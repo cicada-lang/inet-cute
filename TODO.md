@@ -1,14 +1,12 @@
 # type
 
-`PortExp` take `type`
-
 `freshenTypes` -- consistently add subscript to type variable names
 
-`defnode` -- support type
-
-`defrule` -- type check -- cut -- words composition
+`defrule` -- check type -- cut -- words composition
 
 `defnet` -- type check -- cut -- words composition
+
+`defnode` -- check type -- arity of defined types
 
 [maybe] `defdata`
 

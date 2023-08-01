@@ -2,6 +2,7 @@ import { Port } from "../graph"
 import { connect } from "../graph/connect"
 import { createNode } from "../graph/createNode"
 import { Mod } from "../mod"
+import * as Types from "../type"
 import { defineOperator } from "./defineOperator"
 
 export function defineBuiltInOperators(mod: Mod): void {
@@ -30,17 +31,22 @@ export function defineBuiltInOperators(mod: Mod): void {
       "wire",
       [],
       [
-        { name: "left", isPrincipal: false },
-        { name: "right", isPrincipal: true },
+        {
+          name: "left",
+          t: Types.TypeVar("a"),
+          isPrincipal: false,
+        },
+        {
+          name: "right",
+          t: Types.TypeVar("a"),
+          isPrincipal: true,
+        },
       ],
     )
 
     net.ports.push(...node.output)
-
     net.nodes.push(node)
-
     const [start, end] = node.output
-
     net.wires.push({ start, end })
   })
 }
