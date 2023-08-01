@@ -1,8 +1,10 @@
 # type
 
-`freshenTypes` -- consistently add subscript to type variable names
+`Word.cut`
 
 `defrule` -- check type -- cut -- words composition
+
+- `freshenTypes` -- consistently add subscript to type variable names
 
 `defnet` -- type check -- cut -- words composition
 
