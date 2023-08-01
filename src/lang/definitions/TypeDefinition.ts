@@ -10,6 +10,6 @@ export class TypeDefinition implements Definition {
   ) {}
 
   call(net: Net): void {
-    //
+    throw new Error(`[TypeDefinition.call] Can not call a type: ${this.name}`)
   }
 }
