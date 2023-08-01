@@ -9,7 +9,7 @@ export class TypeDefinition implements Definition {
     public arity: number,
   ) {}
 
-  meaning(net: Net): void {
+  call(net: Net): void {
     //
   }
 }

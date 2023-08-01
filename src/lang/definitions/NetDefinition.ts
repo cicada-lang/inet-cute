@@ -11,7 +11,7 @@ export class NetDefinition implements Definition {
     public words: Array<Word>,
   ) {}
 
-  meaning(net: Net): void {
+  call(net: Net): void {
     applyWords(this.mod, net, this.words)
   }
 }

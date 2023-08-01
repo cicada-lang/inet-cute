@@ -1,7 +1,5 @@
 # type
 
-rename meaning to call
-
 `TypeDefinition` can not `call`
 
 `deftype`

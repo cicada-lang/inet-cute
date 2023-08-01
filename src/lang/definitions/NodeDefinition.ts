@@ -13,7 +13,7 @@ export class NodeDefinition implements Definition {
     public output: Array<PortExp>,
   ) {}
 
-  meaning(net: Net): Node {
+  call(net: Net): Node {
     const node = createNode(this.mod, this.name, this.input, this.output)
 
     // Be careful about the order:
@@ -24,7 +24,7 @@ export class NodeDefinition implements Definition {
       const top = net.ports.pop()
       if (top === undefined) {
         throw new Error(
-          `[NodeDefinition.meaning] I expect a port on top of the stack`,
+          `[NodeDefinition.call] I expect a port on top of the stack`,
         )
       }
 

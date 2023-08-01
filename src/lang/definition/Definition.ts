@@ -4,5 +4,5 @@ import { Mod } from "../mod"
 export interface Definition {
   mod: Mod
   name: string
-  meaning(net: Net): void
+  call(net: Net): void
 }
