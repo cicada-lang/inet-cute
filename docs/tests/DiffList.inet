@@ -59,14 +59,23 @@ defnet one_two_soles
   diff_append
 end
 
+show one_two_soles end
+run one_two_soles end
+
 defnet two_two_soles
   wire sole cons sole cons diff rot rot connect
   wire sole cons sole cons diff rot rot connect
   diff_append
 end
 
-show one_two_soles end
-run one_two_soles end
-
 show two_two_soles end
 run two_two_soles end
+
+defnet two_two_soles_with_local_variable
+  wire sole cons sole cons diff $value connect value
+  wire sole cons sole cons diff $value connect value
+  diff_append
+end
+
+show two_two_soles_with_local_variable end
+run two_two_soles_with_local_variable end

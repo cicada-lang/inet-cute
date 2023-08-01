@@ -5,6 +5,8 @@ import * as Words from "../../words"
 export function word_matcher(tree: pt.Tree): Word {
   return pt.matcher<Word>({
     "word:call": ({ name }, { span }) => new Words.Call(pt.str(name), span),
+    "word:local_set": ({ name }, { span }) =>
+      new Words.LocalSet(pt.str(name), span),
     "word:port_push": ({ nodeName, portName }, { span }) =>
       new Words.PortPush(pt.str(nodeName), pt.str(portName), span),
     "word:port_reconnect": ({ nodeName, portName }, { span }) =>

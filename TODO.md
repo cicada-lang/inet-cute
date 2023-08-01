@@ -1,7 +1,3 @@
-# local variable
-
-[syntax] `$name` for set & `name` for get
-
 # type
 
 `deftype` -- use `'a` for the syntax of `TypeVar` -- for now
