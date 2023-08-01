@@ -1,5 +1,5 @@
-import { cleanUpWires } from "../graph/cleanUpWires"
 import { Mod } from "../mod"
+import { cleanUpWires } from "../run/cleanUpWires"
 import { Word } from "../word"
 import { Net } from "./Net"
 

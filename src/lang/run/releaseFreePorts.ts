@@ -1,6 +1,6 @@
 import { InternalError } from "../errors"
-import { Net } from "./Net"
-import { Node } from "./Node"
+import { Net } from "../graph/Net"
+import { Node } from "../graph/Node"
 import { disconnect } from "./disconnect"
 import { removeNode } from "./removeNode"
 
