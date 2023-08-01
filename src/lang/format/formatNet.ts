@@ -1,4 +1,4 @@
-import { Net } from "../net"
+import { Net } from "../graph"
 import { formatNode } from "./formatNode"
 
 export function formatNet(net: Net): string {

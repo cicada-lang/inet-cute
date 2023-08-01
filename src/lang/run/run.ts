@@ -1,4 +1,4 @@
-import { Net } from "../net"
+import { Net } from "../graph/Net"
 import { cleanUpWires } from "./cleanUpWires"
 import { closeFreePorts } from "./closeFreePorts"
 import { interact } from "./interact"

@@ -1,5 +1,5 @@
+import { Net } from "../graph"
 import { Mod } from "../mod"
-import { Net } from "../net"
 
 export interface Definition {
   mod: Mod

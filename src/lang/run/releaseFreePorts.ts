@@ -1,6 +1,8 @@
 import { InternalError } from "../errors"
+import { Net } from "../graph/Net"
 import { Node } from "../graph/Node"
-import { Net } from "../net"
+import { disconnect } from "./disconnect"
+import { removeNode } from "./removeNode"
 
 export function releaseFreePorts(net: Net, closer: Node | undefined): void {
   if (closer === undefined) {

@@ -1,6 +1,6 @@
+import { Net } from "../graph"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
-import { Net } from "../net"
 import { Span } from "../span"
 import { Word } from "../word"
 

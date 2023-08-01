@@ -1,7 +1,7 @@
 import { Definition } from "../definition"
+import { Net } from "../graph"
 import { composeWords } from "../graph/composeWords"
 import { Mod } from "../mod"
-import { Net } from "../net"
 import { Word } from "../word"
 
 export class NetDefinition implements Definition {
