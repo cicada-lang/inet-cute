@@ -1,3 +1,4 @@
+import { Ctx } from "../ctx"
 import { findPortInActiveEdge } from "../graph/findPortInActiveEdge"
 import { Mod } from "../mod"
 import { Net } from "../net"
@@ -36,5 +37,9 @@ export class PortPush implements Word {
     disconnect(net, found.connection.edge)
 
     net.ports.push(found)
+  }
+
+  cut(mod: Mod, ctx: Ctx, options?: WordOptions): void {
+    //
   }
 }

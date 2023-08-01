@@ -1,3 +1,4 @@
+import { Ctx } from "../ctx"
 import { findPortInActiveEdge } from "../graph/findPortInActiveEdge"
 import { Mod } from "../mod"
 import { Net } from "../net"
@@ -43,5 +44,9 @@ export class PortReconnect implements Word {
     }
 
     connect(net, topPort, found)
+  }
+
+  cut(mod: Mod, ctx: Ctx, options?: WordOptions): void {
+    //
   }
 }
