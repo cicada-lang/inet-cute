@@ -1,6 +1,8 @@
 # type
 
-[syntax] `Type` -- use `'a` for the syntax of `TypeVar` -- for now
+mv `PortExp` to `graph`
+
+`PortExp` take `type`
 
 `freshenTypes` -- consistently add subscript to type variable names
 

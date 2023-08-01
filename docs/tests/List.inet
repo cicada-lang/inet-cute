@@ -2,28 +2,28 @@ deftype Trivial 0 end
 
 defnode sole
   ------
-  value! // Trivial
+  value!: Trivial
 end
 
 deftype List 1 end
 
 defnode null
   ------
-  value! // List('a)
+  value!: List('a)
 end
 
 defnode cons
-  head // 'a
-  tail // List('a)
+  head: 'a
+  tail: List('a)
   -------
-  value! // List('a)
+  value!: List('a)
 end
 
 defnode append
-  target! // List('a)
-  rest // List('a)
+  target!: List('a)
+  rest: List('a)
   ------
-  return // List('a)
+  return: List('a)
 end
 
 defrule null append

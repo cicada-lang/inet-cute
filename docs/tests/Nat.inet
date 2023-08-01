@@ -2,20 +2,20 @@ deftype Nat 0 end
 
 defnode zero
   ------
-  value! // Nat
+  value!: Nat
 end
 
 defnode add1
-  prev // Nat
+  prev: Nat
   ------
-  value! // Nat
+  value!: Nat
 end
 
 defnode add
-  target! // Nat
-  addend // Nat
+  target!: Nat
+  addend: Nat
   -------
-  return // Nat
+  return: Nat
 end
 
 defrule zero add

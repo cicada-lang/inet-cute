@@ -3,11 +3,11 @@ import { PortExp } from "../../stmts"
 
 export function port_matcher(tree: pt.Tree): PortExp {
   return pt.matcher<PortExp>({
-    "port:normal": ({ name }, { span }) => ({
+    "port:normal": ({ name, type }, { span }) => ({
       name: pt.str(name),
       isPrincipal: false,
     }),
-    "port:principal": ({ name }, { span }) => ({
+    "port:principal": ({ name, type }, { span }) => ({
       name: pt.str(name),
       isPrincipal: true,
     }),

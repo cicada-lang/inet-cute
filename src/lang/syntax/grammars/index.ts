@@ -8,4 +8,5 @@ export const dashline = pt.grammars.dashline
 export * from "./name"
 export * from "./port"
 export * from "./stmt"
+export * from "./type"
 export * from "./word"

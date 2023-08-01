@@ -2,30 +2,30 @@ deftype Trivial 0 end
 
 defnode sole
   ------
-  value! // Trivial
+  value!: Trivial
 end
 
 deftype List 1 end
 
 defnode null
   ------
-  value! // List('a)
+  value!: List('a)
 end
 
 defnode cons
-  head // 'a
-  tail // List('a)
+  head: 'a
+  tail: List('a)
   -------
-  value! // List('a)
+  value!: List('a)
 end
 
 deftype DiffList 1 end
 
 defnode diff
-  front // List('a)
+  front: List('a)
   ------
-  back // List('a)
-  value! // DiffList('a)
+  back: List('a)
+  value!: DiffList('a)
 end
 
 // Concatenation of lists is performed in linear time
@@ -36,10 +36,10 @@ end
 // at the back of the first one.
 
 defnode diff_append
-  target! // DiffList('a)
-  rest // DiffList('a)
+  target!: DiffList('a)
+  rest: DiffList('a)
   ------
-  return // DiffList('a)
+  return: DiffList('a)
 end
 
 defrule diff diff_append
@@ -48,10 +48,10 @@ defrule diff diff_append
 end
 
 defnode diff_open
-  target! // DiffList('a)
-  list // List('a)
+  target!: DiffList('a)
+  list: List('a)
   ------
-  return // List('a)
+  return: List('a)
 end
 
 defrule diff diff_open
