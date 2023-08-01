@@ -1,5 +1,5 @@
-import { Net } from "../graph"
 import { Mod } from "../mod"
+import { Net } from "../net"
 import { Span } from "../span"
 import { Word } from "../word"
 

@@ -1,8 +1,9 @@
 import { Definition } from "../definition"
-import { Net, Node } from "../graph"
+import { Node } from "../graph"
 import { PortExp } from "../graph/PortExp"
 import { createNode } from "../graph/createNode"
 import { Mod } from "../mod"
+import { Net } from "../net"
 import { connect } from "../run/connect"
 
 export class NodeDefinition implements Definition {

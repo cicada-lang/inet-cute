@@ -1,4 +1,4 @@
-import { Net } from "../graph/Net"
+import { Net } from "../net"
 import { connect } from "./connect"
 import { disconnect } from "./disconnect"
 import { removeNode } from "./removeNode"

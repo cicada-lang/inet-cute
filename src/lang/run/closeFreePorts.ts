@@ -1,6 +1,6 @@
 import * as Definitions from "../definitions"
-import { Net } from "../graph/Net"
 import { Node } from "../graph/Node"
+import { Net } from "../net"
 
 /*
 
