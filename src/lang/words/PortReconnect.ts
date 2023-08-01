@@ -5,7 +5,7 @@ import { Net } from "../net"
 import { connect } from "../net/connect"
 import { disconnect } from "../net/disconnect"
 import { Span } from "../span"
-import { Word, WordOptions } from "../word"
+import { ComposeOptions, CutOptions, Word } from "../word"
 
 export class PortReconnect implements Word {
   constructor(
@@ -14,7 +14,7 @@ export class PortReconnect implements Word {
     public span: Span,
   ) {}
 
-  compose(mod: Mod, net: Net, options?: WordOptions): void {
+  compose(mod: Mod, net: Net, options?: ComposeOptions): void {
     const { activeEdge } = options || {}
 
     if (activeEdge === undefined) {
@@ -46,7 +46,7 @@ export class PortReconnect implements Word {
     connect(net, topPort, found)
   }
 
-  cut(mod: Mod, ctx: Ctx, options?: WordOptions): void {
+  cut(mod: Mod, ctx: Ctx, options?: CutOptions): void {
     //
   }
 }

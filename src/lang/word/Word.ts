@@ -4,12 +4,16 @@ import { Mod } from "../mod"
 import { Net } from "../net"
 import { Span } from "../span"
 
-export interface WordOptions {
+export interface ComposeOptions {
   activeEdge?: ActiveEdge
+}
+
+export interface CutOptions {
+  //
 }
 
 export interface Word {
   span: Span
-  compose(mod: Mod, net: Net, options?: WordOptions): void
-  cut(mod: Mod, ctx: Ctx, options?: WordOptions): void
+  compose(mod: Mod, net: Net, options?: ComposeOptions): void
+  cut(mod: Mod, ctx: Ctx, options?: CutOptions): void
 }

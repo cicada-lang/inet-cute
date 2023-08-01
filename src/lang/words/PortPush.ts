@@ -4,7 +4,7 @@ import { Mod } from "../mod"
 import { Net } from "../net"
 import { disconnect } from "../net/disconnect"
 import { Span } from "../span"
-import { Word, WordOptions } from "../word"
+import { ComposeOptions, CutOptions, Word } from "../word"
 
 export class PortPush implements Word {
   constructor(
@@ -13,7 +13,7 @@ export class PortPush implements Word {
     public span: Span,
   ) {}
 
-  compose(mod: Mod, net: Net, options?: WordOptions): void {
+  compose(mod: Mod, net: Net, options?: ComposeOptions): void {
     const { activeEdge } = options || {}
 
     if (activeEdge === undefined) {
@@ -39,7 +39,7 @@ export class PortPush implements Word {
     net.ports.push(found)
   }
 
-  cut(mod: Mod, ctx: Ctx, options?: WordOptions): void {
+  cut(mod: Mod, ctx: Ctx, options?: CutOptions): void {
     //
   }
 }

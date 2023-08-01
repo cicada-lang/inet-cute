@@ -1,3 +1,5 @@
+import { createCtx } from "../ctx/createCtx"
+import { cutWords } from "../cut/cutWords"
 import { Mod } from "../mod"
 import { defineRule } from "../mod/defineRule"
 import { Span } from "../span"
@@ -13,6 +15,9 @@ export class Defrule implements Stmt {
   ) {}
 
   async execute(mod: Mod): Promise<void> {
+    const ctx = createCtx()
+    cutWords(mod, ctx, this.words)
+
     defineRule(mod, this.start, this.end, this.words)
   }
 }

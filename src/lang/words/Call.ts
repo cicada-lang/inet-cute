@@ -3,7 +3,7 @@ import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { Net } from "../net"
 import { Span } from "../span"
-import { Word, WordOptions } from "../word"
+import { CutOptions, Word } from "../word"
 
 export class Call implements Word {
   constructor(
@@ -21,7 +21,7 @@ export class Call implements Word {
     }
   }
 
-  cut(mod: Mod, ctx: Ctx, options?: WordOptions): void {
+  cut(mod: Mod, ctx: Ctx, options?: CutOptions): void {
     //
   }
 }
