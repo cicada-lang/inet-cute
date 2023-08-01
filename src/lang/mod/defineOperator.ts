@@ -6,7 +6,7 @@ import { define } from "./define"
 export function defineOperator(
   mod: Mod,
   name: string,
-  apply: (net: Net) => void,
+  compose: (net: Net) => void,
 ): void {
-  define(mod, name, new Definitions.OperatorDefinition(mod, name, apply))
+  define(mod, name, new Definitions.OperatorDefinition(mod, name, compose))
 }

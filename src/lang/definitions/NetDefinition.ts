@@ -1,6 +1,6 @@
 import { Definition } from "../definition"
 import { Net } from "../graph"
-import { applyWords } from "../graph/applyWords"
+import { composeWords } from "../graph/composeWords"
 import { Mod } from "../mod"
 import { Word } from "../word"
 
@@ -12,6 +12,6 @@ export class NetDefinition implements Definition {
   ) {}
 
   call(net: Net): void {
-    applyWords(this.mod, net, this.words)
+    composeWords(this.mod, net, this.words)
   }
 }

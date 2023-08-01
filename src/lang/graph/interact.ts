@@ -7,6 +7,6 @@ export function interact(mod: Mod, net: Net, activeEdge: ActiveEdge): void {
   removeNodeAndEdges(net, activeEdge.start.node)
 
   for (const word of activeEdge.rule.words) {
-    word.apply(mod, net, { activeEdge })
+    word.compose(mod, net, { activeEdge })
   }
 }

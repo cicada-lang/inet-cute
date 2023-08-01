@@ -1,5 +1,5 @@
 import { formatNet } from "../format"
-import { applyWords } from "../graph/applyWords"
+import { composeWords } from "../graph/composeWords"
 import { createNet } from "../graph/createNet"
 import { Mod } from "../mod"
 import { Span } from "../span"
@@ -14,7 +14,7 @@ export class Show implements Stmt {
 
   async execute(mod: Mod): Promise<void> {
     const net = createNet(mod)
-    applyWords(mod, net, this.words)
+    composeWords(mod, net, this.words)
     console.log(formatNet(net))
     console.log()
   }

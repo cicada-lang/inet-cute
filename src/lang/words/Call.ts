@@ -10,7 +10,7 @@ export class Call implements Word {
     public span: Span,
   ) {}
 
-  apply(mod: Mod, net: Net): void {
+  compose(mod: Mod, net: Net): void {
     const found = net.localPorts.get(this.name)
     if (found !== undefined) {
       net.ports.push(found)

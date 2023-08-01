@@ -13,24 +13,24 @@ export class PortReconnect implements Word {
     public span: Span,
   ) {}
 
-  apply(mod: Mod, net: Net, options?: WordOptions): void {
+  compose(mod: Mod, net: Net, options?: WordOptions): void {
     const { activeEdge } = options || {}
 
     if (activeEdge === undefined) {
-      throw new Error(`[PortReconnect.apply] expect current activeEdge`)
+      throw new Error(`[PortReconnect.compose] expect current activeEdge`)
     }
 
     const found = findPortInActiveEdge(this.nodeName, this.portName, activeEdge)
 
     if (found === undefined) {
       throw new Error(
-        `[PortReconnect.apply] can not find port: ${this.portName} in active edge`,
+        `[PortReconnect.compose] can not find port: ${this.portName} in active edge`,
       )
     }
 
     if (found.connection === undefined) {
       throw new Error(
-        `[PortReconnect.apply] I expect the found port to have connection`,
+        `[PortReconnect.compose] I expect the found port to have connection`,
       )
     }
 
@@ -39,7 +39,7 @@ export class PortReconnect implements Word {
     const topPort = net.ports.pop()
 
     if (topPort === undefined) {
-      throw new Error(`[PortReconnect.apply] expect top port`)
+      throw new Error(`[PortReconnect.compose] expect top port`)
     }
 
     connect(net, topPort, found)

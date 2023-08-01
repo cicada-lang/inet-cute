@@ -12,24 +12,24 @@ export class PortPush implements Word {
     public span: Span,
   ) {}
 
-  apply(mod: Mod, net: Net, options?: WordOptions): void {
+  compose(mod: Mod, net: Net, options?: WordOptions): void {
     const { activeEdge } = options || {}
 
     if (activeEdge === undefined) {
-      throw new Error(`[PortPush.apply] expect current activeEdge`)
+      throw new Error(`[PortPush.compose] expect current activeEdge`)
     }
 
     const found = findPortInActiveEdge(this.nodeName, this.portName, activeEdge)
 
     if (found === undefined) {
       throw new Error(
-        `[PortPush.apply] can not find port: ${this.portName} in active edge`,
+        `[PortPush.compose] can not find port: ${this.portName} in active edge`,
       )
     }
 
     if (found.connection === undefined) {
       throw new Error(
-        `[PortPush.apply] I expect the found port to have connection`,
+        `[PortPush.compose] I expect the found port to have connection`,
       )
     }
 

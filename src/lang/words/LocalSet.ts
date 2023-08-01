@@ -9,10 +9,12 @@ export class LocalSet implements Word {
     public span: Span,
   ) {}
 
-  apply(mod: Mod, net: Net): void {
+  compose(mod: Mod, net: Net): void {
     const port = net.ports.pop()
     if (port === undefined) {
-      throw new Error(`[LocalSet.apply] expect a port on the top of the stack`)
+      throw new Error(
+        `[LocalSet.compose] expect a port on the top of the stack`,
+      )
     }
 
     net.localPorts.set(this.name, port)
