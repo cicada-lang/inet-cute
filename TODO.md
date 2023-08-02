@@ -1,15 +1,15 @@
 # type
 
-extract `cut`
+[definition] `Definition` as a type -- instead of class
 
-`defrule` -- check type -- cut -- words composition
+`composeDefinition`
 
 `cut` -- `Call`
 `cut` -- `LocalSet`
 `cut` -- `PortPush`
 `cut` -- `PortReconnect`
 
-`Definition.cut`
+`cutDefinition`
 
 `freshenTypes` -- consistently add subscript to type variable names
 
