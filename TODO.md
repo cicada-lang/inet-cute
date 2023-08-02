@@ -1,7 +1,5 @@
 # type
 
-`ComposeOptions` should not have `activeEdge` -- should have `start` and `end` node
-
 extract `compose`
 
 - let `Word` be algebraic data type
@@ -25,7 +23,7 @@ extract `cut`
 
 # example
 
-Nat -- `mul` -- with `nat_dup` and `nat_drop`
+Nat -- `mul` -- with `nat_dup` and `nat_erase`
 
 Nat -- `max` -- with `max_aux`
 

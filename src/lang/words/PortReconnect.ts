@@ -1,5 +1,5 @@
 import { Ctx } from "../ctx"
-import { findPortInActiveEdge } from "../graph/findPortInActiveEdge"
+import { findPortInNodes } from "../graph/findPortInActiveEdge"
 import { Mod } from "../mod"
 import { Net } from "../net"
 import { connect } from "../net/connect"
@@ -15,13 +15,16 @@ export class PortReconnect implements Word {
   ) {}
 
   compose(mod: Mod, net: Net, options?: ComposeOptions): void {
-    const { activeEdge } = options || {}
+    const { current } = options || {}
 
-    if (activeEdge === undefined) {
+    if (current === undefined) {
       throw new Error(`[PortReconnect.compose] expect current activeEdge`)
     }
 
-    const found = findPortInActiveEdge(this.nodeName, this.portName, activeEdge)
+    const found = findPortInNodes(this.nodeName, this.portName, [
+      current.start,
+      current.end,
+    ])
 
     if (found === undefined) {
       throw new Error(

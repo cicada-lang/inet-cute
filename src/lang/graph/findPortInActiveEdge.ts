@@ -1,20 +1,18 @@
-import { ActiveEdge, Node, Port } from "../graph"
+import { Node, Port } from "../graph"
 
-export function findPortInActiveEdge(
+export function findPortInNodes(
   nodeName: string,
   portName: string,
-  activeEdge: ActiveEdge,
+  nodes: Array<Node>,
 ): Port | undefined {
-  if (nodeName === activeEdge.start.node.name) {
-    return findPortInNode(portName, activeEdge.start.node)
-  }
-
-  if (nodeName === activeEdge.end.node.name) {
-    return findPortInNode(portName, activeEdge.end.node)
+  for (const node of nodes) {
+    if (nodeName === node.name) {
+      return findPortInNode(portName, node)
+    }
   }
 }
 
-function findPortInNode(portName: string, node: Node): Port | undefined {
+export function findPortInNode(portName: string, node: Node): Port | undefined {
   for (const port of node.input) {
     if (port.name === portName) {
       return port.connection?.port

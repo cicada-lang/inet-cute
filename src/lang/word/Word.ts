@@ -1,11 +1,11 @@
 import { Ctx } from "../ctx"
-import { ActiveEdge } from "../graph"
+import { Node } from "../graph"
 import { Mod } from "../mod"
 import { Net } from "../net"
 import { Span } from "../span"
 
 export interface ComposeOptions {
-  activeEdge?: ActiveEdge
+  current?: { start: Node; end: Node }
 }
 
 export interface CutOptions {
