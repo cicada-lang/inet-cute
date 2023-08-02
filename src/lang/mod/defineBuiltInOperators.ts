@@ -28,7 +28,10 @@ export function defineBuiltInOperators(mod: Mod): void {
       net.ports.push(x1, x2, x0)
     },
     cut(ctx) {
-      //
+      const x2 = ctx.signedTypes.pop() as SignedType
+      const x1 = ctx.signedTypes.pop() as SignedType
+      const x0 = ctx.signedTypes.pop() as SignedType
+      ctx.signedTypes.push(x1, x2, x0)
     },
   })
 

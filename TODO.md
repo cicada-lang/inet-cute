@@ -1,7 +1,5 @@
 # type
 
-`cut` -- rot
-
 extract `matchSignedTypes`
 
 `cut` -- connect
