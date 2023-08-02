@@ -4,6 +4,7 @@ import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { Word } from "../word"
 import { cutDefinition } from "./cutDefinition"
+import { match } from "./match"
 
 export interface CutOptions {
   current?: {
@@ -63,6 +64,18 @@ export function cut(
         options,
       )
 
+      const topSignedType = ctx.signedTypes.pop()
+      if (topSignedType === undefined) {
+        console.error({ currentSignedType })
+        throw new Error(`[cut / PortReconnect] expect top port`)
+      }
+
+      if (currentSignedType.sign === topSignedType.sign) {
+        console.error({ currentSignedType, topSignedType })
+        throw new Error(`[cut / PortReconnect] expect opposite sign`)
+      }
+
+      match(ctx, currentSignedType.t, topSignedType.t)
       return
     }
   }

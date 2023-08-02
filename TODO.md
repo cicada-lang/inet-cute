@@ -1,6 +1,10 @@
 # type
 
-`cut` -- `PortReconnect`
+[cut] extract `findCurrentSignedTypeOrFail`
+
+[compose] extract `findCurrentPortOrFail`
+
+[cut] `match`
 
 `cutDefinition` -- NodeDefinition
 `cutDefinition` -- NetDefinition

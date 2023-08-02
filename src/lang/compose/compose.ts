@@ -68,7 +68,7 @@ export function compose(
 
       const topPort = net.ports.pop()
       if (topPort === undefined) {
-        throw new Error(`[PortReconnect.compose] expect top port`)
+        throw new Error(`[compose / PortReconnect] expect top port`)
       }
 
       connect(net, topPort, currentPort)
