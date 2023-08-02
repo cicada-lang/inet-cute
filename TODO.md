@@ -1,7 +1,5 @@
 # type
 
-`cut` -- connect
-
 `cut` -- wire
 
 [cut] `match` -- unification
