@@ -1,7 +1,5 @@
 # type
 
-[cut] extract `findCurrentSignedTypeOrFail`
-
 [compose] extract `findCurrentPortOrFail`
 
 [cut] `match`
