@@ -1,6 +1,5 @@
 # type
 
-`cut` -- `PortPush`
 `cut` -- `PortReconnect`
 
 `cutDefinition` -- NodeDefinition

@@ -12,7 +12,7 @@ export function findPortInNodes(
   }
 }
 
-export function findPortInNode(portName: string, node: Node): Port | undefined {
+function findPortInNode(portName: string, node: Node): Port | undefined {
   for (const port of node.input) {
     if (port.name === portName) {
       return port.connection?.port
