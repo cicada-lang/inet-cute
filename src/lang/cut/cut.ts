@@ -29,7 +29,7 @@ export function cut(
         return
       } else {
         const definition = lookupDefinitionOrFail(mod, word.name)
-        cutDefinition(ctx, definition)
+        cutDefinition(ctx, definition, options)
         return
       }
     }

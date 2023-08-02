@@ -1,12 +1,24 @@
 # type
 
-[cut] `match`
+`composeDefinition` -- take options
 
-`cutDefinition` -- NodeDefinition
-`cutDefinition` -- NetDefinition
-`cutDefinition` -- OperatorDefinition
+`CutOptions` should not be optional
+
+`ComposeOptions` should not be optional
+
+[cut] `match` -- unification
+
+`cutDefinition` -- `NodeDefinition`
+
+`cutDefinition` -- `OperatorDefinition`
+
+- `defineOperator` take `compose` and `cut`
 
 `freshenTypes` -- consistently add subscript to type variable names
+
+- should be used by `cutDefinition` for `NodeDefinition`
+
+`defrule` -- enable type check
 
 `defnet` -- type check -- cut -- words composition
 

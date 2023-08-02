@@ -1,7 +1,13 @@
 import { Ctx } from "../ctx"
 import { Definition } from "../definition"
+import { CutOptions } from "./cut"
+import { cutWords } from "./cutWords"
 
-export function cutDefinition(ctx: Ctx, definition: Definition): void {
+export function cutDefinition(
+  ctx: Ctx,
+  definition: Definition,
+  options?: CutOptions,
+): void {
   switch (definition.kind) {
     case "NodeDefinition": {
       //
@@ -9,7 +15,7 @@ export function cutDefinition(ctx: Ctx, definition: Definition): void {
     }
 
     case "NetDefinition": {
-      //
+      cutWords(definition.mod, ctx, definition.words, options)
       return
     }
 

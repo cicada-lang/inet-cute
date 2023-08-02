@@ -1,5 +1,4 @@
 import { createCtx } from "../ctx/createCtx"
-import { cutWords } from "../cut/cutWords"
 import { Mod } from "../mod"
 import { defineRule } from "../mod/defineRule"
 import { lookupNodeDefinitionOrFail } from "../mod/lookupNodeDefinitionOrFail"
@@ -21,9 +20,9 @@ export class Defrule implements Stmt {
     const start = lookupNodeDefinitionOrFail(mod, this.start)
     const end = lookupNodeDefinitionOrFail(mod, this.end)
 
-    cutWords(mod, ctx, this.words, {
-      current: { start, end },
-    })
+    // cutWords(mod, ctx, this.words, {
+    //   current: { start, end },
+    // })
 
     defineRule(mod, this.start, this.end, this.words)
   }
