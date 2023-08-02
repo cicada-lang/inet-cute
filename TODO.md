@@ -1,7 +1,5 @@
 # type
 
-extract `matchSignedTypes`
-
 `cut` -- connect
 
 `cut` -- wire
