@@ -1,3 +1,4 @@
+import { compose } from "../compose/compose"
 import { ActiveEdge } from "../graph"
 import { Mod } from "../mod"
 import { Net } from "../net"
@@ -8,7 +9,7 @@ export function interact(mod: Mod, net: Net, activeEdge: ActiveEdge): void {
   removeNodeAndEdges(net, activeEdge.start.node)
 
   for (const word of activeEdge.rule.words) {
-    word.compose(mod, net, {
+    compose(mod, net, word, {
       current: {
         start: activeEdge.start.node,
         end: activeEdge.end.node,

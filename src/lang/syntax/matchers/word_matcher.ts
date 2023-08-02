@@ -1,16 +1,16 @@
 import * as pt from "@cicada-lang/partech"
+import * as Words from "../../word"
 import { Word } from "../../word"
-import * as Words from "../../words"
 
 export function word_matcher(tree: pt.Tree): Word {
   return pt.matcher<Word>({
-    "word:call": ({ name }, { span }) => new Words.Call(pt.str(name), span),
+    "word:call": ({ name }, { span }) => Words.Call(pt.str(name), span),
     "word:local_set": ({ name }, { span }) =>
-      new Words.LocalSet(pt.str(name), span),
+      Words.LocalSet(pt.str(name), span),
     "word:port_push": ({ nodeName, portName }, { span }) =>
-      new Words.PortPush(pt.str(nodeName), pt.str(portName), span),
+      Words.PortPush(pt.str(nodeName), pt.str(portName), span),
     "word:port_reconnect": ({ nodeName, portName }, { span }) =>
-      new Words.PortReconnect(pt.str(nodeName), pt.str(portName), span),
+      Words.PortReconnect(pt.str(nodeName), pt.str(portName), span),
   })(tree)
 }
 

@@ -1,9 +1,5 @@
 # type
 
-extract `compose`
-
-- let `Word` be algebraic data type
-
 extract `cut`
 
 `defrule` -- check type -- cut -- words composition
