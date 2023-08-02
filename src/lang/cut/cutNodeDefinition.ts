@@ -1,6 +1,6 @@
 import { Ctx } from "../ctx"
 import { NodeDefinition } from "../definition"
-import { matchTypes } from "./matchTypes"
+import { matchSignedTypes } from "./matchSignedTypes"
 
 export function cutNodeDefinition(ctx: Ctx, definition: NodeDefinition): void {
   // TODO call `freshenTypes`
@@ -13,13 +13,7 @@ export function cutNodeDefinition(ctx: Ctx, definition: NodeDefinition): void {
       )
     }
 
-    if (signedType.sign !== 1) {
-      throw new Error(
-        `[cutNodeDefinition] I expect a positive signedType on top of the stack`,
-      )
-    }
-
-    matchTypes(ctx, portExp.t, signedType.t)
+    matchSignedTypes(ctx, signedType, { t: portExp.t, sign: -1 })
   }
 
   for (const portExp of definition.output) {

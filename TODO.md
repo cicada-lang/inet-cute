@@ -1,7 +1,5 @@
 # type
 
-wire should be a `Word`
-
 `cut` -- wire
 
 [cut] `match` -- unification
