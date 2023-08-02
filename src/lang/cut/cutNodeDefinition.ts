@@ -1,6 +1,6 @@
 import { Ctx } from "../ctx"
 import { NodeDefinition } from "../definition"
-import { match } from "./match"
+import { matchTypes } from "./matchTypes"
 
 export function cutNodeDefinition(ctx: Ctx, definition: NodeDefinition): void {
   // TODO call `freshenTypes`
@@ -19,7 +19,7 @@ export function cutNodeDefinition(ctx: Ctx, definition: NodeDefinition): void {
       )
     }
 
-    match(ctx, portExp.t, signedType.t)
+    matchTypes(ctx, portExp.t, signedType.t)
   }
 
   for (const portExp of definition.output) {

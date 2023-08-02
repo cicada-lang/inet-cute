@@ -1,10 +1,19 @@
 # type
 
-[cut] `match` -- unification
-
 `cutDefinition` -- `OperatorDefinition`
 
 - `defineOperator` take `compose` and `cut`
+
+`cut` -- swap
+`cut` -- rot
+
+extract `matchSignedTypes`
+
+`cut` -- connect
+
+`cut` -- wire
+
+[cut] `match` -- unification
 
 `freshenTypes` -- consistently add subscript to type variable names
 

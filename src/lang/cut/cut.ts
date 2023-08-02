@@ -5,7 +5,7 @@ import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { Word } from "../word"
 import { cutDefinition } from "./cutDefinition"
 import { findCurrentSignedTypeOrFail } from "./findCurrentSignedTypeOrFail"
-import { match } from "./match"
+import { matchTypes } from "./matchTypes"
 
 export interface CutOptions {
   current?: {
@@ -71,7 +71,7 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
         throw new Error(`[cut / PortReconnect] expect opposite sign`)
       }
 
-      match(ctx, currentSignedType.t, topSignedType.t)
+      matchTypes(ctx, currentSignedType.t, topSignedType.t)
       return
     }
   }
