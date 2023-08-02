@@ -1,12 +1,16 @@
 # type
 
+wire should be a `Word`
+
 `cut` -- wire
 
 [cut] `match` -- unification
 
 `freshenTypes` -- consistently add subscript to type variable names
 
-- should be used by `cutDefinition` for `NodeDefinition`
+`cutDefinition` -- `NodeDefinition` -- use `freshenTypes`
+
+`cut` -- wire -- use `freshenTypes`
 
 `defrule` -- enable type check
 

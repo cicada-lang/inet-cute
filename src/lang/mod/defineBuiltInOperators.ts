@@ -49,38 +49,33 @@ export function defineBuiltInOperators(mod: Mod): void {
     },
   })
 
-  defineOperator(
-    mod,
-    "wire",
+  defineOperator(mod, "wire", {
+    compose(net) {
+      const node = createNode(
+        mod,
+        "wire",
+        [],
+        [
+          {
+            name: "left",
+            t: Types.TypeVar("a"),
+            isPrincipal: false,
+          },
+          {
+            name: "right",
+            t: Types.TypeVar("a"),
+            isPrincipal: true,
+          },
+        ],
+      )
 
-    {
-      compose(net) {
-        const node = createNode(
-          mod,
-          "wire",
-          [],
-          [
-            {
-              name: "left",
-              t: Types.TypeVar("a"),
-              isPrincipal: false,
-            },
-            {
-              name: "right",
-              t: Types.TypeVar("a"),
-              isPrincipal: true,
-            },
-          ],
-        )
-
-        net.ports.push(...node.output)
-        net.nodes.push(node)
-        const [start, end] = node.output
-        net.wires.push({ start, end })
-      },
-      cut(ctx) {
-        //
-      },
+      net.ports.push(...node.output)
+      net.nodes.push(node)
+      const [start, end] = node.output
+      net.wires.push({ start, end })
     },
-  )
+    cut(ctx) {
+      //
+    },
+  })
 }
