@@ -1,10 +1,11 @@
 # type
 
-`cut` -- `Call`
 `cut` -- `PortPush`
 `cut` -- `PortReconnect`
 
-`cutDefinition`
+`cutDefinition` -- NodeDefinition
+`cutDefinition` -- NetDefinition
+`cutDefinition` -- OperatorDefinition
 
 `freshenTypes` -- consistently add subscript to type variable names
 

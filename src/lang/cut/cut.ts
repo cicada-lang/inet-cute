@@ -1,7 +1,9 @@
 import { Ctx } from "../ctx"
 import { NodeDefinition } from "../definition"
 import { Mod } from "../mod"
+import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { Word } from "../word"
+import { cutDefinition } from "./cutDefinition"
 
 export interface CutOptions {
   current?: {
@@ -24,7 +26,8 @@ export function cut(
         ctx.localSignedTypes.delete(word.name)
         return
       } else {
-        //
+        const definition = lookupDefinitionOrFail(mod, word.name)
+        cutDefinition(ctx, definition)
         return
       }
     }
