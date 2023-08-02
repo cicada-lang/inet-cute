@@ -1,9 +1,5 @@
 # type
 
-[definition] `Definition` as a type -- instead of class
-
-`composeDefinition`
-
 `cut` -- `Call`
 `cut` -- `LocalSet`
 `cut` -- `PortPush`

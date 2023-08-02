@@ -1,5 +1,5 @@
 import { Ctx } from "../ctx"
-import { NodeDefinition } from "../definitions"
+import { NodeDefinition } from "../definition"
 import { Mod } from "../mod"
 import { Word } from "../word"
 

@@ -1,4 +1,4 @@
-import * as Definitions from "../definitions"
+import * as Definitions from "../definition"
 import { Net } from "../net"
 import { Mod } from "./Mod"
 import { define } from "./define"
@@ -8,5 +8,5 @@ export function defineOperator(
   name: string,
   compose: (net: Net) => void,
 ): void {
-  define(mod, name, new Definitions.OperatorDefinition(mod, name, compose))
+  define(mod, name, Definitions.OperatorDefinition(mod, name, compose))
 }

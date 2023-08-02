@@ -6,6 +6,7 @@ import { Net } from "../net"
 import { connect } from "../net/connect"
 import { disconnect } from "../net/disconnect"
 import { Word } from "../word"
+import { composeDefinition } from "./composeDefinition"
 
 export interface ComposeOptions {
   current?: { start: Node; end: Node }
@@ -25,7 +26,8 @@ export function compose(
         net.localPorts.delete(word.name)
         return
       } else {
-        lookupDefinitionOrFail(mod, word.name).compose(net)
+        const definition = lookupDefinitionOrFail(mod, word.name)
+        composeDefinition(net, definition)
         return
       }
     }

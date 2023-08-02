@@ -1,4 +1,5 @@
-import * as Definitions from "../definitions"
+import { composeNodeDefinition } from "../compose/composeNodeDefinition"
+import * as Definitions from "../definition"
 import { Node } from "../graph/Node"
 import { Net } from "../net"
 
@@ -13,11 +14,12 @@ export function closeFreePorts(net: Net): Node | undefined {
   if (net.ports.length === 0) {
     return undefined
   }
-
-  return new Definitions.NodeDefinition(
+  const definition = Definitions.NodeDefinition(
     net.mod,
     "*root*",
     [...net.ports],
     [],
-  ).compose(net)
+  )
+
+  return composeNodeDefinition(net, definition)
 }

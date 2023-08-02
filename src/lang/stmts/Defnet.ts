@@ -1,4 +1,4 @@
-import * as Definitions from "../definitions"
+import * as Definitions from "../definition"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
 import { Span } from "../span"
@@ -16,7 +16,7 @@ export class Defnet implements Stmt {
     define(
       mod,
       this.name,
-      new Definitions.NetDefinition(mod, this.name, this.words),
+      Definitions.NetDefinition(mod, this.name, this.words),
     )
   }
 }

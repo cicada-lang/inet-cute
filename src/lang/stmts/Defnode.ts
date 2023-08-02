@@ -1,4 +1,4 @@
-import * as Definitions from "../definitions"
+import * as Definitions from "../definition"
 import { PortExp } from "../graph/PortExp"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
@@ -17,7 +17,7 @@ export class Defnode implements Stmt {
     define(
       mod,
       this.name,
-      new Definitions.NodeDefinition(mod, this.name, this.input, this.output),
+      Definitions.NodeDefinition(mod, this.name, this.input, this.output),
     )
   }
 }
