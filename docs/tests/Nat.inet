@@ -31,9 +31,9 @@ end
 show zero zero add end
 run zero zero add end
 
-defnet one zero add1 end
-defnet two one one add end
-defnet four two two add end
+defn one zero add1 end
+defn two one one add end
+defn four two two add end
 
 show two end
 run two end

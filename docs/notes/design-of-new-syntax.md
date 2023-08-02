@@ -58,13 +58,13 @@ defru add1 add add add1 end
 ```
 
 ```inet
-defnet two
+defn two
   zero add1
   zero add1
   add
 end
 
-defnet four
+defn four
   two two add
 end
 ```
@@ -109,7 +109,7 @@ defru cons append
   <let head> append <get head> cons
 end
 
-defnet six_soles
+defn six_soles
   null sole cons sole cons sole cons
   null sole cons sole cons sole cons
   append
@@ -166,13 +166,13 @@ If a wire's two ports are connected with port `A` and `B`,
 after building a net, we remove the wire, and connect `A` with `B`.
 
 ```inet
-defnet one_two_soles
+defn one_two_soles
   wire sole cons diff
   wire sole cons sole cons diff
   diff_append
 end
 
-defnet two_two_soles
+defn two_two_soles
   wire sole cons sole cons diff
   wire sole cons sole cons diff
   diff_append

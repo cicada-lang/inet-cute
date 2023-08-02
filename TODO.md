@@ -1,5 +1,10 @@
 # type
 
+`SignedType` has optional `id` for `wire`
+
+- `Ctx` has `neutralSignedTypes`
+- `Sign` can be neutral -- `0`
+
 `cut` -- wire
 
 [cut] `match` -- unification
@@ -12,7 +17,23 @@
 
 `defrule` -- enable type check
 
-`defnet` -- type check -- cut -- words composition
+`defn` -- type check -- cut -- words composition
+
+`defn` -- can be a sequence of words that build a net
+
+- need to design syntax to declare input and output types
+
+  ```inet
+  defn <name>: ...<output> do
+    ...
+  end
+
+  defn <name>: ...<input> -- ...<output> do
+    ...
+  end
+  ```
+
+- `do` should be preserved word
 
 `defnode` -- check type -- arity of defined types
 

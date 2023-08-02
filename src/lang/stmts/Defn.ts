@@ -5,7 +5,7 @@ import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { Word } from "../word"
 
-export class Defnet implements Stmt {
+export class Defn implements Stmt {
   constructor(
     public name: string,
     public words: Array<Word>,

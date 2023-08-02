@@ -23,8 +23,8 @@ export const stmt = {
       { words: "words" },
       '"end"',
     ],
-    "stmt:defnet": [
-      '"defnet"',
+    "stmt:defn": [
+      '"defn"',
       { name: "variable_name" },
       { words: "words" },
       '"end"',

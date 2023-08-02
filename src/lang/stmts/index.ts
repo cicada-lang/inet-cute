@@ -1,4 +1,4 @@
-export * from "./Defnet"
+export * from "./Defn"
 export * from "./Defnode"
 export * from "./Defrule"
 export * from "./Deftype"

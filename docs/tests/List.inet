@@ -37,7 +37,7 @@ defrule cons append
   return-(append)
 end
 
-defnet six_soles
+defn six_soles
   null sole cons sole cons sole cons
   null sole cons sole cons sole cons
   append
