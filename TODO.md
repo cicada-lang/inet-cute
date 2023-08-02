@@ -6,6 +6,8 @@ extract `compose`
 
 - let `Word` be algebraic data type
 
+extract `cut`
+
 `defrule` -- check type -- cut -- words composition
 
 `cut` -- `Call`
@@ -20,29 +22,6 @@ extract `compose`
 `defnet` -- type check -- cut -- words composition
 
 `defnode` -- check type -- arity of defined types
-
-[maybe] `defdata`
-
-```inet
-defdata Nat
-  case zero -- value!: Nat end
-  case add1 prev: Nat -- value!: Nat end
-end
-
-defdata List('a)
-  case null
-    ------
-    value! // List('a)
-  end
-
-  case cons
-    head // 'a
-    tail // List('a)
-    -------
-    value! // List('a)
-  end
-end
-```
 
 # example
 
