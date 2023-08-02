@@ -18,11 +18,28 @@ export function cut(
 ): void {
   switch (word.kind) {
     case "Call": {
-      //
+      const found = ctx.localSignedTypes.get(word.name)
+      if (found !== undefined) {
+        ctx.signedTypes.push(found)
+        ctx.localSignedTypes.delete(word.name)
+        return
+      } else {
+        //
+        return
+      }
     }
 
     case "LocalSet": {
-      //
+      const signedType = ctx.signedTypes.pop()
+
+      if (signedType === undefined) {
+        throw new Error(
+          `[cut / LocalSet] expect a signed type on the top of the stack`,
+        )
+      }
+
+      ctx.localSignedTypes.set(word.name, signedType)
+      return
     }
 
     case "PortPush": {

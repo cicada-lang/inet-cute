@@ -1,7 +1,6 @@
 # type
 
 `cut` -- `Call`
-`cut` -- `LocalSet`
 `cut` -- `PortPush`
 `cut` -- `PortReconnect`
 

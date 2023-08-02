@@ -36,7 +36,7 @@ export function compose(
       const port = net.ports.pop()
       if (port === undefined) {
         throw new Error(
-          `[LocalSet.compose] expect a port on the top of the stack`,
+          `[compose / LocalSet] expect a port on the top of the stack`,
         )
       }
 
