@@ -1,6 +1,7 @@
 import { Ctx } from "../ctx"
 import { Definition } from "../definition"
 import { CutOptions } from "./cut"
+import { cutNodeDefinition } from "./cutNodeDefinition"
 import { cutWords } from "./cutWords"
 
 export function cutDefinition(
@@ -10,7 +11,7 @@ export function cutDefinition(
 ): void {
   switch (definition.kind) {
     case "NodeDefinition": {
-      //
+      cutNodeDefinition(ctx, definition)
       return
     }
 

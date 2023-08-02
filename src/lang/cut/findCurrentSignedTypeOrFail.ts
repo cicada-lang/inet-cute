@@ -43,19 +43,19 @@ function findSignedTypeInNodeDefinition(
   portName: string,
   definition: NodeDefinition,
 ): SignedType | undefined {
-  for (const typeExp of definition.input) {
-    if (typeExp.name === portName) {
+  for (const portExp of definition.input) {
+    if (portExp.name === portName) {
       return {
-        t: typeExp.t,
+        t: portExp.t,
         sign: -1,
       }
     }
   }
 
-  for (const typeExp of definition.output) {
-    if (typeExp.name === portName) {
+  for (const portExp of definition.output) {
+    if (portExp.name === portName) {
       return {
-        t: typeExp.t,
+        t: portExp.t,
         sign: 1,
       }
     }
