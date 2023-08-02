@@ -2,11 +2,16 @@ import { Mod } from "../mod"
 import { Net } from "../net"
 import { cleanUpWires } from "../net/cleanUpWires"
 import { Word } from "../word"
-import { compose } from "./compose"
+import { ComposeOptions, compose } from "./compose"
 
-export function composeWords(mod: Mod, net: Net, words: Array<Word>): void {
+export function composeWords(
+  mod: Mod,
+  net: Net,
+  words: Array<Word>,
+  options: ComposeOptions,
+): void {
   for (const word of words) {
-    compose(mod, net, word)
+    compose(mod, net, word, options)
   }
 
   cleanUpWires(net)

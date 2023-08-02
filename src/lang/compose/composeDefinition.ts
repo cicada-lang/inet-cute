@@ -1,9 +1,14 @@
 import { Definition } from "../definition"
 import { Net } from "../net"
+import { ComposeOptions } from "./compose"
 import { composeNodeDefinition } from "./composeNodeDefinition"
 import { composeWords } from "./composeWords"
 
-export function composeDefinition(net: Net, definition: Definition): void {
+export function composeDefinition(
+  net: Net,
+  definition: Definition,
+  options: ComposeOptions,
+): void {
   switch (definition.kind) {
     case "NodeDefinition": {
       composeNodeDefinition(net, definition)
@@ -11,7 +16,7 @@ export function composeDefinition(net: Net, definition: Definition): void {
     }
 
     case "NetDefinition": {
-      composeWords(definition.mod, net, definition.words)
+      composeWords(definition.mod, net, definition.words, options)
       return
     }
 

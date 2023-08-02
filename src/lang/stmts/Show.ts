@@ -14,7 +14,7 @@ export class Show implements Stmt {
 
   async execute(mod: Mod): Promise<void> {
     const net = createNet(mod)
-    composeWords(mod, net, this.words)
+    composeWords(mod, net, this.words, {})
     console.log(formatNet(net))
     console.log()
   }

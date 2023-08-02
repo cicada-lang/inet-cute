@@ -16,7 +16,7 @@ export function compose(
   mod: Mod,
   net: Net,
   word: Word,
-  options?: ComposeOptions,
+  options: ComposeOptions,
 ): void {
   switch (word.kind) {
     case "Call": {
@@ -27,7 +27,7 @@ export function compose(
         return
       } else {
         const definition = lookupDefinitionOrFail(mod, word.name)
-        composeDefinition(net, definition)
+        composeDefinition(net, definition, options)
         return
       }
     }

@@ -1,9 +1,5 @@
 # type
 
-`composeDefinition` -- take options
-
-`ComposeOptions` should not be optional
-
 [cut] `match` -- unification
 
 `cutDefinition` -- `NodeDefinition`
