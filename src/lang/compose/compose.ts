@@ -1,4 +1,4 @@
-import { Node } from "../graph"
+import { Node, Port, PortConnection } from "../graph"
 import { findPortInNodes } from "../graph/findPortInActiveEdge"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
@@ -43,71 +43,63 @@ export function compose(
     }
 
     case "PortPush": {
-      const { current } = options || {}
+      const currentPort = findCurrentPortOrFail(
+        word.nodeName,
+        word.portName,
+        options,
+      )
 
-      if (current === undefined) {
-        throw new Error(`[PortPush.compose] expect current activeEdge`)
-      }
+      disconnect(net, currentPort.connection.edge)
 
-      const found = findPortInNodes(word.nodeName, word.portName, [
-        current.start,
-        current.end,
-      ])
-
-      if (found === undefined) {
-        throw new Error(
-          `[PortPush.compose] can not find port: ${word.portName} in active edge`,
-        )
-      }
-
-      if (found.connection === undefined) {
-        throw new Error(
-          `[PortPush.compose] I expect the found port to have connection`,
-        )
-      }
-
-      disconnect(net, found.connection.edge)
-
-      net.ports.push(found)
-
+      net.ports.push(currentPort)
       return
     }
 
     case "PortReconnect": {
-      const { current } = options || {}
+      const currentPort = findCurrentPortOrFail(
+        word.nodeName,
+        word.portName,
+        options,
+      )
 
-      if (current === undefined) {
-        throw new Error(`[PortReconnect.compose] expect current activeEdge`)
-      }
-
-      const found = findPortInNodes(word.nodeName, word.portName, [
-        current.start,
-        current.end,
-      ])
-
-      if (found === undefined) {
-        throw new Error(
-          `[PortReconnect.compose] can not find port: ${word.portName} in active edge`,
-        )
-      }
-
-      if (found.connection === undefined) {
-        throw new Error(
-          `[PortReconnect.compose] I expect the found port to have connection`,
-        )
-      }
-
-      disconnect(net, found.connection.edge)
+      disconnect(net, currentPort.connection.edge)
 
       const topPort = net.ports.pop()
-
       if (topPort === undefined) {
         throw new Error(`[PortReconnect.compose] expect top port`)
       }
 
-      connect(net, topPort, found)
-
+      connect(net, topPort, currentPort)
       return
     }
   }
+}
+
+function findCurrentPortOrFail(
+  nodeName: string,
+  portName: string,
+  options?: ComposeOptions,
+): Port & { connection: PortConnection } {
+  const who = "findCurrentPortOrFail"
+
+  const { current } = options || {}
+
+  if (current === undefined) {
+    throw new Error(`[${who}] I expect current start and end nodes`)
+  }
+
+  const found = findPortInNodes(nodeName, portName, [
+    current.start,
+    current.end,
+  ])
+
+  if (found === undefined) {
+    throw new Error(`[${who}] I can not find port: ${portName} in nodes`)
+  }
+
+  if (found.connection === undefined) {
+    throw new Error(`[${who}] I expect the found port to have connection`)
+  }
+
+  return found as Port & { connection: PortConnection }
 }
