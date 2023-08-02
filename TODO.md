@@ -1,7 +1,5 @@
 # type
 
-`cut` -- swap
-
 `cut` -- rot
 
 extract `matchSignedTypes`
