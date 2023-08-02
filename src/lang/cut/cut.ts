@@ -14,12 +14,7 @@ export interface CutOptions {
   }
 }
 
-export function cut(
-  mod: Mod,
-  ctx: Ctx,
-  word: Word,
-  options?: CutOptions,
-): void {
+export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
   switch (word.kind) {
     case "Call": {
       const found = ctx.localSignedTypes.get(word.name)

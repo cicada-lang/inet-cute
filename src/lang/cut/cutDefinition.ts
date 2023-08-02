@@ -6,7 +6,7 @@ import { cutWords } from "./cutWords"
 export function cutDefinition(
   ctx: Ctx,
   definition: Definition,
-  options?: CutOptions,
+  options: CutOptions,
 ): void {
   switch (definition.kind) {
     case "NodeDefinition": {

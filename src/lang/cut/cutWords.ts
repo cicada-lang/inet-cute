@@ -7,7 +7,7 @@ export function cutWords(
   mod: Mod,
   ctx: Ctx,
   words: Array<Word>,
-  options?: CutOptions,
+  options: CutOptions,
 ): void {
   for (const word of words) {
     cut(mod, ctx, word, options)

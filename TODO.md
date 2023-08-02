@@ -2,8 +2,6 @@
 
 `composeDefinition` -- take options
 
-`CutOptions` should not be optional
-
 `ComposeOptions` should not be optional
 
 [cut] `match` -- unification
