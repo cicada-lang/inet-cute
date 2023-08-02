@@ -20,14 +20,14 @@ export function composeNodeDefinition(
   // with the port on the top of the stack.
 
   for (const port of node.input) {
-    const top = net.ports.pop()
-    if (top === undefined) {
+    const topPort = net.ports.pop()
+    if (topPort === undefined) {
       throw new Error(
-        `[NodeDefinition.compose] I expect a port on top of the stack`,
+        `[composeNodeDefinition] I expect a port on top of the stack`,
       )
     }
 
-    connect(net, top, port)
+    connect(net, topPort, port)
   }
 
   net.ports.push(...node.output)

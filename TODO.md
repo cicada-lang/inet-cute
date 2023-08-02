@@ -2,8 +2,6 @@
 
 [cut] `match` -- unification
 
-`cutDefinition` -- `NodeDefinition`
-
 `cutDefinition` -- `OperatorDefinition`
 
 - `defineOperator` take `compose` and `cut`
