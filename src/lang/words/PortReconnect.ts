@@ -1,11 +1,10 @@
-import { Ctx } from "../ctx"
 import { findPortInNodes } from "../graph/findPortInActiveEdge"
 import { Mod } from "../mod"
 import { Net } from "../net"
 import { connect } from "../net/connect"
 import { disconnect } from "../net/disconnect"
 import { Span } from "../span"
-import { ComposeOptions, CutOptions, Word } from "../word"
+import { ComposeOptions, Word } from "../word"
 
 export class PortReconnect implements Word {
   constructor(
@@ -47,9 +46,5 @@ export class PortReconnect implements Word {
     }
 
     connect(net, topPort, found)
-  }
-
-  cut(mod: Mod, ctx: Ctx, options?: CutOptions): void {
-    //
   }
 }

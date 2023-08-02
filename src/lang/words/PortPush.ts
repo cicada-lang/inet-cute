@@ -1,10 +1,9 @@
-import { Ctx } from "../ctx"
 import { findPortInNodes } from "../graph/findPortInActiveEdge"
 import { Mod } from "../mod"
 import { Net } from "../net"
 import { disconnect } from "../net/disconnect"
 import { Span } from "../span"
-import { ComposeOptions, CutOptions, Word } from "../word"
+import { ComposeOptions, Word } from "../word"
 
 export class PortPush implements Word {
   constructor(
@@ -40,9 +39,5 @@ export class PortPush implements Word {
     disconnect(net, found.connection.edge)
 
     net.ports.push(found)
-  }
-
-  cut(mod: Mod, ctx: Ctx, options?: CutOptions): void {
-    //
   }
 }

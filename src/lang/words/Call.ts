@@ -1,9 +1,8 @@
-import { Ctx } from "../ctx"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { Net } from "../net"
 import { Span } from "../span"
-import { CutOptions, Word } from "../word"
+import { Word } from "../word"
 
 export class Call implements Word {
   constructor(
@@ -19,9 +18,5 @@ export class Call implements Word {
     } else {
       lookupDefinitionOrFail(mod, this.name).compose(net)
     }
-  }
-
-  cut(mod: Mod, ctx: Ctx, options?: CutOptions): void {
-    //
   }
 }

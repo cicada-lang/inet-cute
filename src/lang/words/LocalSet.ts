@@ -1,8 +1,7 @@
-import { Ctx } from "../ctx"
 import { Mod } from "../mod"
 import { Net } from "../net"
 import { Span } from "../span"
-import { CutOptions, Word } from "../word"
+import { Word } from "../word"
 
 export class LocalSet implements Word {
   constructor(
@@ -19,9 +18,5 @@ export class LocalSet implements Word {
     }
 
     net.localPorts.set(this.name, port)
-  }
-
-  cut(mod: Mod, ctx: Ctx, options?: CutOptions): void {
-    //
   }
 }
