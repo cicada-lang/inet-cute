@@ -1,7 +1,5 @@
 # type
 
-[compose] extract `findCurrentPortOrFail`
-
 [cut] `match`
 
 `cutDefinition` -- NodeDefinition

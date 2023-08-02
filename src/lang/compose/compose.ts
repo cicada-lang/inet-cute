@@ -1,5 +1,4 @@
-import { Node, Port, PortConnection } from "../graph"
-import { findPortInNodes } from "../graph/findPortInActiveEdge"
+import { Node } from "../graph"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { Net } from "../net"
@@ -7,6 +6,7 @@ import { connect } from "../net/connect"
 import { disconnect } from "../net/disconnect"
 import { Word } from "../word"
 import { composeDefinition } from "./composeDefinition"
+import { findCurrentPortOrFail } from "./findCurrentPortOrFail"
 
 export interface ComposeOptions {
   current?: { start: Node; end: Node }
@@ -75,33 +75,4 @@ export function compose(
       return
     }
   }
-}
-
-function findCurrentPortOrFail(
-  nodeName: string,
-  portName: string,
-  options?: ComposeOptions,
-): Port & { connection: PortConnection } {
-  const who = "findCurrentPortOrFail"
-
-  const { current } = options || {}
-
-  if (current === undefined) {
-    throw new Error(`[${who}] I expect current start and end nodes`)
-  }
-
-  const found = findPortInNodes(nodeName, portName, [
-    current.start,
-    current.end,
-  ])
-
-  if (found === undefined) {
-    throw new Error(`[${who}] I can not find port: ${portName} in nodes`)
-  }
-
-  if (found.connection === undefined) {
-    throw new Error(`[${who}] I expect the found port to have connection`)
-  }
-
-  return found as Port & { connection: PortConnection }
 }
