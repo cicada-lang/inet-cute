@@ -1,10 +1,7 @@
 # type
 
-`cutDefinition` -- `OperatorDefinition`
-
-- `defineOperator` take `compose` and `cut`
-
 `cut` -- swap
+
 `cut` -- rot
 
 extract `matchSignedTypes`

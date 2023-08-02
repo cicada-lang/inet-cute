@@ -1,3 +1,4 @@
+import { Ctx } from "../ctx"
 import { PortExp } from "../graph/PortExp"
 import { Mod } from "../mod"
 import { Net } from "../net"
@@ -57,18 +58,21 @@ export type OperatorDefinition = {
   mod: Mod
   name: string
   compose: (net: Net) => void
+  cut: (ctx: Ctx) => void
 }
 
 export function OperatorDefinition(
   mod: Mod,
   name: string,
   compose: (net: Net) => void,
+  cut: (ctx: Ctx) => void,
 ): OperatorDefinition {
   return {
     kind: "OperatorDefinition",
     mod,
     name,
     compose,
+    cut,
   }
 }
 
