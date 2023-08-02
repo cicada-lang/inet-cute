@@ -42,16 +42,16 @@ defnode diff_append
   return: DiffList('a)
 end
 
-defrule diff diff_append
-  (diff)-front diff return-(diff_append)
-  (diff_append)-rest diff_open back-(diff)
-end
-
 defnode diff_open
   target!: DiffList('a)
   list: List('a)
   ------
   return: List('a)
+end
+
+defrule diff diff_append
+  (diff)-front diff return-(diff_append)
+  (diff_append)-rest diff_open back-(diff)
 end
 
 defrule diff diff_open

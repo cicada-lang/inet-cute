@@ -53,7 +53,6 @@ export function cut(
       )
 
       ctx.signedTypes.push(currentSignedType)
-
       return
     }
 
