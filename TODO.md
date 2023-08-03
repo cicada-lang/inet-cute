@@ -1,7 +1,5 @@
 # type
 
-`cut` -- wire
-
 [cut] `match` -- unification
 
 `freshenTypes` -- consistently add subscript to type variable names

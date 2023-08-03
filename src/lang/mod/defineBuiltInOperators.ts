@@ -1,4 +1,4 @@
-import { SignedType } from "../ctx"
+import { Sign, SignedType } from "../ctx"
 import { matchSignedTypes } from "../cut/matchSignedTypes"
 import { Port } from "../graph"
 import { createNode } from "../graph/createNode"
@@ -6,6 +6,8 @@ import { Mod } from "../mod"
 import { connect } from "../net/connect"
 import * as Types from "../type"
 import { defineOperator } from "./defineOperator"
+
+let wireCounter = 0
 
 export function defineBuiltInOperators(mod: Mod): void {
   defineOperator(mod, "swap", {
@@ -75,7 +77,19 @@ export function defineBuiltInOperators(mod: Mod): void {
       net.wires.push({ start, end })
     },
     cut(ctx) {
-      //
+      // TODO use `freshenTypes`
+
+      ctx.signedTypes.push({
+        id: (wireCounter++).toString(),
+        sign: 0 as Sign,
+        t: Types.TypeVar("a"),
+      })
+
+      ctx.signedTypes.push({
+        id: (wireCounter++).toString(),
+        sign: 0 as Sign,
+        t: Types.TypeVar("a"),
+      })
     },
   })
 }
