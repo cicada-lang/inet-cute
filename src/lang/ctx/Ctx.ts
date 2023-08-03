@@ -1,8 +1,9 @@
 import { Type } from "../type"
 
-export type Sign = 1 | -1
+export type Sign = 1 | 0 | -1
 
 export type SignedType = {
+  id?: string
   t: Type
   sign: Sign
 }
@@ -10,4 +11,5 @@ export type SignedType = {
 export type Ctx = {
   signedTypes: Array<SignedType>
   localSignedTypes: Map<string, SignedType>
+  neutralSignedTypes: Map<string, SignedType>
 }

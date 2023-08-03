@@ -1,10 +1,5 @@
 # type
 
-`SignedType` has optional `id` for `wire`
-
-- `Ctx` has `neutralSignedTypes`
-- `Sign` can be neutral -- `0`
-
 `cut` -- wire
 
 [cut] `match` -- unification
