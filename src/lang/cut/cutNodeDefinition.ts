@@ -1,10 +1,9 @@
 import { Ctx } from "../ctx"
 import { NodeDefinition } from "../definition"
+import { freshenType } from "../unify/freshenType"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
 
 export function cutNodeDefinition(ctx: Ctx, definition: NodeDefinition): void {
-  // TODO call `freshenType`
-
   for (const portExp of definition.input) {
     const signedType = ctx.signedTypes.pop()
     if (signedType === undefined) {
@@ -13,10 +12,12 @@ export function cutNodeDefinition(ctx: Ctx, definition: NodeDefinition): void {
       )
     }
 
-    unifySignedTypes(ctx, signedType, { t: portExp.t, sign: -1 })
+    const t = freshenType(ctx, portExp.t)
+    unifySignedTypes(ctx, signedType, { t, sign: -1 })
   }
 
   for (const portExp of definition.output) {
-    ctx.signedTypes.push({ t: portExp.t, sign: 1 })
+    const t = freshenType(ctx, portExp.t)
+    ctx.signedTypes.push({ t, sign: 1 })
   }
 }

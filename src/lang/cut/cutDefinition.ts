@@ -21,7 +21,7 @@ export function cutDefinition(
     }
 
     case "OperatorDefinition": {
-      //
+      definition.cut(ctx)
       return
     }
 

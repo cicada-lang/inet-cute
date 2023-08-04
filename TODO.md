@@ -1,5 +1,3 @@
-`cutDefinition` -- `NodeDefinition` -- use `freshenType`
-
 `cut` -- wire -- use `freshenType`
 
 # type
