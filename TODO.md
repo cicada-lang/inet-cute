@@ -1,6 +1,18 @@
 # error report
 
-improve error report about type checking
+`Mod` has `text`
+
+`errors/Report` -- has `entries`
+
+- `report.add(entry)`
+- `report.format()`
+- `ReportEntry` -- has `message` `span` `text`
+
+`formatWord`
+
+`cut` throw `Report`
+
+`RunCommand` catch `report` and call `format`
 
 # type
 

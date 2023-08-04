@@ -1,5 +1,5 @@
+import { formatNode } from "../graph/formatNode"
 import { Net } from "../net"
-import { formatNode } from "./formatNode"
 
 export function formatNet(net: Net): string {
   const lines: Array<string> = []
