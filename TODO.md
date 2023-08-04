@@ -1,7 +1,5 @@
 # error report
 
-`formatType`
-
 `formatSignedType`
 
 `cut` throw `Report`
