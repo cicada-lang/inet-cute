@@ -1,7 +1,5 @@
 # type
 
-`show` & `run` -- type check -- cut -- words composition
-
 `defn` -- type check -- cut -- words composition
 
 `defn` -- can be a sequence of words that build a net

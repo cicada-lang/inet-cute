@@ -1,4 +1,6 @@
 import { composeWords } from "../compose/composeWords"
+import { createCtx } from "../ctx/createCtx"
+import { cutWords } from "../cut/cutWords"
 import { formatNet } from "../format"
 import { createNet } from "../graph/createNet"
 import { Mod } from "../mod"
@@ -14,9 +16,14 @@ export class Run implements Stmt {
   ) {}
 
   async execute(mod: Mod): Promise<void> {
+    const ctx = createCtx()
+    cutWords(mod, ctx, this.words, {})
+
     const net = createNet(mod)
     composeWords(mod, net, this.words, {})
+
     run(net)
+
     console.log(formatNet(net))
     console.log()
   }

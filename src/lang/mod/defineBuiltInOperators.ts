@@ -60,12 +60,12 @@ export function defineBuiltInOperators(mod: Mod): void {
         [],
         [
           {
-            name: "left",
+            name: "front",
             t: Types.TypeVar("a"),
             isPrincipal: false,
           },
           {
-            name: "right",
+            name: "back",
             t: Types.TypeVar("a"),
             isPrincipal: true,
           },
@@ -78,17 +78,25 @@ export function defineBuiltInOperators(mod: Mod): void {
       net.wires.push({ start, end })
     },
     cut(ctx) {
-      ctx.signedTypes.push({
-        id: (wireCounter++).toString(),
+      const frontId = (wireCounter++).toString()
+      const front = {
+        id: frontId,
         sign: 0 as Sign,
         t: freshenType(ctx, Types.TypeVar("a")),
-      })
+      }
 
-      ctx.signedTypes.push({
-        id: (wireCounter++).toString(),
+      const backId = (wireCounter++).toString()
+      const back = {
+        id: backId,
         sign: 0 as Sign,
         t: freshenType(ctx, Types.TypeVar("a")),
-      })
+      }
+
+      ctx.neutralSignedTypes.set(frontId, front)
+      ctx.neutralSignedTypes.set(backId, back)
+
+      ctx.signedTypes.push(front)
+      ctx.signedTypes.push(back)
     },
   })
 }
