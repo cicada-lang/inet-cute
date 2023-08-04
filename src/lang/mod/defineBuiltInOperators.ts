@@ -1,5 +1,5 @@
 import { Sign, SignedType } from "../ctx"
-import { matchSignedTypes } from "../cut/matchSignedTypes"
+import { unifySignedTypes } from "../cut/unifySignedTypes"
 import { Port } from "../graph"
 import { createNode } from "../graph/createNode"
 import { Mod } from "../mod"
@@ -47,7 +47,7 @@ export function defineBuiltInOperators(mod: Mod): void {
     cut(ctx) {
       const x2 = ctx.signedTypes.pop() as SignedType
       const x1 = ctx.signedTypes.pop() as SignedType
-      matchSignedTypes(ctx, x1, x2)
+      unifySignedTypes(ctx, x1, x2)
     },
   })
 

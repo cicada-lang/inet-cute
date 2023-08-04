@@ -1,7 +1,5 @@
 # type
 
-rename match to unify
-
 extract `unify/`
 
 [cut] `matchTypes`

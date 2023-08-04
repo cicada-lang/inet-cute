@@ -1,6 +1,6 @@
 import { Ctx } from "../ctx"
 import { NodeDefinition } from "../definition"
-import { matchSignedTypes } from "./matchSignedTypes"
+import { unifySignedTypes } from "./unifySignedTypes"
 
 export function cutNodeDefinition(ctx: Ctx, definition: NodeDefinition): void {
   // TODO call `freshenTypes`
@@ -13,7 +13,7 @@ export function cutNodeDefinition(ctx: Ctx, definition: NodeDefinition): void {
       )
     }
 
-    matchSignedTypes(ctx, signedType, { t: portExp.t, sign: -1 })
+    unifySignedTypes(ctx, signedType, { t: portExp.t, sign: -1 })
   }
 
   for (const portExp of definition.output) {

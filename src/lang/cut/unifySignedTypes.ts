@@ -1,34 +1,34 @@
 import { Ctx, Sign, SignedType } from "../ctx"
-import { matchTypes } from "./matchTypes"
+import { unifyTypes } from "./unifyTypes"
 
-export function matchSignedTypes(
+export function unifySignedTypes(
   ctx: Ctx,
   left: SignedType,
   right: SignedType,
 ): void {
   if (left.sign === -1 && right.sign === 1) {
-    matchTypes(ctx, left.t, right.t)
+    unifyTypes(ctx, left.t, right.t)
     return
   }
 
   if (left.sign === 1 && right.sign === -1) {
-    matchTypes(ctx, left.t, right.t)
+    unifyTypes(ctx, left.t, right.t)
     return
   }
 
   if (left.sign === 0 && right.sign === 0) {
-    matchTypes(ctx, left.t, right.t)
+    unifyTypes(ctx, left.t, right.t)
     return
   }
 
   if (left.sign === 0) {
-    matchTypes(ctx, left.t, right.t)
+    unifyTypes(ctx, left.t, right.t)
     setNeutralSignedType(ctx, left, right)
     return
   }
 
   if (right.sign === 0) {
-    matchTypes(ctx, left.t, right.t)
+    unifyTypes(ctx, left.t, right.t)
     setNeutralSignedType(ctx, right, left)
     return
   }
