@@ -1,7 +1,5 @@
 # type
 
-`defn` -- type check -- cut -- words composition
-
 `defn` -- can be a sequence of words that build a net
 
 - need to design syntax to declare input and output types

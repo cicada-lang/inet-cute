@@ -1,3 +1,5 @@
+import { createCtx } from "../ctx/createCtx"
+import { cutWords } from "../cut/cutWords"
 import * as Definitions from "../definition"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
@@ -13,6 +15,9 @@ export class Defn implements Stmt {
   ) {}
 
   async execute(mod: Mod): Promise<void> {
+    const ctx = createCtx()
+    cutWords(mod, ctx, this.words, {})
+
     define(
       mod,
       this.name,
