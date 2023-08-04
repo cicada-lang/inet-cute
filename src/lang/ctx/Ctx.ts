@@ -12,4 +12,5 @@ export type Ctx = {
   signedTypes: Array<SignedType>
   localSignedTypes: Map<string, SignedType>
   neutralSignedTypes: Map<string, SignedType>
+  bindings: Map<string, Type>
 }

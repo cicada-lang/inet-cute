@@ -1,10 +1,10 @@
-# error report
-
-improve error report about type checking
-
 # type
 
-[cut] `match` -- unification
+rename match to unify
+
+extract `unify/`
+
+[cut] `matchTypes`
 
 `freshenTypes` -- consistently add subscript to type variable names
 
@@ -31,6 +31,10 @@ improve error report about type checking
 - `do` should be preserved word
 
 `defnode` -- check type -- arity of defined types
+
+# error report
+
+improve error report about type checking
 
 # example
 
