@@ -1,5 +1,3 @@
-[builtin] -- wire
-
 # error report
 
 improve error report about type checking
