@@ -2,14 +2,16 @@
   left: { t: { kind: 'TypeTerm', name: 'Trivial', args: [] }, sign: 1 },
   right: { t: { kind: 'TypeTerm', name: 'Trivial', args: [] }, sign: 1 }
 }
-Error: [matchSignedTypes] I expect the sign to be opposite
-    at unifySignedTypes (/home/xyh/cicada-lang/inet/lib/lang/unify/unifySignedTypes.js:29:11)
-    at Object.cut (/home/xyh/cicada-lang/inet/lib/lang/builtins/connect.js:15:45)
-    at cutDefinition (/home/xyh/cicada-lang/inet/lib/lang/cut/cutDefinition.js:17:24)
-    at cut (/home/xyh/cicada-lang/inet/lib/lang/cut/cut.js:19:51)
+{ word: { kind: 'Call', name: 'connect', span: { lo: 74, hi: 81 } } }
+Error: [cut] Fail to cut word
+[matchSignedTypes] I expect the sign to be opposite
+    at cut (/home/xyh/cicada-lang/inet/lib/lang/cut/cut.js:53:15)
     at cutWords (/home/xyh/cicada-lang/inet/lib/lang/cut/cutWords.js:7:23)
     at Show.<anonymous> (/home/xyh/cicada-lang/inet/lib/lang/stmts/Show.js:26:37)
     at Generator.next (<anonymous>)
     at /home/xyh/cicada-lang/inet/lib/lang/stmts/Show.js:8:71
     at new Promise (<anonymous>)
     at __awaiter (/home/xyh/cicada-lang/inet/lib/lang/stmts/Show.js:4:12)
+    at Show.execute (/home/xyh/cicada-lang/inet/lib/lang/stmts/Show.js:24:16)
+    at RunCommand.<anonymous> (/home/xyh/cicada-lang/inet/lib/console/commands/RunCommand.js:47:26)
+    at Generator.next (<anonymous>)
