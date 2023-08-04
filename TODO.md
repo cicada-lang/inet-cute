@@ -1,3 +1,9 @@
+# error report
+
+improve error report about type checking
+
+`tests/*.error.inet`
+
 # type
 
 `defn` -- can be a sequence of words that build a net
@@ -21,10 +27,6 @@
 # unify
 
 `unifyTypes` -- occur check
-
-# error report
-
-improve error report about type checking
 
 # example
 
