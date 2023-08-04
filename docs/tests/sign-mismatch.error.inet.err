@@ -1,9 +1,5 @@
-{
-  left: { t: { kind: 'TypeTerm', name: 'Trivial', args: [] }, sign: 1 },
-  right: { t: { kind: 'TypeTerm', name: 'Trivial', args: [] }, sign: 1 }
-}
 Error: [cut] Fail to cut word: connect
-[matchSignedTypes] I expect the sign to be opposite
+[matchSignedTypes] I expect the sign to be opposite, left: +Trivial, right: +Trivial
     at cut (/home/xyh/cicada-lang/inet/lib/lang/cut/cut.js:53:15)
     at cutWords (/home/xyh/cicada-lang/inet/lib/lang/cut/cutWords.js:7:23)
     at Show.<anonymous> (/home/xyh/cicada-lang/inet/lib/lang/stmts/Show.js:26:37)

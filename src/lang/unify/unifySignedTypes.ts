@@ -1,5 +1,6 @@
 import { Ctx } from "../ctx"
 import { Sign, SignedType } from "../type"
+import { formatSignedType } from "../type/formatSignedType"
 import { unifyTypes } from "./unifyTypes"
 
 export function unifySignedTypes(
@@ -34,9 +35,11 @@ export function unifySignedTypes(
     return
   }
 
-  console.error({ left, right })
-
-  throw new Error(`[matchSignedTypes] I expect the sign to be opposite`)
+  throw new Error(
+    `[matchSignedTypes] I expect the sign to be opposite, left: ${formatSignedType(
+      left,
+    )}, right: ${formatSignedType(right)}`,
+  )
 }
 
 function setNeutralSignedType(

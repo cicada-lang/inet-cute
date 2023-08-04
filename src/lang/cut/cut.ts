@@ -2,6 +2,7 @@ import { Ctx } from "../ctx"
 import { NodeDefinition } from "../definition"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
+import { formatSignedType } from "../type/formatSignedType"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
 import { Word } from "../word"
 import { formatWord } from "../word/formatWord"
@@ -64,8 +65,11 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
 
         const topSignedType = ctx.signedTypes.pop()
         if (topSignedType === undefined) {
-          console.error({ currentSignedType })
-          throw new Error(`[cut / PortReconnect] expect top port`)
+          throw new Error(
+            `[cut / PortReconnect] I expect top port, currentSignedType: ${formatSignedType(
+              currentSignedType,
+            )}`,
+          )
         }
 
         unifySignedTypes(ctx, currentSignedType, topSignedType)

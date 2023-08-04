@@ -1,5 +1,6 @@
 import { Ctx } from "../ctx"
 import { Type } from "../type"
+import { formatType } from "../type/formatType"
 import { walkType } from "./walkType"
 
 export function unifyTypes(ctx: Ctx, left: Type, right: Type): void {
@@ -37,6 +38,9 @@ export function unifyTypes(ctx: Ctx, left: Type, right: Type): void {
     return
   }
 
-  console.error({ left, right })
-  throw new Error(`[unifyTypes] I fail to unify types`)
+  throw new Error(
+    `[unifyTypes] I fail to unify types, left: ${formatType(
+      left,
+    )}, right: ${formatType(right)}`,
+  )
 }

@@ -1,7 +1,5 @@
 # error report
 
-`formatSignedType`
-
 `cut` throw `Report`
 
 `report.add(entry)`

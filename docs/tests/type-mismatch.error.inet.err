@@ -1,9 +1,5 @@
-{
-  left: { kind: 'TypeTerm', name: 'Trivial', args: [] },
-  right: { kind: 'TypeTerm', name: 'Nat', args: [] }
-}
 Error: [cut] Fail to cut word: add1
-[unifyTypes] I fail to unify types
+[unifyTypes] I fail to unify types, left: Trivial, right: Nat
     at cut (/home/xyh/cicada-lang/inet/lib/lang/cut/cut.js:53:15)
     at cutWords (/home/xyh/cicada-lang/inet/lib/lang/cut/cutWords.js:7:23)
     at Show.<anonymous> (/home/xyh/cicada-lang/inet/lib/lang/stmts/Show.js:26:37)
