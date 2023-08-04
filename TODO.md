@@ -1,7 +1,5 @@
 # error report
 
-`Mod` has `text`
-
 `errors/Report` -- has `entries`
 
 - `report.add(entry)`

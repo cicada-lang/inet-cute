@@ -29,9 +29,8 @@ export class RunCommand extends Command<Args, Opts> {
   async execute(argv: Args & Opts): Promise<void> {
     const file = Path.resolve(argv.mod)
     const url = new URL(`file:${file}`)
-    const mod = createMod(url)
-
     const text = await fs.promises.readFile(file, "utf8")
+    const mod = createMod(url, text)
 
     try {
       const stmts = parseStmts(text)
