@@ -1,6 +1,7 @@
-import { Ctx, SignedType } from "../ctx"
+import { Ctx } from "../ctx"
 import { Port } from "../graph"
 import { Net } from "../net"
+import { SignedType } from "../type"
 
 export function compose(net: Net): void {
   const x2 = net.ports.pop() as Port

@@ -1,7 +1,8 @@
-import { Ctx, SignedType } from "../ctx"
+import { Ctx } from "../ctx"
 import { Port } from "../graph"
 import { Net } from "../net"
 import { connect } from "../net/connect"
+import { SignedType } from "../type"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
 
 export function compose(net: Net): void {

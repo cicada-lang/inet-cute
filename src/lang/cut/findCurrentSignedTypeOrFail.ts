@@ -1,5 +1,5 @@
-import { SignedType } from "../ctx"
 import { NodeDefinition } from "../definition"
+import { SignedType } from "../type"
 import { CutOptions } from "./cut"
 
 export function findCurrentSignedTypeOrFail(

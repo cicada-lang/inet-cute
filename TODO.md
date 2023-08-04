@@ -2,6 +2,8 @@
 
 `formatType`
 
+`formatSignedType`
+
 `cut` throw `Report`
 
 `report.add(entry)`

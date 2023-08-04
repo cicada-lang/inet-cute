@@ -1,4 +1,5 @@
-import { Ctx, Sign, SignedType } from "../ctx"
+import { Ctx } from "../ctx"
+import { Sign, SignedType } from "../type"
 import { unifyTypes } from "./unifyTypes"
 
 export function unifySignedTypes(

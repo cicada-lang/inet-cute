@@ -1,12 +1,4 @@
-import { Type } from "../type"
-
-export type Sign = 1 | 0 | -1
-
-export type SignedType = {
-  id?: string
-  t: Type
-  sign: Sign
-}
+import { SignedType, Type } from "../type"
 
 export type Ctx = {
   signedTypes: Array<SignedType>
