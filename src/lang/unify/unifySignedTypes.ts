@@ -36,7 +36,7 @@ export function unifySignedTypes(
   }
 
   throw new Error(
-    `[matchSignedTypes] I expect the sign to be opposite, left: ${formatSignedType(
+    `[unifySignedTypes] I expect the sign to be opposite -- left: ${formatSignedType(
       left,
     )}, right: ${formatSignedType(right)}`,
   )
