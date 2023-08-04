@@ -3,7 +3,7 @@ import { NodeDefinition } from "../definition"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
 
 export function cutNodeDefinition(ctx: Ctx, definition: NodeDefinition): void {
-  // TODO call `freshenTypes`
+  // TODO call `freshenType`
 
   for (const portExp of definition.input) {
     const signedType = ctx.signedTypes.pop()

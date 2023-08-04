@@ -77,7 +77,7 @@ export function defineBuiltInOperators(mod: Mod): void {
       net.wires.push({ start, end })
     },
     cut(ctx) {
-      // TODO use `freshenTypes`
+      // TODO use `freshenType`
 
       ctx.signedTypes.push({
         id: (wireCounter++).toString(),

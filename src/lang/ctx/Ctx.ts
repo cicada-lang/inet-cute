@@ -13,4 +13,5 @@ export type Ctx = {
   localSignedTypes: Map<string, SignedType>
   neutralSignedTypes: Map<string, SignedType>
   bindings: Map<string, Type>
+  variableCounters: Map<string, number>
 }

@@ -1,14 +1,10 @@
+`cutDefinition` -- `NodeDefinition` -- use `freshenType`
+
+`cut` -- wire -- use `freshenType`
+
 # type
 
 `unifyTypes`
-
-`freshenTypes` -- consistently add subscript to type variable names
-
-- `Ctx` has `variableCounters`
-
-`cutDefinition` -- `NodeDefinition` -- use `freshenTypes`
-
-`cut` -- wire -- use `freshenTypes`
 
 `show` & `run` -- type check -- cut -- words composition
 
