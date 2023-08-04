@@ -1,4 +1,3 @@
-[builtin] -- connect
 [builtin] -- wire
 
 # error report
