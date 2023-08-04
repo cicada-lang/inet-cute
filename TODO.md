@@ -1,5 +1,3 @@
-`cut` -- wire -- use `freshenType`
-
 # type
 
 `unifyTypes`

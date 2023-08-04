@@ -4,6 +4,7 @@ import { createNode } from "../graph/createNode"
 import { Mod } from "../mod"
 import { connect } from "../net/connect"
 import * as Types from "../type"
+import { freshenType } from "../unify/freshenType"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
 import { defineOperator } from "./defineOperator"
 
@@ -77,18 +78,16 @@ export function defineBuiltInOperators(mod: Mod): void {
       net.wires.push({ start, end })
     },
     cut(ctx) {
-      // TODO use `freshenType`
-
       ctx.signedTypes.push({
         id: (wireCounter++).toString(),
         sign: 0 as Sign,
-        t: Types.TypeVar("a"),
+        t: freshenType(ctx, Types.TypeVar("a")),
       })
 
       ctx.signedTypes.push({
         id: (wireCounter++).toString(),
         sign: 0 as Sign,
-        t: Types.TypeVar("a"),
+        t: freshenType(ctx, Types.TypeVar("a")),
       })
     },
   })
