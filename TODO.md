@@ -1,11 +1,5 @@
 # type
 
-`unifyTypes`
-
-`walkType`
-
-`unifyTypes` -- occur check
-
 `show` & `run` -- type check -- cut -- words composition
 
 `defn` -- type check -- cut -- words composition
@@ -27,6 +21,10 @@
 - `do` should be preserved word
 
 `defnode` -- check type -- arity of defined types
+
+# unify
+
+`unifyTypes` -- occur check
 
 # error report
 
