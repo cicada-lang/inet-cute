@@ -1,29 +1,17 @@
 deftype Trivial 0 end
 
-defnode sole
-  ------
-  value!: Trivial
-end
+defnode sole -- value!: Trivial end
 
 deftype List 1 end
 
-defnode null
-  ------
-  value!: List('a)
-end
-
-defnode cons
-  head: 'a
-  tail: List('a)
-  -------
-  value!: List('a)
-end
+defnode null -- value!: List('a) end
+defnode cons head: 'a tail: List('a) -- value!: List('a) end
 
 deftype DiffList 1 end
 
 defnode diff
   front: List('a)
-  ------
+  -------
   back: List('a)
   value!: DiffList('a)
 end

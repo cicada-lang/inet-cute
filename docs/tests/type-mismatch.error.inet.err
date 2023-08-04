@@ -1,0 +1,15 @@
+{
+  left: { kind: 'TypeTerm', name: 'Trivial', args: [] },
+  right: { kind: 'TypeTerm', name: 'Nat', args: [] }
+}
+Error: [unifyTypes] I fail to unify types
+    at unifyTypes (/home/xyh/cicada-lang/inet/lib/lang/unify/unifyTypes.js:31:11)
+    at unifySignedTypes (/home/xyh/cicada-lang/inet/lib/lang/unify/unifySignedTypes.js:11:37)
+    at cutNodeDefinition (/home/xyh/cicada-lang/inet/lib/lang/cut/cutNodeDefinition.js:13:49)
+    at cutDefinition (/home/xyh/cicada-lang/inet/lib/lang/cut/cutDefinition.js:9:55)
+    at cut (/home/xyh/cicada-lang/inet/lib/lang/cut/cut.js:19:51)
+    at cutWords (/home/xyh/cicada-lang/inet/lib/lang/cut/cutWords.js:7:23)
+    at Show.<anonymous> (/home/xyh/cicada-lang/inet/lib/lang/stmts/Show.js:26:37)
+    at Generator.next (<anonymous>)
+    at /home/xyh/cicada-lang/inet/lib/lang/stmts/Show.js:8:71
+    at new Promise (<anonymous>)

@@ -1,0 +1,8 @@
+deftype Nat 0 end
+defnode zero -- value!: Nat end
+defnode add1 prev: Nat -- value!: Nat end
+
+deftype Trivial 0 end
+defnode sole -- value!: Trivial end
+
+show sole add1 end

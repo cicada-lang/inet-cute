@@ -1,22 +1,9 @@
 deftype Nat 0 end
 
-defnode zero
-  ------
-  value!: Nat
-end
+defnode zero -- value!: Nat end
+defnode add1 prev: Nat -- value!: Nat end
 
-defnode add1
-  prev: Nat
-  ------
-  value!: Nat
-end
-
-defnode add
-  target!: Nat
-  addend: Nat
-  -------
-  return: Nat
-end
+defnode add target!: Nat addend: Nat -- return: Nat end
 
 defrule zero add
   (add)-addend
