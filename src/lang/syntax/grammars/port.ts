@@ -1,11 +1,17 @@
 export const port = {
   $grammar: {
-    "port:normal": [{ name: "variable_name" }, '":"', { type: "type" }],
+    "port:normal": [
+      { name: "variable_name" },
+      '":"',
+      { type: "type" },
+      { $ap: ["optional", '","'] },
+    ],
     "port:principal": [
       { name: "variable_name" },
       '"!"',
       '":"',
       { type: "type" },
+      { $ap: ["optional", '","'] },
     ],
   },
 }

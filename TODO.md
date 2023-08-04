@@ -1,5 +1,3 @@
-[syntax] optional `,` in node definition
-
 # error report
 
 improve error report about type checking
