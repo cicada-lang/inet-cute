@@ -2,6 +2,10 @@
 
 `unifyTypes`
 
+`walkType`
+
+`unifyTypes` -- occur check
+
 `show` & `run` -- type check -- cut -- words composition
 
 `defn` -- type check -- cut -- words composition
