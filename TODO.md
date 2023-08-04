@@ -1,8 +1,6 @@
 # type
 
-extract `unify/`
-
-[cut] `matchTypes`
+[cut] `unifyTypes`
 
 `freshenTypes` -- consistently add subscript to type variable names
 

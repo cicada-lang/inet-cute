@@ -2,10 +2,10 @@ import { Ctx } from "../ctx"
 import { NodeDefinition } from "../definition"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
+import { unifySignedTypes } from "../unify/unifySignedTypes"
 import { Word } from "../word"
 import { cutDefinition } from "./cutDefinition"
 import { findCurrentSignedTypeOrFail } from "./findCurrentSignedTypeOrFail"
-import { unifySignedTypes } from "./unifySignedTypes"
 
 export interface CutOptions {
   current?: {

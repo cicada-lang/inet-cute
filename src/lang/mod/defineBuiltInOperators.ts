@@ -1,10 +1,10 @@
 import { Sign, SignedType } from "../ctx"
-import { unifySignedTypes } from "../cut/unifySignedTypes"
 import { Port } from "../graph"
 import { createNode } from "../graph/createNode"
 import { Mod } from "../mod"
 import { connect } from "../net/connect"
 import * as Types from "../type"
+import { unifySignedTypes } from "../unify/unifySignedTypes"
 import { defineOperator } from "./defineOperator"
 
 let wireCounter = 0

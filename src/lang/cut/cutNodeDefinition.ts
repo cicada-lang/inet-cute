@@ -1,6 +1,6 @@
 import { Ctx } from "../ctx"
 import { NodeDefinition } from "../definition"
-import { unifySignedTypes } from "./unifySignedTypes"
+import { unifySignedTypes } from "../unify/unifySignedTypes"
 
 export function cutNodeDefinition(ctx: Ctx, definition: NodeDefinition): void {
   // TODO call `freshenTypes`
