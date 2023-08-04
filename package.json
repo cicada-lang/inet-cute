@@ -18,14 +18,14 @@
   },
   "devDependencies": {
     "@types/node": "^20.4.7",
-    "@xieyuheng/test-runner": "^0.2.7",
+    "@xieyuheng/test-runner": "^0.2.9",
     "prettier": "^3.0.1",
     "prettier-plugin-organize-imports": "^3.2.3",
     "typescript": "^5.1.6"
   },
   "dependencies": {
     "@cicada-lang/partech": "^0.2.5",
-    "@xieyuheng/command-line": "^0.0.10",
+    "@xieyuheng/command-line": "^0.0.11",
     "@xieyuheng/ty": "^0.1.22"
   },
   "license": "GPL-3.0-or-later"
