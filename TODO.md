@@ -1,4 +1,3 @@
-[builtin] -- rot
 [builtin] -- connect
 [builtin] -- wire
 
