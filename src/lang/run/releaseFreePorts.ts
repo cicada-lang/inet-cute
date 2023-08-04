@@ -1,4 +1,3 @@
-import { InternalError } from "../errors"
 import { Node } from "../graph/Node"
 import { Net } from "../net"
 import { disconnect } from "../net/disconnect"
@@ -15,9 +14,7 @@ export function releaseFreePorts(net: Net, closer: Node | undefined): void {
     }
 
     if (port.connection === undefined) {
-      throw new InternalError(
-        `[releaseFreePorts] I expect port to have connection.`,
-      )
+      throw new Error(`[releaseFreePorts] I expect port to have connection.`)
     }
 
     net.ports.push(port.connection.port)

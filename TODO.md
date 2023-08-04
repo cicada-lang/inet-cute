@@ -1,14 +1,14 @@
 # error report
 
-`errors/Report` -- has `entries`
-
-- `report.add(entry)`
-- `report.format()`
-- `ReportEntry` -- has `message` `span` `text`
-
 `formatWord`
 
 `cut` throw `Report`
+
+`report.add(entry)`
+
+`report.format()`
+
+`ReportEntry` -- has `message` `span` `text`
 
 `RunCommand` catch `report` and call `format`
 
