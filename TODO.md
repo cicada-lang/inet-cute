@@ -1,12 +1,18 @@
+`Mod` has not only `nodeCounter` but a map of `nodeCounters`
+
 # type
 
-[cut] `unifyTypes`
+`unifyTypes`
 
 `freshenTypes` -- consistently add subscript to type variable names
+
+- `Ctx` has `variableCounters`
 
 `cutDefinition` -- `NodeDefinition` -- use `freshenTypes`
 
 `cut` -- wire -- use `freshenTypes`
+
+`show` & `run` -- type check -- cut -- words composition
 
 `defn` -- type check -- cut -- words composition
 
