@@ -5,7 +5,7 @@ export function createCtx(): Ctx {
     signedTypes: [],
     localSignedTypes: new Map(),
     neutralSignedTypes: new Map(),
-    bindings: new Map(),
+    substitution: new Map(),
     variableCounters: new Map(),
   }
 }
