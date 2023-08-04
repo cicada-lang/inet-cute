@@ -1,5 +1,5 @@
+import { defineBuiltinOperators } from "../builtins/defineBuiltinOperators"
 import { Mod } from "./Mod"
-import { defineBuiltinOperators } from "./defineBuiltinOperators"
 
 export function createMod(url: URL): Mod {
   const definitions = new Map()

@@ -2,27 +2,17 @@ import { Sign, SignedType } from "../ctx"
 import { Port } from "../graph"
 import { createNode } from "../graph/createNode"
 import { Mod } from "../mod"
+import { defineOperator } from "../mod/defineOperator"
 import { connect } from "../net/connect"
 import * as Types from "../type"
 import { freshenType } from "../unify/freshenType"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
-import { defineOperator } from "./defineOperator"
+import * as swap from "./swap"
 
 let wireCounter = 0
 
 export function defineBuiltinOperators(mod: Mod): void {
-  defineOperator(mod, "swap", {
-    compose(net) {
-      const x1 = net.ports.pop() as Port
-      const x0 = net.ports.pop() as Port
-      net.ports.push(x1, x0)
-    },
-    cut(ctx) {
-      const x1 = ctx.signedTypes.pop() as SignedType
-      const x0 = ctx.signedTypes.pop() as SignedType
-      ctx.signedTypes.push(x1, x0)
-    },
-  })
+  defineOperator(mod, "swap", swap)
 
   defineOperator(mod, "rot", {
     compose(net) {

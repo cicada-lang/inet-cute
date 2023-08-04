@@ -1,6 +1,6 @@
-`createOperator`
-
-extract `builtins`
+[builtin] -- rot
+[builtin] -- connect
+[builtin] -- wire
 
 # error report
 
