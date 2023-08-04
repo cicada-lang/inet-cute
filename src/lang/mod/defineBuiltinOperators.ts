@@ -10,7 +10,7 @@ import { defineOperator } from "./defineOperator"
 
 let wireCounter = 0
 
-export function defineBuiltInOperators(mod: Mod): void {
+export function defineBuiltinOperators(mod: Mod): void {
   defineOperator(mod, "swap", {
     compose(net) {
       const x1 = net.ports.pop() as Port

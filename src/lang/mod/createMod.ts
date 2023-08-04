@@ -1,5 +1,5 @@
 import { Mod } from "./Mod"
-import { defineBuiltInOperators } from "./defineBuiltInOperators"
+import { defineBuiltinOperators } from "./defineBuiltinOperators"
 
 export function createMod(url: URL): Mod {
   const definitions = new Map()
@@ -12,7 +12,7 @@ export function createMod(url: URL): Mod {
     nodeCounters: new Map(),
   }
 
-  defineBuiltInOperators(mod)
+  defineBuiltinOperators(mod)
 
   return mod
 }
