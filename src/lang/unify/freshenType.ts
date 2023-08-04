@@ -1,6 +1,6 @@
+import { stringToSubscript } from "../../utils/stringToSubscript"
 import { Ctx } from "../ctx"
 import { tickVariableCounter } from "../ctx/tickVariableCounter"
-import { stringToSubscript } from "../format"
 import * as Types from "../type"
 import { Type } from "../type"
 
