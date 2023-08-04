@@ -1,5 +1,6 @@
 import { Node } from "../graph"
 import { Mod } from "../mod"
+import { tickNodeCounter } from "../mod/tickNodeCounter"
 import * as Types from "../type"
 import { PortExp } from "./PortExp"
 import { createPort } from "./createPort"
@@ -11,7 +12,7 @@ export function createNode(
   output: Array<PortExp>,
 ): Node {
   const node: Node = {
-    id: mod.nodeCounter++,
+    id: tickNodeCounter(mod, name),
     mod,
     name,
     input: [],

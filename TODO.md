@@ -1,4 +1,6 @@
-`Mod` has not only `nodeCounter` but a map of `nodeCounters`
+[mod] `Mod` has not only `nodeCounter` but a map of `nodeCounters`
+
+- to have smaller subscripts
 
 # type
 
