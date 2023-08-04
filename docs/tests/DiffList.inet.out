@@ -10,8 +10,8 @@
 (sole₁)-value head-(cons₂)
 (diff_append₁₀)-return
 
-(cons₁₃)-value back-(diff₂₃)
-(cons₁₃)-tail tail-(cons₁₇)
+(cons₁₃)-value tail-(cons₁₇)
+(cons₁₃)-tail back-(diff₂₃)
 (cons₁₉)-value front-(diff₂₃)
 (cons₁₇)-value tail-(cons₁₉)
 (sole₁₈)-value head-(cons₁₉)
@@ -33,8 +33,8 @@
 (sole₂₆)-value head-(cons₂₇)
 (diff_append₃₇)-return
 
-(cons₄₂)-value back-(diff₅₂)
-(cons₄₀)-tail tail-(cons₄₆)
+(cons₄₂)-value tail-(cons₄₆)
+(cons₄₀)-tail back-(diff₅₂)
 (cons₄₈)-value front-(diff₅₂)
 (cons₄₆)-value tail-(cons₄₈)
 (sole₄₇)-value head-(cons₄₈)
@@ -58,8 +58,8 @@
 (sole₅₅)-value head-(cons₅₆)
 (diff_append₆₆)-return
 
-(cons₇₁)-value back-(diff₈₁)
-(cons₆₉)-tail tail-(cons₇₅)
+(cons₇₁)-value tail-(cons₇₅)
+(cons₆₉)-tail back-(diff₈₁)
 (cons₇₇)-value front-(diff₈₁)
 (cons₇₅)-value tail-(cons₇₇)
 (sole₇₆)-value head-(cons₇₇)

@@ -33,6 +33,8 @@ export function matchSignedTypes(
     return
   }
 
+  console.error({ left, right })
+
   throw new Error(`[matchSignedTypes] I expect the sign to be opposite`)
 }
 

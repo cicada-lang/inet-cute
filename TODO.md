@@ -1,3 +1,7 @@
+# error report
+
+improve error report about type checking
+
 # type
 
 [cut] `match` -- unification
@@ -7,8 +11,6 @@
 `cutDefinition` -- `NodeDefinition` -- use `freshenTypes`
 
 `cut` -- wire -- use `freshenTypes`
-
-`defrule` -- enable type check
 
 `defn` -- type check -- cut -- words composition
 

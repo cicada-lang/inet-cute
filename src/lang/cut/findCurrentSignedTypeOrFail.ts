@@ -43,11 +43,14 @@ function findSignedTypeInNodeDefinition(
   portName: string,
   definition: NodeDefinition,
 ): SignedType | undefined {
+  // We need to reverse the signs here, input +1, output -1,
+  // because these are the opposite side of the ports of the node.
+
   for (const portExp of definition.input) {
     if (portExp.name === portName) {
       return {
         t: portExp.t,
-        sign: -1,
+        sign: 1,
       }
     }
   }
@@ -56,7 +59,7 @@ function findSignedTypeInNodeDefinition(
     if (portExp.name === portName) {
       return {
         t: portExp.t,
-        sign: 1,
+        sign: -1,
       }
     }
   }
