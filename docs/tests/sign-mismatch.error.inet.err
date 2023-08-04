@@ -2,8 +2,7 @@
   left: { t: { kind: 'TypeTerm', name: 'Trivial', args: [] }, sign: 1 },
   right: { t: { kind: 'TypeTerm', name: 'Trivial', args: [] }, sign: 1 }
 }
-{ word: { kind: 'Call', name: 'connect', span: { lo: 74, hi: 81 } } }
-Error: [cut] Fail to cut word
+Error: [cut] Fail to cut word: connect
 [matchSignedTypes] I expect the sign to be opposite
     at cut (/home/xyh/cicada-lang/inet/lib/lang/cut/cut.js:53:15)
     at cutWords (/home/xyh/cicada-lang/inet/lib/lang/cut/cutWords.js:7:23)

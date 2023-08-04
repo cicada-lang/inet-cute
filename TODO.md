@@ -1,6 +1,6 @@
 # error report
 
-`formatWord`
+`formatType`
 
 `cut` throw `Report`
 

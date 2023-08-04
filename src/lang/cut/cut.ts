@@ -4,6 +4,7 @@ import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
 import { Word } from "../word"
+import { formatWord } from "../word/formatWord"
 import { cutDefinition } from "./cutDefinition"
 import { findCurrentSignedTypeOrFail } from "./findCurrentSignedTypeOrFail"
 
@@ -74,7 +75,8 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
   } catch (error) {
     if (!(error instanceof Error)) throw error
 
-    console.error({ word })
-    throw new Error(`[cut] Fail to cut word\n` + error.message)
+    throw new Error(
+      `[cut] Fail to cut word: ${formatWord(word)}\n` + error.message,
+    )
   }
 }

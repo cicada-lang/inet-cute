@@ -2,8 +2,7 @@
   left: { kind: 'TypeTerm', name: 'Trivial', args: [] },
   right: { kind: 'TypeTerm', name: 'Nat', args: [] }
 }
-{ word: { kind: 'Call', name: 'add1', span: { lo: 162, hi: 166 } } }
-Error: [cut] Fail to cut word
+Error: [cut] Fail to cut word: add1
 [unifyTypes] I fail to unify types
     at cut (/home/xyh/cicada-lang/inet/lib/lang/cut/cut.js:53:15)
     at cutWords (/home/xyh/cicada-lang/inet/lib/lang/cut/cutWords.js:7:23)
