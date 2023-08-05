@@ -1,5 +1,6 @@
 import { createCtx } from "../ctx/createCtx"
 import { cutWords } from "../cut/cutWords"
+import { createReport } from "../errors/createReport"
 import { Mod } from "../mod"
 import { lookupWordDefinitionOrFail } from "../mod/lookupWordDefinitionOrFail"
 import { Span } from "../span"
@@ -17,13 +18,25 @@ export class Define implements Stmt {
     const ctx = createCtx()
     cutWords(mod, ctx, this.definedWords, {})
 
-    const definition = lookupWordDefinitionOrFail(mod, this.name)
+    try {
+      const definition = lookupWordDefinitionOrFail(mod, this.name)
 
-    if (definition.definedWords !== undefined) {
-      throw new Error(`[Define.execute] I can not re-define word: ${this.name}`)
-      // TODO It is already defined to ...
+      if (definition.definedWords !== undefined) {
+        throw new Error(
+          `[Define.execute] I can not re-define word: ${this.name}`,
+        )
+        // TODO It is already defined to ...
+      }
+
+      definition.definedWords = this.definedWords
+    } catch (error) {
+      throw createReport(error, {
+        message: `[Define.execute] Fail to define word: ${this.name}`,
+        context: {
+          span: this.span,
+          text: mod.text,
+        },
+      })
     }
-
-    definition.definedWords = this.definedWords
   }
 }

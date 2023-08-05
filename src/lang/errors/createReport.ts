@@ -6,12 +6,7 @@ export function createReport(error: unknown, entry: ReportEntry): Report {
     return error
   }
 
-  const report = new Report()
-
-  report.entries.push(createReportEntry(error))
-  report.entries.push(entry)
-
-  return report
+  return new Report([createReportEntry(error), entry])
 }
 
 function createReportEntry(error: unknown): ReportEntry {

@@ -10,10 +10,15 @@ export type ReportEntry = {
 }
 
 export class Report extends Error {
-  entries: Array<ReportEntry> = []
+  constructor(public entries: Array<ReportEntry> = []) {
+    super()
+  }
 
   format(): string {
-    return this.entries.map(formatReportEntry).join("\n")
+    return this.entries
+      .map(formatReportEntry)
+      .map((s) => s.trim())
+      .join("\n\n")
   }
 
   get message(): string {
@@ -29,7 +34,6 @@ function formatReportEntry(entry: ReportEntry): string {
       entry.message,
       "",
       pt.report(entry.context.span, entry.context.text),
-      "",
     ].join("\n")
   }
 }

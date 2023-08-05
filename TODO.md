@@ -1,6 +1,8 @@
 # type
 
-require `claim` before `define`
+re-claim.error.inet
+
+re-define.error.inet
 
 `cut` of `define` -- put reverse of input of `claim` and check output of `claim`
 
