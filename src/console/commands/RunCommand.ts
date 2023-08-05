@@ -34,18 +34,16 @@ export class RunCommand extends Command<Args, Opts> {
     const mod = createMod(url, text)
 
     try {
-      const stmts = parseStmts(text)
-
-      for (const stmt of stmts) {
+      for (const stmt of parseStmts(text)) {
         await stmt.execute(mod)
       }
     } catch (error) {
       if (error instanceof ParsingError) {
         console.error(error.report(text))
-        return process.exit(1)
+        process.exit(1)
       } else if (error instanceof Report) {
         console.error(error.format())
-        return process.exit(1)
+        process.exit(1)
       } else {
         throw error
       }
