@@ -1,0 +1,10 @@
+[unifyTypes] I fail to unify types -- left: Trivial, right: Nat
+
+[cut] Fail to cut -- word: append
+
+ 15 |show
+ 16 |  null sole cons sole cons
+ 17 |  null zero cons zero cons
+ 18 |  append
+ 19 |end
+ 20 |

@@ -1,7 +1,5 @@
 # type
 
-fix the use of `freshenType` -- take `occurredNames` as extrat argument for side-effect
-
 `node` -- check type -- arity of defined types
 
 # error report

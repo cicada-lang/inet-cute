@@ -10,6 +10,8 @@ export function cutWordDefinition(
   definition: WordDefinition,
   options: CutOptions,
 ): void {
+  const occurredNames = new Map()
+
   if (definition.words === undefined) {
     throw new Error(
       `[cutWordDefinition] I expect a word definition to have defined words -- word: ${definition.name}`,
@@ -18,7 +20,10 @@ export function cutWordDefinition(
 
   // NOTE Be careful about the order.
   for (const t of [...definition.input].reverse()) {
-    ctx.signedTypes.push({ t: freshenType(ctx, t), sign: 1 })
+    ctx.signedTypes.push({
+      t: freshenType(ctx, t, occurredNames),
+      sign: 1,
+    })
   }
 
   cutWords(definition.mod, ctx, definition.words, options)
@@ -32,13 +37,19 @@ export function cutWordDefinition(
       )
     }
 
-    unifySignedTypes(ctx, signedType, { t: freshenType(ctx, t), sign: -1 })
+    unifySignedTypes(ctx, signedType, {
+      t: freshenType(ctx, t, occurredNames),
+      sign: -1,
+    })
   }
 
   // Put checked output types back to the stack.
   // NOTE Be careful about the order.
   for (const t of definition.output) {
-    ctx.signedTypes.push({ t: freshenType(ctx, t), sign: 1 })
+    ctx.signedTypes.push({
+      t: freshenType(ctx, t, occurredNames),
+      sign: 1,
+    })
   }
 
   return

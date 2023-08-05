@@ -9,6 +9,8 @@ export function cutNodeDefinition(
   definition: NodeDefinition,
   options: CutOptions,
 ): void {
+  const occurredNames = new Map()
+
   for (const portExp of definition.input) {
     const signedType = ctx.signedTypes.pop()
     if (signedType === undefined) {
@@ -17,12 +19,16 @@ export function cutNodeDefinition(
       )
     }
 
-    const t = freshenType(ctx, portExp.t)
-    unifySignedTypes(ctx, signedType, { t, sign: -1 })
+    unifySignedTypes(ctx, signedType, {
+      t: freshenType(ctx, portExp.t, occurredNames),
+      sign: -1,
+    })
   }
 
   for (const portExp of definition.output) {
-    const t = freshenType(ctx, portExp.t)
-    ctx.signedTypes.push({ t, sign: 1 })
+    ctx.signedTypes.push({
+      t: freshenType(ctx, portExp.t, occurredNames),
+      sign: 1,
+    })
   }
 }

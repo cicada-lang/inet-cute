@@ -35,18 +35,20 @@ export default function (mod: Mod) {
   }
 
   function cut(ctx: Ctx): void {
+    const occurredNames = new Map()
+
     const frontId = (wireCounter++).toString()
     const front = {
       id: frontId,
       sign: 0 as Types.Sign,
-      t: freshenType(ctx, Types.TypeVar("a")),
+      t: freshenType(ctx, Types.TypeVar("a"), occurredNames),
     }
 
     const backId = (wireCounter++).toString()
     const back = {
       id: backId,
       sign: 0 as Sign,
-      t: freshenType(ctx, Types.TypeVar("a")),
+      t: freshenType(ctx, Types.TypeVar("a"), occurredNames),
     }
 
     ctx.neutralSignedTypes.set(frontId, front)
