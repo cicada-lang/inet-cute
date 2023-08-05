@@ -16,6 +16,8 @@
 
 - `do` should be preserved word
 
+[syntax] `fn_args` suport optional `,`
+
 `defnode` -- check type -- arity of defined types
 
 # unify
@@ -28,13 +30,19 @@ Nat -- `mul` -- with `nat_dup` and `nat_erase`
 
 Nat -- `max` -- with `max_aux`
 
-use inet to encode lambda calculus
-
-use inet to encode class, object and message sending
-
 # module
 
-module system
+suport module system
+
+- [maybe] when importing a node, also import all the rules about this node
+
+suport defining node and type in one module, and defining rules in another module
+
+# docs
+
+update the article
+
+new manual
 
 # learn
 
@@ -51,3 +59,7 @@ understand proof-nets for all connectives
 # value
 
 the stack can take other types of values -- not only port
+
+# example
+
+use inet to encode lambda calculus
