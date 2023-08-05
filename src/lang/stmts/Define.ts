@@ -1,5 +1,5 @@
 import { createCtx } from "../ctx/createCtx"
-import { cutWords } from "../cut/cutWords"
+import { cutWordDefinition } from "../cut/cutWordDefinition"
 import { createReport } from "../errors/createReport"
 import { Mod } from "../mod"
 import { lookupWordDefinitionOrFail } from "../mod/lookupWordDefinitionOrFail"
@@ -15,9 +15,6 @@ export class Define implements Stmt {
   ) {}
 
   async execute(mod: Mod): Promise<void> {
-    const ctx = createCtx()
-    cutWords(mod, ctx, this.words, {})
-
     try {
       const definition = lookupWordDefinitionOrFail(mod, this.name)
 
@@ -29,6 +26,9 @@ export class Define implements Stmt {
       }
 
       definition.words = this.words
+
+      const ctx = createCtx()
+      cutWordDefinition(ctx, definition, {})
     } catch (error) {
       throw createReport(error, {
         message: `[Define.execute] I fail to define word: ${this.name}`,

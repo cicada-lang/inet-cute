@@ -31,7 +31,7 @@ export function unifySignedTypes(
 
   if (right.sign === 0) {
     unifyTypes(ctx, left.t, right.t)
-    setNeutralSignedType(ctx, right, left)
+    setNeutralSignedType(ctx, left, right)
     return
   }
 
