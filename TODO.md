@@ -1,6 +1,6 @@
 # type
 
-`cutDefinition` -- `WordDefinition` -- suport claim
+`cutWordDefinition` -- suport claim
 
 - put reverse of claimed input to the stack (with +1 sign)
 - check output of claimed output (with -1 sign)

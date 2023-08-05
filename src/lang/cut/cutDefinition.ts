@@ -2,7 +2,7 @@ import { Ctx } from "../ctx"
 import { Definition } from "../definition"
 import { CutOptions } from "./cut"
 import { cutNodeDefinition } from "./cutNodeDefinition"
-import { cutWords } from "./cutWords"
+import { cutWordDefinition } from "./cutWordDefinition"
 
 export function cutDefinition(
   ctx: Ctx,
@@ -16,13 +16,7 @@ export function cutDefinition(
     }
 
     case "WordDefinition": {
-      if (definition.words === undefined) {
-        throw new Error(
-          `[cutDefinition] I expect a word definition to have defined words -- word: ${definition.name}`,
-        )
-      }
-
-      cutWords(definition.mod, ctx, definition.words, options)
+      cutWordDefinition(ctx, definition, options)
       return
     }
 
