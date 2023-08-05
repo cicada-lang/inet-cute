@@ -1,7 +1,3 @@
-# error report
-
-`RunCommand` catch `report` and call `format`
-
 # type
 
 `defn` -- can be a sequence of words that build a net

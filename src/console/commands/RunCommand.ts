@@ -3,6 +3,7 @@ import { Command, CommandRunner } from "@xieyuheng/command-line"
 import ty from "@xieyuheng/ty"
 import fs from "fs"
 import Path from "path"
+import { Report } from "../../lang/errors/Report"
 import { createMod } from "../../lang/mod/createMod"
 import { parseStmts } from "../../lang/syntax"
 
@@ -36,15 +37,18 @@ export class RunCommand extends Command<Args, Opts> {
       const stmts = parseStmts(text)
 
       for (const stmt of stmts) {
-        stmt.execute(mod)
+        await stmt.execute(mod)
       }
     } catch (error) {
       if (error instanceof ParsingError) {
-        const report = error.report(text)
-        console.error(report)
+        console.error(error.report(text))
+        return process.exit(1)
+      } else if (error instanceof Report) {
+        console.error(error.format())
+        return process.exit(1)
+      } else {
+        throw error
       }
-
-      throw error
     }
   }
 }

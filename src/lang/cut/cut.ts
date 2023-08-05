@@ -79,7 +79,7 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
     }
   } catch (error) {
     throw createReport(error, {
-      message: `[cut] Fail to cut word: ${formatWord(word)}`,
+      message: `[cut] Fail to cut -- word: ${formatWord(word)}`,
       context: {
         span: word.span,
         text: mod.text,
