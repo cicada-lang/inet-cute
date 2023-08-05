@@ -6,23 +6,27 @@ import * as matchers from "../matchers"
 export function stmt_matcher(tree: pt.Tree): Stmt {
   return pt.matcher<Stmt>({
     "stmt:node": ({ name, input, output }, { span }) =>
-      new Stmts.Defnode(
+      new Stmts.DefineNode(
         pt.str(name),
         matchers.ports_matcher(input),
         matchers.ports_matcher(output),
         span,
       ),
     "stmt:rule": ({ start, end, words }, { span }) =>
-      new Stmts.Defrule(
+      new Stmts.DefineRule(
         pt.str(start),
         pt.str(end),
         matchers.words_matcher(words),
         span,
       ),
     "stmt:define": ({ name, words }, { span }) =>
-      new Stmts.Defn(pt.str(name), matchers.words_matcher(words), span),
+      new Stmts.Define(pt.str(name), matchers.words_matcher(words), span),
     "stmt:type": ({ name, arity }, { span }) =>
-      new Stmts.Deftype(pt.str(name), Number.parseFloat(pt.str(arity)), span),
+      new Stmts.DefineType(
+        pt.str(name),
+        Number.parseFloat(pt.str(arity)),
+        span,
+      ),
     "stmt:show": ({ words }, { span }) =>
       new Stmts.Show(matchers.words_matcher(words), span),
     "stmt:run": ({ words }, { span }) =>

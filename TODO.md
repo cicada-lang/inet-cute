@@ -1,7 +1,3 @@
-update stmt names -- drop `Def` prefix
-
-[maybe] [syntax] rename `define` to `fn`
-
 # type
 
 `define` -- can be a sequence of words that build a net

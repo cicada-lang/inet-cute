@@ -1,13 +1,15 @@
 import * as Definitions from "../definition"
+import { PortExp } from "../graph/PortExp"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 
-export class Deftype implements Stmt {
+export class DefineNode implements Stmt {
   constructor(
     public name: string,
-    public arity: number,
+    public input: Array<PortExp>,
+    public output: Array<PortExp>,
     public span: Span,
   ) {}
 
@@ -15,7 +17,7 @@ export class Deftype implements Stmt {
     define(
       mod,
       this.name,
-      Definitions.TypeDefinition(mod, this.name, this.arity),
+      Definitions.NodeDefinition(mod, this.name, this.input, this.output),
     )
   }
 }
