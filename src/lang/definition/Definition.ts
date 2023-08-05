@@ -2,6 +2,7 @@ import { Ctx } from "../ctx"
 import { PortExp } from "../graph/PortExp"
 import { Mod } from "../mod"
 import { Net } from "../net"
+import { Type } from "../type"
 import { Word } from "../word"
 
 export type Definition =
@@ -37,19 +38,23 @@ export type WordDefinition = {
   kind: "WordDefinition"
   mod: Mod
   name: string
-  words: Array<Word>
+  claimedInputTypes: Array<Type>
+  claimedOutputTypes: Array<Type>
+  definedWords?: Array<Word>
 }
 
 export function WordDefinition(
   mod: Mod,
   name: string,
-  words: Array<Word>,
+  claimedInputTypes: Array<Type>,
+  claimedOutputTypes: Array<Type>,
 ): WordDefinition {
   return {
     kind: "WordDefinition",
     mod,
     name,
-    words,
+    claimedInputTypes,
+    claimedOutputTypes,
   }
 }
 

@@ -16,7 +16,13 @@ export function cutDefinition(
     }
 
     case "WordDefinition": {
-      cutWords(definition.mod, ctx, definition.words, options)
+      if (definition.definedWords === undefined) {
+        throw new Error(
+          `[cutDefinition] I expect a word definition to have defined words -- word: ${definition.name}`,
+        )
+      }
+
+      cutWords(definition.mod, ctx, definition.definedWords, options)
       return
     }
 

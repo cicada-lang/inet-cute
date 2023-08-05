@@ -18,8 +18,13 @@ end
 show zero zero add end
 run zero zero add end
 
+claim one Nat end
 define one zero add1 end
+
+claim two Nat end
 define two one one add end
+
+claim four Nat end
 define four two two add end
 
 show two end

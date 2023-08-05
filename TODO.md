@@ -1,17 +1,12 @@
 # type
 
-`claim` -- to declare input and output types of a `define`
-
-```inet
-claim <name> ...<output> end
-claim <name> ...<input> -- ...<output> end
-```
-
 require `claim` before `define`
 
 `cut` of `define` -- put reverse of input of `claim` and check output of `claim`
 
 `node` -- check type -- arity of defined types
+
+`claim` use `inputSignedInputTypes` and `outputSignedInputTypes`
 
 # unify
 

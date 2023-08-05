@@ -23,10 +23,24 @@ export const stmt = {
       { words: "words" },
       '"end"',
     ],
+    "stmt:claim_with_output": [
+      '"claim"',
+      { name: "variable_name" },
+      { claimedOutputTypes: "type_sequence" },
+      '"end"',
+    ],
+    "stmt:claim_with_input_and_output": [
+      '"claim"',
+      { name: "variable_name" },
+      { claimedInputTypes: "type_sequence" },
+      "dashline",
+      { claimedOutputTypes: "type_sequence" },
+      '"end"',
+    ],
     "stmt:define": [
       '"define"',
       { name: "variable_name" },
-      { words: "words" },
+      { definedWords: "words" },
       '"end"',
     ],
     "stmt:type": [

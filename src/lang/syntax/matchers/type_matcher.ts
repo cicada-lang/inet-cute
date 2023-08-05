@@ -20,3 +20,19 @@ export function type_args_matcher(tree: pt.Tree): Array<Type> {
     ],
   })(tree)
 }
+
+export function type_with_optional_semicolon_matcher(tree: pt.Tree): Type {
+  return pt.matcher({
+    "type_with_optional_semicolon:type_with_optional_semicolon": ({ type }) =>
+      type_matcher(type),
+  })(tree)
+}
+
+export function type_sequence_matcher(tree: pt.Tree): Array<Type> {
+  return pt.matcher({
+    "type_sequence:type_sequence": ({ types }) =>
+      pt.matchers
+        .zero_or_more_matcher(types)
+        .map(type_with_optional_semicolon_matcher),
+  })(tree)
+}

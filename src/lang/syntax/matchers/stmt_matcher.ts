@@ -19,8 +19,29 @@ export function stmt_matcher(tree: pt.Tree): Stmt {
         matchers.words_matcher(words),
         span,
       ),
-    "stmt:define": ({ name, words }, { span }) =>
-      new Stmts.Define(pt.str(name), matchers.words_matcher(words), span),
+    "stmt:claim_with_output": ({ name, claimedOutputTypes }, { span }) =>
+      new Stmts.Claim(
+        pt.str(name),
+        [],
+        matchers.type_sequence_matcher(claimedOutputTypes),
+        span,
+      ),
+    "stmt:claim_with_input_and_output": (
+      { name, claimedInputTypes, claimedOutputTypes },
+      { span },
+    ) =>
+      new Stmts.Claim(
+        pt.str(name),
+        matchers.type_sequence_matcher(claimedInputTypes),
+        matchers.type_sequence_matcher(claimedOutputTypes),
+        span,
+      ),
+    "stmt:define": ({ name, definedWords }, { span }) =>
+      new Stmts.Define(
+        pt.str(name),
+        matchers.words_matcher(definedWords),
+        span,
+      ),
     "stmt:type": ({ name, arity }, { span }) =>
       new Stmts.DefineType(
         pt.str(name),

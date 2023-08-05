@@ -20,6 +20,8 @@ rule cons append
   return-(append)
 end
 
+claim six_soles List(Trivial) end
+
 define six_soles
   null sole cons sole cons sole cons
   null sole cons sole cons sole cons

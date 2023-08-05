@@ -24,3 +24,24 @@ export const type_args = {
     ],
   },
 }
+
+export const type_with_optional_semicolon = {
+  $grammar: {
+    "type_with_optional_semicolon:type_with_optional_semicolon": [
+      { type: "type" },
+      { $ap: ["optional", '";"'] },
+    ],
+  },
+}
+
+export const type_sequence = {
+  $grammar: {
+    "type_sequence:type_sequence": [
+      {
+        types: {
+          $ap: ["zero_or_more", "type_with_optional_semicolon"],
+        },
+      },
+    ],
+  },
+}
