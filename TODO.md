@@ -1,24 +1,30 @@
+`do` should not be preserved word
+
+update stmt names -- drop `Def` prefix
+
+[syntax] change optional `,` to optional `;`
+
+[maybe] [syntax] rename `define` to `fn`
+
 # type
 
-`defn` -- can be a sequence of words that build a net
+`define` -- can be a sequence of words that build a net
 
 - need to design syntax to declare input and output types
 
   ```inet
-  defn <name>: ...<output> do
+  define <name>: ...<output> do
     ...
   end
 
-  defn <name>: ...<input> -- ...<output> do
+  define <name>: ...<input> -- ...<output> do
     ...
   end
   ```
 
-- `do` should be preserved word
-
 [syntax] `fn_args` suport optional `,`
 
-`defnode` -- check type -- arity of defined types
+`node` -- check type -- arity of defined types
 
 # unify
 

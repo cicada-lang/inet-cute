@@ -1,16 +1,16 @@
-deftype Nat 0 end
+type Nat 0 end
 
-defnode zero -- value!: Nat end
-defnode add1 prev: Nat -- value!: Nat end
+node zero -- value!: Nat end
+node add1 prev: Nat -- value!: Nat end
 
-defnode add target!: Nat, addend: Nat -- return: Nat end
+node add target!: Nat, addend: Nat -- return: Nat end
 
-defrule zero add
+rule zero add
   (add)-addend
   return-(add)
 end
 
-defrule add1 add
+rule add1 add
   (add)-addend (add1)-prev add add1
   return-(add)
 end
@@ -18,9 +18,9 @@ end
 show zero zero add end
 run zero zero add end
 
-defn one zero add1 end
-defn two one one add end
-defn four two two add end
+define one zero add1 end
+define two one one add end
+define four two two add end
 
 show two end
 run two end

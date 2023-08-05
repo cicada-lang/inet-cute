@@ -1,36 +1,36 @@
 export const stmt = {
   $grammar: {
-    "stmt:defnode": [
-      '"defnode"',
+    "stmt:node": [
+      '"node"',
       { name: "variable_name" },
       { input: "ports" },
       "dashline",
       { output: "ports" },
       '"end"',
     ],
-    "stmt:defelim": [
-      '"defelim"',
+    "stmt:elim": [
+      '"elim"',
       { name: "variable_name" },
       { input: "ports" },
       "dashline",
       { output: "ports" },
       '"end"',
     ],
-    "stmt:defrule": [
-      '"defrule"',
+    "stmt:rule": [
+      '"rule"',
       { start: "variable_name" },
       { end: "variable_name" },
       { words: "words" },
       '"end"',
     ],
-    "stmt:defn": [
-      '"defn"',
+    "stmt:define": [
+      '"define"',
       { name: "variable_name" },
       { words: "words" },
       '"end"',
     ],
-    "stmt:deftype": [
-      '"deftype"',
+    "stmt:type": [
+      '"type"',
       { name: "variable_name" },
       { arity: { $pattern: ["number"] } },
       '"end"',

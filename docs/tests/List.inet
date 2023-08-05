@@ -1,26 +1,26 @@
-deftype Trivial 0 end
+type Trivial 0 end
 
-defnode sole -- value!: Trivial end
+node sole -- value!: Trivial end
 
-deftype List 1 end
+type List 1 end
 
-defnode null -- value!: List('a) end
-defnode cons head: 'a, tail: List('a) -- value!: List('a) end
+node null -- value!: List('a) end
+node cons head: 'a, tail: List('a) -- value!: List('a) end
 
-defnode append target!: List('a), rest: List('a) -- return: List('a) end
+node append target!: List('a), rest: List('a) -- return: List('a) end
 
-defrule null append
+rule null append
   (append)-rest
   return-(append)
 end
 
-defrule cons append
+rule cons append
   (append)-rest (cons)-tail append
   (cons)-head cons
   return-(append)
 end
 
-defn six_soles
+define six_soles
   null sole cons sole cons sole cons
   null sole cons sole cons sole cons
   append

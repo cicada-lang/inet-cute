@@ -1,15 +1,15 @@
-deftype Trivial 0 end
+type Trivial 0 end
 
-defnode sole -- value!: Trivial end
+node sole -- value!: Trivial end
 
-deftype List 1 end
+type List 1 end
 
-defnode null -- value!: List('a) end
-defnode cons head: 'a, tail: List('a) -- value!: List('a) end
+node null -- value!: List('a) end
+node cons head: 'a, tail: List('a) -- value!: List('a) end
 
-deftype DiffList 1 end
+type DiffList 1 end
 
-defnode diff
+node diff
   front: List('a)
   -------
   back: List('a)
@@ -23,31 +23,31 @@ end
 // plugging the front of the second argument
 // at the back of the first one.
 
-defnode diff_append
+node diff_append
   target!: DiffList('a)
   rest: DiffList('a)
   ------
   return: DiffList('a)
 end
 
-defnode diff_open
+node diff_open
   target!: DiffList('a)
   list: List('a)
   ------
   return: List('a)
 end
 
-defrule diff diff_append
+rule diff diff_append
   (diff)-front diff return-(diff_append)
   (diff_append)-rest diff_open back-(diff)
 end
 
-defrule diff diff_open
+rule diff diff_open
   (diff)-back list-(diff_open)
   (diff)-front return-(diff_open)
 end
 
-defn one_two_soles
+define one_two_soles
   wire sole cons diff rot rot connect
   wire sole cons sole cons diff rot rot connect
   diff_append
@@ -56,7 +56,7 @@ end
 show one_two_soles end
 run one_two_soles end
 
-defn two_two_soles
+define two_two_soles
   wire sole cons sole cons diff rot rot connect
   wire sole cons sole cons diff rot rot connect
   diff_append
@@ -65,7 +65,7 @@ end
 show two_two_soles end
 run two_two_soles end
 
-defn two_two_soles_with_local_variable
+define two_two_soles_with_local_variable
   wire sole cons sole cons diff $value connect value
   wire sole cons sole cons diff $value connect value
   diff_append
