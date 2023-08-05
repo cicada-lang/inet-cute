@@ -2,8 +2,10 @@ import { Span } from "../span"
 
 export type ReportEntry = {
   message: string
-  span: Span
-  text: string
+  context?: {
+    span: Span
+    text: string
+  }
 }
 
 export class Report extends Error {

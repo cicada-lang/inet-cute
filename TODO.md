@@ -1,12 +1,10 @@
 # error report
 
+`createReport` append `entry`
+
 `cut` throw `Report`
 
-`report.add(entry)`
-
 `report.format()`
-
-`ReportEntry` -- has `message` `span` `text`
 
 `RunCommand` catch `report` and call `format`
 
