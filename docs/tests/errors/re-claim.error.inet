@@ -1,0 +1,3 @@
+claim swapswap 'a -- 'a end
+claim swapswap 'a -- 'a end
+define swapswap swap swap end
