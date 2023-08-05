@@ -47,6 +47,10 @@ post on reddit
 
 post on hackernews
 
+share with tangentstorm
+
+share on #forth
+
 # learn
 
 phase space and monoid -- understand the model theory of linear logic

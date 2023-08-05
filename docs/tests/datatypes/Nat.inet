@@ -34,3 +34,8 @@ run four end
 
 show zero one add end
 run zero one add end
+
+claim addadd Nat Nat Nat -- Nat end
+define addadd add add end
+
+run one one one addadd end

@@ -40,3 +40,8 @@
 (zero₁₈)-value prev-(add1₁₉)
 (add1₁₉)-value
 
+(add1₂₀)-value prev-(add1₂₅)
+(add1₂₅)-value prev-(add1₂₄)
+(zero₂₀)-value prev-(add1₂₀)
+(add1₂₄)-value
+
