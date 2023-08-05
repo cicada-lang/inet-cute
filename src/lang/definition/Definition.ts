@@ -40,7 +40,7 @@ export type WordDefinition = {
   name: string
   input: Array<Type>
   output: Array<Type>
-  definedWords?: Array<Word>
+  words?: Array<Word>
 }
 
 export function WordDefinition(

@@ -1,6 +1,9 @@
 # type
 
-`cut` of `define` -- put reverse of input of `claim` and check output of `claim`
+`cutDefinition` -- `WordDefinition` -- suport claim
+
+- put reverse of claimed input to the stack (with +1 sign)
+- check output of claimed output (with -1 sign)
 
 `node` -- check type -- arity of defined types
 
@@ -10,7 +13,7 @@
 
 # later
 
-`claim` use `inputSignedInputTypes` and `outputSignedInputTypes`
+`claim` use `SignedType` as `input` and `output`
 
 # unify
 

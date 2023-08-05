@@ -16,13 +16,13 @@ export function composeDefinition(
     }
 
     case "WordDefinition": {
-      if (definition.definedWords === undefined) {
+      if (definition.words === undefined) {
         throw new Error(
           `[composeDefinition] I expect word definition to have defined words -- word: ${definition.name}`,
         )
       }
 
-      composeWords(definition.mod, net, definition.definedWords, options)
+      composeWords(definition.mod, net, definition.words, options)
       return
     }
 

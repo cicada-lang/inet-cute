@@ -33,12 +33,8 @@ export function stmt_matcher(tree: pt.Tree): Stmt {
         matchers.type_sequence_matcher(output),
         span,
       ),
-    "stmt:define": ({ name, definedWords }, { span }) =>
-      new Stmts.Define(
-        pt.str(name),
-        matchers.words_matcher(definedWords),
-        span,
-      ),
+    "stmt:define": ({ name, words }, { span }) =>
+      new Stmts.Define(pt.str(name), matchers.words_matcher(words), span),
     "stmt:type": ({ name, arity }, { span }) =>
       new Stmts.DefineType(
         pt.str(name),

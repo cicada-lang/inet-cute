@@ -40,7 +40,7 @@ export const stmt = {
     "stmt:define": [
       '"define"',
       { name: "variable_name" },
-      { definedWords: "words" },
+      { words: "words" },
       '"end"',
     ],
     "stmt:type": [

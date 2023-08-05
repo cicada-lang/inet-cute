@@ -10,25 +10,25 @@ import { Word } from "../word"
 export class Define implements Stmt {
   constructor(
     public name: string,
-    public definedWords: Array<Word>,
+    public words: Array<Word>,
     public span: Span,
   ) {}
 
   async execute(mod: Mod): Promise<void> {
     const ctx = createCtx()
-    cutWords(mod, ctx, this.definedWords, {})
+    cutWords(mod, ctx, this.words, {})
 
     try {
       const definition = lookupWordDefinitionOrFail(mod, this.name)
 
-      if (definition.definedWords !== undefined) {
+      if (definition.words !== undefined) {
         throw new Error(
           `[Define.execute] I can not re-define word: ${this.name}`,
         )
         // TODO It is already defined to ...
       }
 
-      definition.definedWords = this.definedWords
+      definition.words = this.words
     } catch (error) {
       throw createReport(error, {
         message: `[Define.execute] I fail to define word: ${this.name}`,
