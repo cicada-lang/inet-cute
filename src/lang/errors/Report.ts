@@ -11,7 +11,11 @@ export type ReportEntry = {
 export class Report extends Error {
   entries: Array<ReportEntry> = []
 
-  constructor(message: string) {
-    super(message)
+  format(): string {
+    return ""
+  }
+
+  get message(): string {
+    return this.format()
   }
 }
