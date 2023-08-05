@@ -11,7 +11,7 @@ export function cutDefinition(
 ): void {
   switch (definition.kind) {
     case "NodeDefinition": {
-      cutNodeDefinition(ctx, definition)
+      cutNodeDefinition(ctx, definition, options)
       return
     }
 

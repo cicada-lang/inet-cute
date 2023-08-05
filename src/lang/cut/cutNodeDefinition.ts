@@ -2,8 +2,13 @@ import { Ctx } from "../ctx"
 import { NodeDefinition } from "../definition"
 import { freshenType } from "../unify/freshenType"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
+import { CutOptions } from "./cut"
 
-export function cutNodeDefinition(ctx: Ctx, definition: NodeDefinition): void {
+export function cutNodeDefinition(
+  ctx: Ctx,
+  definition: NodeDefinition,
+  options: CutOptions,
+): void {
   for (const portExp of definition.input) {
     const signedType = ctx.signedTypes.pop()
     if (signedType === undefined) {
