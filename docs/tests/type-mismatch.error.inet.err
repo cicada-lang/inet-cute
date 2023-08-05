@@ -4,6 +4,6 @@
  5 |deftype Trivial 0 end
  6 |defnode sole -- value!: Trivial end
  7 |
- 8 |show sole [41ma[49m[41md[49m[41md[49m[41m1[49m end
+ 8 |show sole add1 end
 
 
