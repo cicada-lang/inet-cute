@@ -38,23 +38,23 @@ export type WordDefinition = {
   kind: "WordDefinition"
   mod: Mod
   name: string
-  claimedInputTypes: Array<Type>
-  claimedOutputTypes: Array<Type>
+  input: Array<Type>
+  output: Array<Type>
   definedWords?: Array<Word>
 }
 
 export function WordDefinition(
   mod: Mod,
   name: string,
-  claimedInputTypes: Array<Type>,
-  claimedOutputTypes: Array<Type>,
+  input: Array<Type>,
+  output: Array<Type>,
 ): WordDefinition {
   return {
     kind: "WordDefinition",
     mod,
     name,
-    claimedInputTypes,
-    claimedOutputTypes,
+    input,
+    output,
   }
 }
 

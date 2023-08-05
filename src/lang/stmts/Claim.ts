@@ -10,8 +10,8 @@ import { Type } from "../type"
 export class Claim implements Stmt {
   constructor(
     public name: string,
-    public claimedInputTypes: Array<Type>,
-    public claimedOutputTypes: Array<Type>,
+    public input: Array<Type>,
+    public output: Array<Type>,
     public span: Span,
   ) {}
 
@@ -27,12 +27,7 @@ export class Claim implements Stmt {
       define(
         mod,
         this.name,
-        Definitions.WordDefinition(
-          mod,
-          this.name,
-          this.claimedInputTypes,
-          this.claimedOutputTypes,
-        ),
+        Definitions.WordDefinition(mod, this.name, this.input, this.output),
       )
     } catch (error) {
       throw createReport(error, {

@@ -4,11 +4,13 @@
 
 `node` -- check type -- arity of defined types
 
-`claim` use `inputSignedInputTypes` and `outputSignedInputTypes`
-
 `claim` -- improve error report -- print already claimed
 
 `define` -- improve error report -- print already defined
+
+# later
+
+`claim` use `inputSignedInputTypes` and `outputSignedInputTypes`
 
 # unify
 

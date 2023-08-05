@@ -1,0 +1,7 @@
+[Define.execute] I can not re-define word: swapswap
+
+[Define.execute] I fail to define word: swapswap
+
+ 1 |claim swapswap 'a -- 'a end
+ 2 |define swapswap swap swap end
+ 3 |define swapswap swap swap end

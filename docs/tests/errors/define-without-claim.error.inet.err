@@ -1,5 +1,5 @@
-[lookupDefinitionOrFail] I find meet undefined name: swap_swap
+[lookupDefinitionOrFail] I find meet undefined name: swapswap
 
-[Define.execute] Fail to define word: swap_swap
+[Define.execute] I fail to define word: swapswap
 
- 1 |define swap_swap swap swap end
+ 1 |define swapswap swap swap end

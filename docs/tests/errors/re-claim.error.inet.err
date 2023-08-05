@@ -1,0 +1,7 @@
+[Claim.execute] I can not re-claim word: swapswap
+
+[Claim.execute] I fail to claim word: swapswap
+
+ 1 |claim swapswap 'a -- 'a end
+ 2 |claim swapswap 'a -- 'a end
+ 3 |define swapswap swap swap end
