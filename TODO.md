@@ -37,6 +37,16 @@ update the article
 
 new manual
 
+# propaganda
+
+reply the issue
+
+post on v2ex
+
+post on reddit
+
+post on hackernews
+
 # learn
 
 phase space and monoid -- understand the model theory of linear logic
