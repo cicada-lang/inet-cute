@@ -1,7 +1,5 @@
 # error report
 
-`report.format()`
-
 `cut` throw `Report`
 
 `RunCommand` catch `report` and call `format`
