@@ -21,7 +21,7 @@ export class Define implements Stmt {
     define(
       mod,
       this.name,
-      Definitions.NetDefinition(mod, this.name, this.words),
+      Definitions.WordDefinition(mod, this.name, this.words),
     )
   }
 }

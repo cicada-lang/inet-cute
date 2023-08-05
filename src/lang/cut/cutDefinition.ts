@@ -15,7 +15,7 @@ export function cutDefinition(
       return
     }
 
-    case "NetDefinition": {
+    case "WordDefinition": {
       cutWords(definition.mod, ctx, definition.words, options)
       return
     }

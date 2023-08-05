@@ -2,12 +2,12 @@ import * as Definitions from "../definition"
 import { Mod } from "./Mod"
 import { lookupDefinitionOrFail } from "./lookupDefinitionOrFail"
 
-export function lookupNetDefinitionOrFail(
+export function lookupWordDefinitionOrFail(
   mod: Mod,
   name: string,
-): Definitions.NetDefinition {
+): Definitions.WordDefinition {
   const definition = lookupDefinitionOrFail(mod, name)
-  if (!(definition.kind === "NetDefinition")) {
+  if (!(definition.kind === "WordDefinition")) {
     throw new Error(
       `I expect a net definition, but ${name} is ${definition.constructor.name}`,
     )

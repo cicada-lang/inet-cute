@@ -1,20 +1,15 @@
 # type
 
-`define` -- can be a sequence of words that build a net
+`claim` -- to declare input and output types of a `define`
 
-- need to design syntax to declare input and output types
+```inet
+claim <name> ...<output> end
+claim <name> ...<input> -- ...<output> end
+```
 
-  ```inet
-  define <name>: ...<output> do
-    ...
-  end
+require `claim` before `define`
 
-  define <name>: ...<input> -- ...<output> do
-    ...
-  end
-  ```
-
-[syntax] `fn_args` suport optional `,`
+`cut` of `define` -- put reverse of input of `claim` and check output of `claim`
 
 `node` -- check type -- arity of defined types
 

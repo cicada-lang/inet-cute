@@ -6,7 +6,7 @@ import { Word } from "../word"
 
 export type Definition =
   | NodeDefinition
-  | NetDefinition
+  | WordDefinition
   | OperatorDefinition
   | TypeDefinition
 
@@ -33,20 +33,20 @@ export function NodeDefinition(
   }
 }
 
-export type NetDefinition = {
-  kind: "NetDefinition"
+export type WordDefinition = {
+  kind: "WordDefinition"
   mod: Mod
   name: string
   words: Array<Word>
 }
 
-export function NetDefinition(
+export function WordDefinition(
   mod: Mod,
   name: string,
   words: Array<Word>,
-): NetDefinition {
+): WordDefinition {
   return {
-    kind: "NetDefinition",
+    kind: "WordDefinition",
     mod,
     name,
     words,

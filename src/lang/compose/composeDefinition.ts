@@ -15,7 +15,7 @@ export function composeDefinition(
       return
     }
 
-    case "NetDefinition": {
+    case "WordDefinition": {
       composeWords(definition.mod, net, definition.words, options)
       return
     }
