@@ -1,15 +1,15 @@
 # type
 
-`cutWordDefinition` -- suport claim
-
-- put reverse of claimed input to the stack (with +1 sign)
-- check output of claimed output (with -1 sign)
+fix the use of `freshenType` -- take `occurredNames` as extrat argument for side-effect
 
 `node` -- check type -- arity of defined types
 
-`claim` -- improve error report -- print already claimed
+# error report
 
+`claim` -- improve error report -- print already claimed
 `define` -- improve error report -- print already defined
+`cutWordDefinition` -- improve error report
+`cutNodeDefinition` -- improve error report
 
 # later
 
