@@ -4,14 +4,14 @@ export const port = {
       { name: "variable_name" },
       '":"',
       { type: "type" },
-      { $ap: ["optional", '","'] },
+      { $ap: ["optional", '";"'] },
     ],
     "port:principal": [
       { name: "variable_name" },
       '"!"',
       '":"',
       { type: "type" },
-      { $ap: ["optional", '","'] },
+      { $ap: ["optional", '";"'] },
     ],
   },
 }

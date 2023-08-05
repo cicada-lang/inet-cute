@@ -1,8 +1,4 @@
-`do` should not be preserved word
-
 update stmt names -- drop `Def` prefix
-
-[syntax] change optional `,` to optional `;`
 
 [maybe] [syntax] rename `define` to `fn`
 
