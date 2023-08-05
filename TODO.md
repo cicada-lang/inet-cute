@@ -1,12 +1,14 @@
 # type
 
-re-define.error.inet
-
 `cut` of `define` -- put reverse of input of `claim` and check output of `claim`
 
 `node` -- check type -- arity of defined types
 
 `claim` use `inputSignedInputTypes` and `outputSignedInputTypes`
+
+`claim` -- improve error report -- print already claimed
+
+`define` -- improve error report -- print already defined
 
 # unify
 

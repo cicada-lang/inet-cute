@@ -31,7 +31,7 @@ export class Define implements Stmt {
       definition.definedWords = this.definedWords
     } catch (error) {
       throw createReport(error, {
-        message: `[Define.execute] Fail to define word: ${this.name}`,
+        message: `[Define.execute] I fail to define word: ${this.name}`,
         context: {
           span: this.span,
           text: mod.text,

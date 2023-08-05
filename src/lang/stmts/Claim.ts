@@ -36,7 +36,7 @@ export class Claim implements Stmt {
       )
     } catch (error) {
       throw createReport(error, {
-        message: `[Claim.execute] Fail to claim word: ${this.name}`,
+        message: `[Claim.execute] I fail to claim word: ${this.name}`,
         context: {
           span: this.span,
           text: mod.text,
