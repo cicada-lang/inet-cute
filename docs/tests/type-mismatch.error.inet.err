@@ -1,6 +1,14 @@
-Error: [cut] Fail to cut word: add1
-[unifyTypes] I fail to unify types -- left: Trivial, right: Nat
-    at cut (/home/xyh/cicada-lang/inet/lib/lang/cut/cut.js:53:15)
+Report [Error]: [unifyTypes] I fail to unify types -- left: Trivial, right: Nat
+[cut] Fail to cut word: add1
+
+ 5 |deftype Trivial 0 end
+ 6 |defnode sole -- value!: Trivial end
+ 7 |
+ 8 |show sole add1 end
+
+
+    at createReport (/home/xyh/cicada-lang/inet/lib/lang/errors/createReport.js:10:20)
+    at cut (/home/xyh/cicada-lang/inet/lib/lang/cut/cut.js:52:47)
     at cutWords (/home/xyh/cicada-lang/inet/lib/lang/cut/cutWords.js:7:23)
     at Show.<anonymous> (/home/xyh/cicada-lang/inet/lib/lang/stmts/Show.js:26:37)
     at Generator.next (<anonymous>)
@@ -8,5 +16,11 @@ Error: [cut] Fail to cut word: add1
     at new Promise (<anonymous>)
     at __awaiter (/home/xyh/cicada-lang/inet/lib/lang/stmts/Show.js:4:12)
     at Show.execute (/home/xyh/cicada-lang/inet/lib/lang/stmts/Show.js:24:16)
-    at RunCommand.<anonymous> (/home/xyh/cicada-lang/inet/lib/console/commands/RunCommand.js:47:26)
-    at Generator.next (<anonymous>)
+    at RunCommand.<anonymous> (/home/xyh/cicada-lang/inet/lib/console/commands/RunCommand.js:47:26) {
+  entries: [
+    {
+      message: '[unifyTypes] I fail to unify types -- left: Trivial, right: Nat'
+    },
+    { message: '[cut] Fail to cut word: add1', context: [Object] }
+  ]
+}

@@ -1,5 +1,6 @@
 import { Ctx } from "../ctx"
 import { NodeDefinition } from "../definition"
+import { createReport } from "../errors/createReport"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { formatSignedType } from "../type/formatSignedType"
@@ -77,10 +78,12 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
       }
     }
   } catch (error) {
-    if (!(error instanceof Error)) throw error
-
-    throw new Error(
-      `[cut] Fail to cut word: ${formatWord(word)}\n` + error.message,
-    )
+    throw createReport(error, {
+      message: `[cut] Fail to cut word: ${formatWord(word)}`,
+      context: {
+        span: word.span,
+        text: mod.text,
+      },
+    })
   }
 }
