@@ -1,7 +1,5 @@
 # example
 
-Nat -- `mul` -- with `nat_dup` and `nat_erase`
-
 Nat -- `max` -- with `max_aux`
 
 # module
