@@ -1,7 +1,5 @@
 # error report
 
-`closeFreePorts` use `composeNode`
-
 most definitions can have `Span`
 
 `claim` -- improve error report -- print already claimed
