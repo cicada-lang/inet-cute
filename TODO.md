@@ -1,7 +1,3 @@
-# type
-
-`node` -- check type -- arity of defined types
-
 # error report
 
 `claim` -- improve error report -- print already claimed
