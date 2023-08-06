@@ -90,26 +90,26 @@ run three three mul end
 
 // To define `max`, we need `max_aux`.
 
-node max_aux left: Nat; right!: Nat -- return: Nat end
+node max_aux first: Nat; second!: Nat -- return: Nat end
 
-node max left!: Nat; right: Nat -- return: Nat end
+node max first!: Nat; second: Nat -- return: Nat end
 
 rule zero max
-  [max]-right return-[max]
+  [max]-second return-[max]
 end
 
 rule add1 max
-  [max]-right [add1]-prev max_aux
+  [max]-second [add1]-prev max_aux
   return-[max]
 end
 
 rule zero max_aux
-  [max_aux]-left add1
+  [max_aux]-first add1
   return-[max_aux]
 end
 
 rule add1 max_aux
-  [add1]-prev [max_aux]-left max
+  [add1]-prev [max_aux]-first max
   add1 return-[max_aux]
 end
 
