@@ -1,6 +1,4 @@
-# example
-
-Nat -- `max` -- with `max_aux`
+`node` check that there is one and only one principal port
 
 # module
 
