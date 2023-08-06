@@ -1,5 +1,5 @@
 import * as Definitions from "../definition"
-import { createReport } from "../errors/createReport"
+import { appendReport } from "../errors/appendReport"
 import { PortExp } from "../graph/PortExp"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
@@ -26,7 +26,7 @@ export class DefineNode implements Stmt {
         Definitions.NodeDefinition(mod, this.name, this.input, this.output),
       )
     } catch (error) {
-      throw createReport(error, {
+      throw appendReport(error, {
         message: `[DefineNode.execute] I fail to define node`,
         context: {
           span: this.span,

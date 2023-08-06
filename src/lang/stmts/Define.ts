@@ -1,6 +1,6 @@
 import { createCtx } from "../ctx/createCtx"
 import { cutWordDefinition } from "../cut/cutWordDefinition"
-import { createReport } from "../errors/createReport"
+import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
 import { lookupWordDefinitionOrFail } from "../mod/lookupWordDefinitionOrFail"
 import { Span } from "../span"
@@ -30,7 +30,7 @@ export class Define implements Stmt {
       const ctx = createCtx()
       cutWordDefinition(ctx, definition, {})
     } catch (error) {
-      throw createReport(error, {
+      throw appendReport(error, {
         message: `[Define.execute] I fail to define word: ${this.name}`,
         context: {
           span: this.span,

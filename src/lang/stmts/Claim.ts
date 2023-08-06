@@ -1,5 +1,5 @@
 import * as Definitions from "../definition"
-import { createReport } from "../errors/createReport"
+import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
 import { lookupDefinition } from "../mod/lookupDefinition"
@@ -34,7 +34,7 @@ export class Claim implements Stmt {
         Definitions.WordDefinition(mod, this.name, this.input, this.output),
       )
     } catch (error) {
-      throw createReport(error, {
+      throw appendReport(error, {
         message: `[Claim.execute] I fail to claim word: ${this.name}`,
         context: {
           span: this.span,
