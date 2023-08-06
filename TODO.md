@@ -1,10 +1,8 @@
+`unifyTypes` -- call `occurCheck`
+
 # later
 
 `claim` use `SignedType` as `input` and `output`
-
-# unify
-
-`unifyTypes` -- occur check
 
 # example
 
