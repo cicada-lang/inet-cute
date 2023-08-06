@@ -1,4 +1,5 @@
 import { Report, ReportEntry } from "./Report"
+import { createReportEntry } from "./createReportEntry"
 
 export function appendReport(error: unknown, entry: ReportEntry): Report {
   // NOTE We put the most recent report entry at the end,
@@ -9,17 +10,5 @@ export function appendReport(error: unknown, entry: ReportEntry): Report {
     return error
   }
 
-  return new Report([appendReportEntry(error), entry])
-}
-
-function appendReportEntry(error: unknown): ReportEntry {
-  if (error instanceof Error) {
-    return {
-      message: error.message,
-    }
-  } else {
-    return {
-      message: String(error),
-    }
-  }
+  return new Report([createReportEntry(error), entry])
 }
