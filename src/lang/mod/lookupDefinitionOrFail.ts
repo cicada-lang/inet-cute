@@ -6,7 +6,7 @@ export function lookupDefinitionOrFail(mod: Mod, name: string): Definition {
   if (definition === undefined) {
     throw new Error(
       [
-        `[lookupDefinitionOrFail] I find meet undefined name.`,
+        `[lookupDefinitionOrFail] I meet undefined name.`,
         ``,
         `  name: ${name}`,
       ].join("\n"),

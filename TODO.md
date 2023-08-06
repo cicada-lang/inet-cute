@@ -1,7 +1,3 @@
-`DefineRule` error report
-
-- rule-before-node.error.inet
-
 # module
 
 suport module system
