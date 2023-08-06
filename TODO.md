@@ -1,4 +1,6 @@
-`node` check that there is one and only one principal port
+`DefineRule` error report
+
+- rule-before-node.error.inet
 
 # module
 

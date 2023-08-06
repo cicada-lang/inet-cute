@@ -1,0 +1,12 @@
+[DefineNode.execute] I expect one and only one principal port.
+
+  found principal ports: [prev, value]
+
+[DefineNode.execute] I fail to define node.
+
+  node name: add1
+
+ 1 |type Nat 0 end
+ 2 |node zero -- value!: Nat end
+ 3 |node add1 prev!: Nat -- value!: Nat end
+ 4 |
