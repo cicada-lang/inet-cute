@@ -1,30 +1,30 @@
-(cons₅)-value!target-(append₀)
-(cons₂)-value rest-(append₀)
-(cons₄)-value tail-(cons₅)
-(sole₅)-value head-(cons₅)
-(cons₃)-value tail-(cons₄)
-(sole₄)-value head-(cons₄)
-(null₁)-value tail-(cons₃)
-(sole₃)-value head-(cons₃)
-(cons₁)-value tail-(cons₂)
-(sole₂)-value head-(cons₂)
-(cons₀)-value tail-(cons₁)
-(sole₁)-value head-(cons₁)
-(null₀)-value tail-(cons₀)
-(sole₀)-value head-(cons₀)
-(append₀)-return
+[cons₅]-value!target-[append₀]
+[cons₂]-value rest-[append₀]
+[cons₄]-value tail-[cons₅]
+[sole₅]-value head-[cons₅]
+[cons₃]-value tail-[cons₄]
+[sole₄]-value head-[cons₄]
+[null₁]-value tail-[cons₃]
+[sole₃]-value head-[cons₃]
+[cons₁]-value tail-[cons₂]
+[sole₂]-value head-[cons₂]
+[cons₀]-value tail-[cons₁]
+[sole₁]-value head-[cons₁]
+[null₀]-value tail-[cons₀]
+[sole₀]-value head-[cons₀]
+[append₀]-return
 
-(cons₈)-value tail-(cons₁₄)
-(cons₁₄)-value tail-(cons₁₃)
-(sole₉)-value head-(cons₁₄)
-(cons₁₃)-value tail-(cons₁₂)
-(sole₁₀)-value head-(cons₁₃)
-(sole₁₁)-value head-(cons₁₂)
-(cons₇)-value tail-(cons₈)
-(sole₈)-value head-(cons₈)
-(cons₆)-value tail-(cons₇)
-(sole₇)-value head-(cons₇)
-(null₂)-value tail-(cons₆)
-(sole₆)-value head-(cons₆)
-(cons₁₂)-value
+[cons₈]-value tail-[cons₁₄]
+[cons₁₄]-value tail-[cons₁₃]
+[sole₉]-value head-[cons₁₄]
+[cons₁₃]-value tail-[cons₁₂]
+[sole₁₀]-value head-[cons₁₃]
+[sole₁₁]-value head-[cons₁₂]
+[cons₇]-value tail-[cons₈]
+[sole₈]-value head-[cons₈]
+[cons₆]-value tail-[cons₇]
+[sole₇]-value head-[cons₇]
+[null₂]-value tail-[cons₆]
+[sole₆]-value head-[cons₆]
+[cons₁₂]-value
 

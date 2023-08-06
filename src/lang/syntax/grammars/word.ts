@@ -3,18 +3,18 @@ export const word = {
     "word:call": [{ name: "variable_name" }],
     "word:local_set": ['"$"', { name: "variable_name" }],
     "word:port_push": [
-      '"("',
+      '"["',
       { nodeName: "variable_name" },
-      '")"',
+      '"]"',
       '"-"',
       { portName: "variable_name" },
     ],
     "word:port_reconnect": [
       { portName: "variable_name" },
       '"-"',
-      '"("',
+      '"["',
       { nodeName: "variable_name" },
-      '")"',
+      '"]"',
     ],
   },
 }

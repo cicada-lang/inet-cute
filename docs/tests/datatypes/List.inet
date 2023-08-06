@@ -8,14 +8,14 @@ node cons head: 'a; tail: List('a) -- value!: List('a) end
 node append target!: List('a); rest: List('a) -- return: List('a) end
 
 rule null append
-  (append)-rest
-  return-(append)
+  [append]-rest
+  return-[append]
 end
 
 rule cons append
-  (append)-rest (cons)-tail append
-  (cons)-head cons
-  return-(append)
+  [append]-rest [cons]-tail append
+  [cons]-head cons
+  return-[append]
 end
 
 claim six_soles List(Trivial) end

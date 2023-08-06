@@ -67,6 +67,14 @@ understand proof-nets for all connectives
 
 the stack can take other types of values -- not only port
 
+`'a` should be a value
+
+`key: value` should be a value (Pair)
+
+- support JSON syntax
+
+use `()` for prefix application -- one `,` one substack
+
 # example
 
 use inet to encode lambda calculus

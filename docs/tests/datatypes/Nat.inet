@@ -5,13 +5,13 @@ node add1 prev: Nat -- value!: Nat end
 node add target!: Nat; addend: Nat -- return: Nat end
 
 rule zero add
-  (add)-addend
-  return-(add)
+  [add]-addend
+  return-[add]
 end
 
 rule add1 add
-  (add)-addend (add1)-prev add add1
-  return-(add)
+  [add]-addend [add1]-prev add add1
+  return-[add]
 end
 
 show zero zero add end

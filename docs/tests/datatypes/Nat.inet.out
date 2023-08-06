@@ -1,47 +1,47 @@
-(zero₁)-value!target-(add₀)
-(zero₀)-value addend-(add₀)
-(add₀)-return
+[zero₁]-value!target-[add₀]
+[zero₀]-value addend-[add₀]
+[add₀]-return
 
-(zero₂)-value
+[zero₂]-value
 
-(add1₁)-value!target-(add₂)
-(add1₀)-value addend-(add₂)
-(zero₅)-value prev-(add1₁)
-(zero₄)-value prev-(add1₀)
-(add₂)-return
+[add1₁]-value!target-[add₂]
+[add1₀]-value addend-[add₂]
+[zero₅]-value prev-[add1₁]
+[zero₄]-value prev-[add1₀]
+[add₂]-return
 
-(add1₂)-value prev-(add1₄)
-(zero₆)-value prev-(add1₂)
-(add1₄)-value
+[add1₂]-value prev-[add1₄]
+[zero₆]-value prev-[add1₂]
+[add1₄]-value
 
-(add1₈)-value!target-(add₆)
-(add1₆)-value!target-(add₅)
-(add₅)-return addend-(add₇)
-(add₆)-return target-(add₇)
-(add1₇)-value addend-(add₆)
-(zero₁₁)-value prev-(add1₈)
-(zero₁₀)-value prev-(add1₇)
-(add1₅)-value addend-(add₅)
-(zero₉)-value prev-(add1₆)
-(zero₈)-value prev-(add1₅)
-(add₇)-return
+[add1₈]-value!target-[add₆]
+[add1₆]-value!target-[add₅]
+[add₅]-return addend-[add₇]
+[add₆]-return target-[add₇]
+[add1₇]-value addend-[add₆]
+[zero₁₁]-value prev-[add1₈]
+[zero₁₀]-value prev-[add1₇]
+[add1₅]-value addend-[add₅]
+[zero₉]-value prev-[add1₆]
+[zero₈]-value prev-[add1₅]
+[add₇]-return
 
-(add1₉)-value prev-(add1₁₆)
-(add1₁₆)-value prev-(add1₁₅)
-(add1₁₅)-value prev-(add1₁₄)
-(zero₁₂)-value prev-(add1₉)
-(add1₁₄)-value
+[add1₉]-value prev-[add1₁₆]
+[add1₁₆]-value prev-[add1₁₅]
+[add1₁₅]-value prev-[add1₁₄]
+[zero₁₂]-value prev-[add1₉]
+[add1₁₄]-value
 
-(add1₁₇)-value!target-(add₁₅)
-(zero₁₆)-value addend-(add₁₅)
-(zero₁₇)-value prev-(add1₁₇)
-(add₁₅)-return
+[add1₁₇]-value!target-[add₁₅]
+[zero₁₆]-value addend-[add₁₅]
+[zero₁₇]-value prev-[add1₁₇]
+[add₁₅]-return
 
-(zero₁₈)-value prev-(add1₁₉)
-(add1₁₉)-value
+[zero₁₈]-value prev-[add1₁₉]
+[add1₁₉]-value
 
-(add1₂₀)-value prev-(add1₂₅)
-(add1₂₅)-value prev-(add1₂₄)
-(zero₂₀)-value prev-(add1₂₀)
-(add1₂₄)-value
+[add1₂₀]-value prev-[add1₂₅]
+[add1₂₅]-value prev-[add1₂₄]
+[zero₂₀]-value prev-[add1₂₀]
+[add1₂₄]-value
 
