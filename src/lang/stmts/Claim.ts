@@ -27,8 +27,9 @@ export class Claim implements Stmt {
 
       if (definition !== undefined) {
         const definitionSpan = definitionMaybeSpan(definition)
+
         throw createReport({
-          message: `[Claim.execute] I already claimed word: ${this.name}`,
+          message: `[Claim.execute] I already claimed/defined word: ${this.name}`,
           context: definitionSpan
             ? { span: definitionSpan, text: mod.text }
             : undefined,

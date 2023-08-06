@@ -1,6 +1,8 @@
 import { createCtx } from "../ctx/createCtx"
 import { cutWordDefinition } from "../cut/cutWordDefinition"
+import { definitionMaybeSpan } from "../definition/definitionMaybeSpan"
 import { appendReport } from "../errors/appendReport"
+import { createReport } from "../errors/createReport"
 import { Mod } from "../mod"
 import { lookupWordDefinitionOrFail } from "../mod/lookupWordDefinitionOrFail"
 import { Span } from "../span"
@@ -19,13 +21,18 @@ export class Define implements Stmt {
       const definition = lookupWordDefinitionOrFail(mod, this.name)
 
       if (definition.words !== undefined) {
-        throw new Error(
-          `[Define.execute] I can not re-define word: ${this.name}`,
-        )
-        // TODO It is already defined to ...
+        const definitionSpan = definitionMaybeSpan(definition)
+
+        throw createReport({
+          message: `[Define.execute] I already defined word: ${this.name}`,
+          context: definitionSpan
+            ? { span: definitionSpan, text: mod.text }
+            : undefined,
+        })
       }
 
       definition.words = this.words
+      definition.span = this.span
 
       const ctx = createCtx()
       cutWordDefinition(ctx, definition, {})
