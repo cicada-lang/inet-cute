@@ -1,5 +1,6 @@
 import { Ctx } from "../ctx"
 import { NodeDefinition } from "../definition"
+import { formatType } from "../type/formatType"
 import { freshenType } from "../unify/freshenType"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
 import { CutOptions } from "./cut"
@@ -15,7 +16,11 @@ export function cutNodeDefinition(
     const signedType = ctx.signedTypes.pop()
     if (signedType === undefined) {
       throw new Error(
-        `[cutNodeDefinition] I expect a signedType on top of the stack`,
+        [
+          `[cutNodeDefinition] I expect a signedType on top of the stack.`,
+          ``,
+          `  awaiting type: ${formatType(portExp.t)}`,
+        ].join("\n"),
       )
     }
 

@@ -1,7 +1,3 @@
-# error report
-
-`cutNodeDefinition` -- improve error report
-
 # later
 
 `claim` use `SignedType` as `input` and `output`
