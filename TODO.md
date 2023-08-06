@@ -1,6 +1,11 @@
 # error report
 
+`closeFreePorts` use `composeNode`
+
+most definitions can have `Span`
+
 `claim` -- improve error report -- print already claimed
+
 `define` -- improve error report -- print already defined
 
 `cutWordDefinition` -- improve error report
