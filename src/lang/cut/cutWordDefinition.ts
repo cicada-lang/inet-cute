@@ -1,5 +1,6 @@
 import { Ctx } from "../ctx"
 import { WordDefinition } from "../definition"
+import { formatType } from "../type/formatType"
 import { freshenType } from "../unify/freshenType"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
 import { CutOptions } from "./cut"
@@ -15,7 +16,7 @@ export function cutWordDefinition(
   if (definition.words === undefined) {
     throw new Error(
       [
-        `[cutWordDefinition] I expect a word definition to have defined words.`,
+        `[cutWordDefinition] I expect a word definition to be already defined.`,
         ``,
         `  word: ${definition.name}`,
       ].join("\n"),
@@ -37,7 +38,11 @@ export function cutWordDefinition(
     const signedType = ctx.signedTypes.pop()
     if (signedType === undefined) {
       throw new Error(
-        `[cutWordDefinition] I expect a signedType on top of the stack`,
+        [
+          `[cutWordDefinition] I expect a signedType on top of the stack.`,
+          ``,
+          `  awaiting type: ${formatType(t)}`,
+        ].join("\n"),
       )
     }
 

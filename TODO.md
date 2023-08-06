@@ -1,6 +1,5 @@
 # error report
 
-`cutWordDefinition` -- improve error report
 `cutNodeDefinition` -- improve error report
 
 # later
