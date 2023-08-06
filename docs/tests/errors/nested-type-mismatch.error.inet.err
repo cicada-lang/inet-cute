@@ -1,6 +1,11 @@
-[unifyTypes] I fail to unify types -- left: Trivial, right: Nat
+[unifyTypes] I fail to unify types.
 
-[cut] Fail to cut -- word: append
+  left: Trivial
+  right: Nat
+
+[cut] I fail to cut word.
+
+  word: append
 
  15 |show
  16 |  null sole cons sole cons

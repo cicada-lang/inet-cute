@@ -36,9 +36,12 @@ export function unifySignedTypes(
   }
 
   throw new Error(
-    `[unifySignedTypes] I expect the sign to be opposite -- left: ${formatSignedType(
-      left,
-    )}, right: ${formatSignedType(right)}`,
+    [
+      `[unifySignedTypes] I expect the sign to be opposite.`,
+      ``,
+      `  left: ${formatSignedType(left)}`,
+      `  right: ${formatSignedType(right)}`,
+    ].join("\n"),
   )
 }
 
@@ -49,14 +52,18 @@ function setNeutralSignedType(
 ): void {
   if (neutralSignedType.id === undefined) {
     throw new Error(
-      `[setNeutralSignedType] I expect neutralSignedType to have id`,
+      `[setNeutralSignedType] I expect neutralSignedType to have id.`,
     )
   }
 
   const found = ctx.neutralSignedTypes.get(neutralSignedType.id)
   if (found === undefined) {
     throw new Error(
-      `[setNeutralSignedType] I can not find neutralSignedType for id: ${neutralSignedType.id}`,
+      [
+        `[setNeutralSignedType] I can not find neutralSignedType for id.`,
+        ``,
+        `  id: ${neutralSignedType.id}`,
+      ].join("\n"),
     )
   }
 

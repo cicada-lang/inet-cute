@@ -1,6 +1,11 @@
-[unifyTypes] I fail to unify types -- left: Trivial, right: Nat
+[unifyTypes] I fail to unify types.
 
-[cut] Fail to cut -- word: add1
+  left: Trivial
+  right: Nat
+
+[cut] I fail to cut word.
+
+  word: add1
 
  5 |type Trivial 0 end
  6 |node sole -- value!: Trivial end

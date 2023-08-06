@@ -12,7 +12,7 @@ export function findCurrentSignedTypeOrFail(
   const { current } = options || {}
 
   if (current === undefined) {
-    throw new Error(`[${who}] I expect current start and end node definitions`)
+    throw new Error(`[${who}] I expect current start and end node definitions.`)
   }
 
   const found = findSignedTypeInNodeDefinitions(nodeName, portName, [
@@ -21,7 +21,7 @@ export function findCurrentSignedTypeOrFail(
   ])
 
   if (found === undefined) {
-    throw new Error(`[${who}] I can not find port: ${portName} in nodes`)
+    throw new Error(`[${who}] I can not find port: ${portName} in nodes.`)
   }
 
   return found

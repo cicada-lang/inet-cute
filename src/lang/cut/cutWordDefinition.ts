@@ -14,7 +14,11 @@ export function cutWordDefinition(
 
   if (definition.words === undefined) {
     throw new Error(
-      `[cutWordDefinition] I expect a word definition to have defined words -- word: ${definition.name}`,
+      [
+        `[cutWordDefinition] I expect a word definition to have defined words.`,
+        ``,
+        `  word: ${definition.name}`,
+      ].join("\n"),
     )
   }
 

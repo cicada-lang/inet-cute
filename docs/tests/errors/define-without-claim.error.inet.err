@@ -1,5 +1,9 @@
-[lookupDefinitionOrFail] I find meet undefined name: swapswap
+[lookupDefinitionOrFail] I find meet undefined name.
 
-[Define.execute] I fail to define word: swapswap
+  name: swapswap
+
+[Define.execute] I fail to define word.
+
+  word: swapswap
 
  1 |define swapswap swap swap end

@@ -33,7 +33,7 @@ export class DefineNode implements Stmt {
       )
     } catch (error) {
       throw appendReport(error, {
-        message: `[DefineNode.execute] I fail to define node`,
+        message: `[DefineNode.execute] I fail to define node.`,
         context: {
           span: this.span,
           text: mod.text,

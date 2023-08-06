@@ -5,7 +5,11 @@ export function lookupDefinitionOrFail(mod: Mod, name: string): Definition {
   const definition = mod.definitions.get(name)
   if (definition === undefined) {
     throw new Error(
-      `[lookupDefinitionOrFail] I find meet undefined name: ${name}`,
+      [
+        `[lookupDefinitionOrFail] I find meet undefined name.`,
+        ``,
+        `  name: ${name}`,
+      ].join("\n"),
     )
   }
 

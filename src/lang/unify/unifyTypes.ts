@@ -39,8 +39,11 @@ export function unifyTypes(ctx: Ctx, left: Type, right: Type): void {
   }
 
   throw new Error(
-    `[unifyTypes] I fail to unify types -- left: ${formatType(
-      left,
-    )}, right: ${formatType(right)}`,
+    [
+      `[unifyTypes] I fail to unify types.`,
+      ``,
+      `  left: ${formatType(left)}`,
+      `  right: ${formatType(right)}`,
+    ].join("\n"),
   )
 }

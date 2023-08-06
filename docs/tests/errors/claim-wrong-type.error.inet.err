@@ -1,6 +1,11 @@
-[unifyTypes] I fail to unify types -- left: Trivial, right: Nat
+[unifyTypes] I fail to unify types.
 
-[Define.execute] I fail to define word: x
+  left: Trivial
+  right: Nat
+
+[Define.execute] I fail to define word.
+
+  word: x
 
   5 |type Trivial 0 end
   6 |node sole -- value!: Trivial end

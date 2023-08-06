@@ -24,7 +24,11 @@ export class Define implements Stmt {
         const definitionSpan = definitionMaybeSpan(definition)
 
         throw createReport({
-          message: `[Define.execute] I already defined word: ${this.name}`,
+          message: [
+            `[Define.execute] I already defined word.`,
+            ``,
+            `  word: ${this.name}`,
+          ].join("\n"),
           context: definitionSpan
             ? { span: definitionSpan, text: mod.text }
             : undefined,
@@ -38,7 +42,11 @@ export class Define implements Stmt {
       cutWordDefinition(ctx, definition, {})
     } catch (error) {
       throw appendReport(error, {
-        message: `[Define.execute] I fail to define word: ${this.name}`,
+        message: [
+          `[Define.execute] I fail to define word.`,
+          ``,
+          `  word: ${this.name}`,
+        ].join("\n"),
         context: {
           span: this.span,
           text: mod.text,

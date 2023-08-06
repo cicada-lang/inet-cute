@@ -29,7 +29,11 @@ export class Claim implements Stmt {
         const definitionSpan = definitionMaybeSpan(definition)
 
         throw createReport({
-          message: `[Claim.execute] I already claimed/defined word: ${this.name}`,
+          message: [
+            `[Claim.execute] I already claimed/defined word.`,
+            ``,
+            `  word: ${this.name}`,
+          ].join("\n"),
           context: definitionSpan
             ? { span: definitionSpan, text: mod.text }
             : undefined,
@@ -49,7 +53,11 @@ export class Claim implements Stmt {
       )
     } catch (error) {
       throw appendReport(error, {
-        message: `[Claim.execute] I fail to claim word: ${this.name}`,
+        message: [
+          `[Claim.execute] I fail to claim word.`,
+          ``,
+          `  word: ${this.name}`,
+        ].join("\n"),
         context: {
           span: this.span,
           text: mod.text,

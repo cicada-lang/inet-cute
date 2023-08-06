@@ -1,6 +1,12 @@
-[checkType] I find wrong arity for type term: List -- expect 1, given: 0
+[checkType] I find wrong number of args for type term.
 
-[Claim.execute] I fail to claim word: appendappend
+  type term: List
+  arity: 1
+  number of args: 0
+
+[Claim.execute] I fail to claim word.
+
+  word: appendappend
 
   3 |node cons head: 'a; tail: List('a) -- value!: List('a) end
   4 |
