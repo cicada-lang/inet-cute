@@ -1,10 +1,14 @@
 # module
 
-suport module system
+design module system
 
 - [maybe] when importing a node, also import all the rules about this node
+- [maybe] suport defining node and type in one module, and defining rules in another module
+- [maybe] learn from ruby module system
 
-suport defining node and type in one module, and defining rules in another module
+suport module system
+
+re-org tests
 
 # docs
 
