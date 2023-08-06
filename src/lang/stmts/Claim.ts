@@ -31,7 +31,13 @@ export class Claim implements Stmt {
       define(
         mod,
         this.name,
-        Definitions.WordDefinition(mod, this.name, this.input, this.output),
+        Definitions.WordDefinition(
+          mod,
+          this.span,
+          this.name,
+          this.input,
+          this.output,
+        ),
       )
     } catch (error) {
       throw appendReport(error, {

@@ -23,7 +23,13 @@ export class DefineNode implements Stmt {
       define(
         mod,
         this.name,
-        Definitions.NodeDefinition(mod, this.name, this.input, this.output),
+        Definitions.NodeDefinition(
+          mod,
+          this.span,
+          this.name,
+          this.input,
+          this.output,
+        ),
       )
     } catch (error) {
       throw appendReport(error, {

@@ -15,7 +15,7 @@ export class DefineType implements Stmt {
     define(
       mod,
       this.name,
-      Definitions.TypeDefinition(mod, this.name, this.arity),
+      Definitions.TypeDefinition(mod, this.span, this.name, this.arity),
     )
   }
 }

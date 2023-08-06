@@ -2,6 +2,7 @@ import { Ctx } from "../ctx"
 import { PortExp } from "../graph/PortExp"
 import { Mod } from "../mod"
 import { Net } from "../net"
+import { Span } from "../span"
 import { Type } from "../type"
 import { Word } from "../word"
 
@@ -14,6 +15,7 @@ export type Definition =
 export type NodeDefinition = {
   kind: "NodeDefinition"
   mod: Mod
+  span: Span
   name: string
   input: Array<PortExp>
   output: Array<PortExp>
@@ -21,6 +23,7 @@ export type NodeDefinition = {
 
 export function NodeDefinition(
   mod: Mod,
+  span: Span,
   name: string,
   input: Array<PortExp>,
   output: Array<PortExp>,
@@ -28,6 +31,7 @@ export function NodeDefinition(
   return {
     kind: "NodeDefinition",
     mod,
+    span,
     name,
     input,
     output,
@@ -37,6 +41,7 @@ export function NodeDefinition(
 export type WordDefinition = {
   kind: "WordDefinition"
   mod: Mod
+  span: Span
   name: string
   input: Array<Type>
   output: Array<Type>
@@ -45,6 +50,7 @@ export type WordDefinition = {
 
 export function WordDefinition(
   mod: Mod,
+  span: Span,
   name: string,
   input: Array<Type>,
   output: Array<Type>,
@@ -52,6 +58,7 @@ export function WordDefinition(
   return {
     kind: "WordDefinition",
     mod,
+    span,
     name,
     input,
     output,
@@ -84,18 +91,21 @@ export function OperatorDefinition(
 export type TypeDefinition = {
   kind: "TypeDefinition"
   mod: Mod
+  span: Span
   name: string
   arity: number
 }
 
 export function TypeDefinition(
   mod: Mod,
+  span: Span,
   name: string,
   arity: number,
 ): TypeDefinition {
   return {
     kind: "TypeDefinition",
     mod,
+    span,
     name,
     arity,
   }
