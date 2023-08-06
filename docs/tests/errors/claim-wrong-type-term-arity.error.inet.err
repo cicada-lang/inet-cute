@@ -1,0 +1,11 @@
+[checkType] I find wrong arity for type term: List -- expect 1, given: 0
+
+[Claim.execute] I fail to claim word: appendappend
+
+  3 |node cons head: 'a; tail: List('a) -- value!: List('a) end
+  4 |
+  5 |node append target!: List('a); rest: List('a) -- return: List('a) end
+  6 |
+  7 |claim appendappend List('a) List List('a) -- List('a) end
+  8 |define appendappend append append end
+  9 |

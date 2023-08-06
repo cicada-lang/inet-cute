@@ -6,6 +6,7 @@ import { lookupDefinition } from "../mod/lookupDefinition"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { Type } from "../type"
+import { checkType } from "../type/checkType"
 
 export class Claim implements Stmt {
   constructor(
@@ -17,6 +18,9 @@ export class Claim implements Stmt {
 
   async execute(mod: Mod): Promise<void> {
     try {
+      this.input.map((t) => checkType(mod, t))
+      this.output.map((t) => checkType(mod, t))
+
       const definition = lookupDefinition(mod, this.name)
 
       if (definition !== undefined) {
