@@ -1,7 +1,5 @@
 # error report
 
-`claim` -- improve error report -- print already claimed
-
 `define` -- improve error report -- print already defined
 
 `cutWordDefinition` -- improve error report

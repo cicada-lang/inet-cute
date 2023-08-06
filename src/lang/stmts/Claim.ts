@@ -1,5 +1,7 @@
 import * as Definitions from "../definition"
+import { definitionMaybeSpan } from "../definition/definitionMaybeSpan"
 import { appendReport } from "../errors/appendReport"
+import { createReport } from "../errors/createReport"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
 import { lookupDefinition } from "../mod/lookupDefinition"
@@ -24,8 +26,13 @@ export class Claim implements Stmt {
       const definition = lookupDefinition(mod, this.name)
 
       if (definition !== undefined) {
-        throw new Error(`[Claim.execute] I can not re-claim word: ${this.name}`)
-        // TODO It is already claimed to ...
+        const definitionSpan = definitionMaybeSpan(definition)
+        throw createReport({
+          message: `[Claim.execute] I already claimed word: ${this.name}`,
+          context: definitionSpan
+            ? { span: definitionSpan, text: mod.text }
+            : undefined,
+        })
       }
 
       define(
