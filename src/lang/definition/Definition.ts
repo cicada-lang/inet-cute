@@ -3,7 +3,7 @@ import { PortExp } from "../graph/PortExp"
 import { Mod } from "../mod"
 import { Net } from "../net"
 import { Span } from "../span"
-import { Type } from "../type"
+import { SignedType } from "../type"
 import { Word } from "../word"
 
 export type Definition =
@@ -43,8 +43,8 @@ export type WordDefinition = {
   mod: Mod
   span: Span
   name: string
-  input: Array<Type>
-  output: Array<Type>
+  input: Array<SignedType>
+  output: Array<SignedType>
   words?: Array<Word>
 }
 
@@ -52,8 +52,8 @@ export function WordDefinition(
   mod: Mod,
   span: Span,
   name: string,
-  input: Array<Type>,
-  output: Array<Type>,
+  input: Array<SignedType>,
+  output: Array<SignedType>,
 ): WordDefinition {
   return {
     kind: "WordDefinition",

@@ -11,7 +11,7 @@ export function composeNode(net: Net, node: Node): Node {
     const topPort = net.ports.pop()
     if (topPort === undefined) {
       throw new Error(
-        `[composeNodeDefinition] I expect a port on top of the stack`,
+        `[composeNodeDefinition] I expect a port on top of the stack.`,
       )
     }
 

@@ -7,21 +7,21 @@ import { define } from "../mod/define"
 import { lookupDefinition } from "../mod/lookupDefinition"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
-import { Type } from "../type"
+import { SignedType } from "../type"
 import { checkType } from "../type/checkType"
 
 export class Claim implements Stmt {
   constructor(
     public name: string,
-    public input: Array<Type>,
-    public output: Array<Type>,
+    public input: Array<SignedType>,
+    public output: Array<SignedType>,
     public span: Span,
   ) {}
 
   async execute(mod: Mod): Promise<void> {
     try {
-      this.input.map((t) => checkType(mod, t))
-      this.output.map((t) => checkType(mod, t))
+      this.input.map(({ t }) => checkType(mod, t))
+      this.output.map(({ t }) => checkType(mod, t))
 
       const definition = lookupDefinition(mod, this.name)
 

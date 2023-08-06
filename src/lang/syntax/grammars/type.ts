@@ -25,21 +25,31 @@ export const type_args = {
   },
 }
 
-export const type_with_optional_semicolon = {
+export const signed_type_with_optional_semicolon = {
   $grammar: {
-    "type_with_optional_semicolon:type_with_optional_semicolon": [
+    "signed_type_with_optional_semicolon:positive": [
+      { type: "type" },
+      { $ap: ["optional", '";"'] },
+    ],
+    "signed_type_with_optional_semicolon:negative": [
+      '"-"',
+      { type: "type" },
+      { $ap: ["optional", '";"'] },
+    ],
+    "signed_type_with_optional_semicolon:neutral": [
+      '"±"',
       { type: "type" },
       { $ap: ["optional", '";"'] },
     ],
   },
 }
 
-export const type_sequence = {
+export const signed_type_sequence = {
   $grammar: {
-    "type_sequence:type_sequence": [
+    "signed_type_sequence:signed_type_sequence": [
       {
         types: {
-          $ap: ["zero_or_more", "type_with_optional_semicolon"],
+          $ap: ["zero_or_more", "signed_type_with_optional_semicolon"],
         },
       },
     ],

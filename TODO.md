@@ -1,9 +1,3 @@
-# later
-
-`claim` use `SignedType` as `input` and `output`
-
-- fix occur-check.error.inet
-
 # example
 
 Nat -- `mul` -- with `nat_dup` and `nat_erase`

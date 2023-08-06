@@ -1,6 +1,6 @@
 import * as pt from "@cicada-lang/partech"
 import * as Types from "../../type"
-import { Type } from "../../type"
+import { SignedType, Type } from "../../type"
 
 export function type_matcher(tree: pt.Tree): Type {
   return pt.matcher<Type>({
@@ -21,18 +21,30 @@ export function type_args_matcher(tree: pt.Tree): Array<Type> {
   })(tree)
 }
 
-export function type_with_optional_semicolon_matcher(tree: pt.Tree): Type {
+export function signed_type_with_optional_semicolon_matcher(
+  tree: pt.Tree,
+): SignedType {
   return pt.matcher({
-    "type_with_optional_semicolon:type_with_optional_semicolon": ({ type }) =>
-      type_matcher(type),
+    "signed_type_with_optional_semicolon:positive": ({ type }) => ({
+      t: type_matcher(type),
+      sign: 1 as Types.Sign,
+    }),
+    "signed_type_with_optional_semicolon:negative": ({ type }) => ({
+      t: type_matcher(type),
+      sign: -1 as Types.Sign,
+    }),
+    "signed_type_with_optional_semicolon:neutral": ({ type }) => ({
+      t: type_matcher(type),
+      sign: 0 as Types.Sign,
+    }),
   })(tree)
 }
 
-export function type_sequence_matcher(tree: pt.Tree): Array<Type> {
+export function signed_type_sequence_matcher(tree: pt.Tree): Array<SignedType> {
   return pt.matcher({
-    "type_sequence:type_sequence": ({ types }) =>
+    "signed_type_sequence:signed_type_sequence": ({ types }) =>
       pt.matchers
         .zero_or_more_matcher(types)
-        .map(type_with_optional_semicolon_matcher),
+        .map(signed_type_with_optional_semicolon_matcher),
   })(tree)
 }

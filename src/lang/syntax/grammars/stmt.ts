@@ -26,15 +26,15 @@ export const stmt = {
     "stmt:claim_with_output": [
       '"claim"',
       { name: "variable_name" },
-      { output: "type_sequence" },
+      { output: "signed_type_sequence" },
       '"end"',
     ],
     "stmt:claim_with_input_and_output": [
       '"claim"',
       { name: "variable_name" },
-      { input: "type_sequence" },
+      { input: "signed_type_sequence" },
       "dashline",
-      { output: "type_sequence" },
+      { output: "signed_type_sequence" },
       '"end"',
     ],
     "stmt:define": [
