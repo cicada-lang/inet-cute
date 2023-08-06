@@ -1,4 +1,4 @@
-`unifyTypes` -- call `occurCheck`
+`occurCheck` -- reject infinite term
 
 # later
 

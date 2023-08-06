@@ -1,6 +1,7 @@
 import { Ctx } from "../ctx"
 import { Type } from "../type"
 import { formatType } from "../type/formatType"
+import { occurCheck } from "./occurCheck"
 import { walkType } from "./walkType"
 
 export function unifyTypes(ctx: Ctx, left: Type, right: Type): void {
@@ -16,11 +17,13 @@ export function unifyTypes(ctx: Ctx, left: Type, right: Type): void {
   }
 
   if (left.kind === "TypeVar") {
+    occurCheck(ctx, left.name, right)
     ctx.substitution.set(left.name, right)
     return
   }
 
   if (right.kind === "TypeVar") {
+    occurCheck(ctx, right.name, left)
     ctx.substitution.set(right.name, left)
     return
   }
