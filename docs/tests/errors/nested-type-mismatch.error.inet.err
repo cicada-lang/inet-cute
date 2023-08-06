@@ -3,6 +3,11 @@
   left: Trivial
   right: Nat
 
+[unifyTypes] I fail to unify types.
+
+  left: List(Trivial)
+  right: List(Nat)
+
 [cut] I fail to cut word.
 
   word: append

@@ -7,7 +7,7 @@ export function formatType(t: Type): string {
         return `${t.name}`
       } else {
         const args = t.args.map(formatType).join(", ")
-        return `${t.name}(args)`
+        return `${t.name}(${args})`
       }
     }
 
