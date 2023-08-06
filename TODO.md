@@ -1,8 +1,8 @@
-`occurCheck` -- reject infinite term
-
 # later
 
 `claim` use `SignedType` as `input` and `output`
+
+- fix occur-check.error.inet
 
 # example
 

@@ -4,7 +4,7 @@ import { createReport } from "../errors/createReport"
 import { Type } from "../type"
 import { formatType } from "../type/formatType"
 import { deepWalkType } from "./deepWalkType"
-import { occurCheck } from "./occurCheck"
+import { occurInType } from "./occurInType"
 import { walkType } from "./walkType"
 
 export function unifyTypes(ctx: Ctx, left: Type, right: Type): void {
@@ -21,13 +21,33 @@ export function unifyTypes(ctx: Ctx, left: Type, right: Type): void {
     }
 
     if (left.kind === "TypeVar") {
-      occurCheck(ctx, left.name, right)
+      if (occurInType(ctx, left.name, right)) {
+        throw new Error(
+          [
+            `[unifyTypes] I find the left name occurs in the right type.`,
+            ``,
+            `  left name: ${left.name}`,
+            `  right type: ${formatType(deepWalkType(ctx, right))}`,
+          ].join("\n"),
+        )
+      }
+
       ctx.substitution.set(left.name, right)
       return
     }
 
     if (right.kind === "TypeVar") {
-      occurCheck(ctx, right.name, left)
+      if (occurInType(ctx, right.name, left)) {
+        throw new Error(
+          [
+            `[unifyTypes] I find the right name occurs in the left type.`,
+            ``,
+            `  right name: ${right.name}`,
+            `  left type: ${formatType(deepWalkType(ctx, left))}`,
+          ].join("\n"),
+        )
+      }
+
       ctx.substitution.set(right.name, left)
       return
     }

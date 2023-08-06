@@ -1,0 +1,4 @@
+type List 1 end
+
+claim wrong_connect 'a -List('a) -- end
+define wrong_connect connect end

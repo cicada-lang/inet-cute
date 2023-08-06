@@ -10,13 +10,6 @@ export function freshenType(
   occurredNames: Map<string, string>,
 ): Type {
   switch (t.kind) {
-    case "TypeTerm": {
-      return Types.TypeTerm(
-        t.name,
-        t.args.map((arg) => freshenType(ctx, arg, occurredNames)),
-      )
-    }
-
     case "TypeVar": {
       const foundName = occurredNames.get(t.name)
       if (foundName === undefined) {
@@ -27,6 +20,13 @@ export function freshenType(
       } else {
         return Types.TypeVar(foundName)
       }
+    }
+
+    case "TypeTerm": {
+      return Types.TypeTerm(
+        t.name,
+        t.args.map((arg) => freshenType(ctx, arg, occurredNames)),
+      )
     }
   }
 }
