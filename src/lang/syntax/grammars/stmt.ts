@@ -8,14 +8,6 @@ export const stmt = {
       { output: "ports" },
       '"end"',
     ],
-    "stmt:elim": [
-      '"elim"',
-      { name: "variable_name" },
-      { input: "ports" },
-      "dashline",
-      { output: "ports" },
-      '"end"',
-    ],
     "stmt:rule": [
       '"rule"',
       { start: "variable_name" },
