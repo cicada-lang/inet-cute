@@ -21,12 +21,12 @@ end
 define vector_append
   $A $m $n
   $x $y
-  $x match
-    case vector_null $y end
+  x match
+    case vector_null y end
     case vector_cons
-      $prev $head $tail
-      $y $tail $n $prev $A vector_append
-      $head $prev vector_cons
+      prev head tail
+      y tail n prev A vector_append
+      head prev vector_cons
     end
   end
 end

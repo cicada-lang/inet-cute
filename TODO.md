@@ -1,9 +1,3 @@
-[maybe] we can use `"name" set` and `"name" get` as syntax of local variable
-
-- type checking is actually ok
-
-[maybe] change `$name` syntax to be only `set`
-
 # monoid
 
 [docs] update syntax for `designs/`

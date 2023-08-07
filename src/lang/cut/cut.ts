@@ -21,29 +21,29 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
   try {
     switch (word.kind) {
       case "Call": {
-        const definition = lookupDefinitionOrFail(mod, word.name)
-        cutDefinition(ctx, definition, options)
-        return
-      }
-
-      case "Local": {
         const found = ctx.locals.get(word.name)
         if (found !== undefined) {
           ctx.stack.push(found)
           ctx.locals.delete(word.name)
           return
         } else {
-          const signedType = ctx.stack.pop()
-
-          if (signedType === undefined) {
-            throw new Error(
-              `[cut / Local] expect a signed type on the top of the stack`,
-            )
-          }
-
-          ctx.locals.set(word.name, signedType)
+          const definition = lookupDefinitionOrFail(mod, word.name)
+          cutDefinition(ctx, definition, options)
           return
         }
+      }
+
+      case "Local": {
+        const signedType = ctx.stack.pop()
+
+        if (signedType === undefined) {
+          throw new Error(
+            `[cut / Local] expect a signed type on the top of the stack`,
+          )
+        }
+
+        ctx.locals.set(word.name, signedType)
+        return
       }
 
       case "PortPush": {

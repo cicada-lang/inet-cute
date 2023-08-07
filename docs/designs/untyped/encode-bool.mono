@@ -1,6 +1,6 @@
-define true $x $y $x end
-define false $x $y $y end
-define not $a $x $y $x $y $a execute end
+define true $x $y x end
+define false $x $y y end
+define not $a $x $y x y a execute end
 
 "a" "b" true
 "a" "b" { false } not

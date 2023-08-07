@@ -17,12 +17,12 @@ end
 
 define list_append
   $A $x $y
-  $x match
-    case list_null $y end
-    case list_cons $head $tail
-      // (lit $A) cut to $A itself -- instead of the type of $A
-      $y $tail (lit $A) list_append
-      $head list_cons
+  x match
+    case list_null y end
+    case list_cons head tail
+      // (lit A) cut to A itself -- instead of the type of A
+      y tail (lit A) list_append
+      head list_cons
     end
   end
 end
@@ -38,12 +38,12 @@ end
 
 define list_map
   $A $B $f $x
-  $x match
-    case list_null $x end
+  x match
+    case list_null x end
     case list_case
-      $head $tail
-      $tail $f (lit $B) (lit $A) list_map
-      $head $f execute list_cons
+      head tail
+      tail f (lit B) (lit A) list_map
+      head f execute list_cons
     end
   end
 end

@@ -70,8 +70,8 @@ run two_two_soles end
 claim two_two_soles_with_local_variable DiffList(Trivial) end
 
 define two_two_soles_with_local_variable
-  wire sole cons sole cons diff $value connect $value
-  wire sole cons sole cons diff $value connect $value
+  wire sole cons sole cons diff $value connect value
+  wire sole cons sole cons diff $value connect value
   diff_append
 end
 

@@ -2,26 +2,26 @@ claim drop 'a -- end
 define drop $x end
 
 claim swap 'a 'a -- 'a 'a end
-define swap $x $y $x $y end
+define swap $x $y x y end
 
 claim id 'a -- 'a end
-define id $x $x end
+define id $x x end
 
 define Boolean 'a 'a -- 'a end
 
 // claim true Boolean end
 claim true 'a 'a -- 'a end
-define true $x $y $x end
+define true $x $y x end
 
 // claim false Boolean end
 claim false 'a 'a -- 'a end
-define false $x $y $y end
+define false $x $y y end
 
 // claim not Boolean -- Boolean end
 claim not [ 'a 'a -- 'a ] 'a 'a -- 'a end
 define not
   $a $x $y
-  $x $y $a execute
+  x y a execute
 end
 
 claim true_not 'a 'a -- 'a end

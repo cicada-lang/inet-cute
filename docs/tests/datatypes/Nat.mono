@@ -59,8 +59,8 @@ end
 
 rule add1 nat_dup
   (add1)-prev nat_dup $first $second
-  $first add1 first-(nat_dup)
-  $second add1 second-(nat_dup)
+  first add1 first-(nat_dup)
+  second add1 second-(nat_dup)
 end
 
 show two nat_dup end
@@ -75,7 +75,7 @@ end
 
 rule add1 mul
   (mul)-mulend nat_dup $first $second
-  (add1)-prev $first mul $second add
+  (add1)-prev first mul second add
   return-(mul)
 end
 
