@@ -1,8 +1,8 @@
 export const type = {
   $grammar: {
-    "type:pattern_var": ['"\'"', { name: "variable_name" }],
-    "type:term_zero_arity": [{ name: "variable_name" }],
-    "type:term": [
+    "type:type_var": ['"\'"', { name: "variable_name" }],
+    "type:type_term_zero_arity": [{ name: "variable_name" }],
+    "type:type_term": [
       { name: "variable_name" },
       '"("',
       { type_args: "type_args" },

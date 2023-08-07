@@ -6,6 +6,6 @@ export function createCtx(): Ctx {
     locals: new Map(),
     neutralSignedTypes: new Map(),
     substitution: new Map(),
-    patternVarCounters: new Map(),
+    typeVarCounters: new Map(),
   }
 }

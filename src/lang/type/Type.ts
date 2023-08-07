@@ -1,13 +1,13 @@
-export type Type = TypeTerm | PatternVar
+export type Type = TypeTerm | TypeVar
 
-export type PatternVar = {
-  kind: "PatternVar"
+export type TypeVar = {
+  kind: "TypeVar"
   name: string
 }
 
-export function PatternVar(name: string): PatternVar {
+export function TypeVar(name: string): TypeVar {
   return {
-    kind: "PatternVar",
+    kind: "TypeVar",
     name,
   }
 }

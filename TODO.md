@@ -1,16 +1,17 @@
 # value
 
-`Value` -- `Port` `PatternVar` `Type` `SignedType` `Labeled`
+`Value` -- `Port` `TypeVar` `Type` `TypeTerm` `SignedType` `Labeled`
 
-- The stack can take other types of values -- not only port.
+- The stack can take other types of values -- not only `Port`.
+
+  - `'a` should be a value
+  - `~` as a postfix builtin for negative `SignedType`
 
 merge `Ctx` to `Env`
 
-`'a` should be a value
-
-`String` should be builtin type
-
 `value :key` should be of type `Labeled("key", 'a)`
+
+- `String` should be builtin type
 
 [maybe] `Boolean` should be builtin type
 

@@ -6,7 +6,7 @@ export function occurInType(ctx: Ctx, name: string, t: Type): boolean {
   t = walkType(ctx, t)
 
   switch (t.kind) {
-    case "PatternVar": {
+    case "TypeVar": {
       return t.name === name
     }
 

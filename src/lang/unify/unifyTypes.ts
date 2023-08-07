@@ -13,14 +13,14 @@ export function unifyTypes(ctx: Ctx, left: Type, right: Type): void {
     right = walkType(ctx, right)
 
     if (
-      left.kind === "PatternVar" &&
-      right.kind === "PatternVar" &&
+      left.kind === "TypeVar" &&
+      right.kind === "TypeVar" &&
       left.name === right.name
     ) {
       return
     }
 
-    if (left.kind === "PatternVar") {
+    if (left.kind === "TypeVar") {
       if (occurInType(ctx, left.name, right)) {
         throw new Error(
           [
@@ -36,7 +36,7 @@ export function unifyTypes(ctx: Ctx, left: Type, right: Type): void {
       return
     }
 
-    if (right.kind === "PatternVar") {
+    if (right.kind === "TypeVar") {
       if (occurInType(ctx, right.name, left)) {
         throw new Error(
           [

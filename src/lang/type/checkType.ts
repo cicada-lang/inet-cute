@@ -5,7 +5,7 @@ import { formatType } from "./formatType"
 
 export function checkType(mod: Mod, t: Type): void {
   switch (t.kind) {
-    case "PatternVar": {
+    case "TypeVar": {
       return
     }
 
