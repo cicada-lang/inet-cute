@@ -20,10 +20,10 @@ export function compose(
 ): void {
   switch (word.kind) {
     case "Call": {
-      const found = net.localPorts.get(word.name)
+      const found = net.locals.get(word.name)
       if (found !== undefined) {
         net.ports.push(found)
-        net.localPorts.delete(word.name)
+        net.locals.delete(word.name)
         return
       } else {
         const definition = lookupDefinitionOrFail(mod, word.name)
@@ -40,7 +40,7 @@ export function compose(
         )
       }
 
-      net.localPorts.set(word.name, port)
+      net.locals.set(word.name, port)
       return
     }
 

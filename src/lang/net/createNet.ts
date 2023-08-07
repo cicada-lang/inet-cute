@@ -8,7 +8,7 @@ export function createNet(mod: Mod): Net {
     edges: [],
     activeEdges: [],
     ports: [],
-    localPorts: new Map(),
+    locals: new Map(),
     wires: [],
   }
 }
