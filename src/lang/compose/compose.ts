@@ -20,28 +20,28 @@ export function compose(
 ): void {
   switch (word.kind) {
     case "Call": {
+      const definition = lookupDefinitionOrFail(mod, word.name)
+      composeDefinition(net, definition, options)
+      return
+    }
+
+    case "Local": {
       const found = net.locals.get(word.name)
       if (found !== undefined) {
         net.ports.push(found)
         net.locals.delete(word.name)
         return
       } else {
-        const definition = lookupDefinitionOrFail(mod, word.name)
-        composeDefinition(net, definition, options)
+        const port = net.ports.pop()
+        if (port === undefined) {
+          throw new Error(
+            `[compose / Local] expect a port on the top of the stack.`,
+          )
+        }
+
+        net.locals.set(word.name, port)
         return
       }
-    }
-
-    case "Local": {
-      const port = net.ports.pop()
-      if (port === undefined) {
-        throw new Error(
-          `[compose / Local] expect a port on the top of the stack.`,
-        )
-      }
-
-      net.locals.set(word.name, port)
-      return
     }
 
     case "PortPush": {
