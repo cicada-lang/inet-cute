@@ -8,6 +8,6 @@
   word: connect
 
  1 |type Trivial 0 end
- 2 |node sole -- value!: Trivial end
+ 2 |node sole value!: Trivial end
  3 |
  4 |show sole sole connect end

@@ -7,7 +7,7 @@
   rule nodes: zero add
 
   1 |type Nat 0 end
-  2 |node zero -- value!: Nat end
+  2 |node zero value!: Nat end
   3 |node add1 prev: Nat -- value!: Nat end
   4 |
   5 |rule zero add

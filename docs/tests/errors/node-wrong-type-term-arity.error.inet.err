@@ -9,5 +9,5 @@
   node name: null
 
  1 |type List 1 end
- 2 |node null -- value!: List end
+ 2 |node null value!: List end
  3 |
