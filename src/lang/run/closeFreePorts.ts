@@ -1,7 +1,7 @@
 import { composeNode } from "../compose/composeNode"
+import { Env } from "../env"
 import { Node } from "../graph/Node"
 import { createNode } from "../graph/createNode"
-import { Net } from "../net"
 
 /*
 
@@ -10,7 +10,7 @@ import { Net } from "../net"
 
 */
 
-export function closeFreePorts(net: Net): Node | undefined {
+export function closeFreePorts(net: Env): Node | undefined {
   if (net.ports.length === 0) {
     return undefined
   }

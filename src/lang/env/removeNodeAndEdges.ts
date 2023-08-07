@@ -1,9 +1,9 @@
 import { Node } from "../graph"
-import { Net } from "./Net"
+import { Env } from "./Env"
 import { removeEdge } from "./removeEdge"
 import { removeNode } from "./removeNode"
 
-export function removeNodeAndEdges(net: Net, node: Node): void {
+export function removeNodeAndEdges(net: Env, node: Node): void {
   removeNode(net, node)
 
   for (const port of node.input) {

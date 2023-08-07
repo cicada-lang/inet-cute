@@ -1,8 +1,8 @@
+import { Env } from "../env"
 import { Port } from "../graph/Port"
 import { lookupRuleByPorts } from "../mod/lookupRuleByPorts"
-import { Net } from "../net"
 
-export function connect(net: Net, start: Port, end: Port): void {
+export function connect(net: Env, start: Port, end: Port): void {
   const rule = lookupRuleByPorts(net.mod, start, end)
 
   if (start.connection !== undefined) {

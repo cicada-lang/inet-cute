@@ -1,8 +1,8 @@
+import { Env } from "../env"
+import { connect } from "../env/connect"
 import { Node } from "../graph"
-import { Net } from "../net"
-import { connect } from "../net/connect"
 
-export function composeNode(net: Net, node: Node): Node {
+export function composeNode(net: Env, node: Node): Node {
   // Be careful about the order:
   // The first input port connects
   // with the port on the top of the stack.

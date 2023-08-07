@@ -1,7 +1,7 @@
+import { Env } from "../env"
 import { formatNode } from "../graph/formatNode"
-import { Net } from "../net"
 
-export function formatNet(net: Net): string {
+export function formatEnv(net: Env): string {
   const lines: Array<string> = []
 
   for (const edge of [...net.activeEdges].reverse()) {

@@ -1,11 +1,11 @@
 import { Definition } from "../definition"
-import { Net } from "../net"
+import { Env } from "../env"
 import { ComposeOptions } from "./compose"
 import { composeNodeDefinition } from "./composeNodeDefinition"
 import { composeWords } from "./composeWords"
 
 export function composeDefinition(
-  net: Net,
+  net: Env,
   definition: Definition,
   options: ComposeOptions,
 ): void {

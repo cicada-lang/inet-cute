@@ -1,11 +1,11 @@
 import { NodeDefinition } from "../definition"
+import { Env } from "../env"
 import { Node } from "../graph"
 import { createNode } from "../graph/createNode"
-import { Net } from "../net"
 import { composeNode } from "./composeNode"
 
 export function composeNodeDefinition(
-  net: Net,
+  net: Env,
   definition: NodeDefinition,
 ): Node {
   const node = createNode(

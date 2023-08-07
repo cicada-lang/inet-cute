@@ -1,7 +1,7 @@
+import { Env } from "../env"
 import { Mod } from "../mod"
-import { Net } from "../net"
 
-export function createNet(mod: Mod): Net {
+export function createEnv(mod: Mod): Env {
   return {
     mod,
     nodes: [],

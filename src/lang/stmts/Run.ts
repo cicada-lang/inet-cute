@@ -1,9 +1,9 @@
 import { composeWords } from "../compose/composeWords"
 import { createCtx } from "../ctx/createCtx"
 import { cutWords } from "../cut/cutWords"
+import { createEnv } from "../env/createEnv"
+import { formatEnv } from "../env/formatEnv"
 import { Mod } from "../mod"
-import { createNet } from "../net/createNet"
-import { formatNet } from "../net/formatNet"
 import { run } from "../run/run"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
@@ -19,12 +19,12 @@ export class Run implements Stmt {
     const ctx = createCtx()
     cutWords(mod, ctx, this.words, {})
 
-    const net = createNet(mod)
+    const net = createEnv(mod)
     composeWords(mod, net, this.words, {})
 
     run(net)
 
-    console.log(formatNet(net))
+    console.log(formatEnv(net))
     console.log()
   }
 }

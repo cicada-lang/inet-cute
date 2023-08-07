@@ -1,9 +1,9 @@
+import { Env } from "../env"
+import { connect } from "../env/connect"
+import { disconnect } from "../env/disconnect"
 import { Node } from "../graph"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
-import { Net } from "../net"
-import { connect } from "../net/connect"
-import { disconnect } from "../net/disconnect"
 import { Word } from "../word"
 import { composeDefinition } from "./composeDefinition"
 import { findCurrentPortOrFail } from "./findCurrentPortOrFail"
@@ -14,7 +14,7 @@ export interface ComposeOptions {
 
 export function compose(
   mod: Mod,
-  net: Net,
+  net: Env,
   word: Word,
   options: ComposeOptions,
 ): void {

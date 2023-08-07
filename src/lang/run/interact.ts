@@ -1,10 +1,10 @@
 import { compose } from "../compose/compose"
+import { Env } from "../env"
+import { removeNodeAndEdges } from "../env/removeNodeAndEdges"
 import { ActiveEdge } from "../graph"
 import { Mod } from "../mod"
-import { Net } from "../net"
-import { removeNodeAndEdges } from "../net/removeNodeAndEdges"
 
-export function interact(mod: Mod, net: Net, activeEdge: ActiveEdge): void {
+export function interact(mod: Mod, net: Env, activeEdge: ActiveEdge): void {
   removeNodeAndEdges(net, activeEdge.end.node)
   removeNodeAndEdges(net, activeEdge.start.node)
 

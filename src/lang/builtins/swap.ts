@@ -1,9 +1,9 @@
 import { Ctx } from "../ctx"
+import { Env } from "../env"
 import { Port } from "../graph"
-import { Net } from "../net"
 import { SignedType } from "../type"
 
-export function compose(net: Net): void {
+export function compose(net: Env): void {
   const x1 = net.ports.pop() as Port
   const x0 = net.ports.pop() as Port
   net.ports.push(x1, x0)

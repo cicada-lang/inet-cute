@@ -1,13 +1,8 @@
-`rule` check node order
-
-- The first node must have its principal port in the output,
-  and the second node must have its principal port in the input.
-
 # value
 
-rename `Net` to `Env`
+`Value`
 
-rename `Env.ports` to `Env.stack`
+rename `Env.ports` to `Env.values`
 
 merge `Ctx` to `Env`
 
@@ -18,6 +13,13 @@ the stack can take other types of values -- not only port
 `String` should be builtin type
 
 `value :key` should be of type `Labeled("key", 'a)`
+
+# check
+
+`rule` check node order
+
+- The first node must have its principal port in the output,
+  and the second node must have its principal port in the input.
 
 # module
 

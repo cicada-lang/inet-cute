@@ -1,9 +1,9 @@
+import { Env } from "../env"
+import { disconnect } from "../env/disconnect"
+import { removeNode } from "../env/removeNode"
 import { Node } from "../graph/Node"
-import { Net } from "../net"
-import { disconnect } from "../net/disconnect"
-import { removeNode } from "../net/removeNode"
 
-export function releaseFreePorts(net: Net, closer: Node | undefined): void {
+export function releaseFreePorts(net: Env, closer: Node | undefined): void {
   if (closer === undefined) {
     return
   }

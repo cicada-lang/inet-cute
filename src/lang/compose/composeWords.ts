@@ -1,12 +1,12 @@
+import { Env } from "../env"
+import { cleanUpWires } from "../env/cleanUpWires"
 import { Mod } from "../mod"
-import { Net } from "../net"
-import { cleanUpWires } from "../net/cleanUpWires"
 import { Word } from "../word"
 import { ComposeOptions, compose } from "./compose"
 
 export function composeWords(
   mod: Mod,
-  net: Net,
+  net: Env,
   words: Array<Word>,
   options: ComposeOptions,
 ): void {

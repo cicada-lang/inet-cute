@@ -1,7 +1,7 @@
 import { Ctx } from "../ctx"
+import { Env } from "../env"
 import { PortExp } from "../graph/PortExp"
 import { Mod } from "../mod"
-import { Net } from "../net"
 import { Span } from "../span"
 import { SignedType } from "../type"
 import { Word } from "../word"
@@ -69,14 +69,14 @@ export type OperatorDefinition = {
   kind: "OperatorDefinition"
   mod: Mod
   name: string
-  compose: (net: Net) => void
+  compose: (net: Env) => void
   cut: (ctx: Ctx) => void
 }
 
 export function OperatorDefinition(
   mod: Mod,
   name: string,
-  compose: (net: Net) => void,
+  compose: (net: Env) => void,
   cut: (ctx: Ctx) => void,
 ): OperatorDefinition {
   return {

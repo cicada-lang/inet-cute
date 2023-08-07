@@ -1,7 +1,7 @@
 import { Ctx } from "../ctx"
+import { Env } from "../env"
 import { createNode } from "../graph/createNode"
 import { Mod } from "../mod"
-import { Net } from "../net"
 import * as Types from "../type"
 import { Sign } from "../type"
 import { freshenType } from "../unify/freshenType"
@@ -9,7 +9,7 @@ import { freshenType } from "../unify/freshenType"
 let wireCounter = 0
 
 export default function (mod: Mod) {
-  function compose(net: Net): void {
+  function compose(net: Env): void {
     const node = createNode(
       mod,
       "wire",

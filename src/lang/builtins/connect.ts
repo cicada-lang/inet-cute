@@ -1,11 +1,11 @@
 import { Ctx } from "../ctx"
+import { Env } from "../env"
+import { connect } from "../env/connect"
 import { Port } from "../graph"
-import { Net } from "../net"
-import { connect } from "../net/connect"
 import { SignedType } from "../type"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
 
-export function compose(net: Net): void {
+export function compose(net: Env): void {
   const start = net.ports.pop() as Port
   const end = net.ports.pop() as Port
   connect(net, start, end)

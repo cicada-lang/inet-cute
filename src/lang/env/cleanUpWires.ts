@@ -1,9 +1,9 @@
-import { Net } from "./Net"
+import { Env } from "./Env"
 import { connect } from "./connect"
 import { disconnect } from "./disconnect"
 import { removeNode } from "./removeNode"
 
-export function cleanUpWires(net: Net): void {
+export function cleanUpWires(net: Env): void {
   for (const wire of net.wires) {
     if (wire.start.connection && wire.end.connection) {
       removeNode(net, wire.start.node)

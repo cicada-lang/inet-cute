@@ -1,7 +1,7 @@
+import { Env } from "../env"
 import { Node } from "../graph/Node"
-import { Net } from "../net"
 
-export function removeNode(net: Net, node: Node): void {
+export function removeNode(net: Env, node: Node): void {
   const index = net.nodes.indexOf(node)
   if (index !== -1) {
     net.nodes.splice(index, 1)
