@@ -1,71 +1,71 @@
-[diff₁]-value!target-[diff_append₀]
-[diff₁]-back tail-[cons₁]
-[diff₀]-back tail-[cons₀]
-[diff₀]-value rest-[diff_append₀]
-[cons₂]-value front-[diff₁]
-[cons₁]-value tail-[cons₂]
-[sole₂]-value head-[cons₂]
-[sole₁]-value head-[cons₁]
-[cons₀]-value front-[diff₀]
-[sole₀]-value head-[cons₀]
-[diff_append₀]-return
+(diff₁)-value!target-(diff_append₀)
+(diff₁)-back tail-(cons₁)
+(diff₀)-back tail-(cons₀)
+(diff₀)-value rest-(diff_append₀)
+(cons₂)-value front-(diff₁)
+(cons₁)-value tail-(cons₂)
+(sole₂)-value head-(cons₂)
+(sole₁)-value head-(cons₁)
+(cons₀)-value front-(diff₀)
+(sole₀)-value head-(cons₀)
+(diff_append₀)-return
 
-[cons₃]-value tail-[cons₄]
-[cons₃]-tail back-[diff₄]
-[cons₅]-value front-[diff₄]
-[cons₄]-value tail-[cons₅]
-[sole₅]-value head-[cons₅]
-[sole₄]-value head-[cons₄]
-[sole₃]-value head-[cons₃]
-[diff₄]-value
+(cons₃)-value tail-(cons₄)
+(cons₃)-tail back-(diff₄)
+(cons₅)-value front-(diff₄)
+(cons₄)-value tail-(cons₅)
+(sole₅)-value head-(cons₅)
+(sole₄)-value head-(cons₄)
+(sole₃)-value head-(cons₃)
+(diff₄)-value
 
-[diff₆]-value!target-[diff_append₂]
-[diff₆]-back tail-[cons₈]
-[diff₅]-back tail-[cons₆]
-[diff₅]-value rest-[diff_append₂]
-[cons₉]-value front-[diff₆]
-[cons₈]-value tail-[cons₉]
-[sole₉]-value head-[cons₉]
-[sole₈]-value head-[cons₈]
-[cons₇]-value front-[diff₅]
-[cons₆]-value tail-[cons₇]
-[sole₇]-value head-[cons₇]
-[sole₆]-value head-[cons₆]
-[diff_append₂]-return
+(diff₆)-value!target-(diff_append₂)
+(diff₆)-back tail-(cons₈)
+(diff₅)-back tail-(cons₆)
+(diff₅)-value rest-(diff_append₂)
+(cons₉)-value front-(diff₆)
+(cons₈)-value tail-(cons₉)
+(sole₉)-value head-(cons₉)
+(sole₈)-value head-(cons₈)
+(cons₇)-value front-(diff₅)
+(cons₆)-value tail-(cons₇)
+(sole₇)-value head-(cons₇)
+(sole₆)-value head-(cons₆)
+(diff_append₂)-return
 
-[cons₁₁]-value tail-[cons₁₂]
-[cons₁₀]-tail back-[diff₉]
-[cons₁₃]-value front-[diff₉]
-[cons₁₂]-value tail-[cons₁₃]
-[sole₁₃]-value head-[cons₁₃]
-[sole₁₂]-value head-[cons₁₂]
-[cons₁₀]-value tail-[cons₁₁]
-[sole₁₁]-value head-[cons₁₁]
-[sole₁₀]-value head-[cons₁₀]
-[diff₉]-value
+(cons₁₁)-value tail-(cons₁₂)
+(cons₁₀)-tail back-(diff₉)
+(cons₁₃)-value front-(diff₉)
+(cons₁₂)-value tail-(cons₁₃)
+(sole₁₃)-value head-(cons₁₃)
+(sole₁₂)-value head-(cons₁₂)
+(cons₁₀)-value tail-(cons₁₁)
+(sole₁₁)-value head-(cons₁₁)
+(sole₁₀)-value head-(cons₁₀)
+(diff₉)-value
 
-[diff₁₁]-value!target-[diff_append₄]
-[diff₁₁]-back tail-[cons₁₆]
-[diff₁₀]-back tail-[cons₁₄]
-[diff₁₀]-value rest-[diff_append₄]
-[cons₁₇]-value front-[diff₁₁]
-[cons₁₆]-value tail-[cons₁₇]
-[sole₁₇]-value head-[cons₁₇]
-[sole₁₆]-value head-[cons₁₆]
-[cons₁₅]-value front-[diff₁₀]
-[cons₁₄]-value tail-[cons₁₅]
-[sole₁₅]-value head-[cons₁₅]
-[sole₁₄]-value head-[cons₁₄]
-[diff_append₄]-return
+(diff₁₁)-value!target-(diff_append₄)
+(diff₁₁)-back tail-(cons₁₆)
+(diff₁₀)-back tail-(cons₁₄)
+(diff₁₀)-value rest-(diff_append₄)
+(cons₁₇)-value front-(diff₁₁)
+(cons₁₆)-value tail-(cons₁₇)
+(sole₁₇)-value head-(cons₁₇)
+(sole₁₆)-value head-(cons₁₆)
+(cons₁₅)-value front-(diff₁₀)
+(cons₁₄)-value tail-(cons₁₅)
+(sole₁₅)-value head-(cons₁₅)
+(sole₁₄)-value head-(cons₁₄)
+(diff_append₄)-return
 
-[cons₁₉]-value tail-[cons₂₀]
-[cons₁₈]-tail back-[diff₁₄]
-[cons₂₁]-value front-[diff₁₄]
-[cons₂₀]-value tail-[cons₂₁]
-[sole₂₁]-value head-[cons₂₁]
-[sole₂₀]-value head-[cons₂₀]
-[cons₁₈]-value tail-[cons₁₉]
-[sole₁₉]-value head-[cons₁₉]
-[sole₁₈]-value head-[cons₁₈]
-[diff₁₄]-value
+(cons₁₉)-value tail-(cons₂₀)
+(cons₁₈)-tail back-(diff₁₄)
+(cons₂₁)-value front-(diff₁₄)
+(cons₂₀)-value tail-(cons₂₁)
+(sole₂₁)-value head-(cons₂₁)
+(sole₂₀)-value head-(cons₂₀)
+(cons₁₈)-value tail-(cons₁₉)
+(sole₁₉)-value head-(cons₁₉)
+(sole₁₈)-value head-(cons₁₈)
+(diff₁₄)-value
 

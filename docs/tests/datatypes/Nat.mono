@@ -5,13 +5,13 @@ node add1 prev: Nat -- value!: Nat end
 node add target!: Nat addend: Nat -- return: Nat end
 
 rule zero add
-  [add]-addend
-  return-[add]
+  (add)-addend
+  return-(add)
 end
 
 rule add1 add
-  [add]-addend [add1]-prev add add1
-  return-[add]
+  (add)-addend (add1)-prev add add1
+  return-(add)
 end
 
 show zero zero add end
@@ -45,7 +45,7 @@ run one one one addadd end
 node nat_erase target!: Nat -- end
 
 rule zero nat_erase end
-rule add1 nat_erase [add1]-prev nat_erase end
+rule add1 nat_erase (add1)-prev nat_erase end
 
 show two nat_erase end
 run two nat_erase end
@@ -53,14 +53,14 @@ run two nat_erase end
 node nat_dup target!: Nat -- second: Nat first: Nat end
 
 rule zero nat_dup
-  zero first-[nat_dup]
-  zero second-[nat_dup]
+  zero first-(nat_dup)
+  zero second-(nat_dup)
 end
 
 rule add1 nat_dup
-  [add1]-prev nat_dup $first $second
-  $first add1 first-[nat_dup]
-  $second add1 second-[nat_dup]
+  (add1)-prev nat_dup $first $second
+  $first add1 first-(nat_dup)
+  $second add1 second-(nat_dup)
 end
 
 show two nat_dup end
@@ -69,14 +69,14 @@ run two nat_dup end
 node mul target!: Nat mulend: Nat -- return: Nat end
 
 rule zero mul
-  [mul]-mulend nat_erase
-  zero return-[mul]
+  (mul)-mulend nat_erase
+  zero return-(mul)
 end
 
 rule add1 mul
-  [mul]-mulend nat_dup $first $second
-  [add1]-prev $first mul $second add
-  return-[mul]
+  (mul)-mulend nat_dup $first $second
+  (add1)-prev $first mul $second add
+  return-(mul)
 end
 
 show two two mul end
@@ -95,22 +95,22 @@ node max_aux first: Nat second!: Nat -- return: Nat end
 node max first!: Nat second: Nat -- return: Nat end
 
 rule zero max
-  [max]-second return-[max]
+  (max)-second return-(max)
 end
 
 rule add1 max
-  [max]-second [add1]-prev max_aux
-  return-[max]
+  (max)-second (add1)-prev max_aux
+  return-(max)
 end
 
 rule zero max_aux
-  [max_aux]-first add1
-  return-[max_aux]
+  (max_aux)-first add1
+  return-(max_aux)
 end
 
 rule add1 max_aux
-  [add1]-prev [max_aux]-first max
-  add1 return-[max_aux]
+  (add1)-prev (max_aux)-first max
+  add1 return-(max_aux)
 end
 
 

@@ -1,130 +1,130 @@
-[zero₁]-value!target-[add₀]
-[zero₀]-value addend-[add₀]
-[add₀]-return
+(zero₁)-value!target-(add₀)
+(zero₀)-value addend-(add₀)
+(add₀)-return
 
-[zero₂]-value
+(zero₂)-value
 
-[add1₁]-value!target-[add₂]
-[add1₀]-value addend-[add₂]
-[zero₅]-value prev-[add1₁]
-[zero₄]-value prev-[add1₀]
-[add₂]-return
+(add1₁)-value!target-(add₂)
+(add1₀)-value addend-(add₂)
+(zero₅)-value prev-(add1₁)
+(zero₄)-value prev-(add1₀)
+(add₂)-return
 
-[add1₂]-value prev-[add1₄]
-[zero₆]-value prev-[add1₂]
-[add1₄]-value
+(add1₂)-value prev-(add1₄)
+(zero₆)-value prev-(add1₂)
+(add1₄)-value
 
-[add1₈]-value!target-[add₆]
-[add1₆]-value!target-[add₅]
-[add₅]-return addend-[add₇]
-[add₆]-return target-[add₇]
-[add1₇]-value addend-[add₆]
-[zero₁₁]-value prev-[add1₈]
-[zero₁₀]-value prev-[add1₇]
-[add1₅]-value addend-[add₅]
-[zero₉]-value prev-[add1₆]
-[zero₈]-value prev-[add1₅]
-[add₇]-return
+(add1₈)-value!target-(add₆)
+(add1₆)-value!target-(add₅)
+(add₅)-return addend-(add₇)
+(add₆)-return target-(add₇)
+(add1₇)-value addend-(add₆)
+(zero₁₁)-value prev-(add1₈)
+(zero₁₀)-value prev-(add1₇)
+(add1₅)-value addend-(add₅)
+(zero₉)-value prev-(add1₆)
+(zero₈)-value prev-(add1₅)
+(add₇)-return
 
-[add1₉]-value prev-[add1₁₆]
-[add1₁₆]-value prev-[add1₁₅]
-[add1₁₅]-value prev-[add1₁₄]
-[zero₁₂]-value prev-[add1₉]
-[add1₁₄]-value
+(add1₉)-value prev-(add1₁₆)
+(add1₁₆)-value prev-(add1₁₅)
+(add1₁₅)-value prev-(add1₁₄)
+(zero₁₂)-value prev-(add1₉)
+(add1₁₄)-value
 
-[add1₁₇]-value!target-[add₁₅]
-[zero₁₆]-value addend-[add₁₅]
-[zero₁₇]-value prev-[add1₁₇]
-[add₁₅]-return
+(add1₁₇)-value!target-(add₁₅)
+(zero₁₆)-value addend-(add₁₅)
+(zero₁₇)-value prev-(add1₁₇)
+(add₁₅)-return
 
-[zero₁₈]-value prev-[add1₁₉]
-[add1₁₉]-value
+(zero₁₈)-value prev-(add1₁₉)
+(add1₁₉)-value
 
-[add1₂₀]-value prev-[add1₂₅]
-[add1₂₅]-value prev-[add1₂₄]
-[zero₂₀]-value prev-[add1₂₀]
-[add1₂₄]-value
+(add1₂₀)-value prev-(add1₂₅)
+(add1₂₅)-value prev-(add1₂₄)
+(zero₂₀)-value prev-(add1₂₀)
+(add1₂₄)-value
 
-[add1₂₇]-value!target-[add₂₃]
-[add₂₃]-return target-[nat_erase₀]
-[add1₂₆]-value addend-[add₂₃]
-[zero₂₄]-value prev-[add1₂₇]
-[zero₂₃]-value prev-[add1₂₆]
+(add1₂₇)-value!target-(add₂₃)
+(add₂₃)-return target-(nat_erase₀)
+(add1₂₆)-value addend-(add₂₃)
+(zero₂₄)-value prev-(add1₂₇)
+(zero₂₃)-value prev-(add1₂₆)
 
 
 
-[add1₃₂]-value!target-[add₂₆]
-[add₂₆]-return target-[nat_dup₀]
-[add1₃₁]-value addend-[add₂₆]
-[zero₂₈]-value prev-[add1₃₂]
-[zero₂₇]-value prev-[add1₃₁]
-[nat_dup₀]-second
-[nat_dup₀]-first
+(add1₃₂)-value!target-(add₂₆)
+(add₂₆)-return target-(nat_dup₀)
+(add1₃₁)-value addend-(add₂₆)
+(zero₂₈)-value prev-(add1₃₂)
+(zero₂₇)-value prev-(add1₃₁)
+(nat_dup₀)-second
+(nat_dup₀)-first
 
-[zero₃₂]-value prev-[add1₃₉]
-[zero₃₁]-value prev-[add1₃₈]
-[add1₃₉]-value prev-[add1₃₇]
-[add1₃₈]-value prev-[add1₃₆]
-[add1₃₆]-value
-[add1₃₇]-value
+(zero₃₂)-value prev-(add1₃₉)
+(zero₃₁)-value prev-(add1₃₈)
+(add1₃₉)-value prev-(add1₃₇)
+(add1₃₈)-value prev-(add1₃₆)
+(add1₃₆)-value
+(add1₃₇)-value
 
-[add1₄₃]-value!target-[add₃₀]
-[add1₄₁]-value!target-[add₂₉]
-[add₂₉]-return mulend-[mul₀]
-[add₃₀]-return target-[mul₀]
-[add1₄₂]-value addend-[add₃₀]
-[zero₃₆]-value prev-[add1₄₃]
-[zero₃₅]-value prev-[add1₄₂]
-[add1₄₀]-value addend-[add₂₉]
-[zero₃₄]-value prev-[add1₄₁]
-[zero₃₃]-value prev-[add1₄₀]
-[mul₀]-return
+(add1₄₃)-value!target-(add₃₀)
+(add1₄₁)-value!target-(add₂₉)
+(add₂₉)-return mulend-(mul₀)
+(add₃₀)-return target-(mul₀)
+(add1₄₂)-value addend-(add₃₀)
+(zero₃₆)-value prev-(add1₄₃)
+(zero₃₅)-value prev-(add1₄₂)
+(add1₄₀)-value addend-(add₂₉)
+(zero₃₄)-value prev-(add1₄₁)
+(zero₃₃)-value prev-(add1₄₀)
+(mul₀)-return
 
-[zero₄₅]-value prev-[add1₆₁]
-[add1₅₅]-value prev-[add1₅₈]
-[add1₆₁]-value prev-[add1₅₅]
-[add1₅₈]-value prev-[add1₅₂]
-[add1₅₂]-value
+(zero₄₅)-value prev-(add1₆₁)
+(add1₅₅)-value prev-(add1₅₈)
+(add1₆₁)-value prev-(add1₅₅)
+(add1₅₈)-value prev-(add1₅₂)
+(add1₅₂)-value
 
-[add1₆₇]-value!target-[add₄₆]
-[add1₆₆]-value!target-[add₄₅]
-[add1₆₄]-value!target-[add₄₄]
-[add1₆₃]-value!target-[add₄₃]
-[add₄₄]-return mulend-[mul₆]
-[add₄₆]-return target-[mul₆]
-[add₄₅]-return addend-[add₄₆]
-[zero₅₅]-value prev-[add1₆₇]
-[add1₆₅]-value addend-[add₄₅]
-[zero₅₄]-value prev-[add1₆₆]
-[zero₅₃]-value prev-[add1₆₅]
-[add₄₃]-return addend-[add₄₄]
-[zero₅₂]-value prev-[add1₆₄]
-[add1₆₂]-value addend-[add₄₃]
-[zero₅₁]-value prev-[add1₆₃]
-[zero₅₀]-value prev-[add1₆₂]
-[mul₆]-return
+(add1₆₇)-value!target-(add₄₆)
+(add1₆₆)-value!target-(add₄₅)
+(add1₆₄)-value!target-(add₄₄)
+(add1₆₃)-value!target-(add₄₃)
+(add₄₄)-return mulend-(mul₆)
+(add₄₆)-return target-(mul₆)
+(add₄₅)-return addend-(add₄₆)
+(zero₅₅)-value prev-(add1₆₇)
+(add1₆₅)-value addend-(add₄₅)
+(zero₅₄)-value prev-(add1₆₆)
+(zero₅₃)-value prev-(add1₆₅)
+(add₄₃)-return addend-(add₄₄)
+(zero₅₂)-value prev-(add1₆₄)
+(add1₆₂)-value addend-(add₄₃)
+(zero₅₁)-value prev-(add1₆₃)
+(zero₅₀)-value prev-(add1₆₂)
+(mul₆)-return
 
-[zero₆₈]-value prev-[add1₁₀₄]
-[add1₉₅]-value prev-[add1₁₀₁]
-[add1₈₂]-value prev-[add1₉₈]
-[add1₁₀₄]-value prev-[add1₉₅]
-[add1₁₀₁]-value prev-[add1₉₂]
-[add1₉₈]-value prev-[add1₈₉]
-[add1₉₂]-value prev-[add1₈₅]
-[add1₈₉]-value prev-[add1₇₉]
-[add1₈₅]-value prev-[add1₈₂]
-[add1₇₉]-value
+(zero₆₈)-value prev-(add1₁₀₄)
+(add1₉₅)-value prev-(add1₁₀₁)
+(add1₈₂)-value prev-(add1₉₈)
+(add1₁₀₄)-value prev-(add1₉₅)
+(add1₁₀₁)-value prev-(add1₉₂)
+(add1₉₈)-value prev-(add1₈₉)
+(add1₉₂)-value prev-(add1₈₅)
+(add1₈₉)-value prev-(add1₇₉)
+(add1₈₅)-value prev-(add1₈₂)
+(add1₇₉)-value
 
-[add1₁₀₅]-value prev-[add1₁₀₈]
-[zero₇₆]-value prev-[add1₁₀₅]
-[add1₁₀₈]-value
+(add1₁₀₅)-value prev-(add1₁₀₈)
+(zero₇₆)-value prev-(add1₁₀₅)
+(add1₁₀₈)-value
 
-[add1₁₁₄]-value prev-[add1₁₁₃]
-[zero₇₉]-value prev-[add1₁₁₄]
-[add1₁₁₃]-value
+(add1₁₁₄)-value prev-(add1₁₁₃)
+(zero₇₉)-value prev-(add1₁₁₄)
+(add1₁₁₃)-value
 
-[add1₁₁₅]-value prev-[add1₁₂₄]
-[add1₁₂₄]-value prev-[add1₁₂₂]
-[zero₈₁]-value prev-[add1₁₁₅]
-[add1₁₂₂]-value
+(add1₁₁₅)-value prev-(add1₁₂₄)
+(add1₁₂₄)-value prev-(add1₁₂₂)
+(zero₈₁)-value prev-(add1₁₁₅)
+(add1₁₂₂)-value
 

@@ -36,13 +36,13 @@ node diff_open
 end
 
 rule diff diff_append
-  [diff]-front diff return-[diff_append]
-  [diff_append]-rest diff_open back-[diff]
+  (diff)-front diff return-(diff_append)
+  (diff_append)-rest diff_open back-(diff)
 end
 
 rule diff diff_open
-  [diff]-back list-[diff_open]
-  [diff]-front return-[diff_open]
+  (diff)-back list-(diff_open)
+  (diff)-front return-(diff_open)
 end
 
 claim one_two_soles DiffList(Trivial) end
