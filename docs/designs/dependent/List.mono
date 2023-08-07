@@ -1,53 +1,48 @@
-claim List (- Type) Type end
-
-define List
-  [A : Type]
-  datatype
-    case list_null datacons {} end
-    case list_cons (- A) (- A List) datacons {} end
-  end
+datatype List Type -- Type then
+  case list_null -- List end
+  case list_cons 'A 'A List -- 'A List end
 end
 
+// The input and output of `claim` can be viewed as
+// what should be prepared before cutting the defined words,
+// and what should be cleaned up after cutting the defined words.
+
 claim list_append
-  [A : Type]
-  (- A List)
-  (- A List)
-  A List
+  Type 'A set_type // set type of a pattern variable.
+  'A List
+  'A List
+  --------
+  'A List
 end
 
 define list_append
-  (dep A : Type)
-  [x: A List]
-  [y: A List]
-  x match
-    case list_null => y end
-    case list_case =>
-      [head: A] [tail: A List]
-      y tail (lit A) list_append
-      head list_cons
+  $A $x $y
+  $x match
+    case list_null $y end
+    case list_cons $head $tail
+      $y $tail $A list_append
+      $head list_cons
     end
   end
 end
 
 claim list_map
-  [A : Type]
-  [B : Type]
-  (- { (- A) B })
-  (- A List)
-  B List
+  Type 'A set_type
+  Type 'B set_type
+  [ 'A -- 'B ]
+  'A List
+  ----------
+  'B List
 end
 
 define list_map
-  (dep A : Type)
-  (dep B : Type)
-  [f : { (- A) B }]
-  [x : A List]
-  x match
-    case list_null => x end
-    case list_case =>
-      [head: A] [tail: A List]
-      tail f (lit B) (lit A) list_map
-      head f exe list_cons
+  $A $B $f $x
+  $x match
+    case list_null $x end
+    case list_case
+      $head $tail
+      $tail $f $B $A list_map
+      $head $f execute list_cons
     end
   end
 end

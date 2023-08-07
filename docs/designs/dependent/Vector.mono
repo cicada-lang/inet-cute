@@ -1,40 +1,32 @@
-claim Vector (- type) (- Nat) Type end
-
-define Vector
-  [A : Type]
-  [n : Nat]
-  datatype
-    case vector_null datacons { n == zero } end
-    case vector_cons
-      (let prev : Nat)
-      (- A) (- prev A Vector)
-      datacons { n == prev succ }
-    end
+datatype Vector Type Nat -- Type then
+  case vector_null zero 'A Vector end
+  case vector_cons
+    Nat 'prev set_type
+    'A 'prev 'A Vector
+    ------------
+    'prev add1 'A Vector
   end
 end
 
 claim vector_append
-  [A : Type]
-  [m : Nat]
-  [n : Nat]
-  (- m A Vector)
-  (- n A Vector)
-  m n nat_add A Vector
+  Type 'A set_type
+  Nat 'm set_type
+  Nat 'n set_type
+  'm 'A Vector
+  'n 'A Vector
+  ----------
+  'm 'n nat_add 'A Vector
 end
 
 define vector_append
-  (dep A : Type)
-  (dep m : Nat)
-  (dep n : Nat)
-  [x : m A Vector]
-  [y : n A Vector]
-  x match
-    case vector_null y end
+  $A $m $n
+  $x $y
+  $x match
+    case vector_null $y end
     case vector_cons
-      [prev : Nat]
-      [head : A] [tail : prev A Vector]
-      y tail n prev A vector_append
-      head prev vector_cons
+      $prev $head $tail
+      $y $tail $n $prev $A vector_append
+      $head $prev vector_cons
     end
   end
 end

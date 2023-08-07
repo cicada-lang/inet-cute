@@ -1,3 +1,10 @@
+[maybe] change `[]-` back to `()-`
+
+- Since we do not use `f()` for function application anymore,
+  thus no need to avoid using `()` for many purposes.
+
+  - We use pure postfix syntax instead.
+
 # monoid
 
 [docs] update syntax for `designs/`
