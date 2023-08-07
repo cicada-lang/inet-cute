@@ -1,7 +1,7 @@
 export const word = {
   $grammar: {
     "word:call": [{ name: "variable_name" }],
-    "word:local_set": ['"$"', { name: "variable_name" }],
+    "word:local": ['"$"', { name: "variable_name" }],
     "word:port_push": [
       '"["',
       { nodeName: "variable_name" },
