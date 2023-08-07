@@ -319,7 +319,7 @@ Nat
 We can use `match` to construct a term against a given datatype.
 
 ```
-match (<type>)
+<type> match
   case <data-constructor> ... end
   case <data-constructor> ... end
   ...
@@ -329,7 +329,7 @@ end
 We must also define `infer` for `match`:
 
 ```
-<infer> match (<type>)
+<infer> <type> match
   case <data-constructor> ... end
   case <data-constructor> ... end
   ...
@@ -359,11 +359,11 @@ We then introduce the following equivalent relation
 for elements constructed by `match`.
 
 ```
-x match (<type>) [
-  <data-constructor> [ ... ]
-  <data-constructor> [ ... ]
+x <type> match end
+  case <data-constructor> ... end
+  case <data-constructor> ... end
   ...
-] = assert_types(<infer> x </infer>, <type>) match_data(x, [ ... ], [ ... ], ...)
+end = assert_types(<infer> x </infer>, <type>) match_data(x, ..., ..., ...)
 ```
 
 We define `assert_types` as a function the same as `unify_types` by return `Empty`.
@@ -388,7 +388,7 @@ We can use `match` to define addition for `Nat`.
 ```
 claim add Nat Nat -- Nat end
 define add
-  match (Nat)
+  Nat match
     case zero end
     case add1 add add1 end
   end
@@ -399,7 +399,7 @@ Type check:
 
 ```
 <infer>
-  match (Nat)
+  Nat match
     case zero end
     case add1 add add1 end
   end
@@ -418,7 +418,7 @@ Example computation of `add`:
 
 ```
 one one add =
-one zero add1 match (Nat)
+one zero add1 Nat match
   case zero end
   case add1 add add1 end
 end = one zero add add1
@@ -432,7 +432,7 @@ with the term in the match clause -- `add add1`.
 
 ```
 one zero add add1 =
-one zero match (Nat)
+one zero Nat match
   case zero end
   case add1 add add1 end
 end add1 = one add1
@@ -514,7 +514,7 @@ end
 claim append 'A List 'A List -- 'A List end
 
 define append
-  match ('A List)
+  'A List match
     case null end
     case cons $$head append $head cons end
   end

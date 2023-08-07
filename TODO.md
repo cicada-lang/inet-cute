@@ -1,6 +1,5 @@
 # monoid
 
-[docs] update the syntax the monoid article -- `match` as postfix keyword
 [docs] update the syntax the monoid article -- <unify_types>
 
 
