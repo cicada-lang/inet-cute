@@ -1,7 +1,5 @@
 # value
 
-rename `localSignedTypes` to `locals`
-
 `Value` -- `Port` `PatternVar` `Type` `SignedType` `Labeled`
 
 - The stack can take other types of values -- not only port.

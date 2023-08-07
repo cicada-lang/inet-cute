@@ -27,10 +27,10 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
       }
 
       case "Local": {
-        const found = ctx.localSignedTypes.get(word.name)
+        const found = ctx.locals.get(word.name)
         if (found !== undefined) {
           ctx.stack.push(found)
-          ctx.localSignedTypes.delete(word.name)
+          ctx.locals.delete(word.name)
           return
         } else {
           const signedType = ctx.stack.pop()
@@ -41,7 +41,7 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
             )
           }
 
-          ctx.localSignedTypes.set(word.name, signedType)
+          ctx.locals.set(word.name, signedType)
           return
         }
       }
