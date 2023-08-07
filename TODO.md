@@ -1,7 +1,8 @@
 # monoid
 
-[docs] update the syntax the monoid article -- <unify_types>
+[docs] update syntax for `articles/` -- `check`
 
+- should not use `[]` -- use what to separate type from term?
 
 [docs] update syntax for `designs/`
 
