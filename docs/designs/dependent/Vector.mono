@@ -1,38 +1,40 @@
-Vector : { (- type) (- Nat) Type }
-Vector = {
+claim Vector (- type) (- Nat) Type end
+
+define Vector
   [A : Type]
   [n : Nat]
-  datatype {
-    vector_null : { datacons { n == zero } }
-    vector_cons : {
+  datatype
+    case vector_null datacons { n == zero } end
+    case vector_cons
       (let prev : Nat)
       (- A) (- prev A Vector)
       datacons { n == prev succ }
-    }
-  }
-}
+    end
+  end
+end
 
-vector_append : {
+claim vector_append
   [A : Type]
   [m : Nat]
   [n : Nat]
   (- m A Vector)
   (- n A Vector)
   m n nat_add A Vector
-}
-vector_append = {
+end
+
+define vector_append
   (dep A : Type)
   (dep m : Nat)
   (dep n : Nat)
   [x : m A Vector]
   [y : n A Vector]
-  x match {
-    case vector_null { y }
-    case vector_cons {
+  x match
+    case vector_null y end
+    case vector_cons
       [prev : Nat]
       [head : A] [tail : prev A Vector]
       y tail n prev A vector_append
       head prev vector_cons
-    }
-  }
-}
+    end
+  end
+end
