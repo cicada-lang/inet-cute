@@ -1,26 +1,26 @@
-list_t : { (- type) type }
-list_t = {
-  [A : type]
+List : { (- Type) Type }
+List = {
+  [A : Type]
   datatype {
     list_null : { datacons {} }
-    list_cons : { (- A) (- A list_t) datacons {} }
+    list_cons : { (- A) (- A List) datacons {} }
   }
 }
 
 list_append : {
-  [A : type]
-  (- A list_t)
-  (- A list_t)
-  A list_t
+  [A : Type]
+  (- A List)
+  (- A List)
+  A List
 }
 list_append = {
-  (dep A : type)
-  [x: A list_t]
-  [y: A list_t]
+  (dep A : Type)
+  [x: A List]
+  [y: A List]
   x match {
     case list_null => { y }
     case list_case => {
-      [head: A] [tail: A list_t]
+      [head: A] [tail: A List]
       y tail (lit A) list_append
       head list_cons
     }
@@ -28,21 +28,21 @@ list_append = {
 }
 
 list_map : {
-  [A : type]
-  [B : type]
+  [A : Type]
+  [B : Type]
   (- { (- A) B })
-  (- A list_t)
-  B list_t
+  (- A List)
+  B List
 }
 list_map = {
-  (dep A : type)
-  (dep B : type)
+  (dep A : Type)
+  (dep B : Type)
   [f : { (- A) B }]
-  [x : A list_t]
+  [x : A List]
   x match {
     case list_null => { x }
     case list_case => {
-      [head: A] [tail: A list_t]
+      [head: A] [tail: A List]
       tail f (lit B) (lit A) list_map
       head f exe list_cons
     }

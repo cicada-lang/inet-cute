@@ -16,9 +16,9 @@ id = {
   x
 }
 
-// type bool_t = { (- A) (- A) A }
+// type Boolean = { (- A) (- A) A }
 
-// true : { bool_t }
+// true : { Boolean }
 true : { (- A) (- A) A }
 true = {
   [x : A]
@@ -26,7 +26,7 @@ true = {
   x
 }
 
-// false : { bool_t }
+// false : { Boolean }
 false : { (- A) (- A) A }
 false = {
   [x : A]
@@ -34,7 +34,7 @@ false = {
   y
 }
 
-// not : { (- bool_t) bool_t }
+// not : { (- Boolean) Boolean }
 not : { (- { (- A) (- A) A }) (- A) (- A) A }
 not = {
   [a : { (- A) (- A) A }]
