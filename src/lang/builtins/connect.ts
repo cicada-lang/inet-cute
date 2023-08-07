@@ -5,10 +5,10 @@ import { Port } from "../graph"
 import { SignedType } from "../type"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
 
-export function compose(net: Env): void {
-  const start = net.ports.pop() as Port
-  const end = net.ports.pop() as Port
-  connect(net, start, end)
+export function compose(env: Env): void {
+  const start = env.ports.pop() as Port
+  const end = env.ports.pop() as Port
+  connect(env, start, end)
 }
 
 export function cut(ctx: Ctx): void {

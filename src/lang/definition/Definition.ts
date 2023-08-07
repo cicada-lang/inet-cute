@@ -69,14 +69,14 @@ export type OperatorDefinition = {
   kind: "OperatorDefinition"
   mod: Mod
   name: string
-  compose: (net: Env) => void
+  compose: (env: Env) => void
   cut: (ctx: Ctx) => void
 }
 
 export function OperatorDefinition(
   mod: Mod,
   name: string,
-  compose: (net: Env) => void,
+  compose: (env: Env) => void,
   cut: (ctx: Ctx) => void,
 ): OperatorDefinition {
   return {

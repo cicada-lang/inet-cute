@@ -18,10 +18,10 @@ export class Show implements Stmt {
     const ctx = createCtx()
     cutWords(mod, ctx, this.words, {})
 
-    const net = createEnv(mod)
-    composeWords(mod, net, this.words, {})
+    const env = createEnv(mod)
+    composeWords(mod, env, this.words, {})
 
-    console.log(formatEnv(net))
+    console.log(formatEnv(env))
     console.log()
   }
 }

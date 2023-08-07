@@ -14,32 +14,32 @@ export interface ComposeOptions {
 
 export function compose(
   mod: Mod,
-  net: Env,
+  env: Env,
   word: Word,
   options: ComposeOptions,
 ): void {
   switch (word.kind) {
     case "Call": {
       const definition = lookupDefinitionOrFail(mod, word.name)
-      composeDefinition(net, definition, options)
+      composeDefinition(env, definition, options)
       return
     }
 
     case "Local": {
-      const found = net.locals.get(word.name)
+      const found = env.locals.get(word.name)
       if (found !== undefined) {
-        net.ports.push(found)
-        net.locals.delete(word.name)
+        env.ports.push(found)
+        env.locals.delete(word.name)
         return
       } else {
-        const port = net.ports.pop()
+        const port = env.ports.pop()
         if (port === undefined) {
           throw new Error(
             `[compose / Local] expect a port on the top of the stack.`,
           )
         }
 
-        net.locals.set(word.name, port)
+        env.locals.set(word.name, port)
         return
       }
     }
@@ -51,9 +51,9 @@ export function compose(
         options,
       )
 
-      disconnect(net, currentPort.connection.edge)
+      disconnect(env, currentPort.connection.edge)
 
-      net.ports.push(currentPort)
+      env.ports.push(currentPort)
       return
     }
 
@@ -64,14 +64,14 @@ export function compose(
         options,
       )
 
-      disconnect(net, currentPort.connection.edge)
+      disconnect(env, currentPort.connection.edge)
 
-      const topPort = net.ports.pop()
+      const topPort = env.ports.pop()
       if (topPort === undefined) {
         throw new Error(`[compose / PortReconnect] I expect top port.`)
       }
 
-      connect(net, topPort, currentPort)
+      connect(env, topPort, currentPort)
       return
     }
   }

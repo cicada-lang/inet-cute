@@ -5,7 +5,7 @@ import { createNode } from "../graph/createNode"
 import { composeNode } from "./composeNode"
 
 export function composeNodeDefinition(
-  net: Env,
+  env: Env,
   definition: NodeDefinition,
 ): Node {
   const node = createNode(
@@ -15,7 +15,7 @@ export function composeNodeDefinition(
     definition.output,
   )
 
-  composeNode(net, node)
+  composeNode(env, node)
 
   return node
 }

@@ -3,21 +3,21 @@ import { connect } from "./connect"
 import { disconnect } from "./disconnect"
 import { removeNode } from "./removeNode"
 
-export function cleanUpWires(net: Env): void {
-  for (const wire of net.wires) {
+export function cleanUpWires(env: Env): void {
+  for (const wire of env.wires) {
     if (wire.start.connection && wire.end.connection) {
-      removeNode(net, wire.start.node)
-      removeNode(net, wire.end.node)
+      removeNode(env, wire.start.node)
+      removeNode(env, wire.end.node)
 
       const start = wire.start.connection.port
       const end = wire.end.connection.port
 
-      disconnect(net, wire.start.connection.edge)
-      disconnect(net, wire.end.connection.edge)
+      disconnect(env, wire.start.connection.edge)
+      disconnect(env, wire.end.connection.edge)
 
-      connect(net, start, end)
+      connect(env, start, end)
     }
   }
 
-  net.wires = []
+  env.wires = []
 }

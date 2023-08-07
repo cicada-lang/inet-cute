@@ -2,24 +2,24 @@ import { Env } from "../env"
 import { connect } from "../env/connect"
 import { Node } from "../graph"
 
-export function composeNode(net: Env, node: Node): Node {
+export function composeNode(env: Env, node: Node): Node {
   // Be careful about the order:
   // The first input port connects
   // with the port on the top of the stack.
 
   for (const port of node.input) {
-    const topPort = net.ports.pop()
+    const topPort = env.ports.pop()
     if (topPort === undefined) {
       throw new Error(
         `[composeNodeDefinition] I expect a port on top of the stack.`,
       )
     }
 
-    connect(net, topPort, port)
+    connect(env, topPort, port)
   }
 
-  net.ports.push(...node.output)
-  net.nodes.push(node)
+  env.ports.push(...node.output)
+  env.nodes.push(node)
 
   return node
 }

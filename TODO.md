@@ -1,6 +1,6 @@
 # value
 
-`Value`
+`Value` -- `Port` `PatternVar` `Type` `Labeled`
 
 rename `Env.ports` to `Env.values`
 

@@ -19,12 +19,12 @@ export class Run implements Stmt {
     const ctx = createCtx()
     cutWords(mod, ctx, this.words, {})
 
-    const net = createEnv(mod)
-    composeWords(mod, net, this.words, {})
+    const env = createEnv(mod)
+    composeWords(mod, env, this.words, {})
 
-    run(net)
+    run(env)
 
-    console.log(formatEnv(net))
+    console.log(formatEnv(env))
     console.log()
   }
 }

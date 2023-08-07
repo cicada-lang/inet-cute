@@ -10,11 +10,11 @@ import { createNode } from "../graph/createNode"
 
 */
 
-export function closeFreePorts(net: Env): Node | undefined {
-  if (net.ports.length === 0) {
+export function closeFreePorts(env: Env): Node | undefined {
+  if (env.ports.length === 0) {
     return undefined
   }
 
-  const node = createNode(net.mod, "*root*", [...net.ports], [])
-  return composeNode(net, node)
+  const node = createNode(env.mod, "*root*", [...env.ports], [])
+  return composeNode(env, node)
 }

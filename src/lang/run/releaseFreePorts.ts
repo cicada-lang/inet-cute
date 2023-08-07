@@ -3,7 +3,7 @@ import { disconnect } from "../env/disconnect"
 import { removeNode } from "../env/removeNode"
 import { Node } from "../graph/Node"
 
-export function releaseFreePorts(net: Env, closer: Node | undefined): void {
+export function releaseFreePorts(env: Env, closer: Node | undefined): void {
   if (closer === undefined) {
     return
   }
@@ -17,10 +17,10 @@ export function releaseFreePorts(net: Env, closer: Node | undefined): void {
       throw new Error(`[releaseFreePorts] I expect port to have connection.`)
     }
 
-    net.ports.push(port.connection.port)
+    env.ports.push(port.connection.port)
 
-    disconnect(net, port.connection.edge)
+    disconnect(env, port.connection.edge)
   }
 
-  removeNode(net, closer)
+  removeNode(env, closer)
 }

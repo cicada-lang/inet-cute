@@ -8,7 +8,7 @@ export function defineOperator(
   mod: Mod,
   name: string,
   options: {
-    compose: (net: Env) => void
+    compose: (env: Env) => void
     cut: (ctx: Ctx) => void
   },
 ): void {

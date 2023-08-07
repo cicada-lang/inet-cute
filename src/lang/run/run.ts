@@ -4,21 +4,21 @@ import { closeFreePorts } from "./closeFreePorts"
 import { interact } from "./interact"
 import { releaseFreePorts } from "./releaseFreePorts"
 
-export function run(net: Env): void {
-  const closer = closeFreePorts(net)
+export function run(env: Env): void {
+  const closer = closeFreePorts(env)
 
-  while (net.activeEdges.length > 0) {
-    step(net)
+  while (env.activeEdges.length > 0) {
+    step(env)
   }
 
-  cleanUpWires(net)
+  cleanUpWires(env)
 
-  releaseFreePorts(net, closer)
+  releaseFreePorts(env, closer)
 }
 
-function step(net: Env): void {
-  const activeEdge = net.activeEdges.pop()
+function step(env: Env): void {
+  const activeEdge = env.activeEdges.pop()
   if (activeEdge !== undefined) {
-    interact(net.mod, net, activeEdge)
+    interact(env.mod, env, activeEdge)
   }
 }

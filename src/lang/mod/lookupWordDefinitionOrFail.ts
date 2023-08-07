@@ -9,7 +9,7 @@ export function lookupWordDefinitionOrFail(
   const definition = lookupDefinitionOrFail(mod, name)
   if (!(definition.kind === "WordDefinition")) {
     throw new Error(
-      `I expect a net definition, but ${name} is ${definition.constructor.name}`,
+      `I expect a env definition, but ${name} is ${definition.constructor.name}`,
     )
   }
 

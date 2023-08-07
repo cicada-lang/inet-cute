@@ -9,7 +9,7 @@ import { freshenType } from "../unify/freshenType"
 let wireCounter = 0
 
 export default function (mod: Mod) {
-  function compose(net: Env): void {
+  function compose(env: Env): void {
     const node = createNode(
       mod,
       "wire",
@@ -28,10 +28,10 @@ export default function (mod: Mod) {
       ],
     )
 
-    net.ports.push(...node.output)
-    net.nodes.push(node)
+    env.ports.push(...node.output)
+    env.nodes.push(node)
     const [start, end] = node.output
-    net.wires.push({ start, end })
+    env.wires.push({ start, end })
   }
 
   function cut(ctx: Ctx): void {

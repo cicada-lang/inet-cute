@@ -5,13 +5,13 @@ import { composeNodeDefinition } from "./composeNodeDefinition"
 import { composeWords } from "./composeWords"
 
 export function composeDefinition(
-  net: Env,
+  env: Env,
   definition: Definition,
   options: ComposeOptions,
 ): void {
   switch (definition.kind) {
     case "NodeDefinition": {
-      composeNodeDefinition(net, definition)
+      composeNodeDefinition(env, definition)
       return
     }
 
@@ -22,12 +22,12 @@ export function composeDefinition(
         )
       }
 
-      composeWords(definition.mod, net, definition.words, options)
+      composeWords(definition.mod, env, definition.words, options)
       return
     }
 
     case "OperatorDefinition": {
-      definition.compose(net)
+      definition.compose(env)
       return
     }
 
