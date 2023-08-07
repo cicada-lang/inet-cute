@@ -1,7 +1,5 @@
 # monoid
 
-[docs] update the syntax the monoid article -- `$$name` for typed local linear variable
-
 [docs] update syntax for `designs/`
 
 # value
