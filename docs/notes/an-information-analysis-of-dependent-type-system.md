@@ -31,6 +31,20 @@ when we are building a net.
 
 In inet, we can build a net without running it!
 
+# Preparing ports
+
+Type checking of `rule` can obviously be done by building the local net.
+
+Type checking of `define` can also be done by
+first prepare some input ports on the stack
+then building the local net.
+
+Because every port is of some node,
+thus to prepare ports, we need to introduce nodes.
+
+We can introduce single-port nodes from types,
+such nodes will have no principal port.
+
 # Partial evaluation
 
 Dependent type system need to perform partial evaluation
