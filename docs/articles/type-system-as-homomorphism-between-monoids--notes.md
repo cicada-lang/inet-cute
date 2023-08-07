@@ -41,34 +41,34 @@ A linear logic proposition can be viewed the type of a channel.
 ## Vector
 
 ```jojo
-datatype Vector (A: Type) (length: Nat) {
-  null { zero A Vector }
-  cons {
+datatype Vector (A: Type) (length: Nat)
+  case null zero A Vector end
+  case cons
     vague (prev: Nat)
     A prev A Vector
     ------
-    prev Nat.add1 A Vector
-  }
-}
+    prev add1 A Vector
+  end
+end
 
-claim vector_append {
+claim vector_append
   implicit (A: Type, y: Nat)
   y A Vector
   implicit (x: Nat)
   x A Vector
   ------
   x y add A Vector
-}
+end
 
-rule Vector.null vector_append {}
+rule null vector_append end
 
-rule Vector.cons vector_append {
-  $$head vector_append $head Vector.cons
-}
+rule cons vector_append
+  $$head vector_append $head cons
+end
 
-check { -- six Trivial Vector } {
-  Vector.null Trivial.sole Vector.cons Trivial.sole Vector.cons Trivial.sole Vector.cons
-  Vector.null Trivial.sole Vector.cons Trivial.sole Vector.cons Trivial.sole Vector.cons
+check [ -- six Trivial Vector ]
+  null sole cons sole cons sole cons
+  null sole cons sole cons sole cons
   vector_append
-}
+end
 ```

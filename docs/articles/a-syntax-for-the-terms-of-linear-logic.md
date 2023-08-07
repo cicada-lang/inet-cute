@@ -99,18 +99,18 @@ we do not need to label
 which port is principal port.
 
 ```monoid pseudocode
-constructor <node> {
+constructor <node>
   <input-port> ...
   ------
   <output-port> ...
-}
+end
 
 
-eliminator <node> {
+eliminator <node>
   <input-port> ...
   ------
   <output-port> ...
-}
+end
 ```
 
 # Session types
@@ -153,122 +153,122 @@ After disconnecting, we put input ports back to the stack.
 ## Nat
 
 ```monoid
-type Nat { -- Type }
+type Nat -- Type end
 
-constructor zero { -- Nat }
-constructor add1 { Nat -- Nat }
-eliminator add { Nat Nat -- Nat }
+constructor zero -- Nat end
+constructor add1 Nat -- Nat end
+eliminator add Nat Nat -- Nat end
 
-rule zero add {}
-rule add1 add {
+rule zero add end
+rule add1 add
   add add1
-}
+end
 
-claim two { -- Nat }
-define two {
+claim two -- Nat end
+define two
   zero add1
   zero add1
   add
-}
+end
 ```
 
 ## Trivial
 
 ```monoid
-type Trivial { -- Type }
-constructor sole { -- Trivial }
+type Trivial -- Type end
+constructor sole -- Trivial end
 ```
 
 ## List
 
 ```monoid
-constructor null {
+constructor null
   vague (A: Type)
   ------
   A List
-}
+end
 
-constructor cons {
+constructor cons
   vague (A: Type)
   A A List
   ------
   A List
-}
+end
 
-eliminator append {
+eliminator append
   implicit (A: Type)
   A List A List
   ------
   A List
-}
+end
 
-rule null append {}
+rule null append end
 
-rule cons append {
+rule cons append
   rot rot append swap cons
-}
+end
 
-rule cons append {
+rule cons append
   let (that, tail, head)
   that tail append head cons
-}
+end
 
-rule cons append {
+rule cons append
   let (head) let (tail) let (that)
   that tail append head cons
-}
+end
 
-rule cons append {
+rule cons append
   let (head) append head cons
-]
+end
 
-claim six-soles { -- Trivial List }
+claim six-soles -- Trivial List end
 
-define six-soles {
+define six-soles
   null sole cons sole cons sole cons
   null sole cons sole cons sole cons
   append
-}
+end
 ```
 
 ## Vector
 
 ```monoid
-type Vector { Type Nat -- Type }
+type Vector Type Nat -- Type end
 
-constructor null-vector {
+constructor null-vector
   vague (A: Type)
   ------
   zero A Vector
-}
+end
 
-constructor cons-vector {
+constructor cons-vector
   vague (A: Type, prev: Nat)
   A, prev A Vector
   ------
   prev add1 A Vector
-}
+end
 
-eliminator vector-append {
+eliminator vector-append
   implicit (A: Type, y: Nat)
   y A Vector
   implicit (x: Nat)
   x A Vector
   ------
   x y add A Vector
-}
+end
 
-rule null-vector vector-append {}
+rule null-vector vector-append end
 
-rule cons-vector vector-append {
+rule cons-vector vector-append
   let (head) vector-append head cons-vector
-}
+end
 
-check { -- six Trivial Vector } {
+check [ -- six Trivial Vector ]
   null-vector sole cons-vector sole cons-vector sole cons-vector
   null-vector sole cons-vector sole cons-vector sole cons-vector
   vector-append
-}
+end
 ```
 
 ## DiffList
@@ -276,49 +276,49 @@ check { -- six Trivial Vector } {
 ```monoid
 // |- ~List(A), ~List(A), DiffList(A)
 
-constructor diff {
+constructor diff
   vague (A: Type)
   A List A List
   ------
   A DiffList
-}
+end
 ```
 
 ```monoid
-type DiffList { Type -- Type }
+type DiffList Type -- Type end
 
-constructor diff {
+constructor diff
   vague (A: Type)
   A List A List
   ------
   A DiffList
-}
+end
 
-eliminator diff-append {
+eliminator diff-append
   implicit (A: Type)
   A DiffList
   A DiffList
   ------
   A DiffList
-}
+end
 
-eliminator diff-open {
+eliminator diff-open
   implicit (A: Type)
   A DiffList
   A List
   ------
   A List
-}
+end
 
-rule diff diff-open {
+rule diff diff-open
   let (that, left, right)
   that left connect right
-}
+end
 
-rule diff diff-append {
+rule diff diff-append
   let (that, left, right)
   left that diff-open right diff
-}
+end
 ```
 
 `wire` places the two ports of a special edge on the stack.
@@ -327,13 +327,13 @@ If a wire's two ports are connected with port `A` and `B`,
 after building a net, we remove the wire, and connect `A` with `B`.
 
 ```monoid
-check { -- Trivial DiffList } {
+check [ -- Trivial DiffList ]
   wire diff
-}
+end
 
-check { -- Trivial DiffList } {
+check [ -- Trivial DiffList ]
   wire sole cons diff
   wire sole cons sole cons diff
   diff-append
-}
+end
 ```
