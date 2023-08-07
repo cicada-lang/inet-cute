@@ -66,7 +66,7 @@ rule cons vector_append
   $$head vector_append $head cons
 end
 
-check [ -- six Trivial Vector ]
+check six Trivial Vector then
   null sole cons sole cons sole cons
   null sole cons sole cons sole cons
   vector_append

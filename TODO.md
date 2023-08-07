@@ -1,9 +1,5 @@
 # monoid
 
-[docs] update syntax for `articles/` -- `check`
-
-- should not use `[]` -- use what to separate type from term?
-
 [docs] update syntax for `designs/`
 
 # value
@@ -20,12 +16,18 @@ merge `Ctx` to `Env`
 
 `value :key` should be of type `Labeled("key", 'a)`
 
+[maybe] `Boolean` should be builtin type
+
+- use `... if ... end` and `... if ... else ... end` as syntax
+
 # check
 
 `rule` check node order
 
 - The first node must have its principal port in the output,
   and the second node must have its principal port in the input.
+
+[syntax] support `check ... then ... end`
 
 # module
 

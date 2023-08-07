@@ -264,7 +264,9 @@ rule cons-vector vector-append
   let (head) vector-append head cons-vector
 end
 
-check [ -- six Trivial Vector ]
+check
+  six Trivial Vector
+then
   null-vector sole cons-vector sole cons-vector sole cons-vector
   null-vector sole cons-vector sole cons-vector sole cons-vector
   vector-append
@@ -327,11 +329,15 @@ If a wire's two ports are connected with port `A` and `B`,
 after building a net, we remove the wire, and connect `A` with `B`.
 
 ```monoid
-check [ -- Trivial DiffList ]
+check
+  Trivial DiffList
+then
   wire diff
 end
 
-check [ -- Trivial DiffList ]
+check
+  Trivial DiffList
+then
   wire sole cons diff
   wire sole cons sole cons diff
   diff-append
