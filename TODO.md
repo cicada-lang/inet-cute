@@ -1,7 +1,5 @@
 # value
 
-rename `Ctx.signedTypes` to `Ctx.stack`
-
 rename `localSignedTypes` to `locals`
 
 `Value` -- `Port` `PatternVar` `Type` `SignedType` `Labeled`

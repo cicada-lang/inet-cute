@@ -10,7 +10,7 @@ export function compose(env: Env): void {
 }
 
 export function cut(ctx: Ctx): void {
-  const x1 = ctx.signedTypes.pop() as SignedType
-  const x0 = ctx.signedTypes.pop() as SignedType
-  ctx.signedTypes.push(x1, x0)
+  const x1 = ctx.stack.pop() as SignedType
+  const x0 = ctx.stack.pop() as SignedType
+  ctx.stack.push(x1, x0)
 }

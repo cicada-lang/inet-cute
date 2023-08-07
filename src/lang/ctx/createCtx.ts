@@ -2,7 +2,7 @@ import { Ctx } from "./Ctx"
 
 export function createCtx(): Ctx {
   return {
-    signedTypes: [],
+    stack: [],
     localSignedTypes: new Map(),
     neutralSignedTypes: new Map(),
     substitution: new Map(),

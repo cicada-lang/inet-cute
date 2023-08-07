@@ -29,11 +29,11 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
       case "Local": {
         const found = ctx.localSignedTypes.get(word.name)
         if (found !== undefined) {
-          ctx.signedTypes.push(found)
+          ctx.stack.push(found)
           ctx.localSignedTypes.delete(word.name)
           return
         } else {
-          const signedType = ctx.signedTypes.pop()
+          const signedType = ctx.stack.pop()
 
           if (signedType === undefined) {
             throw new Error(
@@ -53,7 +53,7 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
           options,
         )
 
-        ctx.signedTypes.push(currentSignedType)
+        ctx.stack.push(currentSignedType)
         return
       }
 
@@ -64,7 +64,7 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
           options,
         )
 
-        const topSignedType = ctx.signedTypes.pop()
+        const topSignedType = ctx.stack.pop()
         if (topSignedType === undefined) {
           throw new Error(
             `[cut / PortReconnect] I expect top port, currentSignedType: ${formatSignedType(

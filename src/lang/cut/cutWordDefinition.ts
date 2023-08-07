@@ -26,7 +26,7 @@ export function cutWordDefinition(
 
   // NOTE Be careful about the order.
   for (const signedType of [...definition.input].reverse()) {
-    ctx.signedTypes.push({
+    ctx.stack.push({
       t: freshenType(ctx, signedType.t, occurredNames),
       sign: signedType.sign,
     })
@@ -36,7 +36,7 @@ export function cutWordDefinition(
 
   // NOTE Be careful about the order.
   for (const signedType of [...definition.output].reverse()) {
-    const topSignedType = ctx.signedTypes.pop()
+    const topSignedType = ctx.stack.pop()
     if (topSignedType === undefined) {
       throw new Error(
         [
@@ -56,7 +56,7 @@ export function cutWordDefinition(
   // Put checked output types back to the stack.
   // NOTE Be careful about the order.
   for (const signedType of definition.output) {
-    ctx.signedTypes.push({
+    ctx.stack.push({
       t: freshenType(ctx, signedType.t, occurredNames),
       sign: signedType.sign,
     })

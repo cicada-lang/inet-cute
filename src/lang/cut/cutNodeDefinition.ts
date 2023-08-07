@@ -13,7 +13,7 @@ export function cutNodeDefinition(
   const occurredNames = new Map()
 
   for (const portExp of definition.input) {
-    const signedType = ctx.signedTypes.pop()
+    const signedType = ctx.stack.pop()
     if (signedType === undefined) {
       throw new Error(
         [
@@ -31,7 +31,7 @@ export function cutNodeDefinition(
   }
 
   for (const portExp of definition.output) {
-    ctx.signedTypes.push({
+    ctx.stack.push({
       t: freshenType(ctx, portExp.t, occurredNames),
       sign: 1,
     })

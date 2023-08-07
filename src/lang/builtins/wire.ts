@@ -54,8 +54,8 @@ export default function (mod: Mod) {
     ctx.neutralSignedTypes.set(frontId, front)
     ctx.neutralSignedTypes.set(backId, back)
 
-    ctx.signedTypes.push(front)
-    ctx.signedTypes.push(back)
+    ctx.stack.push(front)
+    ctx.stack.push(back)
   }
 
   return { compose, cut }

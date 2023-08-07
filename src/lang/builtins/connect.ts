@@ -12,7 +12,7 @@ export function compose(env: Env): void {
 }
 
 export function cut(ctx: Ctx): void {
-  const x2 = ctx.signedTypes.pop() as SignedType
-  const x1 = ctx.signedTypes.pop() as SignedType
+  const x2 = ctx.stack.pop() as SignedType
+  const x1 = ctx.stack.pop() as SignedType
   unifySignedTypes(ctx, x1, x2)
 }
