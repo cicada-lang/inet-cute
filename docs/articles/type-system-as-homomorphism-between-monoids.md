@@ -16,12 +16,13 @@ in our example the space of types is a space of _linear logic propositions_,
 and the space of terms is a space of _concatenative programs_.
 
 The space of concatenative programs is inspired by
-the Forth programming language.
+the Forth programming language
+and the Joy programming language.
 
 Some key points of our demonstration:
 
 - Negation of linear logic should NOT be interpreted as "implying false",
-  but be interpreted as a type of _linear assignment_ (thus constructive).
+  but be interpreted as a type of _linear assignment_ (thus non classical).
 
 - Linear logic additive connectives can be interpreted without concurrency.
 
@@ -33,7 +34,7 @@ Firstly, a homomorphism between two monoids can be viewed as a type system.
 We can view this homomorphism as the `infer` function,
 given a term it can infer the type of this term.
 
-We say a "type system", because of
+I say "type system", because I think
 the principle of type theory is
 
 > To study **terms** and **types** together.
@@ -55,15 +56,16 @@ it's codomain is the space of **types**.
 
 The types will be _linear logic propositions_.
 
-The terms will be _[concatenative programs](https://en.wikipedia.org/wiki/Concatenative_programming_language)_
-(like programs in the [Forth](<https://en.wikipedia.org/wiki/Forth_(programming*language)> language)
-and the [Joy](<https://en.wikipedia.org/wiki/Joy*(programming*language)>) language).
+The terms will be _concatenative programs_.
 
 We use whitespace as infix notation
 to denote the binary operation
 of the monoids (instead of using an explicit infix notation like `•`).
 
 If `x` and `y` are elements, so is `x y`.
+
+We use `<infer> ... </infer>` to apply the `infer` homomorphism
+to an element of the term monoid.
 
 Since `infer` is a homomorphism, we have:
 
@@ -109,23 +111,25 @@ from lower case words to capitalized words,
 for examples:
 
 ```
-infer(a) = A
-infer(a b) = infer(a) infer(b) = A B
-infer(empty) = Empty
+<infer> a </infer> = A
+
+<infer> a b </infer> = <infer> a </infer> <infer> b </infer> = A B
+
+<infer> empty </infer> = Empty
 ```
 
 ## Abstraction of both term and type
 
-If `x` is a term, so is `{ x }`.
+If `x` is a term, so is `[ x ]`.
 
-If `X` is a type, so is `{ X }`.
+If `X` is a type, so is `[ X ]`.
 
 - We call this way of constructing new elements **abstraction**.
 
 We refine the definition of `infer` for abstraction:
 
 ```
-infer({ x }) = { infer(x) }
+<infer> [ x ] </infer> = [ <infer> x </infer> ]
 ```
 
 In the monoid of terms, we introduce a postfix operator `apply`
@@ -137,7 +141,7 @@ for elements constructed by abstraction.
 **Abstraction of term can be applied:**
 
 ```
-{ x } apply = x
+[ x ] apply = x
 ```
 
 Note that `apply` is only defined for terms, but not for types.
@@ -162,7 +166,8 @@ If `X` is a type, `X neg` is also a type.
 We refine the definition of `infer` for linear assignment and negation:
 
 ```
-infer(let (x: X) ... x ...) = X neg infer(...) X infer(...)
+<infer> let (x: X) ... x ... </infer> =
+X neg <infer> ... </infer> X <infer> ... </infer>
 ```
 
 i.e. negation is the type of linear assignment.
@@ -170,7 +175,7 @@ i.e. negation is the type of linear assignment.
 For example:
 
 ```
-infer(let (x: A) b x c) = A neg B A C
+<infer> let (x: A) b x c </infer> = A neg B A C
 ```
 
 We then introduce the following equivalent relation
@@ -194,22 +199,22 @@ X X neg = Empty
 X neg neg = X
 ```
 
-We introduce a syntactic shorthand for writing negation in `{ ... }`,
+We introduce a syntactic shorthand for writing negation in `[ ... ]`,
 
 ```
-{ X -- Y }
+[ X -- Y ]
 ```
 
 is the same as
 
 ```
-{ X neg Y }
+[ X neg Y ]
 ```
 
 For example:
 
 ```
-infer({ let (x: A) b x c }) = { A -- B A C }
+<infer> [ let (x: A) b x c ] </infer> = [ A -- B A C ]
 ```
 
 ## Datatype definition
@@ -229,26 +234,26 @@ are generaters of our monoids.
 An exmaple of datatype definition is the following:
 
 ```
-datatype Nat {
-  zero { -- Nat }
-  add1 { Nat -- Nat }
-}
+datatype Nat [
+  zero [ -- Nat ]
+  add1 [ Nat -- Nat ]
+]
 ```
 
 After this definition:
 
 - `Nat` is a type.
-- `Nat.zero` is a term.
-- `Nat.add1` is a term.
+- `zero` is a term.
+- `add1` is a term.
 
 We say `Nat` is a **type constructor**,
-and `Nat.zero` and `Nat.add1` are two **data constructors**.
+and `zero` and `add1` are two **data constructors**.
 
 The datatype definition also defines the homomorphism for between elements:
 
 ```
-infer(Nat.zero) = Nat
-infer(Nat.add1) = Nat neg Nat
+<infer> zero </infer> = Nat
+<infer> add1 </infer> = Nat neg Nat
 ```
 
 ## Global variable definition
@@ -260,11 +265,11 @@ and the `define` keyword to define a global variable's term.
   and a global variable (or say free variable) is different from them.
 
 ```
-claim one { Nat }
-define one { Nat.zero Nat.add1 }
+claim one [ Nat ]
+define one [ zero add1 ]
 
-claim two { Nat }
-define two { one Nat.add1 }
+claim two [ Nat ]
+define two [ one add1 ]
 ```
 
 We infer the type of defined term,
@@ -273,21 +278,32 @@ to check whether the inferred type is equal to the claimed type.
 Our definition of `one` passes this type check.
 
 ```
-infer(one) =
-infer(Nat.zero Nat.add1) =
-infer(Nat.zero) infer(Nat.add1) =
+<infer> one </infer> =
+
+<infer> zero add1 </infer> =
+
+<infer> zero </infer> <infer> add1 </infer> =
+
 Nat Nat neg Nat =
+
 Nat
 ```
 
 Our definition of `two` also passes this type check.
 
 ```
-infer(two) =
-infer(one Nat.add1) =
-infer(Nat.zero Nat.add1 Nat.add1) =
-infer(Nat.zero) infer(Nat.add1) infer(Nat.add1) =
+<infer> two </infer> =
+
+<infer> one add1 </infer> =
+
+<infer> zero add1 add1 </infer> =
+
+<infer> zero </infer>
+<infer> add1 </infer>
+<infer> add1 </infer> =
+
 Nat Nat neg Nat Nat neg Nat =
+
 Nat
 ```
 
@@ -296,23 +312,24 @@ Nat
 We can use `match` to construct a term against a given datatype.
 
 ```
-match (<type>) {
-  <data-constructor> { ... }
-  <data-constructor> { ... }
+match (<type>) [
+  <data-constructor> [ ... ]
+  <data-constructor> [ ... ]
   ...
-}
+]
 ```
 
 We must also define `infer` for `match`:
 
 ```
-infer(match (<type>) {
-  <data-constructor> { ... }
-  <data-constructor> { ... }
+<infer> match (<type>) [
+  <data-constructor> [ ... ]
+  <data-constructor> [ ... ]
   ...
-}) = <type> neg unify_types(
-  return_type_of(<data-constructor>) infer(...),
-  return_type_of(<data-constructor>) infer(...),
+]
+</infer> = <type> neg unify_types(
+  return_type_of(<data-constructor>) <infer> ... </infer>,
+  return_type_of(<data-constructor>) <infer> ... </infer>,
   ...,
 )
 ```
@@ -335,11 +352,11 @@ We then introduce the following equivalent relation
 for elements constructed by `match`.
 
 ```
-x match (<type>) {
-  <data-constructor> { ... }
-  <data-constructor> { ... }
+x match (<type>) [
+  <data-constructor> [ ... ]
+  <data-constructor> [ ... ]
   ...
-} = assert_types(infer(x), <type>) match_data(x, { ... }, { ... }, ...)
+] = assert_types(<infer> x </infer>, <type>) match_data(x, [ ... ], [ ... ], ...)
 ```
 
 We define `assert_types` as a function the same as `unify_types` by return `Empty`.
@@ -362,25 +379,27 @@ error x = error
 We can use `match` to define addition for `Nat`.
 
 ```
-claim add { Nat Nat -- Nat }
-define add {
-  match (Nat) {
-    zero {}
-    add1 { add Nat.add1 }
-  }
-}
+claim add [ Nat Nat -- Nat ]
+define add [
+  match (Nat) [
+    zero []
+    add1 [ add add1 ]
+  ]
+]
 ```
 
 Type check:
 
 ```
-infer(
-  match (Nat) {
-    zero {}
-    add1 { add Nat.add1 }
-  }
-) = Nat neg unify_types(infer(empty), Nat infer(add Nat.add1)) =
-Nat neg unify_types(Empty, Nat infer(Nat neg Nat neg Nat Nat neg Nat)) =
+<infer>
+  match (Nat) [
+    zero []
+    add1 [ add add1 ]
+  ]
+</infer> =
+
+Nat neg unify_types(<infer> empty </infer>, Nat <infer> add add1 </infer>) =
+Nat neg unify_types(Empty, Nat <infer> Nat neg Nat neg Nat Nat neg Nat </infer>) =
 Nat neg unify_types(Empty, Nat Nat neg Nat neg Nat Nat neg Nat) =
 Nat neg unify_types(Empty, Nat neg Nat) =
 Nat neg Nat neg Nat
@@ -392,29 +411,29 @@ Example computation of `add`:
 
 ```
 one one add =
-one Nat.zero Nat.add1 match (Nat) {
-  zero {}
-  add1 { add Nat.add1 }
-} = one Nat.zero add Nat.add1
+one zero add1 match (Nat) [
+  zero []
+  add1 [ add add1 ]
+] = one zero add add1
 ```
 
-In the above step, we see `one Nat.zero Nat.add1` ends with `Nat.add1`,
+In the above step, we see `one zero add1` ends with `add1`,
 thus the second clause is a match,
-we remove the ending `Nat.add1`,
-and compose the remaining `one Nat.zero`
-with the term in the match clause -- `add Nat.add1`.
+we remove the ending `add1`,
+and compose the remaining `one zero`
+with the term in the match clause -- `add add1`.
 
 ```
-one Nat.zero add Nat.add1 =
-one Nat.zero match (Nat) {
-  zero {}
-  add1 { add Nat.add1 }
-} Nat.add1 = one Nat.add1
+one zero add add1 =
+one zero match (Nat) [
+  zero []
+  add1 [ add add1 ]
+] add1 = one add1
 ```
 
-In the above step, we see `one Nat.zero` ends with `Nat.zero`,
+In the above step, we see `one zero` ends with `zero`,
 thus the first clause is a match,
-we remove the ending `Nat.zero`,
+we remove the ending `zero`,
 and compose the remaining `one`
 with the term in the match clause -- `empty`.
 
@@ -423,8 +442,8 @@ as adding a new term (`add`) to the monoid of terms,
 and adding the following two equations:
 
 ```
-Nat.zero add = empty;
-Nat.add1 add = add Nat.add1;
+zero add = empty;
+add1 add = add add1;
 ```
 
 If we infer the left hand side and the right hand side
@@ -432,23 +451,34 @@ of the first equation, we will see the resulting types
 unify with each other.
 
 ```
-infer(Nat.zero add) =
-Nat Nat neg Nat neg Nat =
-Nat neg Nat
+<infer> zero add </infer> =
 
-infer(empty) =
+Nat Nat neg Nat neg Nat =
+
+Nat neg Nat
+```
+
+```
+<infer> empty </infer> =
+
 Empty
 ```
 
 The same is true for the second equation.
 
 ```
-infer(Nat.add1 add) =
-Nat neg Nat Nat neg Nat neg Nat =
-Nat neg Nat neg Nat
+<infer> add1 add </infer> =
 
-infer(add Nat.add1) =
+Nat neg Nat Nat neg Nat neg Nat =
+
+Nat neg Nat neg Nat
+```
+
+```
+<infer> add add1 </infer> =
+
 Nat neg Nat neg Nat Nat neg Nat =
+
 Nat neg Nat neg Nat
 ```
 
@@ -460,42 +490,42 @@ and together with the equations the new term must satisfies.
 TODO
 
 ```
-claim swap { 'A 'B -- 'B 'A }
-define swap {
+claim swap [ 'A 'B -- 'B 'A ]
+define swap [
   let (x: 'A) let (y: 'B) x y
-}
+]
 ```
 
 ```
-datatype List {
-  null { 'A List }
-  cons { 'A 'A List -- 'A List }
-}
+datatype List [
+  null [ 'A List ]
+  cons [ 'A 'A List -- 'A List ]
+]
 ```
 
 ```
-claim append { 'A List 'A List -- 'A List }
+claim append [ 'A List 'A List -- 'A List ]
 
-define append {
-  match ('A List) {
-   null {}
-   cons { let (head) append head List.cons }
-  }
-}
+define append [
+  match ('A List) [
+   null []
+   cons [ let (head) append head List.cons ]
+  ]
+]
 ```
 
 ```
-datatype Trivial {
-  sole { -- Trivial }
-}
+datatype Trivial [
+  sole [ -- Trivial ]
+]
 
-claim six_soles { -- Trivial List }
+claim six_soles [ -- Trivial List ]
 
-define six_soles {
+define six_soles [
   List.null Trivial.sole List.cons Trivial.sole List.cons Trivial.sole List.cons
   List.null Trivial.sole List.cons Trivial.sole List.cons Trivial.sole List.cons
   append
-}
+]
 ```
 
 ## Unification problem as solving equations in monoid

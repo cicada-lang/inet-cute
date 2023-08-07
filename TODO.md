@@ -1,8 +1,6 @@
 # monoid
 
-update the syntax of "Type System as Homomorphism between Monoids"
-
-copy example from "Type System as Homomorphism between Monoids"
+update the syntax the monoid article -- `$name` for local linear variable
 
 update example from `example/adventure`
 
