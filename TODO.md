@@ -1,12 +1,16 @@
 # value
 
-`Value` -- `Port` `PatternVar` `Type` `Labeled`
+rename `Env.ports` to `Env.stack`
 
-rename `Env.ports` to `Env.values`
+rename `Ctx.signedTypes` to `Ctx.stack`
+
+rename `localSignedTypes` to `locals`
+
+`Value` -- `Port` `PatternVar` `Type` `SignedType` `Labeled`
+
+- The stack can take other types of values -- not only port.
 
 merge `Ctx` to `Env`
-
-the stack can take other types of values -- not only port
 
 `'a` should be a value
 

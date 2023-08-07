@@ -11,7 +11,7 @@ export function formatType(t: Type): string {
       }
     }
 
-    case "TypeVar": {
+    case "PatternVar": {
       return `'${t.name}`
     }
   }

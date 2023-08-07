@@ -4,7 +4,7 @@ import { Type } from "../type"
 
 export function deepWalkType(ctx: Ctx, t: Type): Type {
   switch (t.kind) {
-    case "TypeVar": {
+    case "PatternVar": {
       const found = ctx.substitution.get(t.name)
       if (found === undefined) {
         return t

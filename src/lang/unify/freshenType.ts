@@ -10,15 +10,15 @@ export function freshenType(
   occurredNames: Map<string, string>,
 ): Type {
   switch (t.kind) {
-    case "TypeVar": {
+    case "PatternVar": {
       const foundName = occurredNames.get(t.name)
       if (foundName === undefined) {
         const subscript = tickVariableCounter(ctx, t.name)
         const newName = t.name + stringToSubscript(subscript.toString())
         occurredNames.set(t.name, newName)
-        return Types.TypeVar(newName)
+        return Types.PatternVar(newName)
       } else {
-        return Types.TypeVar(foundName)
+        return Types.PatternVar(foundName)
       }
     }
 

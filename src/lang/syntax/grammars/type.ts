@@ -1,6 +1,6 @@
 export const type = {
   $grammar: {
-    "type:var": ['"\'"', { name: "variable_name" }],
+    "type:pattern_var": ['"\'"', { name: "variable_name" }],
     "type:term_zero_arity": [{ name: "variable_name" }],
     "type:term": [
       { name: "variable_name" },
