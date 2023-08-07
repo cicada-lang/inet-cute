@@ -63,7 +63,7 @@ claim vector_append {
 rule Vector.null vector_append {}
 
 rule Vector.cons vector_append {
-  let (head) vector_append head Vector.cons
+  $$head vector_append $head Vector.cons
 }
 
 check { -- six Trivial Vector } {

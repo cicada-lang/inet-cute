@@ -241,10 +241,10 @@ are generaters of our monoids.
 An exmaple of datatype definition is the following:
 
 ```
-datatype Nat [
-  zero [ -- Nat ]
-  add1 [ Nat -- Nat ]
-]
+datatype Nat
+  case zero -- Nat end
+  case add1 Nat -- Nat end
+end
 ```
 
 After this definition:
@@ -272,11 +272,11 @@ and the `define` keyword to define a global variable's term.
   and a global variable (or say free variable) is different from them.
 
 ```
-claim one [ Nat ]
-define one [ zero add1 ]
+claim one Nat end
+define one zero add1 end
 
-claim two [ Nat ]
-define two [ one add1 ]
+claim two Nat end
+define two one add1 end
 ```
 
 We infer the type of defined term,
@@ -319,21 +319,21 @@ Nat
 We can use `match` to construct a term against a given datatype.
 
 ```
-match (<type>) [
-  <data-constructor> [ ... ]
-  <data-constructor> [ ... ]
+match (<type>)
+  case <data-constructor> ... end
+  case <data-constructor> ... end
   ...
-]
+end
 ```
 
 We must also define `infer` for `match`:
 
 ```
-<infer> match (<type>) [
-  <data-constructor> [ ... ]
-  <data-constructor> [ ... ]
+<infer> match (<type>)
+  case <data-constructor> ... end
+  case <data-constructor> ... end
   ...
-]
+end
 </infer> = <type> neg unify_types(
   return_type_of(<data-constructor>) <infer> ... </infer>,
   return_type_of(<data-constructor>) <infer> ... </infer>,
@@ -386,23 +386,23 @@ error x = error
 We can use `match` to define addition for `Nat`.
 
 ```
-claim add [ Nat Nat -- Nat ]
-define add [
-  match (Nat) [
-    zero []
-    add1 [ add add1 ]
-  ]
-]
+claim add Nat Nat -- Nat end
+define add
+  match (Nat)
+    case zero end
+    case add1 add add1 end
+  end
+end
 ```
 
 Type check:
 
 ```
 <infer>
-  match (Nat) [
-    zero []
-    add1 [ add add1 ]
-  ]
+  match (Nat)
+    case zero end
+    case add1 add add1 end
+  end
 </infer> =
 
 Nat neg unify_types(<infer> empty </infer>, Nat <infer> add add1 </infer>) =
@@ -418,10 +418,10 @@ Example computation of `add`:
 
 ```
 one one add =
-one zero add1 match (Nat) [
-  zero []
-  add1 [ add add1 ]
-] = one zero add add1
+one zero add1 match (Nat)
+  case zero end
+  case add1 add add1 end
+end = one zero add add1
 ```
 
 In the above step, we see `one zero add1` ends with `add1`,
@@ -432,10 +432,10 @@ with the term in the match clause -- `add add1`.
 
 ```
 one zero add add1 =
-one zero match (Nat) [
-  zero []
-  add1 [ add add1 ]
-] add1 = one add1
+one zero match (Nat)
+  case zero end
+  case add1 add add1 end
+end add1 = one add1
 ```
 
 In the above step, we see `one zero` ends with `zero`,
@@ -497,42 +497,42 @@ and together with the equations the new term must satisfies.
 TODO
 
 ```
-claim swap [ 'A 'B -- 'B 'A ]
-define swap [
+claim swap 'A 'B -- 'B 'A end
+define swap
   'A $$x 'B $$y $x $y
-]
+end
 ```
 
 ```
-datatype List [
-  null [ 'A List ]
-  cons [ 'A 'A List -- 'A List ]
-]
+datatype List
+  case null 'A List end
+  case cons 'A 'A List -- 'A List end
+end
 ```
 
 ```
-claim append [ 'A List 'A List -- 'A List ]
+claim append 'A List 'A List -- 'A List end
 
-define append [
-  match ('A List) [
-   null []
-   cons [ $$head append $head List.cons ]
-  ]
-]
+define append
+  match ('A List)
+    case null end
+    case cons $$head append $head cons end
+  end
+end
 ```
 
 ```
-datatype Trivial [
-  sole [ -- Trivial ]
-]
+datatype Trivial
+  case sole -- Trivial end
+end
 
-claim six_soles [ -- Trivial List ]
+claim six_soles -- Trivial List end
 
-define six_soles [
-  List.null Trivial.sole List.cons Trivial.sole List.cons Trivial.sole List.cons
-  List.null Trivial.sole List.cons Trivial.sole List.cons Trivial.sole List.cons
+define six_soles
+  null sole cons sole cons sole cons
+  null sole cons sole cons sole cons
   append
-]
+end
 ```
 
 ## Unification problem as solving equations in monoid
