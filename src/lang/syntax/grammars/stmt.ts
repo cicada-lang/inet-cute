@@ -1,6 +1,12 @@
 export const stmt = {
   $grammar: {
-    "stmt:node": [
+    "stmt:node_with_output": [
+      '"node"',
+      { name: "variable_name" },
+      { output: "ports" },
+      '"end"',
+    ],
+    "stmt:node_with_input_and_output": [
       '"node"',
       { name: "variable_name" },
       { input: "ports" },

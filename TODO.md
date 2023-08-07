@@ -1,4 +1,4 @@
-`node` -- `input` should be optional -- like in `claim`
+`node` drop optional `;`
 
 `rule` check node order
 
