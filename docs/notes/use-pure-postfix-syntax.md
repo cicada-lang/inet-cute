@@ -8,7 +8,7 @@ We should use pure postfix syntax.
 
 # Nat
 
-Not pure postfix:
+**Prefix type term**:
 
 ```monoid
 type Nat 0 end
@@ -16,9 +16,16 @@ node zero -- value!: Nat end
 node add1 prev: Nat -- value!: Nat end
 
 node add target!: Nat addend: Nat -- return: Nat end
+
+node add
+  target!: Nat
+  addend: Nat
+  ------------
+  return: Nat
+end
 ```
 
-Pure postfix:
+**Pure postfix**:
 
 ```monoid
 type Nat Type end
@@ -37,7 +44,7 @@ end
 
 # List
 
-Not pure postfix:
+**Prefix type term**:
 
 ```monoid
 type List 1 end
@@ -45,9 +52,16 @@ node null -- value!: List('A) end
 node cons head: 'A tail: List('A) -- value!: List('A) end
 
 node append target!: List('A) rest: List('A) -- return: List('A) end
+
+node append
+  target!: List('A)
+  rest: List('A)
+  --------
+  return: List('A)
+end
 ```
 
-Pure postfix:
+**Pure postfix**:
 
 ```monoid
 type List Type -- Type end

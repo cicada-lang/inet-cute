@@ -1,7 +1,3 @@
-# monoid
-
-[docs] update syntax for `designs/`
-
 # value
 
 `Value` -- `Port` `PatternVar` `Type` `SignedType` `Labeled`
