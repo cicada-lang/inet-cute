@@ -20,7 +20,8 @@ define list_append
   $x match
     case list_null $y end
     case list_cons $head $tail
-      $y $tail $A list_append
+      // (lit $A) cut to $A itself -- instead of the type of $A
+      $y $tail (lit $A) list_append
       $head list_cons
     end
   end
@@ -41,7 +42,7 @@ define list_map
     case list_null $x end
     case list_case
       $head $tail
-      $tail $f $B $A list_map
+      $tail $f (lit $B) (lit $A) list_map
       $head $f execute list_cons
     end
   end
