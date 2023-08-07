@@ -1,0 +1,73 @@
+---
+title: Use pure postfix syntax
+author: Xie Yuheng
+date: 2023-08-07
+---
+
+We should use pure postfix syntax.
+
+# Nat
+
+Not pure postfix:
+
+```inet
+type Nat 0 end
+node zero -- value!: Nat end
+node add1 prev: Nat -- value!: Nat end
+
+node add target!: Nat; addend: Nat -- return: Nat end
+```
+
+Pure postfix:
+
+```inet
+type Nat 0 end
+node zero -- Nat :value! end
+node add1 Nat :prev -- Nat :value! end
+
+node add Nat :target! Nat :addend -- Nat :return end
+
+node add
+  Nat :target!
+  Nat :addend
+  ------------
+  Nat :return
+end
+```
+
+# List
+
+Not pure postfix:
+
+```inet
+type List 1 end
+node null -- value!: List('a) end
+node cons head: 'a; tail: List('a) -- value!: List('a) end
+
+node append target!: List('a); rest: List('a) -- return: List('a) end
+```
+
+Pure postfix:
+
+```inet
+type List 1 end
+node null -- List('a) :value! end
+node cons 'a :head List('a) :tail -- List('a) :value! end
+
+node append List('a) :target! List('a) :rest -- List('a) :return end
+
+node append
+  List('a) :target!
+  List('a) :rest
+  --------
+  List('a) :return
+end
+```
+
+# About JSON
+
+When designing syntax I have a goal to be able to
+write JSON directly in the language.
+
+We should give up this goal,
+because it is too limiting for new syntax design.

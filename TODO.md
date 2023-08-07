@@ -1,3 +1,10 @@
+linear variable should always use `$name` -- first occor `set` second occor `get`
+
+`rule` check node order
+
+- The first node must have its principal port in the output,
+  and the second node must have its principal port in the input.
+
 # module
 
 design module system
