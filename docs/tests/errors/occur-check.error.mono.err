@@ -1,12 +1,12 @@
 [unifyTypes] I find the right name occurs in the left type.
 
-  right name: a₀
-  left type: List('a₀)
+  right name: A₀
+  left type: List('A₀)
 
 [unifyTypes] I fail to unify types.
 
-  left: List('a₀)
-  right: 'a₀
+  left: List('A₀)
+  right: 'A₀
 
 [cut] I fail to cut word.
 
@@ -14,7 +14,7 @@
 
  1 |type List 1 end
  2 |
- 3 |claim wrong_connect 'a -List('a) -- end
+ 3 |claim wrong_connect 'A -List('A) -- end
  4 |define wrong_connect connect end
 
 [Define.execute] I fail to define word.
@@ -23,5 +23,5 @@
 
  1 |type List 1 end
  2 |
- 3 |claim wrong_connect 'a -List('a) -- end
+ 3 |claim wrong_connect 'A -List('A) -- end
  4 |define wrong_connect connect end

@@ -1,8 +1,8 @@
 type List 1 end
-node null value!: List('a) end
-node cons head: 'a tail: List('a) -- value!: List('a) end
+node null value!: List('A) end
+node cons head: 'A tail: List('A) -- value!: List('A) end
 
-node append target!: List('a) rest: List('a) -- return: List('a) end
+node append target!: List('A) rest: List('A) -- return: List('A) end
 
-claim appendappend List('a) List List('a) -- List('a) end
+claim appendappend List('A) List List('A) -- List('A) end
 define appendappend append append end

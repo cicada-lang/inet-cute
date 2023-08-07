@@ -1,33 +1,33 @@
-claim drop 'a -- end
+claim drop 'A -- end
 define drop $x end
 
-claim swap 'a 'a -- 'a 'a end
+claim swap 'A 'A -- 'A 'A end
 define swap $x $y x y end
 
-claim id 'a -- 'a end
+claim id 'A -- 'A end
 define id $x x end
 
-define Boolean 'a 'a -- 'a end
+define Boolean 'A 'A -- 'A end
 
 // claim true Boolean end
-claim true 'a 'a -- 'a end
+claim true 'A 'A -- 'A end
 define true $x $y x end
 
 // claim false Boolean end
-claim false 'a 'a -- 'a end
+claim false 'A 'A -- 'A end
 define false $x $y y end
 
 // claim not Boolean -- Boolean end
-claim not [ 'a 'a -- 'a ] 'a 'a -- 'a end
+claim not [ 'A 'A -- 'A ] 'A 'A -- 'A end
 define not
   $a $x $y
   x y a execute
 end
 
-claim true_not 'a 'a -- 'a end
+claim true_not 'A 'A -- 'A end
 define true_not [ true ] not end
 
-claim true_not_not 'a 'a -- 'a end
+claim true_not_not 'A 'A -- 'A end
 define true_not_not [ [ true ] not ] not end
 
 claim test_atom end

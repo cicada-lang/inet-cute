@@ -76,18 +76,18 @@ We use a simple type system like Haskell (for now).
 ```monoid
 defnode sole -- Trivial! end
 
-defnode null -- List('a)! end
+defnode null -- List('A)! end
 
 defnode cons
-  head: List('a)
-  tail: List('a)
-  -- List('a)!
+  head: List('A)
+  tail: List('A)
+  -- List('A)!
 end
 
 defnode append
-  left: List('a)!
-  right: List('a)
-  -- List('a)
+  left: List('A)!
+  right: List('A)
+  -- List('A)
 end
 
 defrule null append
@@ -120,21 +120,21 @@ end
 
 ```monoid
 defnode diff
-  left: List('a)
-  right: List('a)
-  -- DiffList('a)!
+  left: List('A)
+  right: List('A)
+  -- DiffList('A)!
 end
 
 defnode diff_append
-  left: DiffList('a)!
-  right: DiffList('a)
-  -- DiffList('a)
+  left: DiffList('A)!
+  right: DiffList('A)
+  -- DiffList('A)
 end
 
 defnode diff_open
-  DiffList('a)!
-  list: List('a)
-  -- List('a)
+  DiffList('A)!
+  list: List('A)
+  -- List('A)
 end
 
 defrule diff diff_append

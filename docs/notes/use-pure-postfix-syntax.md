@@ -15,7 +15,7 @@ type Nat 0 end
 node zero -- value!: Nat end
 node add1 prev: Nat -- value!: Nat end
 
-node add target!: Nat; addend: Nat -- return: Nat end
+node add target!: Nat addend: Nat -- return: Nat end
 ```
 
 Pure postfix:
@@ -41,26 +41,26 @@ Not pure postfix:
 
 ```monoid
 type List 1 end
-node null -- value!: List('a) end
-node cons head: 'a; tail: List('a) -- value!: List('a) end
+node null -- value!: List('A) end
+node cons head: 'A tail: List('A) -- value!: List('A) end
 
-node append target!: List('a); rest: List('a) -- return: List('a) end
+node append target!: List('A) rest: List('A) -- return: List('A) end
 ```
 
 Pure postfix:
 
 ```monoid
 type List Type -- Type end
-node null -- List('a) :value! end
-node cons 'a :head List('a) :tail -- List('a) :value! end
+node null -- 'A List :value! end
+node cons 'A :head 'A List :tail -- 'A List :value! end
 
-node append List('a) :target! List('a) :rest -- List('a) :return end
+node append 'A List :target! 'A List :rest -- 'A List :return end
 
 node append
-  List('a) :target!
-  List('a) :rest
+  'A List :target!
+  'A List :rest
   --------
-  List('a) :return
+  'A List :return
 end
 ```
 

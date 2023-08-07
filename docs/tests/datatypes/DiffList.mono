@@ -2,16 +2,16 @@ type Trivial 0 end
 node sole value!: Trivial end
 
 type List 1 end
-node null value!: List('a) end
-node cons head: 'a tail: List('a) -- value!: List('a) end
+node null value!: List('A) end
+node cons head: 'A tail: List('A) -- value!: List('A) end
 
 type DiffList 1 end
 
 node diff
-  front: List('a)
+  front: List('A)
   -------
-  back: List('a)
-  value!: DiffList('a)
+  back: List('A)
+  value!: DiffList('A)
 end
 
 // Concatenation of lists is performed in linear time
@@ -22,17 +22,17 @@ end
 // at the back of the first one.
 
 node diff_append
-  target!: DiffList('a)
-  rest: DiffList('a)
+  target!: DiffList('A)
+  rest: DiffList('A)
   ------
-  return: DiffList('a)
+  return: DiffList('A)
 end
 
 node diff_open
-  target!: DiffList('a)
-  list: List('a)
+  target!: DiffList('A)
+  list: List('A)
   ------
-  return: List('a)
+  return: List('A)
 end
 
 rule diff diff_append

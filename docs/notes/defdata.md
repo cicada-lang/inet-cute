@@ -31,27 +31,27 @@ Instead of
 
 ```monoid
 deftype List 1 end
-defnode  null -- value!: List('a) end
-defnode  cons head: 'a, tail: List('a) -- value!: List('a) end
+defnode  null -- value!: List('A) end
+defnode  cons head: 'A, tail: List('A) -- value!: List('A) end
 ```
 
 We can write
 
 ```monoid
-defdata List('a)
-  null -- value!: List('a) end
-  cons head: 'a, tail: List('a) -- value!: List('a) end
+defdata List('A)
+  null -- value!: List('A) end
+  cons head: 'A, tail: List('A) -- value!: List('A) end
 end
 ```
 
-Maybe we can use `a` instead of `'a`,
+Maybe we can use `a` instead of `'A`,
 because `defdata List(a)` introduces `a` into the scope.
 
-But the eliminator like `append` still need to use `'a`.
+But the eliminator like `append` still need to use `'A`.
 
 ```monoid
 defdata List(a)
-  null -- value!: List('a) end
+  null -- value!: List('A) end
   cons head: a, tail: List(a) -- value!: List(a) end
 end
 ```
