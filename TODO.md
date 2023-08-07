@@ -1,7 +1,5 @@
 # monoid
 
-update README.md
-
 update the syntax of "Type System as Homomorphism between Monoids"
 
 copy example from "Type System as Homomorphism between Monoids"

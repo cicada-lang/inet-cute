@@ -1,19 +1,7 @@
-# INet
+# Monoid
 
-A programming language based on [Interaction Nets](https://en.wikipedia.org/wiki/Interaction_nets).
-
-## Introduction
-
-Interaction nets is an interesting computation model designed by Yves Lafont in 1990,
-It uses undirected graphs and graph rewriting to express computations.
-
-It is interesting because:
-
-> Our interaction nets are deterministic in a strong sense:
-> not only the result, but also the computation is unique,
-> up to trivial commutations.
->
-> -- Interaction Combinators, Yves Lafont, 1997
+Monoid as type system
+and programming with [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets).
 
 ## References
 
@@ -31,12 +19,12 @@ Books:
 
 ### Command line tool
 
-The command line program is called `inet`.
+The command line program is called `mono`.
 
 Install it by the following command:
 
 ```
-npm -g i @cicada-lang/inet
+npm -g i @cicada-lang/monoid
 ```
 
 ## Development
