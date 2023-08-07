@@ -10,7 +10,7 @@ We can use `defdata` to `deftype` and `defnode` (constructor) together.
 
 Instead of
 
-```inet
+```monoid
 deftype Nat 0 end
 defnode zero -- value!: Nat end
 defnode add1 prev: Nat -- value!: Nat end
@@ -18,7 +18,7 @@ defnode add1 prev: Nat -- value!: Nat end
 
 We can write
 
-```inet
+```monoid
 defdata Nat
   zero -- value!: Nat end
   add1 prev: Nat -- value!: Nat end
@@ -29,7 +29,7 @@ end
 
 Instead of
 
-```inet
+```monoid
 deftype List 1 end
 defnode  null -- value!: List('a) end
 defnode  cons head: 'a, tail: List('a) -- value!: List('a) end
@@ -37,7 +37,7 @@ defnode  cons head: 'a, tail: List('a) -- value!: List('a) end
 
 We can write
 
-```inet
+```monoid
 defdata List('a)
   null -- value!: List('a) end
   cons head: 'a, tail: List('a) -- value!: List('a) end
@@ -49,7 +49,7 @@ because `defdata List(a)` introduces `a` into the scope.
 
 But the eliminator like `append` still need to use `'a`.
 
-```inet
+```monoid
 defdata List(a)
   null -- value!: List('a) end
   cons head: a, tail: List(a) -- value!: List(a) end

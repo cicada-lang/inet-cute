@@ -1,20 +1,20 @@
 {
-  "name": "@cicada-lang/inet",
+  "name": "@cicada-lang/monoid",
   "version": "0.1.0",
-  "repository": "github:cicada-lang/inet",
+  "repository": "github:cicada-lang/monoid",
   "files": [
     "lib"
   ],
   "bin": {
-    "inet": "bin/inet.js"
+    "mono": "bin/mono.js"
   },
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
     "test:js": "test-runner test node 'lib/**/*.test.js'",
-    "test:inet": "test-runner snapshot 'node ./bin/inet.js run --no-color' 'docs/tests/**/*.inet' --exclude 'docs/tests/**/*.error.inet'",
-    "test:inet-error": "test-runner snapshot-error 'node ./bin/inet.js run --no-color' 'docs/tests/**/*.error.inet'",
-    "test": "npm run test:js && npm run test:inet && npm run test:inet-error",
+    "test:mono": "test-runner snapshot 'node ./bin/mono.js run --no-color' 'docs/tests/**/*.mono' --exclude 'docs/tests/**/*.error.mono'",
+    "test:mono-error": "test-runner snapshot-error 'node ./bin/mono.js run --no-color' 'docs/tests/**/*.error.mono'",
+    "test": "npm run test:js && npm run test:mono && npm run test:mono-error",
     "format": "prettier src docs --write"
   },
   "devDependencies": {

@@ -10,7 +10,7 @@ We should use pure postfix syntax.
 
 Not pure postfix:
 
-```inet
+```monoid
 type Nat 0 end
 node zero -- value!: Nat end
 node add1 prev: Nat -- value!: Nat end
@@ -20,7 +20,7 @@ node add target!: Nat; addend: Nat -- return: Nat end
 
 Pure postfix:
 
-```inet
+```monoid
 type Nat Type end
 node zero -- Nat :value! end
 node add1 Nat :prev -- Nat :value! end
@@ -39,7 +39,7 @@ end
 
 Not pure postfix:
 
-```inet
+```monoid
 type List 1 end
 node null -- value!: List('a) end
 node cons head: 'a; tail: List('a) -- value!: List('a) end
@@ -49,7 +49,7 @@ node append target!: List('a); rest: List('a) -- return: List('a) end
 
 Pure postfix:
 
-```inet
+```monoid
 type List Type -- Type end
 node null -- List('a) :value! end
 node cons 'a :head List('a) :tail -- List('a) :value! end

@@ -1,3 +1,13 @@
+# monoid
+
+update README.md
+
+update the syntax of "Type System as Homomorphism between Monoids"
+
+copy example from "Type System as Homomorphism between Monoids"
+
+copy example from study/adventure/jojo
+
 # value
 
 `Value` -- `Port` `PatternVar` `Type` `SignedType` `Labeled`
@@ -66,13 +76,3 @@ understand proof-nets for all connectives
 # example
 
 use inet to encode lambda calculus
-
-# monoid
-
-[maybe] change project name to `monoid` -- `.mono` as file extension
-
-update the syntax of "Type System as Homomorphism between Monoids"
-
-copy example from "Type System as Homomorphism between Monoids"
-
-copy example from study/adventure/jojo

@@ -13,7 +13,7 @@ type Opts = { name?: string }
 export class RunCommand extends Command<Args, Opts> {
   name = "run"
 
-  description = "Run an inet program"
+  description = "Run an monoid program"
 
   args = { mod: ty.string() }
 
@@ -22,7 +22,7 @@ export class RunCommand extends Command<Args, Opts> {
     const { blue } = this.colors
 
     return [
-      blue(`  ${runner.name} ${this.name} docs/tests/nat.inet --name two`),
+      blue(`  ${runner.name} ${this.name} docs/tests/datatypes/Nat.mono`),
       ``,
     ].join("\n")
   }

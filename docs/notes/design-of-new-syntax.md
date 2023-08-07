@@ -12,7 +12,7 @@ Use `defnode` to define a node.
 
 Use `!` as postfix to mark the principal port.
 
-```inet
+```monoid
 defnode zero -- return: Nat! end
 
 defnode add1 prev: Nat -- return: Nat! end
@@ -24,7 +24,7 @@ If there is only one output port,
 the `return` is the default name,
 thus can be omitted.
 
-```inet
+```monoid
 defnode zero -- Nat! end
 
 defnode add1 prev: Nat -- Nat! end
@@ -36,7 +36,7 @@ Use `defrule` to define a rule,
 use `(<node>)-<port>` to push port to the stack,
 use `<port>-(<node>)` to weld a port to the top port on the stack.
 
-```inet
+```monoid
 defrule zero add
   (add)-y return-(add)
 end
@@ -51,13 +51,13 @@ end
 
 `defru` is a short hand for simple `defrule`.
 
-```inet
+```monoid
 defru zero add end
 
 defru add1 add add add1 end
 ```
 
-```inet
+```monoid
 defn two
   zero add1
   zero add1
@@ -73,7 +73,7 @@ end
 
 We use a simple type system like Haskell (for now).
 
-```inet
+```monoid
 defnode sole -- Trivial! end
 
 defnode null -- List('a)! end
@@ -118,7 +118,7 @@ end
 
 # DiffList
 
-```inet
+```monoid
 defnode diff
   left: List('a)
   right: List('a)
@@ -165,7 +165,7 @@ end
 If a wire's two ports are connected with port `A` and `B`,
 after building a net, we remove the wire, and connect `A` with `B`.
 
-```inet
+```monoid
 defn one_two_soles
   wire sole cons diff
   wire sole cons sole cons diff

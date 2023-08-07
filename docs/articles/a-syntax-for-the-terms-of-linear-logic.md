@@ -98,7 +98,7 @@ Using this convention,
 we do not need to label
 which port is principal port.
 
-```inet pseudocode
+```monoid pseudocode
 constructor <node> {
   <input-port> ...
   ------
@@ -152,7 +152,7 @@ After disconnecting, we put input ports back to the stack.
 
 ## Nat
 
-```inet
+```monoid
 type Nat { -- Type }
 
 constructor zero { -- Nat }
@@ -174,14 +174,14 @@ define two {
 
 ## Trivial
 
-```inet
+```monoid
 type Trivial { -- Type }
 constructor sole { -- Trivial }
 ```
 
 ## List
 
-```inet
+```monoid
 constructor null {
   vague (A: Type)
   ------
@@ -233,7 +233,7 @@ define six-soles {
 
 ## Vector
 
-```inet
+```monoid
 type Vector { Type Nat -- Type }
 
 constructor null-vector {
@@ -273,7 +273,7 @@ check { -- six Trivial Vector } {
 
 ## DiffList
 
-```inet
+```monoid
 // |- ~List(A), ~List(A), DiffList(A)
 
 constructor diff {
@@ -284,7 +284,7 @@ constructor diff {
 }
 ```
 
-```inet
+```monoid
 type DiffList { Type -- Type }
 
 constructor diff {
@@ -326,7 +326,7 @@ rule diff diff-append {
 If a wire's two ports are connected with port `A` and `B`,
 after building a net, we remove the wire, and connect `A` with `B`.
 
-```inet
+```monoid
 check { -- Trivial DiffList } {
   wire diff
 }
