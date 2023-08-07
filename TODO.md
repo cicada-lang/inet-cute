@@ -1,6 +1,6 @@
 # monoid
 
-update the syntax the monoid article -- `$name` for local linear variable
+update the syntax the monoid article -- `$$name` for typed local linear variable
 
 update example from `example/adventure`
 

@@ -45,6 +45,15 @@ The reverse is also true, given a type system,
 we can construct two monoids to be the space of terms and types.
 And we can interpret concepts in type system as equations in monoid.
 
+- The reverse is NOT true, given a type system,
+  only when the terms of the type system
+  is designed to be Church style (every term can be inferred)
+  instead of Curry style, can we view it to be
+  a homomorphism between monoids.
+
+  When the terms are in Curry style,
+  beside `infer`, we also need `check`.
+
 # Example: A syntax for the terms of linear logic
 
 Let's define two concrete monoids and a homomorphism between them,
@@ -143,8 +152,6 @@ for elements constructed by abstraction.
 ```
 [ x ] apply = x
 ```
-
-Note that `apply` is only defined for terms, but not for types.
 
 ## Linear assignment of term, and negation of type
 
