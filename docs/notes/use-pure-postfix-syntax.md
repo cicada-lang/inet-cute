@@ -21,7 +21,7 @@ node add target!: Nat; addend: Nat -- return: Nat end
 Pure postfix:
 
 ```inet
-type Nat 0 end
+type Nat Type end
 node zero -- Nat :value! end
 node add1 Nat :prev -- Nat :value! end
 
@@ -50,7 +50,7 @@ node append target!: List('a); rest: List('a) -- return: List('a) end
 Pure postfix:
 
 ```inet
-type List 1 end
+type List Type -- Type end
 node null -- List('a) :value! end
 node cons 'a :head List('a) :tail -- List('a) :value! end
 

@@ -1,9 +1,29 @@
 linear variable should always use `$name` -- first occor `set` second occor `get`
 
+`node` -- `input` should be optional -- like in `claim`
+
 `rule` check node order
 
 - The first node must have its principal port in the output,
   and the second node must have its principal port in the input.
+
+# value
+
+rename `Net` to `Env`
+
+rename `Env.ports` to `Env.stack`
+
+rename `Env.localPorts` to `Env.local`
+
+merge `Ctx` to `Env`
+
+the stack can take other types of values -- not only port
+
+`'a` should be a value
+
+`String` should be builtin type
+
+`value :key` should be of type `Labeled("key", 'a)`
 
 # module
 
@@ -48,18 +68,6 @@ understand proof-nets for all connectives
 - proof-nets--the-parallel-syntax-for-proof-theory--1995.pdf
 - "The linear abstract machine", Lafont, 1990.
 - "From proof-nets to interaction net", Lafont, 1995
-
-# value
-
-the stack can take other types of values -- not only port
-
-`'a` should be a value
-
-`key: value` should be a value (Pair)
-
-- support JSON syntax
-
-use `()` for prefix application -- one `,` one substack
 
 # example
 
