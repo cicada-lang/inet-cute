@@ -7,4 +7,4 @@ rule zero add
   return-[add]
 end
 
-node add target!: Nat; addend: Nat -- return: Nat end
+node add target!: Nat addend: Nat -- return: Nat end

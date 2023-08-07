@@ -3,7 +3,7 @@ node sole value!: Trivial end
 
 type List 1 end
 node null value!: List('a) end
-node cons head: 'a; tail: List('a) -- value!: List('a) end
+node cons head: 'a tail: List('a) -- value!: List('a) end
 
 type DiffList 1 end
 

@@ -1,5 +1,3 @@
-`node` drop optional `;`
-
 `rule` check node order
 
 - The first node must have its principal port in the output,
