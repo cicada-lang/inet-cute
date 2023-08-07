@@ -68,7 +68,7 @@ If `x` and `y` are elements, so is `x y`.
 Since `infer` is a homomorphism, we have:
 
 ```
-infer(x y) = infer(x) infer(y)
+<infer> x y </infer> = <infer> x </infer> <infer> y </infer>
 ```
 
 ## The plan
