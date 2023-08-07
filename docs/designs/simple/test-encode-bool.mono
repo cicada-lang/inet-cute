@@ -1,64 +1,40 @@
-drop : { (- A) }
-drop = {
-  [x : A]
-}
+claim drop 'a -- end
+define drop $x end
 
-swap : { (- A) (- A) A A }
-swap = {
-  [x : A]
-  [y : A]
-  x y
-}
+claim swap 'a 'a -- 'a 'a end
+define swap $x $y $x $y end
 
-id : { (- A) A }
-id = {
-  [x : A]
-  x
-}
+claim id 'a -- 'a end
+define id $x $x end
 
-// type Boolean = { (- A) (- A) A }
+define Boolean 'a 'a -- 'a end
 
-// true : { Boolean }
-true : { (- A) (- A) A }
-true = {
-  [x : A]
-  [y : A]
-  x
-}
+// claim true Boolean end
+claim true 'a 'a -- 'a end
+define true $x $y $x end
 
-// false : { Boolean }
-false : { (- A) (- A) A }
-false = {
-  [x : A]
-  [y : A]
-  y
-}
+// claim false Boolean end
+claim false 'a 'a -- 'a end
+define false $x $y $y end
 
-// not : { (- Boolean) Boolean }
-not : { (- { (- A) (- A) A }) (- A) (- A) A }
-not = {
-  [a : { (- A) (- A) A }]
-  [x : A]
-  [y : A]
-  x y a exe
-}
+// claim not Boolean -- Boolean end
+claim not [ 'a 'a -- 'a ] 'a 'a -- 'a end
+define not
+  $a $x $y
+  $x $y $a execute
+end
 
-true_not : { (- A) (- A) A }
-true_not = {
-  { true } not
-}
+claim true_not 'a 'a -- 'a end
+define true_not [ true ] not end
 
-true_not_not : { (- A) (- A) A }
-true_not_not = {
-  { { true } not } not
-}
+claim true_not_not 'a 'a -- 'a end
+define true_not_not [ [ true ] not ] not end
 
-
-test_atom : { }
-test_atom = {
-  (atom A "a") (atom A "b") true
-  (atom A "a") (atom A "b") { false } not
-  assert_eq
-}
+claim test_atom end
+define test_atom
+  "a" "b" true
+  "a" "b" [ false ] not
+  assert_equal
+end
 
 test_atom

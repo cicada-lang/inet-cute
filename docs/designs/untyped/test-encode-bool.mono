@@ -1,7 +1,0 @@
-true = { [x] [y] x }
-false = { [x] [y] y }
-not = { [a] [x] [y] x y a exe }
-
-"a" "b" true
-"a" "b" { false } not
-assert_eq

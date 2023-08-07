@@ -1,50 +1,53 @@
-List : { (- Type) Type }
-List = {
-  [A : Type]
-  datatype {
-    list_null : { datacons {} }
-    list_cons : { (- A) (- A List) datacons {} }
-  }
-}
+claim List (- Type) Type end
 
-list_append : {
+define List
+  [A : Type]
+  datatype
+    case list_null datacons {} end
+    case list_cons (- A) (- A List) datacons {} end
+  end
+end
+
+claim list_append
   [A : Type]
   (- A List)
   (- A List)
   A List
-}
-list_append = {
+end
+
+define list_append
   (dep A : Type)
   [x: A List]
   [y: A List]
-  x match {
-    case list_null => { y }
-    case list_case => {
+  x match
+    case list_null => y end
+    case list_case =>
       [head: A] [tail: A List]
       y tail (lit A) list_append
       head list_cons
-    }
-  }
-}
+    end
+  end
+end
 
-list_map : {
+claim list_map
   [A : Type]
   [B : Type]
   (- { (- A) B })
   (- A List)
   B List
-}
-list_map = {
+end
+
+define list_map
   (dep A : Type)
   (dep B : Type)
   [f : { (- A) B }]
   [x : A List]
-  x match {
-    case list_null => { x }
-    case list_case => {
+  x match
+    case list_null => x end
+    case list_case =>
       [head: A] [tail: A List]
       tail f (lit B) (lit A) list_map
       head f exe list_cons
-    }
-  }
-}
+    end
+  end
+end

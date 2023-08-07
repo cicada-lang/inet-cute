@@ -1,6 +1,6 @@
 # monoid
 
-[docs] update syntax for `designs/` -- use `end`
+[docs] update syntax for `designs/`
 
 # value
 

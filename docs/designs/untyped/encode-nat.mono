@@ -1,0 +1,3 @@
+define zero [ ] end
+define one [ zero ] end
+define two [ one ] end

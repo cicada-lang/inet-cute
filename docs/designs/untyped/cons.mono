@@ -1,0 +1,11 @@
+[ ]
+"a" cons
+"b" cons
+"c" cons
+$cba
+
+$cba println
+
+$cba car "c" assert_equal
+$cba cdr car "b" assert_equal
+$cba cdr cdr car "a" assert_equal
