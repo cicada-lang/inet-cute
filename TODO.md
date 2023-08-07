@@ -4,7 +4,7 @@ update the syntax of "Type System as Homomorphism between Monoids"
 
 copy example from "Type System as Homomorphism between Monoids"
 
-update example from study/adventure/jojo
+update example from `example/adventure`
 
 # value
 
