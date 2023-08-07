@@ -6,8 +6,8 @@ import { SignedType } from "../type"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
 
 export function compose(env: Env): void {
-  const start = env.ports.pop() as Port
-  const end = env.ports.pop() as Port
+  const start = env.stack.pop() as Port
+  const end = env.stack.pop() as Port
   connect(env, start, end)
 }
 

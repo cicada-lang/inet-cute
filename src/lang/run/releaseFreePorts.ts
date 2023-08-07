@@ -17,7 +17,7 @@ export function releaseFreePorts(env: Env, closer: Node | undefined): void {
       throw new Error(`[releaseFreePorts] I expect port to have connection.`)
     }
 
-    env.ports.push(port.connection.port)
+    env.stack.push(port.connection.port)
 
     disconnect(env, port.connection.edge)
   }

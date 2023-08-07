@@ -16,7 +16,7 @@ export function formatEnv(env: Env): string {
     lines.push(`[${start}]-${edge.start.name} ${edge.end.name}-[${end}]`)
   }
 
-  for (const port of env.ports) {
+  for (const port of env.stack) {
     lines.push(`[${formatNode(port.node)}]-${port.name}`)
   }
 

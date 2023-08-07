@@ -6,7 +6,7 @@ export type Env = {
   nodes: Array<Node>
   edges: Array<Edge>
   activeEdges: Array<ActiveEdge>
-  ports: Array<Port>
+  stack: Array<Port>
   locals: Map<string, Port>
   wires: Array<Edge>
 }

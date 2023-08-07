@@ -1,11 +1,5 @@
 # value
 
-
-
-
-
-rename `Env.ports` to `Env.stack`
-
 rename `Ctx.signedTypes` to `Ctx.stack`
 
 rename `localSignedTypes` to `locals`

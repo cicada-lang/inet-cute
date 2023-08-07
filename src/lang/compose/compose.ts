@@ -28,11 +28,11 @@ export function compose(
     case "Local": {
       const found = env.locals.get(word.name)
       if (found !== undefined) {
-        env.ports.push(found)
+        env.stack.push(found)
         env.locals.delete(word.name)
         return
       } else {
-        const port = env.ports.pop()
+        const port = env.stack.pop()
         if (port === undefined) {
           throw new Error(
             `[compose / Local] expect a port on the top of the stack.`,
@@ -53,7 +53,7 @@ export function compose(
 
       disconnect(env, currentPort.connection.edge)
 
-      env.ports.push(currentPort)
+      env.stack.push(currentPort)
       return
     }
 
@@ -66,7 +66,7 @@ export function compose(
 
       disconnect(env, currentPort.connection.edge)
 
-      const topPort = env.ports.pop()
+      const topPort = env.stack.pop()
       if (topPort === undefined) {
         throw new Error(`[compose / PortReconnect] I expect top port.`)
       }

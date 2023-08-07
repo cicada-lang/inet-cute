@@ -28,7 +28,7 @@ export default function (mod: Mod) {
       ],
     )
 
-    env.ports.push(...node.output)
+    env.stack.push(...node.output)
     env.nodes.push(node)
     const [start, end] = node.output
     env.wires.push({ start, end })

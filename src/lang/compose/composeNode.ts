@@ -8,7 +8,7 @@ export function composeNode(env: Env, node: Node): Node {
   // with the port on the top of the stack.
 
   for (const port of node.input) {
-    const topPort = env.ports.pop()
+    const topPort = env.stack.pop()
     if (topPort === undefined) {
       throw new Error(
         `[composeNodeDefinition] I expect a port on top of the stack.`,
@@ -18,7 +18,7 @@ export function composeNode(env: Env, node: Node): Node {
     connect(env, topPort, port)
   }
 
-  env.ports.push(...node.output)
+  env.stack.push(...node.output)
   env.nodes.push(node)
 
   return node
