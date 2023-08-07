@@ -1,4 +1,4 @@
-linear variable should always use `$name` -- first occor `set` second occor `get`
+`Local` -- linear local variable should always use `$name` -- first occor `set` second occor `get`
 
 `node` -- `input` should be optional -- like in `claim`
 

@@ -6,7 +6,7 @@ export function formatWord(word: Word): string {
       return word.name
     }
 
-    case "LocalSet": {
+    case "Local": {
       return `$${word.name}`
     }
 

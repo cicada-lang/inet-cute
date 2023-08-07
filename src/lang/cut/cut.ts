@@ -33,12 +33,12 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
         }
       }
 
-      case "LocalSet": {
+      case "Local": {
         const signedType = ctx.signedTypes.pop()
 
         if (signedType === undefined) {
           throw new Error(
-            `[cut / LocalSet] expect a signed type on the top of the stack`,
+            `[cut / Local] expect a signed type on the top of the stack`,
           )
         }
 

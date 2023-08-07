@@ -1,6 +1,6 @@
 import { Span } from "../span"
 
-export type Word = Call | LocalSet | PortPush | PortReconnect
+export type Word = Call | Local | PortPush | PortReconnect
 
 export type Call = {
   kind: "Call"
@@ -16,15 +16,15 @@ export function Call(name: string, span: Span): Call {
   }
 }
 
-export type LocalSet = {
-  kind: "LocalSet"
+export type Local = {
+  kind: "Local"
   name: string
   span: Span
 }
 
-export function LocalSet(name: string, span: Span): LocalSet {
+export function Local(name: string, span: Span): Local {
   return {
-    kind: "LocalSet",
+    kind: "Local",
     name,
     span,
   }
