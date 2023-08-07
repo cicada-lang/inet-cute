@@ -1,6 +1,6 @@
 import { stringToSubscript } from "../../utils/stringToSubscript"
 import { Ctx } from "../ctx"
-import { tickVariableCounter } from "../ctx/tickVariableCounter"
+import { tickPatternVarCounter } from "../ctx/tickPatternVarCounter"
 import * as Types from "../type"
 import { Type } from "../type"
 
@@ -13,7 +13,7 @@ export function freshenType(
     case "PatternVar": {
       const foundName = occurredNames.get(t.name)
       if (foundName === undefined) {
-        const subscript = tickVariableCounter(ctx, t.name)
+        const subscript = tickPatternVarCounter(ctx, t.name)
         const newName = t.name + stringToSubscript(subscript.toString())
         occurredNames.set(t.name, newName)
         return Types.PatternVar(newName)
