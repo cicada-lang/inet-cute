@@ -1,0 +1,64 @@
+drop : { (- A) }
+drop = {
+  [x : A]
+}
+
+swap : { (- A) (- A) A A }
+swap = {
+  [x : A]
+  [y : A]
+  x y
+}
+
+id : { (- A) A }
+id = {
+  [x : A]
+  x
+}
+
+// type bool_t = { (- A) (- A) A }
+
+// true : { bool_t }
+true : { (- A) (- A) A }
+true = {
+  [x : A]
+  [y : A]
+  x
+}
+
+// false : { bool_t }
+false : { (- A) (- A) A }
+false = {
+  [x : A]
+  [y : A]
+  y
+}
+
+// not : { (- bool_t) bool_t }
+not : { (- { (- A) (- A) A }) (- A) (- A) A }
+not = {
+  [a : { (- A) (- A) A }]
+  [x : A]
+  [y : A]
+  x y a exe
+}
+
+true_not : { (- A) (- A) A }
+true_not = {
+  { true } not
+}
+
+true_not_not : { (- A) (- A) A }
+true_not_not = {
+  { { true } not } not
+}
+
+
+test_atom : { }
+test_atom = {
+  (atom A "a") (atom A "b") true
+  (atom A "a") (atom A "b") { false } not
+  assert_eq
+}
+
+test_atom

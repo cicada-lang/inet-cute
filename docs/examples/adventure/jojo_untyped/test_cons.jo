@@ -1,0 +1,11 @@
+{ }
+"a" cons
+"b" cons
+"c" cons
+[cba]
+
+cba print ln
+
+cba car "c" assert_eq
+cba cdr car "b" assert_eq
+cba cdr cdr car "a" assert_eq

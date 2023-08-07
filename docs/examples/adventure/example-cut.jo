@@ -1,0 +1,9 @@
+nat_t (- nat_t) nat_t nat_t
+1 [x : nat_t] x x
+
+
+[x : nat_t] : (- nat_t) { x : nat_t }
+x : (cut x)
+
+[x : nat_t] x : (- nat_t) { x : nat_t } (cut x)
+[x : nat_t] x : (- nat_t) nat_t { x : nat_t }

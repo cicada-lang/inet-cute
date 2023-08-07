@@ -1,0 +1,12 @@
+drop = {
+  [x]
+}
+
+swap = {
+  [x] [y]
+  x y
+}
+
+"123" "23" swap
+"123" assert_eq
+"23" assert_eq
