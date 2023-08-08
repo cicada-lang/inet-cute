@@ -2,7 +2,7 @@ import { Ctx } from "../ctx"
 import { Type } from "../type"
 
 export function deepWalkType(ctx: Ctx, t: Type): Type {
-  switch (t.kind) {
+  switch (t["@kind"]) {
     case "TypeVar": {
       const found = ctx.substitution.get(t.name)
       if (found === undefined) {
@@ -14,7 +14,7 @@ export function deepWalkType(ctx: Ctx, t: Type): Type {
 
     case "TypeTerm": {
       return {
-        kind: "TypeTerm",
+        ["@kind"]: "TypeTerm",
         name: t.name,
         args: t.args.map((arg) => deepWalkType(ctx, arg)),
       }

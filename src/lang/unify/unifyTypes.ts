@@ -13,14 +13,14 @@ export function unifyTypes(ctx: Ctx, left: Type, right: Type): void {
     right = walkType(ctx, right)
 
     if (
-      left.kind === "TypeVar" &&
-      right.kind === "TypeVar" &&
+      left["@kind"] === "TypeVar" &&
+      right["@kind"] === "TypeVar" &&
       left.name === right.name
     ) {
       return
     }
 
-    if (left.kind === "TypeVar") {
+    if (left["@kind"] === "TypeVar") {
       if (occurInType(ctx, left.name, right)) {
         throw new Error(
           [
@@ -36,7 +36,7 @@ export function unifyTypes(ctx: Ctx, left: Type, right: Type): void {
       return
     }
 
-    if (right.kind === "TypeVar") {
+    if (right["@kind"] === "TypeVar") {
       if (occurInType(ctx, right.name, left)) {
         throw new Error(
           [
@@ -53,8 +53,8 @@ export function unifyTypes(ctx: Ctx, left: Type, right: Type): void {
     }
 
     if (
-      left.kind === "TypeTerm" &&
-      right.kind === "TypeTerm" &&
+      left["@kind"] === "TypeTerm" &&
+      right["@kind"] === "TypeTerm" &&
       left.name === right.name
     ) {
       for (const [index, leftArg] of left.args.entries()) {

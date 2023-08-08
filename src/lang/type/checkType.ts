@@ -4,7 +4,7 @@ import { Type } from "./Type"
 import { formatType } from "./formatType"
 
 export function checkType(mod: Mod, t: Type): void {
-  switch (t.kind) {
+  switch (t["@kind"]) {
     case "TypeVar": {
       return
     }
