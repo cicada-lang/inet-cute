@@ -1,11 +1,11 @@
 import { Port } from "../port"
 
-export type Value = Port | SignedType | TypeVar | TypeTerm
+export type Value = Port | Type | SignedType | TypeVar | TypeTerm
 
-// export type Type = {
-//   "@type": "Value"
-//   "@kind": "Type"
-// }
+export type Type = {
+  "@type": "Value"
+  "@kind": "Type"
+}
 
 export type TypeVar = {
   "@type": "Value"
