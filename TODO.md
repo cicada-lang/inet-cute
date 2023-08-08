@@ -1,3 +1,8 @@
+`run` should be a builtin function -- does not consume value
+
+rename `show` to `begin` -- without `console.log`
+
+
 `NodeDefinition` -- has `input` and `output` words
 
 build `Port` from `input` and `output` words -- use `Labeled` value
@@ -19,12 +24,6 @@ builtin stack function should check pop value is not undefined -- instead of usi
 `Value` -- `Signed` -- any value can be signed
 
 # interface
-
-rename `show` to `begin` -- without `console.log`
-
-`run` should be a builtin function -- does not consume value
-
-`inspect` -- if the element is a port, print the whole env (for now)
 
 `inspect` -- if the element is a port, print its connected component
 
