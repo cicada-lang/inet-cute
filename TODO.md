@@ -1,5 +1,3 @@
-`type` always with both input and output
-
 `claim` always with both input and output
 
 `node` always with both input and output

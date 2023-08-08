@@ -41,12 +41,6 @@ export const stmt = {
       { words: "words" },
       '"end"',
     ],
-    "stmt:type_with_only_output": [
-      '"type"',
-      { name: "variable_name" },
-      { output: "words" },
-      '"end"',
-    ],
     "stmt:type": [
       '"type"',
       { name: "variable_name" },
