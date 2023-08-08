@@ -1,16 +1,32 @@
-# value
+functions about unify should take `Substitution` instead of `Ctx`
 
-`negative_signed_type` as a postfix builtin to create `SignedType` from `Type`
+remove `Ctx`
 
-`:label` should be a `Word` -- `Label`
+`TypeDefinition` -- has `input` and `output` words
+
+`TypeDefinition` build arity from `input` words
 
 `String` should be builtin type -- for `Labeled`
 
 `Value` -- `Labeled` -- `value :label` should be of type `Labeled(value, "label")`
 
+`:label` should be a `Word` -- `Label`
+
+
+
 `NodeDefinition` -- has `input` and `output` words
 
-`TypeDefinition` -- should have the same syntax as `claim`
+build `Port` from `input` and `output` words
+
+`checkRule` -- by building local net
+
+`wire` -- fix `cut`
+
+`connect` -- fix `cut`
+
+# value
+
+`negative_signed_type` as a postfix builtin to create `SignedType` from `Type`
 
 `Value` -- `Signed` -- any value can be signed
 

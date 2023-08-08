@@ -2,7 +2,6 @@ import { Ctx } from "../ctx"
 import { Env } from "../env"
 import { connect } from "../env/connect"
 import { Port } from "../port"
-import { unifySignedTypes } from "../unify/unifySignedTypes"
 import { SignedType } from "../value"
 
 export function compose(env: Env): void {
@@ -14,5 +13,5 @@ export function compose(env: Env): void {
 export function cut(ctx: Ctx): void {
   const x2 = ctx.stack.pop() as SignedType
   const x1 = ctx.stack.pop() as SignedType
-  unifySignedTypes(ctx, x1, x2)
+  // TODO  unifySignedTypes(ctx, x1, x2)
 }
