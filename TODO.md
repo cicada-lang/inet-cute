@@ -1,14 +1,10 @@
 # value
 
-`composeDefinition` -- support `TypeDefinition`
-
 `claim` -- has `input` and `output` words
 
+`negative_signed_type` as a postfix builtin to create `SignedType` from `Type`
+
 `:label` should be a `Word` -- `Label`
-
-`Value` -- `Signed` -- any value can be signed
-
-`negative_sign` as a postfix builtin for negative `Signed`
 
 `String` should be builtin type -- for `Labeled`
 
@@ -17,6 +13,8 @@
 `NodeDefinition` -- has `input` and `output` words
 
 `TypeDefinition` -- should have the same syntax as `claim`
+
+`Value` -- `Signed` -- any value can be signed
 
 # interface
 

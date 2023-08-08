@@ -1,5 +1,7 @@
 import { Definition } from "../definition"
 import { Env } from "../env"
+import { Value } from "../value"
+import { formatValue } from "../value/formatValue"
 import { ComposeOptions } from "./compose"
 import { composeNodeDefinition } from "./composeNodeDefinition"
 import { composeWords } from "./composeWords"
@@ -32,9 +34,34 @@ export function composeDefinition(
     }
 
     case "TypeDefinition": {
-      throw new Error(
-        `[composeDefinition] Can not compose a type: ${definition.name}`,
-      )
+      let count = 0
+      const args: Array<Value> = []
+      while (count < definition.arity) {
+        const value = env.stack.pop()
+        if (value === undefined) {
+          throw new Error(
+            [
+              `[compose / TypeDefinition] I expect more value on the stack.`,
+              ``,
+              `  type term name: ${definition.name}`,
+              `  type term arity: ${definition.arity}`,
+              `  collected args: [${args.map(formatValue).join(", ")}]`,
+            ].join("\n"),
+          )
+        }
+
+        args.push(value)
+        count++
+      }
+
+      env.stack.push({
+        "@type": "Value",
+        "@kind": "TypeTerm",
+        name: definition.name,
+        args,
+      })
+
+      return
     }
   }
 }

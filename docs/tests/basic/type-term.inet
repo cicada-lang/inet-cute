@@ -1,0 +1,7 @@
+type Nat 0 end
+type List 1 end
+
+show
+  'A List inspect
+  Nat List inspect
+end

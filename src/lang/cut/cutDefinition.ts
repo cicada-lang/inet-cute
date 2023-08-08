@@ -26,7 +26,42 @@ export function cutDefinition(
     }
 
     case "TypeDefinition": {
-      throw new Error(`[cutDefinition] Can not cut a type: ${definition.name}`)
+      let count = 0
+      while (count < definition.arity) {
+        const value = ctx.stack.pop()
+        if (value === undefined) {
+          throw new Error(
+            [
+              `[cut / TypeDefinition] I expect more value on the stack.`,
+              ``,
+              `  type term name: ${definition.name}`,
+              `  type term arity: ${definition.arity}`,
+              `  already counted: ${count}`,
+            ].join("\n"),
+          )
+        }
+
+        if (value["@kind"] !== "Type") {
+          throw new Error(
+            [
+              `[cut / TypeDefinition] I expect the value on the stack to be Type.`,
+              ``,
+              `  type term name: ${definition.name}`,
+              `  type term arity: ${definition.arity}`,
+              `  already counted: ${count}`,
+            ].join("\n"),
+          )
+        }
+
+        count++
+      }
+
+      ctx.stack.push({
+        "@type": "Value",
+        "@kind": "Type",
+      })
+
+      return
     }
   }
 }

@@ -95,6 +95,8 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
           "@type": "Value",
           "@kind": "Type",
         })
+
+        return
       }
     }
   } catch (error) {
