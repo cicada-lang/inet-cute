@@ -1,4 +1,3 @@
-import { Ctx } from "../ctx"
 import { Env } from "../env"
 import { Mod } from "../mod"
 import { createNode } from "../node/createNode"
@@ -31,7 +30,7 @@ export default function (mod: Mod) {
     env.wires.push({ start, end })
   }
 
-  function cut(ctx: Ctx): void {
+  function cut(env: Env): void {
     // TODO
   }
 

@@ -1,4 +1,3 @@
-import { Ctx } from "../ctx"
 import { Env } from "../env"
 import { connect } from "../env/connect"
 import { Port } from "../port"
@@ -10,8 +9,8 @@ export function compose(env: Env): void {
   connect(env, start, end)
 }
 
-export function cut(ctx: Ctx): void {
-  const x2 = ctx.stack.pop() as SignedType
-  const x1 = ctx.stack.pop() as SignedType
-  // TODO  unifySignedTypes(ctx, x1, x2)
+export function cut(env: Env): void {
+  const x2 = env.stack.pop() as SignedType
+  const x1 = env.stack.pop() as SignedType
+  // TODO  unifySignedTypes(env, x1, x2)
 }

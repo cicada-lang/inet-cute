@@ -1,4 +1,3 @@
-import { Ctx } from "../ctx"
 import { Env } from "../env"
 import { Mod } from "../mod"
 import { PortExp } from "../port/PortExp"
@@ -38,7 +37,7 @@ export type OperatorDefinition = {
   mod: Mod
   name: string
   compose: (env: Env) => void
-  cut: (ctx: Ctx) => void
+  cut: (env: Env) => void
 }
 
 export type TypeDefinition = {

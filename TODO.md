@@ -1,5 +1,3 @@
-remove `Ctx`
-
 `TypeDefinition` -- has `input` and `output` words
 
 `TypeDefinition` build arity from `input` words

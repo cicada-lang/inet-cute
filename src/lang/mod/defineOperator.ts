@@ -1,4 +1,3 @@
-import { Ctx } from "../ctx"
 import { Env } from "../env"
 import { Mod } from "./Mod"
 import { define } from "./define"
@@ -8,7 +7,7 @@ export function defineOperator(
   name: string,
   options: {
     compose: (env: Env) => void
-    cut: (ctx: Ctx) => void
+    cut: (env: Env) => void
   },
 ): void {
   define(mod, name, {
