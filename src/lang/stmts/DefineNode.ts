@@ -37,7 +37,7 @@ export class DefineNode implements Stmt {
       this.output.map(({ t }) => checkType(mod, t))
 
       define(mod, this.name, {
-        kind: "NodeDefinition",
+        "@kind": "NodeDefinition",
         mod,
         span: this.span,
         name: this.name,

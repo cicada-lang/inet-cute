@@ -12,7 +12,7 @@ export class DefineType implements Stmt {
 
   async execute(mod: Mod): Promise<void> {
     define(mod, this.name, {
-      kind: "TypeDefinition",
+      "@kind": "TypeDefinition",
       mod,
       span: this.span,
       name: this.name,

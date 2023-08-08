@@ -9,7 +9,7 @@ export function cutDefinition(
   definition: Definition,
   options: CutOptions,
 ): void {
-  switch (definition.kind) {
+  switch (definition["@kind"]) {
     case "NodeDefinition": {
       cutNodeDefinition(ctx, definition, options)
       return

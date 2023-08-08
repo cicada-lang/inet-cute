@@ -1,7 +1,5 @@
 # value
 
-rename `kind` to `@kind` -- for `Definition`
-
 add `@type` to `Word`
 add `@type` to `Type`
 add `@type` to `Value`

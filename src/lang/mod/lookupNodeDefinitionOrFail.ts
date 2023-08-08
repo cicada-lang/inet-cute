@@ -7,7 +7,7 @@ export function lookupNodeDefinitionOrFail(
   name: string,
 ): Definitions.NodeDefinition {
   const definition = lookupDefinitionOrFail(mod, name)
-  if (!(definition.kind === "NodeDefinition")) {
+  if (!(definition["@kind"] === "NodeDefinition")) {
     throw new Error(
       `I expect a node definition, but ${name} is ${definition.constructor.name}`,
     )

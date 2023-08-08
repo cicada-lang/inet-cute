@@ -12,7 +12,7 @@ export function defineOperator(
   },
 ): void {
   define(mod, name, {
-    kind: "OperatorDefinition",
+    "@kind": "OperatorDefinition",
     mod,
     name,
     compose: options.compose,

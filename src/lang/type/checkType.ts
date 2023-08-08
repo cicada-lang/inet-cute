@@ -11,12 +11,12 @@ export function checkType(mod: Mod, t: Type): void {
 
     case "TypeTerm": {
       const definition = lookupDefinitionOrFail(mod, t.name)
-      if (definition.kind !== "TypeDefinition") {
+      if (definition["@kind"] !== "TypeDefinition") {
         throw new Error(
           [
             `[checkType] I expect definition to be TypeDefinition.`,
             ``,
-            `  definition kind: ${definition.kind}`,
+            `  definition kind: ${definition["@kind"]}`,
           ].join("\n"),
         )
       }

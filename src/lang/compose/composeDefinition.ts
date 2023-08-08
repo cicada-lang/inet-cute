@@ -9,7 +9,7 @@ export function composeDefinition(
   definition: Definition,
   options: ComposeOptions,
 ): void {
-  switch (definition.kind) {
+  switch (definition["@kind"]) {
     case "NodeDefinition": {
       composeNodeDefinition(env, definition)
       return

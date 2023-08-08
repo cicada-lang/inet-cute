@@ -13,7 +13,7 @@ export type Definition =
   | TypeDefinition
 
 export type NodeDefinition = {
-  kind: "NodeDefinition"
+  "@kind": "NodeDefinition"
   mod: Mod
   span: Span
   name: string
@@ -22,7 +22,7 @@ export type NodeDefinition = {
 }
 
 export type WordDefinition = {
-  kind: "WordDefinition"
+  "@kind": "WordDefinition"
   mod: Mod
   span: Span
   name: string
@@ -32,7 +32,7 @@ export type WordDefinition = {
 }
 
 export type OperatorDefinition = {
-  kind: "OperatorDefinition"
+  "@kind": "OperatorDefinition"
   mod: Mod
   name: string
   compose: (env: Env) => void
@@ -40,7 +40,7 @@ export type OperatorDefinition = {
 }
 
 export type TypeDefinition = {
-  kind: "TypeDefinition"
+  "@kind": "TypeDefinition"
   mod: Mod
   span: Span
   name: string
