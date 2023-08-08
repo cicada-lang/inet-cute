@@ -17,19 +17,8 @@ export function createNode(
     output: [],
   }
 
-  node.input = input.map(({ name, t, isPrincipal }) => ({
-    node,
-    name,
-    t,
-    isPrincipal,
-  }))
-
-  node.output = output.map(({ name, t, isPrincipal }) => ({
-    node,
-    name,
-    t,
-    isPrincipal,
-  }))
+  node.input = input.map((port) => ({ kind: "Port", node, ...port }))
+  node.output = output.map((port) => ({ kind: "Port", node, ...port }))
 
   return node
 }

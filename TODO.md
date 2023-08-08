@@ -1,10 +1,6 @@
 # value
 
-`Value` -- `Port`
-
 `Env.stack` should be `Array<Value>`
-
-`Value` -- `Type`
 
 `Value` -- `TypeVar` -- `'a` should be a value
 

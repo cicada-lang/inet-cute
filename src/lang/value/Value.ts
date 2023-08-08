@@ -1,5 +1,5 @@
-export type Value = Port
+import { Port } from "../port"
 
-export type Port = {
-  kind: "Port"
-}
+export type Value = Port | Type
+
+export type Type = { kind: "Type" }
