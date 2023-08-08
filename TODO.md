@@ -1,9 +1,5 @@
 # value
 
-`println` should be a builtin function -- `console.log(formatValue(...))`
-
-test `TypeVar` by `println`
-
 `composeDefinition` -- support `TypeDefinition`
 
 `claim` -- has `input` and `output` words

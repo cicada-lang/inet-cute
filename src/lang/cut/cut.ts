@@ -89,6 +89,13 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
         unifySignedTypes(ctx, currentSignedType, value)
         return
       }
+
+      case "TypeVar": {
+        ctx.stack.push({
+          "@type": "Value",
+          "@kind": "Type",
+        })
+      }
     }
   } catch (error) {
     throw appendReport(error, {
