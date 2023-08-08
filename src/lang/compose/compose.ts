@@ -73,12 +73,12 @@ export function compose(
         )
       }
 
-      if (value.kind !== "Port") {
+      if (value["@kind"] !== "Port") {
         throw new Error(
           [
             `[compose / PortReconnect] I expect the top value to be a Port.`,
             ``,
-            `  value.kind: ${value.kind}`,
+            `  value['@kind']: ${value["@kind"]}`,
           ].join("\n"),
         )
       }

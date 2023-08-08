@@ -1,6 +1,5 @@
 # value
 
-rename `kind` to `@kind` -- for `Value`
 rename `kind` to `@kind` -- for `Type`
 rename `kind` to `@kind` -- for `Definition`
 

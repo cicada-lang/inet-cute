@@ -17,8 +17,8 @@ export function createNode(
     output: [],
   }
 
-  node.input = input.map((port) => ({ kind: "Port", node, ...port }))
-  node.output = output.map((port) => ({ kind: "Port", node, ...port }))
+  node.input = input.map((port) => ({ "@kind": "Port", node, ...port }))
+  node.output = output.map((port) => ({ "@kind": "Port", node, ...port }))
 
   return node
 }

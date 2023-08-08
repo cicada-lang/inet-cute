@@ -17,7 +17,7 @@ export function formatNetFromEnv(env: Env): string {
   }
 
   for (const value of env.stack) {
-    if (value.kind === "Port") {
+    if (value["@kind"] === "Port") {
       lines.push(`(${formatNode(value.node)})-${value.name}`)
     }
   }

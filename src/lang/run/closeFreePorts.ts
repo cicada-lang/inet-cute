@@ -17,7 +17,7 @@ export function closeFreePorts(env: Env): Node | undefined {
   }
 
   const ports = env.stack.filter(
-    (value): value is Port => value.kind === "Port",
+    (value): value is Port => value["@kind"] === "Port",
   )
 
   const node = createNode(env.mod, "*root*", ports, [])

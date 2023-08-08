@@ -8,7 +8,7 @@ export type PortConnection = {
 }
 
 export type Port = {
-  kind: "Port"
+  "@kind": "Port"
   node: Node
   name: string
   t: Type
