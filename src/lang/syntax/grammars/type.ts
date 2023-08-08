@@ -24,34 +24,3 @@ export const type_args = {
     ],
   },
 }
-
-export const signed_type_with_optional_semicolon = {
-  $grammar: {
-    "signed_type_with_optional_semicolon:positive": [
-      { type: "type" },
-      { $ap: ["optional", '";"'] },
-    ],
-    "signed_type_with_optional_semicolon:negative": [
-      '"-"',
-      { type: "type" },
-      { $ap: ["optional", '";"'] },
-    ],
-    "signed_type_with_optional_semicolon:neutral": [
-      '"±"',
-      { type: "type" },
-      { $ap: ["optional", '";"'] },
-    ],
-  },
-}
-
-export const signed_type_sequence = {
-  $grammar: {
-    "signed_type_sequence:signed_type_sequence": [
-      {
-        types: {
-          $ap: ["zero_or_more", "signed_type_with_optional_semicolon"],
-        },
-      },
-    ],
-  },
-}

@@ -10,22 +10,6 @@ export function formatValue(value: Value): string {
       return "Type"
     }
 
-    case "SignedType": {
-      switch (value.sign) {
-        case 1: {
-          return `+${formatValue(value.t)}`
-        }
-
-        case 0: {
-          return `±${formatValue(value.t)}`
-        }
-
-        case -1: {
-          return `-${formatValue(value.t)}`
-        }
-      }
-    }
-
     case "TypeVar": {
       return `'${value.name}`
     }

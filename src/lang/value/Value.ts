@@ -1,6 +1,6 @@
 import { Port } from "../port"
 
-export type Value = Port | Type | SignedType | TypeVar | TypeTerm
+export type Value = Port | Type | TypeVar | TypeTerm
 
 export type Type = {
   "@type": "Value"
@@ -18,14 +18,4 @@ export type TypeTerm = {
   "@kind": "TypeTerm"
   name: string
   args: Array<Value>
-}
-
-export type Sign = 1 | 0 | -1
-
-export type SignedType = {
-  "@type": "Value"
-  "@kind": "SignedType"
-  id?: string
-  t: Value
-  sign: Sign
 }

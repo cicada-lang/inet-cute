@@ -8,8 +8,6 @@
 
 `:label` should be a `Word` -- `Label`
 
-
-
 `NodeDefinition` -- has `input` and `output` words
 
 build `Port` from `input` and `output` words
@@ -19,6 +17,8 @@ build `Port` from `input` and `output` words
 `wire` -- fix `cut`
 
 `connect` -- fix `cut`
+
+builtin stack function should check pop value is not undefined -- instead of using `as Value`
 
 # value
 
