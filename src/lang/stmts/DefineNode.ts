@@ -1,4 +1,3 @@
-import * as Definitions from "../definition"
 import { appendReport } from "../errors/appendReport"
 import { createReport } from "../errors/createReport"
 import { PortExp } from "../graph/PortExp"
@@ -37,17 +36,14 @@ export class DefineNode implements Stmt {
       this.input.map(({ t }) => checkType(mod, t))
       this.output.map(({ t }) => checkType(mod, t))
 
-      define(
+      define(mod, this.name, {
+        kind: "NodeDefinition",
         mod,
-        this.name,
-        Definitions.NodeDefinition(
-          mod,
-          this.span,
-          this.name,
-          this.input,
-          this.output,
-        ),
-      )
+        span: this.span,
+        name: this.name,
+        input: this.input,
+        output: this.output,
+      })
     } catch (error) {
       throw appendReport(error, {
         message: [

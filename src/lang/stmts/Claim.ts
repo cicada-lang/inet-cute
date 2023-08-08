@@ -1,4 +1,3 @@
-import * as Definitions from "../definition"
 import { definitionMaybeSpan } from "../definition/definitionMaybeSpan"
 import { appendReport } from "../errors/appendReport"
 import { createReport } from "../errors/createReport"
@@ -40,17 +39,14 @@ export class Claim implements Stmt {
         })
       }
 
-      define(
+      define(mod, this.name, {
+        kind: "WordDefinition",
         mod,
-        this.name,
-        Definitions.WordDefinition(
-          mod,
-          this.span,
-          this.name,
-          this.input,
-          this.output,
-        ),
-      )
+        span: this.span,
+        name: this.name,
+        input: this.input,
+        output: this.output,
+      })
     } catch (error) {
       throw appendReport(error, {
         message: [

@@ -1,7 +1,5 @@
 # value
 
-`Definitions` -- remove trivial constructors
-
 `Value` -- `Port`
 
 `Env.stack` should be `Array<Value>`

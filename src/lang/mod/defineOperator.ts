@@ -1,5 +1,4 @@
 import { Ctx } from "../ctx"
-import * as Definitions from "../definition"
 import { Env } from "../env"
 import { Mod } from "./Mod"
 import { define } from "./define"
@@ -12,9 +11,11 @@ export function defineOperator(
     cut: (ctx: Ctx) => void
   },
 ): void {
-  define(
+  define(mod, name, {
+    kind: "OperatorDefinition",
     mod,
     name,
-    Definitions.OperatorDefinition(mod, name, options.compose, options.cut),
-  )
+    compose: options.compose,
+    cut: options.cut,
+  })
 }

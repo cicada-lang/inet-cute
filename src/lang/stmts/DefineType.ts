@@ -1,4 +1,3 @@
-import * as Definitions from "../definition"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
 import { Span } from "../span"
@@ -12,10 +11,12 @@ export class DefineType implements Stmt {
   ) {}
 
   async execute(mod: Mod): Promise<void> {
-    define(
+    define(mod, this.name, {
+      kind: "TypeDefinition",
       mod,
-      this.name,
-      Definitions.TypeDefinition(mod, this.span, this.name, this.arity),
-    )
+      span: this.span,
+      name: this.name,
+      arity: this.arity,
+    })
   }
 }
