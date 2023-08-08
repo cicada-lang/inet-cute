@@ -98,7 +98,7 @@ Using this convention,
 we do not need to label
 which port is principal port.
 
-```monoid pseudocode
+```inet pseudocode
 constructor <node>
   <input-port> ...
   ------
@@ -152,7 +152,7 @@ After disconnecting, we put input ports back to the stack.
 
 ## Nat
 
-```monoid
+```inet
 type Nat -- Type end
 
 constructor zero -- Nat end
@@ -174,14 +174,14 @@ end
 
 ## Trivial
 
-```monoid
+```inet
 type Trivial -- Type end
 constructor sole -- Trivial end
 ```
 
 ## List
 
-```monoid
+```inet
 constructor null
   vague (A: Type)
   ------
@@ -233,7 +233,7 @@ end
 
 ## Vector
 
-```monoid
+```inet
 type Vector Type Nat -- Type end
 
 constructor null-vector
@@ -275,7 +275,7 @@ end
 
 ## DiffList
 
-```monoid
+```inet
 // |- ~List(A), ~List(A), DiffList(A)
 
 constructor diff
@@ -286,7 +286,7 @@ constructor diff
 end
 ```
 
-```monoid
+```inet
 type DiffList Type -- Type end
 
 constructor diff
@@ -328,7 +328,7 @@ end
 If a wire's two ports are connected with port `A` and `B`,
 after building a net, we remove the wire, and connect `A` with `B`.
 
-```monoid
+```inet
 check
   Trivial DiffList
 then

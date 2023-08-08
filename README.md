@@ -1,7 +1,6 @@
-# Monoid
+# INet
 
-Programming with [Monoid](https://en.wikipedia.org/wiki/Monoid)
-and [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets).
+Programming with [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets).
 
 ## References
 
@@ -19,12 +18,12 @@ Books:
 
 ### Command line tool
 
-The command line program is called `mono`.
+The command line program is called `inet`.
 
 Install it by the following command:
 
 ```
-npm -g i @cicada-lang/monoid
+npm -g i @cicada-lang/inet
 ```
 
 ## Development

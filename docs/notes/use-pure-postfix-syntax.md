@@ -10,7 +10,7 @@ We should use pure postfix syntax.
 
 **Prefix type term**:
 
-```monoid
+```inet
 type Nat 0 end
 node zero -- value!: Nat end
 node add1 prev: Nat -- value!: Nat end
@@ -27,7 +27,7 @@ end
 
 **Pure postfix**:
 
-```monoid
+```inet
 type Nat Type end
 node zero -- Nat :value! end
 node add1 Nat :prev -- Nat :value! end
@@ -46,7 +46,7 @@ end
 
 **Prefix type term**:
 
-```monoid
+```inet
 type List 1 end
 node null -- value!: List('A) end
 node cons head: 'A tail: List('A) -- value!: List('A) end
@@ -63,7 +63,7 @@ end
 
 **Pure postfix**:
 
-```monoid
+```inet
 type List Type -- Type end
 node null -- 'A List :value! end
 node cons 'A :head 'A List :tail -- 'A List :value! end
