@@ -5,7 +5,7 @@ import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { Word } from "../word"
 
-export class Show implements Stmt {
+export class Begin implements Stmt {
   constructor(
     public words: Array<Word>,
     public span: Span,

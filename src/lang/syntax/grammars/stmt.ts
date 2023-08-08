@@ -37,7 +37,7 @@ export const stmt = {
       { output: "words" },
       '"end"',
     ],
-    "stmt:show": ['"show"', { words: "words" }, '"end"'],
+    "stmt:begin": ['"begin"', { words: "words" }, '"end"'],
   },
 }
 

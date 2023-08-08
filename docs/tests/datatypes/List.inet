@@ -26,4 +26,4 @@ define six_soles
   append
 end
 
-show six_soles inspect run inspect end
+begin six_soles inspect run inspect end
