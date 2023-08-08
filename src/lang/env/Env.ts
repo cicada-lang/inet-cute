@@ -1,7 +1,7 @@
 import { ActiveEdge, Edge } from "../edge"
-import { Port } from "../graph"
 import { Mod } from "../mod"
 import { Node } from "../node"
+import { Port } from "../port"
 
 export type Env = {
   mod: Mod

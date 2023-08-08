@@ -1,7 +1,5 @@
 # value
 
-extract `port/` from `graph/`
-
 `Value` -- `Port`
 
 `Env.stack` should be `Array<Value>`

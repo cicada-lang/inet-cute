@@ -1,4 +1,4 @@
-import { Port } from "../graph"
+import { Port } from "../port"
 import { Rule } from "../rule"
 
 export type ActiveEdge = {

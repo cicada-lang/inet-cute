@@ -1,6 +1,6 @@
 import { Ctx } from "../ctx"
 import { Env } from "../env"
-import { Port } from "../graph"
+import { Port } from "../port"
 import { SignedType } from "../type"
 
 export function compose(env: Env): void {

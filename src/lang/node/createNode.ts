@@ -1,8 +1,8 @@
-import { PortExp } from "../graph/PortExp"
-import { createPort } from "../graph/createPort"
 import { Mod } from "../mod"
 import { tickNodeCounter } from "../mod/tickNodeCounter"
 import { Node } from "../node"
+import { PortExp } from "../port/PortExp"
+import { createPort } from "../port/createPort"
 
 export function createNode(
   mod: Mod,

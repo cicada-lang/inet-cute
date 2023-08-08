@@ -1,7 +1,7 @@
 import { Ctx } from "../ctx"
 import { Env } from "../env"
-import { PortExp } from "../graph/PortExp"
 import { Mod } from "../mod"
+import { PortExp } from "../port/PortExp"
 import { Span } from "../span"
 import { SignedType } from "../type"
 import { Word } from "../word"

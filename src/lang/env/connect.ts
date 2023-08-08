@@ -1,6 +1,6 @@
 import { Env } from "../env"
-import { Port } from "../graph/Port"
 import { lookupRuleByPorts } from "../mod/lookupRuleByPorts"
+import { Port } from "../port/Port"
 
 export function connect(env: Env, start: Port, end: Port): void {
   const rule = lookupRuleByPorts(env.mod, start, end)
