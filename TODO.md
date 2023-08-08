@@ -1,24 +1,40 @@
 # value
 
-`Value` -- `TypeVar` -- `'a` should be a value
+rename `kind` to `@kind`
+
+add `@type` to `Word`
+
+add `@type` to `Type`
+
+add `@type` to `Value`
+
+add `@type` to `Definition`
+
+`Value` -- `SignedType`
+
+`Ctx` -- `stack` and `locals` should use `Value`
+
+`Value` -- `TypeVar` -- `'A` should be a value
+
+`TypeVar` should be a `Word` -- `TypeVar`
 
 `Value` -- `TypeTerm`
 
-`Value` -- `SignedType` -- `neg` as a postfix builtin for negative `SignedType`
+`:label` should be a `Word` -- `Label`
+
+`negate` as a postfix builtin for negative `SignedType`
+
+`String` should be builtin type -- for `Labeled`
+
+`println` to test `String`
 
 `Value` -- `Labeled` -- `value :key` should be of type `Labeled("key", 'a)`
-
-- `String` should be builtin type
-
-`Ctx` -- `stack` and `locals` should use `Value`
 
 `NodeDefinition` -- has `input` and `output` words
 
 `claim` -- has `input` and `output` words
 
-[maybe] `Boolean` should be builtin type
-
-- use `... if ... end` and `... if ... else ... end` as syntax
+`TypeDefinition` -- should have the same syntax as `claim`
 
 # check
 
@@ -76,3 +92,11 @@ understand proof-nets for all connectives
 # example
 
 use inet to encode lambda calculus
+
+# value
+
+[maybe] `Boolean` should be a builtin type.
+
+- Use `... if ... end` and `... if ... else ... end` as syntax.
+
+- Mote that, `If` is not a word, but a sentence.

@@ -63,7 +63,7 @@ end
 rule null vector_append end
 
 rule cons vector_append
-  $$head vector_append $head cons
+  $$head vector_append head cons
 end
 
 check six Trivial Vector then

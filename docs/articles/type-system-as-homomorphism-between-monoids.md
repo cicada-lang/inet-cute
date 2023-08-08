@@ -155,7 +155,7 @@ for elements constructed by abstraction.
 
 ## Linear assignment of term, and negation of type
 
-If `X` is a type, `$$x X ... $x ...` is a term.
+If `X` is a type, `$$x X ... x ...` is a term.
 
 - We call this way of constructing new terms **linear assignment**,
   it is linear in the sense that an assigned variable
@@ -173,7 +173,7 @@ If `X` is a type, `X neg` is also a type.
 We refine the definition of `infer` for linear assignment and negation:
 
 ```
-<infer> X $$x ... $x ... </infer> =
+<infer> X $$x ... x ... </infer> =
 X neg <infer> ... </infer> X <infer> ... </infer>
 ```
 
@@ -182,7 +182,7 @@ i.e. negation is the type of linear assignment.
 For example:
 
 ```
-<infer> A $$x b x$ c </infer> = A neg B A C
+<infer> A $$x b x c </infer> = A neg B A C
 ```
 
 We then introduce the following equivalent relation
@@ -191,7 +191,7 @@ for elements constructed by linear assignment and negation.
 **Linear assignment can take the left term and substitute it into the place of reference:**
 
 ```
-y X $$x ... $x ... = ... y ...
+y X $$x ... x ... = ... y ...
 ```
 
 **Negation cancels an type from the right side:**
@@ -221,7 +221,7 @@ is the same as
 For example:
 
 ```
-<infer> [ A $$x b $x c ] </infer> = [ A -- B A C ]
+<infer> [ A $$x b x c ] </infer> = [ A -- B A C ]
 ```
 
 ## Datatype definition
@@ -499,7 +499,7 @@ TODO
 ```
 claim swap 'A 'B -- 'B 'A end
 define swap
-  'A $$x 'B $$y $x $y
+  'A $$x 'B $$y x y
 end
 ```
 
@@ -516,7 +516,7 @@ claim append 'A List 'A List -- 'A List end
 define append
   'A List match
     case null end
-    case cons $$head append $head cons end
+    case cons $$head append head cons end
   end
 end
 ```
