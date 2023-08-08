@@ -19,7 +19,7 @@ export interface CutOptions {
 
 export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
   try {
-    switch (word.kind) {
+    switch (word["@kind"]) {
       case "Call": {
         const found = ctx.locals.get(word.name)
         if (found !== undefined) {

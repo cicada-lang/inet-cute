@@ -1,13 +1,12 @@
 # value
 
-rename `kind` to `@kind`
+rename `kind` to `@kind` -- for `Value`
+rename `kind` to `@kind` -- for `Type`
+rename `kind` to `@kind` -- for `Definition`
 
 add `@type` to `Word`
-
 add `@type` to `Type`
-
 add `@type` to `Value`
-
 add `@type` to `Definition`
 
 `Value` -- `SignedType`

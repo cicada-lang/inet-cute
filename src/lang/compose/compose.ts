@@ -18,7 +18,7 @@ export function compose(
   word: Word,
   options: ComposeOptions,
 ): void {
-  switch (word.kind) {
+  switch (word["@kind"]) {
     case "Call": {
       const found = env.locals.get(word.name)
       if (found !== undefined) {

@@ -1,7 +1,7 @@
 import { Word } from "./Word"
 
 export function formatWord(word: Word): string {
-  switch (word.kind) {
+  switch (word["@kind"]) {
     case "Call": {
       return word.name
     }
