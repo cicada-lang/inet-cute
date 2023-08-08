@@ -1,6 +1,6 @@
 import { Port } from "../port"
 
-export type Value = Port | Type | TypeVar | TypeTerm
+export type Value = Port | Type | TypeVar | TypeTerm | Labeled
 
 export type Type = {
   "@type": "Value"
@@ -18,4 +18,11 @@ export type TypeTerm = {
   "@kind": "TypeTerm"
   name: string
   args: Array<Value>
+}
+
+export type Labeled = {
+  "@type": "Value"
+  "@kind": "Labeled"
+  value: Value
+  label: string
 }

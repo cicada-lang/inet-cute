@@ -1,16 +1,14 @@
+`:label` should be a `Word` -- `Label` -- to create `Labeled` `Value` at runtime
+
 `TypeDefinition` -- has `input` and `output` words
 
 `TypeDefinition` build arity from `input` words
 
-`String` should be builtin type -- for `Labeled`
-
-`Value` -- `Labeled` -- `value :label` should be of type `Labeled(value, "label")`
-
-`:label` should be a `Word` -- `Label`
-
 `NodeDefinition` -- has `input` and `output` words
 
-build `Port` from `input` and `output` words
+build `Port` from `input` and `output` words -- use `Labeled` value
+
+remove parser for `type`
 
 `checkRule` -- by building local net
 

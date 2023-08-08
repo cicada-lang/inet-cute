@@ -22,5 +22,9 @@ export function formatValue(value: Value): string {
         return `${value.name}(${args})`
       }
     }
+
+    case "Labeled": {
+      return `${formatValue(value.value)} :${value.label}`
+    }
   }
 }
