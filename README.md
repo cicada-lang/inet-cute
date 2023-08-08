@@ -1,7 +1,7 @@
 # Monoid
 
-Monoid as type system
-and programming with [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets).
+Programming with [Monoid](https://en.wikipedia.org/wiki/Monoid)
+and [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets).
 
 ## References
 

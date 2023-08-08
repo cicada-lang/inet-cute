@@ -1,6 +1,6 @@
 # value
 
-`Value` -- `SignedType`
+`Value` -- `Signed` -- any value can be signed
 
 `Ctx` -- `stack` and `locals` should use `Value`
 
@@ -12,13 +12,13 @@
 
 `:label` should be a `Word` -- `Label`
 
-`negate` as a postfix builtin for negative `SignedType`
+`negative_sign` as a postfix builtin for negative `Signed`
 
 `String` should be builtin type -- for `Labeled`
 
 `println` to test `String`
 
-`Value` -- `Labeled` -- `value :key` should be of type `Labeled("key", 'a)`
+`Value` -- `Labeled` -- `value :label` should be of type `Labeled(value, "label")`
 
 `NodeDefinition` -- has `input` and `output` words
 
