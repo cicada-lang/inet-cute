@@ -45,7 +45,7 @@ rule diff diff_open
   (diff)-front return-(diff_open)
 end
 
-claim one_two_soles DiffList(Trivial) end
+claim one_two_soles Trivial DiffList end
 
 define one_two_soles
   wire sole cons diff rot rot connect
@@ -56,7 +56,7 @@ end
 show one_two_soles end
 run one_two_soles end
 
-claim two_two_soles DiffList(Trivial) end
+claim two_two_soles Trivial DiffList end
 
 define two_two_soles
   wire sole cons sole cons diff rot rot connect
@@ -67,7 +67,7 @@ end
 show two_two_soles end
 run two_two_soles end
 
-claim two_two_soles_with_local_variable DiffList(Trivial) end
+claim two_two_soles_with_local_variable Trivial DiffList end
 
 define two_two_soles_with_local_variable
   wire sole cons sole cons diff $value connect value

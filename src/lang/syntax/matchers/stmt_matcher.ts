@@ -27,17 +27,12 @@ export function stmt_matcher(tree: pt.Tree): Stmt {
         span,
       ),
     "stmt:claim_with_output": ({ name, output }, { span }) =>
-      new Stmts.Claim(
-        pt.str(name),
-        [],
-        matchers.signed_type_sequence_matcher(output),
-        span,
-      ),
+      new Stmts.Claim(pt.str(name), [], matchers.words_matcher(output), span),
     "stmt:claim_with_input_and_output": ({ name, input, output }, { span }) =>
       new Stmts.Claim(
         pt.str(name),
-        matchers.signed_type_sequence_matcher(input),
-        matchers.signed_type_sequence_matcher(output),
+        matchers.words_matcher(input),
+        matchers.words_matcher(output),
         span,
       ),
     "stmt:define": ({ name, words }, { span }) =>

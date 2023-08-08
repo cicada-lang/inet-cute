@@ -1,7 +1,5 @@
 # value
 
-`claim` -- has `input` and `output` words
-
 `negative_signed_type` as a postfix builtin to create `SignedType` from `Type`
 
 `:label` should be a `Word` -- `Label`

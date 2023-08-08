@@ -1,11 +1,9 @@
 import { appendReport } from "../errors/appendReport"
-import { createReport } from "../errors/createReport"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
 import { PortExp } from "../port/PortExp"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
-import { checkType } from "../value/checkType"
 
 export class DefineNode implements Stmt {
   constructor(
@@ -17,25 +15,6 @@ export class DefineNode implements Stmt {
 
   async execute(mod: Mod): Promise<void> {
     try {
-      const principalPorts = [...this.input, ...this.output].filter(
-        ({ isPrincipal }) => isPrincipal,
-      )
-
-      if (principalPorts.length !== 1) {
-        throw createReport({
-          message: [
-            `[DefineNode.execute] I expect one and only one principal port.`,
-            ``,
-            `  found principal ports: [${principalPorts
-              .map(({ name }) => name)
-              .join(", ")}]`,
-          ].join("\n"),
-        })
-      }
-
-      this.input.map(({ t }) => checkType(mod, t))
-      this.output.map(({ t }) => checkType(mod, t))
-
       define(mod, this.name, {
         "@type": "Definition",
         "@kind": "NodeDefinition",

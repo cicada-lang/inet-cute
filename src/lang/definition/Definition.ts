@@ -3,7 +3,6 @@ import { Env } from "../env"
 import { Mod } from "../mod"
 import { PortExp } from "../port/PortExp"
 import { Span } from "../span"
-import { SignedType } from "../value"
 import { Word } from "../word"
 
 export type Definition =
@@ -28,8 +27,8 @@ export type WordDefinition = {
   mod: Mod
   span: Span
   name: string
-  input: Array<SignedType>
-  output: Array<SignedType>
+  input: Array<Word>
+  output: Array<Word>
   words?: Array<Word>
 }
 

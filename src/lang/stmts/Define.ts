@@ -1,5 +1,3 @@
-import { createCtx } from "../ctx/createCtx"
-import { cutWordDefinition } from "../cut/cutWordDefinition"
 import { definitionMaybeSpan } from "../definition/definitionMaybeSpan"
 import { appendReport } from "../errors/appendReport"
 import { createReport } from "../errors/createReport"
@@ -37,9 +35,6 @@ export class Define implements Stmt {
 
       definition.words = this.words
       definition.span = this.span
-
-      const ctx = createCtx()
-      cutWordDefinition(ctx, definition, {})
     } catch (error) {
       throw appendReport(error, {
         message: [

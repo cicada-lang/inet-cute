@@ -1,6 +1,4 @@
 import { composeWords } from "../compose/composeWords"
-import { createCtx } from "../ctx/createCtx"
-import { cutWords } from "../cut/cutWords"
 import { createEnv } from "../env/createEnv"
 import { formatNetFromEnv } from "../env/formatNetFromEnv"
 import { Mod } from "../mod"
@@ -15,9 +13,6 @@ export class Show implements Stmt {
   ) {}
 
   async execute(mod: Mod): Promise<void> {
-    const ctx = createCtx()
-    cutWords(mod, ctx, this.words, {})
-
     const env = createEnv(mod)
     composeWords(mod, env, this.words, {})
 
