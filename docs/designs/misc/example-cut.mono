@@ -1,9 +1,0 @@
-Nat (- Nat) Nat Nat
-1 [x : Nat] x x
-
-
-[x : Nat] : (- Nat) { x : Nat }
-x : (cut x)
-
-[x : Nat] x : (- Nat) { x : Nat } (cut x)
-[x : Nat] x : (- Nat) Nat { x : Nat }

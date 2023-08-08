@@ -1,7 +1,0 @@
-define drop $x end
-
-define swap $x $y x y end
-
-"123" "23" swap
-"123" assert_equal
-"23" assert_equal
