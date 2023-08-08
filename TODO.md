@@ -18,6 +18,16 @@
 
 `TypeDefinition` -- should have the same syntax as `claim`
 
+# interface
+
+rename `show` to `begin` -- without `console.log`
+
+`run` should be a builtin function -- does not consume value
+
+`inspect` -- if the element is a port, print the whole env (for now)
+
+`inspect` -- if the element is a port, print its connected component
+
 # check
 
 `rule` check node order

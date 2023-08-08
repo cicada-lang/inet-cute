@@ -1,1 +1,5 @@
-show 'A println end
+show
+  'A inspect
+  'B inspect inspect
+  'C inspect inspect inspect
+end
