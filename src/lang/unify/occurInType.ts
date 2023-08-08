@@ -1,9 +1,12 @@
-import { Ctx } from "../ctx"
 import { Value } from "../value"
 import { walkType } from "./walkType"
 
-export function occurInType(ctx: Ctx, name: string, t: Value): boolean {
-  t = walkType(ctx, t)
+export function occurInType(
+  substitution: Map<string, Value>,
+  name: string,
+  t: Value,
+): boolean {
+  t = walkType(substitution, t)
 
   switch (t["@kind"]) {
     case "TypeVar": {
@@ -11,7 +14,7 @@ export function occurInType(ctx: Ctx, name: string, t: Value): boolean {
     }
 
     case "TypeTerm": {
-      return t.args.some((arg) => occurInType(ctx, name, arg))
+      return t.args.some((arg) => occurInType(substitution, name, arg))
     }
 
     default: {

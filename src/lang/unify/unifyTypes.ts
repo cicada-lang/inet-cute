@@ -1,4 +1,3 @@
-import { Ctx } from "../ctx"
 import { appendReport } from "../errors/appendReport"
 import { createReport } from "../errors/createReport"
 import { Value } from "../value"
@@ -7,10 +6,14 @@ import { deepWalkType } from "./deepWalkType"
 import { occurInType } from "./occurInType"
 import { walkType } from "./walkType"
 
-export function unifyTypes(ctx: Ctx, left: Value, right: Value): void {
+export function unifyTypes(
+  substitution: Map<string, Value>,
+  left: Value,
+  right: Value,
+): void {
   try {
-    left = walkType(ctx, left)
-    right = walkType(ctx, right)
+    left = walkType(substitution, left)
+    right = walkType(substitution, right)
 
     if (
       left["@kind"] === "TypeVar" &&
@@ -21,34 +24,34 @@ export function unifyTypes(ctx: Ctx, left: Value, right: Value): void {
     }
 
     if (left["@kind"] === "TypeVar") {
-      if (occurInType(ctx, left.name, right)) {
+      if (occurInType(substitution, left.name, right)) {
         throw new Error(
           [
             `[unifyTypes] I find the left name occurs in the right type.`,
             ``,
             `  left name: ${left.name}`,
-            `  right type: ${formatValue(deepWalkType(ctx, right))}`,
+            `  right type: ${formatValue(deepWalkType(substitution, right))}`,
           ].join("\n"),
         )
       }
 
-      ctx.substitution.set(left.name, right)
+      substitution.set(left.name, right)
       return
     }
 
     if (right["@kind"] === "TypeVar") {
-      if (occurInType(ctx, right.name, left)) {
+      if (occurInType(substitution, right.name, left)) {
         throw new Error(
           [
             `[unifyTypes] I find the right name occurs in the left type.`,
             ``,
             `  right name: ${right.name}`,
-            `  left type: ${formatValue(deepWalkType(ctx, left))}`,
+            `  left type: ${formatValue(deepWalkType(substitution, left))}`,
           ].join("\n"),
         )
       }
 
-      ctx.substitution.set(right.name, left)
+      substitution.set(right.name, left)
       return
     }
 
@@ -59,7 +62,7 @@ export function unifyTypes(ctx: Ctx, left: Value, right: Value): void {
     ) {
       for (const [index, leftArg] of left.args.entries()) {
         const rightArg = right.args[index]
-        unifyTypes(ctx, leftArg, rightArg)
+        unifyTypes(substitution, leftArg, rightArg)
       }
 
       return
@@ -69,8 +72,8 @@ export function unifyTypes(ctx: Ctx, left: Value, right: Value): void {
       message: [
         `[unifyTypes] I fail to unify types.`,
         ``,
-        `  left: ${formatValue(deepWalkType(ctx, left))}`,
-        `  right: ${formatValue(deepWalkType(ctx, right))}`,
+        `  left: ${formatValue(deepWalkType(substitution, left))}`,
+        `  right: ${formatValue(deepWalkType(substitution, right))}`,
       ].join("\n"),
     })
   }
@@ -79,8 +82,8 @@ export function unifyTypes(ctx: Ctx, left: Value, right: Value): void {
     message: [
       `[unifyTypes] I fail to unify types.`,
       ``,
-      `  left: ${formatValue(deepWalkType(ctx, left))}`,
-      `  right: ${formatValue(deepWalkType(ctx, right))}`,
+      `  left: ${formatValue(deepWalkType(substitution, left))}`,
+      `  right: ${formatValue(deepWalkType(substitution, right))}`,
     ].join("\n"),
   })
 }

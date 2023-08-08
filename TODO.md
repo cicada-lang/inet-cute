@@ -1,5 +1,3 @@
-functions about unify should take `Substitution` instead of `Ctx`
-
 remove `Ctx`
 
 `TypeDefinition` -- has `input` and `output` words
