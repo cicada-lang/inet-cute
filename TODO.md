@@ -1,10 +1,30 @@
+move `utils/tightenWires` to `env/cleanUpWires`
+
+move `env/remove*` to `utils/`
+
+move `env/connect` -- to `utils/connect`
+
 # check
+
+[check] `ComposeOptions` take `checking: CheckingContext`
+
+- with `substitution` and `typeVarCounters`
 
 [check] `checkRule` -- by building local net
 
+- call `compose` with `checking: CheckingContext`
+
 [check] `checkType` -- check return type is just one `Type`
 
+[maybe] remove `cut`
+
 [check] `checkWords` -- `input` as preparing and `output` as clean up
+
+- [maybe] We do not need `cut`, we can just check the words by building the net.
+
+  this means we will have a dynamicly typed
+  postfix general programming language
+  as a macro system.
 
 [check] `wire` -- fix `cut`
 
