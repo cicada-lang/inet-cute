@@ -1,5 +1,5 @@
+import { Edge } from "../edge"
 import { Env } from "../env"
-import { Edge } from "../graph/Edge"
 import { removeEdge } from "./removeEdge"
 
 export function disconnect(env: Env, edge: Edge): void {

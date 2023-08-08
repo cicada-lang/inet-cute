@@ -1,4 +1,5 @@
-import { ActiveEdge, Edge, Port } from "../graph"
+import { ActiveEdge, Edge } from "../edge"
+import { Port } from "../graph"
 import { Mod } from "../mod"
 import { Node } from "../node"
 

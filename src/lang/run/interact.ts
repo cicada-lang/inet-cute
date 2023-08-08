@@ -1,7 +1,7 @@
 import { compose } from "../compose/compose"
+import { ActiveEdge } from "../edge"
 import { Env } from "../env"
 import { removeNodeAndEdges } from "../env/removeNodeAndEdges"
-import { ActiveEdge } from "../graph"
 import { Mod } from "../mod"
 
 export function interact(mod: Mod, env: Env, activeEdge: ActiveEdge): void {

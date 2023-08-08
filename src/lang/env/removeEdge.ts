@@ -1,5 +1,5 @@
+import { Edge } from "../edge"
 import { Env } from "../env"
-import { Edge } from "../graph/Edge"
 
 export function removeEdge(env: Env, edge: Edge): void {
   const index = env.edges.indexOf(edge)

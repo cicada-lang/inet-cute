@@ -1,4 +1,4 @@
-import { Edge } from "../graph"
+import { Edge } from "../edge"
 import { Node } from "../node"
 import { Type } from "../type"
 

@@ -1,6 +1,5 @@
 # value
 
-extract `edge/` from `graph/`
 extract `port/` from `graph/`
 
 `Value` -- `Port`
