@@ -1,31 +1,29 @@
-`checkRule` -- by building local net
-
-`wire` -- fix `cut`
-
-`connect` -- fix `cut`
-
-builtin stack function should check pop value is not undefined -- instead of using `as Value`
-
-# value
-
-`negative_signed_type` as a postfix builtin to create `SignedType` from `Type`
-
-`Value` -- `Signed` -- any value can be signed
-
-# interface
-
-`inspect` -- if the element is a port, print its connected component
-
-`run` -- only run the top port -- connected component
-
 # check
 
-`rule` check node order
+[check] `checkRule` -- by building local net
+
+[check] `checkType` -- check return type is just one `Type`
+
+[check] `checkWords` -- `input` as preparing and `output` as clean up
+
+[check] `wire` -- fix `cut`
+
+[check] `connect` -- fix `cut`
+
+[check] builtin stack function should check pop value is not undefined -- instead of using `as Value`
+
+[check] `checkRuleNodeOrder`
 
 - The first node must have its principal port in the output,
   and the second node must have its principal port in the input.
 
 [syntax] support `check ... then ... end`
+
+# builtin
+
+[builtin] `inspect` -- if the element is a port, print its connected component
+
+[builtin] `run` -- only run the top port -- connected component
 
 # module
 
