@@ -38,18 +38,29 @@ export function cutWordDefinition(
 
   // NOTE Be careful about the order.
   for (const signedType of [...definition.output].reverse()) {
-    const topSignedType = ctx.stack.pop()
-    if (topSignedType === undefined) {
+    const value = ctx.stack.pop()
+    if (value === undefined) {
       throw new Error(
         [
-          `[cutWordDefinition] I expect a signedType on top of the stack.`,
+          `[cutWordDefinition] I expect a value on top of the stack.`,
           ``,
           `  awaiting type: ${formatSignedType(signedType)}`,
         ].join("\n"),
       )
     }
 
-    unifySignedTypes(ctx, topSignedType, {
+    if (value["@kind"] !== "SignedType") {
+      throw new Error(
+        [
+          `[cutWordDefinition] I expect a signedType on top of the stack.`,
+          ``,
+          `  value kind: ${value["@kind"]}`,
+          `  awaiting type: ${formatSignedType(signedType)}`,
+        ].join("\n"),
+      )
+    }
+
+    unifySignedTypes(ctx, value, {
       "@type": "Value",
       "@kind": "SignedType",
       t: freshenType(ctx, signedType.t, occurredNames),

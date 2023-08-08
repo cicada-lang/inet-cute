@@ -13,18 +13,29 @@ export function cutNodeDefinition(
   const occurredNames = new Map()
 
   for (const portExp of definition.input) {
-    const signedType = ctx.stack.pop()
-    if (signedType === undefined) {
+    const value = ctx.stack.pop()
+    if (value === undefined) {
       throw new Error(
         [
-          `[cutNodeDefinition] I expect a signedType on top of the stack.`,
+          `[cutNodeDefinition] I expect a value on top of the stack.`,
           ``,
           `  awaiting type: ${formatType(portExp.t)}`,
         ].join("\n"),
       )
     }
 
-    unifySignedTypes(ctx, signedType, {
+    if (value["@kind"] !== "SignedType") {
+      throw new Error(
+        [
+          `[cutNodeDefinition] I expect the value on top of the stack to be a SignedType.`,
+          ``,
+          `  value kind: ${value["@kind"]}`,
+          `  awaiting type: ${formatType(portExp.t)}`,
+        ].join("\n"),
+      )
+    }
+
+    unifySignedTypes(ctx, value, {
       "@type": "Value",
       "@kind": "SignedType",
       t: freshenType(ctx, portExp.t, occurredNames),

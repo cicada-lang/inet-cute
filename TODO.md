@@ -1,7 +1,5 @@
 # value
 
-`Ctx` -- `stack` and `locals` should use `Value`
-
 `Value` -- `TypeVar` -- `'A` should be a value
 
 `TypeVar` should be a `Word` -- `TypeVar`

@@ -64,16 +64,29 @@ export function cut(mod: Mod, ctx: Ctx, word: Word, options: CutOptions): void {
           options,
         )
 
-        const topSignedType = ctx.stack.pop()
-        if (topSignedType === undefined) {
+        const value = ctx.stack.pop()
+        if (value === undefined) {
           throw new Error(
-            `[cut / PortReconnect] I expect top port, currentSignedType: ${formatSignedType(
-              currentSignedType,
-            )}`,
+            [
+              `[cut / PortReconnect] I expect a top value on the stack.`,
+              ``,
+              `  currentSignedType: ${formatSignedType(currentSignedType)}`,
+            ].join("\n"),
           )
         }
 
-        unifySignedTypes(ctx, currentSignedType, topSignedType)
+        if (value["@kind"] !== "SignedType") {
+          throw new Error(
+            [
+              `[cut / PortReconnect] I expect the top value on the stack to be a SignedType.`,
+              ``,
+              `  value kind: ${value["@kind"]}`,
+              `  currentSignedType: ${formatSignedType(currentSignedType)}`,
+            ].join("\n"),
+          )
+        }
+
+        unifySignedTypes(ctx, currentSignedType, value)
         return
       }
     }
