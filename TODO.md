@@ -1,5 +1,3 @@
-`:label` should be a `Word` -- `Label` -- to create `Labeled` `Value` at runtime
-
 `TypeDefinition` -- has `input` and `output` words
 
 `TypeDefinition` build arity from `input` words

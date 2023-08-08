@@ -1,0 +1,4 @@
+show
+  'A :target! inspect
+  'A :addend inspect
+end

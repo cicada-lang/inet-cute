@@ -96,5 +96,22 @@ export function compose(
 
       return
     }
+
+    case "Label": {
+      const value = env.stack.pop()
+      if (value === undefined) {
+        throw new Error(`[compose / Label] I expect top value on the stack.`)
+      }
+
+      env.stack.push({
+        "@type": "Value",
+        "@kind": "Labeled",
+        value,
+        label: word.label,
+        isImportant: word.isImportant,
+      })
+
+      return
+    }
   }
 }

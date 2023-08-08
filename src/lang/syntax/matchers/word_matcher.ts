@@ -35,6 +35,19 @@ export function word_matcher(tree: pt.Tree): Word {
       name: pt.str(name),
       span,
     }),
+    "word:label": ({ label }, { span }) => ({
+      "@type": "Word",
+      "@kind": "Label",
+      label: pt.str(label),
+      span,
+    }),
+    "word:label_is_important": ({ label }, { span }) => ({
+      "@type": "Word",
+      "@kind": "Label",
+      label: pt.str(label),
+      isImportant: true,
+      span,
+    }),
   })(tree)
 }
 

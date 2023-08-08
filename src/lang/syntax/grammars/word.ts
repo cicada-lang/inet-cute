@@ -17,6 +17,8 @@ export const word = {
       '")"',
     ],
     "word:type_var": ['"\'"', { name: "variable_name" }],
+    "word:label": ['":"', { label: "variable_name" }],
+    "word:label_is_important": ['":"', { label: "variable_name" }, '"!"'],
   },
 }
 

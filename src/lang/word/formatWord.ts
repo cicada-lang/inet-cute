@@ -21,5 +21,13 @@ export function formatWord(word: Word): string {
     case "TypeVar": {
       return `'${word.name}`
     }
+
+    case "Label": {
+      if (word.isImportant) {
+        return `:${word.label}!`
+      } else {
+        return `:${word.label}`
+      }
+    }
   }
 }
