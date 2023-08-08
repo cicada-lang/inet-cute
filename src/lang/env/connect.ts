@@ -6,11 +6,11 @@ export function connect(env: Env, start: Port, end: Port): void {
   const rule = lookupRuleByPorts(env.mod, start, end)
 
   if (start.connection !== undefined) {
-    throw new Error(`[connect] The start port is already connected`)
+    throw new Error(`[connect] The start port is already connected.`)
   }
 
   if (end.connection !== undefined) {
-    throw new Error(`[connect] The end port is already connected`)
+    throw new Error(`[connect] The end port is already connected.`)
   }
 
   if (rule !== undefined) {

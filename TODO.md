@@ -1,17 +1,26 @@
 # value
 
-`Value` -- `Port` `TypeVar` `Type` `TypeTerm` `SignedType` `Labeled`
+`Types` -- remove trivial constructors
 
-- The stack can take other types of values -- not only `Port`.
+`Definitionsx` -- remove trivial constructors
 
-  - `'a` should be a value
-  - `~` as a postfix builtin for negative `SignedType`
+`Value` -- `Port`
 
-merge `Ctx` to `Env`
+`Env.stack` should be `Array<Value>`
 
-`value :key` should be of type `Labeled("key", 'a)`
+`Value` -- `Type`
+
+`Value` -- `TypeVar` -- `'a` should be a value
+
+`Value` -- `TypeTerm`
+
+`Value` -- `SignedType` -- `neg` as a postfix builtin for negative `SignedType`
+
+`Value` -- `Labeled` -- `value :key` should be of type `Labeled("key", 'a)`
 
 - `String` should be builtin type
+
+`Ctx.stack` should be `Array<Value>`
 
 [maybe] `Boolean` should be builtin type
 
