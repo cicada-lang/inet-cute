@@ -1,8 +1,8 @@
 type Trivial -- Type end
-node sole value!: Trivial end
+node sole -- value!: Trivial end
 
 type List Type -- Type end
-node null value!: List('A) end
+node null -- value!: List('A) end
 node cons head: 'A tail: List('A) -- value!: List('A) end
 
 type DiffList Type -- Type end

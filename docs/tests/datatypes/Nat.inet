@@ -1,5 +1,5 @@
 type Nat -- Type end
-node zero value!: Nat end
+node zero -- value!: Nat end
 node add1 prev: Nat -- value!: Nat end
 
 node add

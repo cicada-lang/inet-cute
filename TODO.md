@@ -1,5 +1,3 @@
-`node` always with both input and output
-
 `TypeDefinition` build `arity` from `input` words
 
 `NodeDefinition` -- has `input` and `output` words

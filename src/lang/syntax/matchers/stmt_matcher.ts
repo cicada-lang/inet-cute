@@ -5,13 +5,6 @@ import * as matchers from "../matchers"
 
 export function stmt_matcher(tree: pt.Tree): Stmt {
   return pt.matcher<Stmt>({
-    "stmt:node_with_only_output": ({ name, output }, { span }) =>
-      new Stmts.DefineNode(
-        pt.str(name),
-        [],
-        matchers.ports_matcher(output),
-        span,
-      ),
     "stmt:node": ({ name, input, output }, { span }) =>
       new Stmts.DefineNode(
         pt.str(name),
