@@ -17,12 +17,12 @@ export default function (mod: Mod) {
       [
         {
           name: "front",
-          t: Types.TypeVar("a"),
+          t: { kind: "TypeVar", name: "a" },
           isPrincipal: false,
         },
         {
           name: "back",
-          t: Types.TypeVar("a"),
+          t: { kind: "TypeVar", name: "a" },
           isPrincipal: true,
         },
       ],
@@ -41,14 +41,14 @@ export default function (mod: Mod) {
     const front = {
       id: frontId,
       sign: 0 as Types.Sign,
-      t: freshenType(ctx, Types.TypeVar("a"), occurredNames),
+      t: freshenType(ctx, { kind: "TypeVar", name: "a" }, occurredNames),
     }
 
     const backId = (wireCounter++).toString()
     const back = {
       id: backId,
       sign: 0 as Sign,
-      t: freshenType(ctx, Types.TypeVar("a"), occurredNames),
+      t: freshenType(ctx, { kind: "TypeVar", name: "a" }, occurredNames),
     }
 
     ctx.neutralSignedTypes.set(frontId, front)

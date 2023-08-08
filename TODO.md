@@ -1,8 +1,6 @@
 # value
 
-`Types` -- remove trivial constructors
-
-`Definitionsx` -- remove trivial constructors
+`Definitions` -- remove trivial constructors
 
 `Value` -- `Port`
 

@@ -1,7 +1,6 @@
 import { Node } from "../graph"
 import { Mod } from "../mod"
 import { tickNodeCounter } from "../mod/tickNodeCounter"
-import * as Types from "../type"
 import { PortExp } from "./PortExp"
 import { createPort } from "./createPort"
 
@@ -20,11 +19,21 @@ export function createNode(
   }
 
   node.input = input.map(({ name, isPrincipal }) =>
-    createPort(node, name, Types.TypeTerm("Trivial", []), isPrincipal),
+    createPort(
+      node,
+      name,
+      { kind: "TypeTerm", name: "Trivial", args: [] },
+      isPrincipal,
+    ),
   )
 
   node.output = output.map(({ name, isPrincipal }) =>
-    createPort(node, name, Types.TypeTerm("Trivial", []), isPrincipal),
+    createPort(
+      node,
+      name,
+      { kind: "TypeTerm", name: "Trivial", args: [] },
+      isPrincipal,
+    ),
   )
 
   return node

@@ -1,7 +1,6 @@
 import { stringToSubscript } from "../../utils/stringToSubscript"
 import { Ctx } from "../ctx"
 import { tickTypeVarCounter } from "../ctx/tickTypeVarCounter"
-import * as Types from "../type"
 import { Type } from "../type"
 
 export function freshenType(
@@ -16,17 +15,24 @@ export function freshenType(
         const subscript = tickTypeVarCounter(ctx, t.name)
         const newName = t.name + stringToSubscript(subscript.toString())
         occurredNames.set(t.name, newName)
-        return Types.TypeVar(newName)
+        return {
+          kind: "TypeVar",
+          name: newName,
+        }
       } else {
-        return Types.TypeVar(foundName)
+        return {
+          kind: "TypeVar",
+          name: foundName,
+        }
       }
     }
 
     case "TypeTerm": {
-      return Types.TypeTerm(
-        t.name,
-        t.args.map((arg) => freshenType(ctx, arg, occurredNames)),
-      )
+      return {
+        kind: "TypeTerm",
+        name: t.name,
+        args: t.args.map((arg) => freshenType(ctx, arg, occurredNames)),
+      }
     }
   }
 }
