@@ -14,6 +14,7 @@ export function deepWalkType(ctx: Ctx, t: Type): Type {
 
     case "TypeTerm": {
       return {
+        "@type": "Type",
         "@kind": "TypeTerm",
         name: t.name,
         args: t.args.map((arg) => deepWalkType(ctx, arg)),

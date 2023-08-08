@@ -5,15 +5,18 @@ import { SignedType, Type } from "../../type"
 export function type_matcher(tree: pt.Tree): Type {
   return pt.matcher<Type>({
     "type:type_var": ({ name }, { span }) => ({
+      "@type": "Type",
       "@kind": "TypeVar",
       name: pt.str(name),
     }),
     "type:type_term_zero_arity": ({ name }, { span }) => ({
+      "@type": "Type",
       "@kind": "TypeTerm",
       name: pt.str(name),
       args: [],
     }),
     "type:type_term": ({ name, type_args }, { span }) => ({
+      "@type": "Type",
       "@kind": "TypeTerm",
       name: pt.str(name),
       args: type_args_matcher(type_args),

@@ -1,6 +1,5 @@
 # value
 
-add `@type` to `Type`
 add `@type` to `Definition`
 
 `Value` -- `SignedType`
