@@ -40,6 +40,7 @@ export class Claim implements Stmt {
       }
 
       define(mod, this.name, {
+        "@type": "Definition",
         "@kind": "WordDefinition",
         mod,
         span: this.span,

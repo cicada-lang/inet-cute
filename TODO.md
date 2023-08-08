@@ -1,7 +1,5 @@
 # value
 
-add `@type` to `Definition`
-
 `Value` -- `SignedType`
 
 `Ctx` -- `stack` and `locals` should use `Value`
