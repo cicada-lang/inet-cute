@@ -39,7 +39,7 @@ show zero one add inspect run inspect end
 claim addadd Nat Nat Nat -- Nat end
 define addadd add add end
 
-run one one one addadd end
+show one one one addadd run inspect end
 
 // To define `mul`, we first need `nat_erase` and `nat_dup`.
 

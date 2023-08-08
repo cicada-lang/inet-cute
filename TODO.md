@@ -1,6 +1,5 @@
 rename `show` to `begin`
 
-
 `NodeDefinition` -- has `input` and `output` words
 
 build `Port` from `input` and `output` words -- use `Labeled` value
