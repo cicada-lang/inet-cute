@@ -1,8 +1,8 @@
 import { Sign, SignedType } from "./Value"
-import { formatType } from "./formatType"
+import { formatValue } from "./formatValue"
 
 export function formatSignedType(signedType: SignedType): string {
-  const t = formatType(signedType.t)
+  const t = formatValue(signedType.t)
   const sign = formatSign(signedType.sign)
   return `${sign}${t}`
 }

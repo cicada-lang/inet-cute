@@ -2,7 +2,7 @@ import { Ctx } from "../ctx"
 import { appendReport } from "../errors/appendReport"
 import { createReport } from "../errors/createReport"
 import { Value } from "../value"
-import { formatType } from "../value/formatType"
+import { formatValue } from "../value/formatValue"
 import { deepWalkType } from "./deepWalkType"
 import { occurInType } from "./occurInType"
 import { walkType } from "./walkType"
@@ -27,7 +27,7 @@ export function unifyTypes(ctx: Ctx, left: Value, right: Value): void {
             `[unifyTypes] I find the left name occurs in the right type.`,
             ``,
             `  left name: ${left.name}`,
-            `  right type: ${formatType(deepWalkType(ctx, right))}`,
+            `  right type: ${formatValue(deepWalkType(ctx, right))}`,
           ].join("\n"),
         )
       }
@@ -43,7 +43,7 @@ export function unifyTypes(ctx: Ctx, left: Value, right: Value): void {
             `[unifyTypes] I find the right name occurs in the left type.`,
             ``,
             `  right name: ${right.name}`,
-            `  left type: ${formatType(deepWalkType(ctx, left))}`,
+            `  left type: ${formatValue(deepWalkType(ctx, left))}`,
           ].join("\n"),
         )
       }
@@ -69,8 +69,8 @@ export function unifyTypes(ctx: Ctx, left: Value, right: Value): void {
       message: [
         `[unifyTypes] I fail to unify types.`,
         ``,
-        `  left: ${formatType(deepWalkType(ctx, left))}`,
-        `  right: ${formatType(deepWalkType(ctx, right))}`,
+        `  left: ${formatValue(deepWalkType(ctx, left))}`,
+        `  right: ${formatValue(deepWalkType(ctx, right))}`,
       ].join("\n"),
     })
   }
@@ -79,8 +79,8 @@ export function unifyTypes(ctx: Ctx, left: Value, right: Value): void {
     message: [
       `[unifyTypes] I fail to unify types.`,
       ``,
-      `  left: ${formatType(deepWalkType(ctx, left))}`,
-      `  right: ${formatType(deepWalkType(ctx, right))}`,
+      `  left: ${formatValue(deepWalkType(ctx, left))}`,
+      `  right: ${formatValue(deepWalkType(ctx, right))}`,
     ].join("\n"),
   })
 }

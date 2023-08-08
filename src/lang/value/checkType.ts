@@ -1,7 +1,7 @@
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { Value } from "./Value"
-import { formatType } from "./formatType"
+import { formatValue } from "./formatValue"
 
 export function checkType(mod: Mod, t: Value): void {
   switch (t["@kind"]) {
@@ -26,7 +26,7 @@ export function checkType(mod: Mod, t: Value): void {
           [
             `[checkType] I find wrong number of args for type term.`,
             ``,
-            `  type term: ${formatType(t)}`,
+            `  type term: ${formatValue(t)}`,
             `  arity: ${definition.arity}`,
             `  number of args: ${t.args.length}`,
           ].join("\n"),

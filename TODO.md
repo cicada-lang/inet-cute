@@ -1,7 +1,5 @@
 # value
 
-`formatValue` -- instead of `formatType`
-
 `println` should be a builtin function -- `console.log(formatValue(...))`
 
 test `TypeVar` by `println`

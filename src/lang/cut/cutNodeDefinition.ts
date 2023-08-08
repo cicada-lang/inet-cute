@@ -2,7 +2,7 @@ import { Ctx } from "../ctx"
 import { NodeDefinition } from "../definition"
 import { freshenType } from "../unify/freshenType"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
-import { formatType } from "../value/formatType"
+import { formatValue } from "../value/formatValue"
 import { CutOptions } from "./cut"
 
 export function cutNodeDefinition(
@@ -19,7 +19,7 @@ export function cutNodeDefinition(
         [
           `[cutNodeDefinition] I expect a value on top of the stack.`,
           ``,
-          `  awaiting type: ${formatType(portExp.t)}`,
+          `  awaiting type: ${formatValue(portExp.t)}`,
         ].join("\n"),
       )
     }
@@ -30,7 +30,7 @@ export function cutNodeDefinition(
           `[cutNodeDefinition] I expect the value on top of the stack to be a SignedType.`,
           ``,
           `  value kind: ${value["@kind"]}`,
-          `  awaiting type: ${formatType(portExp.t)}`,
+          `  awaiting type: ${formatValue(portExp.t)}`,
         ].join("\n"),
       )
     }
