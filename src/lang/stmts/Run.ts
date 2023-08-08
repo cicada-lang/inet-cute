@@ -2,7 +2,7 @@ import { composeWords } from "../compose/composeWords"
 import { createCtx } from "../ctx/createCtx"
 import { cutWords } from "../cut/cutWords"
 import { createEnv } from "../env/createEnv"
-import { formatEnv } from "../env/formatEnv"
+import { formatNetFromEnv } from "../env/formatNetFromEnv"
 import { Mod } from "../mod"
 import { run } from "../run/run"
 import { Span } from "../span"
@@ -24,7 +24,7 @@ export class Run implements Stmt {
 
     run(env)
 
-    console.log(formatEnv(env))
+    console.log(formatNetFromEnv(env))
     console.log()
   }
 }

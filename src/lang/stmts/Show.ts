@@ -2,7 +2,7 @@ import { composeWords } from "../compose/composeWords"
 import { createCtx } from "../ctx/createCtx"
 import { cutWords } from "../cut/cutWords"
 import { createEnv } from "../env/createEnv"
-import { formatEnv } from "../env/formatEnv"
+import { formatNetFromEnv } from "../env/formatNetFromEnv"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
@@ -21,7 +21,7 @@ export class Show implements Stmt {
     const env = createEnv(mod)
     composeWords(mod, env, this.words, {})
 
-    console.log(formatEnv(env))
+    console.log(formatNetFromEnv(env))
     console.log()
   }
 }
