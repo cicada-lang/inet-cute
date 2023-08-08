@@ -53,8 +53,7 @@ define one_two_soles
   diff_append
 end
 
-show one_two_soles end
-run one_two_soles end
+show one_two_soles inspect run inspect end
 
 claim two_two_soles -- Trivial DiffList end
 
@@ -64,8 +63,7 @@ define two_two_soles
   diff_append
 end
 
-show two_two_soles end
-run two_two_soles end
+show two_two_soles inspect run inspect end
 
 claim two_two_soles_with_local -- Trivial DiffList end
 
@@ -75,5 +73,4 @@ define two_two_soles_with_local
   diff_append
 end
 
-show two_two_soles_with_local end
-run two_two_soles_with_local end
+show two_two_soles_with_local inspect run inspect end

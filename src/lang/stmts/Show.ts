@@ -1,6 +1,5 @@
 import { composeWords } from "../compose/composeWords"
 import { createEnv } from "../env/createEnv"
-import { formatNetFromEnv } from "../env/formatNetFromEnv"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
@@ -15,8 +14,5 @@ export class Show implements Stmt {
   async execute(mod: Mod): Promise<void> {
     const env = createEnv(mod)
     composeWords(mod, env, this.words, {})
-
-    console.log(formatNetFromEnv(env))
-    console.log()
   }
 }

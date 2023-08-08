@@ -19,8 +19,7 @@ rule add1 add
   return-(add)
 end
 
-show zero zero add end
-run zero zero add end
+show zero zero add inspect run inspect end
 
 claim one -- Nat end
 define one zero add1 end
@@ -31,14 +30,11 @@ define two one one add end
 claim four -- Nat end
 define four two two add end
 
-show two end
-run two end
+show two inspect run inspect end
 
-show four end
-run four end
+show four inspect run inspect end
 
-show zero one add end
-run zero one add end
+show zero one add inspect run inspect end
 
 claim addadd Nat Nat Nat -- Nat end
 define addadd add add end
@@ -52,8 +48,7 @@ node nat_erase target!: Nat -- end
 rule zero nat_erase end
 rule add1 nat_erase (add1)-prev nat_erase end
 
-show two nat_erase end
-run two nat_erase end
+show two nat_erase zero inspect run inspect end
 
 node nat_dup target!: Nat -- second: Nat first: Nat end
 
@@ -68,8 +63,7 @@ rule add1 nat_dup
   second add1 second-(nat_dup)
 end
 
-show two nat_dup end
-run two nat_dup end
+show two nat_dup inspect run inspect end
 
 node mul target!: Nat mulend: Nat -- return: Nat end
 
@@ -84,14 +78,12 @@ rule add1 mul
   return-(mul)
 end
 
-show two two mul end
-run two two mul end
+show two two mul inspect run inspect end
 
 claim three -- Nat end
 define three two one add end
 
-show three three mul end
-run three three mul end
+show three three mul inspect run inspect end
 
 // To define `max`, we need `max_aux`.
 
@@ -119,6 +111,6 @@ rule add1 max_aux
 end
 
 
-run zero two max end
-run one two max end
-run three two max end
+show zero two max run inspect end
+show one two max run inspect end
+show three two max run inspect end

@@ -5,20 +5,22 @@ import { formatValue } from "../value/formatValue"
 export function compose(env: Env): void {
   const value = env.stack[env.stack.length - 1]
   if (value === undefined) {
-    throw new Error(`[println / compose] I expect a value on the stack.`)
+    throw new Error(`[inspect / compose] I expect a value on the stack.`)
   }
 
   if (value["@kind"] === "Port") {
     console.log(formatNetFromEnv(env))
+    console.log()
     return
   }
 
   console.log(formatValue(value))
+  console.log()
 }
 
 export function cut(env: Env): void {
   const value = env.stack[env.stack.length - 1]
   if (value === undefined) {
-    throw new Error(`[println / cut] I expect a value on the stack.`)
+    throw new Error(`[inspect / cut] I expect a value on the stack.`)
   }
 }

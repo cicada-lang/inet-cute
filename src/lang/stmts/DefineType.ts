@@ -1,5 +1,6 @@
 import { composeWords } from "../compose/composeWords"
 import { createEnv } from "../env/createEnv"
+import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
 import { Span } from "../span"
@@ -15,20 +16,34 @@ export class DefineType implements Stmt {
   ) {}
 
   async execute(mod: Mod): Promise<void> {
-    const env = createEnv(mod)
-    composeWords(mod, env, this.input, {})
+    try {
+      const env = createEnv(mod)
+      composeWords(mod, env, this.input, {})
 
-    const arity = env.stack.length
+      const arity = env.stack.length
 
-    define(mod, this.name, {
-      "@type": "Definition",
-      "@kind": "TypeDefinition",
-      mod,
-      span: this.span,
-      name: this.name,
-      input: this.input,
-      output: this.output,
-      arity,
-    })
+      define(mod, this.name, {
+        "@type": "Definition",
+        "@kind": "TypeDefinition",
+        mod,
+        span: this.span,
+        name: this.name,
+        input: this.input,
+        output: this.output,
+        arity,
+      })
+    } catch (error) {
+      throw appendReport(error, {
+        message: [
+          `[DefineType.execute] I fail to define rule.`,
+          ``,
+          `  type name: ${this.name}`,
+        ].join("\n"),
+        context: {
+          span: this.span,
+          text: mod.text,
+        },
+      })
+    }
   }
 }

@@ -1,6 +1,4 @@
-`run` should be a builtin function -- does not consume value
-
-rename `show` to `begin` -- without `console.log`
+rename `show` to `begin`
 
 
 `NodeDefinition` -- has `input` and `output` words
@@ -26,6 +24,8 @@ builtin stack function should check pop value is not undefined -- instead of usi
 # interface
 
 `inspect` -- if the element is a port, print its connected component
+
+`run` -- only run the top port -- connected component
 
 # check
 
