@@ -1,9 +1,3 @@
-`NodeDefinition` -- has `input` and `output` words
-
-build `Port` from `input` and `output` words -- use `Labeled` value
-
-remove parser for `type`
-
 `checkRule` -- by building local net
 
 `wire` -- fix `cut`

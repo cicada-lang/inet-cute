@@ -8,8 +8,8 @@ export function stmt_matcher(tree: pt.Tree): Stmt {
     "stmt:node": ({ name, input, output }, { span }) =>
       new Stmts.DefineNode(
         pt.str(name),
-        matchers.ports_matcher(input),
-        matchers.ports_matcher(output),
+        matchers.words_matcher(input),
+        matchers.words_matcher(output),
         span,
       ),
     "stmt:rule": ({ start, end, words }, { span }) =>

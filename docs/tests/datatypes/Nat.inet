@@ -1,12 +1,12 @@
 type Nat -- Type end
-node zero -- value!: Nat end
-node add1 prev: Nat -- value!: Nat end
+node zero -- Nat :value! end
+node add1 Nat :prev -- Nat :value! end
 
 node add
-  target!: Nat
-  addend: Nat
+  Nat :target!
+  Nat :addend
   --------
-  return: Nat
+  Nat :return
 end
 
 rule zero add
@@ -43,14 +43,22 @@ begin one one one addadd run inspect end
 
 // To define `mul`, we first need `nat_erase` and `nat_dup`.
 
-node nat_erase target!: Nat -- end
+node nat_erase
+  Nat :target!
+  --------
+end
 
 rule zero nat_erase end
 rule add1 nat_erase (add1)-prev nat_erase end
 
 begin two nat_erase zero inspect run inspect end
 
-node nat_dup target!: Nat -- second: Nat first: Nat end
+node nat_dup
+  Nat :target!
+  --------
+  Nat :second
+  Nat :first
+end
 
 rule zero nat_dup
   zero first-(nat_dup)
@@ -65,7 +73,12 @@ end
 
 begin two nat_dup inspect run inspect end
 
-node mul target!: Nat mulend: Nat -- return: Nat end
+node mul
+  Nat :target!
+  Nat :mulend
+  --------
+  Nat :return
+end
 
 rule zero mul
   (mul)-mulend nat_erase
@@ -87,9 +100,19 @@ begin three three mul inspect run inspect end
 
 // To define `max`, we need `max_aux`.
 
-node max_aux first: Nat second!: Nat -- return: Nat end
+node max_aux
+  Nat :first
+  Nat :second!
+  --------
+  Nat :return
+end
 
-node max first!: Nat second: Nat -- return: Nat end
+node max
+  Nat :first!
+  Nat :second
+  ----------
+  Nat :return
+end
 
 rule zero max
   (max)-second return-(max)

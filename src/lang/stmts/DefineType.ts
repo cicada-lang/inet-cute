@@ -17,11 +17,6 @@ export class DefineType implements Stmt {
 
   async execute(mod: Mod): Promise<void> {
     try {
-      const env = createEnv(mod)
-      composeWords(mod, env, this.input, {})
-
-      const arity = env.stack.length
-
       define(mod, this.name, {
         "@type": "Definition",
         "@kind": "TypeDefinition",
@@ -30,7 +25,7 @@ export class DefineType implements Stmt {
         name: this.name,
         input: this.input,
         output: this.output,
-        arity,
+        arity: buildArityFromInput(mod, this.input),
       })
     } catch (error) {
       throw appendReport(error, {
@@ -46,4 +41,10 @@ export class DefineType implements Stmt {
       })
     }
   }
+}
+
+function buildArityFromInput(mod: Mod, input: Array<Word>): number {
+  const env = createEnv(mod)
+  composeWords(mod, env, input, {})
+  return env.stack.length
 }

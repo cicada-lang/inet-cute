@@ -3,9 +3,9 @@ export const stmt = {
     "stmt:node": [
       '"node"',
       { name: "variable_name" },
-      { input: "ports" },
+      { input: "words" },
       "dashline",
-      { output: "ports" },
+      { output: "words" },
       '"end"',
     ],
     "stmt:rule": [
