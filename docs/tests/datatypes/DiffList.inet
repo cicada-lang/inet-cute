@@ -1,11 +1,11 @@
-type Trivial 0 end
+type Trivial -- Type end
 node sole value!: Trivial end
 
-type List 1 end
+type List Type -- Type end
 node null value!: List('A) end
 node cons head: 'A tail: List('A) -- value!: List('A) end
 
-type DiffList 1 end
+type DiffList Type -- Type end
 
 node diff
   front: List('A)

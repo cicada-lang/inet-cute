@@ -1,6 +1,10 @@
-`TypeDefinition` -- has `input` and `output` words
+`type` always with both input and output
 
-`TypeDefinition` build arity from `input` words
+`claim` always with both input and output
+
+`node` always with both input and output
+
+`TypeDefinition` build `arity` from `input` words
 
 `NodeDefinition` -- has `input` and `output` words
 

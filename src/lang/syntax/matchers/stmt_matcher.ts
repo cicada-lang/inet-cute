@@ -5,14 +5,14 @@ import * as matchers from "../matchers"
 
 export function stmt_matcher(tree: pt.Tree): Stmt {
   return pt.matcher<Stmt>({
-    "stmt:node_with_output": ({ name, output }, { span }) =>
+    "stmt:node_with_only_output": ({ name, output }, { span }) =>
       new Stmts.DefineNode(
         pt.str(name),
         [],
         matchers.ports_matcher(output),
         span,
       ),
-    "stmt:node_with_input_and_output": ({ name, input, output }, { span }) =>
+    "stmt:node": ({ name, input, output }, { span }) =>
       new Stmts.DefineNode(
         pt.str(name),
         matchers.ports_matcher(input),
@@ -26,9 +26,9 @@ export function stmt_matcher(tree: pt.Tree): Stmt {
         matchers.words_matcher(words),
         span,
       ),
-    "stmt:claim_with_output": ({ name, output }, { span }) =>
+    "stmt:claim_with_only_output": ({ name, output }, { span }) =>
       new Stmts.Claim(pt.str(name), [], matchers.words_matcher(output), span),
-    "stmt:claim_with_input_and_output": ({ name, input, output }, { span }) =>
+    "stmt:claim": ({ name, input, output }, { span }) =>
       new Stmts.Claim(
         pt.str(name),
         matchers.words_matcher(input),
@@ -37,10 +37,18 @@ export function stmt_matcher(tree: pt.Tree): Stmt {
       ),
     "stmt:define": ({ name, words }, { span }) =>
       new Stmts.Define(pt.str(name), matchers.words_matcher(words), span),
-    "stmt:type": ({ name, arity }, { span }) =>
+    "stmt:type_with_only_output": ({ name, output }, { span }) =>
       new Stmts.DefineType(
         pt.str(name),
-        Number.parseFloat(pt.str(arity)),
+        [],
+        matchers.words_matcher(output),
+        span,
+      ),
+    "stmt:type": ({ name, input, output }, { span }) =>
+      new Stmts.DefineType(
+        pt.str(name),
+        matchers.words_matcher(input),
+        matchers.words_matcher(output),
         span,
       ),
     "stmt:show": ({ words }, { span }) =>

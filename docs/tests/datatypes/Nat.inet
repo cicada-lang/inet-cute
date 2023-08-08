@@ -1,4 +1,4 @@
-type Nat 0 end
+type Nat -- Type end
 node zero value!: Nat end
 node add1 prev: Nat -- value!: Nat end
 

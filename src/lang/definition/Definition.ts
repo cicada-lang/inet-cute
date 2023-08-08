@@ -46,5 +46,7 @@ export type TypeDefinition = {
   mod: Mod
   span: Span
   name: string
+  input: Array<Word>
+  output: Array<Word>
   arity: number
 }

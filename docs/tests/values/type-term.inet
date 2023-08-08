@@ -1,5 +1,5 @@
-type Nat 0 end
-type List 1 end
+type Nat -- Type end
+type List Type -- Type end
 
 show
   'A List inspect

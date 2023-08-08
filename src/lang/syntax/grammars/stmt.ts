@@ -1,12 +1,12 @@
 export const stmt = {
   $grammar: {
-    "stmt:node_with_output": [
+    "stmt:node_with_only_output": [
       '"node"',
       { name: "variable_name" },
       { output: "ports" },
       '"end"',
     ],
-    "stmt:node_with_input_and_output": [
+    "stmt:node": [
       '"node"',
       { name: "variable_name" },
       { input: "ports" },
@@ -21,13 +21,13 @@ export const stmt = {
       { words: "words" },
       '"end"',
     ],
-    "stmt:claim_with_output": [
+    "stmt:claim_with_only_output": [
       '"claim"',
       { name: "variable_name" },
       { output: "words" },
       '"end"',
     ],
-    "stmt:claim_with_input_and_output": [
+    "stmt:claim": [
       '"claim"',
       { name: "variable_name" },
       { input: "words" },
@@ -41,10 +41,18 @@ export const stmt = {
       { words: "words" },
       '"end"',
     ],
+    "stmt:type_with_only_output": [
+      '"type"',
+      { name: "variable_name" },
+      { output: "words" },
+      '"end"',
+    ],
     "stmt:type": [
       '"type"',
       { name: "variable_name" },
-      { arity: { $pattern: ["number"] } },
+      { input: "words" },
+      "dashline",
+      { output: "words" },
       '"end"',
     ],
     "stmt:show": ['"show"', { words: "words" }, '"end"'],
