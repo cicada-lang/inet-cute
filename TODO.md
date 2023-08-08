@@ -1,5 +1,3 @@
-`TypeDefinition` build `arity` from `input` words
-
 `NodeDefinition` -- has `input` and `output` words
 
 build `Port` from `input` and `output` words -- use `Labeled` value
