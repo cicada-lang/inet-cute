@@ -1,5 +1,5 @@
 import { Env } from "../env"
-import { formatNode } from "../graph/formatNode"
+import { formatNode } from "../node/formatNode"
 
 export function formatEnv(env: Env): string {
   const lines: Array<string> = []

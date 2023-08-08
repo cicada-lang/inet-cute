@@ -1,4 +1,4 @@
-import { Node } from "../graph"
+import { Node } from "../node"
 import { Env } from "./Env"
 import { removeEdge } from "./removeEdge"
 import { removeNode } from "./removeNode"

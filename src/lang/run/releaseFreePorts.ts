@@ -1,7 +1,7 @@
 import { Env } from "../env"
 import { disconnect } from "../env/disconnect"
 import { removeNode } from "../env/removeNode"
-import { Node } from "../graph/Node"
+import { Node } from "../node"
 
 export function releaseFreePorts(env: Env, closer: Node | undefined): void {
   if (closer === undefined) {

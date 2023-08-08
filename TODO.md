@@ -1,5 +1,8 @@
 # value
 
+extract `edge/` from `graph/`
+extract `port/` from `graph/`
+
 `Value` -- `Port`
 
 `Env.stack` should be `Array<Value>`

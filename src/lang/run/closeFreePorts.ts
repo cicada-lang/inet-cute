@@ -1,7 +1,7 @@
 import { composeNode } from "../compose/composeNode"
 import { Env } from "../env"
-import { Node } from "../graph/Node"
-import { createNode } from "../graph/createNode"
+import { Node } from "../node"
+import { createNode } from "../node/createNode"
 
 /*
 

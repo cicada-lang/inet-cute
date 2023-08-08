@@ -1,4 +1,5 @@
-import { Edge, Node } from "../graph"
+import { Edge } from "../graph"
+import { Node } from "../node"
 import { Type } from "../type"
 
 export type PortConnection = {

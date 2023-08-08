@@ -1,4 +1,5 @@
-import { Node, Port, PortConnection } from "../graph"
+import { Port, PortConnection } from "../graph"
+import { Node } from "../node"
 import { ComposeOptions } from "./compose"
 
 export function findCurrentPortOrFail(

@@ -1,5 +1,5 @@
 import { Env } from "../env"
-import { Node } from "../graph/Node"
+import { Node } from "../node"
 
 export function removeNode(env: Env, node: Node): void {
   const index = env.nodes.indexOf(node)

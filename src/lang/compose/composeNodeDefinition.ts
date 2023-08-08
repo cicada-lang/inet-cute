@@ -1,7 +1,7 @@
 import { NodeDefinition } from "../definition"
 import { Env } from "../env"
-import { Node } from "../graph"
-import { createNode } from "../graph/createNode"
+import { Node } from "../node"
+import { createNode } from "../node/createNode"
 import { composeNode } from "./composeNode"
 
 export function composeNodeDefinition(

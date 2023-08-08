@@ -1,4 +1,5 @@
-import { Node, Port } from "../graph"
+import { Port } from "../graph"
+import { Node } from "../node"
 import { Type } from "../type"
 
 export function createPort(
