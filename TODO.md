@@ -1,6 +1,5 @@
 # value
 
-add `@type` to `Word`
 add `@type` to `Type`
 add `@type` to `Value`
 add `@type` to `Definition`

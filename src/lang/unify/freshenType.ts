@@ -16,12 +16,12 @@ export function freshenType(
         const newName = t.name + stringToSubscript(subscript.toString())
         occurredNames.set(t.name, newName)
         return {
-          ["@kind"]: "TypeVar",
+          "@kind": "TypeVar",
           name: newName,
         }
       } else {
         return {
-          ["@kind"]: "TypeVar",
+          "@kind": "TypeVar",
           name: foundName,
         }
       }
@@ -29,7 +29,7 @@ export function freshenType(
 
     case "TypeTerm": {
       return {
-        ["@kind"]: "TypeTerm",
+        "@kind": "TypeTerm",
         name: t.name,
         args: t.args.map((arg) => freshenType(ctx, arg, occurredNames)),
       }

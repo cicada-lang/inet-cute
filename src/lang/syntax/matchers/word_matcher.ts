@@ -4,23 +4,27 @@ import { Word } from "../../word"
 export function word_matcher(tree: pt.Tree): Word {
   return pt.matcher<Word>({
     "word:call": ({ name }, { span }) => ({
-      ["@kind"]: "Call",
+      "@type": "Word",
+      "@kind": "Call",
       name: pt.str(name),
       span,
     }),
     "word:local": ({ name }, { span }) => ({
-      ["@kind"]: "Local",
+      "@type": "Word",
+      "@kind": "Local",
       name: pt.str(name),
       span,
     }),
     "word:port_push": ({ nodeName, portName }, { span }) => ({
-      ["@kind"]: "PortPush",
+      "@type": "Word",
+      "@kind": "PortPush",
       nodeName: pt.str(nodeName),
       portName: pt.str(portName),
       span,
     }),
     "word:port_reconnect": ({ nodeName, portName }, { span }) => ({
-      ["@kind"]: "PortReconnect",
+      "@type": "Word",
+      "@kind": "PortReconnect",
       nodeName: pt.str(nodeName),
       portName: pt.str(portName),
       span,
