@@ -21,12 +21,6 @@ export const stmt = {
       { words: "words" },
       '"end"',
     ],
-    "stmt:claim_with_only_output": [
-      '"claim"',
-      { name: "variable_name" },
-      { output: "words" },
-      '"end"',
-    ],
     "stmt:claim": [
       '"claim"',
       { name: "variable_name" },

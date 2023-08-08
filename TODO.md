@@ -1,5 +1,3 @@
-`claim` always with both input and output
-
 `node` always with both input and output
 
 `TypeDefinition` build `arity` from `input` words

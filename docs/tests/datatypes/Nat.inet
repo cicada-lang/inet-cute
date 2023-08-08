@@ -22,13 +22,13 @@ end
 show zero zero add end
 run zero zero add end
 
-claim one Nat end
+claim one -- Nat end
 define one zero add1 end
 
-claim two Nat end
+claim two -- Nat end
 define two one one add end
 
-claim four Nat end
+claim four -- Nat end
 define four two two add end
 
 show two end
@@ -87,7 +87,7 @@ end
 show two two mul end
 run two two mul end
 
-claim three Nat end
+claim three -- Nat end
 define three two one add end
 
 show three three mul end

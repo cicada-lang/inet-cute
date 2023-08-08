@@ -26,8 +26,6 @@ export function stmt_matcher(tree: pt.Tree): Stmt {
         matchers.words_matcher(words),
         span,
       ),
-    "stmt:claim_with_only_output": ({ name, output }, { span }) =>
-      new Stmts.Claim(pt.str(name), [], matchers.words_matcher(output), span),
     "stmt:claim": ({ name, input, output }, { span }) =>
       new Stmts.Claim(
         pt.str(name),
