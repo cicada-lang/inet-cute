@@ -1,7 +1,5 @@
 # value
 
-`Env.stack` should be `Array<Value>`
-
 `Value` -- `TypeVar` -- `'a` should be a value
 
 `Value` -- `TypeTerm`
@@ -12,7 +10,11 @@
 
 - `String` should be builtin type
 
-`Ctx.stack` should be `Array<Value>`
+`Ctx` -- `stack` and `locals` should use `Value`
+
+`NodeDefinition` -- has `input` and `output` words
+
+`claim` -- has `input` and `output` words
 
 [maybe] `Boolean` should be builtin type
 

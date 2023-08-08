@@ -2,6 +2,7 @@ import { composeNode } from "../compose/composeNode"
 import { Env } from "../env"
 import { Node } from "../node"
 import { createNode } from "../node/createNode"
+import { Port } from "../port"
 
 /*
 
@@ -15,6 +16,11 @@ export function closeFreePorts(env: Env): Node | undefined {
     return undefined
   }
 
-  const node = createNode(env.mod, "*root*", [...env.stack], [])
+  const ports = env.stack.filter(
+    (value): value is Port => value.kind === "Port",
+  )
+
+  const node = createNode(env.mod, "*root*", ports, [])
+
   return composeNode(env, node)
 }

@@ -66,12 +66,24 @@ export function compose(
 
       disconnect(env, currentPort.connection.edge)
 
-      const topPort = env.stack.pop()
-      if (topPort === undefined) {
-        throw new Error(`[compose / PortReconnect] I expect top port.`)
+      const value = env.stack.pop()
+      if (value === undefined) {
+        throw new Error(
+          `[compose / PortReconnect] I expect top value on the stack.`,
+        )
       }
 
-      connect(env, topPort, currentPort)
+      if (value.kind !== "Port") {
+        throw new Error(
+          [
+            `[compose / PortReconnect] I expect the top value to be a Port.`,
+            ``,
+            `  value.kind: ${value.kind}`,
+          ].join("\n"),
+        )
+      }
+
+      connect(env, value, currentPort)
       return
     }
   }

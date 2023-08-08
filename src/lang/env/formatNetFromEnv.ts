@@ -1,4 +1,4 @@
-import { Env } from "../env"
+import { Env } from "."
 import { formatNode } from "../node/formatNode"
 
 export function formatNetFromEnv(env: Env): string {
@@ -16,8 +16,10 @@ export function formatNetFromEnv(env: Env): string {
     lines.push(`(${start})-${edge.start.name} ${edge.end.name}-(${end})`)
   }
 
-  for (const port of env.stack) {
-    lines.push(`(${formatNode(port.node)})-${port.name}`)
+  for (const value of env.stack) {
+    if (value.kind === "Port") {
+      lines.push(`(${formatNode(value.node)})-${value.name}`)
+    }
   }
 
   return lines.join("\n")
