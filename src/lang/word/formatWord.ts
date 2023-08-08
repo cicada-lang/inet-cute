@@ -17,5 +17,9 @@ export function formatWord(word: Word): string {
     case "PortReconnect": {
       return `${word.portName}-(${word.nodeName})`
     }
+
+    case "TypeVar": {
+      return `'${word.name}`
+    }
   }
 }

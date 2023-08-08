@@ -86,5 +86,15 @@ export function compose(
       connect(env, value, currentPort)
       return
     }
+
+    case "TypeVar": {
+      env.stack.push({
+        "@type": "Value",
+        "@kind": "TypeVar",
+        name: word.name,
+      })
+
+      return
+    }
   }
 }

@@ -1,6 +1,6 @@
 import { Span } from "../span"
 
-export type Word = Call | Local | PortPush | PortReconnect
+export type Word = Call | Local | PortPush | PortReconnect | TypeVar
 
 export type Call = {
   "@type": "Word"
@@ -29,5 +29,12 @@ export type PortReconnect = {
   "@kind": "PortReconnect"
   nodeName: string
   portName: string
+  span: Span
+}
+
+export type TypeVar = {
+  "@type": "Word"
+  "@kind": "TypeVar"
+  name: string
   span: Span
 }

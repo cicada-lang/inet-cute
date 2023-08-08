@@ -1,12 +1,10 @@
 # value
 
-`TypeVar` should be a `Word` -- compose to output `TypeVar` value
-
 `formatValue` -- instead of `formatType`
 
 `println` should be a builtin function -- `console.log(formatValue(...))`
 
-test `TypeVar`
+test `TypeVar` by `println`
 
 `composeDefinition` -- support `TypeDefinition`
 

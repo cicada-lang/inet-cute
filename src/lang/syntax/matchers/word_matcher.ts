@@ -29,6 +29,12 @@ export function word_matcher(tree: pt.Tree): Word {
       portName: pt.str(portName),
       span,
     }),
+    "word:type_var": ({ name }, { span }) => ({
+      "@type": "Word",
+      "@kind": "TypeVar",
+      name: pt.str(name),
+      span,
+    }),
   })(tree)
 }
 

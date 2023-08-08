@@ -16,6 +16,7 @@ export const word = {
       { nodeName: "variable_name" },
       '")"',
     ],
+    "word:type_var": ['"\'"', { name: "variable_name" }],
   },
 }
 
