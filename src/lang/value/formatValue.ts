@@ -24,7 +24,11 @@ export function formatValue(value: Value): string {
     }
 
     case "Labeled": {
-      return `${formatValue(value.value)} :${value.label}`
+      if (value.isImportant) {
+        return `${formatValue(value.value)} :${value.label}`
+      } else {
+        return `${formatValue(value.value)} :${value.label}!`
+      }
     }
   }
 }

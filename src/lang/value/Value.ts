@@ -25,4 +25,5 @@ export type Labeled = {
   "@kind": "Labeled"
   value: Value
   label: string
+  isImportant?: boolean
 }
