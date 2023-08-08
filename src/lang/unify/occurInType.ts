@@ -1,8 +1,8 @@
 import { Ctx } from "../ctx"
-import { Type } from "../type"
+import { Value } from "../value"
 import { walkType } from "./walkType"
 
-export function occurInType(ctx: Ctx, name: string, t: Type): boolean {
+export function occurInType(ctx: Ctx, name: string, t: Value): boolean {
   t = walkType(ctx, t)
 
   switch (t["@kind"]) {
@@ -12,6 +12,11 @@ export function occurInType(ctx: Ctx, name: string, t: Type): boolean {
 
     case "TypeTerm": {
       return t.args.some((arg) => occurInType(ctx, name, arg))
+    }
+
+    default: {
+      // TODO
+      return false
     }
   }
 }

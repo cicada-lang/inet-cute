@@ -6,8 +6,8 @@ import { define } from "../mod/define"
 import { lookupDefinition } from "../mod/lookupDefinition"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
-import { SignedType } from "../type"
-import { checkType } from "../type/checkType"
+import { SignedType } from "../value"
+import { checkType } from "../value/checkType"
 
 export class Claim implements Stmt {
   constructor(

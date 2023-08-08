@@ -1,7 +1,7 @@
 import { Ctx } from "../ctx"
 import { Env } from "../env"
 import { Port } from "../port"
-import { SignedType } from "../type"
+import { SignedType } from "../value"
 
 export function compose(env: Env): void {
   const x2 = env.stack.pop() as Port

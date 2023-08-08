@@ -2,8 +2,8 @@ import { Ctx } from "../ctx"
 import { Env } from "../env"
 import { connect } from "../env/connect"
 import { Port } from "../port"
-import { SignedType } from "../type"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
+import { SignedType } from "../value"
 
 export function compose(env: Env): void {
   const start = env.stack.pop() as Port

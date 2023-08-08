@@ -1,6 +1,6 @@
 import { Ctx } from "../ctx"
-import { Sign, SignedType } from "../type"
-import { formatSignedType } from "../type/formatSignedType"
+import { Sign, SignedType } from "../value"
+import { formatSignedType } from "../value/formatSignedType"
 import { unifyTypes } from "./unifyTypes"
 
 export function unifySignedTypes(

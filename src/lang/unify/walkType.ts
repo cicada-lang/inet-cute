@@ -1,7 +1,7 @@
 import { Ctx } from "../ctx"
-import { Type } from "../type"
+import { Value } from "../value"
 
-export function walkType(ctx: Ctx, t: Type): Type {
+export function walkType(ctx: Ctx, t: Value): Value {
   while (t["@kind"] === "TypeVar") {
     const found = ctx.substitution.get(t.name)
     if (found === undefined) {

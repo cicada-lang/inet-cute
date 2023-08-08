@@ -1,4 +1,4 @@
-import { Sign, SignedType } from "./SignedType"
+import { Sign, SignedType } from "./Value"
 import { formatType } from "./formatType"
 
 export function formatSignedType(signedType: SignedType): string {

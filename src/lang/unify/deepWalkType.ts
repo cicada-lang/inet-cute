@@ -1,7 +1,7 @@
 import { Ctx } from "../ctx"
-import { Type } from "../type"
+import { Value } from "../value"
 
-export function deepWalkType(ctx: Ctx, t: Type): Type {
+export function deepWalkType(ctx: Ctx, t: Value): Value {
   switch (t["@kind"]) {
     case "TypeVar": {
       const found = ctx.substitution.get(t.name)
@@ -14,11 +14,16 @@ export function deepWalkType(ctx: Ctx, t: Type): Type {
 
     case "TypeTerm": {
       return {
-        "@type": "Type",
+        "@type": "Value",
         "@kind": "TypeTerm",
         name: t.name,
         args: t.args.map((arg) => deepWalkType(ctx, arg)),
       }
+    }
+
+    default: {
+      // TODO Maybe we need to handle nest values.
+      return t
     }
   }
 }

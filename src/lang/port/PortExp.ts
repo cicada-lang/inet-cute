@@ -1,7 +1,7 @@
-import { Type } from "../type"
+import { Value } from "../value"
 
 export type PortExp = {
   name: string
-  t: Type
+  t: Value
   isPrincipal: boolean
 }

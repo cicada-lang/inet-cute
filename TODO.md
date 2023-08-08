@@ -1,10 +1,16 @@
 # value
 
-`Value` -- `TypeVar` -- `'A` should be a value
+`TypeVar` should be a `Word` -- compose to output `TypeVar` value
 
-`TypeVar` should be a `Word` -- `TypeVar`
+`formatValue` -- instead of `formatType`
 
-`Value` -- `TypeTerm`
+`println` should be a builtin function -- `console.log(formatValue(...))`
+
+test `TypeVar`
+
+`composeDefinition` -- support `TypeDefinition`
+
+`claim` -- has `input` and `output` words
 
 `:label` should be a `Word` -- `Label`
 
@@ -14,13 +20,9 @@
 
 `String` should be builtin type -- for `Labeled`
 
-`println` to test `String`
-
 `Value` -- `Labeled` -- `value :label` should be of type `Labeled(value, "label")`
 
 `NodeDefinition` -- has `input` and `output` words
-
-`claim` -- has `input` and `output` words
 
 `TypeDefinition` -- should have the same syntax as `claim`
 

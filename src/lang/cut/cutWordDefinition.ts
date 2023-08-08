@@ -1,9 +1,9 @@
 import { Ctx } from "../ctx"
 import { WordDefinition } from "../definition"
-import { Sign } from "../type"
-import { formatSignedType } from "../type/formatSignedType"
 import { freshenType } from "../unify/freshenType"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
+import { Sign } from "../value"
+import { formatSignedType } from "../value/formatSignedType"
 import { CutOptions } from "./cut"
 import { cutWords } from "./cutWords"
 

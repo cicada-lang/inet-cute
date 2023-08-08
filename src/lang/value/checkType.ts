@@ -1,9 +1,9 @@
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
-import { Type } from "./Type"
+import { Value } from "./Value"
 import { formatType } from "./formatType"
 
-export function checkType(mod: Mod, t: Type): void {
+export function checkType(mod: Mod, t: Value): void {
   switch (t["@kind"]) {
     case "TypeVar": {
       return

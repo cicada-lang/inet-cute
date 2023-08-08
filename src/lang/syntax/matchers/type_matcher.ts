@@ -1,22 +1,21 @@
 import * as pt from "@cicada-lang/partech"
-import * as Types from "../../type"
-import { SignedType, Type } from "../../type"
+import { Sign, SignedType, Value } from "../../value"
 
-export function type_matcher(tree: pt.Tree): Type {
-  return pt.matcher<Type>({
+export function type_matcher(tree: pt.Tree): Value {
+  return pt.matcher<Value>({
     "type:type_var": ({ name }, { span }) => ({
-      "@type": "Type",
+      "@type": "Value",
       "@kind": "TypeVar",
       name: pt.str(name),
     }),
     "type:type_term_zero_arity": ({ name }, { span }) => ({
-      "@type": "Type",
+      "@type": "Value",
       "@kind": "TypeTerm",
       name: pt.str(name),
       args: [],
     }),
     "type:type_term": ({ name, type_args }, { span }) => ({
-      "@type": "Type",
+      "@type": "Value",
       "@kind": "TypeTerm",
       name: pt.str(name),
       args: type_args_matcher(type_args),
@@ -24,7 +23,7 @@ export function type_matcher(tree: pt.Tree): Type {
   })(tree)
 }
 
-export function type_args_matcher(tree: pt.Tree): Array<Type> {
+export function type_args_matcher(tree: pt.Tree): Array<Value> {
   return pt.matcher({
     "type_args:type_args": ({ types, last_type }) => [
       ...pt.matchers.zero_or_more_matcher(types).map(type_matcher),
@@ -41,19 +40,19 @@ export function signed_type_with_optional_semicolon_matcher(
       "@type": "Value",
       "@kind": "SignedType",
       t: type_matcher(type),
-      sign: 1 as Types.Sign,
+      sign: 1 as Sign,
     }),
     "signed_type_with_optional_semicolon:negative": ({ type }) => ({
       "@type": "Value",
       "@kind": "SignedType",
       t: type_matcher(type),
-      sign: -1 as Types.Sign,
+      sign: -1 as Sign,
     }),
     "signed_type_with_optional_semicolon:neutral": ({ type }) => ({
       "@type": "Value",
       "@kind": "SignedType",
       t: type_matcher(type),
-      sign: 0 as Types.Sign,
+      sign: 0 as Sign,
     }),
   })(tree)
 }

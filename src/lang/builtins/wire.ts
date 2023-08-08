@@ -2,10 +2,8 @@ import { Ctx } from "../ctx"
 import { Env } from "../env"
 import { Mod } from "../mod"
 import { createNode } from "../node/createNode"
-import * as Types from "../type"
-import { Sign } from "../type"
 import { freshenType } from "../unify/freshenType"
-import { Value } from "../value"
+import { Sign, Value } from "../value"
 
 let wireCounter = 0
 
@@ -18,12 +16,12 @@ export default function (mod: Mod) {
       [
         {
           name: "front",
-          t: { "@type": "Type", "@kind": "TypeVar", name: "a" },
+          t: { "@type": "Value", "@kind": "TypeVar", name: "a" },
           isPrincipal: false,
         },
         {
           name: "back",
-          t: { "@type": "Type", "@kind": "TypeVar", name: "a" },
+          t: { "@type": "Value", "@kind": "TypeVar", name: "a" },
           isPrincipal: true,
         },
       ],
@@ -43,10 +41,10 @@ export default function (mod: Mod) {
       "@type": "Value",
       "@kind": "SignedType",
       id: frontId,
-      sign: 0 as Types.Sign,
+      sign: 0 as Sign,
       t: freshenType(
         ctx,
-        { "@type": "Type", "@kind": "TypeVar", name: "a" },
+        { "@type": "Value", "@kind": "TypeVar", name: "a" },
         occurredNames,
       ),
     }
@@ -59,7 +57,7 @@ export default function (mod: Mod) {
       sign: 0 as Sign,
       t: freshenType(
         ctx,
-        { "@type": "Type", "@kind": "TypeVar", name: "a" },
+        { "@type": "Value", "@kind": "TypeVar", name: "a" },
         occurredNames,
       ),
     }

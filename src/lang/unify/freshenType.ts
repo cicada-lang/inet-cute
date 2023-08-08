@@ -1,13 +1,13 @@
 import { stringToSubscript } from "../../utils/stringToSubscript"
 import { Ctx } from "../ctx"
 import { tickTypeVarCounter } from "../ctx/tickTypeVarCounter"
-import { Type } from "../type"
+import { Value } from "../value"
 
 export function freshenType(
   ctx: Ctx,
-  t: Type,
+  t: Value,
   occurredNames: Map<string, string>,
-): Type {
+): Value {
   switch (t["@kind"]) {
     case "TypeVar": {
       const foundName = occurredNames.get(t.name)
@@ -16,13 +16,13 @@ export function freshenType(
         const newName = t.name + stringToSubscript(subscript.toString())
         occurredNames.set(t.name, newName)
         return {
-          "@type": "Type",
+          "@type": "Value",
           "@kind": "TypeVar",
           name: newName,
         }
       } else {
         return {
-          "@type": "Type",
+          "@type": "Value",
           "@kind": "TypeVar",
           name: foundName,
         }
@@ -31,11 +31,16 @@ export function freshenType(
 
     case "TypeTerm": {
       return {
-        "@type": "Type",
+        "@type": "Value",
         "@kind": "TypeTerm",
         name: t.name,
         args: t.args.map((arg) => freshenType(ctx, arg, occurredNames)),
       }
+    }
+
+    default: {
+      // TODO Maybe we need to handle other values.
+      return t
     }
   }
 }

@@ -1,13 +1,13 @@
 import { Ctx } from "../ctx"
 import { appendReport } from "../errors/appendReport"
 import { createReport } from "../errors/createReport"
-import { Type } from "../type"
-import { formatType } from "../type/formatType"
+import { Value } from "../value"
+import { formatType } from "../value/formatType"
 import { deepWalkType } from "./deepWalkType"
 import { occurInType } from "./occurInType"
 import { walkType } from "./walkType"
 
-export function unifyTypes(ctx: Ctx, left: Type, right: Type): void {
+export function unifyTypes(ctx: Ctx, left: Value, right: Value): void {
   try {
     left = walkType(ctx, left)
     right = walkType(ctx, right)

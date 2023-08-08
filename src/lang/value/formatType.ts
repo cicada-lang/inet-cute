@@ -1,6 +1,6 @@
-import { Type } from "./Type"
+import { Value } from "./Value"
 
-export function formatType(t: Type): string {
+export function formatType(t: Value): string {
   switch (t["@kind"]) {
     case "TypeTerm": {
       if (t.args.length === 0) {
@@ -13,6 +13,10 @@ export function formatType(t: Type): string {
 
     case "TypeVar": {
       return `'${t.name}`
+    }
+
+    default: {
+      return "TODO"
     }
   }
 }

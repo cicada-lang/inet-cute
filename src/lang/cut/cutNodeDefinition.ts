@@ -1,8 +1,8 @@
 import { Ctx } from "../ctx"
 import { NodeDefinition } from "../definition"
-import { formatType } from "../type/formatType"
 import { freshenType } from "../unify/freshenType"
 import { unifySignedTypes } from "../unify/unifySignedTypes"
+import { formatType } from "../value/formatType"
 import { CutOptions } from "./cut"
 
 export function cutNodeDefinition(

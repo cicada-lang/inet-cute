@@ -5,7 +5,7 @@ import { define } from "../mod/define"
 import { PortExp } from "../port/PortExp"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
-import { checkType } from "../type/checkType"
+import { checkType } from "../value/checkType"
 
 export class DefineNode implements Stmt {
   constructor(

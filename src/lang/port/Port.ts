@@ -1,6 +1,6 @@
 import { Edge } from "../edge"
 import { Node } from "../node"
-import { Type } from "../type"
+import { Value } from "../value"
 
 export type PortConnection = {
   edge: Edge
@@ -12,7 +12,7 @@ export type Port = {
   "@kind": "Port"
   node: Node
   name: string
-  t: Type
+  t: Value
   isPrincipal: boolean
   connection?: PortConnection
 }

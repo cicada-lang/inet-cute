@@ -3,7 +3,7 @@ import { Env } from "../env"
 import { Mod } from "../mod"
 import { PortExp } from "../port/PortExp"
 import { Span } from "../span"
-import { SignedType } from "../type"
+import { SignedType } from "../value"
 import { Word } from "../word"
 
 export type Definition =
