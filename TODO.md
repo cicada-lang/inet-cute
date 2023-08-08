@@ -1,7 +1,5 @@
 # value
 
-`Value` -- `Signed` -- any value can be signed
-
 `Ctx` -- `stack` and `locals` should use `Value`
 
 `Value` -- `TypeVar` -- `'A` should be a value
@@ -11,6 +9,8 @@
 `Value` -- `TypeTerm`
 
 `:label` should be a `Word` -- `Label`
+
+`Value` -- `Signed` -- any value can be signed
 
 `negative_sign` as a postfix builtin for negative `Signed`
 
@@ -82,11 +82,3 @@ understand proof-nets for all connectives
 # example
 
 use inet to encode lambda calculus
-
-# value
-
-[maybe] `Boolean` should be a builtin type.
-
-- Use `... if ... end` and `... if ... else ... end` as syntax.
-
-- Mote that, `If` is not a word, but a sentence.

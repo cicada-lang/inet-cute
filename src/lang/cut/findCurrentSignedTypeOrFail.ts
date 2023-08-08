@@ -49,6 +49,8 @@ function findSignedTypeInNodeDefinition(
   for (const portExp of definition.input) {
     if (portExp.name === portName) {
       return {
+        "@type": "Value",
+        "@kind": "SignedType",
         t: portExp.t,
         sign: 1,
       }
@@ -58,6 +60,8 @@ function findSignedTypeInNodeDefinition(
   for (const portExp of definition.output) {
     if (portExp.name === portName) {
       return {
+        "@type": "Value",
+        "@kind": "SignedType",
         t: portExp.t,
         sign: -1,
       }

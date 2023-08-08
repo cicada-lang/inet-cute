@@ -36,16 +36,22 @@ export function type_args_matcher(tree: pt.Tree): Array<Type> {
 export function signed_type_with_optional_semicolon_matcher(
   tree: pt.Tree,
 ): SignedType {
-  return pt.matcher({
+  return pt.matcher<SignedType>({
     "signed_type_with_optional_semicolon:positive": ({ type }) => ({
+      "@type": "Value",
+      "@kind": "SignedType",
       t: type_matcher(type),
       sign: 1 as Types.Sign,
     }),
     "signed_type_with_optional_semicolon:negative": ({ type }) => ({
+      "@type": "Value",
+      "@kind": "SignedType",
       t: type_matcher(type),
       sign: -1 as Types.Sign,
     }),
     "signed_type_with_optional_semicolon:neutral": ({ type }) => ({
+      "@type": "Value",
+      "@kind": "SignedType",
       t: type_matcher(type),
       sign: 0 as Types.Sign,
     }),

@@ -25,6 +25,8 @@ export function cutNodeDefinition(
     }
 
     unifySignedTypes(ctx, signedType, {
+      "@type": "Value",
+      "@kind": "SignedType",
       t: freshenType(ctx, portExp.t, occurredNames),
       sign: -1,
     })
@@ -32,6 +34,8 @@ export function cutNodeDefinition(
 
   for (const portExp of definition.output) {
     ctx.stack.push({
+      "@type": "Value",
+      "@kind": "SignedType",
       t: freshenType(ctx, portExp.t, occurredNames),
       sign: 1,
     })

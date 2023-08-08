@@ -27,6 +27,8 @@ export function cutWordDefinition(
   // NOTE Be careful about the order.
   for (const signedType of [...definition.input].reverse()) {
     ctx.stack.push({
+      "@type": "Value",
+      "@kind": "SignedType",
       t: freshenType(ctx, signedType.t, occurredNames),
       sign: signedType.sign,
     })
@@ -48,6 +50,8 @@ export function cutWordDefinition(
     }
 
     unifySignedTypes(ctx, topSignedType, {
+      "@type": "Value",
+      "@kind": "SignedType",
       t: freshenType(ctx, signedType.t, occurredNames),
       sign: -signedType.sign as Sign,
     })
@@ -57,6 +61,8 @@ export function cutWordDefinition(
   // NOTE Be careful about the order.
   for (const signedType of definition.output) {
     ctx.stack.push({
+      "@type": "Value",
+      "@kind": "SignedType",
       t: freshenType(ctx, signedType.t, occurredNames),
       sign: signedType.sign,
     })
