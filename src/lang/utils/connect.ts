@@ -2,26 +2,26 @@ import { Env } from "../env"
 import { lookupRuleByPorts } from "../mod/lookupRuleByPorts"
 import { Port } from "../port/Port"
 
-export function connect(env: Env, start: Port, end: Port): void {
-  const rule = lookupRuleByPorts(env.mod, start, end)
+export function connect(env: Env, first: Port, second: Port): void {
+  const rule = lookupRuleByPorts(env.mod, first, second)
 
-  if (start.connection !== undefined) {
+  if (first.connection !== undefined) {
     throw new Error(`[connect] The start port is already connected.`)
   }
 
-  if (end.connection !== undefined) {
+  if (second.connection !== undefined) {
     throw new Error(`[connect] The end port is already connected.`)
   }
 
   if (rule !== undefined) {
-    const edge = { start, end, rule }
-    start.connection = { edge, port: end }
-    end.connection = { edge, port: start }
+    const edge = { first, second, rule }
+    first.connection = { edge, port: second }
+    second.connection = { edge, port: first }
     env.activeEdges.push(edge)
   } else {
-    const edge = { start, end }
-    start.connection = { edge, port: end }
-    end.connection = { edge, port: start }
+    const edge = { first, second }
+    first.connection = { edge, port: second }
+    second.connection = { edge, port: first }
     env.edges.push(edge)
   }
 }

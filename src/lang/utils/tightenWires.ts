@@ -5,15 +5,15 @@ import { removeNode } from "./removeNode"
 
 export function tightenWires(env: Env): void {
   for (const wire of env.wires) {
-    if (wire.start.connection && wire.end.connection) {
-      removeNode(env, wire.start.node)
-      removeNode(env, wire.end.node)
+    if (wire.first.connection && wire.second.connection) {
+      removeNode(env, wire.first.node)
+      removeNode(env, wire.second.node)
 
-      const start = wire.start.connection.port
-      const end = wire.end.connection.port
+      const start = wire.first.connection.port
+      const end = wire.second.connection.port
 
-      disconnect(env, wire.start.connection.edge)
-      disconnect(env, wire.end.connection.edge)
+      disconnect(env, wire.first.connection.edge)
+      disconnect(env, wire.second.connection.edge)
 
       connect(env, start, end)
     }

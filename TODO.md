@@ -1,7 +1,5 @@
 # check
 
-`Edge` rename `start` and `end` to `first` and `second`
-
 `createInputPlaceholder` -- `input_placeholder<subscript>`
 
 `output_placeholder<subscript>`

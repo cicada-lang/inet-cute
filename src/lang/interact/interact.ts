@@ -15,14 +15,14 @@ export function interact(
   activeEdge: ActiveEdge,
   options: InteractOptions,
 ): void {
-  removeNodeAndEdges(env, activeEdge.end.node)
-  removeNodeAndEdges(env, activeEdge.start.node)
+  removeNodeAndEdges(env, activeEdge.second.node)
+  removeNodeAndEdges(env, activeEdge.first.node)
 
   for (const word of activeEdge.rule.words) {
     compose(mod, env, word, {
       current: {
-        first: activeEdge.start.node,
-        second: activeEdge.end.node,
+        first: activeEdge.first.node,
+        second: activeEdge.second.node,
       },
       checking: options.checking,
     })

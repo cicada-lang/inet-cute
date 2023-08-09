@@ -1,6 +1,6 @@
 import { Port } from "../port"
 
 export type Edge = {
-  start: Port
-  end: Port
+  first: Port
+  second: Port
 }

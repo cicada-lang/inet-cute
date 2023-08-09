@@ -2,7 +2,7 @@ import { Port } from "../port"
 import { Rule } from "../rule"
 
 export type ActiveEdge = {
-  start: Port
-  end: Port
+  first: Port
+  second: Port
   rule: Rule
 }

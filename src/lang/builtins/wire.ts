@@ -25,7 +25,7 @@ export default function (mod: Mod) {
     env.stack.push(...node.output)
     env.nodes.push(node)
     const [start, end] = node.output
-    env.wires.push({ start, end })
+    env.wires.push({ first: start, second: end })
   }
 
   return { compose }
