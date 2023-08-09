@@ -1,7 +1,5 @@
 # check
 
-extract `createNodeFromDefinition` from `composeNodeDefinition`
-
 [maybe] `createInputPlaceholder` -- `input_placeholder<subscript>`
 
 [maybe] `createOutputPlaceholder` -- `output_placeholder<subscript>`
