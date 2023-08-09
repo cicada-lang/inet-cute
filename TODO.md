@@ -1,8 +1,8 @@
 # check
 
-`interact` -- take `InteractOptions` -- with optional checking
+[check] `checkRule` -- by building local net
 
-`compose` -- handle `checking?: Checking`
+- call `compose` with `checking: Checking`
 
 `Checking` has `typeVarCounters` for `freshenType`
 
@@ -12,9 +12,7 @@
 
 `output_placeholder<subscript>`
 
-[check] `checkRule` -- by building local net
-
-- call `compose` with `checking: Checking`
+`compose` -- handle `checking?: Checking`
 
 [check] `checkType` -- check return type is just one `Type`
 
