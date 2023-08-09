@@ -1,9 +1,10 @@
 import { Definition } from "../definition"
 import { Env } from "../env"
+import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
 import { Value } from "../value"
 import { formatValue } from "../value/formatValue"
 import { ComposeOptions } from "./compose"
-import { composeNodeDefinition } from "./composeNodeDefinition"
+import { composeNode } from "./composeNode"
 import { composeWords } from "./composeWords"
 
 export function composeDefinition(
@@ -13,7 +14,7 @@ export function composeDefinition(
 ): void {
   switch (definition["@kind"]) {
     case "NodeDefinition": {
-      composeNodeDefinition(env, definition)
+      composeNode(env, createNodeFromDefinition(definition))
       return
     }
 

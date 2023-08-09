@@ -10,15 +10,13 @@ export function composeNode(env: Env, node: Node): Node {
   for (const port of node.input) {
     const value = env.stack.pop()
     if (value === undefined) {
-      throw new Error(
-        `[composeNodeDefinition] I expect a value on top of the stack.`,
-      )
+      throw new Error(`[composeNode] I expect a value on top of the stack.`)
     }
 
     if (value["@kind"] !== "Port") {
       throw new Error(
         [
-          `[composeNodeDefinition] I expect the top value on the stack to be a Port.`,
+          `[composeNode] I expect the top value on the stack to be a Port.`,
           ``,
           `  value['@kind']: ${value["@kind"]}`,
         ].join("\n"),
