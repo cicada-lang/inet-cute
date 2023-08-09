@@ -1,5 +1,6 @@
 import { createChecking } from "../checking/createChecking"
 import { compose } from "../compose/compose"
+import { connect } from "../connect/connect"
 import { Env } from "../env"
 import { createEnv } from "../env/createEnv"
 import { refreshNode } from "../freshen/refreshNode"
@@ -9,7 +10,6 @@ import { Node } from "../node"
 import { createNode } from "../node/createNode"
 import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
 import { Port } from "../port"
-import { connect } from "../utils/connect"
 import { Word } from "../word"
 
 export function checkRule(

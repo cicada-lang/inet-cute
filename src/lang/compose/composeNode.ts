@@ -1,8 +1,8 @@
+import { connect } from "../connect/connect"
 import { Env } from "../env"
 import { refreshNode } from "../freshen/refreshNode"
 import { Node } from "../node"
 import { unifyTypes } from "../unify/unifyTypes"
-import { connect } from "../utils/connect"
 import { ComposeOptions } from "./compose"
 
 export function composeNode(

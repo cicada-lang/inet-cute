@@ -1,6 +1,6 @@
 import { Edge } from "../edge"
 import { Env } from "../env"
-import { removeEdge } from "./removeEdge"
+import { removeEdge } from "../utils/removeEdge"
 
 export function disconnect(env: Env, edge: Edge): void {
   removeEdge(env, edge)

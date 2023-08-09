@@ -1,7 +1,5 @@
 # check
 
-move `utils/connect` to `connect/`
-
 `connect` handle neutral sign
 
 [check] `checkPortsSign` -- only opposite signed types can `connect`

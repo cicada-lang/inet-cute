@@ -1,6 +1,6 @@
+import { disconnect } from "../connect/disconnect"
 import { Env } from "../env"
 import { Node } from "../node"
-import { disconnect } from "../utils/disconnect"
 
 export function releaseFreePorts(env: Env, closer: Node | undefined): void {
   if (closer === undefined) {
