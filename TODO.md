@@ -1,7 +1,5 @@
 # check
 
-`Checking` has `substitution` for `unifyTypes`
-
 `Checking` has `typeVarCounters` for `freshenType`
 
 extract `interact/`
