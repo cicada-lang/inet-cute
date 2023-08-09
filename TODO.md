@@ -1,8 +1,12 @@
 # check
 
-`createInputPlaceholder` -- `input_placeholder<subscript>`
+inline `lookupWordDefinitionOrFail`
 
-`output_placeholder<subscript>`
+extract `createNodeFromDefinition` from `composeNodeDefinition`
+
+[maybe] `createInputPlaceholder` -- `input_placeholder<subscript>`
+
+[maybe] `createOutputPlaceholder` -- `output_placeholder<subscript>`
 
 [check] `checkRule` -- by building local net
 

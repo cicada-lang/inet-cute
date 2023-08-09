@@ -1,23 +1,26 @@
 import { createChecking } from "../checking/createChecking"
+// import { compose } from "../compose/compose"
 import { createEnv } from "../env/createEnv"
 import { Mod } from "../mod"
+// import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { Word } from "../word"
 
 export function checkRule(
   mod: Mod,
-  first: string,
-  second: string,
+  firstName: string,
+  secondName: string,
   words: Array<Word>,
 ): void {
+  // const first = lookupDefinitionOrFail(mod, firstName)
+  // const second = lookupDefinitionOrFail(mod, secondName)
+
   const env = createEnv(mod)
   const checking = createChecking()
 
-  // for (const word of activeEdge.rule.words) {
+  // for (const word of words) {
   //   compose(mod, env, word, {
-  //     current: {
-  //       start: activeEdge.start.node,
-  //       end: activeEdge.end.node,
-  //     },
+  //     current: { first, second },
+  //     checking,
   //   })
   // }
 }
