@@ -1,15 +1,6 @@
 # check
 
-[maybe] `createInputPlaceholderNode`
-
-- `#input_placeholder_node_for_<port>_of_<node><subscript>`
-- `#input_placeholder_port_for_<port>_of_<node><subscript>`
-
-[maybe] `createOutputPlaceholderNode`
-
-[check] `checkRule` -- by building local net
-
-- call `compose` with `checking: Checking`
+[builtin] fix the use of `mod` in wire -- should use `env.mod`
 
 `Checking` has `typeVarCounters` for `freshenType`
 
@@ -18,6 +9,10 @@
 `freshen/freshenNode`
 
 `compose` -- handle `checking?: Checking`
+
+`checkRule` -- call `freshenNode`
+
+`checkRule` -- refactor
 
 [check] `checkType` -- check return type is just one `Type`
 
