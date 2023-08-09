@@ -3,7 +3,7 @@ import { compose } from "../compose/compose"
 import { ActiveEdge } from "../edge"
 import { Env } from "../env"
 import { Mod } from "../mod"
-import { removeNodeAndEdges } from "../utils/removeNodeAndEdges"
+import { removeEdgesOfNode } from "../utils/removeEdgesOfNode"
 
 export type InteractOptions = {
   checking?: Checking
@@ -15,8 +15,8 @@ export function interact(
   activeEdge: ActiveEdge,
   options: InteractOptions,
 ): void {
-  removeNodeAndEdges(env, activeEdge.second.node)
-  removeNodeAndEdges(env, activeEdge.first.node)
+  removeEdgesOfNode(env, activeEdge.second.node)
+  removeEdgesOfNode(env, activeEdge.first.node)
 
   for (const word of activeEdge.rule.words) {
     compose(mod, env, word, {

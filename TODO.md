@@ -1,7 +1,5 @@
 # check
 
-ambr removeNodeAndEdges removeEdgesOfNode
-
 [maybe] `createInputPlaceholderNode`
 
 - `#input_placeholder_node_for_<port>_of_<node><subscript>`
