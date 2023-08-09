@@ -1,5 +1,11 @@
 # check
 
+`Edge` rename `start` and `end` to `first` and `second`
+
+`createInputPlaceholder` -- `input_placeholder<subscript>`
+
+`output_placeholder<subscript>`
+
 [check] `checkRule` -- by building local net
 
 - call `compose` with `checking: Checking`
@@ -7,10 +13,6 @@
 `Checking` has `typeVarCounters` for `freshenType`
 
 [check] `freshenType`
-
-`input_placeholder<subscript>`
-
-`output_placeholder<subscript>`
 
 `compose` -- handle `checking?: Checking`
 

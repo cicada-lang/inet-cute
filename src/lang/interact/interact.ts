@@ -21,8 +21,8 @@ export function interact(
   for (const word of activeEdge.rule.words) {
     compose(mod, env, word, {
       current: {
-        start: activeEdge.start.node,
-        end: activeEdge.end.node,
+        first: activeEdge.start.node,
+        second: activeEdge.end.node,
       },
       checking: options.checking,
     })

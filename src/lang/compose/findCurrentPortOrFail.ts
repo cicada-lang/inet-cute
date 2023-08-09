@@ -16,8 +16,8 @@ export function findCurrentPortOrFail(
   }
 
   const found = findPortInNodes(nodeName, portName, [
-    current.start,
-    current.end,
+    current.first,
+    current.second,
   ])
 
   if (found === undefined) {

@@ -10,7 +10,7 @@ import { composeDefinition } from "./composeDefinition"
 import { findCurrentPortOrFail } from "./findCurrentPortOrFail"
 
 export interface ComposeOptions {
-  current?: { start: Node; end: Node }
+  current?: { first: Node; second: Node }
   checking?: Checking
 }
 
