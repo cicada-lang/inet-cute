@@ -1,12 +1,16 @@
 # check
 
+`createInputPort` and `createOutputPort`
+
+[check] `checkPortsSign` -- only opposite signed types can `connect`
+
 [check] `checkType` -- check return type is just one `Type`
 
 [check] `checkWords` -- `input` as preparing ports by types -- `output` as clean up ports on the stack by types
 
-[check] `Port` should have `sign` -- only opposite signed types can `connect`
+[refactor] `checkRule`
 
-`checkRule` -- refactor
+[mayb] replace `closeFreePorts` by `createInputPlaceholderPort`
 
 [check] `connect` -- check `stack.pop` for `undefined`
 [check] `swap` -- check `stack.pop` for `undefined`

@@ -20,6 +20,7 @@ export function createNode(
   node.input = input.map((port) => ({
     "@type": "Value",
     "@kind": "Port",
+    sign: -1,
     node,
     ...port,
   }))
@@ -27,6 +28,7 @@ export function createNode(
   node.output = output.map((port) => ({
     "@type": "Value",
     "@kind": "Port",
+    sign: 1,
     node,
     ...port,
   }))
