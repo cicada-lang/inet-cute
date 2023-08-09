@@ -1,3 +1,4 @@
+import { Checking } from "../checking"
 import { Env } from "../env"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
@@ -10,6 +11,7 @@ import { findCurrentPortOrFail } from "./findCurrentPortOrFail"
 
 export interface ComposeOptions {
   current?: { start: Node; end: Node }
+  checking?: Checking
 }
 
 export function compose(

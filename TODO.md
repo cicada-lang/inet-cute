@@ -1,12 +1,24 @@
 # check
 
-[check] `ComposeOptions` take `checking: CheckingContext`
+`Checking` has `substitution` for `unifyTypes`
 
-- with `substitution` and `typeVarCounters`
+`Checking` has `typeVarCounters` for `freshenType`
+
+extract `interact/`
+
+`interact` -- take `InteractOptions` -- with optional checking
+
+`compose` -- handle `checking?: Checking`
+
+[check] `freshenType`
+
+`input_placeholder<subscript>`
+
+`output_placeholder<subscript>`
 
 [check] `checkRule` -- by building local net
 
-- call `compose` with `checking: CheckingContext`
+- call `compose` with `checking: Checking`
 
 [check] `checkType` -- check return type is just one `Type`
 
