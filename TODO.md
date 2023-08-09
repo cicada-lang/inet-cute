@@ -1,8 +1,10 @@
 # check
 
-`connect` handle neutral sign
+`connect` call `matchSigns`
 
-[check] `checkPortsSign` -- only opposite signed types can `connect`
+- only opposite signed types can be `connect`ed
+
+`matchSigns` -- handle neutral sign -- need to search `env.wires`
 
 [check] `checkType` -- check return type is just one `Type`
 
