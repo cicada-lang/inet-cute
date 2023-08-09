@@ -27,9 +27,9 @@ export function unifyTypes(
       if (occurInType(substitution, left.name, right)) {
         throw new Error(
           [
-            `[unifyTypes] I find the left name occurs in the right type.`,
+            `[unifyTypes] I find the left type variable occurs in the right type.`,
             ``,
-            `  left name: ${left.name}`,
+            `  left type variable: '${left.name}`,
             `  right type: ${formatValue(deepWalkType(substitution, right))}`,
           ].join("\n"),
         )
@@ -43,9 +43,9 @@ export function unifyTypes(
       if (occurInType(substitution, right.name, left)) {
         throw new Error(
           [
-            `[unifyTypes] I find the right name occurs in the left type.`,
+            `[unifyTypes] I find the right type variable occurs in the left type.`,
             ``,
-            `  right name: ${right.name}`,
+            `  right type variable: '${right.name}`,
             `  left type: ${formatValue(deepWalkType(substitution, left))}`,
           ].join("\n"),
         )

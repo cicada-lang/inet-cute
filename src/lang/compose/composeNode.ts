@@ -1,4 +1,5 @@
 import { Env } from "../env"
+import { refreshNode } from "../freshen/refreshNode"
 import { Node } from "../node"
 import { unifyTypes } from "../unify/unifyTypes"
 import { connect } from "../utils/connect"
@@ -9,6 +10,10 @@ export function composeNode(
   node: Node,
   options: ComposeOptions,
 ): Node {
+  if (options.checking) {
+    refreshNode(options.checking.typeVarCounters, node)
+  }
+
   // Be careful about the order:
   // The first input port connects
   // with the port on the top of the stack.

@@ -1,10 +1,16 @@
 # check
 
+wrong-rule-type-nat.error.inet
+
 builtin functions should take `ComposeOptions`
 
 - so that `connect` can handle `checking?: Checking`
 
+[builtin] `connect` -- call `unifyTypes` during `checking`
+
 - wrong-connect-type.error.inet
+
+[builtin] `wire` -- `refreshNode` during `checking`
 
 `checkRule` -- refactor
 
