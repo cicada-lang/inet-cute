@@ -1,0 +1,26 @@
+[unifyTypes] I find the right name occurs in the left type.
+
+  right name: A
+  left type: List('A)
+
+[unifyTypes] I fail to unify types.
+
+  left: List('A)
+  right: 'A
+
+[DefineRule.execute] I fail to define rule.
+
+  rule nodes: cons append
+
+ 23 |  (append)-rest
+ 24 |  return-(append)
+ 25 |end
+ 26 |
+ 27 |rule cons append
+ 28 |  (cons)-head
+ 29 |  (append)-rest (cons)-tail append
+ 30 |  cons
+ 31 |  return-(append)
+ 32 |end
+ 33 |
+ 34 |// NOTE Should be:

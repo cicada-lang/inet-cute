@@ -1,12 +1,12 @@
 # check
 
-
-
-`compose` -- handle `checking?: Checking`
+fix `formatValue` -- use post fix notation for type
 
 builtin functions should take `ComposeOptions`
 
 - so that `connect` can handle `checking?: Checking`
+
+- wrong-connect-type.error.inet
 
 `checkRule` -- refactor
 

@@ -3,6 +3,7 @@ import { Env } from "../env"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { Node } from "../node"
+import { unifyTypes } from "../unify/unifyTypes"
 import { connect } from "../utils/connect"
 import { disconnect } from "../utils/disconnect"
 import { Word } from "../word"
@@ -86,6 +87,10 @@ export function compose(
       }
 
       connect(env, value, currentPort)
+      if (options.checking) {
+        unifyTypes(options.checking.substitution, value.t, currentPort.t)
+      }
+
       return
     }
 

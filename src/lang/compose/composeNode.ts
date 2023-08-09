@@ -1,5 +1,6 @@
 import { Env } from "../env"
 import { Node } from "../node"
+import { unifyTypes } from "../unify/unifyTypes"
 import { connect } from "../utils/connect"
 import { ComposeOptions } from "./compose"
 
@@ -29,6 +30,9 @@ export function composeNode(
     }
 
     connect(env, value, port)
+    if (options.checking) {
+      unifyTypes(options.checking.substitution, value.t, port.t)
+    }
   }
 
   env.stack.push(...node.output)
