@@ -1,6 +1,6 @@
 import { Env } from "../env"
 import { interact } from "../interact"
-import { tightenWires } from "../utils/tightenWires"
+import { tightenWires } from "../wire/tightenWires"
 import { closeFreePorts } from "./closeFreePorts"
 import { releaseFreePorts } from "./releaseFreePorts"
 

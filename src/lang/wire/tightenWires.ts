@@ -1,6 +1,6 @@
 import { Env } from "../env"
-import { connect } from "./connect"
-import { disconnect } from "./disconnect"
+import { connect } from "../utils/connect"
+import { disconnect } from "../utils/disconnect"
 
 export function tightenWires(env: Env): void {
   for (const wire of env.wires) {

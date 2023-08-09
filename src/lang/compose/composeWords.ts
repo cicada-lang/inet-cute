@@ -1,6 +1,6 @@
 import { Env } from "../env"
 import { Mod } from "../mod"
-import { tightenWires } from "../utils/tightenWires"
+import { tightenWires } from "../wire/tightenWires"
 import { Word } from "../word"
 import { ComposeOptions, compose } from "./compose"
 
