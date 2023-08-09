@@ -1,3 +1,5 @@
+[maybe] remove `cut`
+
 # check
 
 [check] `ComposeOptions` take `checking: CheckingContext`
@@ -9,8 +11,6 @@
 - call `compose` with `checking: CheckingContext`
 
 [check] `checkType` -- check return type is just one `Type`
-
-[maybe] remove `cut`
 
 [check] `checkWords` -- `input` as preparing and `output` as clean up
 

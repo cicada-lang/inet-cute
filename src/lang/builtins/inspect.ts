@@ -17,10 +17,3 @@ export function compose(env: Env): void {
   console.log(formatValue(value))
   console.log()
 }
-
-export function cut(env: Env): void {
-  const value = env.stack[env.stack.length - 1]
-  if (value === undefined) {
-    throw new Error(`[inspect / cut] I expect a value on the stack.`)
-  }
-}

@@ -37,7 +37,6 @@ export type OperatorDefinition = {
   mod: Mod
   name: string
   compose: (env: Env) => void
-  cut: (env: Env) => void
 }
 
 export type TypeDefinition = {

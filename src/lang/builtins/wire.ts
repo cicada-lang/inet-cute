@@ -2,8 +2,6 @@ import { Env } from "../env"
 import { Mod } from "../mod"
 import { createNode } from "../node/createNode"
 
-let wireCounter = 0
-
 export default function (mod: Mod) {
   function compose(env: Env): void {
     const node = createNode(
@@ -30,9 +28,5 @@ export default function (mod: Mod) {
     env.wires.push({ start, end })
   }
 
-  function cut(env: Env): void {
-    // TODO
-  }
-
-  return { compose, cut }
+  return { compose }
 }

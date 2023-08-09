@@ -7,7 +7,6 @@ export function defineOperator(
   name: string,
   options: {
     compose: (env: Env) => void
-    cut: (env: Env) => void
   },
 ): void {
   define(mod, name, {
@@ -16,6 +15,5 @@ export function defineOperator(
     mod,
     name,
     compose: options.compose,
-    cut: options.cut,
   })
 }

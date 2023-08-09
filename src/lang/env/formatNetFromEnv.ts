@@ -1,4 +1,4 @@
-import { Env } from "."
+import { Env } from "../env"
 import { formatNode } from "../node/formatNode"
 
 export function formatNetFromEnv(env: Env): string {
