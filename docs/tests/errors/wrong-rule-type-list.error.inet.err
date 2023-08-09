@@ -1,0 +1,26 @@
+[unifyTypes] I find the left type variable occurs in the right type.
+
+  left type variable: 'A₂
+  right type: 'A₂ List List
+
+[unifyTypes] I fail to unify types.
+
+  left: 'A₂
+  right: 'A₂ List List
+
+[DefineRule.execute] I fail to define rule.
+
+  rule nodes: cons append
+
+ 23 |  (append)-rest
+ 24 |  return-(append)
+ 25 |end
+ 26 |
+ 27 |rule cons append
+ 28 |  (cons)-head
+ 29 |  (append)-rest (cons)-tail append
+ 30 |  cons
+ 31 |  return-(append)
+ 32 |end
+ 33 |
+ 34 |// NOTE Should be:

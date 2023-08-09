@@ -1,7 +1,5 @@
 # check
 
-wrong-rule-type-nat.error.inet
-
 builtin functions should take `ComposeOptions`
 
 - so that `connect` can handle `checking?: Checking`
@@ -12,11 +10,13 @@ builtin functions should take `ComposeOptions`
 
 [builtin] `wire` -- `refreshNode` during `checking`
 
-`checkRule` -- refactor
-
 [check] `checkType` -- check return type is just one `Type`
 
 [check] `checkWords` -- `input` as preparing ports by types -- `output` as clean up ports on the stack by types
+
+[check] `Port` should have `sign` -- only opposite signed types can `connect`
+
+`checkRule` -- refactor
 
 [check] builtin stack function should check pop value is not undefined -- instead of using `as Value`
 
