@@ -1,7 +1,5 @@
 # check
 
-[builtin] fix the use of `mod` in wire -- should use `env.mod`
-
 `Checking` has `typeVarCounters` for `freshenType`
 
 `freshen/freshenType`
