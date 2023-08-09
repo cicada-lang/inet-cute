@@ -1,7 +1,5 @@
 # check
 
-inline `lookupWordDefinitionOrFail`
-
 extract `createNodeFromDefinition` from `composeNodeDefinition`
 
 [maybe] `createInputPlaceholder` -- `input_placeholder<subscript>`
