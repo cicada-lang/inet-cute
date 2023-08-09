@@ -1,7 +1,7 @@
 import { Env } from "../env"
+import { interact } from "../interact"
 import { tightenWires } from "../utils/tightenWires"
 import { closeFreePorts } from "./closeFreePorts"
-import { interact } from "./interact"
 import { releaseFreePorts } from "./releaseFreePorts"
 
 export function run(env: Env): void {

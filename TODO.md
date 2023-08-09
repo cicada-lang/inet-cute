@@ -1,12 +1,10 @@
 # check
 
-`Checking` has `typeVarCounters` for `freshenType`
-
-extract `interact/`
-
 `interact` -- take `InteractOptions` -- with optional checking
 
 `compose` -- handle `checking?: Checking`
+
+`Checking` has `typeVarCounters` for `freshenType`
 
 [check] `freshenType`
 
