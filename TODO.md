@@ -1,9 +1,5 @@
 # check
 
-[builtin] `connect` -- call `unifyTypes` during `checking`
-
-- wrong-connect-type.error.inet
-
 [builtin] `wire` -- `refreshNode` during `checking`
 
 [check] `checkType` -- check return type is just one `Type`
@@ -14,7 +10,9 @@
 
 `checkRule` -- refactor
 
-[check] builtin stack function should check pop value is not undefined -- instead of using `as Value`
+[check] `connect` -- check `stack.pop` for `undefined`
+[check] `swap` -- check `stack.pop` for `undefined`
+[check] `rot` -- check `stack.pop` for `undefined`
 
 [check] `checkRuleNodeOrder`
 
