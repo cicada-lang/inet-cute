@@ -1,10 +1,8 @@
 # check
 
-`freshen/freshenNode`
+`checkRule` -- call `refreshNode`
 
 `compose` -- handle `checking?: Checking`
-
-`checkRule` -- call `freshenNode`
 
 `checkRule` -- refactor
 
