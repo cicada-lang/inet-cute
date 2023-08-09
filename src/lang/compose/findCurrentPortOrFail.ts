@@ -12,7 +12,7 @@ export function findCurrentPortOrFail(
   const { current } = options || {}
 
   if (current === undefined) {
-    throw new Error(`[${who}] I expect current start and end nodes`)
+    throw new Error(`[${who}] I expect current first and second nodes`)
   }
 
   const found = findPortInNodes(nodeName, portName, [

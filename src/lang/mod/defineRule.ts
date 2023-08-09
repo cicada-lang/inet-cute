@@ -4,9 +4,9 @@ import { Mod } from "./Mod"
 
 export function defineRule(
   mod: Mod,
-  start: string,
-  end: string,
+  first: string,
+  second: string,
   words: Array<Word>,
 ): void {
-  mod.rules.set(`${start} ${end}`, new Rule(mod, words))
+  mod.rules.set(`${first} ${second}`, new Rule(mod, words))
 }

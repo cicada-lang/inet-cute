@@ -3,8 +3,8 @@ import { Mod } from "./Mod"
 
 export function lookupRule(
   mod: Mod,
-  start: string,
-  end: string,
+  first: string,
+  second: string,
 ): Rule | undefined {
-  return mod.rules.get(`${start} ${end}`)
+  return mod.rules.get(`${first} ${second}`)
 }

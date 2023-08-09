@@ -5,15 +5,15 @@ export function formatNetFromEnv(env: Env): string {
   const lines: Array<string> = []
 
   for (const edge of [...env.activeEdges].reverse()) {
-    const start = formatNode(edge.first.node)
-    const end = formatNode(edge.second.node)
-    lines.push(`(${start})-${edge.first.name}!${edge.second.name}-(${end})`)
+    const first = formatNode(edge.first.node)
+    const second = formatNode(edge.second.node)
+    lines.push(`(${first})-${edge.first.name}!${edge.second.name}-(${second})`)
   }
 
   for (const edge of [...env.edges].reverse()) {
-    const start = formatNode(edge.first.node)
-    const end = formatNode(edge.second.node)
-    lines.push(`(${start})-${edge.first.name} ${edge.second.name}-(${end})`)
+    const first = formatNode(edge.first.node)
+    const second = formatNode(edge.second.node)
+    lines.push(`(${first})-${edge.first.name} ${edge.second.name}-(${second})`)
   }
 
   for (const value of env.stack) {

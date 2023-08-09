@@ -12,10 +12,10 @@ export function stmt_matcher(tree: pt.Tree): Stmt {
         matchers.words_matcher(output),
         span,
       ),
-    "stmt:rule": ({ start, end, words }, { span }) =>
+    "stmt:rule": ({ first, second, words }, { span }) =>
       new Stmts.DefineRule(
-        pt.str(start),
-        pt.str(end),
+        pt.str(first),
+        pt.str(second),
         matchers.words_matcher(words),
         span,
       ),

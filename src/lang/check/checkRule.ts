@@ -5,8 +5,8 @@ import { Word } from "../word"
 
 export function checkRule(
   mod: Mod,
-  start: string,
-  end: string,
+  first: string,
+  second: string,
   words: Array<Word>,
 ): void {
   const env = createEnv(mod)

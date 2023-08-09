@@ -10,8 +10,8 @@ export const stmt = {
     ],
     "stmt:rule": [
       '"rule"',
-      { start: "variable_name" },
-      { end: "variable_name" },
+      { first: "variable_name" },
+      { second: "variable_name" },
       { words: "words" },
       '"end"',
     ],

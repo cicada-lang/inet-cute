@@ -5,10 +5,10 @@ import { lookupRule } from "./lookupRule"
 
 export function lookupRuleByPorts(
   mod: Mod,
-  start: Port,
-  end: Port,
+  first: Port,
+  second: Port,
 ): Rule | undefined {
-  if (start.isPrincipal && end.isPrincipal) {
-    return lookupRule(mod, start.node.name, end.node.name)
+  if (first.isPrincipal && second.isPrincipal) {
+    return lookupRule(mod, first.node.name, second.node.name)
   }
 }

@@ -9,13 +9,13 @@ export function tightenWires(env: Env): void {
       removeNode(env, wire.first.node)
       removeNode(env, wire.second.node)
 
-      const start = wire.first.connection.port
-      const end = wire.second.connection.port
+      const first = wire.first.connection.port
+      const second = wire.second.connection.port
 
       disconnect(env, wire.first.connection.edge)
       disconnect(env, wire.second.connection.edge)
 
-      connect(env, start, end)
+      connect(env, first, second)
     }
   }
 
