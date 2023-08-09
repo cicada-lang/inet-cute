@@ -2,6 +2,8 @@ import { Mod } from "../mod"
 import { tickNodeCounter } from "../mod/tickNodeCounter"
 import { Node } from "../node"
 import { PortExp } from "../port/PortExp"
+import { createInputPort } from "../port/createInputPort"
+import { createOutputPort } from "../port/createOutputPort"
 
 export function createNode(
   mod: Mod,
@@ -17,21 +19,8 @@ export function createNode(
     output: [],
   }
 
-  node.input = input.map((port) => ({
-    "@type": "Value",
-    "@kind": "Port",
-    sign: -1,
-    node,
-    ...port,
-  }))
-
-  node.output = output.map((port) => ({
-    "@type": "Value",
-    "@kind": "Port",
-    sign: 1,
-    node,
-    ...port,
-  }))
+  node.input = input.map((port) => createInputPort(node, port))
+  node.output = output.map((port) => createOutputPort(node, port))
 
   return node
 }

@@ -1,7 +1,5 @@
 # check
 
-`createInputPort` and `createOutputPort`
-
 [check] `checkPortsSign` -- only opposite signed types can `connect`
 
 [check] `checkType` -- check return type is just one `Type`
