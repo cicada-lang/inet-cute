@@ -22,5 +22,5 @@ export function closeFreePorts(env: Env): Node | undefined {
 
   const node = createNode(env.mod, "#root", ports, [])
 
-  return composeNode(env, node)
+  return composeNode(env, node, {})
 }

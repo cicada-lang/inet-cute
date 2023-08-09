@@ -1,6 +1,12 @@
 # check
 
+
+
 `compose` -- handle `checking?: Checking`
+
+builtin functions should take `ComposeOptions`
+
+- so that `connect` can handle `checking?: Checking`
 
 `checkRule` -- refactor
 

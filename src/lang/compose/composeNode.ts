@@ -1,8 +1,13 @@
 import { Env } from "../env"
 import { Node } from "../node"
 import { connect } from "../utils/connect"
+import { ComposeOptions } from "./compose"
 
-export function composeNode(env: Env, node: Node): Node {
+export function composeNode(
+  env: Env,
+  node: Node,
+  options: ComposeOptions,
+): Node {
   // Be careful about the order:
   // The first input port connects
   // with the port on the top of the stack.
