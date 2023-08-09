@@ -1,26 +1,34 @@
+import { ComposeOptions } from "../compose/compose"
 import { Env } from "../env"
+import { refreshNode } from "../freshen/refreshNode"
 import { createNode } from "../node/createNode"
+import { Value } from "../value"
 
-export function compose(env: Env): void {
+export function compose(env: Env, options: ComposeOptions): void {
+  const t: Value = {
+    "@type": "Value",
+    "@kind": "TypeVar",
+    name: "a",
+  }
+
   const node = createNode(
     env.mod,
     "wire",
     [],
     [
-      {
-        name: "front",
-        t: { "@type": "Value", "@kind": "TypeVar", name: "a" },
-        isPrincipal: false,
-      },
-      {
-        name: "back",
-        t: { "@type": "Value", "@kind": "TypeVar", name: "a" },
-        isPrincipal: true,
-      },
+      { name: "front", t, isPrincipal: false },
+      { name: "back", t, isPrincipal: true },
     ],
   )
 
+  if (options.checking) {
+    refreshNode(options.checking.typeVarCounters, node)
+  }
+
   env.stack.push(...node.output)
-  const [first, second] = node.output
-  env.wires.push({ first, second })
+
+  env.wires.push({
+    first: node.output[0],
+    second: node.output[1],
+  })
 }

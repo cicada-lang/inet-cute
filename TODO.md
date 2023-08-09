@@ -1,7 +1,5 @@
 # check
 
-[builtin] `wire` -- `refreshNode` during `checking`
-
 [check] `checkType` -- check return type is just one `Type`
 
 [check] `checkWords` -- `input` as preparing ports by types -- `output` as clean up ports on the stack by types
