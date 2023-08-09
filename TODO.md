@@ -1,7 +1,5 @@
 # check
 
-`Checking` has `typeVarCounters` for `freshenType`
-
 `freshen/freshenType`
 
 `freshen/freshenNode`
