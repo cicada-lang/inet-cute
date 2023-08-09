@@ -4,7 +4,6 @@ import { Mod } from "../mod"
 export function createEnv(mod: Mod): Env {
   return {
     mod,
-    nodes: [],
     edges: [],
     activeEdges: [],
     stack: [],

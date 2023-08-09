@@ -27,7 +27,6 @@ export function composeNode(env: Env, node: Node): Node {
   }
 
   env.stack.push(...node.output)
-  env.nodes.push(node)
 
   return node
 }

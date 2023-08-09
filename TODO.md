@@ -1,8 +1,13 @@
 # check
 
-[maybe] `createInputPlaceholder` -- `input_placeholder<subscript>`
+ambr removeNodeAndEdges removeEdgesOfNode
 
-[maybe] `createOutputPlaceholder` -- `output_placeholder<subscript>`
+[maybe] `createInputPlaceholderNode`
+
+- `#input_placeholder_node_for_<port>_of_<node><subscript>`
+- `#input_placeholder_port_for_<port>_of_<node><subscript>`
+
+[maybe] `createOutputPlaceholderNode`
 
 [check] `checkRule` -- by building local net
 
@@ -10,17 +15,15 @@
 
 `Checking` has `typeVarCounters` for `freshenType`
 
-[check] `freshenType`
+`freshen/freshenType`
+
+`freshen/freshenNode`
 
 `compose` -- handle `checking?: Checking`
 
 [check] `checkType` -- check return type is just one `Type`
 
 [check] `checkWords` -- `input` as preparing ports by types -- `output` as clean up ports on the stack by types
-
-[check] `wire` -- fix `cut`
-
-[check] `connect` -- fix `cut`
 
 [check] builtin stack function should check pop value is not undefined -- instead of using `as Value`
 

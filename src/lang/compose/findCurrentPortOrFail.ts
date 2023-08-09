@@ -12,7 +12,14 @@ export function findCurrentPortOrFail(
   const { current } = options || {}
 
   if (current === undefined) {
-    throw new Error(`[${who}] I expect current first and second nodes`)
+    throw new Error(
+      [
+        `[${who}] I expect current first and second nodes in ComposeOptions.`,
+        ``,
+        `  port name: ${portName}`,
+        `  node name: ${nodeName}`,
+      ].join("\n"),
+    )
   }
 
   const found = findPortInNodes(nodeName, portName, [
@@ -21,17 +28,31 @@ export function findCurrentPortOrFail(
   ])
 
   if (found === undefined) {
-    throw new Error(`[${who}] I can not find port: ${portName} in nodes`)
+    throw new Error(
+      [
+        `[${who}] I can not find port in node.`,
+        ``,
+        `  node name: ${nodeName}`,
+        `  port name: ${portName}`,
+      ].join("\n"),
+    )
   }
 
   if (found.connection === undefined) {
-    throw new Error(`[${who}] I expect the found port to have connection`)
+    throw new Error(
+      [
+        `[${who}] I expect the found port to have connection.`,
+        ``,
+        `  node name: ${nodeName}`,
+        `  port name: ${portName}`,
+      ].join("\n"),
+    )
   }
 
   return found as Port & { connection: PortConnection }
 }
 
-export function findPortInNodes(
+function findPortInNodes(
   nodeName: string,
   portName: string,
   nodes: Array<Node>,

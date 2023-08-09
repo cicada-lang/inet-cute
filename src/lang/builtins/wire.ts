@@ -23,7 +23,6 @@ export default function (mod: Mod) {
     )
 
     env.stack.push(...node.output)
-    env.nodes.push(node)
     const [first, second] = node.output
     env.wires.push({ first, second })
   }
