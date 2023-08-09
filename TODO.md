@@ -1,10 +1,12 @@
 # check
 
-`connect` call `matchSigns`
+`connect` improve error report -- print port
 
-- only opposite signed types can be `connect`ed
+`matchSigns` -- only opposite signed types can be `connect`ed
 
-`matchSigns` -- handle neutral sign -- need to search `env.wires`
+`matchSigns` -- handle neutral sign -- need to find the other port from `port.node`
+
+wrong-rule-sign.error.inet
 
 [check] `checkType` -- check return type is just one `Type`
 

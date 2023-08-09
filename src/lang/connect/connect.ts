@@ -15,6 +15,8 @@ export function connect(env: Env, first: Port, second: Port): void {
     throw new Error(`[connect] The second port is already connected.`)
   }
 
+  matchSigns(env, first, second)
+
   if (rule !== undefined) {
     const edge = { first, second, rule }
     first.connection = { edge, port: second }
@@ -35,5 +37,23 @@ function lookupRuleByPorts(
 ): Rule | undefined {
   if (first.isPrincipal && second.isPrincipal) {
     return lookupRule(mod, first.node.name, second.node.name)
+  }
+}
+
+function matchSigns(env: Env, first: Port, second: Port): void {
+  if (first.sign === 1 && second.sign === 1) {
+    //
+  }
+
+  if (first.sign === -1 && second.sign === -1) {
+    //
+  }
+
+  if (first.sign === 0 && second.sign !== 0) {
+    //
+  }
+
+  if (first.sign !== 0 && second.sign === 0) {
+    //
   }
 }
