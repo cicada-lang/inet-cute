@@ -1,7 +1,5 @@
 # check
 
-`freshen/freshenType`
-
 `freshen/freshenNode`
 
 `compose` -- handle `checking?: Checking`
