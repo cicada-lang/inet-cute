@@ -1,5 +1,3 @@
-[maybe] remove `cut`
-
 # check
 
 [check] `ComposeOptions` take `checking: CheckingContext`
@@ -12,13 +10,7 @@
 
 [check] `checkType` -- check return type is just one `Type`
 
-[check] `checkWords` -- `input` as preparing and `output` as clean up
-
-- [maybe] We do not need `cut`, we can just check the words by building the net.
-
-  this means we will have a dynamicly typed
-  postfix general programming language
-  as a macro system.
+[check] `checkWords` -- `input` as preparing ports by types -- `output` as clean up ports on the stack by types
 
 [check] `wire` -- fix `cut`
 
