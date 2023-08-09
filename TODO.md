@@ -1,9 +1,3 @@
-move `utils/tightenWires` to `env/cleanUpWires`
-
-move `env/remove*` to `utils/`
-
-move `env/connect` -- to `utils/connect`
-
 # check
 
 [check] `ComposeOptions` take `checking: CheckingContext`

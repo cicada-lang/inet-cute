@@ -1,6 +1,6 @@
 import { Env } from "../env"
-import { connect } from "../env/connect"
 import { Port } from "../port"
+import { connect } from "../utils/connect"
 
 export function compose(env: Env): void {
   const start = env.stack.pop() as Port

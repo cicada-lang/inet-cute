@@ -1,5 +1,5 @@
 import { Env } from "../env"
-import { cleanUpWires } from "../env/cleanUpWires"
+import { tightenWires } from "../utils/tightenWires"
 import { closeFreePorts } from "./closeFreePorts"
 import { interact } from "./interact"
 import { releaseFreePorts } from "./releaseFreePorts"
@@ -11,7 +11,7 @@ export function run(env: Env): void {
     step(env)
   }
 
-  cleanUpWires(env)
+  tightenWires(env)
 
   releaseFreePorts(env, closer)
 }

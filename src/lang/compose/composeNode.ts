@@ -1,6 +1,6 @@
 import { Env } from "../env"
-import { connect } from "../env/connect"
 import { Node } from "../node"
+import { connect } from "../utils/connect"
 
 export function composeNode(env: Env, node: Node): Node {
   // Be careful about the order:

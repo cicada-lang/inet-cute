@@ -1,5 +1,5 @@
+import { Env } from "../env"
 import { Node } from "../node"
-import { Env } from "./Env"
 import { removeEdge } from "./removeEdge"
 import { removeNode } from "./removeNode"
 
