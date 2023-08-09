@@ -1,9 +1,5 @@
 # check
 
-builtin functions should take `ComposeOptions`
-
-- so that `connect` can handle `checking?: Checking`
-
 [builtin] `connect` -- call `unifyTypes` during `checking`
 
 - wrong-connect-type.error.inet

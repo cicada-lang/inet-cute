@@ -1,3 +1,4 @@
+import { ComposeOptions } from "../compose/compose"
 import { Env } from "../env"
 import { Mod } from "../mod"
 import { PortExp } from "../port/PortExp"
@@ -36,7 +37,7 @@ export type OperatorDefinition = {
   "@kind": "OperatorDefinition"
   mod: Mod
   name: string
-  compose: (env: Env) => void
+  compose: (env: Env, options: ComposeOptions) => void
 }
 
 export type TypeDefinition = {

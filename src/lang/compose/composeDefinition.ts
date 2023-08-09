@@ -30,7 +30,7 @@ export function composeDefinition(
     }
 
     case "OperatorDefinition": {
-      definition.compose(env)
+      definition.compose(env, options)
       return
     }
 
