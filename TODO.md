@@ -1,7 +1,5 @@
 # check
 
-`checkRule` -- call `refreshNode`
-
 `compose` -- handle `checking?: Checking`
 
 `checkRule` -- refactor

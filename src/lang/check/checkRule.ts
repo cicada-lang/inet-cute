@@ -2,6 +2,7 @@ import { createChecking } from "../checking/createChecking"
 import { compose } from "../compose/compose"
 import { Env } from "../env"
 import { createEnv } from "../env/createEnv"
+import { refreshNode } from "../freshen/refreshNode"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { Node } from "../node"
@@ -21,9 +22,13 @@ export function checkRule(
 
   const first = createNodeFromDefinition(lookupDefinitionOrFail(mod, firstName))
 
+  refreshNode(checking.typeVarCounters, first)
+
   const second = createNodeFromDefinition(
     lookupDefinitionOrFail(mod, secondName),
   )
+
+  refreshNode(checking.typeVarCounters, second)
 
   const env = createEnv(mod)
 
