@@ -18,8 +18,8 @@ export function formatValue(value: Value): string {
       if (value.args.length === 0) {
         return `${value.name}`
       } else {
-        const args = value.args.map(formatValue).join(", ")
-        return `${value.name}(${args})`
+        const args = [...value.args].reverse().map(formatValue).join(" ")
+        return `${args} ${value.name}`
       }
     }
 

@@ -1,7 +1,5 @@
 # check
 
-fix `formatValue` -- use post fix notation for type
-
 builtin functions should take `ComposeOptions`
 
 - so that `connect` can handle `checking?: Checking`

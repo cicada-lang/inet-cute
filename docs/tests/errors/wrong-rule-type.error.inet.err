@@ -1,11 +1,11 @@
 [unifyTypes] I find the right name occurs in the left type.
 
   right name: A
-  left type: List('A)
+  left type: 'A List
 
 [unifyTypes] I fail to unify types.
 
-  left: List('A)
+  left: 'A List
   right: 'A
 
 [DefineRule.execute] I fail to define rule.
