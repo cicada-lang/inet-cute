@@ -1,6 +1,6 @@
 # module
 
-`Loader` support http and https
+`Fetcher` support http and https by default
 
 inject `loader` to `Mod`
 

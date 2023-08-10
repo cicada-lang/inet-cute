@@ -1,8 +1,9 @@
 import { ParsingError } from "@cicada-lang/partech/lib/errors"
 import { Command, CommandRunner } from "@xieyuheng/command-line"
 import ty from "@xieyuheng/ty"
-import fs from "fs"
-import Path from "path"
+import fs from "node:fs"
+import Path from "node:path"
+import { Fetcher } from "../../fetcher"
 import { Report } from "../../lang/errors/Report"
 import { Loader } from "../../loader"
 
@@ -27,12 +28,18 @@ export class RunCommand extends Command<Args, Opts> {
   }
 
   async execute(argv: Args & Opts): Promise<void> {
+    const fetcher = new Fetcher()
+
+    fetcher.register("file", async (url) => {
+      return await fs.promises.readFile(url.pathname, "utf8")
+    })
+
     const file = Path.resolve(argv.path)
     const url = new URL(`file:${file}`)
-    const text = await fs.promises.readFile(file, "utf8")
+    const text = await fetcher.fetchText(url)
 
     try {
-      const loader = new Loader()
+      const loader = new Loader(fetcher)
       await loader.load(url)
     } catch (error) {
       if (error instanceof ParsingError) {
