@@ -1,6 +1,12 @@
 # check
 
-`connect/matchSigns` -- handle neutral sign -- need to find the other port from `port.node`
+`Rearrange` as a `Word` -- to rearrange a node before apply
+
+[syntax] `Rearrange` -- (:<port> ... <name> :<port> ...)
+
+remove `wire`
+
+remove neutral sign
 
 [check] `checkType` -- check return type is just one `Type`
 

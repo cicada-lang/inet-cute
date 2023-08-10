@@ -31,7 +31,6 @@ export function connect(env: Env, first: Port, second: Port): void {
   }
 
   checkSigns(env, first, second)
-  matchSigns(env, first, second)
 
   if (rule !== undefined) {
     const edge = { first, second, rule }
@@ -79,15 +78,5 @@ function checkSigns(env: Env, first: Port, second: Port): void {
         `  second port: ${formatValue(second)}`,
       ].join("\n"),
     )
-  }
-}
-
-function matchSigns(env: Env, first: Port, second: Port): void {
-  if (first.sign === 0 && second.sign !== 0) {
-    //
-  }
-
-  if (first.sign !== 0 && second.sign === 0) {
-    //
   }
 }

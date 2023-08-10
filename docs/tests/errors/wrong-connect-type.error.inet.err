@@ -5,14 +5,15 @@
 
 [DefineRule.execute] I fail to define rule.
 
-  rule nodes: add1 add
+  rule nodes: zero add
 
+ 11 |  --------
+ 12 |  Nat :return
+ 13 |end
+ 14 |
+ 15 |rule zero add
  16 |  (add)-addend
- 17 |  return-(add)
+ 17 |  (add)-return sole connect
  18 |end
  19 |
  20 |rule add1 add
- 21 |  (add)-addend (add1)-prev add wire sole connect add1
- 22 |  return-(add)
- 23 |end
- 24 |
