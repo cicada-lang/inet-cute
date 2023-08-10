@@ -1,7 +1,5 @@
 # module
 
-`Fetcher` support http and https by default
-
 inject `loader` to `Mod`
 
 `Import` -- `execute`

@@ -2,10 +2,10 @@ import { ParsingError } from "@cicada-lang/partech/lib/errors"
 import { Command, CommandRunner } from "@xieyuheng/command-line"
 import ty from "@xieyuheng/ty"
 import fs from "node:fs"
-import Path from "node:path"
 import { Fetcher } from "../../fetcher"
 import { Report } from "../../lang/errors/Report"
 import { Loader } from "../../loader"
+import { createURL } from "../../utils/createURL"
 
 type Args = { path: string }
 type Opts = {}
@@ -22,7 +22,14 @@ export class RunCommand extends Command<Args, Opts> {
     const { blue } = this.colors
 
     return [
+      `Run a file:`,
+      ``,
       blue(`  ${runner.name} ${this.name} docs/tests/datatypes/Nat.inet`),
+      ``,
+      `Run a URL:`,
+      ``,
+      blue(`  ${runner.name} ${this.name} https://cdn.inet.cic.run/docs/tests/datatypes/Nat.inet`),
+
       ``,
     ].join("\n")
   }
@@ -34,8 +41,7 @@ export class RunCommand extends Command<Args, Opts> {
       return await fs.promises.readFile(url.pathname, "utf8")
     })
 
-    const file = Path.resolve(argv.path)
-    const url = new URL(`file:${file}`)
+    const url = createURL(argv.path)
     const text = await fetcher.fetchText(url)
 
     try {
