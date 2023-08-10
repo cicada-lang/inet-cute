@@ -1,7 +1,5 @@
 # module
 
-List.test.inet -- using `require`
-
 DiffList.test.inet -- using `require`
 
 `Import` -- `execute`
