@@ -1,18 +1,18 @@
 # check
 
-`connect/matchSigns` -- only opposite signed types can be `connect`ed
+extract `placeholder/`
 
-`connect/matchSigns` -- handle neutral sign -- need to find the other port from `port.node`
+replace `closeFreePorts` by `createNeutralPlaceholderPort`
 
 wrong-rule-sign.error.inet
+
+`connect/matchSigns` -- handle neutral sign -- need to find the other port from `port.node`
 
 [check] `checkType` -- check return type is just one `Type`
 
 [check] `checkWords` -- `input` as preparing ports by types -- `output` as clean up ports on the stack by types
 
 [refactor] `checkRule`
-
-[maybe] replace `closeFreePorts` by `createInputPlaceholderPort`
 
 [check] `connect` -- check `stack.pop` for `undefined`
 [check] `swap` -- check `stack.pop` for `undefined`
