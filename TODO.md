@@ -1,8 +1,8 @@
 # check
 
-[check] `swap` -- check `stack.pop` for `undefined`
-
 [check] `rot` -- check `stack.pop` for `undefined`
+
+- wrong-args-rot.error.inet
 
 [check] `checkRuleNodeOrder`
 
