@@ -4,18 +4,17 @@ import ty from "@xieyuheng/ty"
 import fs from "fs"
 import Path from "path"
 import { Report } from "../../lang/errors/Report"
-import { createMod } from "../../lang/mod/createMod"
-import { parseStmts } from "../../lang/syntax"
+import { Loader } from "../../loader"
 
-type Args = { mod: string }
-type Opts = { name?: string }
+type Args = { path: string }
+type Opts = {}
 
 export class RunCommand extends Command<Args, Opts> {
   name = "run"
 
   description = "Run an inet program"
 
-  args = { mod: ty.string() }
+  args = { path: ty.string() }
 
   // prettier-ignore
   help(runner: CommandRunner): string {
@@ -28,15 +27,13 @@ export class RunCommand extends Command<Args, Opts> {
   }
 
   async execute(argv: Args & Opts): Promise<void> {
-    const file = Path.resolve(argv.mod)
+    const file = Path.resolve(argv.path)
     const url = new URL(`file:${file}`)
     const text = await fs.promises.readFile(file, "utf8")
-    const mod = createMod(url, text)
 
     try {
-      for (const stmt of parseStmts(text)) {
-        await stmt.execute(mod)
-      }
+      const loader = new Loader()
+      await loader.load(url)
     } catch (error) {
       if (error instanceof ParsingError) {
         console.error(error.report(text))

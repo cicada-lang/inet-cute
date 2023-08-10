@@ -1,5 +1,9 @@
 # module
 
+`Loader` support http and https
+
+inject `loader` to `Mod`
+
 `Import` -- `execute`
 
 `Require` -- `execute` -- to import all from a path
