@@ -20,7 +20,7 @@ export function closeFreePorts(env: Env): Node | undefined {
     (value): value is Port => value["@kind"] === "Port",
   )
 
-  const node = createNode(env.mod, "#root", ports, [])
+  const node = createNode(env.mod, "_root", ports, [])
 
   return composeNode(env, node, {})
 }

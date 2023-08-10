@@ -1,7 +1,7 @@
 import { Env } from "../env"
 import { Mod } from "../mod"
 import { lookupRule } from "../mod/lookupRule"
-import { Port } from "../port/Port"
+import { Port } from "../port"
 import { Rule } from "../rule"
 
 export function connect(env: Env, first: Port, second: Port): void {

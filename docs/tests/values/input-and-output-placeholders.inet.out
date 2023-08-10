@@ -1,12 +1,12 @@
-(add₁)-return #input_placeholder_port_for_return_of_add-(#input_placeholder_node_for_return_of_add₁)
-(add1₀)-prev #output_placeholder_port_for_prev_of_add1-(#output_placeholder_node_for_prev_of_add1₀)
-(#output_placeholder_node_for_addend_of_add₁)-#output_placeholder_port_for_addend_of_add
+(add₁)-return _input_placeholder_port_for_return_of_add-(_input_placeholder_node_for_return_of_add₁)
+(add1₀)-prev _output_placeholder_port_for_prev_of_add1-(_output_placeholder_node_for_prev_of_add1₀)
+(_output_placeholder_node_for_addend_of_add₁)-_output_placeholder_port_for_addend_of_add
 
 (add₂)-return prev-(add1₁)
-(#output_placeholder_node_for_addend_of_add₁)-#output_placeholder_port_for_addend_of_add addend-(add₂)
-(#output_placeholder_node_for_prev_of_add1₀)-#output_placeholder_port_for_prev_of_add1 target-(add₂)
+(_output_placeholder_node_for_addend_of_add₁)-_output_placeholder_port_for_addend_of_add addend-(add₂)
+(_output_placeholder_node_for_prev_of_add1₀)-_output_placeholder_port_for_prev_of_add1 target-(add₂)
 (add1₁)-value
-(#input_placeholder_node_for_return_of_add₁)-#input_placeholder_port_for_return_of_add
+(_input_placeholder_node_for_return_of_add₁)-_input_placeholder_port_for_return_of_add
 
 (add1₃)-value!target-(add₃)
 (add1₂)-value addend-(add₃)

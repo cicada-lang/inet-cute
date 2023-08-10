@@ -2,9 +2,9 @@
 
 `connect` improve error report -- print port
 
-`matchSigns` -- only opposite signed types can be `connect`ed
+`connect/matchSigns` -- only opposite signed types can be `connect`ed
 
-`matchSigns` -- handle neutral sign -- need to find the other port from `port.node`
+`connect/matchSigns` -- handle neutral sign -- need to find the other port from `port.node`
 
 wrong-rule-sign.error.inet
 
@@ -14,7 +14,7 @@ wrong-rule-sign.error.inet
 
 [refactor] `checkRule`
 
-[mayb] replace `closeFreePorts` by `createInputPlaceholderPort`
+[maybe] replace `closeFreePorts` by `createInputPlaceholderPort`
 
 [check] `connect` -- check `stack.pop` for `undefined`
 [check] `swap` -- check `stack.pop` for `undefined`
