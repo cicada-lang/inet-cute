@@ -1,3 +1,17 @@
+# module
+
+[syntax] `Import` -- `import <name>, ... from "<path>"`
+
+`Import` -- `execute`
+
+`Require` as a statement
+
+[syntax] `require <path>` -- to import all from a path
+
+# tests
+
+re-org tests -- using module system
+
 # check
 
 [check] `checkWords`
@@ -9,6 +23,8 @@
 
 [syntax] support `check ... then ... end`
 
+`Check` -- `execute`
+
 [check] `checkType` -- check return type is just one `Type`
 
 [check] `checkNode` -- check `input` and `output` words of node definition
@@ -16,19 +32,11 @@
 - runtime type checking based on type definition
 - check that each node has one and only one principal port
 
-# module
-
-`Import` as a statement
-
-[syntax] `Import` -- `import <name>, ... from "<path>"`
-
-[maybe] support `require` to import all
-
-re-org tests
+# tests
 
 clean up old tests
 
-# graph
+# graph theory
 
 [builtin] `inspect` -- if the element is a port, print its connected component
 
