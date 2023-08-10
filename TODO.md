@@ -1,7 +1,5 @@
 # module
 
-DiffList.test.inet -- using `require`
-
 `Import` -- `execute`
 
 # check
