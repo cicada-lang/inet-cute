@@ -1,12 +1,12 @@
 # module
 
-`Import` -- `execute`
+extract `createNodeId`
 
 `Require` -- `execute` -- to import all from a path
 
-# tests
+re-org tests -- using `require`
 
-re-org tests -- using module system
+`Import` -- `execute`
 
 # check
 

@@ -7,18 +7,12 @@ export function createMod(options: {
   text: string
   loader: Loader
 }): Mod {
-  const { url, text, loader } = options
-
-  const definitions = new Map()
-  const rules = new Map()
-
   const mod = {
-    loader,
-    url,
-    text,
-    definitions,
-    rules,
-    nodeCounters: new Map(),
+    loader: options.loader,
+    url: options.url,
+    text: options.text,
+    definitions: new Map(),
+    rules: new Map(),
   }
 
   defineBuiltinOperators(mod)

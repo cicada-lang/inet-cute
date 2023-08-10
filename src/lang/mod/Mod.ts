@@ -8,5 +8,4 @@ export type Mod = {
   text: string
   definitions: Map<string, Definition>
   rules: Map<string, Rule>
-  nodeCounters: Map<string, number>
 }
