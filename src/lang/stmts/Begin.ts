@@ -1,5 +1,6 @@
 import { composeWords } from "../compose/composeWords"
 import { createEnv } from "../env/createEnv"
+import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
@@ -12,7 +13,17 @@ export class Begin implements Stmt {
   ) {}
 
   async execute(mod: Mod): Promise<void> {
-    const env = createEnv(mod)
-    composeWords(mod, env, this.words, {})
+    try {
+      const env = createEnv(mod)
+      composeWords(mod, env, this.words, {})
+    } catch (error) {
+      throw appendReport(error, {
+        message: `[Begin.execute] I fail to begin.`,
+        context: {
+          span: this.span,
+          text: mod.text,
+        },
+      })
+    }
   }
 }

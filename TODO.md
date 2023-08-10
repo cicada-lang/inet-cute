@@ -1,6 +1,10 @@
 # check
 
-`Begin` report error
+
+
+
+
+`compose` report error
 
 `rearrangeNodePorts` check for duplicated name
 
