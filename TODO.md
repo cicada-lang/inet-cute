@@ -1,6 +1,6 @@
 # check
 
-[syntax] `NodeRearrange` -- (:<port> ... <name> :<port> ...)
+`NodeRearrange` -- `compose`
 
 remove `wire`
 
