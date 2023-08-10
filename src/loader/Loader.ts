@@ -13,9 +13,13 @@ export class Loader {
     if (found !== undefined) return found
 
     const text = await this.fetcher.fetchText(url)
-    const mod = createMod(url, text)
-    const stmts = parseStmts(text)
-    for (const stmt of stmts) {
+    const mod = createMod({
+      loader: this,
+      url,
+      text,
+    })
+
+    for (const stmt of parseStmts(text)) {
       await stmt.execute(mod)
     }
 
