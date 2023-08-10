@@ -4,17 +4,11 @@
 
 `Import` -- importing a both two nodes will import the rule about this two nodes
 
-require-already-defined.error.i
-
-# module
-
-support `private` statement prefix to define private aux nodes
-
 # check
 
 [check] `checkRuleIsAboutOwnNode` -- to define a rule one of the node must be owned by this module.
 
-- define-rule-for-non-own-node.error.i
+- `define-rule-for-non-own-node.error.i`
 
 [check] `checkWords`
 
@@ -37,6 +31,7 @@ support `private` statement prefix to define private aux nodes
 # tests
 
 clean up old tests
+
 
 # graph theory
 
@@ -83,3 +78,7 @@ understand proof-nets for all connectives
 # example
 
 use inet to encode lambda calculus
+
+# module
+
+support `private` statement prefix to define private aux nodes
