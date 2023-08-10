@@ -23,4 +23,4 @@
  31 |  return-(append)
  32 |end
  33 |
- 34 |// NOTE Should be:
+ 34 |// The correct definition is:

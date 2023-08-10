@@ -31,7 +31,7 @@ rule cons append
   return-(append)
 end
 
-// NOTE Should be:
+// The correct definition is:
 
 // rule cons append
 //   (append)-rest (cons)-tail append
