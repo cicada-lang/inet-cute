@@ -1,8 +1,8 @@
 # check
 
-extract `placeholder/`
+`createNeutralPlaceholderPort`
 
-replace `closeFreePorts` by `createNeutralPlaceholderPort`
+replace `closeFreePorts` use `createNeutralPlaceholderPort`
 
 wrong-rule-sign.error.inet
 
