@@ -1,4 +1,5 @@
 import { checkRule } from "../check/checkRule"
+import { checkRuleNodeOrder } from "../check/checkRuleNodeOrder"
 import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
 import { defineRule } from "../mod/defineRule"
@@ -16,6 +17,7 @@ export class DefineRule implements Stmt {
 
   async execute(mod: Mod): Promise<void> {
     try {
+      checkRuleNodeOrder(mod, this.first, this.second)
       checkRule(mod, this.first, this.second, this.words)
       defineRule(mod, this.first, this.second, this.words)
     } catch (error) {

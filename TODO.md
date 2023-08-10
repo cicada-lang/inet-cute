@@ -1,10 +1,5 @@
 # check
 
-[check] `checkRuleNodeOrder`
-
-- The first node must have its principal port in the output,
-  and the second node must have its principal port in the input.
-
 [check] `checkWords`
 
 - `input` as preparing ports by types
