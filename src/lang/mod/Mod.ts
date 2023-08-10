@@ -8,4 +8,5 @@ export type Mod = {
   text: string
   definitions: Map<string, Definition>
   rules: Map<string, Rule>
+  requiredMods: Map<string, Mod>
 }

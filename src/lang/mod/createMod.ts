@@ -13,6 +13,7 @@ export function createMod(options: {
     text: options.text,
     definitions: new Map(),
     rules: new Map(),
+    requiredMods: new Map(),
   }
 
   defineBuiltinOperators(mod)

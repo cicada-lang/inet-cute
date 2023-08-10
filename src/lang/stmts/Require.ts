@@ -12,6 +12,10 @@ export class Require implements Stmt {
   async execute(mod: Mod): Promise<void> {
     try {
       const url = new URL(this.path, mod.url)
+      if (mod.requiredMods.get(url.href)) {
+        return
+      }
+
       const loadedMod = await mod.loader.load(url)
       for (const [name, definition] of loadedMod.definitions) {
         if (definition.isPrivate) {
@@ -48,6 +52,12 @@ export class Require implements Stmt {
 
         mod.rules.set(name, rule)
       }
+
+      for (const [key, requiredMod] of loadedMod.requiredMods) {
+        mod.requiredMods.set(key, requiredMod)
+      }
+
+      mod.requiredMods.set(url.href, loadedMod)
     } catch (error) {
       throw appendReport(error, {
         message: [

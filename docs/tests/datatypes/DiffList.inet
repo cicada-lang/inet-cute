@@ -1,4 +1,5 @@
 require "List.inet"
+require "Trivial.inet"
 
 type DiffList Type -- Type end
 
