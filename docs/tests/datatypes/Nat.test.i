@@ -1,6 +1,6 @@
-require "Nat.inet"
-require "Nat.inet"
-require "Nat.inet" // Multiple `require` is fine.
+require "Nat.i"
+require "Nat.i"
+require "Nat.i" // Multiple `require` is fine.
 
 begin zero zero add inspect run inspect end
 begin two inspect run inspect end

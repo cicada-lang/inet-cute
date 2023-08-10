@@ -1,4 +1,4 @@
-require "List.inet"
+require "List.i"
 
 claim six_soles -- Trivial List end
 

@@ -1,4 +1,4 @@
-require "Trivial.inet"
+require "Trivial.i"
 
 type List Type -- Type end
 

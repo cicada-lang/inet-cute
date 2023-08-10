@@ -1,5 +1,5 @@
-require "List.inet"
-require "Trivial.inet"
+require "List.i"
+require "Trivial.i"
 
 type DiffList Type -- Type end
 

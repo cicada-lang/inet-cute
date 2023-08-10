@@ -1,4 +1,4 @@
-require "DiffList.inet"
+require "DiffList.i"
 
 claim one_two_soles -- Trivial DiffList end
 
