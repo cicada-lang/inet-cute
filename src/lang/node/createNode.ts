@@ -1,9 +1,9 @@
 import { Mod } from "../mod"
-import { tickNodeCounter } from "../mod/tickNodeCounter"
 import { Node } from "../node"
 import { PortExp } from "../port/PortExp"
 import { createInputPort } from "../port/createInputPort"
 import { createOutputPort } from "../port/createOutputPort"
+import { createNodeId } from "./createNodeId"
 
 export function createNode(
   mod: Mod,
@@ -12,7 +12,7 @@ export function createNode(
   output: Array<PortExp>,
 ): Node {
   const node: Node = {
-    id: tickNodeCounter(mod, name),
+    id: createNodeId(mod, name),
     mod,
     name,
     input: [],

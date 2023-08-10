@@ -1,7 +1,7 @@
-import { globalNodeCounters } from "../node/globalNodeCounters"
-import { Mod } from "./Mod"
+import { Mod } from "../mod"
+import { globalNodeCounters } from "./globalNodeCounters"
 
-export function tickNodeCounter(mod: Mod, name: string): number {
+export function createNodeId(mod: Mod, name: string): number {
   const foundCounter = globalNodeCounters.get(name)
   if (foundCounter === undefined) {
     globalNodeCounters.set(name, 0)

@@ -1,7 +1,5 @@
 # module
 
-extract `createNodeId`
-
 `Require` -- `execute` -- to import all from a path
 
 re-org tests -- using `require`
