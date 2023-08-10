@@ -1,4 +1,5 @@
 import { arrayPickOut } from "../../utils/arrayPickOut"
+import { countStringOccurrences } from "../../utils/countStringOccurrences"
 import { Node } from "../node"
 import { Port } from "../port"
 import { formatValue } from "../value/formatValue"
@@ -31,6 +32,27 @@ export function rearrangeNodePorts(
         ].join("\n"),
       )
     }
+  }
+
+  const counts = countStringOccurrences([
+    ...rearrangement.input,
+    ...rearrangement.output,
+  ])
+
+  const duplicatedEntries = Array.from(counts.entries()).filter(
+    ([_name, count]) => count > 1,
+  )
+
+  if (duplicatedEntries.length > 0) {
+    throw new Error(
+      [
+        `[rearrangeNodePorts] I find duplicated names in rearrangement labels.`,
+        ``,
+        `  duplicated: [${duplicatedEntries
+          .map(([name, count]) => `:${name} (${count})`)
+          .join(", ")}]`,
+      ].join("\n"),
+    )
   }
 
   for (const name of [...rearrangement.input].reverse()) {

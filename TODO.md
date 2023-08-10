@@ -1,9 +1,5 @@
 # check
 
-`rearrangeNodePorts` check for duplicated name
-
-- wrong-rearrangement-duplicated-name.error.inet
-
 [check] `connect` -- check `stack.pop` for `undefined`
 
 [check] `swap` -- check `stack.pop` for `undefined`
