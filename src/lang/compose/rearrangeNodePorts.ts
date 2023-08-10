@@ -1,3 +1,4 @@
+import { arrayPickOut } from "../../utils/arrayPickOut"
 import { Node } from "../node"
 import { Port } from "../port"
 
@@ -50,10 +51,4 @@ export function rearrangeNodePorts(
     input,
     output,
   }
-}
-
-function arrayPickOut<A>(array: Array<A>, i: number): A {
-  const x = array[i]
-  array.splice(i, 1)
-  return x
 }

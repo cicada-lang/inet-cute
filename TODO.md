@@ -1,6 +1,6 @@
 # check
 
-extract `utils/arrayPickOut`
+extract `sign`
 
 `rearrangeNodePorts` check error in `rearrangement`
 
