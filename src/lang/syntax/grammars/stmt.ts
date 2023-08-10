@@ -38,6 +38,12 @@ export const stmt = {
       '"end"',
     ],
     "stmt:begin": ['"begin"', { words: "words" }, '"end"'],
+    "stmt:import": [
+      '"import"',
+      { bindings: "import_bindings" },
+      '"from"',
+      { path: { $pattern: ["string"] } },
+    ],
     "stmt:require": ['"require"', { path: { $pattern: ["string"] } }],
   },
 }

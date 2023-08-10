@@ -1,3 +1,4 @@
+export * from "./import_binding_matcher"
 export * from "./label_matcher"
 export * from "./name_matcher"
 export * from "./stmt_matcher"

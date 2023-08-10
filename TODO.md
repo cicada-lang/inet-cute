@@ -1,7 +1,5 @@
 # module
 
-[syntax] `import <name> as <alias>, <name>, ... from "<path>"`
-
 `Import` -- `execute`
 
 `Require` -- `execute` -- to import all from a path
