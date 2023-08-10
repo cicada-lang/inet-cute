@@ -1,8 +1,6 @@
 # check
 
-`rearrangeNodePorts` check for undefined name
-
-- wrong-rearrangement-undefined-name.error.inet
+`Begin` report error
 
 `rearrangeNodePorts` check for duplicated name
 

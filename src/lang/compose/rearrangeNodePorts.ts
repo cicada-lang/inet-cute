@@ -1,6 +1,7 @@
 import { arrayPickOut } from "../../utils/arrayPickOut"
 import { Node } from "../node"
 import { Port } from "../port"
+import { formatValue } from "../value/formatValue"
 
 export function rearrangeNodePorts(
   node: Node,
@@ -14,6 +15,23 @@ export function rearrangeNodePorts(
 } {
   const input = [...node.input]
   const output = [...node.output]
+
+  for (const name of [...rearrangement.input, ...rearrangement.output]) {
+    const found =
+      input.find((port) => port.name === name) ||
+      output.find((port) => port.name === name)
+    if (found === undefined) {
+      throw new Error(
+        [
+          `[rearrangeNodePorts] I find undefined port name.`,
+          ``,
+          `  name: ${name}`,
+          `  input ports: [${input.map(formatValue).join(", ")}]`,
+          `  output ports: [${output.map(formatValue).join(", ")}]`,
+        ].join("\n"),
+      )
+    }
+  }
 
   for (const name of [...rearrangement.input].reverse()) {
     const port = portsPickOut(input, name) || portsPickOut(output, name)

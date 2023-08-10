@@ -1,0 +1,15 @@
+Error: [rearrangeNodePorts] I find undefined port name.
+
+  name: hi
+  input ports: [(cons)-head, (cons)-tail]
+  output ports: [(cons)-value!]
+    at rearrangeNodePorts (/home/xyh/cicada-lang/inet/lib/lang/compose/rearrangeNodePorts.js:13:19)
+    at composeNode (/home/xyh/cicada-lang/inet/lib/lang/compose/composeNode.js:15:75)
+    at compose (/home/xyh/cicada-lang/inet/lib/lang/compose/compose.js:85:43)
+    at composeWords (/home/xyh/cicada-lang/inet/lib/lang/compose/composeWords.js:7:31)
+    at Begin.<anonymous> (/home/xyh/cicada-lang/inet/lib/lang/stmts/Begin.js:23:45)
+    at Generator.next (<anonymous>)
+    at /home/xyh/cicada-lang/inet/lib/lang/stmts/Begin.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (/home/xyh/cicada-lang/inet/lib/lang/stmts/Begin.js:4:12)
+    at Begin.execute (/home/xyh/cicada-lang/inet/lib/lang/stmts/Begin.js:21:16)
