@@ -1,9 +1,5 @@
 # check
 
-[check] `rot` -- check `stack.pop` for `undefined`
-
-- wrong-args-rot.error.inet
-
 [check] `checkRuleNodeOrder`
 
 - The first node must have its principal port in the output,
