@@ -1,8 +1,6 @@
 # check
 
-`Rearrange` as a `Word` -- to rearrange a node before apply
-
-[syntax] `Rearrange` -- (:<port> ... <name> :<port> ...)
+[syntax] `NodeRearrange` -- (:<port> ... <name> :<port> ...)
 
 remove `wire`
 

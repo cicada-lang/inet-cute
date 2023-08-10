@@ -1,6 +1,13 @@
 import { Span } from "../span"
 
-export type Word = Call | Local | PortPush | PortReconnect | TypeVar | Label
+export type Word =
+  | Call
+  | Local
+  | PortPush
+  | PortReconnect
+  | TypeVar
+  | Label
+  | NodeRearrange
 
 export type Call = {
   "@type": "Word"
@@ -44,5 +51,14 @@ export type Label = {
   "@kind": "Label"
   label: string
   isImportant?: boolean
+  span: Span
+}
+
+export type NodeRearrange = {
+  "@type": "Word"
+  "@kind": "NodeRearrange"
+  name: string
+  input: Array<string>
+  output: Array<string>
   span: Span
 }
