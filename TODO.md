@@ -10,29 +10,30 @@
 - `input` as preparing ports by types
 - `output` as clean up ports on the stack by types
 
+`Begin` use `checking` -- only no `checking` in `run`, others can have `checking`
+
+`Check` as a statement -- like unnamed `claim` + `define`
+
+[syntax] support `check ... then ... end`
+
 [check] `checkType` -- check return type is just one `Type`
 
 [check] `checkNode` -- check `input` and `output` words of node definition
 
 - runtime type checking based on type definition
-
-`Check` as a statement
-
-[syntax] support `check ... then ... end`
+- check that each node has one and only one principal port
 
 # module
 
-design module system
+`Import` as a statement
 
-- [maybe] when importing a node, also import all the rules about this node
-- [maybe] suport defining node and type in one module, and defining rules in another module
-- [maybe] learn from ruby module system
-
-suport module system
+[syntax] `Import` -- `import <name>, ... from "<path>"`
 
 [maybe] support `require` to import all
 
 re-org tests
+
+clean up old tests
 
 # graph
 
