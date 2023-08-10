@@ -1,0 +1,15 @@
+[Define.execute] I already defined word.
+
+  word: swapswap
+
+ 1 |claim swapswap 'A -- 'A end
+ 2 |define swapswap swap swap end
+ 3 |define swapswap swap swap end
+
+[Define.execute] I fail to define word.
+
+  word: swapswap
+
+ 1 |claim swapswap 'A -- 'A end
+ 2 |define swapswap swap swap end
+ 3 |define swapswap swap swap end

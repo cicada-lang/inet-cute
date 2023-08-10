@@ -1,0 +1,15 @@
+[Claim.execute] I already claimed/defined word.
+
+  word: swapswap
+
+ 1 |claim swapswap 'A -- 'A end
+ 2 |claim swapswap 'A -- 'A end
+ 3 |define swapswap swap swap end
+
+[Claim.execute] I fail to claim word.
+
+  word: swapswap
+
+ 1 |claim swapswap 'A -- 'A end
+ 2 |claim swapswap 'A -- 'A end
+ 3 |define swapswap swap swap end

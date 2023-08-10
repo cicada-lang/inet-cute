@@ -1,0 +1,20 @@
+[rearrangeNodePorts] I find duplicated names in rearrangement labels.
+
+  duplicated: [:head (2), :tail (2)]
+
+[compose] I fail compose word.
+
+  word: (:head:tail cons :tail:head)
+
+ 15 |  'A List :value!
+ 16 |end
+ 17 |
+ 18 |begin sole (:head:tail cons :tail:head) end
+
+[Begin.execute] I fail to begin.
+
+ 14 |  --------
+ 15 |  'A List :value!
+ 16 |end
+ 17 |
+ 18 |begin sole (:head:tail cons :tail:head) end
