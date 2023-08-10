@@ -1,10 +1,15 @@
 # check
 
-`NodeRearrange` -- `compose`
-
 remove `wire`
 
 remove neutral sign
+
+extract `utils/arrayPickOut`
+
+`rearrangeNodePorts` check error in `rearrangement`
+
+- undefined name
+- duplicated name
 
 [check] `checkType` -- check return type is just one `Type`
 

@@ -5,9 +5,11 @@ import { Env } from "../env"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { Node } from "../node"
+import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
 import { unifyTypes } from "../unify/unifyTypes"
 import { Word } from "../word"
 import { composeDefinition } from "./composeDefinition"
+import { composeNode } from "./composeNode"
 import { findCurrentPortOrFail } from "./findCurrentPortOrFail"
 
 export interface ComposeOptions {
@@ -116,6 +118,16 @@ export function compose(
         value,
         label: word.label,
         isImportant: word.isImportant,
+      })
+
+      return
+    }
+
+    case "NodeRearrange": {
+      const definition = lookupDefinitionOrFail(mod, word.name)
+      composeNode(env, createNodeFromDefinition(definition), options, {
+        input: word.input,
+        output: word.output,
       })
 
       return
