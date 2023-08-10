@@ -3,7 +3,7 @@ import { Env } from "../env"
 import { Node } from "../node"
 import { createNode } from "../node/createNode"
 import { Port } from "../port"
-import { createSign } from "../port/createSign"
+import { negateSign } from "../port/negateSign"
 
 /*
 
@@ -25,7 +25,7 @@ export function closeFreePorts(env: Env): Node | undefined {
       name: `_root_placeholder_port_for_${port.name}_of_${port.node.name}`,
       node: port.node,
       t: port.t,
-      sign: createSign(-port.sign),
+      sign: negateSign(port.sign),
       isPrincipal: false,
     }))
 
