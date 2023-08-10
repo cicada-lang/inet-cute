@@ -1,11 +1,5 @@
 # check
 
-
-
-
-
-`compose` report error
-
 `rearrangeNodePorts` check for duplicated name
 
 - wrong-rearrangement-duplicated-name.error.inet

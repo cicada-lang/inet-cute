@@ -8,6 +8,17 @@
   left: 'A₂
   right: 'A₂ List List
 
+[compose] I fail compose word.
+
+  word: cons
+
+ 27 |rule cons append
+ 28 |  (cons)-head
+ 29 |  (append)-rest (cons)-tail append
+ 30 |  cons
+ 31 |  return-(append)
+ 32 |end
+
 [DefineRule.execute] I fail to define rule.
 
   rule nodes: cons append

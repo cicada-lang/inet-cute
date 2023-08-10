@@ -3,6 +3,17 @@
   left: Trivial
   right: Nat
 
+[compose] I fail compose word.
+
+  word: add1
+
+ 18 |end
+ 19 |
+ 20 |rule add1 add
+ 21 |  (add)-addend (add1)-prev add sole add1
+ 22 |  return-(add)
+ 23 |end
+
 [DefineRule.execute] I fail to define rule.
 
   rule nodes: add1 add
