@@ -5,8 +5,6 @@
 - `input` as preparing ports by types
 - `output` as clean up ports on the stack by types
 
-`Begin` use `checking` -- only no `checking` in `run`, others can have `checking`
-
 `Check` as a statement -- like unnamed `claim` + `define`
 
 [syntax] support `check ... then ... end`
