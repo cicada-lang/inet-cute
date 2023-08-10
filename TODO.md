@@ -1,7 +1,5 @@
 # check
 
-[check] `connect` -- check `stack.pop` for `undefined`
-
 [check] `swap` -- check `stack.pop` for `undefined`
 
 [check] `rot` -- check `stack.pop` for `undefined`
