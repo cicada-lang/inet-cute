@@ -22,12 +22,6 @@
 
 [syntax] support `check ... then ... end`
 
-# builtin
-
-[builtin] `inspect` -- if the element is a port, print its connected component
-
-[builtin] `run` -- only run the top port -- connected component
-
 # module
 
 design module system
@@ -41,6 +35,16 @@ suport module system
 [maybe] support `require` to import all
 
 re-org tests
+
+# graph
+
+[builtin] `inspect` -- if the element is a port, print its connected component
+
+[builtin] `run` -- only run the top port -- connected component
+
+# inet-canvas
+
+a package for draw inet on canvas
 
 # docs
 

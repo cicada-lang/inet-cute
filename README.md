@@ -1,4 +1,4 @@
-# INet
+# iNet
 
 Programming with [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets).
 
