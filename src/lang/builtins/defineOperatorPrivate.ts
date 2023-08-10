@@ -1,9 +1,9 @@
 import { ComposeOptions } from "../compose/compose"
 import { Env } from "../env"
-import { Mod } from "./Mod"
-import { define } from "./define"
+import { Mod } from "../mod"
+import { define } from "../mod/define"
 
-export function defineOperator(
+export function defineOperatorPrivate(
   mod: Mod,
   name: string,
   options: {
@@ -16,5 +16,6 @@ export function defineOperator(
     mod,
     name,
     compose: options.compose,
+    isPrivate: true,
   })
 }

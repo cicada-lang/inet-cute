@@ -1,7 +1,5 @@
 # module
 
-`Require` -- `execute` -- to import all from a path
-
 re-org tests -- using `require`
 
 `Import` -- `execute`
