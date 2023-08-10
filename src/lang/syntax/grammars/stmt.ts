@@ -38,6 +38,7 @@ export const stmt = {
       '"end"',
     ],
     "stmt:begin": ['"begin"', { words: "words" }, '"end"'],
+    "stmt:require": ['"require"', { path: { $pattern: ["string"] } }],
   },
 }
 

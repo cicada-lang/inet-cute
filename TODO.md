@@ -1,12 +1,10 @@
 # module
 
-[syntax] `Import` -- `import <name>, ... from "<path>"`
-
-[syntax] `require <path>` -- to import all from a path
+[syntax] `import <name> as <alias>, <name>, ... from "<path>"`
 
 `Import` -- `execute`
 
-`Require` -- `execute`
+`Require` -- `execute` -- to import all from a path
 
 # tests
 
