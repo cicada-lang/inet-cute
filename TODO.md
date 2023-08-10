@@ -1,9 +1,5 @@
 # check
 
-remove `wire`
-
-remove neutral sign
-
 extract `utils/arrayPickOut`
 
 `rearrangeNodePorts` check error in `rearrangement`

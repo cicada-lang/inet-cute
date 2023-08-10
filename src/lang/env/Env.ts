@@ -8,5 +8,4 @@ export type Env = {
   activeEdges: Array<ActiveEdge>
   stack: Array<Value>
   locals: Map<string, Value>
-  wires: Array<Edge>
 }

@@ -8,6 +8,5 @@ export function createEnv(mod: Mod): Env {
     activeEdges: [],
     stack: [],
     locals: new Map(),
-    wires: [],
   }
 }

@@ -1,6 +1,5 @@
 import { Env } from "../env"
 import { interact } from "../interact"
-import { tightenWires } from "../wire/tightenWires"
 import { closeFreePorts } from "./closeFreePorts"
 import { releaseFreePorts } from "./releaseFreePorts"
 
@@ -10,8 +9,6 @@ export function run(env: Env): void {
   while (env.activeEdges.length > 0) {
     step(env)
   }
-
-  tightenWires(env)
 
   releaseFreePorts(env, closer)
 }

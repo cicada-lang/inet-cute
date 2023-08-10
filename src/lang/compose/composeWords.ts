@@ -1,6 +1,5 @@
 import { Env } from "../env"
 import { Mod } from "../mod"
-import { tightenWires } from "../wire/tightenWires"
 import { Word } from "../word"
 import { ComposeOptions, compose } from "./compose"
 
@@ -13,6 +12,4 @@ export function composeWords(
   for (const word of words) {
     compose(mod, env, word, options)
   }
-
-  tightenWires(env)
 }
