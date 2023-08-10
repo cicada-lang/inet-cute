@@ -3,7 +3,7 @@ import { Env } from "../env"
 import { Node } from "../node"
 import { createNode } from "../node/createNode"
 import { Port } from "../port"
-import { negateSign } from "../port/negateSign"
+import { negateSign } from "../sign/negateSign"
 
 /*
 

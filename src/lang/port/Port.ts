@@ -1,7 +1,7 @@
 import { Edge } from "../edge"
 import { Node } from "../node"
+import { Sign } from "../sign"
 import { Value } from "../value"
-import { Sign } from "./Sign"
 
 export type PortConnection = {
   edge: Edge

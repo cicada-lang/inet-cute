@@ -1,7 +1,5 @@
 # check
 
-extract `sign`
-
 `rearrangeNodePorts` check error in `rearrangement`
 
 - undefined name
