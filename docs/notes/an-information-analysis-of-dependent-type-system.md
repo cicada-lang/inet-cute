@@ -69,6 +69,6 @@ Partial evaluation is trivial for inet!
 
 We do not need `cut`, we can just check the words by building the net.
 
-This means we will have a dynamicly typed
+This means we will have a dynamicly typed (or simply typed)
 postfix general programming language
 as a macro system.

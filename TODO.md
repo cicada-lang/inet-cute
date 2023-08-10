@@ -1,7 +1,5 @@
 # check
 
-`connect` improve error report -- print port
-
 `connect/matchSigns` -- only opposite signed types can be `connect`ed
 
 `connect/matchSigns` -- handle neutral sign -- need to find the other port from `port.node`

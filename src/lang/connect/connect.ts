@@ -3,16 +3,30 @@ import { Mod } from "../mod"
 import { lookupRule } from "../mod/lookupRule"
 import { Port } from "../port"
 import { Rule } from "../rule"
+import { formatValue } from "../value/formatValue"
 
 export function connect(env: Env, first: Port, second: Port): void {
   const rule = lookupRuleByPorts(env.mod, first, second)
 
   if (first.connection !== undefined) {
-    throw new Error(`[connect] The first port is already connected.`)
+    throw new Error(
+      [
+        `[connect] The first port is already connected.`,
+        ``,
+        `  first port: ${formatValue(first)}`,
+        `  second port: ${formatValue(second)}`,
+      ].join("\n"),
+    )
   }
 
   if (second.connection !== undefined) {
-    throw new Error(`[connect] The second port is already connected.`)
+    throw new Error(
+      [
+        `[connect] The second port is already connected.`,
+        `  first port: ${formatValue(first)}`,
+        `  second port: ${formatValue(second)}`,
+      ].join("\n"),
+    )
   }
 
   matchSigns(env, first, second)

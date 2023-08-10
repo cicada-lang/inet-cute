@@ -3,7 +3,11 @@ import { Value } from "./Value"
 export function formatValue(value: Value): string {
   switch (value["@kind"]) {
     case "Port": {
-      return `(${value.node.name})-${value.name}`
+      if (value.isPrincipal) {
+        return `(${value.node.name})-${value.name}!`
+      } else {
+        return `(${value.node.name})-${value.name}`
+      }
     }
 
     case "Type": {
