@@ -1,6 +1,6 @@
 import { Sign } from "./Sign"
 
-function createSign(n: number): Sign {
+export function createSign(n: number): Sign {
   if (n === 1) return 1
   if (n === 0) return 0
   if (n === -1) return -1

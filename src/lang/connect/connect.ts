@@ -30,7 +30,7 @@ export function connect(env: Env, first: Port, second: Port): void {
     )
   }
 
-  // checkSigns(env, first, second)
+  checkSigns(env, first, second)
   // matchSigns(env, first, second)
 
   if (rule !== undefined) {

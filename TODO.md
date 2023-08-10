@@ -1,9 +1,5 @@
 # check
 
-`createNeutralPlaceholderPort`
-
-replace `closeFreePorts` use `createNeutralPlaceholderPort`
-
 wrong-rule-sign.error.inet
 
 `connect/matchSigns` -- handle neutral sign -- need to find the other port from `port.node`
