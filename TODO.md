@@ -2,7 +2,19 @@
 
 `Import` -- `execute`
 
+`Import` -- importing a both two nodes will import the rule about this two nodes
+
+require-already-defined.error.i
+
+# module
+
+support `private` statement prefix to define private aux nodes
+
 # check
+
+[check] `checkRuleIsAboutOwnNode` -- to define a rule one of the node must be owned by this module.
+
+- define-rule-for-non-own-node.error.i
 
 [check] `checkWords`
 
