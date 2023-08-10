@@ -3,14 +3,8 @@ import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 
-export type ImportBinding = {
-  name: string
-  alias?: string
-}
-
-export class Import implements Stmt {
+export class Require implements Stmt {
   constructor(
-    public bindings: Array<ImportBinding>,
     public path: string,
     public span: Span,
   ) {}
@@ -21,9 +15,8 @@ export class Import implements Stmt {
     } catch (error) {
       throw appendReport(error, {
         message: [
-          `[Import.execute] I fail to import bindings.`,
+          `[Require.execute] I fail to import bindings.`,
           ``,
-          `  bindings: [${this.bindings.map(formatImportBinding).join(", ")}]`,
           `  path: "${this.path}"`,
         ].join("\n"),
         context: {
@@ -32,13 +25,5 @@ export class Import implements Stmt {
         },
       })
     }
-  }
-}
-
-function formatImportBinding(binding: ImportBinding): string {
-  if (binding.alias) {
-    return `${binding.name} as ${binding.alias}`
-  } else {
-    return `${binding.name}`
   }
 }

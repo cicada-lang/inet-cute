@@ -2,11 +2,11 @@
 
 [syntax] `Import` -- `import <name>, ... from "<path>"`
 
+[syntax] `require <path>` -- to import all from a path
+
 `Import` -- `execute`
 
-`Require` as a statement
-
-[syntax] `require <path>` -- to import all from a path
+`Require` -- `execute`
 
 # tests
 
