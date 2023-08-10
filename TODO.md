@@ -1,24 +1,36 @@
 # check
 
-`rearrangeNodePorts` check error in `rearrangement`
+`rearrangeNodePorts` check for undefined name
 
-- undefined name
-- duplicated name
+- wrong-rearrangement-undefined-name.error.inet
 
-[check] `checkType` -- check return type is just one `Type`
+`rearrangeNodePorts` check for duplicated name
 
-[check] `checkWords` -- `input` as preparing ports by types -- `output` as clean up ports on the stack by types
-
-[refactor] `checkRule`
+- wrong-rearrangement-duplicated-name.error.inet
 
 [check] `connect` -- check `stack.pop` for `undefined`
+
 [check] `swap` -- check `stack.pop` for `undefined`
+
 [check] `rot` -- check `stack.pop` for `undefined`
 
 [check] `checkRuleNodeOrder`
 
 - The first node must have its principal port in the output,
   and the second node must have its principal port in the input.
+
+[check] `checkWords`
+
+- `input` as preparing ports by types
+- `output` as clean up ports on the stack by types
+
+[check] `checkType` -- check return type is just one `Type`
+
+[check] `checkNode` -- check `input` and `output` words of node definition
+
+- runtime type checking based on type definition
+
+`Check` as a statement
 
 [syntax] support `check ... then ... end`
 
