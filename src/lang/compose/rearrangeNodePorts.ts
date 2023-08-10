@@ -16,39 +16,28 @@ export function rearrangeNodePorts(
   const output = [...node.output]
 
   for (const name of [...rearrangement.input].reverse()) {
-    {
-      const i = input.findIndex((port) => port.name === name)
-      if (i !== -1) {
-        input.unshift(arrayPickOut(input, i))
-      }
-    }
-
-    {
-      const i = output.findIndex((port) => port.name === name)
-      if (i !== -1) {
-        input.unshift(arrayPickOut(output, i))
-      }
+    const port = portsPickOut(input, name) || portsPickOut(output, name)
+    if (port) {
+      input.unshift(port)
     }
   }
 
   for (const name of [...rearrangement.output].reverse()) {
-    {
-      const i = input.findIndex((port) => port.name === name)
-      if (i !== -1) {
-        output.unshift(arrayPickOut(input, i))
-      }
-    }
-
-    {
-      const i = output.findIndex((port) => port.name === name)
-      if (i !== -1) {
-        output.unshift(arrayPickOut(output, i))
-      }
+    const port = portsPickOut(input, name) || portsPickOut(output, name)
+    if (port) {
+      output.unshift(port)
     }
   }
 
   return {
     input,
     output,
+  }
+}
+
+function portsPickOut(ports: Array<Port>, name: string): Port | undefined {
+  const i = ports.findIndex((port) => port.name === name)
+  if (i !== -1) {
+    return arrayPickOut(ports, i)
   }
 }
