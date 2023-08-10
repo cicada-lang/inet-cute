@@ -59,12 +59,9 @@ function connectPlaceholders(mod: Mod, env: Env, node: Node): void {
   }
 }
 
-let placeholderCounter = 0
-
 function createOutputPlaceholderPort(mod: Mod, port: Port): Port {
-  const subscript = placeholderCounter++
-  const nodeName = `#output_placeholder_node_for_${port.name}_of_${port.node.name}${subscript}`
-  const portName = `#output_placeholder_port_for_${port.name}_of_${port.node.name}${subscript}`
+  const nodeName = `#output_placeholder_node_for_${port.name}_of_${port.node.name}`
+  const portName = `#output_placeholder_port_for_${port.name}_of_${port.node.name}`
   const node = createNode(
     mod,
     nodeName,
@@ -76,9 +73,8 @@ function createOutputPlaceholderPort(mod: Mod, port: Port): Port {
 }
 
 function createInputPlaceholderPort(mod: Mod, port: Port): Port {
-  const subscript = placeholderCounter++
-  const nodeName = `#input_placeholder_node_for_${port.name}_of_${port.node.name}${subscript}`
-  const portName = `#input_placeholder_port_for_${port.name}_of_${port.node.name}${subscript}`
+  const nodeName = `#input_placeholder_node_for_${port.name}_of_${port.node.name}`
+  const portName = `#input_placeholder_port_for_${port.name}_of_${port.node.name}`
   const node = createNode(
     mod,
     nodeName,

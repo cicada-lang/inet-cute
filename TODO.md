@@ -43,6 +43,8 @@ design module system
 
 suport module system
 
+[maybe] support `require` to import all
+
 re-org tests
 
 # docs
