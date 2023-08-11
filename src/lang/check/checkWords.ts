@@ -1,6 +1,6 @@
 import { createChecking } from "../checking/createChecking"
+import { collectWordsOutput } from "../compose/collectWordsOutput"
 import { compose } from "../compose/compose"
-import { composeWords } from "../compose/composeWords"
 // import { compose } from "../compose/compose"
 import { createEnv } from "../env/createEnv"
 import { freshenType } from "../freshen/freshenType"
@@ -16,16 +16,11 @@ export function checkWords(
 ): void {
   const checking = createChecking()
   const env = createEnv(mod)
-
-  let length = env.stack.length
-  composeWords(mod, env, input, { checking })
-  const collectedFromInput = env.stack.slice(length)
-
-  env.stack = env.stack.slice(0, length)
-
   const occurredNames = new Map()
 
-  const placeholderOutputPorts = collectedFromInput
+  const placeholderOutputPorts = collectWordsOutput(mod, env, input, {
+    checking,
+  })
     .reverse()
     .map((t) => freshenType(checking.typeVarCounters, t, occurredNames))
     .map((t) => createPlaceholderOutputPortFromType(mod, t))
