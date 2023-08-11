@@ -24,6 +24,22 @@ export function checkNode(
   const inputPortExps = inputValues.map(portExpFromValue)
   const outputPortExps = outputValues.map(portExpFromValue)
 
+  const principalPorts = [...inputPortExps, ...outputPortExps].filter(
+    (port) => port.isPrincipal,
+  )
+
+  if (principalPorts.length !== 1) {
+    throw new Error(
+      [
+        `[checkNode] I expect a node to have one and only one principal port.`,
+        ``,
+        `  declared principal ports: [${principalPorts
+          .map((port) => port.name)
+          .join(", ")}]`,
+      ].join("\n"),
+    )
+  }
+
   return {
     inputPortExps,
     outputPortExps,

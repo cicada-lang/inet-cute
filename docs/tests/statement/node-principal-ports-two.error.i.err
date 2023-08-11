@@ -1,0 +1,12 @@
+[checkNode] I expect a node to have one and only one principal port.
+
+  declared principal ports: [prev, value]
+
+[DefineNode.execute] I fail to define node.
+
+  node name: add1
+
+ 1 |type Nat -- Type end
+ 2 |node zero -- Nat :value! end
+ 3 |node add1 Nat :prev! -- Nat :value! end
+ 4 |
