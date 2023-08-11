@@ -1,4 +1,5 @@
 import { arrayPopMany } from "../../utils/arrayPopMany"
+import { checkTypeTermArgs } from "../check/checkTypeTermArgs"
 import { Definition } from "../definition"
 import { Env } from "../env"
 import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
@@ -47,6 +48,8 @@ export function composeDefinition(
           ].join("\n"),
         )
       }
+
+      checkTypeTermArgs(args)
 
       env.stack.push({
         "@type": "Value",

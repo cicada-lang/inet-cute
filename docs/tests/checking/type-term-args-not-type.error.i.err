@@ -1,0 +1,22 @@
+[checkTypeTermArgs] I expect all args of a TypeTerm to be TypeVar or TypeTerm.
+
+  args: [(sole)-value!]
+
+[compose] I fail compose word.
+
+  word: List
+
+ 3 |
+ 4 |type List Type -- Type end
+ 5 |
+ 6 |begin sole List end
+ 7 |
+
+[Begin.execute] I fail to begin.
+
+ 2 |node sole -- Trivial :value! end
+ 3 |
+ 4 |type List Type -- Type end
+ 5 |
+ 6 |begin sole List end
+ 7 |

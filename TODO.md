@@ -1,11 +1,5 @@
-# check
-
-`checkTypeTerm` -- runtime type checking when apply a `TypeTerm`
-
-- argument of `TypeTerm` must be `TypeVar | TypeTerm`
-
 # tests
-
+move tests to repo top level
 clean up old tests
 
 # graph theory
