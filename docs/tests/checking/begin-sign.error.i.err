@@ -1,0 +1,23 @@
+[checkSigns] I expect the two ports to have opposite signs,
+  but they all have positive sign.
+
+  first port: (sole)-value!
+  second port: (sole)-value!
+
+[compose] I fail compose word.
+
+  word: connect
+
+ 1 |type Trivial -- Type end
+ 2 |node sole -- Trivial :value! end
+ 3 |
+ 4 |begin sole sole connect end
+ 5 |
+
+[Begin.execute] I fail to begin.
+
+ 1 |type Trivial -- Type end
+ 2 |node sole -- Trivial :value! end
+ 3 |
+ 4 |begin sole sole connect end
+ 5 |
