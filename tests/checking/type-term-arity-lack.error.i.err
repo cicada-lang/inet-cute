@@ -1,0 +1,21 @@
+[compose / TypeDefinition] I expect more value on the stack.
+
+  type term name: List
+  type term arity: 1
+  collected args: []
+
+[compose] I fail compose word.
+
+  word: List
+
+ 1 |type List Type -- Type end
+ 2 |node null -- List :value! end
+ 3 |
+
+[DefineNode.execute] I fail to define node.
+
+  node name: null
+
+ 1 |type List Type -- Type end
+ 2 |node null -- List :value! end
+ 3 |

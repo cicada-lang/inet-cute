@@ -1,8 +1,8 @@
-# tests
+# net -- graph theory
 
-clean up old tests
+extract `Net` from `Env`
 
-# graph theory
+- If a graph's node are connected via parts, we call it a net.
 
 [builtin] `inspect` -- if the element is a port, print its connected component
 
