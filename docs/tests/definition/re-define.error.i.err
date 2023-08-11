@@ -2,14 +2,16 @@
 
   word: swapswap
 
- 1 |claim swapswap 'A -- 'A end
+ 1 |claim swapswap 'A 'A -- 'A end
  2 |define swapswap swap swap end
  3 |define swapswap swap swap end
+ 4 |
 
 [Define.execute] I fail to define word.
 
   word: swapswap
 
- 1 |claim swapswap 'A -- 'A end
+ 1 |claim swapswap 'A 'A -- 'A end
  2 |define swapswap swap swap end
  3 |define swapswap swap swap end
+ 4 |

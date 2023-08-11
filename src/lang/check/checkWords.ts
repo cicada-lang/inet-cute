@@ -1,7 +1,10 @@
 import { createChecking } from "../checking/createChecking"
+import { compose } from "../compose/compose"
+import { composeWords } from "../compose/composeWords"
 // import { compose } from "../compose/compose"
 import { createEnv } from "../env/createEnv"
 import { Mod } from "../mod"
+import { createPlaceholderOutputPortFromType } from "../placeholder/createPlaceholderOutputPortFromType"
 import { Word } from "../word"
 
 export function checkWords(
@@ -13,16 +16,22 @@ export function checkWords(
   const checking = createChecking()
   const env = createEnv(mod)
 
-  for (const word of input) {
-    // compose(mod, env, word, {
-    //   checking,
-    // })
-  }
+  let length = env.stack.length
+  composeWords(mod, env, input, { checking })
+  const collectedFromInput = env.stack.slice(length)
+
+  env.stack = env.stack.slice(0, length)
+
+  const placeholderOutputPorts = collectedFromInput
+    .reverse()
+    .map((t) => createPlaceholderOutputPortFromType(mod, t))
+
+  env.stack.push(...placeholderOutputPorts)
 
   for (const word of words) {
-    // compose(mod, env, word, {
-    //   checking,
-    // })
+    compose(mod, env, word, {
+      checking,
+    })
   }
 
   for (const word of output) {
