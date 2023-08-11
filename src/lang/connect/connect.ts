@@ -1,8 +1,6 @@
 import { Env } from "../env"
-import { Mod } from "../mod"
-import { lookupRule } from "../mod/lookupRule"
+import { lookupRuleByPorts } from "../mod/lookupRuleByPorts"
 import { Port } from "../port"
-import { Rule } from "../rule"
 import { formatValue } from "../value/formatValue"
 
 export function connect(env: Env, first: Port, second: Port): void {
@@ -28,7 +26,7 @@ export function connect(env: Env, first: Port, second: Port): void {
     )
   }
 
-  checkSigns(env, first, second)
+  checkSigns(first, second)
 
   const rule = lookupRuleByPorts(env.mod, first, second)
 
@@ -45,17 +43,7 @@ export function connect(env: Env, first: Port, second: Port): void {
   }
 }
 
-function lookupRuleByPorts(
-  mod: Mod,
-  first: Port,
-  second: Port,
-): Rule | undefined {
-  if (first.isPrincipal && second.isPrincipal) {
-    return lookupRule(mod, first.node.name, second.node.name)
-  }
-}
-
-function checkSigns(env: Env, first: Port, second: Port): void {
+function checkSigns(first: Port, second: Port): void {
   if (first.sign === 1 && second.sign === 1) {
     throw new Error(
       [

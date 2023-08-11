@@ -1,6 +1,6 @@
 # module
 
-mv `lookupRuleByPorts` to `mod/`
+extract `checkPortSigns`
 
 `defineRule` & `lookupRuleByPorts` -- use `mod.url.href` as prefix
 
