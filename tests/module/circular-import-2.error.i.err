@@ -1,7 +1,7 @@
 [Import.execute] I can not do circular import.
 
-  loading module url: docs/tests/module/circular-import-1.error.i
-  requiring module url: docs/tests/module/circular-import-2.error.i
+  loading module url: tests/module/circular-import-1.error.i
+  requiring module url: tests/module/circular-import-2.error.i
 
 [Import.execute] I fail to import module.
 
