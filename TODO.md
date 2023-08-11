@@ -2,6 +2,8 @@
 
 [check] `checkWords` -- `output` as clean up ports on the stack by types
 
+- claim-output-type.error.i
+
 `Check` as a statement -- like unnamed `claim` + `define`
 
 [syntax] support `check ... then ... end`

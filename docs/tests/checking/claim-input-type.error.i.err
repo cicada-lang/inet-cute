@@ -1,0 +1,15 @@
+I found syntax error in code:
+
+  1 |type Nat -- Type end
+  2 |node zero Nat :value! end
+  3 |node add1 Nat :prev -- Nat :value! end
+  4 |
+
+Found the identifier "end" in [43, 46], while expecting:
+ ["identifier"]:
+     word:call@12 -> > (name: identifier) 
+ "$":
+     word:local@12 -> > "$" (name: identifier) 
+ "(":
+     word:port_push@12 -> > "(" (nodeName: identifier) ")" "-" (portName: identifier) 
+ and so on ...
