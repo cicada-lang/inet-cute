@@ -1,0 +1,19 @@
+[checkRuleNodeOrder] The first node of a rule must have its principal port in the output.
+
+ first node: add
+ second node: zero
+
+[DefineRule.execute] I fail to define rule.
+
+  rule nodes: add zero
+
+ 11 |  --------
+ 12 |  Nat :return
+ 13 |end
+ 14 |
+ 15 |rule add zero
+ 16 |  (add)-addend
+ 17 |  (add)-return sole connect
+ 18 |end
+ 19 |
+ 20 |// The correct definition is:

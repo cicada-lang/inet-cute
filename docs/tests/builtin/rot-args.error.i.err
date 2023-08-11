@@ -1,0 +1,20 @@
+[rot (builtin)] I expect a third value on the stack.
+
+  first: (sole)-value!
+  second: (sole)-value!
+
+[compose] I fail compose word.
+
+  word: rot
+
+ 1 |type Trivial -- Type end
+ 2 |node sole -- Trivial :value! end
+ 3 |
+ 4 |begin sole sole rot end
+
+[Begin.execute] I fail to begin.
+
+ 1 |type Trivial -- Type end
+ 2 |node sole -- Trivial :value! end
+ 3 |
+ 4 |begin sole sole rot end
