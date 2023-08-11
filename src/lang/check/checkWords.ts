@@ -6,6 +6,7 @@ import { freshenType } from "../freshen/freshenType"
 import { Mod } from "../mod"
 import { createPlaceholderOutputPortFromType } from "../placeholder/createPlaceholderOutputPortFromType"
 import { unifyTypes } from "../unify/unifyTypes"
+import { formatValue } from "../value/formatValue"
 import { Word } from "../word"
 
 export function checkWords(
@@ -55,5 +56,19 @@ export function checkWords(
     }
 
     unifyTypes(checking.substitution, value.t, t)
+  }
+
+  if (env.stack.length !== 0) {
+    throw new Error(
+      [
+        `[checkWords] I expect the stack to be empty after checking.`,
+        ``,
+        `  stack length: ${env.stack.length}`,
+        `  stack: [${env.stack.map(formatValue).join(", ")}]`,
+        ``,
+        `  Maybe this is due to extra input arity,`,
+        `  or lack of output arity.`,
+      ].join("\n"),
+    )
   }
 }

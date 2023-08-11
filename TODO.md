@@ -1,7 +1,5 @@
 # check
 
-claim-input-arity.error.i
-
 `Check` as a statement -- like unnamed `claim` + `define`
 
 [syntax] support `check ... then ... end`

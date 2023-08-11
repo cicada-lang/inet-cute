@@ -1,0 +1,18 @@
+[checkWords] I expect the stack to be empty after checking.
+
+  stack length: 1
+  stack: [(_placeholder_output_node_from_type)-_placeholder_output_port_from_type!]
+
+  Maybe this is due to extra input arity,
+  or lack of output arity.
+
+[Define.execute] I fail to define word.
+
+  word: add2
+
+  5 |type Trivial -- Type end
+  6 |node sole -- Trivial :value! end
+  7 |
+  8 |claim add2 Nat Nat -- Nat end
+  9 |define add2 add1 add1 end
+ 10 |

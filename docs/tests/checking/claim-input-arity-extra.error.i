@@ -7,5 +7,3 @@ node sole -- Trivial :value! end
 
 claim add2 Nat Nat -- Nat end
 define add2 add1 add1 end
-
-TODO
