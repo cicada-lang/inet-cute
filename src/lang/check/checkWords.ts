@@ -1,5 +1,5 @@
 import { createChecking } from "../checking/createChecking"
-import { collectWordsOutput } from "../compose/collectWordsOutput"
+import { collectWords } from "../compose/collectWords"
 import { compose } from "../compose/compose"
 import { createEnv } from "../env/createEnv"
 import { freshenType } from "../freshen/freshenType"
@@ -19,7 +19,7 @@ export function checkWords(
   const env = createEnv(mod)
   const occurredNames = new Map()
 
-  const inputValues = collectWordsOutput(mod, env, input, {
+  const inputValues = collectWords(mod, env, input, {
     checking,
   }).map((t) => freshenType(checking.typeVarCounters, t, occurredNames))
 
@@ -35,7 +35,7 @@ export function checkWords(
     })
   }
 
-  const outputValues = collectWordsOutput(mod, env, output, {
+  const outputValues = collectWords(mod, env, output, {
     checking,
   }).map((t) => freshenType(checking.typeVarCounters, t, occurredNames))
 

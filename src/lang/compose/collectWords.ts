@@ -5,7 +5,7 @@ import { Word } from "../word"
 import { ComposeOptions } from "./compose"
 import { composeWords } from "./composeWords"
 
-export function collectWordsOutput(
+export function collectWords(
   mod: Mod,
   env: Env,
   words: Array<Word>,
