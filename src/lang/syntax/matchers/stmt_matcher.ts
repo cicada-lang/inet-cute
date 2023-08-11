@@ -37,6 +37,13 @@ export function stmt_matcher(tree: pt.Tree): Stmt {
       ),
     "stmt:begin": ({ words }, { span }) =>
       new Stmts.Begin(matchers.words_matcher(words), span),
+    "stmt:check": ({ input, output, words }, { span }) =>
+      new Stmts.Check(
+        matchers.words_matcher(input),
+        matchers.words_matcher(output),
+        matchers.words_matcher(words),
+        span,
+      ),
     "stmt:import": ({ bindings, path }, { span }) =>
       new Stmts.Import(
         matchers.import_bindings_matcher(bindings),

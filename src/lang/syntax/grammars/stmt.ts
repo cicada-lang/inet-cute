@@ -38,6 +38,15 @@ export const stmt = {
       '"end"',
     ],
     "stmt:begin": ['"begin"', { words: "words" }, '"end"'],
+    "stmt:check": [
+      '"check"',
+      { input: "words" },
+      "dashline",
+      { output: "words" },
+      '"then"',
+      { words: "words" },
+      '"end"',
+    ],
     "stmt:import": [
       '"import"',
       { bindings: "import_bindings" },

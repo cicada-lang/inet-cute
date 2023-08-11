@@ -1,0 +1,28 @@
+[unifyTypes] I fail to unify types.
+
+  left: Trivial
+  right: Nat
+
+[compose] I fail compose word.
+
+  word: add1
+
+  8 |check
+  9 |  Trivial -- Nat
+ 10 |then
+ 11 |  add1 add1
+ 12 |end
+ 13 |
+
+[Check.execute] I fail to check.
+
+  4 |
+  5 |type Trivial -- Type end
+  6 |node sole -- Trivial :value! end
+  7 |
+  8 |check
+  9 |  Trivial -- Nat
+ 10 |then
+ 11 |  add1 add1
+ 12 |end
+ 13 |

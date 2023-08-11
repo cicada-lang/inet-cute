@@ -1,7 +1,5 @@
 # check
 
-[syntax] support `check ... then ... end`
-
 [check] `checkType` -- check return type is just one `Type`
 
 [check] `checkNode` -- check `input` and `output` words of node definition
