@@ -1,4 +1,5 @@
 export * from "./Begin"
+export * from "./Check"
 export * from "./Claim"
 export * from "./Define"
 export * from "./DefineNode"

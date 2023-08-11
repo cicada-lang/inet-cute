@@ -1,10 +1,6 @@
 # check
 
-`Check` as a statement -- like unnamed `claim` + `define`
-
 [syntax] support `check ... then ... end`
-
-`Check` -- `execute`
 
 [check] `checkType` -- check return type is just one `Type`
 
@@ -67,4 +63,4 @@ use inet to encode lambda calculus
 
 support `private` statement prefix to define private aux nodes
 
-support `import as`
+support `import as` -- `Mod` as `Value`
