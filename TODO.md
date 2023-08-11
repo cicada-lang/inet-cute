@@ -1,9 +1,10 @@
 # check
 
-[check] `checkNode` -- check `input` and `output` words of node definition
+[check] `checkNode` -- return `inputValues` and `outputValues`
 
-- runtime type checking based on type definition
-- check that each node has one and only one principal port
+[check] `checkNode` -- check that each node has one and only one principal port
+
+runtime type checking when apply a `TypeTerm`
 
 # tests
 

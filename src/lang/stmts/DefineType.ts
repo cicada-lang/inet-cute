@@ -1,6 +1,4 @@
 import { checkType } from "../check/checkType"
-import { collectWords } from "../compose/collectWords"
-import { createEnv } from "../env/createEnv"
 import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
@@ -18,7 +16,7 @@ export class DefineType implements Stmt {
 
   async execute(mod: Mod): Promise<void> {
     try {
-      checkType(mod, this.input, this.output)
+      const { inputValues } = checkType(mod, this.input, this.output)
 
       define(mod, this.name, {
         "@type": "Definition",
@@ -28,7 +26,7 @@ export class DefineType implements Stmt {
         name: this.name,
         input: this.input,
         output: this.output,
-        inputArity: collectWords(mod, createEnv(mod), this.input, {}).length,
+        inputArity: inputValues.length,
       })
     } catch (error) {
       throw appendReport(error, {
