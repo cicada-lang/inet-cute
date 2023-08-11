@@ -1,5 +1,4 @@
-import { composeWords } from "../compose/composeWords"
-import { createEnv } from "../env/createEnv"
+import { checkNode } from "../check/checkNode"
 import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
@@ -20,14 +19,20 @@ export class DefineNode implements Stmt {
 
   async execute(mod: Mod): Promise<void> {
     try {
+      const { inputValues, outputValues } = checkNode(
+        mod,
+        this.input,
+        this.output,
+      )
+
       define(mod, this.name, {
         "@type": "Definition",
         "@kind": "NodeDefinition",
         mod,
         span: this.span,
         name: this.name,
-        input: buildPortExpsFromWords(mod, this.input),
-        output: buildPortExpsFromWords(mod, this.output),
+        input: inputValues.map(portExpFromValue),
+        output: outputValues.map(portExpFromValue),
       })
     } catch (error) {
       throw appendReport(error, {
@@ -43,12 +48,6 @@ export class DefineNode implements Stmt {
       })
     }
   }
-}
-
-function buildPortExpsFromWords(mod: Mod, words: Array<Word>): Array<PortExp> {
-  const env = createEnv(mod)
-  composeWords(mod, env, words, {})
-  return env.stack.map(portExpFromValue)
 }
 
 function portExpFromValue(value: Value): PortExp {
