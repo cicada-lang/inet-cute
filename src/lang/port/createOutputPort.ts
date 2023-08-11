@@ -8,6 +8,8 @@ export function createOutputPort(node: Node, portExp: PortExp): Port {
     "@kind": "Port",
     sign: 1,
     node,
-    ...portExp,
+    name: portExp.name,
+    t: portExp.t,
+    isPrincipal: portExp.isPrincipal,
   }
 }

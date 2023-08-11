@@ -9,7 +9,14 @@ export function createPlaceholderOutputPortForPort(mod: Mod, port: Port): Port {
     mod,
     nodeName,
     [],
-    [{ name: portName, t: port.t, isPrincipal: true }],
+    [
+      {
+        "@type": "PortExp",
+        name: portName,
+        t: port.t,
+        isPrincipal: true,
+      },
+    ],
   )
 
   return node.output[0]

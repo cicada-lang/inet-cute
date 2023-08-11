@@ -8,7 +8,14 @@ export function createPlaceholderInputPortForPort(mod: Mod, port: Port): Port {
   const node = createNode(
     mod,
     nodeName,
-    [{ name: portName, t: port.t, isPrincipal: true }],
+    [
+      {
+        "@type": "PortExp",
+        name: portName,
+        t: port.t,
+        isPrincipal: true,
+      },
+    ],
     [],
   )
 

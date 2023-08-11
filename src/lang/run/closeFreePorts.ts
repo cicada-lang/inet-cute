@@ -20,6 +20,7 @@ export function closeFreePorts(env: Env): Node | undefined {
   const ports = env.stack
     .filter((value): value is Port => value["@kind"] === "Port")
     .map<PortExp>((port) => ({
+      "@type": "PortExp",
       name: `_temporary_closing_port_for_${port.name}_of_${port.node.name}`,
       t: port.t,
       isPrincipal: false,

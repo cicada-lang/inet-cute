@@ -42,6 +42,7 @@ function portExpFromValue(value: Value): PortExp {
   }
 
   return {
+    "@type": "PortExp",
     name: value.label,
     t: value.value,
     isPrincipal: Boolean(value.isImportant),
