@@ -17,6 +17,19 @@ export function checkType(
   const env = createEnv(mod)
 
   const inputValues = collectWords(mod, env, input, { checking })
+
+  for (const inputValue of inputValues) {
+    if (inputValue["@kind"] !== "Type") {
+      throw new Error(
+        [
+          `[checkType] I expect the claimed input of a type definition to be Type.`,
+          ``,
+          `  input values: [${inputValues.map(formatValue).join(", ")}]`,
+        ].join("\n"),
+      )
+    }
+  }
+
   const outputValues = collectWords(mod, env, output, { checking })
 
   if (outputValues.length !== 1) {
@@ -30,13 +43,13 @@ export function checkType(
     )
   }
 
-  const outputType = outputValues[0]
-  if (outputType["@kind"] !== "Type") {
+  const outputValue = outputValues[0]
+  if (outputValue["@kind"] !== "Type") {
     throw new Error(
       [
         `[checkType] I expect the claimed output of a type definition to be Type.`,
         ``,
-        `  output value: ${formatValue(outputType)}`,
+        `  output value: ${formatValue(outputValue)}`,
       ].join("\n"),
     )
   }

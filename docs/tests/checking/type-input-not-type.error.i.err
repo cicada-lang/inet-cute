@@ -1,0 +1,11 @@
+[checkType] I expect the claimed input of a type definition to be Type.
+
+  input values: [Trivial]
+
+[DefineType.execute] I fail to define rule.
+
+  type name: List
+
+ 1 | type Trivial -- Type end
+ 2 | type List Trivial -- Type end
+ 3 |

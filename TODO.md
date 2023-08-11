@@ -2,6 +2,8 @@
 
 runtime type checking when apply a `TypeTerm`
 
+- argument of `TypeTerm` must be `TypeVar | TypeTerm`
+
 # tests
 
 clean up old tests
