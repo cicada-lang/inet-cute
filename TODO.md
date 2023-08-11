@@ -1,7 +1,5 @@
 # module
 
-`lookupRuleByPorts` do not need `mod` as argument
-
 `Import` -- `execute`
 
 - importing a both two nodes will import the rule about this two nodes

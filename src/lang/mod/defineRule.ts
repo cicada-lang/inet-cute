@@ -14,5 +14,7 @@ export function defineRule(
   const firstKey = `${firstDefinition.mod.url.href}${firstName}`
   const secondKey = `${secondDefinition.mod.url.href}${secondName}`
 
-  mod.rules.set(`${firstKey} ${secondKey}`, { words })
+  const key = `${firstKey} ${secondKey}`
+
+  mod.rules.set(key, { words })
 }

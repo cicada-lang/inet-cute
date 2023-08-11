@@ -29,7 +29,7 @@ export function connect(env: Env, first: Port, second: Port): void {
 
   checkPortSigns(first, second)
 
-  const rule = lookupRuleByPorts(env.mod, first, second)
+  const rule = lookupRuleByPorts(first, second)
 
   if (rule !== undefined) {
     const edge = { first, second, rule }
