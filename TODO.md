@@ -1,5 +1,5 @@
 # tests
-move tests to repo top level
+
 clean up old tests
 
 # graph theory
