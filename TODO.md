@@ -8,10 +8,6 @@ extract `Net` from `Env`
 
 [builtin] `run` -- only run the top port -- connected component
 
-# inet-canvas
-
-a package for draw inet on canvas
-
 # docs
 
 update the article
