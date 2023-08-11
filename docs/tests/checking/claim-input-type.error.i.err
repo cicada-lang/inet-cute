@@ -1,15 +1,25 @@
-I found syntax error in code:
+[unifyTypes] I fail to unify types.
 
-  1 |type Nat -- Type end
-  2 |node zero Nat :value! end
-  3 |node add1 Nat :prev -- Nat :value! end
-  4 |
+  left: Trivial
+  right: Nat
 
-Found the identifier "end" in [43, 46], while expecting:
- ["identifier"]:
-     word:call@12 -> > (name: identifier) 
- "$":
-     word:local@12 -> > "$" (name: identifier) 
- "(":
-     word:port_push@12 -> > "(" (nodeName: identifier) ")" "-" (portName: identifier) 
- and so on ...
+[compose] I fail compose word.
+
+  word: add1
+
+  6 |node sole -- Trivial :value! end
+  7 |
+  8 |claim add2 Trivial -- Trivial end
+  9 |define add2 add1 add1 end
+ 10 |
+
+[Define.execute] I fail to define word.
+
+  word: add2
+
+  5 |type Trivial -- Type end
+  6 |node sole -- Trivial :value! end
+  7 |
+  8 |claim add2 Trivial -- Trivial end
+  9 |define add2 add1 add1 end
+ 10 |

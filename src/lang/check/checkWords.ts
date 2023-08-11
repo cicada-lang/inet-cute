@@ -3,6 +3,7 @@ import { compose } from "../compose/compose"
 import { composeWords } from "../compose/composeWords"
 // import { compose } from "../compose/compose"
 import { createEnv } from "../env/createEnv"
+import { freshenType } from "../freshen/freshenType"
 import { Mod } from "../mod"
 import { createPlaceholderOutputPortFromType } from "../placeholder/createPlaceholderOutputPortFromType"
 import { Word } from "../word"
@@ -22,8 +23,11 @@ export function checkWords(
 
   env.stack = env.stack.slice(0, length)
 
+  const occurredNames = new Map()
+
   const placeholderOutputPorts = collectedFromInput
     .reverse()
+    .map((t) => freshenType(checking.typeVarCounters, t, occurredNames))
     .map((t) => createPlaceholderOutputPortFromType(mod, t))
 
   env.stack.push(...placeholderOutputPorts)

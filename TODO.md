@@ -2,7 +2,9 @@
 
 [check] `checkWords` -- `output` as clean up ports on the stack by types
 
+- claim-input-arity.error.i
 - claim-output-type.error.i
+- claim-output-arity.error.i
 
 `Check` as a statement -- like unnamed `claim` + `define`
 
