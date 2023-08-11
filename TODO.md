@@ -2,7 +2,7 @@
 
 `Import` -- `execute`
 
-`Import` -- importing a both two nodes will import the rule about this two nodes
+- importing a both two nodes will import the rule about this two nodes
 
 # check
 
@@ -31,7 +31,6 @@
 # tests
 
 clean up old tests
-
 
 # graph theory
 

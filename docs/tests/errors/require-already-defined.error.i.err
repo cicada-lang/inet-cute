@@ -1,0 +1,12 @@
+[Require.execute] I can not import already defined name.
+
+  definition name: Nat
+
+[Require.execute] I fail to import bindings.
+
+  path: "../datatypes/Nat.i"
+
+ 1 |type Nat -- Type end
+ 2 |
+ 3 |require "../datatypes/Nat.i"
+ 4 |
