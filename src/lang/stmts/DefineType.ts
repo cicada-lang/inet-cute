@@ -30,7 +30,7 @@ export class DefineType implements Stmt {
         name: this.name,
         input: this.input,
         output: this.output,
-        arity: inputValues.length,
+        inputArity: inputValues.length,
       })
     } catch (error) {
       throw appendReport(error, {

@@ -51,6 +51,6 @@ export type TypeDefinition = {
   name: string
   input: Array<Word>
   output: Array<Word>
-  arity: number
+  inputArity: number
   isPrivate?: boolean
 }

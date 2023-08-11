@@ -37,7 +37,7 @@ export function composeDefinition(
     case "TypeDefinition": {
       let count = 0
       const args: Array<Value> = []
-      while (count < definition.arity) {
+      while (count < definition.inputArity) {
         const value = env.stack.pop()
         if (value === undefined) {
           throw new Error(
@@ -45,7 +45,7 @@ export function composeDefinition(
               `[compose / TypeDefinition] I expect more value on the stack.`,
               ``,
               `  type term name: ${definition.name}`,
-              `  type term arity: ${definition.arity}`,
+              `  type term arity: ${definition.inputArity}`,
               `  collected args: [${args.map(formatValue).join(", ")}]`,
             ].join("\n"),
           )
