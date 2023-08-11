@@ -1,9 +1,7 @@
 # module
 
-require-circular.error.i
-
-import-self.error.i
-import-circular.error.i
+circular-require.error.i
+circular-import.error.i
 
 # check
 

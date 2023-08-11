@@ -18,6 +18,17 @@ export class Import implements Stmt {
   async execute(mod: Mod): Promise<void> {
     try {
       const url = new URL(this.path, mod.url)
+
+      if (url.href === mod.url.href) {
+        throw new Error(
+          [
+            `[Import.execute] I can not require myself.`,
+            ``,
+            `  url: ${url.href}`,
+          ].join("\n"),
+        )
+      }
+
       const loadedMod = await mod.loader.load(url)
 
       for (const { name } of this.bindings) {
