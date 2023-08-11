@@ -16,6 +16,6 @@ export function run(env: Env): void {
 function step(env: Env): void {
   const activeEdge = env.activeEdges.pop()
   if (activeEdge !== undefined) {
-    interact(env.mod, env, activeEdge, {})
+    interact(env, activeEdge, {})
   }
 }

@@ -1,7 +1,5 @@
 # module
 
-[bug] fix `run` for imported word
-
 avoid circular require
 
 avoid circular import
