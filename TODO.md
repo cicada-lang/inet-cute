@@ -1,8 +1,6 @@
 # module
 
-`Import` -- `execute`
-
-- importing a both two nodes will import the rule about this two nodes
+[bug] fix `run` for imported word
 
 avoid circular require
 

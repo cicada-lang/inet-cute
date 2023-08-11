@@ -36,23 +36,6 @@ export class Require implements Stmt {
         mod.definitions.set(name, definition)
       }
 
-      for (const [name, rule] of loadedMod.rules) {
-        // TODO rules for private node should not be imported.
-
-        const found = mod.rules.get(name)
-        if (found !== undefined) {
-          throw new Error(
-            [
-              `[Require.execute] I can not import already defined rule.`,
-              ``,
-              `  rule name: ${name}`,
-            ].join("\n"),
-          )
-        }
-
-        mod.rules.set(name, rule)
-      }
-
       for (const [key, requiredMod] of loadedMod.requiredMods) {
         mod.requiredMods.set(key, requiredMod)
       }
