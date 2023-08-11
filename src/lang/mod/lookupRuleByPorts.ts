@@ -8,7 +8,8 @@ export function lookupRuleByPorts(first: Port, second: Port): Rule | undefined {
 
     const key = `${firstKey} ${secondKey}`
 
-    // To define a rule, one of the node must be owned by this module.
+    // With the following lookup, we will have a constraint that
+    // to define a rule, one of the node must be owned by this module.
     return first.node.mod.rules.get(key) || second.node.mod.rules.get(key)
   }
 }
