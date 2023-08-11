@@ -1,6 +1,6 @@
 [Require.execute] I can not do circular require.
 
-  current module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/circular-require-3.error.i
+  loading module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/circular-require-3.error.i
   requiring module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/circular-require-1.error.i
 
 [Require.execute] I fail to require module.

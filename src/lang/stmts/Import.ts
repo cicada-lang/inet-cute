@@ -22,9 +22,9 @@ export class Import implements Stmt {
       if (mod.loader.loading.has(url.href)) {
         throw new Error(
           [
-            `[Import.execute] I can not do circular require.`,
+            `[Import.execute] I can not do circular import.`,
             ``,
-            `  current module url: ${mod.url.href}`,
+            `  loading module url: ${mod.url.href}`,
             `  requiring module url: ${url.href}`,
           ].join("\n"),
         )

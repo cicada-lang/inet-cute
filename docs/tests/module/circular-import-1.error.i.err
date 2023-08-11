@@ -1,0 +1,30 @@
+[Import.execute] I can not do circular import.
+
+  loading module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/circular-import-3.error.i
+  requiring module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/circular-import-1.error.i
+
+[Import.execute] I fail to import module.
+
+  bindings: [Trivial]
+  path: "./circular-import-1.error.i"
+
+ 1 |import Trivial from "./circular-import-1.error.i"
+ 2 |
+
+[Import.execute] I fail to import module.
+
+  bindings: [Trivial]
+  path: "./circular-import-3.error.i"
+
+ 1 |import Trivial from "./circular-import-3.error.i"
+ 2 |
+
+[Import.execute] I fail to import module.
+
+  bindings: [Trivial]
+  path: "./circular-import-2.error.i"
+
+ 1 |type Trivial -- Type end
+ 2 |
+ 3 |import Trivial from "./circular-import-2.error.i"
+ 4 |

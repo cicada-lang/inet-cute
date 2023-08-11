@@ -18,7 +18,7 @@ export class Require implements Stmt {
           [
             `[Require.execute] I can not do circular require.`,
             ``,
-            `  current module url: ${mod.url.href}`,
+            `  loading module url: ${mod.url.href}`,
             `  requiring module url: ${url.href}`,
           ].join("\n"),
         )

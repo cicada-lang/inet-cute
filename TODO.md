@@ -1,7 +1,3 @@
-# module
-
-circular-import-1.error.i
-
 # check
 
 [check] `checkRuleIsAboutOwnNode` -- to define a rule one of the node must be owned by this module.

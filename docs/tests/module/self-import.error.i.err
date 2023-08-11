@@ -1,6 +1,6 @@
-[Import.execute] I can not do circular require.
+[Import.execute] I can not do circular import.
 
-  current module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/self-import.error.i
+  loading module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/self-import.error.i
   requiring module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/self-import.error.i
 
 [Import.execute] I fail to import module.
