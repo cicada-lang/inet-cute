@@ -1,0 +1,15 @@
+[unifyTypes] I fail to unify types.
+
+  left: Nat
+  right: Trivial
+
+[Define.execute] I fail to define word.
+
+  word: add2
+
+  5 |type Trivial -- Type end
+  6 |node sole -- Trivial :value! end
+  7 |
+  8 |claim add2 Nat -- Trivial end
+  9 |define add2 add1 add1 end
+ 10 |
