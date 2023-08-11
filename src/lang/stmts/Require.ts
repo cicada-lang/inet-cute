@@ -28,7 +28,7 @@ export class Require implements Stmt {
             [
               `[Require.execute] I can not import already defined name.`,
               ``,
-              `  definition name: ${name}`,
+              `  name: ${name}`,
             ].join("\n"),
           )
         }

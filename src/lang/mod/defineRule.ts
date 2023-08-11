@@ -1,4 +1,3 @@
-import { Rule } from "../rule"
 import { Word } from "../word"
 import { Mod } from "./Mod"
 
@@ -8,5 +7,5 @@ export function defineRule(
   second: string,
   words: Array<Word>,
 ): void {
-  mod.rules.set(`${first} ${second}`, new Rule(mod, words))
+  mod.rules.set(`${first} ${second}`, { words })
 }

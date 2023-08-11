@@ -17,7 +17,36 @@ export class Import implements Stmt {
 
   async execute(mod: Mod): Promise<void> {
     try {
-      //
+      const url = new URL(this.path, mod.url)
+      const loadedMod = await mod.loader.load(url)
+
+      for (const { name } of this.bindings) {
+        const found = mod.definitions.get(name)
+        if (found !== undefined) {
+          throw new Error(
+            [
+              `[Import.execute] I can not import already defined name.`,
+              ``,
+              `  name: ${name}`,
+            ].join("\n"),
+          )
+        }
+
+        const definition = loadedMod.definitions.get(name)
+        if (definition === undefined) {
+          throw new Error(
+            [
+              `[Import.execute] I can not import undefined name.`,
+              ``,
+              `  name: ${name}`,
+              `  current module url: ${mod.url.href}`,
+              `  imported module url: ${loadedMod.url.href}`,
+            ].join("\n"),
+          )
+        }
+
+        mod.definitions.set(name, definition)
+      }
     } catch (error) {
       throw appendReport(error, {
         message: [

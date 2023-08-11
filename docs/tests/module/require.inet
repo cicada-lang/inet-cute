@@ -1,3 +1,0 @@
-require "../datatypes/Nat.i"
-
-begin zero one add run inspect end

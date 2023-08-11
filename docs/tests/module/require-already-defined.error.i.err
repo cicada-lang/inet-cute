@@ -1,6 +1,6 @@
 [Require.execute] I can not import already defined name.
 
-  definition name: Nat
+  name: Nat
 
 [Require.execute] I fail to import bindings.
 

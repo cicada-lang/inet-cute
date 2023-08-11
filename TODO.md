@@ -1,5 +1,9 @@
 # module
 
+mv `lookupRuleByPorts` to `mod/`
+
+`defineRule` & `lookupRuleByPorts` -- use `mod.url.href` as prefix
+
 `Import` -- `execute`
 
 - importing a both two nodes will import the rule about this two nodes
