@@ -1,8 +1,9 @@
 # module
 
-avoid circular require
+require-circular.error.i
 
-avoid circular import
+import-self.error.i
+import-circular.error.i
 
 # check
 

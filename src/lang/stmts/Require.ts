@@ -16,6 +16,16 @@ export class Require implements Stmt {
         return
       }
 
+      if (url.href === mod.url.href) {
+        throw new Error(
+          [
+            `[Require.execute] I can not require myself.`,
+            ``,
+            `  url: ${url.href}`,
+          ].join("\n"),
+        )
+      }
+
       const loadedMod = await mod.loader.load(url)
       for (const [name, definition] of loadedMod.definitions) {
         if (definition.isPrivate) {
