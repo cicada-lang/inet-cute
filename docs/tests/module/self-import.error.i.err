@@ -1,0 +1,14 @@
+[Import.execute] I can not do circular require.
+
+  current module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/self-import.error.i
+  requiring module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/self-import.error.i
+
+[Import.execute] I fail to import module.
+
+  bindings: [Trivial]
+  path: "./self-import.error.i"
+
+ 1 |type Trivial -- Type end
+ 2 |
+ 3 |import Trivial from "./self-import.error.i"
+ 4 |

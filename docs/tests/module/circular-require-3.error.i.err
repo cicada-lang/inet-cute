@@ -1,0 +1,27 @@
+[Require.execute] I can not do circular require.
+
+  current module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/circular-require-2.error.i
+  requiring module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/circular-require-3.error.i
+
+[Require.execute] I fail to require module.
+
+  path: "./circular-require-3.error.i"
+
+ 1 |require "./circular-require-3.error.i"
+ 2 |
+
+[Require.execute] I fail to require module.
+
+  path: "./circular-require-2.error.i"
+
+ 1 |type Trivial -- Type end
+ 2 |
+ 3 |require "./circular-require-2.error.i"
+ 4 |
+
+[Require.execute] I fail to require module.
+
+  path: "./circular-require-1.error.i"
+
+ 1 |require "./circular-require-1.error.i"
+ 2 |

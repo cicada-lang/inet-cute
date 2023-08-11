@@ -1,0 +1,13 @@
+[Require.execute] I can not do circular require.
+
+  current module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/self-require.error.i
+  requiring module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/self-require.error.i
+
+[Require.execute] I fail to require module.
+
+  path: "./self-require.error.i"
+
+ 1 |type Trivial -- Type end
+ 2 |
+ 3 |require "./self-require.error.i"
+ 4 |

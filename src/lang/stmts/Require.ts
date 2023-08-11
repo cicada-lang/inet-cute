@@ -12,18 +12,20 @@ export class Require implements Stmt {
   async execute(mod: Mod): Promise<void> {
     try {
       const url = new URL(this.path, mod.url)
-      if (mod.requiredMods.get(url.href)) {
-        return
-      }
 
-      if (url.href === mod.url.href) {
+      if (mod.loader.loading.has(url.href)) {
         throw new Error(
           [
-            `[Require.execute] I can not require myself.`,
+            `[Require.execute] I can not do circular require.`,
             ``,
-            `  url: ${url.href}`,
+            `  current module url: ${mod.url.href}`,
+            `  requiring module url: ${url.href}`,
           ].join("\n"),
         )
+      }
+
+      if (mod.requiredMods.get(url.href)) {
+        return
       }
 
       const loadedMod = await mod.loader.load(url)
@@ -54,7 +56,7 @@ export class Require implements Stmt {
     } catch (error) {
       throw appendReport(error, {
         message: [
-          `[Require.execute] I fail to import bindings.`,
+          `[Require.execute] I fail to require module.`,
           ``,
           `  path: "${this.path}"`,
         ].join("\n"),

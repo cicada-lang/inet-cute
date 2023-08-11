@@ -19,12 +19,13 @@ export class Import implements Stmt {
     try {
       const url = new URL(this.path, mod.url)
 
-      if (url.href === mod.url.href) {
+      if (mod.loader.loading.has(url.href)) {
         throw new Error(
           [
-            `[Import.execute] I can not require myself.`,
+            `[Import.execute] I can not do circular require.`,
             ``,
-            `  url: ${url.href}`,
+            `  current module url: ${mod.url.href}`,
+            `  requiring module url: ${url.href}`,
           ].join("\n"),
         )
       }
@@ -61,7 +62,7 @@ export class Import implements Stmt {
     } catch (error) {
       throw appendReport(error, {
         message: [
-          `[Import.execute] I fail to import bindings.`,
+          `[Import.execute] I fail to import module.`,
           ``,
           `  bindings: [${this.bindings.map(formatImportBinding).join(", ")}]`,
           `  path: "${this.path}"`,

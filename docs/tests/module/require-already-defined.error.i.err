@@ -2,7 +2,7 @@
 
   name: Nat
 
-[Require.execute] I fail to import bindings.
+[Require.execute] I fail to require module.
 
   path: "../datatype/Nat.i"
 

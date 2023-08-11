@@ -5,6 +5,7 @@ import { parseStmts } from "../lang/syntax"
 
 export class Loader {
   private cache: Map<string, Mod> = new Map()
+  loading: Set<string> = new Set()
 
   constructor(public fetcher: Fetcher) {}
 
@@ -19,11 +20,16 @@ export class Loader {
       text,
     })
 
+    this.loading.add(url.href)
+
     for (const stmt of parseStmts(text)) {
       await stmt.execute(mod)
     }
 
+    this.loading.delete(url.href)
+
     this.cache.set(url.href, mod)
+
     return mod
   }
 }
