@@ -3,7 +3,7 @@ import { Env } from "../env"
 import { Node } from "../node"
 import { createNode } from "../node/createNode"
 import { Port } from "../port"
-import { negateSign } from "../sign/negateSign"
+import { PortExp } from "../port/PortExp"
 
 /*
 
@@ -19,13 +19,9 @@ export function closeFreePorts(env: Env): Node | undefined {
 
   const ports = env.stack
     .filter((value): value is Port => value["@kind"] === "Port")
-    .map<Port>((port) => ({
-      "@type": "Value",
-      "@kind": "Port",
+    .map<PortExp>((port) => ({
       name: `_temporary_closing_port_for_${port.name}_of_${port.node.name}`,
-      node: port.node,
       t: port.t,
-      sign: negateSign(port.sign),
       isPrincipal: false,
     }))
 

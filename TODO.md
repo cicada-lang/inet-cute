@@ -1,7 +1,5 @@
 # check
 
-`createInputPortFromValue` & `createOutputPortFromValue` -- quit using `PortExp`
-
 [check] `checkNode` -- check that each node has one and only one principal port
 
 runtime type checking when apply a `TypeTerm`

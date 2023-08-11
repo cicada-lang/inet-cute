@@ -2,11 +2,8 @@ import { checkNode } from "../check/checkNode"
 import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
-import { PortExp } from "../port/PortExp"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
-import { Value } from "../value"
-import { formatValue } from "../value/formatValue"
 import { Word } from "../word"
 
 export class DefineNode implements Stmt {
@@ -19,7 +16,7 @@ export class DefineNode implements Stmt {
 
   async execute(mod: Mod): Promise<void> {
     try {
-      const { inputValues, outputValues } = checkNode(
+      const { inputPortExps, outputPortExps } = checkNode(
         mod,
         this.input,
         this.output,
@@ -31,8 +28,8 @@ export class DefineNode implements Stmt {
         mod,
         span: this.span,
         name: this.name,
-        input: inputValues.map(portExpFromValue),
-        output: outputValues.map(portExpFromValue),
+        input: inputPortExps,
+        output: outputPortExps,
       })
     } catch (error) {
       throw appendReport(error, {
@@ -47,23 +44,5 @@ export class DefineNode implements Stmt {
         },
       })
     }
-  }
-}
-
-function portExpFromValue(value: Value): PortExp {
-  if (value["@kind"] !== "Labeled") {
-    throw new Error(
-      [
-        `[portExpFromValue] I expect the value to be a Labeled Value`,
-        ``,
-        `  value: ${formatValue(value)}`,
-      ].join("\n"),
-    )
-  }
-
-  return {
-    name: value.label,
-    t: value.value,
-    isPrincipal: Boolean(value.isImportant),
   }
 }
