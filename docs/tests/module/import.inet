@@ -1,0 +1,1 @@
+import zero, one, add from "../datatypes/Nat.i"

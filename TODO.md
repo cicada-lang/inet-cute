@@ -4,6 +4,10 @@
 
 - importing a both two nodes will import the rule about this two nodes
 
+avoid circular require
+
+avoid circular import
+
 # check
 
 [check] `checkRuleIsAboutOwnNode` -- to define a rule one of the node must be owned by this module.
@@ -81,3 +85,5 @@ use inet to encode lambda calculus
 # module
 
 support `private` statement prefix to define private aux nodes
+
+support `import as`

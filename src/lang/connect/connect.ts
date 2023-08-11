@@ -6,8 +6,6 @@ import { Rule } from "../rule"
 import { formatValue } from "../value/formatValue"
 
 export function connect(env: Env, first: Port, second: Port): void {
-  const rule = lookupRuleByPorts(env.mod, first, second)
-
   if (first.connection !== undefined) {
     throw new Error(
       [
@@ -31,6 +29,8 @@ export function connect(env: Env, first: Port, second: Port): void {
   }
 
   checkSigns(env, first, second)
+
+  const rule = lookupRuleByPorts(env.mod, first, second)
 
   if (rule !== undefined) {
     const edge = { first, second, rule }
