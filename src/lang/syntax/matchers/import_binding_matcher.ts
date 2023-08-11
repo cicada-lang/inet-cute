@@ -7,10 +7,10 @@ export function import_binding_matcher(tree: pt.Tree): Stmts.ImportBinding {
     "import_binding:name": ({ name }) => ({
       name: pt.str(name),
     }),
-    "import_binding:alias": ({ name, alias }) => ({
-      name: pt.str(name),
-      alias: pt.str(alias),
-    }),
+    // "import_binding:alias": ({ name, alias }) => ({
+    //   name: pt.str(name),
+    //   alias: pt.str(alias),
+    // }),
   })(tree)
 }
 
