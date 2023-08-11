@@ -1,7 +1,7 @@
+import { arrayPopMany } from "../../utils/arrayPopMany"
 import { Definition } from "../definition"
 import { Env } from "../env"
 import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
-import { Value } from "../value"
 import { formatValue } from "../value/formatValue"
 import { ComposeOptions } from "./compose"
 import { composeNode } from "./composeNode"
@@ -35,24 +35,17 @@ export function composeDefinition(
     }
 
     case "TypeDefinition": {
-      let count = 0
-      const args: Array<Value> = []
-      while (count < definition.inputArity) {
-        const value = env.stack.pop()
-        if (value === undefined) {
-          throw new Error(
-            [
-              `[compose / TypeDefinition] I expect more value on the stack.`,
-              ``,
-              `  type term name: ${definition.name}`,
-              `  type term arity: ${definition.inputArity}`,
-              `  collected args: [${args.map(formatValue).join(", ")}]`,
-            ].join("\n"),
-          )
-        }
-
-        args.push(value)
-        count++
+      const args = arrayPopMany(env.stack, definition.inputArity)
+      if (args.length < definition.inputArity) {
+        throw new Error(
+          [
+            `[compose / TypeDefinition] I expect more value on the stack.`,
+            ``,
+            `  type term name: ${definition.name}`,
+            `  type term arity: ${definition.inputArity}`,
+            `  collected args: [${args.map(formatValue).join(", ")}]`,
+          ].join("\n"),
+        )
       }
 
       env.stack.push({

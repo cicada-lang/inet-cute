@@ -1,6 +1,6 @@
 # check
 
-runtime type checking when apply a `TypeTerm`
+`checkTypeTerm` -- runtime type checking when apply a `TypeTerm`
 
 - argument of `TypeTerm` must be `TypeVar | TypeTerm`
 
