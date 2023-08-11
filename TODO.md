@@ -1,7 +1,5 @@
 # module
 
-extract `checkPortSigns`
-
 `defineRule` & `lookupRuleByPorts` -- use `mod.url.href` as prefix
 
 `Import` -- `execute`
