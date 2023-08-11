@@ -1,6 +1,6 @@
 # module
 
-`defineRule` & `lookupRuleByPorts` -- use `mod.url.href` as prefix
+`lookupRuleByPorts` do not need `mod` as argument
 
 `Import` -- `execute`
 

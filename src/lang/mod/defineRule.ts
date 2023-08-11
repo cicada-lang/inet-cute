@@ -1,11 +1,18 @@
 import { Word } from "../word"
 import { Mod } from "./Mod"
+import { lookupDefinitionOrFail } from "./lookupDefinitionOrFail"
 
 export function defineRule(
   mod: Mod,
-  first: string,
-  second: string,
+  firstName: string,
+  secondName: string,
   words: Array<Word>,
 ): void {
-  mod.rules.set(`${first} ${second}`, { words })
+  const firstDefinition = lookupDefinitionOrFail(mod, firstName)
+  const secondDefinition = lookupDefinitionOrFail(mod, secondName)
+
+  const firstKey = `${firstDefinition.mod.url.href}${firstName}`
+  const secondKey = `${secondDefinition.mod.url.href}${secondName}`
+
+  mod.rules.set(`${firstKey} ${secondKey}`, { words })
 }

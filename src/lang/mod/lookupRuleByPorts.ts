@@ -8,6 +8,9 @@ export function lookupRuleByPorts(
   second: Port,
 ): Rule | undefined {
   if (first.isPrincipal && second.isPrincipal) {
-    return mod.rules.get(`${first.node.name} ${second.node.name}`)
+    const firstKey = `${first.node.mod.url.href}${first.node.name}`
+    const secondKey = `${second.node.mod.url.href}${second.node.name}`
+
+    return mod.rules.get(`${firstKey} ${secondKey}`)
   }
 }
