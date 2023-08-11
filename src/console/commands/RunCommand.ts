@@ -49,7 +49,14 @@ export class RunCommand extends Command<Args, Opts> {
       },
 
       formatURL(url) {
-        return relative(process.cwd(), url.pathname)
+        if (process.platform === "win32") {
+          return relative(process.cwd(), url.pathname.slice(1)).replaceAll(
+            "\\",
+            "/",
+          )
+        } else {
+          return relative(process.cwd(), url.pathname)
+        }
       },
     })
 
