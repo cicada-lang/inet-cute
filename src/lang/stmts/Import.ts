@@ -18,14 +18,15 @@ export class Import implements Stmt {
   async execute(mod: Mod): Promise<void> {
     try {
       const url = new URL(this.path, mod.url)
+      const fetcher = mod.loader.fetcher
 
       if (mod.loader.loading.has(url.href)) {
         throw new Error(
           [
             `[Import.execute] I can not do circular import.`,
             ``,
-            `  loading module url: ${mod.url.href}`,
-            `  requiring module url: ${url.href}`,
+            `  loading module url: ${fetcher.formatURL(mod.url)}`,
+            `  requiring module url: ${fetcher.formatURL(url)}`,
           ].join("\n"),
         )
       }
@@ -51,8 +52,8 @@ export class Import implements Stmt {
               `[Import.execute] I can not import undefined name.`,
               ``,
               `  name: ${name}`,
-              `  current module url: ${mod.url.href}`,
-              `  imported module url: ${loadedMod.url.href}`,
+              `  current module url: ${fetcher.formatURL(mod.url)}`,
+              `  imported module url: ${fetcher.formatURL(loadedMod.url)}`,
             ].join("\n"),
           )
         }

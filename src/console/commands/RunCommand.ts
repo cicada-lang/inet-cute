@@ -2,6 +2,8 @@ import { ParsingError } from "@cicada-lang/partech/lib/errors"
 import { Command, CommandRunner } from "@xieyuheng/command-line"
 import ty from "@xieyuheng/ty"
 import fs from "node:fs"
+import { relative } from "node:path"
+import process from "node:process"
 import { Fetcher } from "../../fetcher"
 import { Report } from "../../lang/errors/Report"
 import { Loader } from "../../loader"
@@ -38,12 +40,16 @@ export class RunCommand extends Command<Args, Opts> {
     const fetcher = new Fetcher()
 
     fetcher.register("file", {
-      fetchText: async (url) => {
+      async fetchText(url) {
         if (process.platform === "win32") {
           return await fs.promises.readFile(url.pathname.slice(1), "utf8")
         } else {
           return await fs.promises.readFile(url.pathname, "utf8")
         }
+      },
+
+      formatURL(url) {
+        return relative(process.cwd(), url.pathname)
       },
     })
 

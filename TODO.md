@@ -1,5 +1,3 @@
-`fetcher.formatRelativeURL` -- to have stable test snapshot
-
 # check
 
 `Check` as a statement -- like unnamed `claim` + `define`

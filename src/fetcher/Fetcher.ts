@@ -1,6 +1,6 @@
 export type FetcherHandler = {
   fetchText: (url: URL) => string | Promise<string>
-  formatRelativeURL?: (url: URL) => string
+  formatURL?: (url: URL) => string
 }
 
 export class Fetcher {
@@ -16,15 +16,39 @@ export class Fetcher {
     })
   }
 
-  async fetchText(url: URL): Promise<string> {
+  lookupHandler(url: URL): FetcherHandler | undefined {
     const scheme = url.protocol.slice(0, url.protocol.length - 1)
-    const handler = this.handlers[scheme]
+    return this.handlers[scheme]
+  }
+
+  formatURL(url: URL): string {
+    const handler = this.lookupHandler(url)
     if (handler === undefined) {
       throw new Error(
         [
-          `[Fetcher.fetchText] I fail to load url.`,
+          `[Fetcher.formatURL] I meet unknown protocol.`,
           ``,
-          `  unknown protocol: ${url.protocol}`,
+          `  protocol: ${url.protocol}`,
+          `  url: ${url.href}`,
+        ].join("\n"),
+      )
+    }
+
+    if (handler.formatURL) {
+      return handler.formatURL(url)
+    } else {
+      return url.href
+    }
+  }
+
+  async fetchText(url: URL): Promise<string> {
+    const handler = this.lookupHandler(url)
+    if (handler === undefined) {
+      throw new Error(
+        [
+          `[Fetcher.fetchText] I meet unknown protocol.`,
+          ``,
+          `  protocol: ${url.protocol}`,
           `  url: ${url.href}`,
         ].join("\n"),
       )

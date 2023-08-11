@@ -12,14 +12,15 @@ export class Require implements Stmt {
   async execute(mod: Mod): Promise<void> {
     try {
       const url = new URL(this.path, mod.url)
+      const fetcher = mod.loader.fetcher
 
       if (mod.loader.loading.has(url.href)) {
         throw new Error(
           [
             `[Require.execute] I can not do circular require.`,
             ``,
-            `  loading module url: ${mod.url.href}`,
-            `  requiring module url: ${url.href}`,
+            `  loading module url: ${fetcher.formatURL(mod.url)}`,
+            `  requiring module url: ${fetcher.formatURL(url)}`,
           ].join("\n"),
         )
       }

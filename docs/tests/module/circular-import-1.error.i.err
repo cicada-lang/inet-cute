@@ -1,7 +1,7 @@
 [Import.execute] I can not do circular import.
 
-  loading module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/circular-import-3.error.i
-  requiring module url: file:///home/xyh/cicada-lang/inet/docs/tests/module/circular-import-1.error.i
+  loading module url: docs/tests/module/circular-import-3.error.i
+  requiring module url: docs/tests/module/circular-import-1.error.i
 
 [Import.execute] I fail to import module.
 
