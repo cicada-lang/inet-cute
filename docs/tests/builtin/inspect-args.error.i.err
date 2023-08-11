@@ -1,0 +1,13 @@
+[inspect (builtin)] I expect a value on the stack.
+
+[compose] I fail compose word.
+
+  word: inspect
+
+ 1 |begin inspect end
+ 2 |
+
+[Begin.execute] I fail to begin.
+
+ 1 |begin inspect end
+ 2 |
