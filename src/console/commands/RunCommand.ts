@@ -37,12 +37,14 @@ export class RunCommand extends Command<Args, Opts> {
   async execute(argv: Args & Opts): Promise<void> {
     const fetcher = new Fetcher()
 
-    fetcher.register("file", async (url) => {
-      if (process.platform === "win32") {
-        return await fs.promises.readFile(url.pathname.slice(1), "utf8")
-      } else {
-        return await fs.promises.readFile(url.pathname, "utf8")
-      }
+    fetcher.register("file", {
+      fetchText: async (url) => {
+        if (process.platform === "win32") {
+          return await fs.promises.readFile(url.pathname.slice(1), "utf8")
+        } else {
+          return await fs.promises.readFile(url.pathname, "utf8")
+        }
+      },
     })
 
     const url = createURL(argv.path)

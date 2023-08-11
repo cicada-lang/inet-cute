@@ -1,11 +1,19 @@
-type Handler = (url: URL) => string | Promise<string>
+export type FetcherHandler = {
+  fetchText: (url: URL) => string | Promise<string>
+  formatRelativeURL?: (url: URL) => string
+}
 
 export class Fetcher {
-  private handlers: Record<string, Handler> = {}
+  private handlers: Record<string, FetcherHandler> = {}
 
   constructor() {
-    this.register("http", async (url) => await (await fetch(url)).text())
-    this.register("https", async (url) => await (await fetch(url)).text())
+    this.register("http", {
+      fetchText: async (url) => await (await fetch(url)).text(),
+    })
+
+    this.register("https", {
+      fetchText: async (url) => await (await fetch(url)).text(),
+    })
   }
 
   async fetchText(url: URL): Promise<string> {
@@ -22,10 +30,10 @@ export class Fetcher {
       )
     }
 
-    return handler(url)
+    return handler.fetchText(url)
   }
 
-  register(scheme: string, handler: Handler): void {
+  register(scheme: string, handler: FetcherHandler): void {
     this.handlers[scheme] = handler
   }
 }
