@@ -1,9 +1,5 @@
 # check
 
-[check] `checkRuleIsAboutOwnNode` -- to define a rule one of the node must be owned by this module.
-
-- `define-rule-for-non-own-node.error.i`
-
 [check] `checkWords`
 
 - `input` as preparing ports by types
