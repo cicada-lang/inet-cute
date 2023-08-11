@@ -1,3 +1,4 @@
+import { checkWords } from "../check/checkWords"
 import { definitionMaybeSpan } from "../definition/definitionMaybeSpan"
 import { appendReport } from "../errors/appendReport"
 import { createReport } from "../errors/createReport"
@@ -44,6 +45,10 @@ export class Define implements Stmt {
 
       definition.words = this.words
       definition.span = this.span
+
+      // First define the word, then check,
+      // so that the definition can be recursive.
+      checkWords(mod, definition.input, definition.output, this.words)
     } catch (error) {
       throw appendReport(error, {
         message: [

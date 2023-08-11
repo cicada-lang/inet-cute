@@ -1,8 +1,8 @@
 [checkSigns] I expect the two ports to have opposite signs,
   but they all have positive sign.
 
-  first port: (_output_placeholder_node_for_addend_of_add)-_output_placeholder_port_for_addend_of_add!
-  second port: (_output_placeholder_node_for_prev_of_add1)-_output_placeholder_port_for_prev_of_add1!
+  first port: (_placeholder_output_node_for_addend_of_add)-_placeholder_output_port_for_addend_of_add!
+  second port: (_placeholder_output_node_for_prev_of_add1)-_placeholder_output_port_for_prev_of_add1!
 
 [compose] I fail compose word.
 

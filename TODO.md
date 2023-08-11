@@ -1,9 +1,10 @@
 # check
 
-[check] `checkWords`
+`createPlaceholderOutputPortFromType`
 
-- `input` as preparing ports by types
-- `output` as clean up ports on the stack by types
+[check] `checkWords` -- `input` preparing ports by types
+
+[check] `checkWords` -- `output` as clean up ports on the stack by types
 
 `Check` as a statement -- like unnamed `claim` + `define`
 

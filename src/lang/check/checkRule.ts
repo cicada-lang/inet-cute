@@ -5,7 +5,7 @@ import { refreshNode } from "../freshen/refreshNode"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
-import { connectNodeWithPlaceholders } from "../placeholder/connectNodeWithPlaceholders"
+import { connectNodeWithPlaceholderPorts } from "../placeholder/connectNodeWithPlaceholderPorts"
 import { Word } from "../word"
 
 export function checkRule(
@@ -28,8 +28,8 @@ export function checkRule(
 
   const env = createEnv(mod)
 
-  connectNodeWithPlaceholders(mod, env, first)
-  connectNodeWithPlaceholders(mod, env, second)
+  connectNodeWithPlaceholderPorts(mod, env, first)
+  connectNodeWithPlaceholderPorts(mod, env, second)
 
   for (const word of words) {
     compose(mod, env, word, {
