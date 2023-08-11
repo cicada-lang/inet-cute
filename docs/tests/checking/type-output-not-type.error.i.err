@@ -1,0 +1,13 @@
+[checkType] I expect the claimed output of a type definition to be Type.
+
+  output value: Trivial
+
+[DefineType.execute] I fail to define rule.
+
+  type name: Nat
+
+ 1 |type Trivial -- Type end
+ 2 |node sole -- Trivial :value! end
+ 3 |
+ 4 |type Nat -- Trivial end
+ 5 |

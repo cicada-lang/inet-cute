@@ -1,0 +1,11 @@
+[checkType] I expect a type definition to have one and only one claimed output.
+
+  output length: 0
+  output values: []
+
+[DefineType.execute] I fail to define rule.
+
+  type name: Trivial
+
+ 1 |type Trivial -- end
+ 2 |

@@ -20,8 +20,6 @@ export class DefineType implements Stmt {
     try {
       checkType(mod, this.input, this.output)
 
-      const inputValues = collectWords(mod, createEnv(mod), this.input, {})
-
       define(mod, this.name, {
         "@type": "Definition",
         "@kind": "TypeDefinition",
@@ -30,7 +28,7 @@ export class DefineType implements Stmt {
         name: this.name,
         input: this.input,
         output: this.output,
-        inputArity: inputValues.length,
+        inputArity: collectWords(mod, createEnv(mod), this.input, {}).length,
       })
     } catch (error) {
       throw appendReport(error, {

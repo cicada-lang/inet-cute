@@ -1,7 +1,5 @@
 # check
 
-[check] `checkType` -- check return type is just one `Type`
-
 [check] `checkNode` -- check `input` and `output` words of node definition
 
 - runtime type checking based on type definition
