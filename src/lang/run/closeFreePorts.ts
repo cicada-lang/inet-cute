@@ -22,14 +22,14 @@ export function closeFreePorts(env: Env): Node | undefined {
     .map<Port>((port) => ({
       "@type": "Value",
       "@kind": "Port",
-      name: `_root_placeholder_port_for_${port.name}_of_${port.node.name}`,
+      name: `_temporary_closing_port_for_${port.name}_of_${port.node.name}`,
       node: port.node,
       t: port.t,
       sign: negateSign(port.sign),
       isPrincipal: false,
     }))
 
-  const node = createNode(env.mod, "_root", ports, [])
+  const node = createNode(env.mod, "_temporary_closing_node", ports, [])
 
   return composeNode(env, node, {})
 }
