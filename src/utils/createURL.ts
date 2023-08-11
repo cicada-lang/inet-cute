@@ -9,5 +9,5 @@ export function createURL(path: string): URL {
     return new URL(path)
   }
 
-  return new URL(`file:${resolve(path)}`)
+  return new URL(`file:///${resolve(path)}`)
 }
