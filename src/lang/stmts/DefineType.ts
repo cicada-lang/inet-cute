@@ -1,4 +1,4 @@
-import { composeWords } from "../compose/composeWords"
+import { collectWordsOutput } from "../compose/collectWordsOutput"
 import { createEnv } from "../env/createEnv"
 import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
@@ -25,7 +25,7 @@ export class DefineType implements Stmt {
         name: this.name,
         input: this.input,
         output: this.output,
-        arity: buildArityFromInput(mod, this.input),
+        arity: collectWordsOutput(mod, createEnv(mod), this.input, {}).length,
       })
     } catch (error) {
       throw appendReport(error, {
@@ -41,10 +41,4 @@ export class DefineType implements Stmt {
       })
     }
   }
-}
-
-function buildArityFromInput(mod: Mod, input: Array<Word>): number {
-  const env = createEnv(mod)
-  composeWords(mod, env, input, {})
-  return env.stack.length
 }
