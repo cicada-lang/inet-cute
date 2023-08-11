@@ -1,5 +1,4 @@
 import { Mod } from "../mod"
-import { lookupRule } from "../mod/lookupRule"
 import { Port } from "../port"
 import { Rule } from "../rule"
 
@@ -9,6 +8,6 @@ export function lookupRuleByPorts(
   second: Port,
 ): Rule | undefined {
   if (first.isPrincipal && second.isPrincipal) {
-    return lookupRule(mod, first.node.name, second.node.name)
+    return mod.rules.get(`${first.node.name} ${second.node.name}`)
   }
 }
