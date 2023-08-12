@@ -1,4 +1,5 @@
 require "List.i"
+require "Trivial.i"
 
 claim six_soles -- Trivial List end
 

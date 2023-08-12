@@ -1,5 +1,4 @@
 require "List.i"
-require "Trivial.i"
 
 type DiffList Type -- Type end
 

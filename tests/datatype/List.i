@@ -1,5 +1,3 @@
-require "Trivial.i"
-
 type List Type -- Type end
 
 node null

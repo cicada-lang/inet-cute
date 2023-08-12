@@ -1,4 +1,5 @@
 require "DiffList.i"
+require "Trivial.i"
 
 claim one_two_soles -- Trivial DiffList end
 
