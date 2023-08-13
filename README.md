@@ -34,11 +34,11 @@ inet help [name]  # Display help for a command
 
 ## Development
 
-```
-npm install          // Install dependencies
-npm run build        // Compile `src/` to `lib/`
-npm run build:watch  // Watch the compilation
-npm run test         // Run test
+```sh
+npm install          # Install dependencies
+npm run build        # Compile `src/` to `lib/`
+npm run build:watch  # Watch the compilation
+npm run test         # Run test
 ```
 
 ## Contributions
