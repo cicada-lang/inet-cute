@@ -52,6 +52,8 @@ export function stmt_matcher(tree: pt.Tree): Stmt {
       ),
     "stmt:require": ({ path }, { span }) =>
       new Stmts.Require(pt.trim_boundary(pt.str(path), 1), span),
+    "stmt:compose": ({ word }, { span }) =>
+      new Stmts.Compose(matchers.word_matcher(word), span),
   })(tree)
 }
 

@@ -1,5 +1,3 @@
-[syntax] `Compose` as a statement
-
 # net -- graph theory
 
 extract `Net` from `Env`
