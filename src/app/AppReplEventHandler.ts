@@ -57,16 +57,17 @@ export class AppReplEventHandler extends ReplEventHandler {
     const { text } = event
 
     try {
-      // const length
-      const stmts = parseStmts(text)
-      mod.text += text
+      const length = mod.stmts.length
 
-      for (const stmt of stmts) {
+      mod.text += text
+      mod.stmts = parseStmts(mod.text)
+
+      for (const stmt of mod.stmts.slice(length)) {
         await stmt.execute(mod)
       }
     } catch (error) {
       if (error instanceof ParsingError) {
-        console.error(error.report(text))
+        console.error(error.report(mod.text))
       } else if (error instanceof Report) {
         console.error(error.format())
       } else {
