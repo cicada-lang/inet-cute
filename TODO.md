@@ -1,3 +1,17 @@
+`Execute` -- execute
+
+[syntax] `Execute` as a statement
+
+- preserved top level keywords:
+
+  ```
+  define claim
+  type node rule
+  begin check
+  import require
+  end
+  ```
+
 # net -- graph theory
 
 extract `Net` from `Env`
