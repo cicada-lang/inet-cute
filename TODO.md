@@ -1,6 +1,6 @@
-`Execute` -- execute
+`Compose` -- execute
 
-[syntax] `Execute` as a statement
+[syntax] `Compose` as a statement
 
 - preserved top level keywords:
 

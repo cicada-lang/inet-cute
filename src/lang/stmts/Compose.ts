@@ -5,7 +5,7 @@ import { Stmt } from "../stmt"
 import { Word } from "../word"
 import { formatWord } from "../word/formatWord.js"
 
-export class Execute implements Stmt {
+export class Compose implements Stmt {
   constructor(
     public word: Word,
     public span: Span,
@@ -17,7 +17,7 @@ export class Execute implements Stmt {
     } catch (error) {
       throw appendReport(error, {
         message: [
-          `[Execute.execute] I fail to define word.`,
+          `[Compose.execute] I fail to define word.`,
           ``,
           `  word: ${formatWord(this.word)}`,
         ].join("\n"),
