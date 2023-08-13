@@ -17,15 +17,17 @@ export class Loader {
     if (found !== undefined) return found
 
     const text = await this.fetcher.fetchText(url)
+    const stmts = parseStmts(text)
     const mod = createMod({
       loader: this,
       url,
       text,
+      stmts,
     })
 
     this.loading.add(url.href)
 
-    for (const stmt of parseStmts(text)) {
+    for (const stmt of stmts) {
       await stmt.execute(mod)
     }
 
