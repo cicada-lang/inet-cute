@@ -1,6 +1,6 @@
 {
   "name": "@cicada-lang/inet",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "repository": "github:cicada-lang/inet",
   "files": [
     "lib"
