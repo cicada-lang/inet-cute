@@ -64,7 +64,7 @@ export class RunCommand extends Command<Args, Opts> {
     const text = await fetcher.fetchText(url)
 
     try {
-      const loader = new Loader(fetcher)
+      const loader = new Loader({ fetcher })
       await loader.load(url)
     } catch (error) {
       if (error instanceof ParsingError) {

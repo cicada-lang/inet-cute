@@ -25,9 +25,11 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "@cicada-lang/framework": "^0.1.5",
     "@cicada-lang/partech": "^0.2.5",
     "@xieyuheng/command-line": "^0.0.11",
-    "@xieyuheng/ty": "^0.1.22"
+    "@xieyuheng/ty": "^0.1.22",
+    "picocolors": "^1.0.0"
   },
   "license": "GPL-3.0-or-later"
 }

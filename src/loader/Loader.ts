@@ -6,8 +6,11 @@ import { parseStmts } from "../lang/syntax"
 export class Loader {
   private cache: Map<string, Mod> = new Map()
   loading: Set<string> = new Set()
+  fetcher: Fetcher
 
-  constructor(public fetcher: Fetcher) {}
+  constructor(options: { fetcher: Fetcher }) {
+    this.fetcher = options.fetcher
+  }
 
   async load(url: URL): Promise<Mod> {
     const found = this.cache.get(url.href)
