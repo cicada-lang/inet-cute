@@ -1,8 +1,16 @@
 ---
-title: An information analysis of dependent type system
+title: dependent type system
 author: Xie Yuheng
 date: 2023-08-08
 ---
+
+Simple type system is easy to implement,
+how about dependent type system?
+
+If we can implement equality between `Net`s,
+we can use `Net` as value.
+
+# An information analysis of dependent type system
 
 In a dependent type system, we have
 
