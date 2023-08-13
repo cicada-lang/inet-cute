@@ -1,6 +1,12 @@
 // NOTE Preserve keywords for JSON.
 
-const preserved = ["end"]
+const preserved = [
+  ...["define", "claim"],
+  ...["type", "node", "rule"],
+  ...["begin", "check"],
+  ...["import", "require"],
+  "end",
+]
 
 export const variable_name = {
   $pattern: [

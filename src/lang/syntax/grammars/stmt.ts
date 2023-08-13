@@ -54,6 +54,7 @@ export const stmt = {
       { path: { $pattern: ["string"] } },
     ],
     "stmt:require": ['"require"', { path: { $pattern: ["string"] } }],
+    "stmt:compose": [{ word: "word" }],
   },
 }
 
