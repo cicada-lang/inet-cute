@@ -1,5 +1,3 @@
-define command should be repl or run
-
 # net -- graph theory
 
 extract `Net` from `Env`
