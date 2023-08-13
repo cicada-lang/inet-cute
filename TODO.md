@@ -1,5 +1,3 @@
-`Compose` -- execute
-
 [syntax] `Compose` as a statement
 
 - preserved top level keywords:
