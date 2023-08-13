@@ -1,4 +1,6 @@
-support repl command
+`Mod` has list of `stmts`
+
+fix repl error report offset -- by re-parse `mod.text` every time
 
 define command should be repl or run
 
