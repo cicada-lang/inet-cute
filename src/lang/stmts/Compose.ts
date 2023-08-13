@@ -18,7 +18,7 @@ export class Compose implements Stmt {
     } catch (error) {
       throw appendReport(error, {
         message: [
-          `[Compose.execute] I fail to define word.`,
+          `[Compose.execute] I fail to compose word.`,
           ``,
           `  word: ${formatWord(this.word)}`,
         ].join("\n"),

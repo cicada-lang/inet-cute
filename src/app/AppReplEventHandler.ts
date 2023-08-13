@@ -9,57 +9,56 @@ import { Report } from "../lang/errors/Report.js"
 import { parseStmts } from "../lang/syntax/index.js"
 import { Loader } from "../loader"
 
+const fetcher = new Fetcher()
+
+fetcher.register("file", {
+  async fetchText(url) {
+    if (process.platform === "win32") {
+      return fs.readFileSync(url.pathname.slice(1), "utf8")
+    } else {
+      return fs.readFileSync(url.pathname, "utf8")
+    }
+  },
+
+  formatURL(url) {
+    if (process.platform === "win32") {
+      return relative(process.cwd(), url.pathname.slice(1)).replaceAll(
+        "\\",
+        "/",
+      )
+    } else {
+      return relative(process.cwd(), url.pathname)
+    }
+  },
+})
+
+const pathname = process.cwd() + "/repl"
+
+fetcher.register("repl", {
+  fetchText: (url) => {
+    return ""
+  },
+})
+
 export class AppReplEventHandler extends ReplEventHandler {
-  pathname = process.cwd() + "/repl"
-  loader = new Loader({ fetcher: new Fetcher() })
-
-  constructor() {
-    super()
-
-    this.loader.fetcher.register("file", {
-      async fetchText(url) {
-        if (process.platform === "win32") {
-          return fs.readFileSync(url.pathname.slice(1), "utf8")
-        } else {
-          return fs.readFileSync(url.pathname, "utf8")
-        }
-      },
-
-      formatURL(url) {
-        if (process.platform === "win32") {
-          return relative(process.cwd(), url.pathname.slice(1)).replaceAll(
-            "\\",
-            "/",
-          )
-        } else {
-          return relative(process.cwd(), url.pathname)
-        }
-      },
-    })
-
-    this.loader.fetcher.register("repl", {
-      fetchText: (url) => {
-        return url.pathname === this.pathname
-          ? ""
-          : fs.readFileSync(url.pathname, "utf8")
-      },
-    })
-  }
+  loader = new Loader({ fetcher })
 
   greeting(): void {
     console.log(`iNet ${app.config.pkg.version}`)
   }
 
   async handle(event: ReplEvent): Promise<void> {
-    const url = new URL(`repl://${this.pathname}`)
+    const url = new URL(`repl:///${pathname}`)
     const mod = await this.loader.load(url)
 
-    const { text } = event
+    const oldText = mod.text
+    const oldStmts = [...mod.stmts]
 
     try {
-      const length = mod.stmts.length
-
+      const { text } = event
       mod.text += text
+
+      const length = mod.stmts.length
       mod.stmts = parseStmts(mod.text)
 
       for (const stmt of mod.stmts.slice(length)) {
@@ -73,6 +72,9 @@ export class AppReplEventHandler extends ReplEventHandler {
       } else {
         console.error(error)
       }
+
+      mod.text = oldText
+      mod.stmts = oldStmts
     }
   }
 }
