@@ -18,12 +18,18 @@ Programming with [interaction nets](https://en.wikipedia.org/wiki/Interaction_ne
 
 ### Command line tool
 
-The command line program is called `inet`.
-
 Install it by the following command:
 
 ```
 npm -g i @cicada-lang/inet
+```
+
+The command line program is called `inet`.
+
+```sh
+inet repl         # Open an interactive REPL
+inet run [path]   # Run an inet program
+inet help [name]  # Display help for a command
 ```
 
 ## Development
