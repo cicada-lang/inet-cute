@@ -1,10 +1,10 @@
 # net
 
-`Node` should not `input` and `output` ports
-
 [maybe] `ActiveEdge` should not have `rule` -- all edges are the same
 
 [maybe] `Node` should not have `mod`
+
+`nodeInputPorts` & `nodeOutputPorts` return `Record` instead of `Array`
 
 # connected component
 

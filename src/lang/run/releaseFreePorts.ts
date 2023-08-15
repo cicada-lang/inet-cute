@@ -1,6 +1,7 @@
 import { disconnect } from "../connect/disconnect"
 import { Env } from "../env"
 import { findPortEntry } from "../net/findPortEntry"
+import { nodeInputPorts } from "../net/nodeInputPorts"
 import { Node } from "../node"
 
 export function releaseFreePorts(env: Env, closer: Node | undefined): void {
@@ -8,7 +9,7 @@ export function releaseFreePorts(env: Env, closer: Node | undefined): void {
     return
   }
 
-  for (const port of closer.input) {
+  for (const port of nodeInputPorts(env.net, closer)) {
     if (port === undefined) {
       return
     }

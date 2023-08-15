@@ -19,10 +19,10 @@ export function composeNode(
   },
 ): Node {
   if (options.checking) {
-    refreshNode(options.checking.typeVarCounters, node)
+    refreshNode(env.net, options.checking.typeVarCounters, node)
   }
 
-  const { input, output } = rearrangeNodePorts(node, rearrangement)
+  const { input, output } = rearrangeNodePorts(env.net, node, rearrangement)
 
   // Be careful about the order:
   // The first input port connects

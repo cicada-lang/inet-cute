@@ -1,3 +1,5 @@
+import { Net } from "../net"
+import { findNodePortEntriesOrFail } from "../net/findNodePortEntriesOrFail"
 import { Node } from "../node"
 import { freshenType } from "./freshenType"
 
@@ -11,12 +13,14 @@ import { freshenType } from "./freshenType"
 */
 
 export function refreshNode(
+  net: Net,
   typeVarCounters: Map<string, number>,
   node: Node,
 ): void {
   const occurredNames = new Map()
 
-  for (const port of [...node.input, ...node.output]) {
-    port.t = freshenType(typeVarCounters, port.t, occurredNames)
+  const portEntries = findNodePortEntriesOrFail(net, node)
+  for (const portEntry of Object.values(portEntries)) {
+    portEntry.t = freshenType(typeVarCounters, portEntry.t, occurredNames)
   }
 }

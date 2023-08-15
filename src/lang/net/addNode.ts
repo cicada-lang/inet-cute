@@ -4,8 +4,6 @@ import { Node } from "../node"
 import { createNodeId } from "../node/createNodeId"
 import { nodeKeyId } from "../node/nodeKeyId"
 import { PortExp } from "../port/PortExp"
-import { createInputPort } from "../port/createInputPort"
-import { createOutputPort } from "../port/createOutputPort"
 
 export function addNode(
   net: Net,
@@ -18,37 +16,27 @@ export function addNode(
     id: createNodeId(mod, name),
     mod,
     name,
-    input: [],
-    output: [],
   }
 
   const ports: PortEntries = {}
   net.nodePortEntriesMap.set(nodeKeyId(node), ports)
 
-  node.input = input.map((portExp) => {
-    const port = createInputPort(node, portExp)
-
-    ports[port.name] = {
-      name: port.name,
-      sign: port.sign,
-      t: port.t,
-      isPrincipal: port.isPrincipal,
+  input.map((portExp) => {
+    ports[portExp.name] = {
+      sign: -1,
+      name: portExp.name,
+      t: portExp.t,
+      isPrincipal: portExp.isPrincipal,
     }
-
-    return port
   })
 
-  node.output = output.map((portExp) => {
-    const port = createOutputPort(node, portExp)
-
-    ports[port.name] = {
-      name: port.name,
-      sign: port.sign,
-      t: port.t,
-      isPrincipal: port.isPrincipal,
+  output.map((portExp) => {
+    ports[portExp.name] = {
+      sign: 1,
+      name: portExp.name,
+      t: portExp.t,
+      isPrincipal: portExp.isPrincipal,
     }
-
-    return port
   })
 
   return node

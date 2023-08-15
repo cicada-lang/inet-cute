@@ -23,14 +23,14 @@ export function checkRule(
     lookupDefinitionOrFail(mod, firstName),
   )
 
-  refreshNode(checking.typeVarCounters, first)
+  refreshNode(env.net, checking.typeVarCounters, first)
 
   const second = createNodeFromDefinition(
     env.net,
     lookupDefinitionOrFail(mod, secondName),
   )
 
-  refreshNode(checking.typeVarCounters, second)
+  refreshNode(env.net, checking.typeVarCounters, second)
 
   connectNodeWithPlaceholderPorts(mod, env.net, first)
   connectNodeWithPlaceholderPorts(mod, env.net, second)
