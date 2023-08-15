@@ -1,10 +1,8 @@
 # net -- graph theory
 
-`createNode` take `net` and create `nodePorts`
-
 rename `node/createNode` to `net/addNode`
 
-use `findNodePortsOrFail` instead of `findNodePortsOrCreate`
+rename `placeholder/create*` to `placeholder/add*`
 
 `Node` should not `input` and `output` ports
 

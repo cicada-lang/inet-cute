@@ -12,14 +12,14 @@ export function connectNodeWithPlaceholderPorts(
 ): void {
   for (const port of node.input) {
     if (!port.isPrincipal) {
-      const placeholderPort = createPlaceholderOutputPortForPort(mod, port)
+      const placeholderPort = createPlaceholderOutputPortForPort(net, mod, port)
       connect(net, port, placeholderPort)
     }
   }
 
   for (const port of node.output) {
     if (!port.isPrincipal) {
-      const placeholderPort = createPlaceholderInputPortForPort(mod, port)
+      const placeholderPort = createPlaceholderInputPortForPort(net, mod, port)
       connect(net, port, placeholderPort)
     }
   }

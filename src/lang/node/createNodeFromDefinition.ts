@@ -1,8 +1,12 @@
 import { Definition } from "../definition"
+import { Net } from "../net"
 import { Node } from "../node"
 import { createNode } from "../node/createNode"
 
-export function createNodeFromDefinition(definition: Definition): Node {
+export function createNodeFromDefinition(
+  net: Net,
+  definition: Definition,
+): Node {
   if (definition["@kind"] !== "NodeDefinition") {
     throw new Error(
       [
@@ -14,6 +18,7 @@ export function createNodeFromDefinition(definition: Definition): Node {
   }
 
   return createNode(
+    net,
     definition.mod,
     definition.name,
     definition.input,

@@ -1,8 +1,8 @@
-(add1₂₇)-value!target-(add₁₂)
-(zero₂₅)-value addend-(add₁₂)
-(zero₂₆)-value prev-(add1₂₇)
-(add₁₂)-return
+(add1₂₁)-value!target-(add₁₀)
+(zero₁₉)-value addend-(add₁₀)
+(zero₂₀)-value prev-(add1₂₁)
+(add₁₀)-return
 
-(zero₂₅)-value prev-(add1₂₈)
-(add1₂₈)-value
+(zero₁₉)-value prev-(add1₂₂)
+(add1₂₂)-value
 

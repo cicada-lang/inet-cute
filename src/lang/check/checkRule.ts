@@ -16,17 +16,21 @@ export function checkRule(
 ): void {
   const checking = createChecking()
 
-  const first = createNodeFromDefinition(lookupDefinitionOrFail(mod, firstName))
+  const env = createEnv(mod)
+
+  const first = createNodeFromDefinition(
+    env.net,
+    lookupDefinitionOrFail(mod, firstName),
+  )
 
   refreshNode(checking.typeVarCounters, first)
 
   const second = createNodeFromDefinition(
+    env.net,
     lookupDefinitionOrFail(mod, secondName),
   )
 
   refreshNode(checking.typeVarCounters, second)
-
-  const env = createEnv(mod)
 
   connectNodeWithPlaceholderPorts(mod, env.net, first)
   connectNodeWithPlaceholderPorts(mod, env.net, second)

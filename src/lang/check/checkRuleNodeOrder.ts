@@ -1,13 +1,23 @@
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
-import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
 
 export function checkRuleNodeOrder(
   mod: Mod,
   firstName: string,
   secondName: string,
 ): void {
-  const first = createNodeFromDefinition(lookupDefinitionOrFail(mod, firstName))
+  const first = lookupDefinitionOrFail(mod, firstName)
+
+  if (first["@kind"] !== "NodeDefinition") {
+    throw new Error(
+      [
+        `[checkRuleNodeOrder] I expect the first name to be a NodeDefinition.`,
+        ``,
+        ` first node: ${firstName}`,
+        ` second node: ${secondName}`,
+      ].join("\n"),
+    )
+  }
 
   if (!first.output.some((port) => port.isPrincipal)) {
     throw new Error(
@@ -20,9 +30,18 @@ export function checkRuleNodeOrder(
     )
   }
 
-  const second = createNodeFromDefinition(
-    lookupDefinitionOrFail(mod, secondName),
-  )
+  const second = lookupDefinitionOrFail(mod, secondName)
+
+  if (second["@kind"] !== "NodeDefinition") {
+    throw new Error(
+      [
+        `[checkRuleNodeOrder] I expect the first name to be a NodeDefinition.`,
+        ``,
+        ` first node: ${firstName}`,
+        ` second node: ${secondName}`,
+      ].join("\n"),
+    )
+  }
 
   if (!second.input.some((port) => port.isPrincipal)) {
     throw new Error(

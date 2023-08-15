@@ -15,7 +15,7 @@ export function composeDefinition(
 ): void {
   switch (definition["@kind"]) {
     case "NodeDefinition": {
-      composeNode(env, createNodeFromDefinition(definition), options)
+      composeNode(env, createNodeFromDefinition(env.net, definition), options)
       return
     }
 

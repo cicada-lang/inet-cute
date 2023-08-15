@@ -25,7 +25,7 @@ export function checkWords(
 
   const placeholderOutputPorts = inputValues
     .reverse()
-    .map((t) => createPlaceholderOutputPortFromType(mod, t))
+    .map((t) => createPlaceholderOutputPortFromType(env.net, mod, t))
 
   env.stack.push(...placeholderOutputPorts)
 

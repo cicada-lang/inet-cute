@@ -157,10 +157,15 @@ export function compose(
 
       case "NodeRearrange": {
         const definition = lookupDefinitionOrFail(mod, word.name)
-        composeNode(env, createNodeFromDefinition(definition), options, {
-          input: word.input,
-          output: word.output,
-        })
+        composeNode(
+          env,
+          createNodeFromDefinition(env.net, definition),
+          options,
+          {
+            input: word.input,
+            output: word.output,
+          },
+        )
 
         return
       }

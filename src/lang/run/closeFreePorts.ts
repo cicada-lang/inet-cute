@@ -26,7 +26,13 @@ export function closeFreePorts(env: Env): Node | undefined {
       isPrincipal: false,
     }))
 
-  const node = createNode(env.mod, "_temporary_closing_node", ports, [])
+  const node = createNode(
+    env.net,
+    env.mod,
+    "_temporary_closing_node",
+    ports,
+    [],
+  )
 
   return composeNode(env, node, {})
 }

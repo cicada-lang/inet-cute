@@ -1,8 +1,8 @@
-(add1₃)-value prev-(add1₄)
-(zero₂)-value prev-(add1₃)
-(add1₄)-value
+(add1₂)-value prev-(add1₃)
+(zero₁)-value prev-(add1₂)
+(add1₃)-value
 
-(add1₃)-value prev-(add1₄)
-(zero₂)-value prev-(add1₃)
-(add1₄)-value
+(add1₂)-value prev-(add1₃)
+(zero₁)-value prev-(add1₂)
+(add1₃)-value
 
