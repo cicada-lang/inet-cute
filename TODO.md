@@ -1,7 +1,5 @@
 # net -- graph theory
 
-rename `placeholder/create*` to `placeholder/add*`
-
 `Node` should not `input` and `output` ports
 
 [maybe] `ActiveEdge` should not have `rule` -- all edges are the same

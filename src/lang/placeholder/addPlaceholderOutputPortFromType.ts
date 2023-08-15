@@ -4,7 +4,7 @@ import { addNode } from "../net/addNode"
 import { Port } from "../port"
 import { Value } from "../value"
 
-export function createPlaceholderOutputPortFromType(
+export function addPlaceholderOutputPortFromType(
   net: Net,
   mod: Mod,
   t: Value,

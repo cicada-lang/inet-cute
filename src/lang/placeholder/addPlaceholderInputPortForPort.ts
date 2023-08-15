@@ -3,7 +3,7 @@ import { Net } from "../net"
 import { addNode } from "../net/addNode"
 import { Port } from "../port"
 
-export function createPlaceholderInputPortForPort(
+export function addPlaceholderInputPortForPort(
   net: Net,
   mod: Mod,
   port: Port,

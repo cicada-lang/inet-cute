@@ -4,7 +4,7 @@ import { compose } from "../compose/compose"
 import { createEnv } from "../env/createEnv"
 import { freshenType } from "../freshen/freshenType"
 import { Mod } from "../mod"
-import { createPlaceholderOutputPortFromType } from "../placeholder/createPlaceholderOutputPortFromType"
+import { addPlaceholderOutputPortFromType } from "../placeholder/addPlaceholderOutputPortFromType"
 import { unifyTypes } from "../unify/unifyTypes"
 import { formatValue } from "../value/formatValue"
 import { Word } from "../word"
@@ -25,7 +25,7 @@ export function checkWords(
 
   const placeholderOutputPorts = inputValues
     .reverse()
-    .map((t) => createPlaceholderOutputPortFromType(env.net, mod, t))
+    .map((t) => addPlaceholderOutputPortFromType(env.net, mod, t))
 
   env.stack.push(...placeholderOutputPorts)
 

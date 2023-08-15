@@ -2,8 +2,8 @@ import { connect } from "../connect/connect"
 import { Mod } from "../mod"
 import { Net } from "../net"
 import { Node } from "../node"
-import { createPlaceholderInputPortForPort } from "./createPlaceholderInputPortForPort"
-import { createPlaceholderOutputPortForPort } from "./createPlaceholderOutputPortForPort"
+import { addPlaceholderInputPortForPort } from "./addPlaceholderInputPortForPort"
+import { addPlaceholderOutputPortForPort } from "./addPlaceholderOutputPortForPort"
 
 export function connectNodeWithPlaceholderPorts(
   mod: Mod,
@@ -12,14 +12,14 @@ export function connectNodeWithPlaceholderPorts(
 ): void {
   for (const port of node.input) {
     if (!port.isPrincipal) {
-      const placeholderPort = createPlaceholderOutputPortForPort(net, mod, port)
+      const placeholderPort = addPlaceholderOutputPortForPort(net, mod, port)
       connect(net, port, placeholderPort)
     }
   }
 
   for (const port of node.output) {
     if (!port.isPrincipal) {
-      const placeholderPort = createPlaceholderInputPortForPort(net, mod, port)
+      const placeholderPort = addPlaceholderInputPortForPort(net, mod, port)
       connect(net, port, placeholderPort)
     }
   }
