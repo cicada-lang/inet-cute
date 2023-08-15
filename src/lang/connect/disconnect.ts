@@ -1,10 +1,10 @@
 import { Edge } from "../edge"
 import { Net } from "../net"
+import { deleteEdge } from "../net/deleteEdge"
 import { deletePortConnection } from "../net/deletePortConnection"
-import { removeEdge } from "../net/removeEdge"
 
 export function disconnect(net: Net, edge: Edge): void {
-  removeEdge(net, edge)
+  deleteEdge(net, edge)
 
   // Be careful about memory leak.
   deletePortConnection(net, edge.first)

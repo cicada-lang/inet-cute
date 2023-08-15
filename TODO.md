@@ -2,6 +2,8 @@
 
 `createNode` take `net` and create `nodePorts`
 
+rename `node/createNode` to `net/addNode`
+
 use `findNodePortsOrFail` instead of `findNodePortsOrCreate`
 
 `Node` should not `input` and `output` ports
