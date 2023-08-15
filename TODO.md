@@ -1,10 +1,12 @@
-# net -- graph theory
+# net
 
 `Node` should not `input` and `output` ports
 
 [maybe] `ActiveEdge` should not have `rule` -- all edges are the same
 
 [maybe] `Node` should not have `mod`
+
+# connected component
 
 [builtin] `inspect` -- if the element is a port, print its connected component
 
