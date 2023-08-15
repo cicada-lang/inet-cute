@@ -1,13 +1,13 @@
 import { checkPortSigns } from "../check/checkPortSigns"
 import { lookupRuleByPorts } from "../mod/lookupRuleByPorts"
 import { Net } from "../net"
+import { findConnection } from "../net/findConnection"
 import { findNodePortsOrFail } from "../net/findNodePortsOrFail"
-import { findPortConnection } from "../net/findPortConnection"
 import { Port } from "../port"
 import { formatValue } from "../value/formatValue"
 
 export function connect(net: Net, first: Port, second: Port): void {
-  if (findPortConnection(net, first) !== undefined) {
+  if (findConnection(net, first) !== undefined) {
     throw new Error(
       [
         `[connect] The first port is already connected.`,
@@ -18,7 +18,7 @@ export function connect(net: Net, first: Port, second: Port): void {
     )
   }
 
-  if (findPortConnection(net, second) !== undefined) {
+  if (findConnection(net, second) !== undefined) {
     throw new Error(
       [
         `[connect] The second port is already connected.`,

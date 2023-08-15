@@ -1,11 +1,8 @@
 import { nodeKeyId } from "../node/nodeKeyId"
 import { Port } from "../port"
-import { Net, PortConnection } from "./Net"
+import { Connection, Net } from "./Net"
 
-export function findPortConnection(
-  net: Net,
-  port: Port,
-): PortConnection | undefined {
+export function findConnection(net: Net, port: Port): Connection | undefined {
   const ports = net.nodePorts.get(nodeKeyId(port.node))
   if (ports === undefined) {
     return undefined

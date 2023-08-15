@@ -5,7 +5,7 @@ import { Env } from "../env"
 import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
-import { findPortConnection } from "../net/findPortConnection"
+import { findConnection } from "../net/findConnection"
 import { Node } from "../node"
 import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
 import { unifyTypes } from "../unify/unifyTypes"
@@ -61,7 +61,7 @@ export function compose(
           options,
         )
 
-        const connection = findPortConnection(env.net, currentPort)
+        const connection = findConnection(env.net, currentPort)
 
         if (connection === undefined) {
           throw new Error(
@@ -88,7 +88,7 @@ export function compose(
           options,
         )
 
-        const connection = findPortConnection(env.net, currentPort)
+        const connection = findConnection(env.net, currentPort)
 
         if (connection === undefined) {
           throw new Error(

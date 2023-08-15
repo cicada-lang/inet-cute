@@ -1,6 +1,6 @@
 import { disconnect } from "../connect/disconnect"
 import { Env } from "../env"
-import { findPortConnection } from "../net/findPortConnection"
+import { findConnection } from "../net/findConnection"
 import { Node } from "../node"
 
 export function releaseFreePorts(env: Env, closer: Node | undefined): void {
@@ -13,7 +13,7 @@ export function releaseFreePorts(env: Env, closer: Node | undefined): void {
       return
     }
 
-    const connection = findPortConnection(env.net, port)
+    const connection = findConnection(env.net, port)
     if (connection === undefined) {
       throw new Error(`[releaseFreePorts] I expect port to have connection.`)
     }
