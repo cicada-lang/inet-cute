@@ -2,6 +2,8 @@
 
 `Node` should be just an id
 
+- `Port` should be `{ node, name }`
+
 [builtin] `inspect` -- if the element is a port, print its connected component
 
 [builtin] `run` -- only run the top port -- connected component

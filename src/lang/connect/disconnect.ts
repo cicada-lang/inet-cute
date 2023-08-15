@@ -1,6 +1,6 @@
 import { Edge } from "../edge"
 import { Net } from "../net"
-import { removeEdge } from "../utils/removeEdge"
+import { removeEdge } from "../net/removeEdge"
 
 export function disconnect(net: Net, edge: Edge): void {
   removeEdge(net, edge)

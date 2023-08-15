@@ -2,7 +2,7 @@ import { Checking } from "../checking"
 import { compose } from "../compose/compose"
 import { ActiveEdge } from "../edge"
 import { Env } from "../env"
-import { removeEdgesOfNode } from "../utils/removeEdgesOfNode"
+import { removeEdgesOfNode } from "../net/removeEdgesOfNode"
 
 export type InteractOptions = {
   checking?: Checking
