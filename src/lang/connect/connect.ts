@@ -1,10 +1,10 @@
 import { checkPortSigns } from "../check/checkPortSigns"
-import { Env } from "../env"
 import { lookupRuleByPorts } from "../mod/lookupRuleByPorts"
+import { Net } from "../net"
 import { Port } from "../port"
 import { formatValue } from "../value/formatValue"
 
-export function connect(env: Env, first: Port, second: Port): void {
+export function connect(net: Net, first: Port, second: Port): void {
   if (first.connection !== undefined) {
     throw new Error(
       [
@@ -35,11 +35,11 @@ export function connect(env: Env, first: Port, second: Port): void {
     const edge = { first, second, rule }
     first.connection = { edge, port: second }
     second.connection = { edge, port: first }
-    env.activeEdges.push(edge)
+    net.activeEdges.push(edge)
   } else {
     const edge = { first, second }
     first.connection = { edge, port: second }
     second.connection = { edge, port: first }
-    env.edges.push(edge)
+    net.edges.push(edge)
   }
 }

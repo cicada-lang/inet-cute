@@ -1,8 +1,6 @@
 # net -- graph theory
 
-extract `Net` from `Env`
-
-- If a graph's node are connected via parts, we call it a net.
+`Node` should be just an id
 
 [builtin] `inspect` -- if the element is a port, print its connected component
 

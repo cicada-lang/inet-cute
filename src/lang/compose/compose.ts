@@ -59,7 +59,7 @@ export function compose(
           options,
         )
 
-        disconnect(env, currentPort.connection.edge)
+        disconnect(env.net, currentPort.connection.edge)
 
         env.stack.push(currentPort)
         return
@@ -72,7 +72,7 @@ export function compose(
           options,
         )
 
-        disconnect(env, currentPort.connection.edge)
+        disconnect(env.net, currentPort.connection.edge)
 
         const value = env.stack.pop()
         if (value === undefined) {
@@ -91,7 +91,7 @@ export function compose(
           )
         }
 
-        connect(env, value, currentPort)
+        connect(env.net, value, currentPort)
         if (options.checking) {
           unifyTypes(options.checking.substitution, value.t, currentPort.t)
         }

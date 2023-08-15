@@ -1,9 +1,9 @@
 import { Edge } from "../edge"
-import { Env } from "../env"
+import { Net } from "../net"
 import { removeEdge } from "../utils/removeEdge"
 
-export function disconnect(env: Env, edge: Edge): void {
-  removeEdge(env, edge)
+export function disconnect(net: Net, edge: Edge): void {
+  removeEdge(net, edge)
 
   // Be careful about memory leak.
   delete edge.first.connection

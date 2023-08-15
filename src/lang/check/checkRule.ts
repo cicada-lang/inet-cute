@@ -28,8 +28,8 @@ export function checkRule(
 
   const env = createEnv(mod)
 
-  connectNodeWithPlaceholderPorts(mod, env, first)
-  connectNodeWithPlaceholderPorts(mod, env, second)
+  connectNodeWithPlaceholderPorts(mod, env.net, first)
+  connectNodeWithPlaceholderPorts(mod, env.net, second)
 
   for (const word of words) {
     compose(mod, env, word, {

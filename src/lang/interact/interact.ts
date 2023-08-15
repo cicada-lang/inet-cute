@@ -13,8 +13,8 @@ export function interact(
   activeEdge: ActiveEdge,
   options: InteractOptions,
 ): void {
-  removeEdgesOfNode(env, activeEdge.second.node)
-  removeEdgesOfNode(env, activeEdge.first.node)
+  removeEdgesOfNode(env.net, activeEdge.second.node)
+  removeEdgesOfNode(env.net, activeEdge.first.node)
 
   for (const word of activeEdge.rule.words) {
     compose(activeEdge.rule.mod, env, word, {

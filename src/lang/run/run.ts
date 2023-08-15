@@ -6,7 +6,7 @@ import { releaseFreePorts } from "./releaseFreePorts"
 export function run(env: Env): void {
   const closer = closeFreePorts(env)
 
-  while (env.activeEdges.length > 0) {
+  while (env.net.activeEdges.length > 0) {
     step(env)
   }
 
@@ -14,7 +14,7 @@ export function run(env: Env): void {
 }
 
 function step(env: Env): void {
-  const activeEdge = env.activeEdges.pop()
+  const activeEdge = env.net.activeEdges.pop()
   if (activeEdge !== undefined) {
     interact(env, activeEdge, {})
   }

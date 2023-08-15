@@ -1,11 +1,10 @@
-import { ActiveEdge, Edge } from "../edge"
 import { Mod } from "../mod"
+import { Net } from "../net"
 import { Value } from "../value"
 
 export type Env = {
   mod: Mod
-  edges: Array<Edge>
-  activeEdges: Array<ActiveEdge>
+  net: Net
   stack: Array<Value>
   locals: Map<string, Value>
 }

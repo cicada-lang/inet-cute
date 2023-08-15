@@ -18,6 +18,6 @@ export function releaseFreePorts(env: Env, closer: Node | undefined): void {
 
     env.stack.push(port.connection.port)
 
-    disconnect(env, port.connection.edge)
+    disconnect(env.net, port.connection.edge)
   }
 }

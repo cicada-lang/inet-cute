@@ -46,7 +46,7 @@ export function compose(env: Env, options: ComposeOptions): void {
     )
   }
 
-  connect(env, first, second)
+  connect(env.net, first, second)
   if (options.checking) {
     unifyTypes(options.checking.substitution, first.t, second.t)
   }
