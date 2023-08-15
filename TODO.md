@@ -1,7 +1,5 @@
 # net -- graph theory
 
-rename `node/createNode` to `net/addNode`
-
 rename `placeholder/create*` to `placeholder/add*`
 
 `Node` should not `input` and `output` ports

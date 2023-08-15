@@ -1,7 +1,7 @@
 import { Definition } from "../definition"
 import { Net } from "../net"
+import { addNode } from "../net/addNode"
 import { Node } from "../node"
-import { createNode } from "../node/createNode"
 
 export function createNodeFromDefinition(
   net: Net,
@@ -17,7 +17,7 @@ export function createNodeFromDefinition(
     )
   }
 
-  return createNode(
+  return addNode(
     net,
     definition.mod,
     definition.name,

@@ -1,6 +1,6 @@
 import { Mod } from "../mod"
 import { Net } from "../net"
-import { createNode } from "../node/createNode"
+import { addNode } from "../net/addNode"
 import { Port } from "../port"
 import { Value } from "../value"
 
@@ -11,7 +11,7 @@ export function createPlaceholderOutputPortFromType(
 ): Port {
   const nodeName = `_placeholder_output_node_from_type`
   const portName = `_placeholder_output_port_from_type`
-  const node = createNode(
+  const node = addNode(
     net,
     mod,
     nodeName,

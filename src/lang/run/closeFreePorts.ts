@@ -1,7 +1,7 @@
 import { composeNode } from "../compose/composeNode"
 import { Env } from "../env"
+import { addNode } from "../net/addNode"
 import { Node } from "../node"
-import { createNode } from "../node/createNode"
 import { Port } from "../port"
 import { PortExp } from "../port/PortExp"
 
@@ -26,13 +26,7 @@ export function closeFreePorts(env: Env): Node | undefined {
       isPrincipal: false,
     }))
 
-  const node = createNode(
-    env.net,
-    env.mod,
-    "_temporary_closing_node",
-    ports,
-    [],
-  )
+  const node = addNode(env.net, env.mod, "_temporary_closing_node", ports, [])
 
   return composeNode(env, node, {})
 }
