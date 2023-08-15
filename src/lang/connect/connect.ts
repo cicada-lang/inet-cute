@@ -1,7 +1,7 @@
 import { checkPortSigns } from "../check/checkPortSigns"
 import { lookupRuleByPorts } from "../mod/lookupRuleByPorts"
 import { Net } from "../net"
-import { findNodePortsOrFail } from "../net/findNodePortsOrFail"
+import { findNodePortEntriesOrFail } from "../net/findNodePortEntriesOrFail"
 import { findPortEntry } from "../net/findPortEntry"
 import { Port } from "../port"
 import { formatValue } from "../value/formatValue"
@@ -36,21 +36,21 @@ export function connect(net: Net, first: Port, second: Port): void {
   if (rule !== undefined) {
     const edge = { first, second, rule }
 
-    const firstNodePorts = findNodePortsOrFail(net, first.node)
-    firstNodePorts[first.name].connection = { edge, port: second }
+    const firstNodePortEntries = findNodePortEntriesOrFail(net, first.node)
+    firstNodePortEntries[first.name].connection = { edge, port: second }
 
-    const secondNodePorts = findNodePortsOrFail(net, second.node)
-    secondNodePorts[second.name].connection = { edge, port: first }
+    const secondNodePortEntries = findNodePortEntriesOrFail(net, second.node)
+    secondNodePortEntries[second.name].connection = { edge, port: first }
 
     net.activeEdges.push(edge)
   } else {
     const edge = { first, second }
 
-    const firstNodePorts = findNodePortsOrFail(net, first.node)
-    firstNodePorts[first.name].connection = { edge, port: second }
+    const firstNodePortEntries = findNodePortEntriesOrFail(net, first.node)
+    firstNodePortEntries[first.name].connection = { edge, port: second }
 
-    const secondNodePorts = findNodePortsOrFail(net, second.node)
-    secondNodePorts[second.name].connection = { edge, port: first }
+    const secondNodePortEntries = findNodePortEntriesOrFail(net, second.node)
+    secondNodePortEntries[second.name].connection = { edge, port: first }
 
     net.edges.push(edge)
   }

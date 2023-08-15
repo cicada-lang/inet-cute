@@ -3,7 +3,7 @@ import { compose } from "../compose/compose"
 import { ActiveEdge } from "../edge"
 import { Env } from "../env"
 import { deleteEdgesOfNode } from "../net/deleteEdgesOfNode"
-import { deleteNodePorts } from "../net/deleteNodePorts"
+import { deleteNodePortEntries } from "../net/deleteNodePortEntries"
 
 export type InteractOptions = {
   checking?: Checking
@@ -27,6 +27,6 @@ export function interact(
     })
   }
 
-  deleteNodePorts(env.net, activeEdge.first.node)
-  deleteNodePorts(env.net, activeEdge.second.node)
+  deleteNodePortEntries(env.net, activeEdge.first.node)
+  deleteNodePortEntries(env.net, activeEdge.second.node)
 }

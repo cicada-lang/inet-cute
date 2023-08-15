@@ -23,7 +23,7 @@ export function addNode(
   }
 
   const ports: PortEntries = {}
-  net.nodePorts.set(nodeKeyId(node), ports)
+  net.nodePortEntriesMap.set(nodeKeyId(node), ports)
 
   node.input = input.map((portExp) => {
     const port = createInputPort(node, portExp)
