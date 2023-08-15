@@ -1,8 +1,14 @@
 # net -- graph theory
 
+`createNode` take `net` and create `nodePorts`
+
+use `findNodePortsOrFail` instead of `findNodePortsOrCreate`
+
 `Node` should not `input` and `output` ports
 
-`Node` should be  `{ id, name, url }`
+[maybe] `ActiveEdge` should not have `rule` -- all edges are the same
+
+[maybe] `Node` should not have `mod`
 
 [builtin] `inspect` -- if the element is a port, print its connected component
 
