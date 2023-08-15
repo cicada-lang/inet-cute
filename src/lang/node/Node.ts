@@ -2,7 +2,7 @@ import { Mod } from "../mod"
 import { Port } from "../port"
 
 export type Node = {
-  id: number
+  id: string
   mod: Mod
   name: string
   input: Array<Port>

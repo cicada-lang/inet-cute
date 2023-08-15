@@ -1,8 +1,12 @@
 # net -- graph theory
 
-`Node` should be just an id
+`Port` should node have `connection`
 
-- `Port` should be `{ node, name }`
+`Node` should node `input` and `output` ports
+
+`Port` should be `{ node, name }`
+
+`Node` should be just an id
 
 [builtin] `inspect` -- if the element is a port, print its connected component
 
