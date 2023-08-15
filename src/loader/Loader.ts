@@ -4,7 +4,7 @@ import { createMod } from "../lang/mod/createMod"
 import { parseStmts } from "../lang/syntax"
 
 export class Loader {
-  private cache: Map<string, Mod> = new Map()
+  loaded: Map<string, Mod> = new Map()
   loading: Set<string> = new Set()
   fetcher: Fetcher
 
@@ -13,7 +13,7 @@ export class Loader {
   }
 
   async load(url: URL): Promise<Mod> {
-    const found = this.cache.get(url.href)
+    const found = this.loaded.get(url.href)
     if (found !== undefined) return found
 
     const text = await this.fetcher.fetchText(url)
@@ -33,7 +33,7 @@ export class Loader {
 
     this.loading.delete(url.href)
 
-    this.cache.set(url.href, mod)
+    this.loaded.set(url.href, mod)
 
     return mod
   }
