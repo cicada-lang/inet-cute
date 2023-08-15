@@ -1,7 +1,5 @@
 # net
 
-[maybe] `Node` should not have url instead of `mod`
-
 `nodeInputPorts` & `nodeOutputPorts` return `Record` instead of `Array`
 
 # connected component

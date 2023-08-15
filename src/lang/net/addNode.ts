@@ -14,7 +14,7 @@ export function addNode(
 ): Node {
   const node: Node = {
     id: createNodeId(mod, name),
-    mod,
+    url: mod.url,
     name,
   }
 

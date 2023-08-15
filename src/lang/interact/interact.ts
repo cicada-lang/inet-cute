@@ -15,7 +15,7 @@ export function interact(
   activeEdge: Edge,
   options: InteractOptions,
 ): void {
-  const rule = lookupRuleByPorts(activeEdge.first, activeEdge.second)
+  const rule = lookupRuleByPorts(env.mod, activeEdge.first, activeEdge.second)
   if (rule === undefined) return
 
   deleteEdgesOfNode(env.net, activeEdge.first.node)

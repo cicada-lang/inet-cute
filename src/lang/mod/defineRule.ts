@@ -12,8 +12,15 @@ export function defineRule(
   const firstDefinition = lookupDefinitionOrFail(mod, firstName)
   const secondDefinition = lookupDefinitionOrFail(mod, secondName)
 
-  const firstKey = nodeKey(firstDefinition)
-  const secondKey = nodeKey(secondDefinition)
+  const firstKey = nodeKey({
+    url: firstDefinition.mod.url,
+    name: firstDefinition.name,
+  })
+
+  const secondKey = nodeKey({
+    url: secondDefinition.mod.url,
+    name: secondDefinition.name,
+  })
 
   const key = `${firstKey} ${secondKey}`
 
