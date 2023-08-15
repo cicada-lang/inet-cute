@@ -1,4 +1,4 @@
-import { ActiveEdge, Edge } from "../edge"
+import { Edge } from "../edge"
 import { Port } from "../port"
 import { Sign } from "../sign"
 import { Value } from "../value"
@@ -20,6 +20,6 @@ export type PortEntries = Record<string, PortEntry>
 
 export type Net = {
   edges: Array<Edge>
-  activeEdges: Array<ActiveEdge>
+  activeEdges: Array<Edge>
   nodePortEntriesMap: Map<string, PortEntries>
 }

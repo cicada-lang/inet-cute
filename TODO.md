@@ -1,8 +1,6 @@
 # net
 
-[maybe] `ActiveEdge` should not have `rule` -- all edges are the same
-
-[maybe] `Node` should not have `mod`
+[maybe] `Node` should not have url instead of `mod`
 
 `nodeInputPorts` & `nodeOutputPorts` return `Record` instead of `Array`
 
