@@ -1,5 +1,5 @@
 import { Mod } from "../mod"
-import { Net } from "../net"
+import { Net, PortEntries } from "../net"
 import { Node } from "../node"
 import { createNodeId } from "../node/createNodeId"
 import { nodeKeyId } from "../node/nodeKeyId"
@@ -22,10 +22,34 @@ export function addNode(
     output: [],
   }
 
-  net.nodePorts.set(nodeKeyId(node), {})
+  const ports: PortEntries = {}
+  net.nodePorts.set(nodeKeyId(node), ports)
 
-  node.input = input.map((port) => createInputPort(node, port))
-  node.output = output.map((port) => createOutputPort(node, port))
+  node.input = input.map((portExp) => {
+    const port = createInputPort(node, portExp)
+
+    ports[port.name] = {
+      name: port.name,
+      sign: port.sign,
+      t: port.t,
+      isPrincipal: port.isPrincipal,
+    }
+
+    return port
+  })
+
+  node.output = output.map((portExp) => {
+    const port = createOutputPort(node, portExp)
+
+    ports[port.name] = {
+      name: port.name,
+      sign: port.sign,
+      t: port.t,
+      isPrincipal: port.isPrincipal,
+    }
+
+    return port
+  })
 
   return node
 }

@@ -1,16 +1,16 @@
 import { Net } from "../net"
 import { Node } from "../node"
 import { deleteEdge } from "./deleteEdge"
-import { findConnection } from "./findConnection"
+import { findPortEntry } from "./findPortEntry"
 
 export function deleteEdgesOfNode(net: Net, node: Node): void {
   for (const port of node.input) {
-    const connection = findConnection(net, port)
-    connection && deleteEdge(net, connection.edge)
+    const portEntry = findPortEntry(net, port)
+    portEntry?.connection && deleteEdge(net, portEntry.connection.edge)
   }
 
   for (const port of node.output) {
-    const connection = findConnection(net, port)
-    connection && deleteEdge(net, connection.edge)
+    const portEntry = findPortEntry(net, port)
+    portEntry?.connection && deleteEdge(net, portEntry.connection.edge)
   }
 }

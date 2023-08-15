@@ -1,12 +1,9 @@
 import { Node } from "../node"
 import { formatNode } from "../node/formatNode"
 import { nodeKeyId } from "../node/nodeKeyId"
-import { Connection, Net } from "./Net"
+import { Net, PortEntries } from "./Net"
 
-export function findNodePortsOrFail(
-  net: Net,
-  node: Node,
-): Record<string, Connection> {
+export function findNodePortsOrFail(net: Net, node: Node): PortEntries {
   let ports = net.nodePorts.get(nodeKeyId(node))
   if (ports === undefined) {
     throw new Error(

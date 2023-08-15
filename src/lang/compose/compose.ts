@@ -5,7 +5,7 @@ import { Env } from "../env"
 import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
-import { findConnection } from "../net/findConnection"
+import { findPortEntry } from "../net/findPortEntry"
 import { Node } from "../node"
 import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
 import { unifyTypes } from "../unify/unifyTypes"
@@ -61,9 +61,9 @@ export function compose(
           options,
         )
 
-        const connection = findConnection(env.net, currentPort)
+        const portEntry = findPortEntry(env.net, currentPort)
 
-        if (connection === undefined) {
+        if (portEntry?.connection === undefined) {
           throw new Error(
             [
               `[compose / PortPush] I expect the found port to have connection.`,
@@ -74,7 +74,7 @@ export function compose(
           )
         }
 
-        disconnect(env.net, connection.edge)
+        disconnect(env.net, portEntry.connection.edge)
 
         env.stack.push(currentPort)
         return
@@ -88,9 +88,9 @@ export function compose(
           options,
         )
 
-        const connection = findConnection(env.net, currentPort)
+        const portEntry = findPortEntry(env.net, currentPort)
 
-        if (connection === undefined) {
+        if (portEntry?.connection === undefined) {
           throw new Error(
             [
               `[compose / PortReconnect] I expect the found port to have connection.`,
@@ -101,7 +101,7 @@ export function compose(
           )
         }
 
-        disconnect(env.net, connection.edge)
+        disconnect(env.net, portEntry.connection.edge)
 
         const value = env.stack.pop()
         if (value === undefined) {

@@ -1,5 +1,5 @@
 import { Net } from "../net"
-import { findConnection } from "../net/findConnection"
+import { findPortEntry } from "../net/findPortEntry"
 import { Node } from "../node"
 import { Port } from "../port"
 import { ComposeOptions } from "./compose"
@@ -64,15 +64,15 @@ function findPortInNode(
 ): Port | undefined {
   for (const port of node.input) {
     if (port.name === portName) {
-      const connection = findConnection(net, port)
-      return connection?.port
+      const portEntry = findPortEntry(net, port)
+      return portEntry?.connection?.port
     }
   }
 
   for (const port of node.output) {
     if (port.name === portName) {
-      const connection = findConnection(net, port)
-      return connection?.port
+      const portEntry = findPortEntry(net, port)
+      return portEntry?.connection?.port
     }
   }
 }

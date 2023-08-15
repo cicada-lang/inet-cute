@@ -8,5 +8,5 @@ export function deleteConnection(net: Net, port: Port): void {
     return undefined
   }
 
-  delete ports[port.name]
+  delete ports[port.name].connection
 }
