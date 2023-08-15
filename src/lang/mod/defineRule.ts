@@ -1,3 +1,4 @@
+import { nodeKey } from "../node/nodeKey"
 import { Word } from "../word"
 import { Mod } from "./Mod"
 import { lookupDefinitionOrFail } from "./lookupDefinitionOrFail"
@@ -11,8 +12,8 @@ export function defineRule(
   const firstDefinition = lookupDefinitionOrFail(mod, firstName)
   const secondDefinition = lookupDefinitionOrFail(mod, secondName)
 
-  const firstKey = `${firstDefinition.mod.url.href}${firstName}`
-  const secondKey = `${secondDefinition.mod.url.href}${secondName}`
+  const firstKey = nodeKey(firstDefinition)
+  const secondKey = nodeKey(secondDefinition)
 
   const key = `${firstKey} ${secondKey}`
 

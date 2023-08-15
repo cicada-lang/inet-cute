@@ -1,12 +1,15 @@
+import { Net } from "../net"
+import { findPortConnection } from "../net/findPortConnection"
 import { Node } from "../node"
-import { Port, PortConnection } from "../port"
+import { Port } from "../port"
 import { ComposeOptions } from "./compose"
 
 export function findCurrentPortOrFail(
+  net: Net,
   nodeName: string,
   portName: string,
   options?: ComposeOptions,
-): Port & { connection: PortConnection } {
+): Port {
   const who = "findCurrentPortOrFail"
 
   const { current } = options || {}
@@ -22,7 +25,7 @@ export function findCurrentPortOrFail(
     )
   }
 
-  const found = findPortInNodes(nodeName, portName, [
+  const found = findPortInNodes(net, nodeName, portName, [
     current.first,
     current.second,
   ])
@@ -38,42 +41,38 @@ export function findCurrentPortOrFail(
     )
   }
 
-  if (found.connection === undefined) {
-    throw new Error(
-      [
-        `[${who}] I expect the found port to have connection.`,
-        ``,
-        `  node name: ${nodeName}`,
-        `  port name: ${portName}`,
-      ].join("\n"),
-    )
-  }
-
-  return found as Port & { connection: PortConnection }
+  return found
 }
 
 function findPortInNodes(
+  net: Net,
   nodeName: string,
   portName: string,
   nodes: Array<Node>,
 ): Port | undefined {
   for (const node of nodes) {
     if (nodeName === node.name) {
-      return findPortInNode(portName, node)
+      return findPortInNode(net, portName, node)
     }
   }
 }
 
-function findPortInNode(portName: string, node: Node): Port | undefined {
+function findPortInNode(
+  net: Net,
+  portName: string,
+  node: Node,
+): Port | undefined {
   for (const port of node.input) {
     if (port.name === portName) {
-      return port.connection?.port
+      const connection = findPortConnection(net, port)
+      return connection?.port
     }
   }
 
   for (const port of node.output) {
     if (port.name === portName) {
-      return port.connection?.port
+      const connection = findPortConnection(net, port)
+      return connection?.port
     }
   }
 }

@@ -5,6 +5,7 @@ import { Env } from "../env"
 import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
+import { findPortConnection } from "../net/findPortConnection"
 import { Node } from "../node"
 import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
 import { unifyTypes } from "../unify/unifyTypes"
@@ -54,12 +55,26 @@ export function compose(
 
       case "PortPush": {
         const currentPort = findCurrentPortOrFail(
+          env.net,
           word.nodeName,
           word.portName,
           options,
         )
 
-        disconnect(env.net, currentPort.connection.edge)
+        const connection = findPortConnection(env.net, currentPort)
+
+        if (connection === undefined) {
+          throw new Error(
+            [
+              `[compose / PortPush] I expect the found port to have connection.`,
+              ``,
+              `  node name: ${word.nodeName}`,
+              `  port name: ${word.portName}`,
+            ].join("\n"),
+          )
+        }
+
+        disconnect(env.net, connection.edge)
 
         env.stack.push(currentPort)
         return
@@ -67,12 +82,26 @@ export function compose(
 
       case "PortReconnect": {
         const currentPort = findCurrentPortOrFail(
+          env.net,
           word.nodeName,
           word.portName,
           options,
         )
 
-        disconnect(env.net, currentPort.connection.edge)
+        const connection = findPortConnection(env.net, currentPort)
+
+        if (connection === undefined) {
+          throw new Error(
+            [
+              `[compose / PortReconnect] I expect the found port to have connection.`,
+              ``,
+              `  node name: ${word.nodeName}`,
+              `  port name: ${word.portName}`,
+            ].join("\n"),
+          )
+        }
+
+        disconnect(env.net, connection.edge)
 
         const value = env.stack.pop()
         if (value === undefined) {
