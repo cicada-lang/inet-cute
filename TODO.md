@@ -1,10 +1,20 @@
 # connected component
 
-`connectedComponent(net, port): Net`
+extract `copyConnectedComponent`
+
+clonePortRecord
+
+clonePortEntry
+
+`copyNode`
+
+`Net` should not have `edges`
 
 [builtin] `inspect` -- if the element is a port, print its connected component
 
 [builtin] `run` -- only run the top port -- connected component
+
+- need to `createEnv` for the net component
 
 # docs
 

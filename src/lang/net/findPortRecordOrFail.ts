@@ -4,7 +4,7 @@ import { nodeKeyId } from "../node/nodeKeyId"
 import { Net, PortRecord } from "./Net"
 
 export function findPortRecordOrFail(net: Net, node: Node): PortRecord {
-  let ports = net.nodePortRecords.get(nodeKeyId(node))
+  const ports = net.nodePortRecords.get(nodeKeyId(node))
   if (ports === undefined) {
     throw new Error(
       [
