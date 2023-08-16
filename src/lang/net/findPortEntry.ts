@@ -1,9 +1,9 @@
-import { nodeKeyId } from "../node/nodeKeyId"
 import { Port } from "../port"
 import { Net, PortEntry } from "./Net"
+import { findNodeEntry } from "./findNodeEntry"
 
 export function findPortEntry(net: Net, port: Port): PortEntry | undefined {
-  const nodeEntry = net.nodeEntries.get(nodeKeyId(port.node))
+  const nodeEntry = findNodeEntry(net, port.node)
   if (nodeEntry === undefined) {
     return undefined
   }

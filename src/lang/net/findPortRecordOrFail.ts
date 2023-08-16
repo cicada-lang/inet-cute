@@ -1,10 +1,10 @@
 import { Node } from "../node"
 import { formatNode } from "../node/formatNode"
-import { nodeKeyId } from "../node/nodeKeyId"
 import { Net, PortRecord } from "./Net"
+import { findNodeEntry } from "./findNodeEntry"
 
 export function findPortRecordOrFail(net: Net, node: Node): PortRecord {
-  const nodeEntry = net.nodeEntries.get(nodeKeyId(node))
+  const nodeEntry = findNodeEntry(net, node)
   if (nodeEntry === undefined) {
     throw new Error(
       [
