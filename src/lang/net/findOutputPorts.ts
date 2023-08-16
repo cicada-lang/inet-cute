@@ -3,7 +3,7 @@ import { Port } from "../port"
 import { Net } from "./Net"
 import { findPortRecordOrFail } from "./findPortRecordOrFail"
 
-export function nodeOutputPorts(net: Net, node: Node): Array<Port> {
+export function findOutputPorts(net: Net, node: Node): Array<Port> {
   const portRecord = findPortRecordOrFail(net, node)
   return Object.values(portRecord)
     .filter(({ sign }) => sign === 1)

@@ -1,7 +1,7 @@
 import { Mod } from "../mod"
 import { Net } from "../net"
 import { addNode } from "../net/addNode"
-import { nodeInputPorts } from "../net/nodeInputPorts"
+import { findInputPorts } from "../net/findInputPorts"
 import { Port } from "../port"
 
 export function addPlaceholderInputPortForPort(
@@ -26,5 +26,5 @@ export function addPlaceholderInputPortForPort(
     [],
   )
 
-  return nodeInputPorts(net, node)[0]
+  return findInputPorts(net, node)[0]
 }

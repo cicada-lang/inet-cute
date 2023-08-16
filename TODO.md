@@ -1,7 +1,5 @@
 # net
 
-`nodeInputPortRecord` & `nodeOutputPortRecord` return `Record`
-
 `rearrangeNodePorts` use record
 
 # connected component

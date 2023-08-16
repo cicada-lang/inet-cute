@@ -1,8 +1,8 @@
 import { arrayPickOut } from "../../utils/arrayPickOut"
 import { countStringOccurrences } from "../../utils/countStringOccurrences"
 import { Net } from "../net"
-import { nodeInputPorts } from "../net/nodeInputPorts"
-import { nodeOutputPorts } from "../net/nodeOutputPorts"
+import { findInputPorts } from "../net/findInputPorts"
+import { findOutputPorts } from "../net/findOutputPorts"
 import { Node } from "../node"
 import { Port } from "../port"
 import { formatValue } from "../value/formatValue"
@@ -18,8 +18,8 @@ export function rearrangeNodePorts(
   input: Array<Port>
   output: Array<Port>
 } {
-  const input = nodeInputPorts(net, node)
-  const output = nodeOutputPorts(net, node)
+  const input = findInputPorts(net, node)
+  const output = findOutputPorts(net, node)
 
   for (const name of [...rearrangement.input, ...rearrangement.output]) {
     const found =
