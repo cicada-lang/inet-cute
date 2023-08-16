@@ -3,7 +3,7 @@ import { Port } from "../port"
 import { Net } from "./Net"
 
 export function deleteConnection(net: Net, port: Port): void {
-  const ports = net.nodePortRecordMap.get(nodeKeyId(port.node))
+  const ports = net.nodePortRecords.get(nodeKeyId(port.node))
   if (ports === undefined) {
     return undefined
   }

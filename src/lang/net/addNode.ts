@@ -19,7 +19,7 @@ export function addNode(
   }
 
   const ports: PortRecord = {}
-  net.nodePortRecordMap.set(nodeKeyId(node), ports)
+  net.nodePortRecords.set(nodeKeyId(node), ports)
 
   input.map((portExp) => {
     ports[portExp.name] = {

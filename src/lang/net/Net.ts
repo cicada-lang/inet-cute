@@ -21,5 +21,5 @@ export type PortRecord = Record<string, PortEntry>
 export type Net = {
   edges: Array<Edge>
   activeEdges: Array<Edge>
-  nodePortRecordMap: Map<string, PortRecord>
+  nodePortRecords: Map<string, PortRecord>
 }
