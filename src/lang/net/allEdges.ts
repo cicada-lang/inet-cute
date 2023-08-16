@@ -2,6 +2,7 @@ import { Edge } from "../edge"
 import { nodeKeyId } from "../node/nodeKeyId"
 import { Port } from "../port"
 import { Net } from "./Net"
+import { createPortFromPortEntry } from "./createPortFromPortEntry"
 
 export function allEdges(net: Net): Array<Edge> {
   const edges: Array<Edge> = []
@@ -17,15 +18,7 @@ export function allEdges(net: Net): Array<Edge> {
     for (const portEntry of Object.values(nodeEntry.ports)) {
       if (portEntry.connection) {
         const second = portEntry.connection.port
-        const first: Port = {
-          "@type": "Value",
-          "@kind": "Port",
-          node,
-          name: portEntry.name,
-          sign: portEntry.sign,
-          t: portEntry.t,
-          isPrincipal: portEntry.isPrincipal,
-        }
+        const first: Port = createPortFromPortEntry(node, portEntry)
 
         const firstOccur = `${nodeKeyId(node)}-${portEntry.name}`
         const secondOccur = `${nodeKeyId(second.node)}-${second.name}`
