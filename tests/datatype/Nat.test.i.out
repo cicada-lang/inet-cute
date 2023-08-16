@@ -1,133 +1,133 @@
-(zero₂₀)-value!target-(add₁₀)
 (zero₁₉)-value addend-(add₁₀)
+(zero₂₀)-value!target-(add₁₀)
 (add₁₀)-return
 
 
 (zero₁₉)-value
 
-(add1₂₂)-value!target-(add₁₁)
+(zero₂₁)-value prev-(add1₂₁)
 (add1₂₁)-value addend-(add₁₁)
 (zero₂₂)-value prev-(add1₂₂)
-(zero₂₁)-value prev-(add1₂₁)
+(add1₂₂)-value!target-(add₁₁)
 (add₁₁)-return
 
-(add1₂₁)-value prev-(add1₂₃)
 (zero₂₁)-value prev-(add1₂₁)
+(add1₂₁)-value prev-(add1₂₃)
 (add1₂₃)-value
 
-(add1₂₇)-value!target-(add₁₄)
-(add1₂₅)-value!target-(add₁₃)
-(add₁₃)-return addend-(add₁₅)
-(add₁₄)-return target-(add₁₅)
-(add1₂₆)-value addend-(add₁₄)
-(zero₂₆)-value prev-(add1₂₇)
-(zero₂₅)-value prev-(add1₂₆)
+(zero₂₃)-value prev-(add1₂₄)
 (add1₂₄)-value addend-(add₁₃)
 (zero₂₄)-value prev-(add1₂₅)
-(zero₂₃)-value prev-(add1₂₄)
+(add1₂₅)-value!target-(add₁₃)
+(add₁₃)-return addend-(add₁₅)
+(zero₂₅)-value prev-(add1₂₆)
+(add1₂₆)-value addend-(add₁₄)
+(zero₂₆)-value prev-(add1₂₇)
+(add1₂₇)-value!target-(add₁₄)
+(add₁₄)-return target-(add₁₅)
 (add₁₅)-return
 
-(add1₂₄)-value prev-(add1₃₁)
-(add1₃₁)-value prev-(add1₃₀)
-(add1₃₀)-value prev-(add1₂₉)
 (zero₂₃)-value prev-(add1₂₄)
+(add1₂₄)-value prev-(add1₃₁)
+(add1₂₉)-prev value-(add1₃₀)
+(add1₃₀)-prev value-(add1₃₁)
 (add1₂₉)-value
 
-(add1₃₂)-value!target-(add₂₀)
 (zero₂₇)-value addend-(add₂₀)
 (zero₂₈)-value prev-(add1₃₂)
+(add1₃₂)-value!target-(add₂₀)
 (add₂₀)-return
 
 (zero₂₇)-value prev-(add1₃₃)
 (add1₃₃)-value
 
-(add1₃₄)-value prev-(add1₃₉)
-(add1₃₉)-value prev-(add1₃₈)
 (zero₂₉)-value prev-(add1₃₄)
+(add1₃₄)-value prev-(add1₃₉)
+(add1₃₈)-prev value-(add1₃₉)
 (add1₃₈)-value
 
-(add1₄₁)-value!target-(add₂₉)
-(add₂₉)-return target-(nat_erase₄)
+(zero₃₂)-value prev-(add1₄₀)
 (add1₄₀)-value addend-(add₂₉)
 (zero₃₃)-value prev-(add1₄₁)
-(zero₃₂)-value prev-(add1₄₀)
+(add1₄₁)-value!target-(add₂₉)
+(add₂₉)-return target-(nat_erase₄)
 (zero₃₄)-value
 
 
 (zero₃₄)-value
 
-(add1₄₄)-value!target-(add₃₁)
-(add₃₁)-return target-(nat_dup₄)
+(zero₃₅)-value prev-(add1₄₃)
 (add1₄₃)-value addend-(add₃₁)
 (zero₃₆)-value prev-(add1₄₄)
-(zero₃₅)-value prev-(add1₄₃)
+(add1₄₄)-value!target-(add₃₁)
+(add₃₁)-return target-(nat_dup₄)
 (nat_dup₄)-second
 (nat_dup₄)-first
 
-(zero₃₈)-value prev-(add1₄₉)
-(zero₃₇)-value prev-(add1₄₈)
-(add1₄₉)-value prev-(add1₄₇)
-(add1₄₈)-value prev-(add1₄₆)
+(add1₄₆)-prev value-(add1₄₈)
+(add1₄₇)-prev value-(add1₄₉)
+(add1₄₈)-prev value-(zero₃₇)
+(add1₄₉)-prev value-(zero₃₈)
 (add1₄₆)-value
 (add1₄₇)-value
 
-(add1₅₃)-value!target-(add₃₄)
-(add1₅₁)-value!target-(add₃₃)
-(add₃₃)-return mulend-(mul₃)
-(add₃₄)-return target-(mul₃)
-(add1₅₂)-value addend-(add₃₄)
-(zero₄₂)-value prev-(add1₅₃)
-(zero₄₁)-value prev-(add1₅₂)
+(zero₃₉)-value prev-(add1₅₀)
 (add1₅₀)-value addend-(add₃₃)
 (zero₄₀)-value prev-(add1₅₁)
-(zero₃₉)-value prev-(add1₅₀)
+(add1₅₁)-value!target-(add₃₃)
+(add₃₃)-return mulend-(mul₃)
+(zero₄₁)-value prev-(add1₅₂)
+(add1₅₂)-value addend-(add₃₄)
+(zero₄₂)-value prev-(add1₅₃)
+(add1₅₃)-value!target-(add₃₄)
+(add₃₄)-return target-(mul₃)
 (mul₃)-return
 
-(zero₄₇)-value prev-(add1₆₇)
+(add1₅₈)-prev value-(add1₆₄)
+(add1₆₁)-prev value-(add1₆₇)
 (add1₆₁)-value prev-(add1₆₄)
-(add1₆₇)-value prev-(add1₆₁)
-(add1₆₄)-value prev-(add1₅₈)
+(add1₆₇)-prev value-(zero₄₇)
 (add1₅₈)-value
 
-(add1₇₃)-value!target-(add₄₈)
-(add1₇₂)-value!target-(add₄₇)
-(add1₇₀)-value!target-(add₄₆)
-(add1₆₉)-value!target-(add₄₅)
-(add₄₆)-return mulend-(mul₈)
-(add₄₈)-return target-(mul₈)
-(add₄₇)-return addend-(add₄₈)
-(zero₅₇)-value prev-(add1₇₃)
-(add1₇₁)-value addend-(add₄₇)
-(zero₅₆)-value prev-(add1₇₂)
-(zero₅₅)-value prev-(add1₇₁)
-(add₄₅)-return addend-(add₄₆)
-(zero₅₄)-value prev-(add1₇₀)
+(zero₅₂)-value prev-(add1₆₈)
 (add1₆₈)-value addend-(add₄₅)
 (zero₅₃)-value prev-(add1₆₉)
-(zero₅₂)-value prev-(add1₆₈)
+(add1₆₉)-value!target-(add₄₅)
+(add₄₅)-return addend-(add₄₆)
+(zero₅₄)-value prev-(add1₇₀)
+(add1₇₀)-value!target-(add₄₆)
+(add₄₆)-return mulend-(mul₈)
+(zero₅₅)-value prev-(add1₇₁)
+(add1₇₁)-value addend-(add₄₇)
+(zero₅₆)-value prev-(add1₇₂)
+(add1₇₂)-value!target-(add₄₇)
+(add₄₇)-return addend-(add₄₈)
+(zero₅₇)-value prev-(add1₇₃)
+(add1₇₃)-value!target-(add₄₈)
+(add₄₈)-return target-(mul₈)
 (mul₈)-return
 
-(zero₆₄)-value prev-(add1₁₀₄)
-(add1₉₅)-value prev-(add1₁₀₁)
+(add1₇₉)-prev value-(add1₈₉)
+(add1₈₂)-prev value-(add1₈₅)
 (add1₈₂)-value prev-(add1₉₈)
-(add1₁₀₄)-value prev-(add1₉₅)
-(add1₁₀₁)-value prev-(add1₉₂)
-(add1₉₈)-value prev-(add1₈₉)
-(add1₉₂)-value prev-(add1₈₅)
-(add1₈₉)-value prev-(add1₇₉)
-(add1₈₅)-value prev-(add1₈₂)
+(add1₈₅)-prev value-(add1₉₂)
+(add1₈₉)-prev value-(add1₉₈)
+(add1₉₂)-prev value-(add1₁₀₁)
+(add1₉₅)-prev value-(add1₁₀₄)
+(add1₉₅)-value prev-(add1₁₀₁)
+(add1₁₀₄)-prev value-(zero₆₄)
 (add1₇₉)-value
 
-(add1₁₀₅)-value prev-(add1₁₀₈)
 (zero₇₂)-value prev-(add1₁₀₅)
+(add1₁₀₅)-value prev-(add1₁₀₈)
 (add1₁₀₈)-value
 
-(add1₁₁₄)-value prev-(add1₁₁₃)
 (zero₇₅)-value prev-(add1₁₁₄)
+(add1₁₁₃)-prev value-(add1₁₁₄)
 (add1₁₁₃)-value
 
-(add1₁₁₅)-value prev-(add1₁₂₄)
-(add1₁₂₄)-value prev-(add1₁₂₂)
 (zero₇₇)-value prev-(add1₁₁₅)
+(add1₁₁₅)-value prev-(add1₁₂₄)
+(add1₁₂₂)-prev value-(add1₁₂₄)
 (add1₁₂₂)-value
 

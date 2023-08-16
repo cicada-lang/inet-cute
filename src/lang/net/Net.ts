@@ -14,7 +14,6 @@ import { Value } from "../value"
 */
 
 export type Net = {
-  edges: Array<Edge>
   activeEdges: Array<Edge>
   nodeEntries: Map<string, NodeEntry>
 }

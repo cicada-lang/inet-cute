@@ -40,7 +40,5 @@ export function connect(net: Net, first: Port, second: Port): void {
 
   if (first.isPrincipal && second.isPrincipal) {
     net.activeEdges.push(edge)
-  } else {
-    net.edges.push(edge)
   }
 }

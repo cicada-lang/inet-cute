@@ -1,7 +1,5 @@
 # connected component
 
-`allEdges` -- `Net` should not have `edges`
-
 `allActiveEdges` -- `Net` should not have `activeEdges`
 
 `Connection` should not have `edge`

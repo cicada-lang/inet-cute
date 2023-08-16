@@ -1,6 +1,6 @@
-(add1₂₁)-value!target-(add₁₀)
 (zero₁₉)-value addend-(add₁₀)
 (zero₂₀)-value prev-(add1₂₁)
+(add1₂₁)-value!target-(add₁₀)
 (add₁₀)-return
 
 (zero₁₉)-value prev-(add1₂₂)
