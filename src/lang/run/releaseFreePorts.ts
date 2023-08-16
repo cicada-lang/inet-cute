@@ -1,5 +1,5 @@
-import { disconnect } from "../connect/disconnect"
 import { Env } from "../env"
+import { disconnectPort } from "../net/disconnectPort"
 import { findInputPorts } from "../net/findInputPorts"
 import { findPortEntry } from "../net/findPortEntry"
 import { Node } from "../node"
@@ -21,6 +21,6 @@ export function releaseFreePorts(env: Env, closer: Node | undefined): void {
 
     env.stack.push(portEntry.connection.port)
 
-    disconnect(env.net, portEntry.connection.edge)
+    disconnectPort(env.net, portEntry.connection.port)
   }
 }

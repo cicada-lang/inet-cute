@@ -1,9 +1,5 @@
 # connected component
 
-`allActiveEdges` -- `Net` should not have `activeEdges`
-
-`Connection` should not have `edge`
-
 [builtin] `inspect` -- if the element is a port, print its connected component
 
 [builtin] `run` -- only run the top port -- connected component

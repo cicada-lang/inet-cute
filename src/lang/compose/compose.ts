@@ -1,10 +1,10 @@
 import { Checking } from "../checking"
 import { connect } from "../connect/connect"
-import { disconnect } from "../connect/disconnect"
 import { Env } from "../env"
 import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
+import { disconnectPort } from "../net/disconnectPort"
 import { findPortEntry } from "../net/findPortEntry"
 import { Node } from "../node"
 import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
@@ -74,7 +74,7 @@ export function compose(
           )
         }
 
-        disconnect(env.net, portEntry.connection.edge)
+        disconnectPort(env.net, portEntry.connection.port)
 
         env.stack.push(currentPort)
         return
@@ -101,7 +101,7 @@ export function compose(
           )
         }
 
-        disconnect(env.net, portEntry.connection.edge)
+        disconnectPort(env.net, portEntry.connection.port)
 
         const value = env.stack.pop()
         if (value === undefined) {

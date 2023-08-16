@@ -33,10 +33,10 @@ export function connect(net: Net, first: Port, second: Port): void {
   const edge = { first, second }
 
   const firstPortRecord = findPortRecordOrFail(net, first.node)
-  firstPortRecord[first.name].connection = { edge, port: second }
+  firstPortRecord[first.name].connection = { port: second }
 
   const secondPortRecord = findPortRecordOrFail(net, second.node)
-  secondPortRecord[second.name].connection = { edge, port: first }
+  secondPortRecord[second.name].connection = { port: first }
 
   if (first.isPrincipal && second.isPrincipal) {
     net.activeEdges.push(edge)

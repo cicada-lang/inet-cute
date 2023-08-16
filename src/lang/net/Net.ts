@@ -36,6 +36,5 @@ export type PortEntry = {
 }
 
 export type Connection = {
-  edge: Edge
   port: Port
 }
