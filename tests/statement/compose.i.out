@@ -1,8 +1,8 @@
-(zero₁)-value prev-(add1₂)
-(add1₂)-value prev-(add1₃)
-(add1₃)-value
-
-(zero₁)-value prev-(add1₂)
-(add1₂)-value prev-(add1₃)
-(add1₃)-value
-
+net_from_port (add1)-value!
+  (add1₃)-prev value-(add1₂)
+  (add1₂)-prev value-(zero₁)
+end
+net_from_port (add1)-value!
+  (add1₃)-prev value-(add1₂)
+  (add1₂)-prev value-(zero₁)
+end

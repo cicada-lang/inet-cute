@@ -1,9 +1,8 @@
 # connected component
 
-[builtin] `inspect` -- if the element is a port, print its connected component
-
 [builtin] `run` -- only run the top port -- connected component
 
+- need to be able to run `net` -- instead of `env`
 - need to `createEnv` for the net component
 
 # docs

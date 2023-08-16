@@ -1,5 +1,7 @@
+import { indent } from "../../utils/indent"
 import { Env } from "../env"
-import { formatNetFromEnv } from "../env/formatNetFromEnv"
+import { findConnectedComponent } from "../net/findConnectedComponent"
+import { formatNet } from "../net/formatNet"
 import { formatValue } from "../value/formatValue"
 
 export function compose(env: Env): void {
@@ -9,11 +11,12 @@ export function compose(env: Env): void {
   }
 
   if (value["@kind"] === "Port") {
-    console.log(formatNetFromEnv(env))
-    console.log()
+    const connectedcomponent = findConnectedComponent(env.net, value.node)
+    console.log("net_from_port", formatValue(value))
+    console.log(indent(formatNet(connectedcomponent)))
+    console.log("end")
     return
   }
 
   console.log(formatValue(value))
-  console.log()
 }

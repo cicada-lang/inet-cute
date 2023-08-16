@@ -1,8 +1,8 @@
-(zero₁₉)-value addend-(add₁₀)
-(zero₂₀)-value prev-(add1₂₁)
-(add1₂₁)-value!target-(add₁₀)
-(add₁₀)-return
-
-(zero₁₉)-value prev-(add1₂₂)
-(add1₂₂)-value
-
+net_from_port (add)-return
+  (add₁₀)-target!value-(add1₂₁)
+  (add₁₀)-addend value-(zero₁₉)
+  (add1₂₁)-prev value-(zero₂₀)
+end
+net_from_port (add1)-value!
+  (add1₂₂)-prev value-(zero₁₉)
+end
