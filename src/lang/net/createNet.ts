@@ -4,6 +4,6 @@ export function createNet(): Net {
   return {
     edges: [],
     activeEdges: [],
-    nodePortRecords: new Map(),
+    nodeEntries: new Map(),
   }
 }

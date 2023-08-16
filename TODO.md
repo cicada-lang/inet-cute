@@ -1,6 +1,10 @@
 # connected component
 
-`Net` should not have `edges`
+`allEdges` -- `Net` should not have `edges`
+
+`allActiveEdges` -- `Net` should not have `activeEdges`
+
+`Connection` should not have `edge`
 
 [builtin] `inspect` -- if the element is a port, print its connected component
 

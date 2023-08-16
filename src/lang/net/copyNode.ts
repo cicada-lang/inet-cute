@@ -1,10 +1,10 @@
 import { Node } from "../node"
 import { nodeKeyId } from "../node/nodeKeyId"
 import { Net } from "./Net"
-import { clonePortRecord } from "./clonePortRecord"
-import { findPortRecordOrFail } from "./findPortRecordOrFail"
+import { cloneNodeEntry } from "./cloneNodeEntry"
+import { findNodeEntryOrFail } from "./findNodeEntryOrFail"
 
 export function copyNode(source: Net, target: Net, node: Node): void {
-  const portRecord = findPortRecordOrFail(source, node)
-  target.nodePortRecords.set(nodeKeyId(node), clonePortRecord(portRecord))
+  const entry = findNodeEntryOrFail(source, node)
+  target.nodeEntries.set(nodeKeyId(node), cloneNodeEntry(entry))
 }

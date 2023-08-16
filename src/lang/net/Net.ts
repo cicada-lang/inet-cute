@@ -18,8 +18,15 @@ export type PortEntry = {
 
 export type PortRecord = Record<string, PortEntry>
 
+export type NodeEntry = {
+  id: string
+  name: string
+  url: URL
+  ports: PortRecord
+}
+
 export type Net = {
   edges: Array<Edge>
   activeEdges: Array<Edge>
-  nodePortRecords: Map<string, PortRecord>
+  nodeEntries: Map<string, NodeEntry>
 }

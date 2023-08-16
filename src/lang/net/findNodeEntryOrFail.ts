@@ -1,19 +1,19 @@
 import { Node } from "../node"
 import { formatNode } from "../node/formatNode"
 import { nodeKeyId } from "../node/nodeKeyId"
-import { Net, PortRecord } from "./Net"
+import { Net, NodeEntry } from "./Net"
 
-export function findPortRecordOrFail(net: Net, node: Node): PortRecord {
+export function findNodeEntryOrFail(net: Net, node: Node): NodeEntry {
   const nodeEntry = net.nodeEntries.get(nodeKeyId(node))
   if (nodeEntry === undefined) {
     throw new Error(
       [
-        `[findNodePortsOrFail] I can not find node entry for node.`,
+        `[findNodeEntryOrFail] I can not find nodePorts for node.`,
         ``,
         `  node: ${formatNode(node)}`,
       ].join("\n"),
     )
   }
 
-  return nodeEntry.ports
+  return nodeEntry
 }

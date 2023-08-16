@@ -3,10 +3,10 @@ import { Port } from "../port"
 import { Net, PortEntry } from "./Net"
 
 export function findPortEntry(net: Net, port: Port): PortEntry | undefined {
-  const ports = net.nodePortRecords.get(nodeKeyId(port.node))
-  if (ports === undefined) {
+  const nodeEntry = net.nodeEntries.get(nodeKeyId(port.node))
+  if (nodeEntry === undefined) {
     return undefined
   }
 
-  return ports[port.name]
+  return nodeEntry.ports[port.name]
 }

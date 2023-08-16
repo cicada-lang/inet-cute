@@ -12,14 +12,12 @@ export function addNode(
   input: Array<PortExp>,
   output: Array<PortExp>,
 ): Node {
-  const node: Node = {
-    id: createNodeId(mod, name),
-    url: mod.url,
-    name,
-  }
+  const id = createNodeId(mod, name)
+
+  const node: Node = { id, url: mod.url, name }
 
   const ports: PortRecord = {}
-  net.nodePortRecords.set(nodeKeyId(node), ports)
+  net.nodeEntries.set(nodeKeyId(node), { id, url: mod.url, name, ports })
 
   input.map((portExp) => {
     ports[portExp.name] = {
