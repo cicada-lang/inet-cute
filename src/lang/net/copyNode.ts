@@ -4,5 +4,5 @@ import { findPortRecordOrFail } from "./findPortRecordOrFail"
 
 export function copyNode(source: Net, target: Net, node: Node): void {
   const portRecord = findPortRecordOrFail(source, node)
-  //
+  // clonePortRecord(portRecord)
 }

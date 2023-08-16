@@ -1,9 +1,5 @@
 # connected component
 
-`clonePortRecord`
-
-`clonePortEntry`
-
 `copyNode`
 
 `Net` should not have `edges`
