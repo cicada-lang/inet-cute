@@ -1,9 +1,12 @@
 # connected component
 
-[builtin] `run` -- only run the top port -- connected component
+`closeFreePorts` should not use `stack` but traverse the ports
 
-- need to be able to run `net` -- instead of `env`
-- need to `createEnv` for the net component
+`run` take `mod` and `net` -- instead of `env`
+
+[builtin] `run` -- only run the top port
+
+- move connected component out and back
 
 # docs
 
