@@ -4,7 +4,7 @@ import { Edge } from "../edge"
 import { Env } from "../env"
 import { lookupRuleByPorts } from "../mod/lookupRuleByPorts"
 import { deleteEdgesOfNode } from "../net/deleteEdgesOfNode"
-import { deleteNodePortEntries } from "../net/deleteNodePortEntries"
+import { deleteNodePortRecord } from "../net/deleteNodePortRecord"
 
 export type InteractOptions = {
   checking?: Checking
@@ -31,6 +31,6 @@ export function interact(
     })
   }
 
-  deleteNodePortEntries(env.net, activeEdge.first.node)
-  deleteNodePortEntries(env.net, activeEdge.second.node)
+  deleteNodePortRecord(env.net, activeEdge.first.node)
+  deleteNodePortRecord(env.net, activeEdge.second.node)
 }

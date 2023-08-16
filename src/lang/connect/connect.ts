@@ -1,6 +1,6 @@
 import { checkPortSigns } from "../check/checkPortSigns"
 import { Net } from "../net"
-import { findNodePortEntriesOrFail } from "../net/findNodePortEntriesOrFail"
+import { findNodePortRecordOrFail } from "../net/findNodePortRecordOrFail"
 import { findPortEntry } from "../net/findPortEntry"
 import { Port } from "../port"
 import { formatValue } from "../value/formatValue"
@@ -32,11 +32,11 @@ export function connect(net: Net, first: Port, second: Port): void {
 
   const edge = { first, second }
 
-  const firstNodePortEntries = findNodePortEntriesOrFail(net, first.node)
-  firstNodePortEntries[first.name].connection = { edge, port: second }
+  const firstNodePortRecord = findNodePortRecordOrFail(net, first.node)
+  firstNodePortRecord[first.name].connection = { edge, port: second }
 
-  const secondNodePortEntries = findNodePortEntriesOrFail(net, second.node)
-  secondNodePortEntries[second.name].connection = { edge, port: first }
+  const secondNodePortRecord = findNodePortRecordOrFail(net, second.node)
+  secondNodePortRecord[second.name].connection = { edge, port: first }
 
   if (first.isPrincipal && second.isPrincipal) {
     net.activeEdges.push(edge)

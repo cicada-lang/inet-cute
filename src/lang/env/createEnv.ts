@@ -7,7 +7,7 @@ export function createEnv(mod: Mod): Env {
     net: {
       edges: [],
       activeEdges: [],
-      nodePortEntriesMap: new Map(),
+      nodePortRecordMap: new Map(),
     },
     stack: [],
     locals: new Map(),

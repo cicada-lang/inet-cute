@@ -16,10 +16,10 @@ export type PortEntry = {
   connection?: Connection
 }
 
-export type PortEntries = Record<string, PortEntry>
+export type PortRecord = Record<string, PortEntry>
 
 export type Net = {
   edges: Array<Edge>
   activeEdges: Array<Edge>
-  nodePortEntriesMap: Map<string, PortEntries>
+  nodePortRecordMap: Map<string, PortRecord>
 }
