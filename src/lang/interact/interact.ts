@@ -17,9 +17,6 @@ export function interact(
   const rule = lookupRuleByPorts(env.mod, activeEdge.first, activeEdge.second)
   if (rule === undefined) return
 
-  // deleteEdgesOfNode(env.net, activeEdge.first.node)
-  // deleteEdgesOfNode(env.net, activeEdge.second.node)
-
   for (const word of rule.words) {
     compose(rule.mod, env, word, {
       current: {
