@@ -1,10 +1,10 @@
 import { Node } from "../node"
 import { Port } from "../port"
 import { Net } from "./Net"
-import { findNodePortRecordOrFail } from "./findNodePortRecordOrFail"
+import { findPortRecordOrFail } from "./findPortRecordOrFail"
 
 export function nodeInputPorts(net: Net, node: Node): Array<Port> {
-  const portRecord = findNodePortRecordOrFail(net, node)
+  const portRecord = findPortRecordOrFail(net, node)
   return Object.values(portRecord)
     .filter(({ sign }) => sign === -1)
     .map((portEntry) => ({

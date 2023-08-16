@@ -1,6 +1,8 @@
 # net
 
-`nodeInputPorts` & `nodeOutputPorts` return `Record` instead of `Array`
+`nodeInputPortRecord` & `nodeOutputPortRecord` return `Record`
+
+`rearrangeNodePorts` use record
 
 # connected component
 
