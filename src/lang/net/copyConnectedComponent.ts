@@ -1,5 +1,6 @@
 import { Node } from "../node"
 import { Net } from "./Net"
+import { copyNode } from "./copyNode"
 import { findPortRecordOrFail } from "./findPortRecordOrFail"
 import { hasNode } from "./hasNode"
 
@@ -20,9 +21,4 @@ export function copyConnectedComponent(
       copyConnectedComponent(net, component, portEntry.connection.port.node)
     }
   }
-}
-
-export function copyNode(source: Net, target: Net, node: Node): void {
-  const portRecord = findPortRecordOrFail(source, node)
-  //
 }

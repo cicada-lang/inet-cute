@@ -1,8 +1,8 @@
 # connected component
 
-clonePortRecord
+`clonePortRecord`
 
-clonePortEntry
+`clonePortEntry`
 
 `copyNode`
 
