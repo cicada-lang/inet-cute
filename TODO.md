@@ -1,7 +1,5 @@
 # connected component
 
-extract `copyConnectedComponent`
-
 clonePortRecord
 
 clonePortEntry
