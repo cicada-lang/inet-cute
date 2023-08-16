@@ -1,8 +1,6 @@
-# net
-
-`rearrangeNodePorts` use record
-
 # connected component
+
+`connectedComponent(net, port): Net`
 
 [builtin] `inspect` -- if the element is a port, print its connected component
 
