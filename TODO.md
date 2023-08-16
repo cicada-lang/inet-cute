@@ -1,7 +1,5 @@
 # connected component
 
-`copyNode`
-
 `Net` should not have `edges`
 
 [builtin] `inspect` -- if the element is a port, print its connected component
