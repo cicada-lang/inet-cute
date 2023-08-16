@@ -1,8 +1,8 @@
 import { Node } from "../node"
-import { nodeKeyId } from "../node/nodeKeyId"
 import { Net, PortRecord } from "./Net"
+import { findNodeEntry } from "./findNodeEntry"
 
 export function findPortRecord(net: Net, node: Node): PortRecord | undefined {
-  const nodeEntry = net.nodeEntries.get(nodeKeyId(node))
+  const nodeEntry = findNodeEntry(net, node)
   return nodeEntry?.ports
 }
