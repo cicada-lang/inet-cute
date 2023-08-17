@@ -6,8 +6,8 @@ import { findInputPorts } from "../net/findInputPorts"
 import { Port } from "../port"
 
 export function connectPlaceholderInputPort(
-  net: Net,
   mod: Mod,
+  net: Net,
   port: Port,
 ): Port {
   const nodeName = `_placeholder_input_node_for_${port.name}_of_${port.node.name}`

@@ -2,6 +2,7 @@ import { Edge } from "../edge"
 import { nodeKeyId } from "../node/nodeKeyId"
 import { Port } from "../port"
 import { Net } from "./Net"
+import { createNodeFromNodeEntry } from "./createNodeFromNodeEntry"
 import { createPortFromPortEntry } from "./createPortFromPortEntry"
 
 export function allEdges(net: Net): Array<Edge> {
@@ -9,11 +10,7 @@ export function allEdges(net: Net): Array<Edge> {
   const occurred: Set<string> = new Set()
 
   for (const nodeEntry of net.nodeEntries.values()) {
-    const node = {
-      id: nodeEntry.id,
-      name: nodeEntry.name,
-      url: nodeEntry.url,
-    }
+    const node = createNodeFromNodeEntry(nodeEntry)
 
     for (const portEntry of Object.values(nodeEntry.ports)) {
       if (portEntry.connection) {

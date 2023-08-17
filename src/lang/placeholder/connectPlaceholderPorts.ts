@@ -9,13 +9,13 @@ import { connectPlaceholderOutputPort } from "./connectPlaceholderOutputPort"
 export function connectPlaceholderPorts(mod: Mod, net: Net, node: Node): void {
   for (const port of findInputPorts(net, node)) {
     if (!port.isPrincipal) {
-      connectPlaceholderOutputPort(net, mod, port)
+      connectPlaceholderOutputPort(mod, net, port)
     }
   }
 
   for (const port of findOutputPorts(net, node)) {
     if (!port.isPrincipal) {
-      connectPlaceholderInputPort(net, mod, port)
+      connectPlaceholderInputPort(mod, net, port)
     }
   }
 }

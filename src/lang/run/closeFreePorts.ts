@@ -17,16 +17,24 @@ export function closeFreePorts(env: Env): Node | undefined {
     return undefined
   }
 
-  // const temporaryPorts: Array<Port> = []
-  // for (const nodeEntry of env.net.nodeEntries) {
-  //   for (const port of nodeEntry.ports) {
-  //     if (port.connection === undefined) {
-  //       switch (port.sign) {
+  // const placeholderPorts: Array<Port> = []
+  // for (const nodeEntry of env.net.nodeEntries.values()) {
+  //   for (const portEntry of Object.values(nodeEntry.ports)) {
+  //     if (portEntry.connection === undefined) {
+  //       switch (portEntry.sign) {
   //         case 1: {
-  //           addPlaceholderInputPortForPort(env.mod, env.net, port)
+  //           placeholderPorts.push(
+  //             connectPlaceholderInputPort(
+  //               env.mod,
+  //               env.net,
+  //               createPortFromPortEntry(portEntry),
+  //             ),
+  //           )
   //         }
   //         case -1: {
-  //           addPlaceholderOutputPortForPort(env.mod, env.net, port)
+  //           placeholderPorts.push(
+  //             connectPlaceholderOutputPort(env.mod, env.net, port),
+  //           )
   //         }
   //       }
   //     }

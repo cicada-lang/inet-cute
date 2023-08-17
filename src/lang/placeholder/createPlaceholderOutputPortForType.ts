@@ -6,8 +6,8 @@ import { Port } from "../port"
 import { Value } from "../value"
 
 export function createPlaceholderOutputPortForType(
-  net: Net,
   mod: Mod,
+  net: Net,
   t: Value,
 ): Port {
   const nodeName = `_placeholder_output_node_from_type`
