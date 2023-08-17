@@ -1,3 +1,4 @@
+import { Edge } from "../edge"
 import { Node } from "../node"
 import { Net } from "./Net"
 import { findPortRecordOrFail } from "./findPortRecordOrFail"
@@ -21,4 +22,19 @@ export function moveConnectedComponent(
       moveConnectedComponent(net, component, portEntry.connection.port.node)
     }
   }
+
+  const remainingActiveEdges: Array<Edge> = []
+
+  for (const activeEdge of net.activeEdges) {
+    if (
+      hasNode(component, activeEdge.first.node) &&
+      hasNode(component, activeEdge.second.node)
+    ) {
+      component.activeEdges.push(activeEdge)
+    } else {
+      remainingActiveEdges.push(activeEdge)
+    }
+  }
+
+  net.activeEdges = remainingActiveEdges
 }

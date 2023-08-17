@@ -1,7 +1,5 @@
 # connected component
 
-`copyConnectedComponent` and `moveConnectedComponent` -- handle `activeEdges`
-
 [builtin] `run` -- only run the top port
 
 - `run` take `mod` and `net` and `port` and return `port`
