@@ -16,5 +16,3 @@ node cons
 end
 
 sole sole cons
-
-TODO

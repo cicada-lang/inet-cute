@@ -14,7 +14,9 @@ export class Compose implements Stmt {
 
   async execute(mod: Mod): Promise<void> {
     try {
-      compose(mod, mod.env, this.word, {})
+      compose(mod, mod.env, this.word, {
+        checking: mod.checking,
+      })
     } catch (error) {
       throw appendReport(error, {
         message: [
