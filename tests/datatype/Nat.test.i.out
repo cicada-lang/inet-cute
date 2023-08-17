@@ -60,8 +60,8 @@ net_from_port (nat_dup)-first
   (add1₄₃)-prev value-(zero₃₅)
 end
 net_from_port (add1)-value!
-  (add1₄₇)-prev value-(add1₄₉)
-  (add1₄₉)-prev value-(zero₃₈)
+  (add1₄₆)-prev value-(add1₄₈)
+  (add1₄₈)-prev value-(zero₃₇)
 end
 net_from_port (mul)-return
   (mul₃)-target return-(add₃₄)

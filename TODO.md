@@ -1,8 +1,6 @@
 # connected component
 
-`closeFreePorts` should not use `stack` but traverse the ports
-
-`run` take `mod` and `net` -- instead of `env`
+`run` take `mod` and `net` and `port` and return `port`
 
 [builtin] `run` -- only run the top port
 
