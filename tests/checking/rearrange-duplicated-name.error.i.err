@@ -9,12 +9,15 @@
  15 |  'A List :value!
  16 |end
  17 |
- 18 |begin sole (:head:tail cons :tail:head) end
+ 18 |sole (:head:tail cons :tail:head)
+ 19 |
 
-[Begin.execute] I fail to begin.
+[Compose.execute] I fail to compose word.
 
- 14 |  --------
+  word: (:head:tail cons :tail:head)
+
  15 |  'A List :value!
  16 |end
  17 |
- 18 |begin sole (:head:tail cons :tail:head) end
+ 18 |sole (:head:tail cons :tail:head)
+ 19 |

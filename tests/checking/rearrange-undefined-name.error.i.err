@@ -11,12 +11,15 @@
  15 |  'A List :value!
  16 |end
  17 |
- 18 |begin sole (:hi cons) end
+ 18 |sole (:hi cons)
+ 19 |
 
-[Begin.execute] I fail to begin.
+[Compose.execute] I fail to compose word.
 
- 14 |  --------
+  word: (:hi cons)
+
  15 |  'A List :value!
  16 |end
  17 |
- 18 |begin sole (:hi cons) end
+ 18 |sole (:hi cons)
+ 19 |

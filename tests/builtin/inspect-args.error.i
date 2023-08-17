@@ -1,1 +1,1 @@
-begin inspect end
+inspect

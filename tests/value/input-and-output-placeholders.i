@@ -19,4 +19,4 @@ rule add1 add
   (add)-return inspect connect
 end
 
-begin zero add1 zero add1 add inspect end
+zero add1 zero add1 add inspect

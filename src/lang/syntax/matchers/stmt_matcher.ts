@@ -35,8 +35,6 @@ export function stmt_matcher(tree: pt.Tree): Stmt {
         matchers.words_matcher(output),
         span,
       ),
-    "stmt:begin": ({ words }, { span }) =>
-      new Stmts.Begin(matchers.words_matcher(words), span),
     "stmt:check": ({ input, output, words }, { span }) =>
       new Stmts.Check(
         matchers.words_matcher(input),

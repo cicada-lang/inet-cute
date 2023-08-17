@@ -15,4 +15,4 @@ node cons
   'A List :value!
 end
 
-begin sole (:hi cons) end
+sole (:hi cons)

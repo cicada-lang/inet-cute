@@ -37,7 +37,6 @@ export const stmt = {
       { output: "words" },
       '"end"',
     ],
-    "stmt:begin": ['"begin"', { words: "words" }, '"end"'],
     "stmt:check": [
       '"check"',
       { input: "words" },

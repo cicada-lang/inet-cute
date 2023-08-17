@@ -9,14 +9,15 @@
  3 |
  4 |type List Type -- Type end
  5 |
- 6 |begin sole List end
+ 6 |sole List
  7 |
 
-[Begin.execute] I fail to begin.
+[Compose.execute] I fail to compose word.
 
- 2 |node sole -- Trivial :value! end
+  word: List
+
  3 |
  4 |type List Type -- Type end
  5 |
- 6 |begin sole List end
+ 6 |sole List
  7 |

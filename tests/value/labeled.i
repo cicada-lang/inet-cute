@@ -1,4 +1,2 @@
-begin
-  'A :target! inspect
-  'A :addend inspect
-end
+'A :target! inspect
+'A :addend inspect

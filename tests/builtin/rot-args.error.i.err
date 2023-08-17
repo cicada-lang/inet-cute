@@ -10,11 +10,15 @@
  1 |type Trivial -- Type end
  2 |node sole -- Trivial :value! end
  3 |
- 4 |begin sole sole rot end
+ 4 |sole sole rot
+ 5 |
 
-[Begin.execute] I fail to begin.
+[Compose.execute] I fail to compose word.
+
+  word: rot
 
  1 |type Trivial -- Type end
  2 |node sole -- Trivial :value! end
  3 |
- 4 |begin sole sole rot end
+ 4 |sole sole rot
+ 5 |

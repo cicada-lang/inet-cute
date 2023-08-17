@@ -9,11 +9,15 @@
  1 |type Trivial -- Type end
  2 |node sole -- Trivial :value! end
  3 |
- 4 |begin sole swap end
+ 4 |sole swap
+ 5 |
 
-[Begin.execute] I fail to begin.
+[Compose.execute] I fail to compose word.
+
+  word: swap
 
  1 |type Trivial -- Type end
  2 |node sole -- Trivial :value! end
  3 |
- 4 |begin sole swap end
+ 4 |sole swap
+ 5 |

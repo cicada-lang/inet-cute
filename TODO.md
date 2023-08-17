@@ -1,4 +1,7 @@
-remove `begin end` syntax
+top level env has checking -- for top level `Compose`
+
+- begin-type.error.i
+- begin-type-nested.error.i
 
 # books
 

@@ -9,4 +9,4 @@ define six_soles
   append
 end
 
-begin six_soles inspect run inspect end
+six_soles inspect run inspect

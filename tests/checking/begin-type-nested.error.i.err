@@ -1,21 +1,25 @@
-[unifyTypes] I fail to unify types.
+[lookupDefinitionOrFail] I meet undefined name.
 
-  left: Trivial
-  right: Trivial List
+  name: TODO
 
 [compose] I fail compose word.
 
-  word: cons
+  word: TODO
 
- 15 |  'A List :value!
  16 |end
  17 |
- 18 |begin sole sole cons end
+ 18 |sole sole cons
+ 19 |
+ 20 |TODO
+ 21 |
 
-[Begin.execute] I fail to begin.
+[Compose.execute] I fail to compose word.
 
- 14 |  --------
- 15 |  'A List :value!
+  word: TODO
+
  16 |end
  17 |
- 18 |begin sole sole cons end
+ 18 |sole sole cons
+ 19 |
+ 20 |TODO
+ 21 |

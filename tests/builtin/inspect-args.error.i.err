@@ -4,10 +4,12 @@
 
   word: inspect
 
- 1 |begin inspect end
+ 1 |inspect
  2 |
 
-[Begin.execute] I fail to begin.
+[Compose.execute] I fail to compose word.
 
- 1 |begin inspect end
+  word: inspect
+
+ 1 |inspect
  2 |

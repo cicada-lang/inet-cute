@@ -3,7 +3,7 @@
 const preserved = [
   ...["define", "claim"],
   ...["type", "node", "rule"],
-  ...["begin", "check"],
+  ...["check"],
   ...["import", "require"],
   ...["end"],
 ]
