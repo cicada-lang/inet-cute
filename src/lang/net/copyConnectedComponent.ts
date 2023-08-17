@@ -21,4 +21,13 @@ export function copyConnectedComponent(
       copyConnectedComponent(net, component, portEntry.connection.port.node)
     }
   }
+
+  for (const activeEdge of net.activeEdges) {
+    if (
+      hasNode(component, activeEdge.first.node) &&
+      hasNode(component, activeEdge.second.node)
+    ) {
+      component.activeEdges.push(activeEdge)
+    }
+  }
 }

@@ -1,4 +1,4 @@
-net_from_port (diff_append)-return
+net_from_port (diff_append₂)-return
   (diff_append₂)-target!value-(diff₆)
   (diff_append₂)-rest value-(diff₅)
   (diff₆)-front value-(cons₇)
@@ -10,7 +10,7 @@ net_from_port (diff_append)-return
   (diff₅)-back tail-(cons₅)
   (cons₅)-head value-(sole₃)
 end
-net_from_port (diff)-value!
+net_from_port (diff₇)-value!
   (diff₇)-front value-(cons₇)
   (diff₇)-back tail-(cons₅)
   (cons₇)-head value-(sole₅)
@@ -19,7 +19,7 @@ net_from_port (diff)-value!
   (cons₆)-tail value-(cons₅)
   (cons₅)-head value-(sole₃)
 end
-net_from_port (diff_append)-return
+net_from_port (diff_append₄)-return
   (diff_append₄)-target!value-(diff₁₁)
   (diff_append₄)-rest value-(diff₁₀)
   (diff₁₁)-front value-(cons₁₅)
@@ -33,7 +33,7 @@ net_from_port (diff_append)-return
   (cons₁₃)-tail value-(cons₁₂)
   (cons₁₂)-head value-(sole₁₀)
 end
-net_from_port (diff)-value!
+net_from_port (diff₁₂)-value!
   (diff₁₂)-front value-(cons₁₅)
   (diff₁₂)-back tail-(cons₁₂)
   (cons₁₅)-head value-(sole₁₃)
@@ -44,7 +44,7 @@ net_from_port (diff)-value!
   (cons₁₃)-tail value-(cons₁₂)
   (cons₁₂)-head value-(sole₁₀)
 end
-net_from_port (diff_append)-return
+net_from_port (diff_append₆)-return
   (diff_append₆)-target!value-(diff₁₆)
   (diff_append₆)-rest value-(diff₁₅)
   (diff₁₆)-front value-(cons₂₃)
@@ -58,7 +58,7 @@ net_from_port (diff_append)-return
   (cons₂₁)-tail value-(cons₂₀)
   (cons₂₀)-head value-(sole₁₈)
 end
-net_from_port (diff)-value!
+net_from_port (diff₁₇)-value!
   (diff₁₇)-front value-(cons₂₃)
   (diff₁₇)-back tail-(cons₂₀)
   (cons₂₃)-head value-(sole₂₁)

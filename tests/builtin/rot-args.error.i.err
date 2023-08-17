@@ -1,7 +1,7 @@
 [rot (builtin)] I expect a third value on the stack.
 
-  first: (sole)-value!
-  second: (sole)-value!
+  first: (sole₁)-value!
+  second: (sole₀)-value!
 
 [compose] I fail compose word.
 

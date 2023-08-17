@@ -1,12 +1,13 @@
+import { formatNode } from "../node/formatNode"
 import { Value } from "./Value"
 
 export function formatValue(value: Value): string {
   switch (value["@kind"]) {
     case "Port": {
       if (value.isPrincipal) {
-        return `(${value.node.name})-${value.name}!`
+        return `(${formatNode(value.node)})-${value.name}!`
       } else {
-        return `(${value.node.name})-${value.name}`
+        return `(${formatNode(value.node)})-${value.name}`
       }
     }
 

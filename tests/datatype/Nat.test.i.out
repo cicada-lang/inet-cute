@@ -1,21 +1,21 @@
-net_from_port (add)-return
+net_from_port (add₁₀)-return
   (add₁₀)-target!value-(zero₂₀)
   (add₁₀)-addend value-(zero₁₉)
 end
-net_from_port (zero)-value!
+net_from_port (zero₁₉)-value!
   
 end
-net_from_port (add)-return
+net_from_port (add₁₁)-return
   (add₁₁)-target!value-(add1₂₂)
   (add₁₁)-addend value-(add1₂₁)
   (add1₂₂)-prev value-(zero₂₂)
   (add1₂₁)-prev value-(zero₂₁)
 end
-net_from_port (add1)-value!
+net_from_port (add1₂₃)-value!
   (add1₂₃)-prev value-(add1₂₁)
   (add1₂₁)-prev value-(zero₂₁)
 end
-net_from_port (add)-return
+net_from_port (add₁₅)-return
   (add₁₅)-target return-(add₁₄)
   (add₁₅)-addend return-(add₁₃)
   (add₁₄)-target!value-(add1₂₇)
@@ -27,43 +27,43 @@ net_from_port (add)-return
   (add1₂₅)-prev value-(zero₂₄)
   (add1₂₄)-prev value-(zero₂₃)
 end
-net_from_port (add1)-value!
+net_from_port (add1₂₉)-value!
   (add1₂₉)-prev value-(add1₃₀)
   (add1₃₀)-prev value-(add1₃₁)
   (add1₃₁)-prev value-(add1₂₄)
   (add1₂₄)-prev value-(zero₂₃)
 end
-net_from_port (add)-return
+net_from_port (add₂₀)-return
   (add₂₀)-target!value-(add1₃₂)
   (add₂₀)-addend value-(zero₂₇)
   (add1₃₂)-prev value-(zero₂₈)
 end
-net_from_port (add1)-value!
+net_from_port (add1₃₃)-value!
   (add1₃₃)-prev value-(zero₂₇)
 end
-net_from_port (add1)-value!
+net_from_port (add1₃₈)-value!
   (add1₃₈)-prev value-(add1₃₉)
   (add1₃₉)-prev value-(add1₃₄)
   (add1₃₄)-prev value-(zero₂₉)
 end
-net_from_port (zero)-value!
+net_from_port (zero₃₄)-value!
   
 end
-net_from_port (zero)-value!
+net_from_port (zero₃₄)-value!
   
 end
-net_from_port (nat_dup)-first
+net_from_port (nat_dup₄)-first
   (nat_dup₄)-target return-(add₃₁)
   (add₃₁)-target!value-(add1₄₄)
   (add₃₁)-addend value-(add1₄₃)
   (add1₄₄)-prev value-(zero₃₆)
   (add1₄₃)-prev value-(zero₃₅)
 end
-net_from_port (add1)-value!
+net_from_port (add1₄₆)-value!
   (add1₄₆)-prev value-(add1₄₈)
   (add1₄₈)-prev value-(zero₃₇)
 end
-net_from_port (mul)-return
+net_from_port (mul₃)-return
   (mul₃)-target return-(add₃₄)
   (mul₃)-mulend return-(add₃₃)
   (add₃₄)-target!value-(add1₅₃)
@@ -75,13 +75,13 @@ net_from_port (mul)-return
   (add1₅₁)-prev value-(zero₄₀)
   (add1₅₀)-prev value-(zero₃₉)
 end
-net_from_port (add1)-value!
+net_from_port (add1₅₈)-value!
   (add1₅₈)-prev value-(add1₆₄)
   (add1₆₄)-prev value-(add1₆₁)
   (add1₆₁)-prev value-(add1₆₇)
   (add1₆₇)-prev value-(zero₄₇)
 end
-net_from_port (mul)-return
+net_from_port (mul₈)-return
   (mul₈)-target return-(add₄₈)
   (mul₈)-mulend return-(add₄₆)
   (add₄₈)-target!value-(add1₇₃)
@@ -99,7 +99,7 @@ net_from_port (mul)-return
   (add1₆₉)-prev value-(zero₅₃)
   (add1₆₈)-prev value-(zero₅₂)
 end
-net_from_port (add1)-value!
+net_from_port (add1₇₉)-value!
   (add1₇₉)-prev value-(add1₈₉)
   (add1₈₉)-prev value-(add1₉₈)
   (add1₉₈)-prev value-(add1₈₂)
@@ -110,15 +110,15 @@ net_from_port (add1)-value!
   (add1₉₅)-prev value-(add1₁₀₄)
   (add1₁₀₄)-prev value-(zero₆₄)
 end
-net_from_port (add1)-value!
+net_from_port (add1₁₀₈)-value!
   (add1₁₀₈)-prev value-(add1₁₀₅)
   (add1₁₀₅)-prev value-(zero₇₂)
 end
-net_from_port (add1)-value!
+net_from_port (add1₁₁₃)-value!
   (add1₁₁₃)-prev value-(add1₁₁₄)
   (add1₁₁₄)-prev value-(zero₇₅)
 end
-net_from_port (add1)-value!
+net_from_port (add1₁₂₂)-value!
   (add1₁₂₂)-prev value-(add1₁₂₄)
   (add1₁₂₄)-prev value-(add1₁₁₅)
   (add1₁₁₅)-prev value-(zero₇₇)

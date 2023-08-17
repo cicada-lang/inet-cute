@@ -1,6 +1,6 @@
 [swap (builtin)] I expect a second value on the stack.
 
-  first: (sole)-value!
+  first: (sole₀)-value!
 
 [compose] I fail compose word.
 

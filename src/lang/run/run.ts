@@ -1,41 +1,34 @@
-import { Env } from "../env"
+import { createEnv } from "../env/createEnv"
 import { interact } from "../interact"
+import { Mod } from "../mod"
+import { Net } from "../net"
 import { deleteNodeEntry } from "../net/deleteNodeEntry"
 import { disconnectPort } from "../net/disconnectPort"
 import { findPortEntry } from "../net/findPortEntry"
 import { connectPlaceholderInputPort } from "../placeholder/connectPlaceholderInputPort"
 import { connectPlaceholderOutputPort } from "../placeholder/connectPlaceholderOutputPort"
+import { Port } from "../port"
 import { formatValue } from "../value/formatValue"
 import { closeFreePorts } from "./closeFreePorts"
 
-export function run(env: Env): void {
-  const port = env.stack.pop()
-  if (port === undefined) {
-    throw new Error(`[run] I expect a top value on the stack.`)
-  }
-
-  if (port["@kind"] !== "Port") {
-    throw new Error(
-      [
-        `[run] I expect the top value on the stack to be a Port.`,
-        ``,
-        `  value: ${formatValue(port)}`,
-      ].join("\n"),
-    )
-  }
-
+export function run(mod: Mod, net: Net, port: Port): Port {
   const placeholderPort =
     port.sign === 1
-      ? connectPlaceholderInputPort(env.mod, env.net, port)
-      : connectPlaceholderOutputPort(env.mod, env.net, port)
+      ? connectPlaceholderInputPort(mod, net, port)
+      : connectPlaceholderOutputPort(mod, net, port)
 
-  const placeholderPorts = closeFreePorts(env)
+  const placeholderPorts = closeFreePorts(mod, net)
 
-  while (env.net.activeEdges.length > 0) {
-    step(env)
+  const env = createEnv(mod, { net })
+
+  while (net.activeEdges.length > 0) {
+    const activeEdge = net.activeEdges.pop()
+    if (activeEdge !== undefined) {
+      interact(env, activeEdge, {})
+    }
   }
 
-  const placeholderPortEntry = findPortEntry(env.net, placeholderPort)
+  const placeholderPortEntry = findPortEntry(net, placeholderPort)
   if (placeholderPortEntry?.connection === undefined) {
     throw new Error(
       [
@@ -47,19 +40,14 @@ export function run(env: Env): void {
   }
 
   for (const placeholderPort of placeholderPorts) {
-    disconnectPort(env.net, placeholderPort)
-    deleteNodeEntry(env.net, placeholderPort.node)
+    disconnectPort(net, placeholderPort)
+    deleteNodeEntry(net, placeholderPort.node)
   }
 
-  env.stack.push(placeholderPortEntry.connection.port)
+  const resultPort = placeholderPortEntry.connection.port
 
-  disconnectPort(env.net, placeholderPort)
-  deleteNodeEntry(env.net, placeholderPort.node)
-}
+  disconnectPort(net, placeholderPort)
+  deleteNodeEntry(net, placeholderPort.node)
 
-function step(env: Env): void {
-  const activeEdge = env.net.activeEdges.pop()
-  if (activeEdge !== undefined) {
-    interact(env, activeEdge, {})
-  }
+  return resultPort
 }

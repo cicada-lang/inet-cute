@@ -1,8 +1,8 @@
 [rearrangeNodePorts] I find undefined port name.
 
   name: hi
-  input ports: [(cons)-head, (cons)-tail]
-  output ports: [(cons)-value!]
+  input ports: [(cons₀)-head, (cons₀)-tail]
+  output ports: [(cons₀)-value!]
 
 [compose] I fail compose word.
 

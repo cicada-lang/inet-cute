@@ -1,0 +1,4 @@
+net_from_port (add1₂₅)-value!
+  (add1₂₅)-prev value-(add1₂₃)
+  (add1₂₃)-prev value-(zero₂₁)
+end
