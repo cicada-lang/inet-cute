@@ -17,6 +17,22 @@ export function closeFreePorts(env: Env): Node | undefined {
     return undefined
   }
 
+  // const temporaryPorts: Array<Port> = []
+  // for (const nodeEntry of env.net.nodeEntries) {
+  //   for (const port of nodeEntry.ports) {
+  //     if (port.connection === undefined) {
+  //       switch (port.sign) {
+  //         case 1: {
+  //           addPlaceholderInputPortForPort(env.mod, env.net, port)
+  //         }
+  //         case -1: {
+  //           addPlaceholderOutputPortForPort(env.mod, env.net, port)
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
   const ports = env.stack
     .filter((value): value is Port => value["@kind"] === "Port")
     .map<PortExp>((port) => ({

@@ -5,7 +5,7 @@ import { refreshNode } from "../freshen/refreshNode"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
-import { connectNodeWithPlaceholderPorts } from "../placeholder/connectNodeWithPlaceholderPorts"
+import { connectPlaceholderPorts } from "../placeholder/connectPlaceholderPorts"
 import { Word } from "../word"
 
 export function checkRule(
@@ -32,8 +32,8 @@ export function checkRule(
 
   refreshNode(env.net, checking.typeVarCounters, second)
 
-  connectNodeWithPlaceholderPorts(mod, env.net, first)
-  connectNodeWithPlaceholderPorts(mod, env.net, second)
+  connectPlaceholderPorts(mod, env.net, first)
+  connectPlaceholderPorts(mod, env.net, second)
 
   for (const word of words) {
     compose(mod, env, word, {

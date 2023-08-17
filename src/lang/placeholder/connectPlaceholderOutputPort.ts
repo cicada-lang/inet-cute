@@ -1,10 +1,11 @@
+import { connect } from "../connect/connect"
 import { Mod } from "../mod"
 import { Net } from "../net"
 import { addNode } from "../net/addNode"
 import { findOutputPorts } from "../net/findOutputPorts"
 import { Port } from "../port"
 
-export function addPlaceholderOutputPortForPort(
+export function connectPlaceholderOutputPort(
   net: Net,
   mod: Mod,
   port: Port,
@@ -26,5 +27,9 @@ export function addPlaceholderOutputPortForPort(
     ],
   )
 
-  return findOutputPorts(net, node)[0]
+  const placeholderPort = findOutputPorts(net, node)[0]
+
+  connect(net, port, placeholderPort)
+
+  return placeholderPort
 }

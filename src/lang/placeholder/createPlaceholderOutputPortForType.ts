@@ -5,7 +5,7 @@ import { findOutputPorts } from "../net/findOutputPorts"
 import { Port } from "../port"
 import { Value } from "../value"
 
-export function addPlaceholderOutputPortFromType(
+export function createPlaceholderOutputPortForType(
   net: Net,
   mod: Mod,
   t: Value,
