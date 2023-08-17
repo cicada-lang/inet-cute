@@ -5,4 +5,5 @@ begin
   one one add
   run inspect
   swap inspect
+  run inspect
 end
