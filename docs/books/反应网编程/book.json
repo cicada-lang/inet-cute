@@ -1,0 +1,12 @@
+{
+  "kind": "Book",
+  "title": "反应网编程",
+  "subtitle" "Programming with Interaction Nets"
+  "authors": ["谢宇恒"],
+  "date": "2023",
+  "src": "src",
+  "contents": [
+    "00-序.md",
+    "01.md",
+  ]
+}
