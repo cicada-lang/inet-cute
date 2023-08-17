@@ -27,10 +27,10 @@ net_from_port (add₁₅)-return
   (add1₂₅)-prev value-(zero₂₄)
   (add1₂₄)-prev value-(zero₂₃)
 end
-net_from_port (add1₂₉)-value!
-  (add1₂₉)-prev value-(add1₃₀)
+net_from_port (add1₃₀)-value!
   (add1₃₀)-prev value-(add1₃₁)
-  (add1₃₁)-prev value-(add1₂₄)
+  (add1₃₁)-prev value-(add1₂₈)
+  (add1₂₈)-prev value-(add1₂₄)
   (add1₂₄)-prev value-(zero₂₃)
 end
 net_from_port (add₂₀)-return
@@ -53,73 +53,73 @@ net_from_port (zero₃₄)-value!
   
 end
 net_from_port (nat_dup₄)-first
-  (nat_dup₄)-target return-(add₃₁)
-  (add₃₁)-target!value-(add1₄₄)
-  (add₃₁)-addend value-(add1₄₃)
-  (add1₄₄)-prev value-(zero₃₆)
-  (add1₄₃)-prev value-(zero₃₅)
+  (nat_dup₄)-target return-(add₃₀)
+  (add₃₀)-target!value-(add1₄₃)
+  (add₃₀)-addend value-(add1₄₂)
+  (add1₄₃)-prev value-(zero₃₆)
+  (add1₄₂)-prev value-(zero₃₅)
 end
-net_from_port (add1₄₆)-value!
-  (add1₄₆)-prev value-(add1₄₈)
-  (add1₄₈)-prev value-(zero₃₇)
+net_from_port (add1₄₅)-value!
+  (add1₄₅)-prev value-(add1₄₇)
+  (add1₄₇)-prev value-(zero₃₇)
 end
 net_from_port (mul₃)-return
-  (mul₃)-target return-(add₃₄)
-  (mul₃)-mulend return-(add₃₃)
-  (add₃₄)-target!value-(add1₅₃)
-  (add₃₄)-addend value-(add1₅₂)
-  (add1₅₃)-prev value-(zero₄₂)
-  (add1₅₂)-prev value-(zero₄₁)
-  (add₃₃)-target!value-(add1₅₁)
-  (add₃₃)-addend value-(add1₅₀)
-  (add1₅₁)-prev value-(zero₄₀)
-  (add1₅₀)-prev value-(zero₃₉)
+  (mul₃)-target return-(add₃₃)
+  (mul₃)-mulend return-(add₃₂)
+  (add₃₃)-target!value-(add1₅₂)
+  (add₃₃)-addend value-(add1₅₁)
+  (add1₅₂)-prev value-(zero₄₂)
+  (add1₅₁)-prev value-(zero₄₁)
+  (add₃₂)-target!value-(add1₅₀)
+  (add₃₂)-addend value-(add1₄₉)
+  (add1₅₀)-prev value-(zero₄₀)
+  (add1₄₉)-prev value-(zero₃₉)
 end
-net_from_port (add1₅₈)-value!
-  (add1₅₈)-prev value-(add1₆₄)
-  (add1₆₄)-prev value-(add1₆₁)
-  (add1₆₁)-prev value-(add1₆₇)
-  (add1₆₇)-prev value-(zero₄₇)
+net_from_port (add1₅₇)-value!
+  (add1₅₇)-prev value-(add1₆₀)
+  (add1₆₀)-prev value-(add1₆₃)
+  (add1₆₃)-prev value-(add1₆₆)
+  (add1₆₆)-prev value-(zero₅₁)
 end
 net_from_port (mul₈)-return
-  (mul₈)-target return-(add₄₈)
-  (mul₈)-mulend return-(add₄₆)
-  (add₄₈)-target!value-(add1₇₃)
-  (add₄₈)-addend return-(add₄₇)
-  (add1₇₃)-prev value-(zero₅₇)
+  (mul₈)-target return-(add₄₇)
+  (mul₈)-mulend return-(add₄₅)
   (add₄₇)-target!value-(add1₇₂)
-  (add₄₇)-addend value-(add1₇₁)
-  (add1₇₂)-prev value-(zero₅₆)
-  (add1₇₁)-prev value-(zero₅₅)
-  (add₄₆)-target!value-(add1₇₀)
-  (add₄₆)-addend return-(add₄₅)
-  (add1₇₀)-prev value-(zero₅₄)
+  (add₄₇)-addend return-(add₄₆)
+  (add1₇₂)-prev value-(zero₅₇)
+  (add₄₆)-target!value-(add1₇₁)
+  (add₄₆)-addend value-(add1₇₀)
+  (add1₇₁)-prev value-(zero₅₆)
+  (add1₇₀)-prev value-(zero₅₅)
   (add₄₅)-target!value-(add1₆₉)
-  (add₄₅)-addend value-(add1₆₈)
-  (add1₆₉)-prev value-(zero₅₃)
-  (add1₆₈)-prev value-(zero₅₂)
+  (add₄₅)-addend return-(add₄₄)
+  (add1₆₉)-prev value-(zero₅₄)
+  (add₄₄)-target!value-(add1₆₈)
+  (add₄₄)-addend value-(add1₆₇)
+  (add1₆₈)-prev value-(zero₅₃)
+  (add1₆₇)-prev value-(zero₅₂)
 end
 net_from_port (add1₇₉)-value!
-  (add1₇₉)-prev value-(add1₈₉)
-  (add1₈₉)-prev value-(add1₉₈)
-  (add1₉₈)-prev value-(add1₈₂)
+  (add1₇₉)-prev value-(add1₈₂)
   (add1₈₂)-prev value-(add1₈₅)
-  (add1₈₅)-prev value-(add1₉₂)
-  (add1₉₂)-prev value-(add1₁₀₁)
-  (add1₁₀₁)-prev value-(add1₉₅)
-  (add1₉₅)-prev value-(add1₁₀₄)
-  (add1₁₀₄)-prev value-(zero₆₄)
+  (add1₈₅)-prev value-(add1₈₈)
+  (add1₈₈)-prev value-(add1₉₇)
+  (add1₉₇)-prev value-(add1₉₁)
+  (add1₉₁)-prev value-(add1₉₄)
+  (add1₉₄)-prev value-(add1₁₀₀)
+  (add1₁₀₀)-prev value-(add1₁₀₃)
+  (add1₁₀₃)-prev value-(zero₇₀)
 end
-net_from_port (add1₁₀₈)-value!
-  (add1₁₀₈)-prev value-(add1₁₀₅)
-  (add1₁₀₅)-prev value-(zero₇₂)
+net_from_port (add1₁₀₇)-value!
+  (add1₁₀₇)-prev value-(add1₁₀₄)
+  (add1₁₀₄)-prev value-(zero₇₂)
 end
-net_from_port (add1₁₁₃)-value!
-  (add1₁₁₃)-prev value-(add1₁₁₄)
-  (add1₁₁₄)-prev value-(zero₇₅)
+net_from_port (add1₁₁₂)-value!
+  (add1₁₁₂)-prev value-(add1₁₁₃)
+  (add1₁₁₃)-prev value-(zero₇₅)
 end
 net_from_port (add1₁₂₂)-value!
-  (add1₁₂₂)-prev value-(add1₁₂₄)
-  (add1₁₂₄)-prev value-(add1₁₁₅)
-  (add1₁₁₅)-prev value-(zero₇₇)
+  (add1₁₂₂)-prev value-(add1₁₂₃)
+  (add1₁₂₃)-prev value-(add1₁₁₄)
+  (add1₁₁₄)-prev value-(zero₇₇)
 end

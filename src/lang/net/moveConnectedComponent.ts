@@ -14,9 +14,10 @@ export function moveConnectedComponent(
     return
   }
 
+  const portRecord = findPortRecordOrFail(net, node)
+
   moveNode(net, component, node)
 
-  const portRecord = findPortRecordOrFail(net, node)
   for (const portEntry of Object.values(portRecord)) {
     if (portEntry.connection) {
       moveConnectedComponent(net, component, portEntry.connection.port.node)

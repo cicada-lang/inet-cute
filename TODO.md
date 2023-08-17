@@ -1,18 +1,8 @@
-# connected component
+# books
 
-[builtin] `run` -- only run the top port
+反应网编程
 
-- `run` take `mod` and `net` and `port` and return `port`
-
-- move connected component out and back
-
-- run-only-top-port.i
-
-# docs
-
-update the article
-
-new manual
+programming-with-interaction-nets
 
 # propaganda
 

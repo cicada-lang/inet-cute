@@ -1,5 +1,5 @@
 import { Env } from "../env"
-import { run } from "../run"
+import { runPort } from "../run/runPort"
 import { formatValue } from "../value/formatValue"
 
 export function compose(env: Env): void {
@@ -18,5 +18,5 @@ export function compose(env: Env): void {
     )
   }
 
-  env.stack.push(run(env.mod, env.net, port))
+  env.stack.push(runPort(env.mod, env.net, port))
 }

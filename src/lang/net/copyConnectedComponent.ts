@@ -13,9 +13,10 @@ export function copyConnectedComponent(
     return
   }
 
+  const portRecord = findPortRecordOrFail(net, node)
+
   copyNode(net, component, node)
 
-  const portRecord = findPortRecordOrFail(net, node)
   for (const portEntry of Object.values(portRecord)) {
     if (portEntry.connection) {
       copyConnectedComponent(net, component, portEntry.connection.port.node)

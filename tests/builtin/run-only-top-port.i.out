@@ -2,3 +2,9 @@ net_from_port (add1₂₅)-value!
   (add1₂₅)-prev value-(add1₂₃)
   (add1₂₃)-prev value-(zero₂₁)
 end
+net_from_port (add₁₀)-return
+  (add₁₀)-target!value-(add1₂₂)
+  (add₁₀)-addend value-(add1₂₁)
+  (add1₂₂)-prev value-(zero₂₀)
+  (add1₂₁)-prev value-(zero₁₉)
+end
