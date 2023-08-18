@@ -1,3 +1,5 @@
+export public API -- used by web frontend
+
 # books
 
 反应网编程

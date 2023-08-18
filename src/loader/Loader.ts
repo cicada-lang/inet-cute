@@ -7,6 +7,9 @@ export class Loader {
   loaded: Map<string, Mod> = new Map()
   loading: Set<string> = new Set()
   fetcher: Fetcher
+  onOutput = (output: string) => {
+    console.log(output)
+  }
 
   constructor(options: { fetcher: Fetcher }) {
     this.fetcher = options.fetcher
