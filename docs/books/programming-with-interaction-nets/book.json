@@ -1,0 +1,8 @@
+{
+  "kind": "Book",
+  "title": "Programming with Interaction Nets",
+  "authors": ["Xie Yuheng"],
+  "date": "2023",
+  "src": "src",
+  "contents": ["01-intro.md"]
+}

@@ -1,4 +1,6 @@
-## Introduction
+---
+title: Intro
+---
 
 Interaction nets is an interesting computation model designed by Yves Lafont in 1990,
 It uses undirected graphs and graph rewriting to express computations.
