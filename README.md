@@ -12,6 +12,8 @@ We have an online playground.
 Source code of the playground is at
 [github.com/cicada-lang/inet-website](https://github.com/cicada-lang/inet-website).
 
+Please see [tests/](./tests) for some example code.
+
 **Nat**:
 
 [ [Open in Playground](https://inet.cicada-lang.org/playground/dHlwZSBOYXQgLS0gVHlwZSBlbmQKbm9kZSB6ZXJvIC0tIE5hdCA6dmFsdWUhIGVuZApub2RlIGFkZDEgTmF0IDpwcmV2IC0tIE5hdCA6dmFsdWUhIGVuZAoKbm9kZSBhZGQgTmF0IDp0YXJnZXQhIE5hdCA6YWRkZW5kIC0tIE5hdCA6cmV0dXJuIGVuZAoKcnVsZSB6ZXJvIGFkZAogIChhZGQpLWFkZGVuZAogIHJldHVybi0oYWRkKQplbmQKCnJ1bGUgYWRkMSBhZGQKICAoYWRkKS1hZGRlbmQKICAoYWRkMSktcHJldiBhZGQKICBhZGQxIHJldHVybi0oYWRkKQplbmQKCmNsYWltIG9uZSAtLSBOYXQgZW5kCmRlZmluZSBvbmUgemVybyBhZGQxIGVuZAoKY2xhaW0gdHdvIC0tIE5hdCBlbmQKZGVmaW5lIHR3byBvbmUgb25lIGFkZCBlbmQKCnR3byB0d28gYWRkIGluc3BlY3QKcnVuIGluc3BlY3Q) ]
