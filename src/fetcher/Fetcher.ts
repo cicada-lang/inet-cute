@@ -4,7 +4,7 @@ export type FetcherHandler = {
 }
 
 export class Fetcher {
-  private handlers: Record<string, FetcherHandler> = {}
+  handlers: Record<string, FetcherHandler> = {}
 
   constructor() {
     this.register("http", {

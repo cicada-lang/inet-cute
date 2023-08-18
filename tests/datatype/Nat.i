@@ -24,8 +24,8 @@ rule zero add
 end
 
 rule add1 add
-  (add)-addend (add1)-prev add add1
-  return-(add)
+  (add)-addend (add1)-prev add
+  add1 return-(add)
 end
 
 
