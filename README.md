@@ -8,8 +8,9 @@ Programming with [interaction nets](https://en.wikipedia.org/wiki/Interaction_ne
 
 ### Online Playground
 
-We have an [online playground](https://inet.cicada-lang.org/playground)
-([source code](https://github.com/cicada-lang/inet-website)).
+We have an online playground.
+Source code of the playground is at
+[github.com/cicada-lang/inet-website](https://github.com/cicada-lang/inet-website).
 
 **Nat**:
 
