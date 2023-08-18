@@ -12,11 +12,15 @@ export function compose(env: Env): void {
 
   if (value["@kind"] === "Port") {
     const connectedcomponent = findConnectedComponent(env.net, value.node)
-    env.mod.loader.onOutput(`net_from_port ${formatValue(value)}`)
-    env.mod.loader.onOutput(indent(formatNet(connectedcomponent)))
-    env.mod.loader.onOutput("end")
-    return
+    const netString = formatNet(connectedcomponent)
+    if (netString.length === 0) {
+      env.mod.loader.onOutput(`net_from_port ${formatValue(value)} end`)
+    } else {
+      env.mod.loader.onOutput(`net_from_port ${formatValue(value)}`)
+      env.mod.loader.onOutput(indent(netString))
+      env.mod.loader.onOutput("end")
+    }
+  } else {
+    env.mod.loader.onOutput(formatValue(value))
   }
-
-  env.mod.loader.onOutput(formatValue(value))
 }

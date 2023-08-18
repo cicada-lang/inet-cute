@@ -2,9 +2,7 @@ net_from_port (add₁₀)-return
   (add₁₀)-target!value-(zero₂₀)
   (add₁₀)-addend value-(zero₁₉)
 end
-net_from_port (zero₁₉)-value!
-  
-end
+net_from_port (zero₁₉)-value! end
 net_from_port (add₁₁)-return
   (add₁₁)-target!value-(add1₂₂)
   (add₁₁)-addend value-(add1₂₁)
@@ -46,12 +44,8 @@ net_from_port (add1₃₈)-value!
   (add1₃₉)-prev value-(add1₃₄)
   (add1₃₄)-prev value-(zero₂₉)
 end
-net_from_port (zero₃₄)-value!
-  
-end
-net_from_port (zero₃₄)-value!
-  
-end
+net_from_port (zero₃₄)-value! end
+net_from_port (zero₃₄)-value! end
 net_from_port (nat_dup₄)-first
   (nat_dup₄)-target return-(add₃₀)
   (add₃₀)-target!value-(add1₄₃)
