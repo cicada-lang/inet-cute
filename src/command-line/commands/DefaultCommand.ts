@@ -26,7 +26,7 @@ export class DefaultCommand extends Command<Args, Opts> {
     }
 
     if (argv["version"]) {
-      console.log(app.config.pkg.version)
+      console.log(app.config.packageJson.version)
       return
     }
 

@@ -44,7 +44,7 @@ export class AppReplEventHandler extends ReplEventHandler {
   loader = new Loader({ fetcher })
 
   greeting(): void {
-    console.log(`iNet ${app.config.pkg.version}`)
+    console.log(`iNet ${app.config.packageJson.version}`)
   }
 
   async handle(event: ReplEvent): Promise<void> {
