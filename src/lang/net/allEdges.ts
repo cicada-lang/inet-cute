@@ -1,5 +1,5 @@
 import { Edge } from "../edge"
-import { nodeKeyId } from "../node/nodeKeyId"
+import { nodeKey } from "../node/nodeKey"
 import { Port } from "../port"
 import { Net } from "./Net"
 import { createNodeFromNodeEntry } from "./createNodeFromNodeEntry"
@@ -17,8 +17,8 @@ export function allEdges(net: Net): Array<Edge> {
         const second = portEntry.connection.port
         const first: Port = createPortFromPortEntry(node, portEntry)
 
-        const firstOccur = `${nodeKeyId(node)}-${portEntry.name}`
-        const secondOccur = `${nodeKeyId(second.node)}-${second.name}`
+        const firstOccur = `${nodeKey(node)}-${portEntry.name}`
+        const secondOccur = `${nodeKey(second.node)}-${second.name}`
 
         if (
           !occurred.has(firstOccur + secondOccur) &&

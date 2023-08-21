@@ -2,7 +2,7 @@ import { Mod } from "../mod"
 import { Net, PortRecord } from "../net"
 import { Node } from "../node"
 import { createNodeId } from "../node/createNodeId"
-import { nodeKeyId } from "../node/nodeKeyId"
+import { nodeKey } from "../node/nodeKey"
 import { PortExp } from "../port/PortExp"
 
 export function addNode(
@@ -17,7 +17,7 @@ export function addNode(
   const node: Node = { id, url: mod.url, name }
 
   const ports: PortRecord = {}
-  net.nodeEntries.set(nodeKeyId(node), { id, url: mod.url, name, ports })
+  net.nodeEntries.set(nodeKey(node), { id, url: mod.url, name, ports })
 
   input.map((portExp) => {
     ports[portExp.name] = {

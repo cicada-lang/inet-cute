@@ -1,10 +1,10 @@
 import { Node } from "../node"
 import { formatNode } from "../node/formatNode"
-import { nodeKeyId } from "../node/nodeKeyId"
+import { nodeKey } from "../node/nodeKey"
 import { Net, NodeEntry } from "./Net"
 
 export function findNodeEntryOrFail(net: Net, node: Node): NodeEntry {
-  const nodeEntry = net.nodeEntries.get(nodeKeyId(node))
+  const nodeEntry = net.nodeEntries.get(nodeKey(node))
   if (nodeEntry === undefined) {
     throw new Error(
       [

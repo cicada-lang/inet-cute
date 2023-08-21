@@ -1,4 +1,4 @@
-import { nodeKey } from "../node/nodeKey"
+import { nodeKeyWithoutId } from "../node/nodeKeyWithoutId"
 import { Port } from "../port"
 import { Rule } from "../rule"
 import { Mod } from "./Mod"
@@ -9,8 +9,8 @@ export function lookupRuleByPorts(
   second: Port,
 ): Rule | undefined {
   if (first.isPrincipal && second.isPrincipal) {
-    const firstKey = nodeKey(first.node)
-    const secondKey = nodeKey(second.node)
+    const firstKey = nodeKeyWithoutId(first.node)
+    const secondKey = nodeKeyWithoutId(second.node)
 
     const key = `${firstKey} ${secondKey}`
 

@@ -1,3 +1,5 @@
-export function nodeKey(node: { url: URL; name: string }): string {
-  return `${node.url.href}/${node.name}`
+import { Node } from "./Node"
+
+export function nodeKey(node: Node): string {
+  return `${node.url.href}/${node.name}#${node.id}`
 }
