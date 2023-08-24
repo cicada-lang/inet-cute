@@ -5,7 +5,7 @@ const preserved = [
   ...["type", "node", "rule"],
   ...["check"],
   ...["import", "require"],
-  ...["end"],
+  ...["then", "end"],
 ]
 
 export const variable_name = {
