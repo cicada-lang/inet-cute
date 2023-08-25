@@ -12,3 +12,5 @@ It is interesting because:
 > up to trivial commutations.
 >
 > -- Interaction Combinators, Yves Lafont, 1997
+
+TODO
