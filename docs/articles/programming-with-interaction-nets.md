@@ -1,5 +1,7 @@
 ---
-title: Intro
+title: Programming with Interaction Nets
+author: Xie Yuheng
+year: 2023
 ---
 
 Interaction nets is an interesting computation model designed by Yves Lafont in 1990,
