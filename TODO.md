@@ -1,6 +1,12 @@
-# books
+edge as entity
+
+port should be connected to edge instead of port
+
+# articles
 
 反应网编程
+
+- 输入接口只能和输出接口相连？
 
 programming-with-interaction-nets
 
