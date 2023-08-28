@@ -17,14 +17,28 @@ Please see [tests/](./tests) for some example code.
 
 **Nat**:
 
-[ [Open in Playground](https://inet.run/playground/dHlwZSBOYXQgLS0gVHlwZSBlbmQKbm9kZSB6ZXJvIC0tIE5hdCA6dmFsdWUhIGVuZApub2RlIGFkZDEgTmF0IDpwcmV2IC0tIE5hdCA6dmFsdWUhIGVuZAoKbm9kZSBhZGQgTmF0IDp0YXJnZXQhIE5hdCA6YWRkZW5kIC0tIE5hdCA6cmV0dXJuIGVuZAoKcnVsZSB6ZXJvIGFkZAogIChhZGQpLWFkZGVuZAogIHJldHVybi0oYWRkKQplbmQKCnJ1bGUgYWRkMSBhZGQKICAoYWRkKS1hZGRlbmQKICAoYWRkMSktcHJldiBhZGQKICBhZGQxIHJldHVybi0oYWRkKQplbmQKCmNsYWltIG9uZSAtLSBOYXQgZW5kCmRlZmluZSBvbmUgemVybyBhZGQxIGVuZAoKY2xhaW0gdHdvIC0tIE5hdCBlbmQKZGVmaW5lIHR3byBvbmUgb25lIGFkZCBlbmQKCnR3byB0d28gYWRkIGluc3BlY3QKcnVuIGluc3BlY3Q) ]
+[ [Open in Playground](https://inet.run/playground/dHlwZSBOYXQgLS0gVHlwZSBlbmQKCm5vZGUgemVybwogIC0tLS0tLS0tLS0tLQogIE5hdCA6dmFsdWUhCmVuZAoKbm9kZSBhZGQxCiAgTmF0IDpwcmV2CiAgLS0tLS0tLS0tLS0tCiAgTmF0IDp2YWx1ZSEKZW5kCgpub2RlIGFkZAogIE5hdCA6dGFyZ2V0IQogIE5hdCA6YWRkZW5kCiAgLS0tLS0tLS0tLS0tCiAgTmF0IDpyZXR1cm4KZW5kCgpydWxlIHplcm8gYWRkCiAgKGFkZCktYWRkZW5kCiAgcmV0dXJuLShhZGQpCmVuZAoKcnVsZSBhZGQxIGFkZAogIChhZGQpLWFkZGVuZAogIChhZGQxKS1wcmV2IGFkZAogIGFkZDEgcmV0dXJuLShhZGQpCmVuZAoKY2xhaW0gb25lIC0tIE5hdCBlbmQKZGVmaW5lIG9uZSB6ZXJvIGFkZDEgZW5kCgpjbGFpbSB0d28gLS0gTmF0IGVuZApkZWZpbmUgdHdvIG9uZSBvbmUgYWRkIGVuZAoKdHdvIHR3byBhZGQKdHdvIHR3byBhZGQgcnVu) ]
 
 ```inet
 type Nat -- Type end
-node zero -- Nat :value! end
-node add1 Nat :prev -- Nat :value! end
 
-node add Nat :target! Nat :addend -- Nat :return end
+node zero
+  ------------
+  Nat :value!
+end
+
+node add1
+  Nat :prev
+  ------------
+  Nat :value!
+end
+
+node add
+  Nat :target!
+  Nat :addend
+  ------------
+  Nat :return
+end
 
 rule zero add
   (add)-addend
@@ -43,8 +57,8 @@ define one zero add1 end
 claim two -- Nat end
 define two one one add end
 
-two two add inspect
-run inspect
+two two add
+two two add run
 ```
 
 ### Command line tool

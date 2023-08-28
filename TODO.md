@@ -1,28 +1,26 @@
+# articles
+
+[docs] 反应网编程 -- 加入到 演算场 的连接
+[docs] 反应网编程 -- 完成 `mul` 的讲解
+[docs] 反应网编程 -- 完成 `List` 的讲解
+[docs] 反应网编程 -- 完成 `DiffList` 的讲解
+[docs] 反应网编程 -- 翻译为 programming-with-interaction-nets
+
+[docs] 输入接口只能和输出接口相连？
+
+# edge
+
 edge as entity
 
 port should be connected to edge instead of port
 
-# articles
-
-反应网编程
-
-- 输入接口只能和输出接口相连？
-
-programming-with-interaction-nets
-
 # propaganda
-
-reply the issue
 
 post on v2ex
 
 post on reddit
 
 post on hackernews
-
-share with tangentstorm
-
-share on #forth
 
 # learn
 
