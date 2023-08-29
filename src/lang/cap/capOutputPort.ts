@@ -7,7 +7,7 @@ import { findNodeEntryOrFail } from "../net/findNodeEntryOrFail"
 import { Port } from "../port"
 import { PortExp } from "../port/PortExp"
 
-export function connectCapInputPort(mod: Mod, net: Net, port: Port): Port {
+export function capOutputPort(mod: Mod, net: Net, port: Port): Port {
   const portExp: PortExp = {
     "@type": "PortExp",
     name: "covering",
@@ -15,7 +15,7 @@ export function connectCapInputPort(mod: Mod, net: Net, port: Port): Port {
     isPrincipal: true,
   }
 
-  const node = addNode(net, mod, "@input_port_cap", [portExp], [])
+  const node = addNode(net, mod, "@ouput_port_cap", [portExp], [])
   const nodeEntry = findNodeEntryOrFail(net, node)
   nodeEntry.asPortCap = {
     nodeName: port.node.name,

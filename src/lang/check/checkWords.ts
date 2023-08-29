@@ -1,4 +1,4 @@
-import { createCapOutputPortForType } from "../cap/createCapOutputPortForType"
+import { capType } from "../cap/capType"
 import { createChecking } from "../checking/createChecking"
 import { collectWords } from "../compose/collectWords"
 import { compose } from "../compose/compose"
@@ -25,7 +25,7 @@ export function checkWords(
 
   const capOutputPorts = inputValues
     .reverse()
-    .map((t) => createCapOutputPortForType(mod, env.net, t))
+    .map((t) => capType(mod, env.net, t))
 
   env.stack.push(...capOutputPorts)
 

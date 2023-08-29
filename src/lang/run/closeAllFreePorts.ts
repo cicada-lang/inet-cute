@@ -1,5 +1,5 @@
-import { connectCapInputPort } from "../cap/connectCapInputPort"
-import { connectCapOutputPort } from "../cap/connectCapOutputPort"
+import { capInputPort } from "../cap/capInputPort"
+import { capOutputPort } from "../cap/capOutputPort"
 import { Mod } from "../mod"
 import { Net } from "../net"
 import { createNodeFromNodeEntry } from "../net/createNodeFromNodeEntry"
@@ -23,9 +23,9 @@ export function closeAllFreePorts(mod: Mod, net: Net): Array<Port> {
         const port = createPortFromPortEntry(node, portEntry)
 
         if (portEntry.sign === 1) {
-          capPorts.push(connectCapInputPort(mod, net, port))
+          capPorts.push(capOutputPort(mod, net, port))
         } else {
-          capPorts.push(connectCapOutputPort(mod, net, port))
+          capPorts.push(capInputPort(mod, net, port))
         }
       }
     }

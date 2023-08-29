@@ -26,7 +26,7 @@ test("presentNodeAsNet", async () => {
   const output = formatNet(net)
 
   expect(output).toMatchInlineSnapshot(`
-    "(add₀)-addend covering-(@output_port_cap₀)
-    (add₀)-return covering-(@input_port_cap₀)"
+    "(add₀)-addend covering-(@input_port_cap₀)
+    (add₀)-return covering-(@ouput_port_cap₀)"
   `)
 })
