@@ -12,10 +12,10 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "test:js": "test-runner test node 'lib/**/*.test.js'",
+    "test:ts": "vitest --dir src --threads false --run",
     "test:inet": "test-runner snapshot 'node ./bin/inet.js run --no-color' 'tests/**/*.i' --exclude 'tests/**/*.error.i'",
     "test:inet-error": "test-runner snapshot-error 'node ./bin/inet.js run --no-color' 'tests/**/*.error.i'",
-    "test": "npm run test:js && npm run test:inet && npm run test:inet-error",
+    "test": "npm run test:ts && npm run test:inet && npm run test:inet-error",
     "format": "prettier src docs --write"
   },
   "devDependencies": {
@@ -30,7 +30,8 @@
     "@cicada-lang/partech": "^0.2.5",
     "@xieyuheng/command-line": "^0.0.11",
     "@xieyuheng/ty": "^0.1.22",
-    "picocolors": "^1.0.0"
+    "picocolors": "^1.0.0",
+    "vitest": "^0.34.3"
   },
   "license": "GPL-3.0-or-later"
 }

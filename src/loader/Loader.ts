@@ -15,11 +15,11 @@ export class Loader {
     this.fetcher = options.fetcher
   }
 
-  async load(url: URL): Promise<Mod> {
+  async load(url: URL, options?: { text?: string }): Promise<Mod> {
     const found = this.loaded.get(url.href)
     if (found !== undefined) return found
 
-    const text = await this.fetcher.fetchText(url)
+    const text = options?.text || (await this.fetcher.fetchText(url))
     const stmts = parseStmts(text)
     const mod = createMod({
       loader: this,

@@ -1,7 +1,5 @@
 # present
 
-`presentNodeAsNet` -- snapshot test by vitest
-
 `presentRuleInitialAsNet`
 
 `presentRuleFinalAsNet`
