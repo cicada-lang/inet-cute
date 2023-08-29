@@ -26,5 +26,5 @@ export function lookupRule(
       ? mod
       : mod.loader.loaded.get(secondNode.url.href)
 
-  return firstMod?.rules.get(key) || secondMod?.rules.get(key)
+  return firstMod?.ruleEntries.get(key) || secondMod?.ruleEntries.get(key)
 }

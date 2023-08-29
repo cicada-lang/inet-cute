@@ -17,7 +17,7 @@ export function createMod(options: {
     text: options.text,
     stmts: options.stmts,
     definitions: new Map(),
-    rules: new Map(),
+    ruleEntries: new Map(),
     requiredMods: new Map(),
   } as Mod
 

@@ -2,8 +2,8 @@ import { Loader } from "../../loader"
 import { Checking } from "../checking"
 import { Definition } from "../definition"
 import { Env } from "../env/Env.js"
-import { Rule } from "../rule"
 import { Stmt } from "../stmt/Stmt.js"
+import { RuleEntry } from "./RuleEntry"
 
 export type Mod = {
   loader: Loader
@@ -13,6 +13,6 @@ export type Mod = {
   text: string
   stmts: Array<Stmt>
   definitions: Map<string, Definition>
-  rules: Map<string, Rule>
+  ruleEntries: Map<string, RuleEntry>
   requiredMods: Map<string, Mod>
 }

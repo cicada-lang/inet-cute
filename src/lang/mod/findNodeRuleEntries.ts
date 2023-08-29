@@ -1,17 +1,20 @@
 import { NodeWithoutId } from "../node"
 import { nodeKeyWithoutId } from "../node/nodeKeyWithoutId"
-import { Rule } from "../rule"
 import { Mod } from "./Mod"
+import { RuleEntry } from "./RuleEntry"
 
-export function findNodeRules(mod: Mod, node: NodeWithoutId): Array<Rule> {
+export function findNodeRuleEntries(
+  mod: Mod,
+  node: NodeWithoutId,
+): Array<RuleEntry> {
   const nodeKey = nodeKeyWithoutId(node)
-  const rules = []
-  for (const [key, rule] of mod.rules) {
+  const entries = []
+  for (const [key, entry] of mod.ruleEntries) {
     const [firstKey, secondKey] = key.split(" ")
     if (firstKey === nodeKey || secondKey === nodeKey) {
-      rules.push(rule)
+      entries.push(entry)
     }
   }
 
-  return rules
+  return entries
 }

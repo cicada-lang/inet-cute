@@ -23,6 +23,7 @@ export function defineRule(
   })
 
   const key = `${firstKey} ${secondKey}`
+  const name = `${firstName} ${secondName}`
 
-  mod.rules.set(key, { mod, words })
+  mod.ruleEntries.set(key, { name, mod, words })
 }
