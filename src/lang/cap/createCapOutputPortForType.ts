@@ -7,7 +7,6 @@ import { Value } from "../value"
 
 export function createCapOutputPortForType(mod: Mod, net: Net, t: Value): Port {
   const nodeName = `_cap_output_node_from_type`
-  const portName = `_cap_output_port_from_type`
   const node = addNode(
     net,
     mod,
@@ -16,7 +15,7 @@ export function createCapOutputPortForType(mod: Mod, net: Net, t: Value): Port {
     [
       {
         "@type": "PortExp",
-        name: portName,
+        name: "covering",
         t,
         isPrincipal: true,
       },

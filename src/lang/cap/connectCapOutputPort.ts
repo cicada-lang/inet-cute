@@ -7,7 +7,6 @@ import { Port } from "../port"
 
 export function connectCapOutputPort(mod: Mod, net: Net, port: Port): Port {
   const nodeName = `_cap_output_node_for_${port.name}_of_${port.node.name}`
-  const portName = `_cap_output_port_for_${port.name}_of_${port.node.name}`
   const node = addNode(
     net,
     mod,
@@ -16,7 +15,7 @@ export function connectCapOutputPort(mod: Mod, net: Net, port: Port): Port {
     [
       {
         "@type": "PortExp",
-        name: portName,
+        name: "covering",
         t: port.t,
         isPrincipal: true,
       },
@@ -24,8 +23,6 @@ export function connectCapOutputPort(mod: Mod, net: Net, port: Port): Port {
   )
 
   const capPort = findOutputPorts(net, node)[0]
-
   connect(net, port, capPort)
-
   return capPort
 }

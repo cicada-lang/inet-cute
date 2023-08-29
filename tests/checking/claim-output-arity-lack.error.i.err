@@ -1,7 +1,7 @@
 [checkWords] I expect the stack to be empty after checking.
 
   stack length: 1
-  stack: [(_cap_output_node_from_type₀)-_cap_output_port_from_type!]
+  stack: [(_cap_output_node_from_type₀)-covering!]
 
   Maybe this is due to extra input arity,
   or lack of output arity.

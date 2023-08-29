@@ -1,7 +1,5 @@
 `Cap` as special `Node` -- `Node` has optional `cap`
 
-- with `covering` as port name
-
 `cap` as a builtin
 
 # articles
