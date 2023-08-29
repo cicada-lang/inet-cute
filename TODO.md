@@ -1,7 +1,3 @@
-`lookupRule` -- remove indirect rule lookup
-
-test -- reuqire new rules
-
 `Cap` as special `Node` -- `Node` has optional `cap`
 
 - with `covering` as port name
