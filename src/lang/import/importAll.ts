@@ -19,4 +19,8 @@ export function importAll(mod: Mod, targetMod: Mod): void {
 
     mod.definitions.set(name, definition)
   }
+
+  for (const [key, ruleEntry] of targetMod.ruleEntries) {
+    mod.ruleEntries.set(key, ruleEntry)
+  }
 }
