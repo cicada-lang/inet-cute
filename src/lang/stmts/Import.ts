@@ -1,7 +1,7 @@
 import { appendReport } from "../errors/appendReport"
 import { ImportBinding } from "../import/ImportBinding"
 import { formatImportBinding } from "../import/formatImportBinding"
-import { importBindings } from "../import/importBindings"
+import { importMany } from "../import/importMany"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
@@ -30,7 +30,7 @@ export class Import implements Stmt {
       }
 
       const loadedMod = await mod.loader.load(url)
-      importBindings(mod, loadedMod, this.bindings)
+      importMany(mod, loadedMod, this.bindings)
     } catch (error) {
       throw appendReport(error, {
         message: [

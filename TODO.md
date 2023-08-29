@@ -1,4 +1,4 @@
-`importBindings` -- also import all rules of a node
+`importOne` -- also import all rules of a node
 
 `lookupRule` -- remove indirect rule lookup
 
