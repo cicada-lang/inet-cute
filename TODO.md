@@ -1,10 +1,10 @@
 # present
 
-`presentRuleInitialAsNet`
-
-`presentRuleFinalAsNet`
-
 `presentWordAsEnv`
+
+# check
+
+`checkAllLocalVariableAreUsed`
 
 # articles
 

@@ -3,7 +3,7 @@ import { nodeKeyWithoutId } from "../node/nodeKeyWithoutId"
 import { Rule } from "../rule"
 import { Mod } from "./Mod"
 
-export function lookupRule(
+export function lookupRuleByNodes(
   mod: Mod,
   firstNode: NodeWithoutId,
   secondNode: NodeWithoutId,
