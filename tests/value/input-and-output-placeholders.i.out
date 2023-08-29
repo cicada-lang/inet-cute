@@ -1,5 +1,5 @@
-net_from_port (_cap_output_node_for_addend_of_add₁)-covering! end
-net_from_port (_cap_input_node_for_return_of_add₁)-covering! end
+net_from_port (@output_port_cap₂)-covering! end
+net_from_port (@input_port_cap₁)-covering! end
 net_from_port (add₃)-return
   (add₃)-target!value-(add1₃)
   (add₃)-addend value-(add1₂)

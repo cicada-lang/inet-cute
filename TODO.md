@@ -1,5 +1,3 @@
-`Cap` as special `Node` -- `Node` has optional `cap`
-
 `cap` as a builtin
 
 # articles

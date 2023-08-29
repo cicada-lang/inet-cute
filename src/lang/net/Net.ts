@@ -23,6 +23,11 @@ export type NodeEntry = {
   name: string
   url: URL
   ports: PortRecord
+  asTypeCap?: {}
+  asPortCap?: {
+    nodeName: string
+    portName: string
+  }
 }
 
 export type PortRecord = Record<string, PortEntry>
