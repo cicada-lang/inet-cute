@@ -1,4 +1,6 @@
-be able to list all rule of a node
+`Mod` should import all rules of a node -- no indirect rule lookup
+
+test -- reuqire new rules
 
 placeholder as special node and port
 
