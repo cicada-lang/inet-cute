@@ -1,7 +1,7 @@
 import { expect, test } from "vitest"
 import { Fetcher } from "../../fetcher"
 import { Loader } from "../../loader"
-import { formatNet } from "../net/formatNet"
+import { formatEnv } from "../env/formatEnv"
 import { presentWordAsEnv } from "./presentWordAsEnv"
 
 test("presentWordAsEnv", async () => {
@@ -55,17 +55,33 @@ define addadd add add end
   const url = new URL("test://presentNodeAsNet")
   const mod = await loader.load(url, { text })
 
-  expect(formatNet(presentWordAsEnv(mod, "two").net)).toMatchInlineSnapshot(`
-    "(zero₄)-value prev-(add1₅)
-    (add1₅)-value addend-(add₆)
-    (zero₅)-value prev-(add1₆)
-    (add1₆)-value!target-(add₆)"
+  expect(formatEnv(presentWordAsEnv(mod, "two"))).toMatchInlineSnapshot(`
+    "env
+      net
+        (zero₄)-value prev-(add1₅)
+        (add1₅)-value addend-(add₆)
+        (zero₅)-value prev-(add1₆)
+        (add1₆)-value!target-(add₆)
+      end
+      stack
+        (add₆)-return
+      end
+      locals end
+    end"
   `)
 
-  expect(formatNet(presentWordAsEnv(mod, "addadd").net)).toMatchInlineSnapshot(`
-    "(@type_cap₃)-covering addend-(add₈)
-    (@type_cap₄)-covering addend-(add₇)
-    (@type_cap₅)-covering!target-(add₇)
-    (add₇)-return target-(add₈)"
+  expect(formatEnv(presentWordAsEnv(mod, "addadd"))).toMatchInlineSnapshot(`
+    "env
+      net
+        (@type_cap₃)-covering addend-(add₈)
+        (@type_cap₄)-covering addend-(add₇)
+        (@type_cap₅)-covering!target-(add₇)
+        (add₇)-return target-(add₈)
+      end
+      stack
+        (add₈)-return
+      end
+      locals end
+    end"
   `)
 })
