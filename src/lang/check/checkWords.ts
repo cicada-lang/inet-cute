@@ -1,10 +1,10 @@
+import { createCapOutputPortForType } from "../cap/createCapOutputPortForType"
 import { createChecking } from "../checking/createChecking"
 import { collectWords } from "../compose/collectWords"
 import { compose } from "../compose/compose"
 import { createEnv } from "../env/createEnv"
 import { freshenType } from "../freshen/freshenType"
 import { Mod } from "../mod"
-import { createPlaceholderOutputPortForType } from "../placeholder/createPlaceholderOutputPortForType"
 import { unifyTypes } from "../unify/unifyTypes"
 import { formatValue } from "../value/formatValue"
 import { Word } from "../word"
@@ -23,11 +23,11 @@ export function checkWords(
     checking,
   }).map((t) => freshenType(checking.typeVarCounters, t, occurredNames))
 
-  const placeholderOutputPorts = inputValues
+  const capOutputPorts = inputValues
     .reverse()
-    .map((t) => createPlaceholderOutputPortForType(mod, env.net, t))
+    .map((t) => createCapOutputPortForType(mod, env.net, t))
 
-  env.stack.push(...placeholderOutputPorts)
+  env.stack.push(...capOutputPorts)
 
   for (const word of words) {
     compose(mod, env, word, {

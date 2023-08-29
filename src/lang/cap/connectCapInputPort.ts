@@ -5,13 +5,9 @@ import { addNode } from "../net/addNode"
 import { findInputPorts } from "../net/findInputPorts"
 import { Port } from "../port"
 
-export function connectPlaceholderInputPort(
-  mod: Mod,
-  net: Net,
-  port: Port,
-): Port {
-  const nodeName = `_placeholder_input_node_for_${port.name}_of_${port.node.name}`
-  const portName = `_placeholder_input_port_for_${port.name}_of_${port.node.name}`
+export function connectCapInputPort(mod: Mod, net: Net, port: Port): Port {
+  const nodeName = `_cap_input_node_for_${port.name}_of_${port.node.name}`
+  const portName = `_cap_input_port_for_${port.name}_of_${port.node.name}`
   const node = addNode(
     net,
     mod,
@@ -27,9 +23,9 @@ export function connectPlaceholderInputPort(
     [],
   )
 
-  const placeholderPort = findInputPorts(net, node)[0]
+  const capPort = findInputPorts(net, node)[0]
 
-  connect(net, port, placeholderPort)
+  connect(net, port, capPort)
 
-  return placeholderPort
+  return capPort
 }

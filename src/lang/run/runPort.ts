@@ -3,10 +3,10 @@ import { Net } from "../net"
 import { createNet } from "../net/createNet"
 import { moveConnectedComponent } from "../net/moveConnectedComponent"
 import { Port } from "../port"
-import { closeFreePorts as closeAllFreePorts } from "./closeAllFreePorts"
+import { closeAllFreePorts } from "./closeAllFreePorts"
 import { closePort } from "./closePort"
-import { collectResultPort as collectConnectedPort } from "./collectConnectedPort"
-import { releaseFreePorts as releasePlaceholderPorts } from "./releasePlaceholderPorts"
+import { collectConnectedPort } from "./collectConnectedPort"
+import { releaseCapPorts } from "./releaseCapPorts"
 import { runNet } from "./runNet"
 
 export function runPort(mod: Mod, net: Net, port: Port): Port {
@@ -14,13 +14,13 @@ export function runPort(mod: Mod, net: Net, port: Port): Port {
 
   moveConnectedComponent(net, component, port.node)
 
-  const placeholderPort = closePort(mod, component, port)
-  const placeholderForFreePorts = closeAllFreePorts(mod, component)
+  const capPort = closePort(mod, component, port)
+  const capForFreePorts = closeAllFreePorts(mod, component)
 
   runNet(mod, component)
 
-  releasePlaceholderPorts(component, placeholderForFreePorts)
-  const connectedPort = collectConnectedPort(component, placeholderPort)
+  releaseCapPorts(component, capForFreePorts)
+  const connectedPort = collectConnectedPort(component, capPort)
 
   moveConnectedComponent(component, net, connectedPort.node)
 

@@ -3,19 +3,19 @@ import { Net } from "../net"
 import { findInputPorts } from "../net/findInputPorts"
 import { findOutputPorts } from "../net/findOutputPorts"
 import { Node } from "../node"
-import { connectPlaceholderInputPort } from "./connectPlaceholderInputPort"
-import { connectPlaceholderOutputPort } from "./connectPlaceholderOutputPort"
+import { connectCapInputPort } from "./connectCapInputPort"
+import { connectCapOutputPort } from "./connectCapOutputPort"
 
-export function connectPlaceholderPorts(mod: Mod, net: Net, node: Node): void {
+export function connectCapPorts(mod: Mod, net: Net, node: Node): void {
   for (const port of findInputPorts(net, node)) {
     if (!port.isPrincipal) {
-      connectPlaceholderOutputPort(mod, net, port)
+      connectCapOutputPort(mod, net, port)
     }
   }
 
   for (const port of findOutputPorts(net, node)) {
     if (!port.isPrincipal) {
-      connectPlaceholderInputPort(mod, net, port)
+      connectCapInputPort(mod, net, port)
     }
   }
 }

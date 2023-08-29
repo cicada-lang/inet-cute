@@ -1,3 +1,4 @@
+import { connectCapPorts } from "../cap/connectCapPorts"
 import { createChecking } from "../checking/createChecking"
 import { compose } from "../compose/compose"
 import { createEnv } from "../env/createEnv"
@@ -5,7 +6,6 @@ import { refreshNode } from "../freshen/refreshNode"
 import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
-import { connectPlaceholderPorts } from "../placeholder/connectPlaceholderPorts"
 import { Word } from "../word"
 
 export function checkRule(
@@ -32,8 +32,8 @@ export function checkRule(
 
   refreshNode(env.net, checking.typeVarCounters, second)
 
-  connectPlaceholderPorts(mod, env.net, first)
-  connectPlaceholderPorts(mod, env.net, second)
+  connectCapPorts(mod, env.net, first)
+  connectCapPorts(mod, env.net, second)
 
   for (const word of words) {
     compose(mod, env, word, {

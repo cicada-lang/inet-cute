@@ -1,9 +1,9 @@
+import { connectCapInputPort } from "../cap/connectCapInputPort"
+import { connectCapOutputPort } from "../cap/connectCapOutputPort"
 import { Mod } from "../mod"
 import { Net } from "../net"
 import { createNodeFromNodeEntry } from "../net/createNodeFromNodeEntry"
 import { createPortFromPortEntry } from "../net/createPortFromPortEntry"
-import { connectPlaceholderInputPort } from "../placeholder/connectPlaceholderInputPort"
-import { connectPlaceholderOutputPort } from "../placeholder/connectPlaceholderOutputPort"
 import { Port } from "../port"
 
 /*
@@ -13,8 +13,8 @@ import { Port } from "../port"
 
 */
 
-export function closeFreePorts(mod: Mod, net: Net): Array<Port> {
-  const placeholderPorts: Array<Port> = []
+export function closeAllFreePorts(mod: Mod, net: Net): Array<Port> {
+  const capPorts: Array<Port> = []
   for (const nodeEntry of net.nodeEntries.values()) {
     const node = createNodeFromNodeEntry(nodeEntry)
 
@@ -23,13 +23,13 @@ export function closeFreePorts(mod: Mod, net: Net): Array<Port> {
         const port = createPortFromPortEntry(node, portEntry)
 
         if (portEntry.sign === 1) {
-          placeholderPorts.push(connectPlaceholderInputPort(mod, net, port))
+          capPorts.push(connectCapInputPort(mod, net, port))
         } else {
-          placeholderPorts.push(connectPlaceholderOutputPort(mod, net, port))
+          capPorts.push(connectCapOutputPort(mod, net, port))
         }
       }
     }
   }
 
-  return placeholderPorts
+  return capPorts
 }

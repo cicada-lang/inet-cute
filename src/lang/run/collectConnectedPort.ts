@@ -5,22 +5,22 @@ import { findPortEntry } from "../net/findPortEntry"
 import { Port } from "../port"
 import { formatValue } from "../value/formatValue"
 
-export function collectResultPort(component: Net, placeholderPort: Port): Port {
-  const placeholderPortEntry = findPortEntry(component, placeholderPort)
-  if (placeholderPortEntry?.connection === undefined) {
+export function collectConnectedPort(component: Net, capPort: Port): Port {
+  const capPortEntry = findPortEntry(component, capPort)
+  if (capPortEntry?.connection === undefined) {
     throw new Error(
       [
-        `[run] I expect the placeholderPort to be connected.`,
+        `[run] I expect the capPort to be connected.`,
         ``,
-        `  placeholderPort: ${formatValue(placeholderPort)}`,
+        `  capPort: ${formatValue(capPort)}`,
       ].join("\n"),
     )
   }
 
-  const connectedPort = placeholderPortEntry.connection.port
+  const connectedPort = capPortEntry.connection.port
 
-  disconnectPort(component, placeholderPort)
-  deleteNodeEntry(component, placeholderPort.node)
+  disconnectPort(component, capPort)
+  deleteNodeEntry(component, capPort.node)
 
   return connectedPort
 }

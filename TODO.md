@@ -2,7 +2,11 @@
 
 test -- reuqire new rules
 
-placeholder as special node and port
+`Cap` as special `Node` -- `Node` has optional `cap`
+
+- with `covering` as port name
+
+`cap` as a builtin
 
 # articles
 
@@ -11,8 +15,6 @@ placeholder as special node and port
 [docs] 反应网编程 -- 完成 `List` 的讲解
 [docs] 反应网编程 -- 完成 `DiffList` 的讲解
 [docs] 反应网编程 -- 翻译为 programming-with-interaction-nets
-
-[docs] 输入接口只能和输出接口相连？
 
 # edge
 
