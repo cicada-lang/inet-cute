@@ -1,5 +1,3 @@
-`importOne` -- also import all rules of a node
-
 `lookupRule` -- remove indirect rule lookup
 
 test -- reuqire new rules

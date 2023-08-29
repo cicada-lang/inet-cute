@@ -1,5 +1,6 @@
 import { Mod } from "../mod"
 import { ImportBinding } from "./ImportBinding"
+import { importNodeRules } from "./importNodeRules"
 
 export function importOne(
   mod: Mod,
@@ -35,4 +36,11 @@ export function importOne(
   }
 
   mod.definitions.set(name, definition)
+
+  if (definition["@kind"] === "NodeDefinition") {
+    importNodeRules(mod, targetMod, {
+      url: definition.mod.url,
+      name: definition.name,
+    })
+  }
 }
