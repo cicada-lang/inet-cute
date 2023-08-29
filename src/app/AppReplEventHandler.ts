@@ -11,8 +11,14 @@ import { Loader } from "../loader"
 
 const fetcher = new Fetcher()
 
+const pathname = process.cwd() + "/.repl"
+
 fetcher.register("file", {
   async fetchText(url) {
+    if (url.href === `file://${pathname}`) {
+      return ""
+    }
+
     if (process.platform === "win32") {
       return fs.readFileSync(url.pathname.slice(1), "utf8")
     } else {
@@ -32,14 +38,6 @@ fetcher.register("file", {
   },
 })
 
-const pathname = process.cwd() + "/repl"
-
-fetcher.register("repl", {
-  fetchText: (url) => {
-    return ""
-  },
-})
-
 export class AppReplEventHandler extends ReplEventHandler {
   loader = new Loader({ fetcher })
 
@@ -48,7 +46,7 @@ export class AppReplEventHandler extends ReplEventHandler {
   }
 
   async handle(event: ReplEvent): Promise<void> {
-    const url = new URL(`repl:///${pathname}`)
+    const url = new URL(`file://${pathname}`)
     const mod = await this.loader.load(url)
 
     const oldText = mod.text
