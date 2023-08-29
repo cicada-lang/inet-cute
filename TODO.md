@@ -1,3 +1,7 @@
+be able to list all rule of a node
+
+placeholder as special node and port
+
 # articles
 
 [docs] 反应网编程 -- 加入到 演算场 的连接

@@ -3,3 +3,8 @@ export type Node = {
   url: URL
   name: string
 }
+
+export type NodeWithoutId = {
+  url: URL
+  name: string
+}
