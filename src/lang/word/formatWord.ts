@@ -18,7 +18,7 @@ export function formatWord(word: Word): string {
       return `${word.portName}-(${word.nodeName})`
     }
 
-    case "TypeVar": {
+    case "GenrateTypeVar": {
       return `'${word.name}`
     }
 

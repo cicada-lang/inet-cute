@@ -128,7 +128,7 @@ export function compose(
         return
       }
 
-      case "TypeVar": {
+      case "GenrateTypeVar": {
         env.stack.push({
           "@type": "Value",
           "@kind": "TypeVar",
