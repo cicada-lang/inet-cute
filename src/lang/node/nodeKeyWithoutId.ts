@@ -1,3 +1,5 @@
-export function nodeKeyWithoutId(node: { url: URL; name: string }): string {
+import { NodeWithoutId } from "./Node"
+
+export function nodeKeyWithoutId(node: NodeWithoutId): string {
   return `${node.url.href}/${node.name}`
 }
