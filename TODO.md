@@ -2,6 +2,10 @@
 
 `presentWordAsEnv`
 
+`formatEnv`
+
+`presentWordAsEnv` -- improve snapshot test
+
 # check
 
 `checkAllLocalVariableAreUsed`
