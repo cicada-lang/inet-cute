@@ -1,5 +1,5 @@
-net_from_port (_placeholder_output_node_for_addend_of_add₁)-_placeholder_output_port_for_addend_of_add! end
-net_from_port (_placeholder_input_node_for_return_of_add₁)-_placeholder_input_port_for_return_of_add! end
+net_from_port (_cap_output_node_for_addend_of_add₁)-_cap_output_port_for_addend_of_add! end
+net_from_port (_cap_input_node_for_return_of_add₁)-_cap_input_port_for_return_of_add! end
 net_from_port (add₃)-return
   (add₃)-target!value-(add1₃)
   (add₃)-addend value-(add1₂)
