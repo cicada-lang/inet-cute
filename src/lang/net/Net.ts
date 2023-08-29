@@ -40,6 +40,13 @@ export type PortEntry = {
   connection?: Connection
 }
 
+// For a shared-memory multithread implementation.
+// - We must define `EdgeEntry`.
+// - `Net` must have `edgeEntries: Map<string, EdgeEntry>`.
+// - Port must connect to edge instead of port,
+//   so that parallel updates of the net will not
+//   interfere with each other.
+
 export type Connection = {
   port: Port
 }
