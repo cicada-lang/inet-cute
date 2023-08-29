@@ -1,0 +1,21 @@
+[checkAllLocalsAreUsed] I expect all locals are used.
+
+  unused local names: abc
+
+[DefineRule.execute] I fail to define rule.
+
+  rule nodes: add1 add
+
+ 22 |  (add)-addend
+ 23 |  return-(add)
+ 24 |end
+ 25 |
+ 26 |rule add1 add
+ 27 |  (add)-addend
+ 28 |  (add1)-prev add
+ 29 |
+ 30 |  'abc $abc
+ 31 |
+ 32 |  add1 return-(add)
+ 33 |end
+ 34 |

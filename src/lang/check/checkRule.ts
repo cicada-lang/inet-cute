@@ -7,6 +7,7 @@ import { Mod } from "../mod"
 import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
 import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
 import { Word } from "../word"
+import { checkAllLocalsAreUsed } from "./checkAllLocalsAreUsed"
 
 export function checkRule(
   mod: Mod,
@@ -41,4 +42,6 @@ export function checkRule(
       checking,
     })
   }
+
+  checkAllLocalsAreUsed(env.locals)
 }

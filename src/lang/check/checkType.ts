@@ -5,6 +5,7 @@ import { Mod } from "../mod"
 import { Value } from "../value"
 import { formatValue } from "../value/formatValue"
 import { Word } from "../word"
+import { checkAllLocalsAreUsed } from "./checkAllLocalsAreUsed"
 
 export function checkType(
   mod: Mod,
@@ -17,6 +18,8 @@ export function checkType(
   const env = createEnv(mod)
 
   const inputValues = collectWords(mod, env, input, { checking })
+
+  checkAllLocalsAreUsed(env.locals)
 
   for (const inputValue of inputValues) {
     if (inputValue["@kind"] !== "Type") {
@@ -31,6 +34,8 @@ export function checkType(
   }
 
   const outputValues = collectWords(mod, env, output, { checking })
+
+  checkAllLocalsAreUsed(env.locals)
 
   if (outputValues.length !== 1) {
     throw new Error(

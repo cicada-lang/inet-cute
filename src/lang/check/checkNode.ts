@@ -6,6 +6,7 @@ import { PortExp } from "../port/PortExp"
 import { Value } from "../value"
 import { formatValue } from "../value/formatValue"
 import { Word } from "../word"
+import { checkAllLocalsAreUsed } from "./checkAllLocalsAreUsed"
 
 export function checkNode(
   mod: Mod,
@@ -20,6 +21,8 @@ export function checkNode(
 
   const inputValues = collectWords(mod, env, input, { checking })
   const outputValues = collectWords(mod, env, output, { checking })
+
+  checkAllLocalsAreUsed(env.locals)
 
   const inputPortExps = inputValues.map(portExpFromValue)
   const outputPortExps = outputValues.map(portExpFromValue)

@@ -1,0 +1,16 @@
+[checkAllLocalsAreUsed] I expect all locals are used.
+
+  unused local names: x
+
+[DefineNode.execute] I fail to define node.
+
+  node name: zero
+
+ 1 |type Nat -- Type end
+ 2 |
+ 3 |node zero
+ 4 |  ------
+ 5 |  Nat :value!
+ 6 |  Nat $x
+ 7 |end
+ 8 |

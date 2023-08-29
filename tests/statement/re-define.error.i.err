@@ -2,7 +2,7 @@
 
   word: swapswap
 
- 1 |claim swapswap 'A 'A -- 'A 'A end
+ 1 |claim swapswap 'A 'B -- 'B 'A end
  2 |define swapswap swap swap end
  3 |define swapswap swap swap end
  4 |
@@ -11,7 +11,7 @@
 
   word: swapswap
 
- 1 |claim swapswap 'A 'A -- 'A 'A end
+ 1 |claim swapswap 'A 'B -- 'B 'A end
  2 |define swapswap swap swap end
  3 |define swapswap swap swap end
  4 |

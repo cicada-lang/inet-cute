@@ -8,6 +8,7 @@ import { Mod } from "../mod"
 import { unifyTypes } from "../unify/unifyTypes"
 import { formatValue } from "../value/formatValue"
 import { Word } from "../word"
+import { checkAllLocalsAreUsed } from "./checkAllLocalsAreUsed"
 
 export function checkWords(
   mod: Mod,
@@ -23,6 +24,8 @@ export function checkWords(
     checking,
   }).map((t) => freshenType(checking.typeVarCounters, t, occurredNames))
 
+  checkAllLocalsAreUsed(env.locals)
+
   const capOutputPorts = inputValues
     .reverse()
     .map((t) => capType(mod, env.net, t))
@@ -35,9 +38,13 @@ export function checkWords(
     })
   }
 
+  checkAllLocalsAreUsed(env.locals)
+
   const outputValues = collectWords(mod, env, output, {
     checking,
   }).map((t) => freshenType(checking.typeVarCounters, t, occurredNames))
+
+  checkAllLocalsAreUsed(env.locals)
 
   for (const t of [...outputValues].reverse()) {
     const value = env.stack.pop()

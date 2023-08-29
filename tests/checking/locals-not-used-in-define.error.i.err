@@ -1,0 +1,11 @@
+[checkAllLocalsAreUsed] I expect all locals are used.
+
+  unused local names: a
+
+[Define.execute] I fail to define word.
+
+  word: my_drop
+
+ 1 |claim my_drop 'A -- end
+ 2 |define my_drop $a end
+ 3 |
