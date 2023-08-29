@@ -1,4 +1,5 @@
 export * from "./fetcher"
+export * from "./lang/cap"
 export * from "./lang/definition"
 export * from "./lang/errors"
 export * from "./lang/mod"
