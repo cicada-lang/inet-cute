@@ -1,4 +1,5 @@
 import { appendReport } from "../errors/appendReport"
+import { importAll } from "../import/importAll"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
@@ -30,24 +31,8 @@ export class Require implements Stmt {
       }
 
       const loadedMod = await mod.loader.load(url)
-      for (const [name, definition] of loadedMod.definitions) {
-        if (definition.isPrivate) {
-          continue
-        }
 
-        const found = mod.definitions.get(name)
-        if (found !== undefined) {
-          throw new Error(
-            [
-              `[Require.execute] I can not import already defined name.`,
-              ``,
-              `  name: ${name}`,
-            ].join("\n"),
-          )
-        }
-
-        mod.definitions.set(name, definition)
-      }
+      importAll(mod, loadedMod)
 
       for (const [key, requiredMod] of loadedMod.requiredMods) {
         mod.requiredMods.set(key, requiredMod)
