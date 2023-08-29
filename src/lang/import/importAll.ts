@@ -10,7 +10,7 @@ export function importAll(mod: Mod, targetMod: Mod): void {
     if (found !== undefined) {
       throw new Error(
         [
-          `[Require.execute] I can not import already defined name.`,
+          `[importAll] I can not import already defined name.`,
           ``,
           `  name: ${name}`,
         ].join("\n"),

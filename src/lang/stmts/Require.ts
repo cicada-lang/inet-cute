@@ -31,7 +31,6 @@ export class Require implements Stmt {
       }
 
       const loadedMod = await mod.loader.load(url)
-
       importAll(mod, loadedMod)
 
       for (const [key, requiredMod] of loadedMod.requiredMods) {

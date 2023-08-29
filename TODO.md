@@ -1,5 +1,3 @@
-extract `importBindings` from `Require.import`
-
 `Mod` should import all rules of a node -- no indirect rule lookup
 
 test -- reuqire new rules

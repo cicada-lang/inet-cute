@@ -1,12 +1,10 @@
 import { appendReport } from "../errors/appendReport"
+import { ImportBinding } from "../import/ImportBinding"
+import { formatImportBinding } from "../import/formatImportBinding"
+import { importBindings } from "../import/importBindings"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
-
-export type ImportBinding = {
-  name: string
-  alias?: string
-}
 
 export class Import implements Stmt {
   constructor(
@@ -32,34 +30,7 @@ export class Import implements Stmt {
       }
 
       const loadedMod = await mod.loader.load(url)
-
-      for (const { name } of this.bindings) {
-        const found = mod.definitions.get(name)
-        if (found !== undefined) {
-          throw new Error(
-            [
-              `[Import.execute] I can not import already defined name.`,
-              ``,
-              `  name: ${name}`,
-            ].join("\n"),
-          )
-        }
-
-        const definition = loadedMod.definitions.get(name)
-        if (definition === undefined) {
-          throw new Error(
-            [
-              `[Import.execute] I can not import undefined name.`,
-              ``,
-              `  name: ${name}`,
-              `  current module url: ${fetcher.formatURL(mod.url)}`,
-              `  imported module url: ${fetcher.formatURL(loadedMod.url)}`,
-            ].join("\n"),
-          )
-        }
-
-        mod.definitions.set(name, definition)
-      }
+      importBindings(mod, loadedMod, this.bindings)
     } catch (error) {
       throw appendReport(error, {
         message: [
@@ -74,13 +45,5 @@ export class Import implements Stmt {
         },
       })
     }
-  }
-}
-
-function formatImportBinding(binding: ImportBinding): string {
-  if (binding.alias) {
-    return `${binding.name} as ${binding.alias}`
-  } else {
-    return `${binding.name}`
   }
 }
