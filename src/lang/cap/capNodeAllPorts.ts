@@ -6,16 +6,12 @@ import { Node } from "../node"
 import { capInputPort } from "./capInputPort"
 import { capOutputPort } from "./capOutputPort"
 
-export function capNode(mod: Mod, net: Net, node: Node): void {
+export function capNodeAllPorts(mod: Mod, net: Net, node: Node): void {
   for (const port of findInputPorts(net, node)) {
-    if (!port.isPrincipal) {
-      capInputPort(mod, net, port)
-    }
+    capInputPort(mod, net, port)
   }
 
   for (const port of findOutputPorts(net, node)) {
-    if (!port.isPrincipal) {
-      capOutputPort(mod, net, port)
-    }
+    capOutputPort(mod, net, port)
   }
 }

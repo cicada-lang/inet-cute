@@ -1,4 +1,5 @@
 export * from "./capInputPort"
-export * from "./capNode"
+export * from "./capNodeAllPorts"
+export * from "./capNodeNonPrinciplePorts"
 export * from "./capOutputPort"
 export * from "./capType"

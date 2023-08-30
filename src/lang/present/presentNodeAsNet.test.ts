@@ -25,7 +25,8 @@ end
   const net = presentNodeAsNet(mod, "add")
 
   expect(formatNet(net)).toMatchInlineSnapshot(`
-    "(add₀)-addend covering-(@input_port_cap₀)
+    "(add₀)-target covering-(@input_port_cap₀)
+    (add₀)-addend covering-(@input_port_cap₁)
     (add₀)-return covering-(@ouput_port_cap₀)"
   `)
 })

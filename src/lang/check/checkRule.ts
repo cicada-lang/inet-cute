@@ -1,4 +1,4 @@
-import { capNode } from "../cap/capNode"
+import { capNodeNonPrinciplePorts } from "../cap/capNodeNonPrinciplePorts"
 import { createChecking } from "../checking/createChecking"
 import { compose } from "../compose/compose"
 import { createEnv } from "../env/createEnv"
@@ -33,8 +33,8 @@ export function checkRule(
 
   refreshNode(env.net, checking.typeVarCounters, second)
 
-  capNode(mod, env.net, first)
-  capNode(mod, env.net, second)
+  capNodeNonPrinciplePorts(mod, env.net, first)
+  capNodeNonPrinciplePorts(mod, env.net, second)
 
   for (const word of words) {
     compose(mod, env, word, {

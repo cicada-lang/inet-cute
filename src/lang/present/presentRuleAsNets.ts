@@ -1,4 +1,4 @@
-import { capNode } from "../cap"
+import { capNodeNonPrinciplePorts } from "../cap"
 import { compose } from "../compose/compose"
 import { connect } from "../connect/connect"
 import { createEnv } from "../env/createEnv"
@@ -6,7 +6,6 @@ import { Mod, lookupDefinitionOrFail } from "../mod"
 import { lookupRuleByName } from "../mod/lookupRuleByName"
 import { Net, copyConnectedComponent, createNet } from "../net"
 import { deleteNodeEntry } from "../net/deleteNodeEntry"
-import { disconnectPort } from "../net/disconnectPort"
 import { findPrincipalPort } from "../net/findPrincipalPort"
 import { Node } from "../node"
 import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
@@ -37,8 +36,8 @@ export function presentRuleAsNets(mod: Mod, ruleName: string): [Net, Net] {
     lookupDefinitionOrFail(mod, secondName),
   )
 
-  capNode(mod, env.net, first)
-  capNode(mod, env.net, second)
+  capNodeNonPrinciplePorts(mod, env.net, first)
+  capNodeNonPrinciplePorts(mod, env.net, second)
 
   const initial = collectInitialNet(env.net, first, second)
 
@@ -63,16 +62,7 @@ function collectInitialNet(net: Net, first: Node, second: Node): Net {
   copyConnectedComponent(net, initial, second)
 
   const firstPrincipalPort = findPrincipalPort(initial, first)
-  const firstConnectedPort = disconnectPort(initial, firstPrincipalPort)
-  if (firstConnectedPort) {
-    deleteNodeEntry(initial, firstConnectedPort.node)
-  }
-
   const secondPrincipalPort = findPrincipalPort(initial, second)
-  const secondConnectedPort = disconnectPort(initial, secondPrincipalPort)
-  if (secondConnectedPort) {
-    deleteNodeEntry(initial, secondConnectedPort.node)
-  }
 
   connect(initial, firstPrincipalPort, secondPrincipalPort)
 
