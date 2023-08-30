@@ -75,7 +75,7 @@ define addadd add add end
       net
         (@type_cap₃)-covering addend-(add₈)
         (@type_cap₄)-covering addend-(add₇)
-        (@type_cap₅)-covering!target-(add₇)
+        (@type_cap₅)-covering target-(add₇)
         (add₇)-return target-(add₈)
       end
       stack

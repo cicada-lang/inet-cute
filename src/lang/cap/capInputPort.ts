@@ -12,7 +12,7 @@ export function capInputPort(mod: Mod, net: Net, port: Port): Port {
     "@type": "PortExp",
     name: "covering",
     t: port.t,
-    isPrincipal: true,
+    isPrincipal: false,
   }
 
   const node = addNode(net, mod, "@input_port_cap", [], [portExp])

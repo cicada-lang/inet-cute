@@ -54,9 +54,9 @@ end
   `)
 
   expect(formatNet(final)).toMatchInlineSnapshot(`
-    "(@input_port_cap₃)-covering!target-(add₄)
+    "(@input_port_cap₃)-covering target-(add₄)
     (@input_port_cap₄)-covering addend-(add₄)
-    (@ouput_port_cap₂)-covering!value-(add1₃)
+    (@ouput_port_cap₂)-covering value-(add1₃)
     (add₄)-return prev-(add1₃)"
   `)
 })
