@@ -48,6 +48,9 @@ export function presentRuleAsNets(mod: Mod, ruleName: string): [Net, Net] {
     })
   }
 
+  deleteNodeEntry(env.net, first)
+  deleteNodeEntry(env.net, second)
+
   const final = env.net
 
   return [initial, final]
