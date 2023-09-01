@@ -1,4 +1,4 @@
-[checkTypeTermArgs] I expect all args of a TypeTerm to be TypeVar or TypeTerm.
+[checkTypeTermArgs] I expect all args of a TypeTerm to be Symbol or TypeTerm.
 
   args: [(sole₀)-value!]
 

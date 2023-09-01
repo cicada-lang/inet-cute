@@ -1,5 +1,12 @@
 require "List.i"
 
+// Concatenation of lists is performed in linear time
+// with respect to its first argument.
+// Constant time concatenation is possible
+// with difference-lists: the idea consists in
+// plugging the front of the second argument
+// at the back of the first one.
+
 type DiffList Type -- Type end
 
 node diff
@@ -8,13 +15,6 @@ node diff
   'A List :back
   'A DiffList :value!
 end
-
-// Concatenation of lists is performed in linear time
-// with respect to its first argument.
-// Constant time concatenation is possible
-// with difference-lists: the idea consists in
-// plugging the front of the second argument
-// at the back of the first one.
 
 node diff_append
   'A DiffList :target!
