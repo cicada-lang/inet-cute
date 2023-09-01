@@ -1,5 +1,4 @@
 import { checkPortSigns } from "../check/checkPortSigns"
-import { edgeEqual } from "../edge/edgeEqual"
 import { Net } from "../net"
 import { findPortEntry } from "../net/findPortEntry"
 import { findPortRecordOrFail } from "../net/findPortRecordOrFail"
@@ -49,11 +48,7 @@ export function connect(net: Net, first: Port, second: Port): void {
   const secondPortRecord = findPortRecordOrFail(net, second.node)
   secondPortRecord[second.name].connection = { port: first }
 
-  if (
-    first.isPrincipal &&
-    second.isPrincipal &&
-    !net.activeEdges.find((edge) => edgeEqual(edge, { first, second }))
-  ) {
+  if (first.isPrincipal && second.isPrincipal) {
     net.activeEdges.push(edge)
   }
 }

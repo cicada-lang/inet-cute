@@ -1,4 +1,5 @@
 import { Edge } from "../edge"
+import { edgeEqual } from "../edge/edgeEqual"
 import { Node } from "../node"
 import { Net } from "./Net"
 import { findPortRecordOrFail } from "./findPortRecordOrFail"
@@ -29,7 +30,8 @@ export function moveConnectedComponent(
   for (const activeEdge of net.activeEdges) {
     if (
       hasNode(component, activeEdge.first.node) &&
-      hasNode(component, activeEdge.second.node)
+      hasNode(component, activeEdge.second.node) &&
+      !component.activeEdges.find((edge) => edgeEqual(edge, activeEdge))
     ) {
       component.activeEdges.push(activeEdge)
     } else {

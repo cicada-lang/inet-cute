@@ -1,3 +1,4 @@
+import { edgeEqual } from "../edge/edgeEqual"
 import { Node } from "../node"
 import { Net } from "./Net"
 import { copyNode } from "./copyNode"
@@ -26,7 +27,8 @@ export function copyConnectedComponent(
   for (const activeEdge of net.activeEdges) {
     if (
       hasNode(component, activeEdge.first.node) &&
-      hasNode(component, activeEdge.second.node)
+      hasNode(component, activeEdge.second.node) &&
+      !component.activeEdges.find((edge) => edgeEqual(edge, activeEdge))
     ) {
       component.activeEdges.push(activeEdge)
     }
