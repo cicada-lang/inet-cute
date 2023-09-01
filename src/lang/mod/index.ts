@@ -1,4 +1,5 @@
 export * from "./Mod"
+export * from "./RuleEntry"
 export * from "./createMod"
 export * from "./define"
 export * from "./defineRule"
