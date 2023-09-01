@@ -25,5 +25,17 @@ export function defineRule(
   const key = `${firstKey} ${secondKey}`
   const name = `${firstName} ${secondName}`
 
-  mod.ruleEntries.set(key, { name, mod, words })
+  mod.ruleEntries.set(key, {
+    name,
+    first: {
+      url: firstDefinition.mod.url,
+      name: firstDefinition.name,
+    },
+    second: {
+      url: secondDefinition.mod.url,
+      name: secondDefinition.name,
+    },
+    mod,
+    words,
+  })
 }
