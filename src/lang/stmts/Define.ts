@@ -3,7 +3,7 @@ import { definitionMaybeSpan } from "../definition/definitionMaybeSpan"
 import { appendReport } from "../errors/appendReport"
 import { createReport } from "../errors/createReport"
 import { Mod } from "../mod"
-import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
+import { findDefinitionOrFail } from "../mod/findDefinitionOrFail"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { Word } from "../word"
@@ -17,7 +17,7 @@ export class Define implements Stmt {
 
   async execute(mod: Mod): Promise<void> {
     try {
-      const definition = lookupDefinitionOrFail(mod, this.name)
+      const definition = findDefinitionOrFail(mod, this.name)
       if (definition["@kind"] !== "WordDefinition") {
         throw new Error(
           [

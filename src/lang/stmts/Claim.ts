@@ -3,7 +3,7 @@ import { appendReport } from "../errors/appendReport"
 import { createReport } from "../errors/createReport"
 import { Mod } from "../mod"
 import { define } from "../mod/define"
-import { lookupDefinition } from "../mod/lookupDefinition"
+import { findDefinition } from "../mod/findDefinition"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { Word } from "../word"
@@ -18,7 +18,7 @@ export class Claim implements Stmt {
 
   async execute(mod: Mod): Promise<void> {
     try {
-      const definition = lookupDefinition(mod, this.name)
+      const definition = findDefinition(mod, this.name)
 
       if (definition !== undefined) {
         const definitionSpan = definitionMaybeSpan(definition)

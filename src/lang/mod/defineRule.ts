@@ -1,7 +1,7 @@
 import { nodeKeyWithoutId } from "../node/nodeKeyWithoutId"
 import { Word } from "../word"
 import { Mod } from "./Mod"
-import { lookupDefinitionOrFail } from "./lookupDefinitionOrFail"
+import { findDefinitionOrFail } from "./findDefinitionOrFail"
 
 export function defineRule(
   mod: Mod,
@@ -9,8 +9,8 @@ export function defineRule(
   secondName: string,
   words: Array<Word>,
 ): void {
-  const firstDefinition = lookupDefinitionOrFail(mod, firstName)
-  const secondDefinition = lookupDefinitionOrFail(mod, secondName)
+  const firstDefinition = findDefinitionOrFail(mod, firstName)
+  const secondDefinition = findDefinitionOrFail(mod, secondName)
 
   const firstKey = nodeKeyWithoutId({
     url: firstDefinition.mod.url,

@@ -1,13 +1,13 @@
 import { Mod } from "../mod"
-import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
+import { findDefinitionOrFail } from "../mod/findDefinitionOrFail"
 
 export function checkRuleIsAboutOwnNode(
   mod: Mod,
   firstName: string,
   secondName: string,
 ): void {
-  const first = lookupDefinitionOrFail(mod, firstName)
-  const second = lookupDefinitionOrFail(mod, secondName)
+  const first = findDefinitionOrFail(mod, firstName)
+  const second = findDefinitionOrFail(mod, secondName)
 
   const fetcher = mod.loader.fetcher
 

@@ -1,9 +1,9 @@
 import { NodeWithoutId } from "../node"
 import { Mod } from "./Mod"
-import { lookupDefinition } from "./lookupDefinition"
+import { findDefinition } from "./findDefinition"
 
 export function hasNodeDefinition(mod: Mod, node: NodeWithoutId): boolean {
-  const definition = lookupDefinition(mod, node.name)
+  const definition = findDefinition(mod, node.name)
   if (definition === undefined) {
     return false
   }

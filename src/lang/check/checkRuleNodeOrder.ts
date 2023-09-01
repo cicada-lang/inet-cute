@@ -1,12 +1,12 @@
 import { Mod } from "../mod"
-import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
+import { findDefinitionOrFail } from "../mod/findDefinitionOrFail"
 
 export function checkRuleNodeOrder(
   mod: Mod,
   firstName: string,
   secondName: string,
 ): void {
-  const first = lookupDefinitionOrFail(mod, firstName)
+  const first = findDefinitionOrFail(mod, firstName)
 
   if (first["@kind"] !== "NodeDefinition") {
     throw new Error(
@@ -30,7 +30,7 @@ export function checkRuleNodeOrder(
     )
   }
 
-  const second = lookupDefinitionOrFail(mod, secondName)
+  const second = findDefinitionOrFail(mod, secondName)
 
   if (second["@kind"] !== "NodeDefinition") {
     throw new Error(

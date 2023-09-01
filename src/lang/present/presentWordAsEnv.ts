@@ -3,11 +3,11 @@ import { collectWords } from "../compose/collectWords"
 import { compose } from "../compose/compose"
 import { Env } from "../env"
 import { createEnv } from "../env/createEnv"
-import { Mod, lookupDefinitionOrFail } from "../mod"
+import { Mod, findDefinitionOrFail } from "../mod"
 import { formatWord } from "../word"
 
 export function presentWordAsEnv(mod: Mod, name: string): Env {
-  const definition = lookupDefinitionOrFail(mod, name)
+  const definition = findDefinitionOrFail(mod, name)
 
   if (definition["@kind"] !== "WordDefinition") {
     throw new Error(

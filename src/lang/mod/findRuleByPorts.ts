@@ -1,14 +1,14 @@
 import { Port } from "../port"
 import { Rule } from "../rule"
 import { Mod } from "./Mod"
-import { lookupRuleByNodes } from "./lookupRuleByNodes"
+import { findRuleByNodes } from "./findRuleByNodes"
 
-export function lookupRuleByPorts(
+export function findRuleByPorts(
   mod: Mod,
   first: Port,
   second: Port,
 ): Rule | undefined {
   if (first.isPrincipal && second.isPrincipal) {
-    return lookupRuleByNodes(mod, first.node, second.node)
+    return findRuleByNodes(mod, first.node, second.node)
   }
 }

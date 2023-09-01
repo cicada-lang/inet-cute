@@ -4,7 +4,7 @@ import { compose } from "../compose/compose"
 import { createEnv } from "../env/createEnv"
 import { refreshNode } from "../freshen/refreshNode"
 import { Mod } from "../mod"
-import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
+import { findDefinitionOrFail } from "../mod/findDefinitionOrFail"
 import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
 import { Word } from "../word"
 import { checkAllLocalsAreUsed } from "./checkAllLocalsAreUsed"
@@ -21,14 +21,14 @@ export function checkRule(
 
   const first = createNodeFromDefinition(
     env.net,
-    lookupDefinitionOrFail(mod, firstName),
+    findDefinitionOrFail(mod, firstName),
   )
 
   refreshNode(env.net, checking.typeVarCounters, first)
 
   const second = createNodeFromDefinition(
     env.net,
-    lookupDefinitionOrFail(mod, secondName),
+    findDefinitionOrFail(mod, secondName),
   )
 
   refreshNode(env.net, checking.typeVarCounters, second)

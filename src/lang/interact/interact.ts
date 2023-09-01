@@ -2,7 +2,7 @@ import { Checking } from "../checking"
 import { compose } from "../compose/compose"
 import { Edge } from "../edge"
 import { Env } from "../env"
-import { lookupRuleByPorts } from "../mod/lookupRuleByPorts"
+import { findRuleByPorts } from "../mod/findRuleByPorts"
 import { deleteNodeEntry } from "../net/deleteNodeEntry"
 
 export type InteractOptions = {
@@ -14,7 +14,7 @@ export function interact(
   activeEdge: Edge,
   options: InteractOptions,
 ): void {
-  const rule = lookupRuleByPorts(env.mod, activeEdge.first, activeEdge.second)
+  const rule = findRuleByPorts(env.mod, activeEdge.first, activeEdge.second)
   if (rule === undefined) return
 
   for (const word of rule.words) {

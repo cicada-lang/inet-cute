@@ -2,8 +2,8 @@ import { capNodeNonPrinciplePorts } from "../cap"
 import { compose } from "../compose/compose"
 import { connect } from "../connect/connect"
 import { createEnv } from "../env/createEnv"
-import { Mod, lookupDefinitionOrFail } from "../mod"
-import { lookupRuleByName } from "../mod/lookupRuleByName"
+import { Mod, findDefinitionOrFail } from "../mod"
+import { findRuleByName } from "../mod/findRuleByName"
 import { Net, copyConnectedComponent, createNet } from "../net"
 import { deleteNodeEntry } from "../net/deleteNodeEntry"
 import { findPrincipalPort } from "../net/findPrincipalPort"
@@ -13,7 +13,7 @@ import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
 export function presentRuleAsNets(mod: Mod, ruleName: string): [Net, Net] {
   const env = createEnv(mod)
 
-  const rule = lookupRuleByName(mod, ruleName)
+  const rule = findRuleByName(mod, ruleName)
   if (rule === undefined) {
     throw new Error(
       [
@@ -28,12 +28,12 @@ export function presentRuleAsNets(mod: Mod, ruleName: string): [Net, Net] {
 
   const first = createNodeFromDefinition(
     env.net,
-    lookupDefinitionOrFail(mod, firstName),
+    findDefinitionOrFail(mod, firstName),
   )
 
   const second = createNodeFromDefinition(
     env.net,
-    lookupDefinitionOrFail(mod, secondName),
+    findDefinitionOrFail(mod, secondName),
   )
 
   capNodeNonPrinciplePorts(mod, env.net, first)

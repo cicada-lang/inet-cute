@@ -16,13 +16,13 @@ export class Fetcher {
     })
   }
 
-  lookupHandler(url: URL): FetcherHandler | undefined {
+  findHandler(url: URL): FetcherHandler | undefined {
     const scheme = url.protocol.slice(0, url.protocol.length - 1)
     return this.handlers[scheme]
   }
 
   formatURL(url: URL): string {
-    const handler = this.lookupHandler(url)
+    const handler = this.findHandler(url)
     if (handler === undefined) {
       throw new Error(
         [
@@ -42,7 +42,7 @@ export class Fetcher {
   }
 
   async fetchText(url: URL): Promise<string> {
-    const handler = this.lookupHandler(url)
+    const handler = this.findHandler(url)
     if (handler === undefined) {
       throw new Error(
         [

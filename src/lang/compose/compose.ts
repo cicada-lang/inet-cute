@@ -3,7 +3,7 @@ import { connect } from "../connect/connect"
 import { Env } from "../env"
 import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
-import { lookupDefinitionOrFail } from "../mod/lookupDefinitionOrFail"
+import { findDefinitionOrFail } from "../mod/findDefinitionOrFail"
 import { disconnectPort } from "../net/disconnectPort"
 import { findPortEntry } from "../net/findPortEntry"
 import { Node } from "../node"
@@ -35,7 +35,7 @@ export function compose(
           env.locals.delete(word.name)
           return
         } else {
-          const definition = lookupDefinitionOrFail(mod, word.name)
+          const definition = findDefinitionOrFail(mod, word.name)
           composeDefinition(env, definition, options)
           return
         }
@@ -156,7 +156,7 @@ export function compose(
       }
 
       case "NodeRearrange": {
-        const definition = lookupDefinitionOrFail(mod, word.name)
+        const definition = findDefinitionOrFail(mod, word.name)
         composeNode(
           env,
           createNodeFromDefinition(env.net, definition),
