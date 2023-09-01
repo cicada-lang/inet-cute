@@ -1,4 +1,4 @@
-[lookupDefinitionOrFail] I meet undefined name.
+[findDefinitionOrFail] I meet undefined name.
 
   name: swapswap
 
