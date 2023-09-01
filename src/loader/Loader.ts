@@ -19,7 +19,11 @@ export class Loader {
     const found = this.loaded.get(url.href)
     if (found !== undefined) return found
 
-    const text = options?.text || (await this.fetcher.fetchText(url))
+    const text =
+      options?.text === undefined
+        ? await this.fetcher.fetchText(url)
+        : options.text
+
     const stmts = parseStmts(text)
     const mod = createMod({
       loader: this,
