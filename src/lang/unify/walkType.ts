@@ -1,7 +1,7 @@
 import { Value } from "../value"
 
 export function walkType(substitution: Map<string, Value>, t: Value): Value {
-  while (t["@kind"] === "TypeVar") {
+  while (t["@kind"] === "Symbol") {
     const found = substitution.get(t.name)
     if (found === undefined) {
       return t

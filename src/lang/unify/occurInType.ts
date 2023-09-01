@@ -9,7 +9,7 @@ export function occurInType(
   t = walkType(substitution, t)
 
   switch (t["@kind"]) {
-    case "TypeVar": {
+    case "Symbol": {
       return t.name === name
     }
 

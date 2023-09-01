@@ -15,7 +15,7 @@ export function formatValue(value: Value): string {
       return "Type"
     }
 
-    case "TypeVar": {
+    case "Symbol": {
       return `'${value.name}`
     }
 

@@ -128,10 +128,10 @@ export function compose(
         return
       }
 
-      case "GenrateTypeVar": {
+      case "GenrateSymbol": {
         env.stack.push({
           "@type": "Value",
-          "@kind": "TypeVar",
+          "@kind": "Symbol",
           name: word.name,
         })
 

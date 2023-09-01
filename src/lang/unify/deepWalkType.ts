@@ -5,7 +5,7 @@ export function deepWalkType(
   t: Value,
 ): Value {
   switch (t["@kind"]) {
-    case "TypeVar": {
+    case "Symbol": {
       const found = substitution.get(t.name)
       if (found === undefined) {
         return t

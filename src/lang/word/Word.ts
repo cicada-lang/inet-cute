@@ -5,7 +5,7 @@ export type Word =
   | Local
   | PortPush
   | PortReconnect
-  | GenrateTypeVar
+  | GenrateSymbol
   | Label
   | NodeRearrange
 
@@ -39,9 +39,9 @@ export type PortReconnect = {
   span: Span
 }
 
-export type GenrateTypeVar = {
+export type GenrateSymbol = {
   "@type": "Word"
-  "@kind": "GenrateTypeVar"
+  "@kind": "GenrateSymbol"
   name: string
   span: Span
 }

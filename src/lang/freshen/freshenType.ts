@@ -7,21 +7,21 @@ export function freshenType(
   occurredNames: Map<string, string>,
 ): Value {
   switch (t["@kind"]) {
-    case "TypeVar": {
+    case "Symbol": {
       const foundName = occurredNames.get(t.name)
       if (foundName === undefined) {
-        const subscript = tickTypeVarCounter(typeVarCounters, t.name)
+        const subscript = tickSymbolCounter(typeVarCounters, t.name)
         const newName = t.name + stringToSubscript(subscript.toString())
         occurredNames.set(t.name, newName)
         return {
           "@type": "Value",
-          "@kind": "TypeVar",
+          "@kind": "Symbol",
           name: newName,
         }
       } else {
         return {
           "@type": "Value",
-          "@kind": "TypeVar",
+          "@kind": "Symbol",
           name: foundName,
         }
       }
@@ -45,7 +45,7 @@ export function freshenType(
   }
 }
 
-export function tickTypeVarCounter(
+export function tickSymbolCounter(
   typeVarCounters: Map<string, number>,
   name: string,
 ): number {

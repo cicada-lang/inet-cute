@@ -16,14 +16,14 @@ export function unifyTypes(
     right = walkType(substitution, right)
 
     if (
-      left["@kind"] === "TypeVar" &&
-      right["@kind"] === "TypeVar" &&
+      left["@kind"] === "Symbol" &&
+      right["@kind"] === "Symbol" &&
       left.name === right.name
     ) {
       return
     }
 
-    if (left["@kind"] === "TypeVar") {
+    if (left["@kind"] === "Symbol") {
       if (occurInType(substitution, left.name, right)) {
         throw new Error(
           [
@@ -39,7 +39,7 @@ export function unifyTypes(
       return
     }
 
-    if (right["@kind"] === "TypeVar") {
+    if (right["@kind"] === "Symbol") {
       if (occurInType(substitution, right.name, left)) {
         throw new Error(
           [
