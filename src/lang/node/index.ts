@@ -1,4 +1,5 @@
 export * from "./Node"
 export * from "./formatNode"
+export * from "./nodeEqual"
 export * from "./nodeKey"
 export * from "./nodeKeyWithoutId"
