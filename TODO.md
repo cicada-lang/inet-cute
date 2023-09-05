@@ -1,3 +1,8 @@
+[builtin] `Builtin` as a word
+[builtin] `Builtin` -- syntax
+[builtin] add `@` as prefix to all builtins
+[builtin] remove `isPrivate` from Definition
+
 # articles
 
 [docs] 反应网编程 -- 完成 `mul` 的讲解
