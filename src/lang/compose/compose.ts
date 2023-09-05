@@ -41,6 +41,22 @@ export function compose(
         }
       }
 
+      case "Builtin": {
+        const definition = mod.builtins.get(word.name)
+        if (definition === undefined) {
+          throw new Error(
+            [
+              `[compose / Builtin] I meet undefined builtin.`,
+              ``,
+              `  name: ${word.name}`,
+            ].join("\n"),
+          )
+        }
+
+        composeDefinition(env, definition, options)
+        return
+      }
+
       case "Local": {
         const port = env.stack.pop()
         if (port === undefined) {

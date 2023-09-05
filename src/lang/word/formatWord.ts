@@ -6,6 +6,10 @@ export function formatWord(word: Word): string {
       return word.name
     }
 
+    case "Builtin": {
+      return `@${word.name}`
+    }
+
     case "Local": {
       return `$${word.name}`
     }

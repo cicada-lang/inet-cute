@@ -2,6 +2,7 @@ import { Span } from "../span"
 
 export type Word =
   | Call
+  | Builtin
   | Local
   | PortPush
   | PortReconnect
@@ -12,6 +13,13 @@ export type Word =
 export type Call = {
   "@type": "Word"
   "@kind": "Call"
+  name: string
+  span: Span
+}
+
+export type Builtin = {
+  "@type": "Word"
+  "@kind": "Builtin"
   name: string
   span: Span
 }
