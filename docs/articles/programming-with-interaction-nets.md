@@ -27,4 +27,23 @@ Read this paper to see detailed explanation :)
 
 # 2
 
+How to use graph to encode data?
+
+Suppose we want to encode the most simple data -- natural number.
+We can mimic the ancient knot counting, using node to do the counting.
+
+```
+0  (zero)--
+1  (zero)--(add1)--
+2  (zero)--(add1)--(add1)--
+3  (zero)--(add1)--(add1)--(add1)--
+```
+
+The node encoding 0 `(zero)` has one port,
+the node encoding +1 `(add1)` has two ports,
+we can encode natural number
+by connecting these nodes through the ports.
+
+# 3
+
 TODO
