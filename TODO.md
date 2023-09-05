@@ -1,6 +1,5 @@
 # articles
 
-[docs] 反应网编程 -- 完成 `List` 的讲解
 [docs] 反应网编程 -- 完成 `DiffList` 的讲解
 [docs] 反应网编程 -- 总结
 
