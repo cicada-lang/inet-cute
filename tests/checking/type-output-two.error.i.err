@@ -7,5 +7,5 @@
 
   type name: Trivial
 
- 1 |type Trivial -- Type Type end
+ 1 |type Trivial -- @Type @Type end
  2 |

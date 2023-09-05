@@ -1,4 +1,4 @@
-type Trivial -- Type end
+type Trivial -- @Type end
 
 node sole
   --------

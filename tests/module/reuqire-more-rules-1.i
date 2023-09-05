@@ -1,4 +1,4 @@
-type Nat -- Type end
+type Nat -- @Type end
 
 node zero
   ------

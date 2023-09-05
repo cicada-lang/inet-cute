@@ -1,3 +1,3 @@
 import zero, one, add from "../datatype/Nat.i"
 
-zero one add inspect run inspect
+zero one add @inspect @run @inspect

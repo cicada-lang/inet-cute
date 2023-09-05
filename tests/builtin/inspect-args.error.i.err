@@ -2,14 +2,14 @@
 
 [compose] I fail compose word.
 
-  word: inspect
+  word: @inspect
 
- 1 |inspect
+ 1 |@inspect
  2 |
 
 [Compose.execute] I fail to compose word.
 
-  word: inspect
+  word: @inspect
 
- 1 |inspect
+ 1 |@inspect
  2 |

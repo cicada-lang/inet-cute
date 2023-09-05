@@ -10,7 +10,7 @@
 
   word: add2
 
-  5 |type Trivial -- Type end
+  5 |type Trivial -- @Type end
   6 |node sole -- Trivial :value! end
   7 |
   8 |claim add2 Nat Nat -- Nat end

@@ -1,3 +1,3 @@
 require "../datatype/Nat.i"
 
-zero one add inspect run inspect
+zero one add @inspect @run @inspect

@@ -6,7 +6,7 @@
 
   node name: zero
 
- 1 |type Nat -- Type end
+ 1 |type Nat -- @Type end
  2 |
  3 |node zero
  4 |  ------

@@ -6,7 +6,7 @@
 
   path: "../datatype/Nat.i"
 
- 1 |type Nat -- Type end
+ 1 |type Nat -- @Type end
  2 |
  3 |require "../datatype/Nat.i"
  4 |

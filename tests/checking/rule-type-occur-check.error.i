@@ -1,4 +1,4 @@
-type List Type -- Type end
+type List @Type -- @Type end
 
 node null
   --------

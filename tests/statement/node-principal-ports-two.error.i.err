@@ -6,7 +6,7 @@
 
   node name: add1
 
- 1 |type Nat -- Type end
+ 1 |type Nat -- @Type end
  2 |node zero -- Nat :value! end
  3 |node add1 Nat :prev! -- Nat :value! end
  4 |

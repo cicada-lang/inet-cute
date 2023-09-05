@@ -1,7 +1,7 @@
-type Trivial -- Type end
+type Trivial -- @Type end
 node sole -- Trivial :value! end
 
-type Nat -- Type end
+type Nat -- @Type end
 node zero -- Nat :value! end
 node add1 Nat :prev -- Nat :value! end
 
@@ -14,12 +14,12 @@ end
 
 rule add zero
   (add)-addend
-  (add)-return sole connect
+  (add)-return sole @connect
 end
 
 // The correct definition is:
 
 // rule zero add
 //   (add)-addend
-//   (add)-return sole connect
+//   (add)-return sole @connect
 // end

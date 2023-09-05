@@ -5,12 +5,12 @@
 
 [compose] I fail compose word.
 
-  word: connect
+  word: @connect
 
  14 |
  15 |rule zero add
  16 |  (add)-addend
- 17 |  (add)-return sole connect
+ 17 |  (add)-return sole @connect
  18 |end
  19 |
 
@@ -24,7 +24,7 @@
  14 |
  15 |rule zero add
  16 |  (add)-addend
- 17 |  (add)-return sole connect
+ 17 |  (add)-return sole @connect
  18 |end
  19 |
  20 |rule add1 add

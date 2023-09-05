@@ -8,7 +8,7 @@
   bindings: [Trivial]
   path: "./self-import.error.i"
 
- 1 |type Trivial -- Type end
+ 1 |type Trivial -- @Type end
  2 |
  3 |import Trivial from "./self-import.error.i"
  4 |

@@ -1,1 +1,1 @@
-type Trivial -- Type Type end
+type Trivial -- @Type @Type end

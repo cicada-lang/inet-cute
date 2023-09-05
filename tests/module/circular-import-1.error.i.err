@@ -24,7 +24,7 @@
   bindings: [Trivial]
   path: "./circular-import-2.error.i"
 
- 1 |type Trivial -- Type end
+ 1 |type Trivial -- @Type end
  2 |
  3 |import Trivial from "./circular-import-2.error.i"
  4 |

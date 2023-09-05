@@ -1,2 +1,2 @@
-'A :target! inspect
-'A :addend inspect
+'A :target! @inspect
+'A :addend @inspect

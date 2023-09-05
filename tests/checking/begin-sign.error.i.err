@@ -6,20 +6,20 @@
 
 [compose] I fail compose word.
 
-  word: connect
+  word: @connect
 
- 1 |type Trivial -- Type end
+ 1 |type Trivial -- @Type end
  2 |node sole -- Trivial :value! end
  3 |
- 4 |sole sole connect
+ 4 |sole sole @connect
  5 |
 
 [Compose.execute] I fail to compose word.
 
-  word: connect
+  word: @connect
 
- 1 |type Trivial -- Type end
+ 1 |type Trivial -- @Type end
  2 |node sole -- Trivial :value! end
  3 |
- 4 |sole sole connect
+ 4 |sole sole @connect
  5 |

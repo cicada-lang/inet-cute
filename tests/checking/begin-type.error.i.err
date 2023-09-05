@@ -7,7 +7,7 @@
 
   word: add1
 
-  5 |type Trivial -- Type end
+  5 |type Trivial -- @Type end
   6 |node sole -- Trivial :value! end
   7 |
   8 |sole add1
@@ -17,7 +17,7 @@
 
   word: add1
 
-  5 |type Trivial -- Type end
+  5 |type Trivial -- @Type end
   6 |node sole -- Trivial :value! end
   7 |
   8 |sole add1

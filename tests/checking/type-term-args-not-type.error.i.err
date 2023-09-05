@@ -7,7 +7,7 @@
   word: List
 
  3 |
- 4 |type List Type -- Type end
+ 4 |type List @Type -- @Type end
  5 |
  6 |sole List
  7 |
@@ -17,7 +17,7 @@
   word: List
 
  3 |
- 4 |type List Type -- Type end
+ 4 |type List @Type -- @Type end
  5 |
  6 |sole List
  7 |

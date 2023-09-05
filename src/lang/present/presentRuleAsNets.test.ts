@@ -7,7 +7,7 @@ import { presentRuleAsNets } from "./presentRuleAsNets"
 test("presentRuleAsNets", async () => {
   const text = `
 
-type Nat -- Type end
+type Nat -- @Type end
 
 node zero
   ------

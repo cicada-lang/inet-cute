@@ -1,4 +1,4 @@
-type Nat -- Type end
+type Nat -- @Type end
 node zero -- Nat :value! end
 node add1 Nat :prev -- Nat :value! end
 
@@ -15,8 +15,8 @@ rule zero add
 end
 
 rule add1 add
-  (add)-addend inspect (add1)-prev add add1
-  (add)-return inspect connect
+  (add)-addend @inspect (add1)-prev add add1
+  (add)-return @inspect @connect
 end
 
-zero add1 zero add1 add inspect
+zero add1 zero add1 add @inspect

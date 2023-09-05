@@ -1,3 +1,3 @@
-type Trivial -- Type end
+type Trivial -- @Type end
 
 import Trivial from "./self-import.error.i"

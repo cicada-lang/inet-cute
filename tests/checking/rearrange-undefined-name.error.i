@@ -1,7 +1,7 @@
-type Trivial -- Type end
+type Trivial -- @Type end
 node sole -- Trivial :value! end
 
-type List Type -- Type end
+type List @Type -- @Type end
 
 node null
   --------

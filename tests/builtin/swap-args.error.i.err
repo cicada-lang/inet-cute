@@ -4,20 +4,20 @@
 
 [compose] I fail compose word.
 
-  word: swap
+  word: @swap
 
- 1 |type Trivial -- Type end
+ 1 |type Trivial -- @Type end
  2 |node sole -- Trivial :value! end
  3 |
- 4 |sole swap
+ 4 |sole @swap
  5 |
 
 [Compose.execute] I fail to compose word.
 
-  word: swap
+  word: @swap
 
- 1 |type Trivial -- Type end
+ 1 |type Trivial -- @Type end
  2 |node sole -- Trivial :value! end
  3 |
- 4 |sole swap
+ 4 |sole @swap
  5 |

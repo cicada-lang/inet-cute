@@ -4,7 +4,7 @@
 
  1 |claim swapswap 'A -- 'A end
  2 |claim swapswap 'A -- 'A end
- 3 |define swapswap swap swap end
+ 3 |define swapswap @swap @swap end
 
 [Claim.execute] I fail to claim word.
 
@@ -12,4 +12,4 @@
 
  1 |claim swapswap 'A -- 'A end
  2 |claim swapswap 'A -- 'A end
- 3 |define swapswap swap swap end
+ 3 |define swapswap @swap @swap end

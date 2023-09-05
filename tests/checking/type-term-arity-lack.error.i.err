@@ -8,7 +8,7 @@
 
   word: List
 
- 1 |type List Type -- Type end
+ 1 |type List @Type -- @Type end
  2 |node null -- List :value! end
  3 |
 
@@ -16,6 +16,6 @@
 
   node name: null
 
- 1 |type List Type -- Type end
+ 1 |type List @Type -- @Type end
  2 |node null -- List :value! end
  3 |

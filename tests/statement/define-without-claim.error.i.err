@@ -6,4 +6,4 @@
 
   word: swapswap
 
- 1 |define swapswap swap swap end
+ 1 |define swapswap @swap @swap end

@@ -13,7 +13,7 @@
  14 |
  15 |rule add zero
  16 |  (add)-addend
- 17 |  (add)-return sole connect
+ 17 |  (add)-return sole @connect
  18 |end
  19 |
  20 |// The correct definition is:

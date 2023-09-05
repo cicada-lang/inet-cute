@@ -7,7 +7,7 @@ import { presentWordAsEnv } from "./presentWordAsEnv"
 test("presentWordAsEnv", async () => {
   const text = `
 
-type Nat -- Type end
+type Nat -- @Type end
 
 node zero
   ------

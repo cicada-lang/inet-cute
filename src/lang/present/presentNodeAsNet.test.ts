@@ -7,7 +7,7 @@ import { presentNodeAsNet } from "./presentNodeAsNet"
 test("presentNodeAsNet", async () => {
   const text = `
 
-type Nat -- Type end
+type Nat -- @Type end
 
 node add
   Nat :target!

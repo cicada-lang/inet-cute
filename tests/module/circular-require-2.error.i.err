@@ -7,7 +7,7 @@
 
   path: "./circular-require-2.error.i"
 
- 1 |type Trivial -- Type end
+ 1 |type Trivial -- @Type end
  2 |
  3 |require "./circular-require-2.error.i"
  4 |

@@ -6,6 +6,6 @@
 
   type name: List
 
- 1 | type Trivial -- Type end
- 2 | type List Trivial -- Type end
+ 1 | type Trivial -- @Type end
+ 2 | type List Trivial -- @Type end
  3 |

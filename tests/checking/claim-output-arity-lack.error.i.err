@@ -11,5 +11,5 @@
   word: swapswap
 
  1 |claim swapswap 'A 'B -- 'B end
- 2 |define swapswap swap swap end
+ 2 |define swapswap @swap @swap end
  3 |
