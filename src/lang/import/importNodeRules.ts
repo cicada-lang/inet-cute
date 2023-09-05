@@ -9,6 +9,7 @@ export function importNodeRules(
   const nodeKey = nodeKeyWithoutId(node)
   for (const [key, ruleEntry] of targetMod.ruleEntries) {
     const [firstKey, secondKey] = key.split(" ")
+
     if (firstKey === nodeKey || secondKey === nodeKey) {
       mod.ruleEntries.set(key, ruleEntry)
     }
