@@ -4,15 +4,15 @@ author: Xie Yuheng
 year: 2023
 ---
 
-Interaction nets is an interesting computation model designed by Yves Lafont in 1990,
-It uses undirected graphs and graph rewriting to express computations.
+# 1
 
-It is interesting because:
+At the end of 2021,
+I occasionally read a 1990 paper "Interaction Nets",
+by Yves Lafont.
+The paper introduced a very interesting new computation model,
+using graph of nodes and edges as data,
+and viewing interaction between connected nodes as computation.
 
-> Our interaction nets are deterministic in a strong sense:
-> not only the result, but also the computation is unique,
-> up to trivial commutations.
->
-> -- Interaction Combinators, Yves Lafont, 1997
+# 2
 
 TODO
