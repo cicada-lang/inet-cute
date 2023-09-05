@@ -101,7 +101,6 @@ When the `target` port of `(add)`is connected with `(zero)`,
 delete `(zero)` and `(add)`,
 and connect the `value` of `(add)` with the `addend` of directly.
 
-
 ```
      value           value
        |               |
@@ -110,7 +109,7 @@ and connect the `value` of `(add)` with the `addend` of directly.
 (zero)   addend        addend
 ```
 
-When the `target` port of `(add)`  is connected with `(add1)`,
+When the `target` port of `(add)` is connected with `(add1)`,
 move `(add1)` above `(add)`.
 
 ```
