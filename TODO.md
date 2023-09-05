@@ -1,5 +1,3 @@
-[builtin] update readme -- add `@` as prefix to all builtins
-
 # articles
 
 [docs] 反应网编程 -- 完成 `mul` 的讲解
