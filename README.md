@@ -20,7 +20,7 @@ Please see [tests/](./tests) for some example code.
 [ [Goto The Playground](https://inet.run/playground/dHlwZSBOYXQgLS0gVHlwZSBlbmQKCm5vZGUgemVybwogIC0tLS0tLS0tLS0tLQogIE5hdCA6dmFsdWUhCmVuZAoKbm9kZSBhZGQxCiAgTmF0IDpwcmV2CiAgLS0tLS0tLS0tLS0tCiAgTmF0IDp2YWx1ZSEKZW5kCgpub2RlIGFkZAogIE5hdCA6dGFyZ2V0IQogIE5hdCA6YWRkZW5kCiAgLS0tLS0tLS0tLS0tCiAgTmF0IDpyZXR1cm4KZW5kCgpydWxlIHplcm8gYWRkCiAgKGFkZCktYWRkZW5kCiAgcmV0dXJuLShhZGQpCmVuZAoKcnVsZSBhZGQxIGFkZAogIChhZGQpLWFkZGVuZAogIChhZGQxKS1wcmV2IGFkZAogIGFkZDEgcmV0dXJuLShhZGQpCmVuZAoKY2xhaW0gb25lIC0tIE5hdCBlbmQKZGVmaW5lIG9uZSB6ZXJvIGFkZDEgZW5kCgpjbGFpbSB0d28gLS0gTmF0IGVuZApkZWZpbmUgdHdvIG9uZSBvbmUgYWRkIGVuZAoKY2xhaW0gdGhyZWUgLS0gTmF0IGVuZApkZWZpbmUgdGhyZWUgdHdvIG9uZSBhZGQgZW5kCgpjbGFpbSBmb3VyIC0tIE5hdCBlbmQKZGVmaW5lIGZvdXIgdHdvIHR3byBhZGQgZW5kCgp0d28gdHdvIGFkZAp0d28gdHdvIGFkZCBydW4gJHJlc3VsdA) ]
 
 ```inet
-type Nat -- Type end
+type Nat -- @Type end
 
 node zero
   ------------
@@ -64,7 +64,7 @@ claim four -- Nat end
 define four two two add end
 
 two two add
-two two add run $result
+two two add @run $result
 ```
 
 #### List
@@ -72,7 +72,7 @@ two two add run $result
 [ [Goto The Playground](https://inet.run/playground/dHlwZSBMaXN0IFR5cGUgLS0gVHlwZSBlbmQKCm5vZGUgbnVsbAogIC0tLS0tLS0tCiAgJ0EgTGlzdCA6dmFsdWUhCmVuZAoKbm9kZSBjb25zCiAgJ0EgOmhlYWQKICAnQSBMaXN0IDp0YWlsCiAgLS0tLS0tLS0KICAnQSBMaXN0IDp2YWx1ZSEKZW5kCgpub2RlIGFwcGVuZAogICdBIExpc3QgOnRhcmdldCEKICAnQSBMaXN0IDpyZXN0CiAgLS0tLS0tLS0KICAnQSBMaXN0IDpyZXR1cm4KZW5kCgpydWxlIG51bGwgYXBwZW5kCiAgKGFwcGVuZCktcmVzdAogIHJldHVybi0oYXBwZW5kKQplbmQKCnJ1bGUgY29ucyBhcHBlbmQKICAoYXBwZW5kKS1yZXN0IChjb25zKS10YWlsIGFwcGVuZAogIChjb25zKS1oZWFkIGNvbnMKICByZXR1cm4tKGFwcGVuZCkKZW5kCgppbXBvcnQgemVybyBmcm9tICJodHRwczovL2Nkbi5pbmV0LnJ1bi90ZXN0cy9kYXRhdHlwZS9OYXQuaSIKCm51bGwgemVybyBjb25zIHplcm8gY29ucwpudWxsIHplcm8gY29ucyB6ZXJvIGNvbnMKYXBwZW5kCgpudWxsIHplcm8gY29ucyB6ZXJvIGNvbnMKbnVsbCB6ZXJvIGNvbnMgemVybyBjb25zCmFwcGVuZCBydW4gJHJlc3VsdA) ]
 
 ```inet
-type List Type -- Type end
+type List @Type -- @Type end
 
 node null
   --------
@@ -112,7 +112,7 @@ append
 
 null zero cons zero cons
 null zero cons zero cons
-append run $result
+append @run $result
 ```
 
 #### DiffList
@@ -129,7 +129,7 @@ import List from "https://cdn.inet.run/tests/datatype/List.i"
 // plugging the front of the second argument
 // at the back of the first one.
 
-type DiffList Type -- Type end
+type DiffList @Type -- @Type end
 
 node diff
   'A List :front
@@ -165,13 +165,13 @@ end
 import zero from "https://cdn.inet.run/tests/datatype/Nat.i"
 import cons from "https://cdn.inet.run/tests/datatype/List.i"
 
-zero (cons :tail) zero cons diff rot rot connect
-zero (cons :tail) zero cons diff rot rot connect
+zero (cons :tail) zero cons diff @rot @rot @connect
+zero (cons :tail) zero cons diff @rot @rot @connect
 diff_append
 
-zero (cons :tail) zero cons diff rot rot connect
-zero (cons :tail) zero cons diff rot rot connect
-diff_append run $result
+zero (cons :tail) zero cons diff @rot @rot @connect
+zero (cons :tail) zero cons diff @rot @rot @connect
+diff_append @run $result
 ```
 
 ### Command line tool
