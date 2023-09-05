@@ -9,14 +9,18 @@ export function findNodeRuleEntries(
   node: NodeWithoutId,
 ): Array<RuleEntry> {
   const nodeKey = nodeKeyWithoutId(node)
-  const entries = []
+  const entries: Array<RuleEntry> = []
   for (const [key, entry] of mod.ruleEntries) {
     const [firstKey, secondKey] = key.split(" ")
     if (
       (firstKey === nodeKey && hasNodeDefinition(mod, entry.second)) ||
-      (secondKey === nodeKey && hasNodeDefinition(mod, entry.first))
+      (firstKey === nodeKey && hasNodeDefinition(mod, entry.first)) ||
+      (secondKey === nodeKey && hasNodeDefinition(mod, entry.first)) ||
+      (secondKey === nodeKey && hasNodeDefinition(mod, entry.second))
     ) {
-      entries.push(entry)
+      if (!entries.find(({ name }) => name === entry.name)) {
+        entries.push(entry)
+      }
     }
   }
 
