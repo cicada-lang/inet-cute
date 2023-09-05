@@ -50,7 +50,10 @@ node nat_erase
 end
 
 rule zero nat_erase end
-rule add1 nat_erase (add1)-prev nat_erase end
+
+rule add1 nat_erase
+  (add1)-prev nat_erase
+end
 
 node nat_dup
   Nat :target!
