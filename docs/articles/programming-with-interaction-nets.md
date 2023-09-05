@@ -39,11 +39,108 @@ We can mimic the ancient knot counting, using node to do the counting.
 3  (zero)--(add1)--(add1)--(add1)--
 ```
 
-The node encoding 0 `(zero)` has one port,
-the node encoding +1 `(add1)` has two ports,
+The node representing 0 `(zero)` has one port,
+the node representing +1 `(add1)` has two ports,
 we can encode natural number
 by connecting these nodes through the ports.
 
 # 3
+
+How to use graph to represent functions that operate on natural numbers?
+
+Take addition as an example, we need to introduce a new node to represent addition,
+and to define the interaction rules between this node and other nodes.
+
+We use a node with three ports to represent addition.
+
+```
+       |
+     (add)
+     /   \
+```
+
+The two ports below represent the input `target` number and the `addend`,
+the port above represent the output `value`.
+
+```
+     value
+       |
+     (add)
+     /   \
+ target  addend
+```
+
+We can represent 0 + 1 as the following:
+
+```
+       |
+     (add)
+     /   \
+(zero)   (add1)
+           |
+         (zero)
+```
+
+and 2 + 2 as the following:
+
+```
+       |
+     (add)
+     /   \
+(add1)   (add1)
+  |        |
+(add1)   (add1)
+  |        |
+(zero)   (zero)
+```
+
+By defining the interactions between `(add)` and neighbor nodes,
+we can do addition.
+
+When the `target` port of `(add)`is connected with `(zero)`,
+delete `(zero)` and `(add)`,
+and connect the `value` of `(add)` with the `addend` of directly.
+
+
+```
+     value           value
+       |               |
+     (add)     =>      |
+     /   \              \
+(zero)   addend        addend
+```
+
+When the `target` port of `(add)`  is connected with `(add1)`,
+move `(add1)` above `(add)`.
+
+```
+     value           value
+       |               |
+     (add)     =>    (add1)
+     /   \             |
+(add1)   addend      (add)
+  |                  /   \
+prev              prev   addend
+```
+
+By these two interaction rules, the graph representing 2 + 2
+will become 4 through the following interaction:
+
+```
+       |                  |                 |            |
+     (add)              (add1)            (add1)       (add1)
+     /   \                |                 |            |
+(add1)   (add1)         (add)             (add1)       (add1)
+  |        |    =>      /   \      =>       |       =>   |
+(add1)   (add1)    (add1)   (add1)        (add)        (add1)
+  |        |         |        |           /   \          |
+(zero)   (zero)    (zero)   (add1)   (zero)   (add1)   (add1)
+                              |                 |        |
+                            (zero)            (add1)   (zero)
+                                                |
+                                              (zero)
+```
+
+# 4
 
 TODO
