@@ -1,4 +1,3 @@
-[builtin] `Builtin` -- syntax
 [builtin] add `@` as prefix to all builtins
 [builtin] remove `isPrivate` from Definition
 

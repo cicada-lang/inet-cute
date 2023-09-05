@@ -10,6 +10,12 @@ export function word_matcher(tree: pt.Tree): Word {
       name: pt.str(name),
       span,
     }),
+    "word:builtin": ({ name }, { span }) => ({
+      "@type": "Word",
+      "@kind": "Builtin",
+      name: pt.str(name),
+      span,
+    }),
     "word:local": ({ name }, { span }) => ({
       "@type": "Word",
       "@kind": "Local",

@@ -1,6 +1,7 @@
 export const word = {
   $grammar: {
     "word:call": [{ name: "variable_name" }],
+    "word:builtin": ['"@"', { name: "variable_name" }],
     "word:local": ['"$"', { name: "variable_name" }],
     "word:port_push": [
       '"("',
