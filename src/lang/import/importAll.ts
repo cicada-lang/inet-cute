@@ -2,10 +2,6 @@ import { Mod } from "../mod"
 
 export function importAll(mod: Mod, targetMod: Mod): void {
   for (const [name, definition] of targetMod.definitions) {
-    if (definition.isPrivate) {
-      continue
-    }
-
     const found = mod.definitions.get(name)
     if (found !== undefined) {
       throw new Error(
