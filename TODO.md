@@ -1,7 +1,5 @@
 # articles
 
-[docs] 反应网编程 -- 总结
-
 [docs] translate the article -- section #2
 [docs] translate the article -- section #3
 [docs] translate the article -- section #4
