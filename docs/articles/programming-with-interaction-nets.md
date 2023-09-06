@@ -15,7 +15,7 @@ and viewing interaction between connected nodes as computation.
 
 In this paper, I will follow Lafont's examples
 to introduce the principal of interaction nets.
-And I will also introduce the language I designed
+And I will also introduce a language I designed
 to practice this computation model.
 
 My language's main contribution to interaction nets,
@@ -29,7 +29,7 @@ Read this paper to see detailed explanation :)
 
 How to use graph to encode data?
 
-Suppose we want to encode the most simple data -- natural number.
+Suppose we want to encode the simplest data -- natural number.
 We can mimic the ancient knot counting, using node to do the counting.
 
 ```
