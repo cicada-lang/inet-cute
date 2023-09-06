@@ -402,7 +402,7 @@ end
 Using the statements designed above,
 we can write a complete code example.
 
-In which we used `define` to define new words,
+In which we will use `define` to define new words,
 and before using `define` to define a new word,
 we must use `claim` to claim the type of the word.
 
@@ -764,26 +764,32 @@ The good thing about using stack to pass arguments is that,
 it can naturally handles zero-return-value and multiple-return-values,
 we do not need to design new special syntax for these cases.
 
-决定使用栈来构造网之后，就进而决定使用纯粹的后缀表达式作为语法。
-这样的零一个好处是，词之间复合具有结合性，
-因此当我们想要把一个词的定义中的一部分切分出来，定义成新的词时，
-不用考虑那么多语法上相互影响的地方。
+After decide to use stack to build net,
+we can go one step further to use pure postfix notation as syntax.
+This give us another good thing, i.e. composition of words is associative.
+Thus when we want to factor out a subsequence from a sequence of words,
+there will be no complicated syntax preventing us from doing so.
 
-下面我们就不用 ASCII 画图了，
-点开去演算场的连接，
-就可以看到自动渲染出来的图。
+In the following examples, we will no longer using ASCII to draw graph,
+to see the rendered graph, simply follow the link to the playground.
 
-在下面的代码中，我们用了一个新的语法关键词 `import` 来从其他模块中引入定义。
+In the following code, we will use a syntax keyword `import`,
+to import definitions from other module.
 
-- 一个文件对应一个模块。
-- 用 `.i` 作为文件名后缀。
-- 可以使用完整的 URL `https//...` 来指定文件，
-  也可以使用相对路径 `./...` 来指定文件。
+- One file corresponds to one module.
+- Use `.i` as file extension.
+- We can use full URL `https//...` to specify a file.
+- We can also use relative path `./...` to specify a file.
 
-我们还用了一种新的词 `$local` 来将栈顶的值保存到名为 `local` 的局部变量中。
+We will also use a new word `$local`
+to save the value at the top of the stack
+to a local variable named `local`.
 
-- 用 `$local` 保存一个值之后，可以通过调用 `local` 来取出这个值。
-- 取出之后，`$local` 就空了，就又可以用于保存新的值了。
+- After saving a value to `$local`,
+  we can fetch the value back to the stack
+  by calling `local`.
+- After the fetching, `$local` will be empty again,
+  and can be used to save other value.
 
 [Goto the playground of `Nat` and `(mul)`](https://inet.run/playground/aW1wb3J0CiAgTmF0LCB6ZXJvLCBhZGQxLCBhZGQsCiAgb25lLCB0d28sIHRocmVlLApmcm9tICJodHRwczovL2Nkbi5pbmV0LnJ1bi90ZXN0cy9kYXRhdHlwZS9OYXQuaSIKCm5vZGUgbmF0X2VyYXNlCiAgTmF0IDp0YXJnZXQhCiAgLS0tLS0tLS0KZW5kCgpydWxlIHplcm8gbmF0X2VyYXNlIGVuZAoKcnVsZSBhZGQxIG5hdF9lcmFzZQogIChhZGQxKS1wcmV2IG5hdF9lcmFzZQplbmQKCm5vZGUgbmF0X2R1cAogIE5hdCA6dGFyZ2V0IQogIC0tLS0tLS0tCiAgTmF0IDpzZWNvbmQKICBOYXQgOmZpcnN0CmVuZAoKcnVsZSB6ZXJvIG5hdF9kdXAKICB6ZXJvIGZpcnN0LShuYXRfZHVwKQogIHplcm8gc2Vjb25kLShuYXRfZHVwKQplbmQKCnJ1bGUgYWRkMSBuYXRfZHVwCiAgKGFkZDEpLXByZXYgbmF0X2R1cCAkZmlyc3QgJHNlY29uZAogIGZpcnN0IGFkZDEgZmlyc3QtKG5hdF9kdXApCiAgc2Vjb25kIGFkZDEgc2Vjb25kLShuYXRfZHVwKQplbmQKCm5vZGUgbXVsCiAgTmF0IDp0YXJnZXQhCiAgTmF0IDptdWxlbmQKICAtLS0tLS0tLQogIE5hdCA6cmV0dXJuCmVuZAoKcnVsZSB6ZXJvIG11bAogIChtdWwpLW11bGVuZCBuYXRfZXJhc2UKICB6ZXJvIHJldHVybi0obXVsKQplbmQKCnJ1bGUgYWRkMSBtdWwKICAobXVsKS1tdWxlbmQgbmF0X2R1cCAkZmlyc3QgJHNlY29uZAogIChhZGQxKS1wcmV2IGZpcnN0IG11bCBzZWNvbmQgYWRkCiAgcmV0dXJuLShtdWwpCmVuZAoKdHdvIG5hdF9kdXAgJGZpcnN0ICRzZWNvbmQKCnR3byB0d28gbXVsCgp0aHJlZSB0aHJlZSBtdWw)
 
