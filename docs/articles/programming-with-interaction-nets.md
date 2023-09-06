@@ -10,7 +10,7 @@ At the end of 2021,
 I occasionally read a 1990 paper "Interaction Nets",
 by Yves Lafont.
 The paper introduced a very interesting new computation model,
-using graph of nodes and edges as data,
+using graph consists of nodes and edges as data,
 and viewing interaction between connected nodes as computation.
 
 In this paper, I will follow Lafont's examples
@@ -1021,59 +1021,76 @@ diff_append @run $result
 
 # 13
 
-反应网介绍完了。
+It is the end of this article now.
 
-下面我们回顾一下，再展望一下。
+Let's look back, and look forward.
 
-## 并行计算
+## Parallel Computing
 
-这个计算模型确实有趣，在其中任何一步计算都可以相互独立地进行，
-因此非常适合用并行计算的方式来实现。
+Interaction nets as a computation model is interesting in deed,
+in which every step of computation can be performed independently,
+therefore it is very suitable for parallel computing.
 
-## 非线性计算模型的语法
+## Syntax for Nonlinear Computational Models
 
-用栈与后缀表达式来构造非线性的网，也算是一种很简洁的语法。
+Using stack and postfix notation to build net,
+give us a simple syntax for interaction nets.
 
-其实对于反应网这样的，基于图论的计算模型来说，图本身才是语法。
-但是图是非线性的，为了用线性的文本去描述图，
-我们使用栈和后缀表达式来构造图。
+In fect, for graph-based computation models like interaction nets,
+the graph itself is the syntax.
+But graph is nonlinear, how to use linear text to describe graph?
+We solve this by using stack and postfix notation to build graph.
 
-这样，用于构造图的语言，其实就成了反应网这个语言下面一层的语言。
-把这个语言本身视为程序语言，也是图灵完备的。
+In this way, the language we used to build graph,
+becomes the lower layer language for the language of interaction nets.
+View this lower layer language as a programming language,
+it is also Turing complete.
 
-这种想法不单单能够用来构造图，为基于图论的计算模型提供语法，
-也可以用来构造更复杂的非线性对象，比如图论在高维度的推广
--- 胞腔复形 [Cell complex](https://zh.wikipedia.org/wiki/CW%E5%A4%8D%E5%BD%A2)，
-假使我们有一个基于胞腔复形的新的计算模型，
-那么用栈与后缀表达式来为计算模型提供语法的方案依然适用。
+This idea can not only be used to build graph,
+and provide syntax for graph-based computation models,
+it can also be used to build more complex nonlinear objects,
+such as the generalization of graph theory in high dimensions
+-- [Cell complex](https://zh.wikipedia.org/wiki/CW%E5%A4%8D%E5%BD%A2).
+If we have a new computation model based on cell complex,
+Then the idea of using stacks and postfix notation
+to provide syntax for computation model is still applicable.
 
-## 类型系统
+## Type System
 
-另外我们的语言也有类型系统，类型检查的过程，其实就是运行这个底层语言的过程，
-只要在连接节点的时候，检查两个接口的类型是否匹配就可以了。
+Our language also has a type system,
+the process of type checking, is just
+the process of runing the lower layer language,
+we only need to check weather the types of the two ports
+match when connecting the nodes.
 
-在我们这个语言的类型系统中，类型的参数必须是类型，
-但是其实也可以想象，让类型的参数也可以是任意的值，
-即所谓的依赖类型 [Dependent type](https://en.wikipedia.org/wiki/Dependent_type)。
+In the type system of our language,
+the arguments of a type must be type,
+but we can also imagine to let the arguments of a type be any value,
+to get the so called [dependent type](https://en.wikipedia.org/wiki/Dependent_type).
 
-此时我们需要判断两个类型是否匹配就更困难了，
-因为需要判断两个可能带有任意计算的值是否相等。
+In this case, it is more difficult for us to judge whether the two
+types match, because it needs to judge whether two values ​​that may
+contain arbitrary computations are equal.
 
-在一般的计算模型，比如 Lambda 演算中，
-实现这种判断非常困难，但是在反应网中，
-实现这种判断是相对简单的，
-因为只要判断经过所有可能的反应之后，
-两个指定了一个节点的图是否同构。
+In common computation models, like Lambda calculus,
+it is difficult to implement such judgement,
+but in interaction nets, it is relatively easy,
+because it is sufficient to judge
+whether two pointed graphs are isomorphic
+after all the possible interactions in them are finished.
 
-## 成为实用的程序语言
+## To be a Practical Programming Language
 
-在纯粹的反应网中，数据只有点和边构成的图，
-想要编码自然数都要用结绳计数，
-在很多实用场景下，这显然是不实用的。
+In pure interaction nets, the only data are
+graphs consist of nodes and edges,
+to encode natural number we need to do something like knot counting,
+in many use cases, this is obviously not practical.
 
-但是我们的语言已经分成了两层，
-上面一层是纯粹的反应网，
-底下一层栈与后缀表达式的通用程序语言。
-通过扩展这个底层语言，我们就可以让整个语言变成一个实用的语言。
+But fortunately, our language already has two layers,
+the upper layer is pure interaction nets,
+the lower layer is a stack-based postfix notation general programming language.
+We can make the whole language a practical programming language,
+simply by extending this lower layer language.
 
-预知具体设计如何，且看我下回项目之分解。
+How to design such extension?
+Please see the report of my next project :)
