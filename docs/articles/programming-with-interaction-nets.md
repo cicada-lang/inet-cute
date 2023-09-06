@@ -142,4 +142,119 @@ will become 4 through the following interaction:
 
 # 4
 
+Let's design a programming language
+to practice this computation model.
+
+In our language each node has fixed number of ports.
+
+```
+(zero) // has one port
+(add1) // has two ports
+(add)  // has three ports
+```
+
+Every port has a name.
+
+```
+(zero)-value  // the value 0
+
+(add1)-prev   // previous number
+(add1)-value  // the value of +1
+
+(add)-target  // target number
+(add)-addend  // the number to be added
+(add)-return  // result of addition
+```
+
+There are two kinds of ports -- input ports and output ports.
+
+```
+-------------
+(zero)-value   // output port
+
+(add1)-prev    // input port
+-------------
+(add1)-value   // output port
+
+(add)-target   // input port
+(add)-addend   // input port
+-------------
+(add)-return   // output port
+```
+
+Two nodes can be connected through ports,
+an input port must be connected to an output port.
+
+Take the graph representing 2 as an example:
+
+```
+(zero)--(add1)--(add1)--
+```
+
+The detailed connections are the following:
+
+```
+(zero)-value prev-(add1)
+(add1)-value prev-(add1)
+(add1)-value // not yet connected free port
+```
+
+Each node has one and only one principal port,
+two nodes can interact only when they are
+connected through principal ports.
+
+```
+-------------
+(zero)-value!   // principal port
+
+(add1)-prev
+-------------
+(add1)-value!   // principal port
+
+(add)-target!   // principal port
+(add)-addend
+-------------
+(add)-return
+```
+
+We also require each port to have a specific type,
+and only ports with matching types can be connected.
+
+We design a statement to define node:
+
+- The statement must start with `node`,
+  then follows the name of the node,
+  and ending with `end`.
+- Use a dividing line to distinguish the input ports from the output ports.
+  - Above the dividing line are the input ports.
+  - Below the dividing line are the output ports.
+  - The dividing can be as long as wish, at least two characters `--`.
+- The name of a port is written after the type as a label.
+- For principal port, add `!` as suffix.
+
+Suppose the type representing natural number is `Nat`,
+the aforementioned nodes are defined as follows:
+
+```
+node zero
+  --------
+  Nat :value!
+end
+
+node add1
+  Nat :prev
+  --------
+  Nat :value!
+end
+
+node add
+  Nat :target!
+  Nat :prev
+  --------
+  Nat :return
+end
+```
+
+# 5
+
 TODO
