@@ -467,25 +467,28 @@ add
 
 # 8
 
-我们强调一下反应网的限制，
-以及由于这些限制而得到的，
-反应网作为计算模型的属性。
+We emphasize the constraints of interaction nets, as a computational
+model some of the good properties of interaction nets are gained by
+these constraints.
 
-第一个限制是，对于两个节点，最多只能定义一条反应规则。
+The first constraint is, given two nodes,
+we can define at most one interaction rule.
 
-也就是说，当发现两个节点的主接口相连时，
-要么找不到这两个节点所对应的规则，此时这两个节点不能反应；
-要么只能找到唯一一条规则，这两个节点按照这条规则反应。
+That is to say, when we find two nodes are connected through two
+principal ports, either we can not find a rule for these two nodes,
+then the two nodes can not interact; or we can find one and only one
+rule, the two nodes will interact according to this rule.
 
-这个限制排除了，能找到两条规则，而需要做选择的情况。
+This constraint excluded the case of finding multiple rules,
+and need to making choice between them.
 
-第二个限制是，每个节点有且仅有一个主接口。
+The second constraint is, each node has one and only one principal port.
 
-假设有两个节点的主接口相连了，
-我们画一个圈把这两个节点还有主接口之间的边都圈起来，
-由于这两个节点都只有一个主接口，
-所以能跨过这个圈的都是普通接口之间的边，
-这些边是不能反应的。
+Suppose two nodes are connected through two principal ports.
+We draw a circle to enclose these two nodes and the edge between the principal ports.
+Because each node has one and only one principal port,
+all edges can go across the circle are not edge connecting principal ports.
+These kind of edges can not interact at all.
 
 ```
      \   |   /
@@ -499,23 +502,27 @@ add
      /   |   \
 ```
 
-所以即便这两个节点之间的一次反应可能引入新的节点，
-以及新的可反应的边，但是所有新的可反应边都会在这个圈子之内，
-反应过程中的拆除与重连都不会影响到图的其他部分。
+Although during an interaction between two nodes, new nodes and new
+interactable edges might be introduced, all of the new interactable
+edges can still be viewed as contained within the circle, during all
+the new future interactions caused by them, removing and reconnecting
+will not affect other parts of the graph outside the circle.
 
-也就是说，在反应网这个计算模型中，
-反应都是相互独立的，先在这里反应，或者先在那里反应，
-不会影响最终的计算结果。
+That is to say, in interaction nets,
+all interactions are independent,
+first do interaction here or there
+will not affect the final result of the computation.
 
-如果忽略不同位反应进行的先后，
-那么在反应网中，
-不光计算的结果是唯一的，
-计算的过程也是唯一的！
+If the sequence of interactions at different place is ignored,
+then in interaction nets, not only the result of the computation
+is unique, the process of computation is also unique!
 
-在实现反应网时，如果计算机有多个内核，
-我们可以开多个线程，共享同一段内存，
-同时进行图中不同位置的反应，
-这些线程之间也不会相互干扰。
+When implementing interaction nets,
+if the computer as multiple cores,
+we can start multiple threads,
+sharing the same memory,
+do the interactions at different place in parallel,
+the threads will not interfere with each other.
 
 # 9
 
