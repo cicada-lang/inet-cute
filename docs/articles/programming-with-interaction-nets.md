@@ -855,26 +855,28 @@ three three mul
 
 # 11
 
-下面我们在自然数 `Nat` 这个最简单的数据之后，
-介绍几乎是第二简单的数据 -- 链表 `List`。
+After introduced the simplest data `Nat`,
+we introduce the second simplest data -- `List`.
 
-主要实现一个 `append` 函数，来将两个链表连接起来。
+The goal is to implement `append` function.
 
-在演算场中渲染出来的图中，
-我们可以明显看到 `List` 的 `(append)`
-与 `Nat` 的 `(add)` 非常相似。
-差异是 `Nat` 的 `(add1)` 只是单纯地增加一个节点，
-而 `List` 的 `(cons)` 在增加一个节点的同时，
-还连接到了一个额外的节点。
+If you see the rendered graph in the playground,
+you will find the `(append)` of `List`
+is very similar to the `(add)` of `Nat`.
+The difference is that the `(add1)` of `Nat` only add one node,
+while the `(cons)` of `List` add one node and link to an extra node.
 
-在下面的代码中，我们有使用了一个新的词 `'A`。
+In the following code, we will use a new word `'A`.
 
-- `'A` 会将 `A` 这个符号放入栈中。
-- `'A` 可以用做类型变元。
-- 类型变元可以作为类型参数，比如 `'A List`。
+- `'A` will add the symbol of `A` to the stack.
+- `'A` can be used as type variable.
+- Type variable can be used as type argument, for example `'A List`.
 
-在定义 `(cons)` 和 `(append)` 时，代表类型变元的相同的符号 `'A`，出现了多次。
-这意味着在连接这些节点的接口时，这个类型变元必须匹配到相同的类型。
+When defining `(cons)` and `(append)`,
+the same symbol `'A` occured many times
+to representing a type variable.
+This means when connecting the corresponding ports,
+this type variable must match the same type.
 
 [Goto the playground of `List` and `(append)`](https://inet.run/playground/dHlwZSBMaXN0IEBUeXBlIC0tIEBUeXBlIGVuZAoKbm9kZSBudWxsCiAgLS0tLS0tLS0KICAnQSBMaXN0IDp2YWx1ZSEKZW5kCgpub2RlIGNvbnMKICAnQSA6aGVhZAogICdBIExpc3QgOnRhaWwKICAtLS0tLS0tLQogICdBIExpc3QgOnZhbHVlIQplbmQKCm5vZGUgYXBwZW5kCiAgJ0EgTGlzdCA6dGFyZ2V0IQogICdBIExpc3QgOnJlc3QKICAtLS0tLS0tLQogICdBIExpc3QgOnJldHVybgplbmQKCnJ1bGUgbnVsbCBhcHBlbmQKICAoYXBwZW5kKS1yZXN0CiAgcmV0dXJuLShhcHBlbmQpCmVuZAoKcnVsZSBjb25zIGFwcGVuZAogIChhcHBlbmQpLXJlc3QgKGNvbnMpLXRhaWwgYXBwZW5kCiAgKGNvbnMpLWhlYWQgY29ucwogIHJldHVybi0oYXBwZW5kKQplbmQKCmltcG9ydCB6ZXJvIGZyb20gImh0dHBzOi8vY2RuLmluZXQucnVuL3Rlc3RzL2RhdGF0eXBlL05hdC5pIgoKbnVsbCB6ZXJvIGNvbnMgemVybyBjb25zCm51bGwgemVybyBjb25zIHplcm8gY29ucwphcHBlbmQKCm51bGwgemVybyBjb25zIHplcm8gY29ucwpudWxsIHplcm8gY29ucyB6ZXJvIGNvbnMKYXBwZW5kIEBydW4gJHJlc3VsdA)
 
