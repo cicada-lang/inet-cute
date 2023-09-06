@@ -926,40 +926,48 @@ append @run $result
 
 # 12
 
-想要用 `(append)` 将两个 `List` 连接起来，
-需要遍历 `(append)` 的 `target`，
-一步一步构造一个新的链表连，
-接到 `(append)` 的 `rest` 前面。
+If we want to use `(append)` to append two `List`s,
+we must traverse the `target` of `(append)`,
+while building a new list step by step,
+and appending it to the front of the `rest` of `(append)`.
 
-这样，运算所需要的时间与前一个链表的长度成正比。
-可不可以将前一个链表直接与后一个链表连接起来呢？
-这样应该只需要固定的几步就可以完成计算。
+Do it in this way, the steps required to append two lists
+is proportional to the length of the first list.
+Is there a way to directly connect the end of the first list
+to the start of the second list?
+Which only requires fixed number of steps to append two lists.
 
-我们可以定义一个新的数据类型 `DiffList`，
-和一个新的节点 `diff_list`，
-这个节点用来可以抓着一个 `List` 的头和尾。
-如果有两个 `DiffList`，
-只要把第一个 `diff_list` 抓着的尾，
-和第二个 `diff_list` 抓着的头相连即可。
+We can define a new type `DiffList`,
+and a new node `(diff_list)`，
+this node can be used to hold the front and the back of a list.
+If we want to append two `DiffList`s,
+we can simply connect the back held by the first `(diff_list)`,
+to the front held by the second `(diff_list)`.
 
-注意，在一般的程序语言中，经常用树状结构的表达式来作为数据，
-从树的父节点可以找到子节点，但是反之不行。
-而在反应网中，所有节点之间的关系是对称的。
+Note that, in common programming languages,
+we often use tree like expressions as data,
+from a parent node we can find the children nodes,
+while the reverse is not true.
+But in interaction nets,
+the relationship between all nodes is symmetric.
 
-在下面的代码中，在一次调用 `cons` 时，
-我们写成了 `(cons :tail)` 而不是直接写 `cons`，
-这代表在调用这个节点之前，重新排列这个节点的接口，
-将原本是输入接口的 `:tail` 作为输出接口。
+In the following code, in one calling of `cons`,
+we will write `(cons :tail)` instead of `cons`,
+this means before calling this node,
+we need to rearrange it's ports,
+view the input port `:tail` as an output port,
+not connect it to the ports in the stack
+but return it directly to the stack.
 
-在下面的代码中我们还使用了一个短语：
+In the following code, we also used a phrase:
 
 ```
 ... $value @connect value ...
 ```
 
-它的意思是，先把栈顶的值保存在 `$value` 中，
-然后将栈顶的两个接口相连，
-最后再把保存在 `$value` 中的值放回栈中。
+Which means firstly save the top value in the stack to `$value`,
+then connect the top two ports in the stack,
+finally return the value saved in `$value` back to the stack.
 
 [Goto the playground of `DiffList` and `(diff_append)`](https://inet.run/playground/aW1wb3J0IExpc3QgZnJvbSAiaHR0cHM6Ly9jZG4uaW5ldC5ydW4vdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKdHlwZSBEaWZmTGlzdCBAVHlwZSAtLSBAVHlwZSBlbmQKCm5vZGUgZGlmZgogICdBIExpc3QgOmZyb250CiAgLS0tLS0tLQogICdBIExpc3QgOmJhY2sKICAnQSBEaWZmTGlzdCA6dmFsdWUhCmVuZAoKbm9kZSBkaWZmX2FwcGVuZAogICdBIERpZmZMaXN0IDp0YXJnZXQhCiAgJ0EgRGlmZkxpc3QgOnJlc3QKICAtLS0tLS0tLQogICdBIERpZmZMaXN0IDpyZXR1cm4KZW5kCgpub2RlIGRpZmZfb3BlbgogICdBIERpZmZMaXN0IDp0YXJnZXQhCiAgJ0EgTGlzdCA6bGlzdAogIC0tLS0tLS0tLS0KICAnQSBMaXN0IDpyZXR1cm4KZW5kCgpydWxlIGRpZmYgZGlmZl9hcHBlbmQKICAoZGlmZiktZnJvbnQgZGlmZiByZXR1cm4tKGRpZmZfYXBwZW5kKQogIChkaWZmX2FwcGVuZCktcmVzdCBkaWZmX29wZW4gYmFjay0oZGlmZikKZW5kCgpydWxlIGRpZmYgZGlmZl9vcGVuCiAgKGRpZmYpLWJhY2sgbGlzdC0oZGlmZl9vcGVuKQogIChkaWZmKS1mcm9udCByZXR1cm4tKGRpZmZfb3BlbikKZW5kCgppbXBvcnQgemVybyBmcm9tICJodHRwczovL2Nkbi5pbmV0LnJ1bi90ZXN0cy9kYXRhdHlwZS9OYXQuaSIKaW1wb3J0IGNvbnMgZnJvbSAiaHR0cHM6Ly9jZG4uaW5ldC5ydW4vdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKemVybyAoY29ucyA6dGFpbCkgemVybyBjb25zIGRpZmYgJHZhbHVlIEBjb25uZWN0IHZhbHVlCnplcm8gKGNvbnMgOnRhaWwpIHplcm8gY29ucyBkaWZmICR2YWx1ZSBAY29ubmVjdCB2YWx1ZQpkaWZmX2FwcGVuZAoKemVybyAoY29ucyA6dGFpbCkgemVybyBjb25zIGRpZmYgJHZhbHVlIEBjb25uZWN0IHZhbHVlCnplcm8gKGNvbnMgOnRhaWwpIHplcm8gY29ucyBkaWZmICR2YWx1ZSBAY29ubmVjdCB2YWx1ZQpkaWZmX2FwcGVuZCBAcnVuICRyZXN1bHQ)
 
