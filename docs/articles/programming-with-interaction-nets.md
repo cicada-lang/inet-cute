@@ -526,12 +526,12 @@ the threads will not interfere with each other.
 
 # 9
 
-每个节点有且仅有一个主接口，
-这条限制，给计算模型带来了优越的属性，
-但是它也使得我们在用这个计算模型编程时不那么方便了。
+Every node has one and only one principal port,
+this constraint can bring good properties to our computation model,
+but it also make programming inconvenient.
 
-取两个自然数最大值的函数就是一个例子，
-我们称代表这个函数的节点为 `(max)`。
+The max function of natural number is an example of such inconvenience.
+Let's introduce a node `(max)` for this function.
 
 ```
      return
@@ -541,7 +541,7 @@ the threads will not interfere with each other.
 first!   second
 ```
 
-定义如下：
+Node definition:
 
 ```
 node max
@@ -552,7 +552,7 @@ node max
 end
 ```
 
-`(zero)` 与 `(zero)` 的反应很简单：
+The interaction between `(zero)` and `(zero)` is simple:
 
 ```
      return         return
@@ -562,7 +562,7 @@ end
 (zero)   second       second
 ```
 
-定义如下：
+Rule definition:
 
 ```
 rule zero max
@@ -570,9 +570,9 @@ rule zero max
 end
 ```
 
-如果没有单主接口的限制，
-对于 `(add1)` 与 `(zero)` 的反应，
-我们完全可以想象下面的反应规则：
+For the `(add1)` and `(zero)`,
+if there is no single-principal-port constraint,
+we can imagine the following interaction:
 
 ```
      return           return
@@ -584,12 +584,11 @@ end
  prev      prev    prev   prev
 ```
 
-但是，由于单主接口的限制，
-我们不得不增加一个辅助节点以及相关的规则，
-来明显地在两个可反应的边中做出选择。
+But because of single-principal-port constraint,
+we have to introduce an auxiliary node and some auxiliary rules,
+to explicitly choose between two interactable edges.
 
-我们称辅助节点为 `(max_aux)`，
-其中 `aux` 是 auxiliary 的所写。
+We call the auxiliary node `(max_aux)`.
 
 ```
      return
@@ -599,7 +598,7 @@ end
 first    second!
 ```
 
-定义如下：
+Node definition:
 
 ```
 node max_aux
@@ -610,7 +609,8 @@ node max_aux
 end
 ```
 
-利用辅助节点定义 `(add1)` 和 `(max)` 之间的规则：
+Using the auxiliary node to define
+the rule between `(add1)` and `(max)`:
 
 ```
      return            return
@@ -622,7 +622,7 @@ end
  prev
 ```
 
-定义如下：
+Rule definition:
 
 ```
 rule add1 max
@@ -632,7 +632,7 @@ rule add1 max
 end
 ```
 
-`(zero)` 与 `(max_aux)` 之间的规则：
+The rule between `(zero)` and `(max_aux)`:
 
 ```
      return            return
@@ -642,7 +642,7 @@ end
  first   (zero)        first
 ```
 
-定义如下：
+Rule definition:
 
 ```
 rule zero max_aux
@@ -651,7 +651,7 @@ rule zero max_aux
 end
 ```
 
-`(add1)` 与 `(max_aux)` 之间的规则：
+The rule between `(add1)` and `(max_aux)`:
 
 ```
      return            return
@@ -663,7 +663,7 @@ end
           prev     first   prev
 ```
 
-定义如下：
+Rule definition:
 
 ```
 rule add1 max_aux
@@ -673,7 +673,7 @@ rule add1 max_aux
 end
 ```
 
-[去 `Nat` 与 `(max)` 的演算场](https://inet.run/playground/dHlwZSBOYXQgLS0gQFR5cGUgZW5kCgpub2RlIHplcm8KICAtLS0tLS0KICBOYXQgOnZhbHVlIQplbmQKCm5vZGUgYWRkMQogIE5hdCA6cHJldgogIC0tLS0tLS0tLS0KICBOYXQgOnZhbHVlIQplbmQKCm5vZGUgbWF4X2F1eAogIE5hdCA6Zmlyc3QKICBOYXQgOnNlY29uZCEKICAtLS0tLS0tLQogIE5hdCA6cmV0dXJuCmVuZAoKbm9kZSBtYXgKICBOYXQgOmZpcnN0IQogIE5hdCA6c2Vjb25kCiAgLS0tLS0tLS0tLQogIE5hdCA6cmV0dXJuCmVuZAoKcnVsZSB6ZXJvIG1heAogIChtYXgpLXNlY29uZCByZXR1cm4tKG1heCkKZW5kCgpydWxlIGFkZDEgbWF4CiAgKG1heCktc2Vjb25kIChhZGQxKS1wcmV2IG1heF9hdXgKICByZXR1cm4tKG1heCkKZW5kCgpydWxlIHplcm8gbWF4X2F1eAogIChtYXhfYXV4KS1maXJzdCBhZGQxCiAgcmV0dXJuLShtYXhfYXV4KQplbmQKCnJ1bGUgYWRkMSBtYXhfYXV4CiAgKGFkZDEpLXByZXYgKG1heF9hdXgpLWZpcnN0IG1heAogIGFkZDEgcmV0dXJuLShtYXhfYXV4KQplbmQKCmNsYWltIG9uZSAtLSBOYXQgZW5kCmRlZmluZSBvbmUgemVybyBhZGQxIGVuZAoKY2xhaW0gdHdvIC0tIE5hdCBlbmQKZGVmaW5lIHR3byBvbmUgYWRkMSBlbmQKCmNsYWltIHRocmVlIC0tIE5hdCBlbmQKZGVmaW5lIHRocmVlIHR3byBhZGQxIGVuZAoKY2xhaW0gZm91ciAtLSBOYXQgZW5kCmRlZmluZSBmb3VyIHRocmVlIGFkZDEgZW5kCgp6ZXJvIHR3byBtYXgKCnRocmVlIHR3byBtYXg)
+[Goto the playground of `Nat` and `(max)`](https://inet.run/playground/dHlwZSBOYXQgLS0gQFR5cGUgZW5kCgpub2RlIHplcm8KICAtLS0tLS0KICBOYXQgOnZhbHVlIQplbmQKCm5vZGUgYWRkMQogIE5hdCA6cHJldgogIC0tLS0tLS0tLS0KICBOYXQgOnZhbHVlIQplbmQKCm5vZGUgbWF4X2F1eAogIE5hdCA6Zmlyc3QKICBOYXQgOnNlY29uZCEKICAtLS0tLS0tLQogIE5hdCA6cmV0dXJuCmVuZAoKbm9kZSBtYXgKICBOYXQgOmZpcnN0IQogIE5hdCA6c2Vjb25kCiAgLS0tLS0tLS0tLQogIE5hdCA6cmV0dXJuCmVuZAoKcnVsZSB6ZXJvIG1heAogIChtYXgpLXNlY29uZCByZXR1cm4tKG1heCkKZW5kCgpydWxlIGFkZDEgbWF4CiAgKG1heCktc2Vjb25kIChhZGQxKS1wcmV2IG1heF9hdXgKICByZXR1cm4tKG1heCkKZW5kCgpydWxlIHplcm8gbWF4X2F1eAogIChtYXhfYXV4KS1maXJzdCBhZGQxCiAgcmV0dXJuLShtYXhfYXV4KQplbmQKCnJ1bGUgYWRkMSBtYXhfYXV4CiAgKGFkZDEpLXByZXYgKG1heF9hdXgpLWZpcnN0IG1heAogIGFkZDEgcmV0dXJuLShtYXhfYXV4KQplbmQKCmNsYWltIG9uZSAtLSBOYXQgZW5kCmRlZmluZSBvbmUgemVybyBhZGQxIGVuZAoKY2xhaW0gdHdvIC0tIE5hdCBlbmQKZGVmaW5lIHR3byBvbmUgYWRkMSBlbmQKCmNsYWltIHRocmVlIC0tIE5hdCBlbmQKZGVmaW5lIHRocmVlIHR3byBhZGQxIGVuZAoKY2xhaW0gZm91ciAtLSBOYXQgZW5kCmRlZmluZSBmb3VyIHRocmVlIGFkZDEgZW5kCgp6ZXJvIHR3byBtYXgKCnRocmVlIHR3byBtYXg)
 
 ```
 type Nat -- @Type end

@@ -1,6 +1,5 @@
 # articles
 
-[docs] translate the article -- section #9
 [docs] translate the article -- section #10
 [docs] translate the article -- section #11
 [docs] translate the article -- section #12
