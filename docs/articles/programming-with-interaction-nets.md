@@ -49,7 +49,7 @@ by connecting these nodes through the ports.
 How to use graph to represent functions that operate on natural numbers?
 
 Take addition as an example, we need to introduce a new node to represent addition,
-and to define the interaction rules between this node and other nodes.
+and to define interaction rules between this node and other nodes.
 
 We use a node with three ports to represent addition.
 
@@ -94,12 +94,12 @@ and 2 + 2 as the following:
 (zero)   (zero)
 ```
 
-By defining the interactions between `(add)` and neighbor nodes,
+By defining the interaction rules between `(add)` and neighbor nodes,
 we can do addition.
 
 When the `target` port of `(add)`is connected with `(zero)`,
 delete `(zero)` and `(add)`,
-and connect the `value` of `(add)` with the `addend` of directly.
+and connect the `value` of `(add)` with the `addend` of `(add)` directly.
 
 ```
      value           value
@@ -156,7 +156,7 @@ In our language each node has fixed number of ports.
 Every port has a name.
 
 ```
-(zero)-value  // the value 0
+(zero)-value  // the value of 0
 
 (add1)-prev   // previous number
 (add1)-value  // the value of +1
@@ -201,7 +201,7 @@ The detailed connections are the following:
 
 Each node has one and only one principal port,
 two nodes can interact only when they are
-connected through principal ports.
+connected through two principal ports.
 
 ```
 -------------
@@ -220,7 +220,7 @@ connected through principal ports.
 We also require each port to have a specific type,
 and only ports with matching types can be connected.
 
-We design a statement to define node:
+We design the statement to define node as following:
 
 - The statement must start with `node`,
   then follows the name of the node,
@@ -256,5 +256,36 @@ end
 ```
 
 # 5
+
+A type might have other types as arguments.
+
+For now, the only information we need is the number of input arguments,
+because the type of an argument must be a type,
+and the number of output arguments must be one.
+
+But to be consistent with the definition of node,
+we design the statement to define type as following:
+
+- The statement must start with `type`,
+  then follows the name of the type,
+  and ending with `end`.
+- Use a dividing line to distinguish the input type arguments from the output type arguments.
+  - Above the dividing line are the input type arguments (must be `Type`).
+  - Below the dividing line are the output type arguments, (must be one `Type`).
+  - The dividing can be as long as wish, at least two characters `--`.
+
+Take the type representing natural number `Nat` as an example, it has no input type arguments, thus it's definition is:
+
+```
+type Nat -- @Type end
+```
+
+Take `List` as another example, it has one input type argument, i.e. the element type, thus it's definition is:
+
+```
+type List @Type -- @Type end
+```
+
+# 6
 
 TODO
