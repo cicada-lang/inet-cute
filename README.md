@@ -6,6 +6,22 @@ Programming with [interaction nets](https://en.wikipedia.org/wiki/Interaction_ne
 
 ## Usage
 
+### Command line tool
+
+Install it by the following command:
+
+```
+npm -g i @cicada-lang/inet
+```
+
+The command line program is called `inet`.
+
+```sh
+inet repl         # Open an interactive REPL
+inet run [path]   # Run an inet program
+inet help [name]  # Display help for a command
+```
+
 ### Online Playground
 
 We have an online playground.
@@ -172,22 +188,6 @@ diff_append
 zero (cons :tail) zero cons diff @rot @rot @connect
 zero (cons :tail) zero cons diff @rot @rot @connect
 diff_append @run $result
-```
-
-### Command line tool
-
-Install it by the following command:
-
-```
-npm -g i @cicada-lang/inet
-```
-
-The command line program is called `inet`.
-
-```sh
-inet repl         # Open an interactive REPL
-inet run [path]   # Run an inet program
-inet help [name]  # Display help for a command
 ```
 
 ## Development
