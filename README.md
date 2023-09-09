@@ -10,7 +10,7 @@ Programming with [interaction nets](https://en.wikipedia.org/wiki/Interaction_ne
 
 Install it by the following command:
 
-```
+```sh
 npm -g i @cicada-lang/inet
 ```
 
