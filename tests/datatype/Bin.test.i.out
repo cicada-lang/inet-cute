@@ -1,0 +1,23 @@
+net_from_port (bmul₅)-result
+  (bmul₅)-left result-(ntob₃)
+  (bmul₅)-right!value-(b0₁₆)
+  (ntob₃)-nat!value-(add1₃₂)
+  (add1₃₂)-prev value-(add1₃₁)
+  (add1₃₁)-prev value-(add1₃₀)
+  (add1₃₀)-prev value-(add1₂₉)
+  (add1₂₉)-prev value-(add1₂₈)
+  (add1₂₈)-prev value-(add1₂₇)
+  (add1₂₇)-prev value-(add1₂₆)
+  (add1₂₆)-prev value-(zero₂₃)
+  (b0₁₆)-higherbits value-(b1₁₅)
+  (b1₁₅)-higherbits value-(b1₁₄)
+  (b1₁₄)-higherbits value-(bend₁₅)
+end
+net_from_port (b0₁₇)-value!
+  (b0₁₇)-higherbits value-(b1₂₆)
+  (b1₂₆)-higherbits value-(b0₂₃)
+  (b0₂₃)-higherbits value-(b1₃₉)
+  (b1₃₉)-higherbits value-(b0₂₅)
+  (b0₂₅)-higherbits value-(b1₄₄)
+  (b1₄₄)-higherbits value-(bend₃₃)
+end
