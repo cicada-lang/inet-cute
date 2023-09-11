@@ -163,7 +163,7 @@ end
 import
   Nat, zero, add1,
   nat_erase, nat_dup
-from "https://cdn.inet.run/tests/datatype/Nat.i"
+from "./Nat.i"
 
 node nat_double
   Nat :target!
