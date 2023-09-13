@@ -10,6 +10,12 @@ export function word_matcher(tree: pt.Tree): Word {
       name: pt.str(name),
       span,
     }),
+    "word:literal_node": ({ name }, { span }) => ({
+      "@type": "Word",
+      "@kind": "LiteralNode",
+      name: pt.str(name),
+      span,
+    }),
     "word:builtin": ({ name }, { span }) => ({
       "@type": "Word",
       "@kind": "Builtin",

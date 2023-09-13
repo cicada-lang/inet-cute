@@ -1,4 +1,4 @@
-`LiteralNode` -- syntax
+function using `switch` should not return void
 
 `@ports` as built-in to spread ports of a node
 `@apply` as built-in to apply a node
