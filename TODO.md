@@ -1,4 +1,4 @@
-[note] about spread vs rearrange
+[diary] about spread vs rearrange
 
 `(cons)` -- unconnected node as value -- redesign syntax of rearrange
 
@@ -23,5 +23,3 @@ diff_append
 (diff) @spread $front zero cons zero cons front @connect
 diff_append
 ```
-
-[note] about `(cons)-tail` -- in rule `(cons)` is like a linear store
