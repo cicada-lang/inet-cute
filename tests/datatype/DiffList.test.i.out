@@ -44,28 +44,3 @@ net_from_port (diff₁₂)-value!
   (cons₁₃)-tail value-(cons₁₂)
   (cons₁₂)-head value-(sole₁₀)
 end
-net_from_port (diff_append₆)-return
-  (diff_append₆)-target!value-(diff₁₆)
-  (diff_append₆)-rest value-(diff₁₅)
-  (diff₁₆)-front value-(cons₂₃)
-  (diff₁₆)-back tail-(cons₂₂)
-  (cons₂₃)-head value-(sole₂₁)
-  (cons₂₃)-tail value-(cons₂₂)
-  (cons₂₂)-head value-(sole₂₀)
-  (diff₁₅)-front value-(cons₂₁)
-  (diff₁₅)-back tail-(cons₂₀)
-  (cons₂₁)-head value-(sole₁₉)
-  (cons₂₁)-tail value-(cons₂₀)
-  (cons₂₀)-head value-(sole₁₈)
-end
-net_from_port (diff₁₇)-value!
-  (diff₁₇)-front value-(cons₂₃)
-  (diff₁₇)-back tail-(cons₂₀)
-  (cons₂₃)-head value-(sole₂₁)
-  (cons₂₃)-tail value-(cons₂₂)
-  (cons₂₂)-head value-(sole₂₀)
-  (cons₂₂)-tail value-(cons₂₁)
-  (cons₂₁)-head value-(sole₁₉)
-  (cons₂₁)-tail value-(cons₂₀)
-  (cons₂₀)-head value-(sole₁₈)
-end

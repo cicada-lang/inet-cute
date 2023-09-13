@@ -1,45 +1,46 @@
-`@ports` as built-in to spread ports of a node
-
 remove syntax of rearrange
-update docs about using `@ports` to do rearrange
+
+update docs about using `@spread` to do rearrange
+
+
 
 `(cons)` -- unconnected node as value -- redesign syntax of rearrange
 
 ```
-(cons) @ports $value $tail $head
+(cons) @spread $value $tail $head
 zero head @connect value zero cons diff $value tail @connect value
-(cons) @ports $value $tail $head
+(cons) @spread $value $tail $head
 zero head @connect value zero cons diff $value tail @connect value
 diff_append
 ```
 
 ```
-(cons) @ports $value $tail zero @connect
+(cons) @spread $value $tail zero @connect
 value zero cons diff $value tail @connect value
-(cons) @ports $value $tail zero @connect
+(cons) @spread $value $tail zero @connect
 value zero cons diff $value tail @connect value
 diff_append
 ```
 
 ```
-(diff) @ports $front $back $value
+(diff) @spread $front $back $value
 back zero cons zero cons front @connect value
-(diff) @ports $front $back $value
+(diff) @spread $front $back $value
 back zero cons zero cons front @connect value
 diff_append
 ```
 
 ```
-(diff) @ports $front $back
+(diff) @spread $front $back
 back zero cons zero cons front @connect
-(diff) @ports $front $back
+(diff) @spread $front $back
 back zero cons zero cons front @connect
 diff_append
 ```
 
 ```
-(diff) @ports $front zero cons zero cons front @connect
-(diff) @ports $front zero cons zero cons front @connect
+(diff) @spread $front zero cons zero cons front @connect
+(diff) @spread $front zero cons zero cons front @connect
 diff_append
 ```
 

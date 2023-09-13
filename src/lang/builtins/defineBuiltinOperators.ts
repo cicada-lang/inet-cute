@@ -6,6 +6,7 @@ import { defineBuiltinOperator } from "./defineBuiltinOperator"
 import * as inspect from "./inspect"
 import * as rot from "./rot"
 import * as run from "./run"
+import * as spread from "./spread"
 import * as swap from "./swap"
 
 export function defineBuiltinOperators(mod: Mod): void {
@@ -15,5 +16,6 @@ export function defineBuiltinOperators(mod: Mod): void {
   defineBuiltinOperator(mod, "inspect", inspect)
   defineBuiltinOperator(mod, "run", run)
   defineBuiltinOperator(mod, "apply", apply)
+  defineBuiltinOperator(mod, "spread", spread)
   defineBuiltinOperator(mod, "Type", Type)
 }
