@@ -1,5 +1,6 @@
 import { Mod } from "../mod"
 import * as Type from "./Type"
+import * as apply from "./apply"
 import * as connect from "./connect"
 import { defineBuiltinOperator } from "./defineBuiltinOperator"
 import * as inspect from "./inspect"
@@ -13,5 +14,6 @@ export function defineBuiltinOperators(mod: Mod): void {
   defineBuiltinOperator(mod, "connect", connect)
   defineBuiltinOperator(mod, "inspect", inspect)
   defineBuiltinOperator(mod, "run", run)
+  defineBuiltinOperator(mod, "apply", apply)
   defineBuiltinOperator(mod, "Type", Type)
 }

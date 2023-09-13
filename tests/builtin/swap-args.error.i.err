@@ -1,4 +1,4 @@
-[swap (builtin)] I expect a second value on the stack.
+[@swap] I expect a second value on the stack.
 
   first: (sole₀)-value!
 

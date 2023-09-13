@@ -1,6 +1,4 @@
-`@apply` as built-in to apply a node
-
-`@spread_ports` as built-in to spread ports of a node
+`@ports` as built-in to spread ports of a node
 
 remove syntax of rearrange
 update docs about using `@ports` to do rearrange

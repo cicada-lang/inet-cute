@@ -1,4 +1,4 @@
-[inspect (builtin)] I expect a value on the stack.
+[@inspect] I expect a value on the stack.
 
 [compose] I fail compose word.
 

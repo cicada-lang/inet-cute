@@ -1,0 +1,4 @@
+net_from_port (zero₀)-value! end
+net_from_port (add1₀)-value!
+  (add1₀)-prev value-(zero₀)
+end

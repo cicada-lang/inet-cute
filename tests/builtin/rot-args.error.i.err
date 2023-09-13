@@ -1,4 +1,4 @@
-[rot (builtin)] I expect a third value on the stack.
+[@rot] I expect a third value on the stack.
 
   first: (sole₁)-value!
   second: (sole₀)-value!
