@@ -1,5 +1,3 @@
-update article -- for `@spread`
-
 [note] about spread vs rearrange
 
 `(cons)` -- unconnected node as value -- redesign syntax of rearrange

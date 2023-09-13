@@ -951,25 +951,13 @@ while the reverse is not true.
 But in interaction nets,
 the relationship between all nodes is symmetric.
 
-In the following code, in one calling of `cons`,
-we will write `(cons :tail)` instead of `cons`,
-this means before calling this node,
-we need to rearrange it's ports,
-view the input port `:tail` as an output port,
-not connect it to the ports in the stack
-but return it directly to the stack.
+In the following code,
+we use `(diff)` to create a new node and return it to the stack,
+follows `@spread` to put all it's ports to the stack
+in reverse order of the definition,
+then we save the ports to local variables for later use.
 
-In the following code, we also used a phrase:
-
-```
-... $value @connect value ...
-```
-
-Which means firstly save the top value in the stack to `$value`,
-then connect the top two ports in the stack,
-finally return the value saved in `$value` back to the stack.
-
-[Goto the playground of `DiffList` and `(diff_append)`](https://inet.run/playground/aW1wb3J0IExpc3QgZnJvbSAiaHR0cHM6Ly9jZG4uaW5ldC5ydW4vdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKdHlwZSBEaWZmTGlzdCBAVHlwZSAtLSBAVHlwZSBlbmQKCm5vZGUgZGlmZgogICdBIExpc3QgOmZyb250CiAgLS0tLS0tLQogICdBIExpc3QgOmJhY2sKICAnQSBEaWZmTGlzdCA6dmFsdWUhCmVuZAoKbm9kZSBkaWZmX2FwcGVuZAogICdBIERpZmZMaXN0IDp0YXJnZXQhCiAgJ0EgRGlmZkxpc3QgOnJlc3QKICAtLS0tLS0tLQogICdBIERpZmZMaXN0IDpyZXR1cm4KZW5kCgpub2RlIGRpZmZfb3BlbgogICdBIERpZmZMaXN0IDp0YXJnZXQhCiAgJ0EgTGlzdCA6bGlzdAogIC0tLS0tLS0tLS0KICAnQSBMaXN0IDpyZXR1cm4KZW5kCgpydWxlIGRpZmYgZGlmZl9hcHBlbmQKICAoZGlmZiktZnJvbnQgZGlmZiByZXR1cm4tKGRpZmZfYXBwZW5kKQogIChkaWZmX2FwcGVuZCktcmVzdCBkaWZmX29wZW4gYmFjay0oZGlmZikKZW5kCgpydWxlIGRpZmYgZGlmZl9vcGVuCiAgKGRpZmYpLWJhY2sgbGlzdC0oZGlmZl9vcGVuKQogIChkaWZmKS1mcm9udCByZXR1cm4tKGRpZmZfb3BlbikKZW5kCgppbXBvcnQgemVybyBmcm9tICJodHRwczovL2Nkbi5pbmV0LnJ1bi90ZXN0cy9kYXRhdHlwZS9OYXQuaSIKaW1wb3J0IGNvbnMgZnJvbSAiaHR0cHM6Ly9jZG4uaW5ldC5ydW4vdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKemVybyAoY29ucyA6dGFpbCkgemVybyBjb25zIGRpZmYgJHZhbHVlIEBjb25uZWN0IHZhbHVlCnplcm8gKGNvbnMgOnRhaWwpIHplcm8gY29ucyBkaWZmICR2YWx1ZSBAY29ubmVjdCB2YWx1ZQpkaWZmX2FwcGVuZAoKemVybyAoY29ucyA6dGFpbCkgemVybyBjb25zIGRpZmYgJHZhbHVlIEBjb25uZWN0IHZhbHVlCnplcm8gKGNvbnMgOnRhaWwpIHplcm8gY29ucyBkaWZmICR2YWx1ZSBAY29ubmVjdCB2YWx1ZQpkaWZmX2FwcGVuZCBAcnVuICRyZXN1bHQ)
+[Goto the playground of `DiffList` and `(diff_append)`](https://inet.run/playground/aW1wb3J0IExpc3QgZnJvbSAiaHR0cHM6Ly9jZG4uaW5ldC5ydW4vdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKdHlwZSBEaWZmTGlzdCBAVHlwZSAtLSBAVHlwZSBlbmQKCm5vZGUgZGlmZgogICdBIExpc3QgOmZyb250CiAgLS0tLS0tLQogICdBIExpc3QgOmJhY2sKICAnQSBEaWZmTGlzdCA6dmFsdWUhCmVuZAoKbm9kZSBkaWZmX2FwcGVuZAogICdBIERpZmZMaXN0IDp0YXJnZXQhCiAgJ0EgRGlmZkxpc3QgOnJlc3QKICAtLS0tLS0tLQogICdBIERpZmZMaXN0IDpyZXR1cm4KZW5kCgpub2RlIGRpZmZfb3BlbgogICdBIERpZmZMaXN0IDp0YXJnZXQhCiAgJ0EgTGlzdCA6bGlzdAogIC0tLS0tLS0tLS0KICAnQSBMaXN0IDpyZXR1cm4KZW5kCgpydWxlIGRpZmYgZGlmZl9hcHBlbmQKICAoZGlmZiktZnJvbnQgZGlmZiByZXR1cm4tKGRpZmZfYXBwZW5kKQogIChkaWZmX2FwcGVuZCktcmVzdCBkaWZmX29wZW4gYmFjay0oZGlmZikKZW5kCgpydWxlIGRpZmYgZGlmZl9vcGVuCiAgKGRpZmYpLWJhY2sgbGlzdC0oZGlmZl9vcGVuKQogIChkaWZmKS1mcm9udCByZXR1cm4tKGRpZmZfb3BlbikKZW5kCgppbXBvcnQgemVybyBmcm9tICJodHRwczovL2Nkbi5pbmV0LnJ1bi90ZXN0cy9kYXRhdHlwZS9OYXQuaSIKaW1wb3J0IGNvbnMgZnJvbSAiaHR0cHM6Ly9jZG4uaW5ldC5ydW4vdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrICR2YWx1ZQpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QgdmFsdWUKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrICR2YWx1ZQpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QgdmFsdWUKZGlmZl9hcHBlbmQKCi8vIFVzZSBvbmUgbGVzcyBsb2NhbCB2YXJpYWJsZSBgJHZhbHVlYCwKLy8gd2UgY2FuIHNpbXBsaWZ5IHRoZSBhYm92ZSBjb2RlOgoKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrCmJhY2sgemVybyBjb25zIHplcm8gY29ucyBmcm9udCBAY29ubmVjdAooZGlmZikgQHNwcmVhZCAkZnJvbnQgJGJhY2sKYmFjayB6ZXJvIGNvbnMgemVybyBjb25zIGZyb250IEBjb25uZWN0CmRpZmZfYXBwZW5kCgovLyBVc2Ugb25lIGxlc3MgbG9jYWwgdmFyaWFibGUgYCRiYWNrYCwKLy8gd2UgY2FuIGZ1cnRoZXIgc2ltcGxpZnkgdGhlIGFib3ZlIGNvZGU6CgooZGlmZikgQHNwcmVhZCAkZnJvbnQgemVybyBjb25zIHplcm8gY29ucyBmcm9udCBAY29ubmVjdAooZGlmZikgQHNwcmVhZCAkZnJvbnQgemVybyBjb25zIHplcm8gY29ucyBmcm9udCBAY29ubmVjdApkaWZmX2FwcGVuZAoKQHJ1biAkcmVzdWx0)
 
 ```
 import List from "https://cdn.inet.run/tests/datatype/List.i"
@@ -1010,13 +998,29 @@ end
 import zero from "https://cdn.inet.run/tests/datatype/Nat.i"
 import cons from "https://cdn.inet.run/tests/datatype/List.i"
 
-zero (cons :tail) zero cons diff $value @connect value
-zero (cons :tail) zero cons diff $value @connect value
+(diff) @spread $front $back $value
+back zero cons zero cons front @connect value
+(diff) @spread $front $back $value
+back zero cons zero cons front @connect value
 diff_append
 
-zero (cons :tail) zero cons diff $value @connect value
-zero (cons :tail) zero cons diff $value @connect value
-diff_append @run $result
+// By using one less local variable `$value`,
+// we can simplify the above code:
+
+(diff) @spread $front $back
+back zero cons zero cons front @connect
+(diff) @spread $front $back
+back zero cons zero cons front @connect
+diff_append
+
+// By using one less local variable `$back`,
+// we can further simplify the above code:
+
+(diff) @spread $front zero cons zero cons front @connect
+(diff) @spread $front zero cons zero cons front @connect
+diff_append
+
+@run $result
 ```
 
 # 13
