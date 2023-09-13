@@ -25,7 +25,7 @@ export function compose(
   env: Env,
   word: Word,
   options: ComposeOptions,
-): void {
+): null {
   try {
     switch (word["@kind"]) {
       case "Call": {
@@ -33,12 +33,19 @@ export function compose(
         if (found !== undefined) {
           env.stack.push(found)
           env.locals.delete(word.name)
-          return
+          return null
         } else {
           const definition = findDefinitionOrFail(mod, word.name)
           composeDefinition(env, definition, options)
-          return
+          return null
         }
+      }
+
+      case "LiteralNode": {
+        const definition = findDefinitionOrFail(mod, word.name)
+        const node = createNodeFromDefinition(env.net, definition)
+        env.stack.push(node)
+        return null
       }
 
       case "Builtin": {
@@ -54,7 +61,7 @@ export function compose(
         }
 
         composeDefinition(env, definition, options)
-        return
+        return null
       }
 
       case "Local": {
@@ -66,7 +73,7 @@ export function compose(
         }
 
         env.locals.set(word.name, port)
-        return
+        return null
       }
 
       case "PortPush": {
@@ -93,7 +100,7 @@ export function compose(
         disconnectPort(env.net, portEntry.connection.port)
 
         env.stack.push(currentPort)
-        return
+        return null
       }
 
       case "PortReconnect": {
@@ -141,7 +148,7 @@ export function compose(
           unifyTypes(options.checking.substitution, value.t, currentPort.t)
         }
 
-        return
+        return null
       }
 
       case "GenrateSymbol": {
@@ -151,7 +158,7 @@ export function compose(
           name: word.name,
         })
 
-        return
+        return null
       }
 
       case "Label": {
@@ -168,7 +175,7 @@ export function compose(
           isImportant: word.isImportant,
         })
 
-        return
+        return null
       }
 
       case "NodeRearrange": {
@@ -183,7 +190,7 @@ export function compose(
           },
         )
 
-        return
+        return null
       }
     }
   } catch (error) {

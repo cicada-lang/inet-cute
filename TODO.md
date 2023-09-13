@@ -1,7 +1,6 @@
-function using `switch` should not return void
+`@apply` as built-in to apply a node
 
 `@ports` as built-in to spread ports of a node
-`@apply` as built-in to apply a node
 
 remove syntax of rearrange
 update docs about using `@ports` to do rearrange

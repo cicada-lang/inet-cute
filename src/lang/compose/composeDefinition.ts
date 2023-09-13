@@ -12,11 +12,11 @@ export function composeDefinition(
   env: Env,
   definition: Definition,
   options: ComposeOptions,
-): void {
+): null {
   switch (definition["@kind"]) {
     case "NodeDefinition": {
       composeNode(env, createNodeFromDefinition(env.net, definition), options)
-      return
+      return null
     }
 
     case "WordDefinition": {
@@ -27,12 +27,12 @@ export function composeDefinition(
       }
 
       composeWords(definition.mod, env, definition.words, options)
-      return
+      return null
     }
 
     case "OperatorDefinition": {
       definition.compose(env, options)
-      return
+      return null
     }
 
     case "TypeDefinition": {
@@ -58,7 +58,7 @@ export function composeDefinition(
         args,
       })
 
-      return
+      return null
     }
   }
 }
