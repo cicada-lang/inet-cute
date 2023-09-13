@@ -43,7 +43,7 @@ export function word_matcher(tree: pt.Tree): Word {
     }),
     "word:generate_type_var": ({ name }, { span }) => ({
       "@type": "Word",
-      "@kind": "GenrateSymbol",
+      "@kind": "GenerateSymbol",
       name: pt.str(name),
       span,
     }),

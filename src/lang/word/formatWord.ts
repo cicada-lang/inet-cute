@@ -26,7 +26,7 @@ export function formatWord(word: Word): string {
       return `${word.portName}-(${word.nodeName})`
     }
 
-    case "GenrateSymbol": {
+    case "GenerateSymbol": {
       return `'${word.name}`
     }
 

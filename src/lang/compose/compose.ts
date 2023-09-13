@@ -150,7 +150,7 @@ export function compose(
         return null
       }
 
-      case "GenrateSymbol": {
+      case "GenerateSymbol": {
         env.stack.push({
           "@type": "Value",
           "@kind": "Symbol",

@@ -7,7 +7,7 @@ export type Word =
   | Local
   | PortPush
   | PortReconnect
-  | GenrateSymbol
+  | GenerateSymbol
   | Label
 
 export type Call = {
@@ -54,9 +54,9 @@ export type PortReconnect = {
   span: Span
 }
 
-export type GenrateSymbol = {
+export type GenerateSymbol = {
   "@type": "Word"
-  "@kind": "GenrateSymbol"
+  "@kind": "GenerateSymbol"
   name: string
   span: Span
 }
