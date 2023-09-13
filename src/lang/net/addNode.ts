@@ -14,7 +14,13 @@ export function addNode(
 ): Node {
   const id = createNodeId(mod, name)
 
-  const node: Node = { id, url: mod.url, name }
+  const node: Node = {
+    "@type": "Value",
+    "@kind": "Node",
+    id,
+    url: mod.url,
+    name,
+  }
 
   const ports: PortRecord = {}
   net.nodeEntries.set(nodeKey(node), { id, url: mod.url, name, ports })

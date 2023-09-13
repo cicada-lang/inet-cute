@@ -1,3 +1,8 @@
+`Node` as word
+`Ports` as builtin
+remove syntax of rearrange
+update docs about using `@ports` to do rearrange
+
 `(cons)` -- unconnected node as value -- redesign syntax of rearrange
 
 ```

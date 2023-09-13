@@ -11,6 +11,10 @@ export function formatValue(value: Value): string {
       }
     }
 
+    case "Node": {
+      return `(${formatNode(value)})`
+    }
+
     case "Type": {
       return "Type"
     }
