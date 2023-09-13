@@ -12,7 +12,6 @@ import { unifyTypes } from "../unify/unifyTypes"
 import { Word } from "../word"
 import { formatWord } from "../word/formatWord"
 import { composeDefinition } from "./composeDefinition"
-import { composeNode } from "./composeNode"
 import { findCurrentPortOrFail } from "./findCurrentPortOrFail"
 
 export interface ComposeOptions {
@@ -174,21 +173,6 @@ export function compose(
           label: word.label,
           isImportant: word.isImportant,
         })
-
-        return null
-      }
-
-      case "NodeRearrange": {
-        const definition = findDefinitionOrFail(mod, word.name)
-        composeNode(
-          env,
-          createNodeFromDefinition(env.net, definition),
-          options,
-          {
-            input: word.input,
-            output: word.output,
-          },
-        )
 
         return null
       }

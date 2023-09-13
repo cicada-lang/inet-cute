@@ -21,13 +21,6 @@ export const word = {
     "word:generate_type_var": ['"\'"', { name: "variable_name" }],
     "word:label": ['":"', { label: "variable_name" }],
     "word:label_is_important": ['":"', { label: "variable_name" }, '"!"'],
-    "word:node_rearrange": [
-      '"("',
-      { input: "labels" },
-      { name: "variable_name" },
-      { output: "labels" },
-      '")"',
-    ],
   },
 }
 

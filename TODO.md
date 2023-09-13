@@ -1,5 +1,3 @@
-remove syntax of rearrange
-
 update docs about using `@spread` to do rearrange
 
 `(cons)` -- unconnected node as value -- redesign syntax of rearrange
@@ -42,4 +40,4 @@ diff_append
 diff_append
 ```
 
-`(cons)-tail` -- in rule `(cons)` is like a linear store
+[note] about `(cons)-tail` -- in rule `(cons)` is like a linear store

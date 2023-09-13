@@ -1,6 +1,5 @@
 import * as pt from "@cicada-lang/partech"
 import { Word } from "../../word"
-import * as matchers from "../matchers"
 
 export function word_matcher(tree: pt.Tree): Word {
   return pt.matcher<Word>({
@@ -59,14 +58,6 @@ export function word_matcher(tree: pt.Tree): Word {
       "@kind": "Label",
       label: pt.str(label),
       isImportant: true,
-      span,
-    }),
-    "word:node_rearrange": ({ input, name, output }, { span }) => ({
-      "@type": "Word",
-      "@kind": "NodeRearrange",
-      input: matchers.labels_matcher(input),
-      name: pt.str(name),
-      output: matchers.labels_matcher(output),
       span,
     }),
   })(tree)

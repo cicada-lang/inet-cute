@@ -9,7 +9,6 @@ export type Word =
   | PortReconnect
   | GenrateSymbol
   | Label
-  | NodeRearrange
 
 export type Call = {
   "@type": "Word"
@@ -67,14 +66,5 @@ export type Label = {
   "@kind": "Label"
   label: string
   isImportant?: boolean
-  span: Span
-}
-
-export type NodeRearrange = {
-  "@type": "Word"
-  "@kind": "NodeRearrange"
-  name: string
-  input: Array<string>
-  output: Array<string>
   span: Span
 }

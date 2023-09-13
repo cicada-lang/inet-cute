@@ -1,28 +1,23 @@
 import { connect } from "../connect/connect"
 import { Env } from "../env"
 import { refreshNode } from "../freshen/refreshNode"
+import { findInputPorts } from "../net/findInputPorts"
+import { findOutputPorts } from "../net/findOutputPorts"
 import { Node } from "../node"
 import { unifyTypes } from "../unify/unifyTypes"
 import { ComposeOptions } from "./compose"
-import { rearrangeNodePorts } from "./rearrangeNodePorts"
 
 export function composeNode(
   env: Env,
   node: Node,
   options: ComposeOptions,
-  rearrangement: {
-    input: Array<string>
-    output: Array<string>
-  } = {
-    input: [],
-    output: [],
-  },
 ): Node {
   if (options.checking) {
     refreshNode(env.net, options.checking.typeVarCounters, node)
   }
 
-  const { input, output } = rearrangeNodePorts(env.net, node, rearrangement)
+  const input = findInputPorts(env.net, node)
+  const output = findOutputPorts(env.net, node)
 
   // Be careful about the order:
   // The first input port connects

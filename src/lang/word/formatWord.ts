@@ -37,22 +37,5 @@ export function formatWord(word: Word): string {
         return `:${word.label}`
       }
     }
-
-    case "NodeRearrange": {
-      const input = word.input.map((name) => `:${name}`).join("")
-      const output = word.output.map((name) => `:${name}`).join("")
-
-      let s = word.name
-
-      if (input.length > 0) {
-        s = `${input} ${s}`
-      }
-
-      if (output.length > 0) {
-        s = `${s} ${output}`
-      }
-
-      return `(${s})`
-    }
   }
 }
