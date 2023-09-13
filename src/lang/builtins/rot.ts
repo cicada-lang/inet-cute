@@ -5,9 +5,7 @@ export function compose(env: Env): void {
   const first = env.stack.pop()
 
   if (first === undefined) {
-    throw new Error(
-      [`[rot (builtin)] I expect first value on the stack.`].join("\n"),
-    )
+    throw new Error([`[@rot] I expect first value on the stack.`].join("\n"))
   }
 
   const second = env.stack.pop()
@@ -15,7 +13,7 @@ export function compose(env: Env): void {
   if (second === undefined) {
     throw new Error(
       [
-        `[rot (builtin)] I expect a second value on the stack.`,
+        `[@rot] I expect a second value on the stack.`,
         ``,
         `  first: ${formatValue(first)}`,
       ].join("\n"),
@@ -27,7 +25,7 @@ export function compose(env: Env): void {
   if (third === undefined) {
     throw new Error(
       [
-        `[rot (builtin)] I expect a third value on the stack.`,
+        `[@rot] I expect a third value on the stack.`,
         ``,
         `  first: ${formatValue(first)}`,
         `  second: ${formatValue(second)}`,

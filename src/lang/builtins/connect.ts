@@ -9,14 +9,14 @@ export function compose(env: Env, options: ComposeOptions): void {
 
   if (first === undefined) {
     throw new Error(
-      [`[connect (builtin)] I expect first value on the stack.`].join("\n"),
+      [`[@connect] I expect first value on the stack.`].join("\n"),
     )
   }
 
   if (first["@kind"] !== "Port") {
     throw new Error(
       [
-        `[connect (builtin)] I expect the first value on the stack to be a Port.`,
+        `[@connect] I expect the first value on the stack to be a Port.`,
         ``,
         `  first: ${formatValue(first)}`,
       ].join("\n"),
@@ -28,7 +28,7 @@ export function compose(env: Env, options: ComposeOptions): void {
   if (second === undefined) {
     throw new Error(
       [
-        `[connect (builtin)] I expect a second value on the stack.`,
+        `[@connect] I expect a second value on the stack.`,
         ``,
         `  first: ${formatValue(first)}`,
       ].join("\n"),
@@ -38,7 +38,7 @@ export function compose(env: Env, options: ComposeOptions): void {
   if (second["@kind"] !== "Port") {
     throw new Error(
       [
-        `[connect (builtin)] I expect the second value on the stack to be a Port.`,
+        `[@connect] I expect the second value on the stack to be a Port.`,
         ``,
         `  first: ${formatValue(first)}`,
         `  second: ${formatValue(first)}`,
