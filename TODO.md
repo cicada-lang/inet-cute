@@ -2,8 +2,6 @@ remove syntax of rearrange
 
 update docs about using `@spread` to do rearrange
 
-
-
 `(cons)` -- unconnected node as value -- redesign syntax of rearrange
 
 ```
