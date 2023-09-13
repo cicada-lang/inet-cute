@@ -1,5 +1,8 @@
-`Node` as word
-`Ports` as builtin
+`LiteralNode` -- syntax
+
+`@ports` as built-in to spread ports of a node
+`@apply` as built-in to apply a node
+
 remove syntax of rearrange
 update docs about using `@ports` to do rearrange
 
