@@ -30,7 +30,7 @@ export class RunCommand extends Command<Args, Opts> {
       ``,
       `Run a URL:`,
       ``,
-      blue(`  ${runner.name} ${this.name} https://cdn.inet.run/tests/datatype/Nat.test.i`),
+      blue(`  ${runner.name} ${this.name} https://code-of-inet.fidb.app/tests/datatype/Nat.test.i`),
 
       ``,
     ].join("\n")
