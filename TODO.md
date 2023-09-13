@@ -1,22 +1,6 @@
-update docs about using `@spread` to do rearrange
+update links to playground -- for `@spread`
 
 `(cons)` -- unconnected node as value -- redesign syntax of rearrange
-
-```
-(cons) @spread $value $tail $head
-zero head @connect value zero cons diff $value tail @connect value
-(cons) @spread $value $tail $head
-zero head @connect value zero cons diff $value tail @connect value
-diff_append
-```
-
-```
-(cons) @spread $value $tail zero @connect
-value zero cons diff $value tail @connect value
-(cons) @spread $value $tail zero @connect
-value zero cons diff $value tail @connect value
-diff_append
-```
 
 ```
 (diff) @spread $front $back $value

@@ -181,13 +181,20 @@ end
 import zero from "https://cdn.inet.run/tests/datatype/Nat.i"
 import cons from "https://cdn.inet.run/tests/datatype/List.i"
 
-zero (cons :tail) zero cons diff @rot @rot @connect
-zero (cons :tail) zero cons diff @rot @rot @connect
+(diff) @spread $front $back $value
+back zero cons zero cons front @connect value
+(diff) @spread $front $back $value
+back zero cons zero cons front @connect value
 diff_append
 
-zero (cons :tail) zero cons diff @rot @rot @connect
-zero (cons :tail) zero cons diff @rot @rot @connect
-diff_append @run $result
+// The code above can be simplified
+// by using less named local variables.
+
+(diff) @spread $front zero cons zero cons front @connect
+(diff) @spread $front zero cons zero cons front @connect
+diff_append
+
+@run $result
 ```
 
 ## Development
