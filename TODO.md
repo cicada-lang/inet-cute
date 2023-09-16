@@ -1,12 +1,12 @@
 # half-edge
 
-[half-edge] `half-edge/HalfEdge`
-
-[half-edge] `HalfEdge` has `id` instead of `first` and `second` `Port`
+[half-edge] `half-edge/HalfEdge` -- has `id` `port` and `otherHalf`
 
 [half-edge] `Net` has `halfEdgeEntries`
 
-[half-edge] connection through `HalfEdge`
+[half-edge] `connection` through `HalfEdge`
+
+[half-edge] `Edge` has two `HalfEdge`s
 
 [half-edge] avoid using `closeAllFreePorts`
 
