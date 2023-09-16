@@ -148,8 +148,8 @@ defrule diff diffOpen
 end
 
 defru diff diffAppend
-  <let diff_list end start>
-  <get end> <get diff_list>
+  <let diff end start>
+  <get end> <get diff>
   diffOpen <get start> diff
 end
 
