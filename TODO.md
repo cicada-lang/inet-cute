@@ -1,7 +1,5 @@
 # half-edge
 
-[half-edge] `half-edge/HalfEdge` -- has `id` `port` and `otherHalf`
-
 [half-edge] `Net` has `halfEdgeEntries`
 
 [half-edge] `connection` through `HalfEdge`
