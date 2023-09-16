@@ -73,9 +73,9 @@ define addadd add add end
   expect(formatEnv(presentWordAsEnv(mod, "addadd"))).toMatchInlineSnapshot(`
     "env
       net
-        (@type_cap₃)-covering addend-(add₈)
-        (@type_cap₄)-covering addend-(add₇)
-        (@type_cap₅)-covering target-(add₇)
+        (@typeCap₃)-covering addend-(add₈)
+        (@typeCap₄)-covering addend-(add₇)
+        (@typeCap₅)-covering target-(add₇)
         (add₇)-return target-(add₈)
       end
       stack

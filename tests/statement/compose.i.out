@@ -1,8 +1,8 @@
-net_from_port (add1₃)-value!
+netFromPort (add1₃)-value!
   (add1₃)-prev value-(add1₂)
   (add1₂)-prev value-(zero₁)
 end
-net_from_port (add1₃)-value!
+netFromPort (add1₃)-value!
   (add1₃)-prev value-(add1₂)
   (add1₂)-prev value-(zero₁)
 end

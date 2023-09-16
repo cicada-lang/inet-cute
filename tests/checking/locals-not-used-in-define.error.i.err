@@ -4,8 +4,8 @@
 
 [Define.execute] I fail to define word.
 
-  word: my_drop
+  word: myDrop
 
- 1 |claim my_drop 'A -- end
- 2 |define my_drop $a end
+ 1 |claim myDrop 'A -- end
+ 2 |define myDrop $a end
  3 |

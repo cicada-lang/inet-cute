@@ -1,2 +1,2 @@
-claim my_drop 'A -- end
-define my_drop $a end
+claim myDrop 'A -- end
+define myDrop $a end

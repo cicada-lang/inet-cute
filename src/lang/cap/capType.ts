@@ -15,7 +15,7 @@ export function capType(mod: Mod, net: Net, t: Value): Port {
     isPrincipal: false,
   }
 
-  const node = addNode(net, mod, "@type_cap", [], [portExp])
+  const node = addNode(net, mod, "@typeCap", [], [portExp])
   const nodeEntry = findNodeEntryOrFail(net, node)
   nodeEntry.asTypeCap = {}
 

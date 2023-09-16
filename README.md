@@ -154,28 +154,28 @@ node diff
   'A DiffList :value!
 end
 
-node diff_append
+node diffAppend
   'A DiffList :target!
   'A DiffList :rest
   --------
   'A DiffList :return
 end
 
-node diff_open
+node diffOpen
   'A DiffList :target!
   'A List :list
   ----------
   'A List :return
 end
 
-rule diff diff_append
-  (diff)-front diff return-(diff_append)
-  (diff_append)-rest diff_open back-(diff)
+rule diff diffAppend
+  (diff)-front diff return-(diffAppend)
+  (diffAppend)-rest diffOpen back-(diff)
 end
 
-rule diff diff_open
-  (diff)-back list-(diff_open)
-  (diff)-front return-(diff_open)
+rule diff diffOpen
+  (diff)-back list-(diffOpen)
+  (diff)-front return-(diffOpen)
 end
 
 import zero from "https://code-of-inet.fidb.app/tests/datatype/Nat.i"
@@ -185,7 +185,7 @@ import cons from "https://code-of-inet.fidb.app/tests/datatype/List.i"
 back zero cons zero cons front @connect value
 (diff) @spread $front $back $value
 back zero cons zero cons front @connect value
-diff_append
+diffAppend
 
 // By using one less local variable `$value`,
 // we can simplify the above code:
@@ -194,14 +194,14 @@ diff_append
 back zero cons zero cons front @connect
 (diff) @spread $front $back
 back zero cons zero cons front @connect
-diff_append
+diffAppend
 
 // By using one less local variable `$back`,
 // we can further simplify the above code:
 
 (diff) @spread $front zero cons zero cons front @connect
 (diff) @spread $front zero cons zero cons front @connect
-diff_append
+diffAppend
 
 @run $result
 ```

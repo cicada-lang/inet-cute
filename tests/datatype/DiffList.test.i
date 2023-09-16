@@ -1,22 +1,22 @@
 require "DiffList.i"
 require "Trivial.i"
 
-claim one_two_soles -- Trivial DiffList end
+claim oneTwoSoles -- Trivial DiffList end
 
-define one_two_soles
+define oneTwoSoles
   (diff) @spread $front sole cons front @connect
   (diff) @spread $front sole cons sole cons front @connect
-  diff_append
+  diffAppend
 end
 
-one_two_soles @inspect @run @inspect
+oneTwoSoles @inspect @run @inspect
 
-claim two_two_soles -- Trivial DiffList end
+claim twoTwoSoles -- Trivial DiffList end
 
-define two_two_soles
+define twoTwoSoles
   (diff) @spread $front sole cons sole cons front @connect
   (diff) @spread $front sole cons sole cons front @connect
-  diff_append
+  diffAppend
 end
 
-two_two_soles @inspect @run @inspect
+twoTwoSoles @inspect @run @inspect

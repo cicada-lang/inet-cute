@@ -16,26 +16,26 @@ node diff
   'A DiffList :value!
 end
 
-node diff_append
+node diffAppend
   'A DiffList :target!
   'A DiffList :rest
   --------
   'A DiffList :return
 end
 
-node diff_open
+node diffOpen
   'A DiffList :target!
   'A List :list
   ----------
   'A List :return
 end
 
-rule diff diff_append
-  (diff)-front diff return-(diff_append)
-  (diff_append)-rest diff_open back-(diff)
+rule diff diffAppend
+  (diff)-front diff return-(diffAppend)
+  (diffAppend)-rest diffOpen back-(diff)
 end
 
-rule diff diff_open
-  (diff)-back list-(diff_open)
-  (diff)-front return-(diff_open)
+rule diff diffOpen
+  (diff)-back list-(diffOpen)
+  (diff)-front return-(diffOpen)
 end

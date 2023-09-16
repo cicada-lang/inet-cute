@@ -1,12 +1,12 @@
 require "List.i"
 require "Trivial.i"
 
-claim six_soles -- Trivial List end
+claim sixSoles -- Trivial List end
 
-define six_soles
+define sixSoles
   null sole cons sole cons sole cons
   null sole cons sole cons sole cons
   append
 end
 
-six_soles @inspect @run @inspect
+sixSoles @inspect @run @inspect

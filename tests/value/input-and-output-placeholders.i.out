@@ -1,6 +1,6 @@
-net_from_port (@input_port_cap₂)-covering end
-net_from_port (@ouput_port_cap₁)-covering end
-net_from_port (add₃)-return
+netFromPort (@inputPortCap₂)-covering end
+netFromPort (@ouputPortCap₁)-covering end
+netFromPort (add₃)-return
   (add₃)-target!value-(add1₃)
   (add₃)-addend value-(add1₂)
   (add1₃)-prev value-(zero₂)

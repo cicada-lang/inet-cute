@@ -1,4 +1,4 @@
-net_from_port (bmul₅)-result
+netFromPort (bmul₅)-result
   (bmul₅)-left result-(ntob₃)
   (bmul₅)-right!value-(b0₁₆)
   (ntob₃)-nat!value-(add1₃₂)
@@ -13,7 +13,7 @@ net_from_port (bmul₅)-result
   (b1₁₅)-higherbits value-(b1₁₄)
   (b1₁₄)-higherbits value-(bend₁₅)
 end
-net_from_port (b0₁₇)-value!
+netFromPort (b0₁₇)-value!
   (b0₁₇)-higherbits value-(b1₂₆)
   (b1₂₆)-higherbits value-(b0₂₃)
   (b0₂₃)-higherbits value-(b1₃₉)

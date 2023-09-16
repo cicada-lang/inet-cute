@@ -109,7 +109,7 @@ defru cons append
   <let head> append <get head> cons
 end
 
-defn six_soles
+defn sixSoles
   null sole cons sole cons sole cons
   null sole cons sole cons sole cons
   append
@@ -125,35 +125,35 @@ defnode diff
   -- DiffList('A)!
 end
 
-defnode diff_append
+defnode diffAppend
   left: DiffList('A)!
   right: DiffList('A)
   -- DiffList('A)
 end
 
-defnode diff_open
+defnode diffOpen
   DiffList('A)!
   list: List('A)
   -- List('A)
 end
 
-defrule diff diff_append
-  (diff)-right (diff_append)-right diff_open
+defrule diff diffAppend
+  (diff)-right (diffAppend)-right diffOpen
   (diff)-left diff
 end
 
-defrule diff diff_open
-  (diff)-right list-(diff_open)
-  (diff)-left return-(diff_open)
+defrule diff diffOpen
+  (diff)-right list-(diffOpen)
+  (diff)-left return-(diffOpen)
 end
 
-defru diff diff_append
+defru diff diffAppend
   <let diff_list end start>
   <get end> <get diff_list>
-  diff_open <get start> diff
+  diffOpen <get start> diff
 end
 
-defru diff diff_open
+defru diff diffOpen
   <let list end start>
   <get list> <get end> connect
   <get start>
@@ -166,15 +166,15 @@ If a wire's two ports are connected with port `A` and `B`,
 after building a net, we remove the wire, and connect `A` with `B`.
 
 ```inet
-defn one_two_soles
+defn oneTwoSoles
   wire sole cons diff
   wire sole cons sole cons diff
-  diff_append
+  diffAppend
 end
 
-defn two_two_soles
+defn twoTwoSoles
   wire sole cons sole cons diff
   wire sole cons sole cons diff
-  diff_append
+  diffAppend
 end
 ```

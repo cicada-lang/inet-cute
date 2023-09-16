@@ -35,7 +35,7 @@ Example usage to construct `DiffList`:
 ```
 zero (cons :tail) zero cons diff $value @connect value
 zero (cons :tail) zero cons diff $value @connect value
-diff_append
+diffAppend
 ```
 
 Now the syntax of rearrange is removed,
@@ -47,7 +47,7 @@ and `@spread` to get all it's ports.
 back zero cons zero cons front @connect value
 (diff) @spread $front $back $value
 back zero cons zero cons front @connect value
-diff_append
+diffAppend
 
 // use less variables:
 
@@ -55,11 +55,11 @@ diff_append
 back zero cons zero cons front @connect
 (diff) @spread $front $back
 back zero cons zero cons front @connect
-diff_append
+diffAppend
 
 // use less variables:
 
 (diff) @spread $front zero cons zero cons front @connect
 (diff) @spread $front zero cons zero cons front @connect
-diff_append
+diffAppend
 ```

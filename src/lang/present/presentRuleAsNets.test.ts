@@ -47,16 +47,16 @@ end
   const [initial, final] = presentRuleAsNets(mod, "add1 add")
 
   expect(formatNet(initial)).toMatchInlineSnapshot(`
-    "(add1₂)-prev covering-(@input_port_cap₃)
+    "(add1₂)-prev covering-(@inputPortCap₃)
     (add1₂)-value!target-(add₃)
-    (add₃)-addend covering-(@input_port_cap₄)
-    (add₃)-return covering-(@ouput_port_cap₂)"
+    (add₃)-addend covering-(@inputPortCap₄)
+    (add₃)-return covering-(@ouputPortCap₂)"
   `)
 
   expect(formatNet(final)).toMatchInlineSnapshot(`
-    "(@input_port_cap₃)-covering target-(add₄)
-    (@input_port_cap₄)-covering addend-(add₄)
-    (@ouput_port_cap₂)-covering value-(add1₃)
+    "(@inputPortCap₃)-covering target-(add₄)
+    (@inputPortCap₄)-covering addend-(add₄)
+    (@ouputPortCap₂)-covering value-(add1₃)
     (add₄)-return prev-(add1₃)"
   `)
 })

@@ -1,9 +1,9 @@
-net_from_port (zero₁)-value! end
-net_from_port (add1₄)-value!
+netFromPort (zero₁)-value! end
+netFromPort (add1₄)-value!
   (add1₄)-prev value-(add1₂)
   (add1₂)-prev value-(zero₃)
 end
-net_from_port (add1₉)-value!
+netFromPort (add1₉)-value!
   (add1₉)-prev value-(add1₁₀)
   (add1₁₀)-prev value-(add1₆)
   (add1₆)-prev value-(add1₅)

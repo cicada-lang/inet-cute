@@ -1,7 +1,7 @@
 [checkWords] I expect the stack to be empty after checking.
 
   stack length: 1
-  stack: [(@type_cap₀)-covering]
+  stack: [(@typeCap₀)-covering]
 
   Maybe this is due to extra input arity,
   or lack of output arity.

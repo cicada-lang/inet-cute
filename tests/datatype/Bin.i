@@ -21,39 +21,39 @@ end
 
 // Utilities
 
-node bin_dup
+node binDup
   Bin :value!
   ------------
   Bin :result1
   Bin :result2
 end
 
-rule b1 bin_dup
-  (b1)-higherbits bin_dup $d b1 result1-(bin_dup) d b1 result2-(bin_dup)
+rule b1 binDup
+  (b1)-higherbits binDup $d b1 result1-(binDup) d b1 result2-(binDup)
 end
 
-rule b0 bin_dup
-  (b0)-higherbits bin_dup $d b0 result1-(bin_dup) d b0 result2-(bin_dup)
+rule b0 binDup
+  (b0)-higherbits binDup $d b0 result1-(binDup) d b0 result2-(binDup)
 end
 
-rule bend bin_dup
-  bend result1-(bin_dup) bend result2-(bin_dup)
+rule bend binDup
+  bend result1-(binDup) bend result2-(binDup)
 end
 
-node bin_erase
+node binErase
   Bin :value!
   ------------
 end
 
-rule b1 bin_erase
-  (b1)-higherbits bin_erase
+rule b1 binErase
+  (b1)-higherbits binErase
 end
 
-rule b0 bin_erase
-  (b0)-higherbits bin_erase
+rule b0 binErase
+  (b0)-higherbits binErase
 end
 
-rule bend bin_erase
+rule bend binErase
 end
 
 // b0q -- b0 when in the middle of a number, replaced by bend elsewhere - used to avoid unnecessary leading zeroes
@@ -150,33 +150,33 @@ rule b0 bmul
 end
 
 rule b1 bmul
-  (b1)-higherbits (bmul)-left bin_dup $d bmul b0q d badd result-(bmul)
+  (b1)-higherbits (bmul)-left binDup $d bmul b0q d badd result-(bmul)
 end
 
 rule bend bmul
   bend result-(bmul)
-  (bmul)-left bin_erase
+  (bmul)-left binErase
 end
 
 // Conversion to and from Nat
 
 import
   Nat, zero, add1,
-  nat_erase, nat_dup
+  natErase, natDup
 from "./Nat.i"
 
-node nat_double
+node natDouble
   Nat :target!
   ------------
   Nat :return
 end
 
-rule zero nat_double
-  zero return-(nat_double)
+rule zero natDouble
+  zero return-(natDouble)
 end
 
-rule add1 nat_double
-  (add1)-prev nat_double add1 add1 return-(nat_double)
+rule add1 natDouble
+  (add1)-prev natDouble add1 add1 return-(natDouble)
 end
 
 node ntob
@@ -202,11 +202,11 @@ node bton
 end
 
 rule b0 bton
-  (b0)-higherbits bton nat_double result-(bton)
+  (b0)-higherbits bton natDouble result-(bton)
 end
 
 rule b1 bton
-  (b1)-higherbits bton nat_double add1 result-(bton)
+  (b1)-higherbits bton natDouble add1 result-(bton)
 end
 
 rule bend bton

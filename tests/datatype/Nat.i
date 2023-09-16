@@ -42,35 +42,35 @@ define three two one add end
 claim four -- Nat end
 define four two two add end
 
-// To define `mul`, we first need `nat_erase` and `nat_dup`.
+// To define `mul`, we first need `natErase` and `natDup`.
 
-node nat_erase
+node natErase
   Nat :target!
   --------
 end
 
-rule zero nat_erase end
+rule zero natErase end
 
-rule add1 nat_erase
-  (add1)-prev nat_erase
+rule add1 natErase
+  (add1)-prev natErase
 end
 
-node nat_dup
+node natDup
   Nat :target!
   --------
   Nat :second
   Nat :first
 end
 
-rule zero nat_dup
-  zero first-(nat_dup)
-  zero second-(nat_dup)
+rule zero natDup
+  zero first-(natDup)
+  zero second-(natDup)
 end
 
-rule add1 nat_dup
-  (add1)-prev nat_dup $first $second
-  first add1 first-(nat_dup)
-  second add1 second-(nat_dup)
+rule add1 natDup
+  (add1)-prev natDup $first $second
+  first add1 first-(natDup)
+  second add1 second-(natDup)
 end
 
 node mul
@@ -81,19 +81,19 @@ node mul
 end
 
 rule zero mul
-  (mul)-mulend nat_erase
+  (mul)-mulend natErase
   zero return-(mul)
 end
 
 rule add1 mul
-  (mul)-mulend nat_dup $first $second
+  (mul)-mulend natDup $first $second
   (add1)-prev first mul second add
   return-(mul)
 end
 
-// To define `max`, we need `max_aux`.
+// To define `max`, we need `maxAux`.
 
-node max_aux
+node maxAux
   Nat :first
   Nat :second!
   --------
@@ -112,16 +112,16 @@ rule zero max
 end
 
 rule add1 max
-  (max)-second (add1)-prev max_aux
+  (max)-second (add1)-prev maxAux
   return-(max)
 end
 
-rule zero max_aux
-  (max_aux)-first add1
-  return-(max_aux)
+rule zero maxAux
+  (maxAux)-first add1
+  return-(maxAux)
 end
 
-rule add1 max_aux
-  (add1)-prev (max_aux)-first max
-  add1 return-(max_aux)
+rule add1 maxAux
+  (add1)-prev (maxAux)-first max
+  add1 return-(maxAux)
 end

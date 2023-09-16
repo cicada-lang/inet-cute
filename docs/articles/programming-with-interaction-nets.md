@@ -588,12 +588,12 @@ But because of single-principal-port constraint,
 we have to introduce an auxiliary node and some auxiliary rules,
 to explicitly choose between two interactable edges.
 
-We call the auxiliary node `(max_aux)`.
+We call the auxiliary node `(maxAux)`.
 
 ```
      return
        |
-   (max_aux)
+    (maxAux)
      /    \
 first    second!
 ```
@@ -601,7 +601,7 @@ first    second!
 Node definition:
 
 ```
-node max_aux
+node maxAux
   Nat :first
   Nat :second!
   --------
@@ -615,7 +615,7 @@ the rule between `(add1)` and `(max)`:
 ```
      return            return
        |                 |
-     (max)      =>   (max_aux)
+     (max)      =>    (maxAux)
      /    \            /   \
 (add1)   second     prev   second
    |
@@ -627,17 +627,17 @@ Rule definition:
 ```
 rule add1 max
   (max)-second
-  (add1)-prev max_aux
+  (add1)-prev maxAux
   return-(max)
 end
 ```
 
-The rule between `(zero)` and `(max_aux)`:
+The rule between `(zero)` and `(maxAux)`:
 
 ```
      return            return
        |                 |
-   (max_aux)     =>    (add1)
+    (maxAux)     =>    (add1)
      /    \              |
  first   (zero)        first
 ```
@@ -645,18 +645,18 @@ The rule between `(zero)` and `(max_aux)`:
 Rule definition:
 
 ```
-rule zero max_aux
-  (max_aux)-first add1
-  return-(max_aux)
+rule zero maxAux
+  (maxAux)-first add1
+  return-(maxAux)
 end
 ```
 
-The rule between `(add1)` and `(max_aux)`:
+The rule between `(add1)` and `(maxAux)`:
 
 ```
      return            return
        |                 |
-   (max_aux)     =>    (add1)
+    (maxAux)     =>    (add1)
      /    \              |
  first   (add1)        (max)
            |           /   \
@@ -666,10 +666,10 @@ The rule between `(add1)` and `(max_aux)`:
 Rule definition:
 
 ```
-rule add1 max_aux
+rule add1 maxAux
   (add1)-prev
-  (max_aux)-first max
-  add1 return-(max_aux)
+  (maxAux)-first max
+  add1 return-(maxAux)
 end
 ```
 
@@ -689,7 +689,7 @@ node add1
   Nat :value!
 end
 
-node max_aux
+node maxAux
   Nat :first
   Nat :second!
   --------
@@ -708,18 +708,18 @@ rule zero max
 end
 
 rule add1 max
-  (max)-second (add1)-prev max_aux
+  (max)-second (add1)-prev maxAux
   return-(max)
 end
 
-rule zero max_aux
-  (max_aux)-first add1
-  return-(max_aux)
+rule zero maxAux
+  (maxAux)-first add1
+  return-(maxAux)
 end
 
-rule add1 max_aux
-  (add1)-prev (max_aux)-first max
-  add1 return-(max_aux)
+rule add1 maxAux
+  (add1)-prev (maxAux)-first max
+  add1 return-(maxAux)
 end
 
 claim one -- Nat end
@@ -748,15 +748,15 @@ We will find that, to define the interaction rule between `(mul)` and
 `(zero)` or `(mul)` and `(add1)`, we need to introduce auxiliary nodes
 again:
 
-- `(nat_erase)` to erase a natural number.
-- `(nat_dup)` to duplicate a natural number.
+- `(natErase)` to erase a natural number.
+- `(natDup)` to duplicate a natural number.
 
 These two nodes are different from all aforementioned nodes,
 because all aforementioned nodes has one output port,
 but:
 
-- `(nat_erase)` has zero output ports.
-- `(nat_dup)` has two output ports.
+- `(natErase)` has zero output ports.
+- `(natDup)` has two output ports.
 
 This is the main reason why we use stack to build net.
 
@@ -799,33 +799,33 @@ import
   one, two, three,
 from "https://code-of-inet.fidb.app/tests/datatype/Nat.i"
 
-node nat_erase
+node natErase
   Nat :target!
   --------
 end
 
-rule zero nat_erase end
+rule zero natErase end
 
-rule add1 nat_erase
-  (add1)-prev nat_erase
+rule add1 natErase
+  (add1)-prev natErase
 end
 
-node nat_dup
+node natDup
   Nat :target!
   --------
   Nat :second
   Nat :first
 end
 
-rule zero nat_dup
-  zero first-(nat_dup)
-  zero second-(nat_dup)
+rule zero natDup
+  zero first-(natDup)
+  zero second-(natDup)
 end
 
-rule add1 nat_dup
-  (add1)-prev nat_dup $first $second
-  first add1 first-(nat_dup)
-  second add1 second-(nat_dup)
+rule add1 natDup
+  (add1)-prev natDup $first $second
+  first add1 first-(natDup)
+  second add1 second-(natDup)
 end
 
 node mul
@@ -836,17 +836,17 @@ node mul
 end
 
 rule zero mul
-  (mul)-mulend nat_erase
+  (mul)-mulend natErase
   zero return-(mul)
 end
 
 rule add1 mul
-  (mul)-mulend nat_dup $first $second
+  (mul)-mulend natDup $first $second
   (add1)-prev first mul second add
   return-(mul)
 end
 
-two nat_dup $first $second
+two natDup $first $second
 
 two two mul
 
@@ -957,7 +957,7 @@ follows `@spread` to put all it's ports to the stack
 in reverse order of the definition,
 then we save the ports to local variables for later use.
 
-[Goto the playground of `DiffList` and `(diff_append)`](https://inet.run/playground/aW1wb3J0IExpc3QgZnJvbSAiaHR0cHM6Ly9jZG4uaW5ldC5ydW4vdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKdHlwZSBEaWZmTGlzdCBAVHlwZSAtLSBAVHlwZSBlbmQKCm5vZGUgZGlmZgogICdBIExpc3QgOmZyb250CiAgLS0tLS0tLQogICdBIExpc3QgOmJhY2sKICAnQSBEaWZmTGlzdCA6dmFsdWUhCmVuZAoKbm9kZSBkaWZmX2FwcGVuZAogICdBIERpZmZMaXN0IDp0YXJnZXQhCiAgJ0EgRGlmZkxpc3QgOnJlc3QKICAtLS0tLS0tLQogICdBIERpZmZMaXN0IDpyZXR1cm4KZW5kCgpub2RlIGRpZmZfb3BlbgogICdBIERpZmZMaXN0IDp0YXJnZXQhCiAgJ0EgTGlzdCA6bGlzdAogIC0tLS0tLS0tLS0KICAnQSBMaXN0IDpyZXR1cm4KZW5kCgpydWxlIGRpZmYgZGlmZl9hcHBlbmQKICAoZGlmZiktZnJvbnQgZGlmZiByZXR1cm4tKGRpZmZfYXBwZW5kKQogIChkaWZmX2FwcGVuZCktcmVzdCBkaWZmX29wZW4gYmFjay0oZGlmZikKZW5kCgpydWxlIGRpZmYgZGlmZl9vcGVuCiAgKGRpZmYpLWJhY2sgbGlzdC0oZGlmZl9vcGVuKQogIChkaWZmKS1mcm9udCByZXR1cm4tKGRpZmZfb3BlbikKZW5kCgppbXBvcnQgemVybyBmcm9tICJodHRwczovL2Nkbi5pbmV0LnJ1bi90ZXN0cy9kYXRhdHlwZS9OYXQuaSIKaW1wb3J0IGNvbnMgZnJvbSAiaHR0cHM6Ly9jZG4uaW5ldC5ydW4vdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrICR2YWx1ZQpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QgdmFsdWUKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrICR2YWx1ZQpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QgdmFsdWUKZGlmZl9hcHBlbmQKCi8vIFVzZSBvbmUgbGVzcyBsb2NhbCB2YXJpYWJsZSBgJHZhbHVlYCwKLy8gd2UgY2FuIHNpbXBsaWZ5IHRoZSBhYm92ZSBjb2RlOgoKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrCmJhY2sgemVybyBjb25zIHplcm8gY29ucyBmcm9udCBAY29ubmVjdAooZGlmZikgQHNwcmVhZCAkZnJvbnQgJGJhY2sKYmFjayB6ZXJvIGNvbnMgemVybyBjb25zIGZyb250IEBjb25uZWN0CmRpZmZfYXBwZW5kCgovLyBVc2Ugb25lIGxlc3MgbG9jYWwgdmFyaWFibGUgYCRiYWNrYCwKLy8gd2UgY2FuIGZ1cnRoZXIgc2ltcGxpZnkgdGhlIGFib3ZlIGNvZGU6CgooZGlmZikgQHNwcmVhZCAkZnJvbnQgemVybyBjb25zIHplcm8gY29ucyBmcm9udCBAY29ubmVjdAooZGlmZikgQHNwcmVhZCAkZnJvbnQgemVybyBjb25zIHplcm8gY29ucyBmcm9udCBAY29ubmVjdApkaWZmX2FwcGVuZAoKQHJ1biAkcmVzdWx0)
+[Goto the playground of `DiffList` and `(diffAppend)`](https://inet.run/playground/aW1wb3J0IExpc3QgZnJvbSAiaHR0cHM6Ly9jZG4uaW5ldC5ydW4vdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKdHlwZSBEaWZmTGlzdCBAVHlwZSAtLSBAVHlwZSBlbmQKCm5vZGUgZGlmZgogICdBIExpc3QgOmZyb250CiAgLS0tLS0tLQogICdBIExpc3QgOmJhY2sKICAnQSBEaWZmTGlzdCA6dmFsdWUhCmVuZAoKbm9kZSBkaWZmX2FwcGVuZAogICdBIERpZmZMaXN0IDp0YXJnZXQhCiAgJ0EgRGlmZkxpc3QgOnJlc3QKICAtLS0tLS0tLQogICdBIERpZmZMaXN0IDpyZXR1cm4KZW5kCgpub2RlIGRpZmZfb3BlbgogICdBIERpZmZMaXN0IDp0YXJnZXQhCiAgJ0EgTGlzdCA6bGlzdAogIC0tLS0tLS0tLS0KICAnQSBMaXN0IDpyZXR1cm4KZW5kCgpydWxlIGRpZmYgZGlmZl9hcHBlbmQKICAoZGlmZiktZnJvbnQgZGlmZiByZXR1cm4tKGRpZmZfYXBwZW5kKQogIChkaWZmX2FwcGVuZCktcmVzdCBkaWZmX29wZW4gYmFjay0oZGlmZikKZW5kCgpydWxlIGRpZmYgZGlmZl9vcGVuCiAgKGRpZmYpLWJhY2sgbGlzdC0oZGlmZl9vcGVuKQogIChkaWZmKS1mcm9udCByZXR1cm4tKGRpZmZfb3BlbikKZW5kCgppbXBvcnQgemVybyBmcm9tICJodHRwczovL2Nkbi5pbmV0LnJ1bi90ZXN0cy9kYXRhdHlwZS9OYXQuaSIKaW1wb3J0IGNvbnMgZnJvbSAiaHR0cHM6Ly9jZG4uaW5ldC5ydW4vdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrICR2YWx1ZQpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QgdmFsdWUKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrICR2YWx1ZQpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QgdmFsdWUKZGlmZl9hcHBlbmQKCi8vIFVzZSBvbmUgbGVzcyBsb2NhbCB2YXJpYWJsZSBgJHZhbHVlYCwKLy8gd2UgY2FuIHNpbXBsaWZ5IHRoZSBhYm92ZSBjb2RlOgoKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrCmJhY2sgemVybyBjb25zIHplcm8gY29ucyBmcm9udCBAY29ubmVjdAooZGlmZikgQHNwcmVhZCAkZnJvbnQgJGJhY2sKYmFjayB6ZXJvIGNvbnMgemVybyBjb25zIGZyb250IEBjb25uZWN0CmRpZmZfYXBwZW5kCgovLyBVc2Ugb25lIGxlc3MgbG9jYWwgdmFyaWFibGUgYCRiYWNrYCwKLy8gd2UgY2FuIGZ1cnRoZXIgc2ltcGxpZnkgdGhlIGFib3ZlIGNvZGU6CgooZGlmZikgQHNwcmVhZCAkZnJvbnQgemVybyBjb25zIHplcm8gY29ucyBmcm9udCBAY29ubmVjdAooZGlmZikgQHNwcmVhZCAkZnJvbnQgemVybyBjb25zIHplcm8gY29ucyBmcm9udCBAY29ubmVjdApkaWZmX2FwcGVuZAoKQHJ1biAkcmVzdWx0)
 
 ```
 import List from "https://code-of-inet.fidb.app/tests/datatype/List.i"
@@ -971,28 +971,28 @@ node diff
   'A DiffList :value!
 end
 
-node diff_append
+node diffAppend
   'A DiffList :target!
   'A DiffList :rest
   --------
   'A DiffList :return
 end
 
-node diff_open
+node diffOpen
   'A DiffList :target!
   'A List :list
   ----------
   'A List :return
 end
 
-rule diff diff_append
-  (diff)-front diff return-(diff_append)
-  (diff_append)-rest diff_open back-(diff)
+rule diff diffAppend
+  (diff)-front diff return-(diffAppend)
+  (diffAppend)-rest diffOpen back-(diff)
 end
 
-rule diff diff_open
-  (diff)-back list-(diff_open)
-  (diff)-front return-(diff_open)
+rule diff diffOpen
+  (diff)-back list-(diffOpen)
+  (diff)-front return-(diffOpen)
 end
 
 import zero from "https://code-of-inet.fidb.app/tests/datatype/Nat.i"
@@ -1002,7 +1002,7 @@ import cons from "https://code-of-inet.fidb.app/tests/datatype/List.i"
 back zero cons zero cons front @connect value
 (diff) @spread $front $back $value
 back zero cons zero cons front @connect value
-diff_append
+diffAppend
 
 // By using one less local variable `$value`,
 // we can simplify the above code:
@@ -1011,14 +1011,14 @@ diff_append
 back zero cons zero cons front @connect
 (diff) @spread $front $back
 back zero cons zero cons front @connect
-diff_append
+diffAppend
 
 // By using one less local variable `$back`,
 // we can further simplify the above code:
 
 (diff) @spread $front zero cons zero cons front @connect
 (diff) @spread $front zero cons zero cons front @connect
-diff_append
+diffAppend
 
 @run $result
 ```

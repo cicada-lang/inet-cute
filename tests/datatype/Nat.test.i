@@ -14,8 +14,8 @@ define addadd add add end
 one one one addadd @run @inspect
 
 
-two nat_erase zero @inspect @run @inspect
-two nat_dup @inspect @run @inspect
+two natErase zero @inspect @run @inspect
+two natDup @inspect @run @inspect
 
 two two mul @inspect @run @inspect
 three three mul @inspect @run @inspect

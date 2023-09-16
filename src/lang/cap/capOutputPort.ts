@@ -15,7 +15,7 @@ export function capOutputPort(mod: Mod, net: Net, port: Port): Port {
     isPrincipal: false,
   }
 
-  const node = addNode(net, mod, "@ouput_port_cap", [portExp], [])
+  const node = addNode(net, mod, "@ouputPortCap", [portExp], [])
   const nodeEntry = findNodeEntryOrFail(net, node)
   nodeEntry.asPortCap = {
     nodeName: port.node.name,
