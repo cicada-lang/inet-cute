@@ -1,6 +1,10 @@
 # half-edge
 
-[half-edge] `addEdge`
+[half-edge] `formatValue` take `env`
+
+[half-edge] `formatNode` & `formatEdge` take `net`
+
+[half-edge] `addEdge` return two `HalfEdge`s -- that are symmetrical
 
 [half-edge] `PortEntry` -- `connection` through `HalfEdge`
 
