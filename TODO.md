@@ -1,8 +1,8 @@
 # half-edge
 
-[half-edge] `Net` has `halfEdgeEntries`
+[half-edge] `addEdge`
 
-[half-edge] `connection` through `HalfEdge`
+[half-edge] `PortEntry` -- `connection` through `HalfEdge`
 
 [half-edge] `Edge` has two `HalfEdge`s
 

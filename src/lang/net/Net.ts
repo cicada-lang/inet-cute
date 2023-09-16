@@ -1,4 +1,5 @@
 import { Edge } from "../edge"
+import { HalfEdge } from "../half-edge"
 import { Port } from "../port"
 import { Sign } from "../sign"
 import { Value } from "../value"
@@ -16,6 +17,13 @@ import { Value } from "../value"
 export type Net = {
   activeEdges: Array<Edge>
   nodeEntries: Map<string, NodeEntry>
+  halfEdgeEntries: Map<string, HalfEdgeEntry>
+}
+
+export type HalfEdgeEntry = {
+  id: string
+  port?: Port
+  otherHalf?: HalfEdge
 }
 
 export type NodeEntry = {
