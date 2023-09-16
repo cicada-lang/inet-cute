@@ -1,3 +1,19 @@
+# half-edge
+
+[half-edge] `half-edge/HalfEdge`
+
+[half-edge] `HalfEdge` has `id` instead of `first` and `second` `Port`
+
+[half-edge] `Net` has `halfEdgeEntries`
+
+[half-edge] connection through `HalfEdge`
+
+[half-edge] avoid using `closeAllFreePorts`
+
+[half-edge] `HalfEdge` should be a kind of `Value`
+
+[half-edge] `@edge` as a builtin to create two `HalfEdge`s
+
 # docs
 
 [docs] add mimor to inet docs
