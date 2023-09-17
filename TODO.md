@@ -1,7 +1,5 @@
 # half-edge
 
-[half-edge] rename `net.activeEdges` to `net.activePortPairs`
-
 [half-edge] `Edge` has two `HalfEdge`s
 
 [half-edge] `HalfEdge` should be a kind of `Value` -- `Port` should quit being a `Value`
