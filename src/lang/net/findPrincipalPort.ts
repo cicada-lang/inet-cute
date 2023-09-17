@@ -16,7 +16,7 @@ export function findPrincipalPort(net: Net, node: Node): Port {
     [
       `[findPrincipalPort] I expect the node to have a principal port.`,
       ``,
-      `  node: ${formatNode(node)}`,
+      `  node: ${formatNode(net, node)}`,
     ].join("\n"),
   )
 }

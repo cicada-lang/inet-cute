@@ -10,7 +10,7 @@ export function findPortRecordOrFail(net: Net, node: Node): PortRecord {
       [
         `[findNodePortsOrFail] I can not find node entry for node.`,
         ``,
-        `  node: ${formatNode(node)}`,
+        `  node: ${formatNode(net, node)}`,
       ].join("\n"),
     )
   }

@@ -10,7 +10,7 @@ export function formatValue(env: Env, value: Value): string {
     }
 
     case "Node": {
-      return `(${formatNode(value)})`
+      return `(${formatNode(env.net, value)})`
     }
 
     case "Type": {

@@ -10,7 +10,7 @@ export function findNodeEntryOrFail(net: Net, node: Node): NodeEntry {
       [
         `[findNodeEntryOrFail] I can not find nodeEntry for node.`,
         ``,
-        `  node: ${formatNode(node)}`,
+        `  node: ${formatNode(net, node)}`,
       ].join("\n"),
     )
   }
