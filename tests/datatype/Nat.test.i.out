@@ -25,10 +25,10 @@ netFromPort (add₁₅)-return
   (add1₂₅)-prev value-(zero₂₄)
   (add1₂₄)-prev value-(zero₂₃)
 end
-netFromPort (add1₃₀)-value!
+netFromPort (add1₂₉)-value!
+  (add1₂₉)-prev value-(add1₃₀)
   (add1₃₀)-prev value-(add1₃₁)
-  (add1₃₁)-prev value-(add1₂₈)
-  (add1₂₈)-prev value-(add1₂₄)
+  (add1₃₁)-prev value-(add1₂₄)
   (add1₂₄)-prev value-(zero₂₃)
 end
 netFromPort (add₂₀)-return
@@ -70,10 +70,10 @@ netFromPort (mul₃)-return
   (add1₄₉)-prev value-(zero₃₉)
 end
 netFromPort (add1₅₇)-value!
-  (add1₅₇)-prev value-(add1₆₀)
-  (add1₆₀)-prev value-(add1₆₃)
-  (add1₆₃)-prev value-(add1₆₆)
-  (add1₆₆)-prev value-(zero₅₁)
+  (add1₅₇)-prev value-(add1₆₃)
+  (add1₆₃)-prev value-(add1₆₀)
+  (add1₆₀)-prev value-(add1₆₆)
+  (add1₆₆)-prev value-(zero₄₇)
 end
 netFromPort (mul₈)-return
   (mul₈)-target return-(add₄₇)
@@ -93,16 +93,16 @@ netFromPort (mul₈)-return
   (add1₆₈)-prev value-(zero₅₃)
   (add1₆₇)-prev value-(zero₅₂)
 end
-netFromPort (add1₇₉)-value!
-  (add1₇₉)-prev value-(add1₈₂)
-  (add1₈₂)-prev value-(add1₈₅)
-  (add1₈₅)-prev value-(add1₈₈)
+netFromPort (add1₇₈)-value!
+  (add1₇₈)-prev value-(add1₈₈)
   (add1₈₈)-prev value-(add1₉₇)
-  (add1₉₇)-prev value-(add1₉₁)
-  (add1₉₁)-prev value-(add1₉₄)
-  (add1₉₄)-prev value-(add1₁₀₀)
-  (add1₁₀₀)-prev value-(add1₁₀₃)
-  (add1₁₀₃)-prev value-(zero₇₀)
+  (add1₉₇)-prev value-(add1₈₁)
+  (add1₈₁)-prev value-(add1₈₄)
+  (add1₈₄)-prev value-(add1₉₁)
+  (add1₉₁)-prev value-(add1₁₀₀)
+  (add1₁₀₀)-prev value-(add1₉₄)
+  (add1₉₄)-prev value-(add1₁₀₃)
+  (add1₁₀₃)-prev value-(zero₆₄)
 end
 netFromPort (add1₁₀₇)-value!
   (add1₁₀₇)-prev value-(add1₁₀₄)
@@ -112,8 +112,8 @@ netFromPort (add1₁₁₂)-value!
   (add1₁₁₂)-prev value-(add1₁₁₃)
   (add1₁₁₃)-prev value-(zero₇₅)
 end
-netFromPort (add1₁₂₂)-value!
-  (add1₁₂₂)-prev value-(add1₁₂₃)
+netFromPort (add1₁₂₁)-value!
+  (add1₁₂₁)-prev value-(add1₁₂₃)
   (add1₁₂₃)-prev value-(add1₁₁₄)
   (add1₁₁₄)-prev value-(zero₇₇)
 end

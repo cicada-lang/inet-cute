@@ -1,5 +1,5 @@
 import { ComposeOptions } from "../compose/compose"
-import { connect } from "../connect/connect"
+import { connectPorts } from "../connect/connectPorts"
 import { Env } from "../env"
 import { unifyTypes } from "../unify/unifyTypes"
 import { formatValue } from "../value/formatValue"
@@ -46,7 +46,7 @@ export function compose(env: Env, options: ComposeOptions): void {
     )
   }
 
-  connect(env.net, first, second)
+  connectPorts(env.net, first, second)
   if (options.checking) {
     unifyTypes(env, options.checking.substitution, first.t, second.t)
   }

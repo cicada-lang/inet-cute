@@ -1,4 +1,4 @@
-import { connect } from "../connect/connect"
+import { connectPorts } from "../connect/connectPorts"
 import { Env } from "../env"
 import { refreshNode } from "../freshen/refreshNode"
 import { findInputPorts } from "../net/findInputPorts"
@@ -39,7 +39,8 @@ export function composeNode(
       )
     }
 
-    connect(env.net, value, port)
+    connectPorts(env.net, value, port)
+
     if (options.checking) {
       unifyTypes(env, options.checking.substitution, value.t, port.t)
     }

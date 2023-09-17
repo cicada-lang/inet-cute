@@ -16,6 +16,4 @@ export type Mod = {
   builtins: Map<string, Definition>
   ruleEntries: Map<string, RuleEntry>
   requiredMods: Map<string, Mod>
-  nodeCounters: Map<string, number>
-  halfEdgeCounter: number
 }

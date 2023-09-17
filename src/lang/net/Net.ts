@@ -23,7 +23,7 @@ export type Net = {
 export type HalfEdgeEntry = {
   id: string
   port?: Port
-  otherHalf?: HalfEdge
+  otherHalfEdge: HalfEdge
 }
 
 export type NodeEntry = {
@@ -56,6 +56,5 @@ export type PortEntry = {
 //   interfere with each other.
 
 export type Connection = {
-  // halfEdge: HalfEdge
-  port: Port
+  halfEdge: HalfEdge
 }

@@ -1,9 +1,9 @@
 import { Edge } from "../edge"
 import { nodeKey } from "../node/nodeKey"
-import { Port } from "../port"
 import { Net } from "./Net"
 import { createNodeFromNodeEntry } from "./createNodeFromNodeEntry"
 import { createPortFromPortEntry } from "./createPortFromPortEntry"
+import { findHalfEdgeEntryOrFail } from "./findHalfEdgeEntryOrFail"
 
 export function allEdges(net: Net): Array<Edge> {
   const edges: Array<Edge> = []
@@ -14,8 +14,22 @@ export function allEdges(net: Net): Array<Edge> {
 
     for (const portEntry of Object.values(nodeEntry.ports)) {
       if (portEntry.connection) {
-        const second = portEntry.connection.port
-        const first: Port = createPortFromPortEntry(node, portEntry)
+        const first = createPortFromPortEntry(node, portEntry)
+
+        const halfEdgeEntry = findHalfEdgeEntryOrFail(
+          net,
+          portEntry.connection.halfEdge,
+        )
+
+        const otherHalfEdgeEntry = findHalfEdgeEntryOrFail(
+          net,
+          halfEdgeEntry.otherHalfEdge,
+        )
+
+        const second = otherHalfEdgeEntry.port
+        if (second === undefined) {
+          continue
+        }
 
         const firstOccur = `${nodeKey(node)}-${portEntry.name}`
         const secondOccur = `${nodeKey(second.node)}-${second.name}`

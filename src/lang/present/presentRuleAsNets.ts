@@ -1,6 +1,6 @@
 import { capNodeNonPrinciplePorts } from "../cap"
 import { compose } from "../compose/compose"
-import { connect } from "../connect/connect"
+import { connectPorts } from "../connect/connectPorts"
 import { createEnv } from "../env/createEnv"
 import { Mod, findDefinitionOrFail } from "../mod"
 import { findRuleByName } from "../mod/findRuleByName"
@@ -64,7 +64,7 @@ function collectInitialNet(net: Net, first: Node, second: Node): Net {
   const firstPrincipalPort = findPrincipalPort(initial, first)
   const secondPrincipalPort = findPrincipalPort(initial, second)
 
-  connect(initial, firstPrincipalPort, secondPrincipalPort)
+  connectPorts(initial, firstPrincipalPort, secondPrincipalPort)
 
   return initial
 }

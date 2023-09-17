@@ -20,8 +20,6 @@ export function createMod(options: {
     builtins: new Map(),
     ruleEntries: new Map(),
     requiredMods: new Map(),
-    nodeCounters: new Map(),
-    halfEdgeCounter: 0,
   } as Mod
 
   mod.env = createEnv(mod)

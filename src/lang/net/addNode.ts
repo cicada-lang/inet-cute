@@ -12,7 +12,7 @@ export function addNode(
   input: Array<PortExp>,
   output: Array<PortExp>,
 ): Node {
-  const id = createNodeId(mod, name)
+  const id = createNodeId(name)
 
   const node: Node = {
     "@type": "Value",

@@ -1,11 +1,12 @@
 import { checkPortSigns } from "../check/checkPortSigns"
 import { Net } from "../net"
+import { addEdge } from "../net/addEdge"
 import { findPortEntry } from "../net/findPortEntry"
-import { findPortRecordOrFail } from "../net/findPortRecordOrFail"
 import { Port } from "../port"
 import { formatPort } from "../port/formatPort"
+import { connectPortWithHalfEdge } from "./connectPortWithHalfEdge"
 
-export function connect(net: Net, first: Port, second: Port): void {
+export function connectPorts(net: Net, first: Port, second: Port): void {
   const firstPortEntry = findPortEntry(net, first)
 
   if (firstPortEntry?.connection !== undefined) {
@@ -14,10 +15,6 @@ export function connect(net: Net, first: Port, second: Port): void {
         `[connect] The first port is already connected.`,
         ``,
         `  first port: ${formatPort(net, first)}`,
-        `  first connected port: ${formatPort(
-          net,
-          firstPortEntry.connection.port,
-        )}`,
         `  second port: ${formatPort(net, second)}`,
       ].join("\n"),
     )
@@ -32,25 +29,14 @@ export function connect(net: Net, first: Port, second: Port): void {
         ``,
         `  first port: ${formatPort(net, first)}`,
         `  second port: ${formatPort(net, second)}`,
-        `  second connected port: ${formatPort(
-          net,
-          secondPortEntry.connection.port,
-        )}`,
       ].join("\n"),
     )
   }
 
   checkPortSigns(net, first, second)
 
-  const edge = { first, second }
+  const halfEdges = addEdge(net)
 
-  const firstPortRecord = findPortRecordOrFail(net, first.node)
-  firstPortRecord[first.name].connection = { port: second }
-
-  const secondPortRecord = findPortRecordOrFail(net, second.node)
-  secondPortRecord[second.name].connection = { port: first }
-
-  if (first.isPrincipal && second.isPrincipal) {
-    net.activeEdges.push(edge)
-  }
+  connectPortWithHalfEdge(net, first, halfEdges.first)
+  connectPortWithHalfEdge(net, second, halfEdges.second)
 }

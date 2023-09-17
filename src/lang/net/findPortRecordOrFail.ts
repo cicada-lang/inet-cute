@@ -8,7 +8,7 @@ export function findPortRecordOrFail(net: Net, node: Node): PortRecord {
   if (nodeEntry === undefined) {
     throw new Error(
       [
-        `[findNodePortsOrFail] I can not find node entry for node.`,
+        `[findPortRecordOrFail] I can not find node entry for node.`,
         ``,
         `  node: ${formatNode(net, node)}`,
       ].join("\n"),

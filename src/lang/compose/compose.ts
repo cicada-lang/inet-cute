@@ -1,5 +1,5 @@
 import { Checking } from "../checking"
-import { connect } from "../connect/connect"
+import { connectPorts } from "../connect/connectPorts"
 import { Env } from "../env"
 import { appendReport } from "../errors/appendReport"
 import { Mod } from "../mod"
@@ -142,7 +142,7 @@ export function compose(
           )
         }
 
-        connect(env.net, value, currentPort)
+        connectPorts(env.net, value, currentPort)
         if (options.checking) {
           unifyTypes(env, options.checking.substitution, value.t, currentPort.t)
         }

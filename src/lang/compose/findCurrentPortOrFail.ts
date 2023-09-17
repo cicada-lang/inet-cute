@@ -1,4 +1,5 @@
 import { Net } from "../net"
+import { findHalfEdgeEntry } from "../net/findHalfEdgeEntry"
 import { findInputPorts } from "../net/findInputPorts"
 import { findOutputPorts } from "../net/findOutputPorts"
 import { findPortEntry } from "../net/findPortEntry"
@@ -66,15 +67,31 @@ function findPortInNode(
 ): Port | undefined {
   for (const port of findInputPorts(net, node)) {
     if (port.name === portName) {
-      const portEntry = findPortEntry(net, port)
-      return portEntry?.connection?.port
+      return findCorrespondingPort(net, port)
     }
   }
 
   for (const port of findOutputPorts(net, node)) {
     if (port.name === portName) {
-      const portEntry = findPortEntry(net, port)
-      return portEntry?.connection?.port
+      return findCorrespondingPort(net, port)
     }
   }
+}
+
+function findCorrespondingPort(net: Net, port: Port): Port | undefined {
+  const portEntry = findPortEntry(net, port)
+
+  if (portEntry === undefined) return
+  if (portEntry.connection === undefined) return
+
+  const halfEdge = portEntry.connection.halfEdge
+  const halfEdgeEntry = findHalfEdgeEntry(net, halfEdge)
+
+  if (halfEdgeEntry === undefined) return
+
+  const ohterHalfEdgeEntry = findHalfEdgeEntry(net, halfEdgeEntry.otherHalfEdge)
+
+  if (ohterHalfEdgeEntry === undefined) return
+
+  return ohterHalfEdgeEntry.port
 }

@@ -1,7 +1,9 @@
 import { edgeEqual } from "../edge/edgeEqual"
-import { Node } from "../node"
+import { Node, nodeKey } from "../node"
 import { Net } from "./Net"
-import { copyNode } from "./copyNode"
+import { cloneNodeEntry } from "./cloneNodeEntry"
+import { findHalfEdgeEntryOrFail } from "./findHalfEdgeEntryOrFail"
+import { findNodeEntryOrFail } from "./findNodeEntryOrFail"
 import { findPortRecordOrFail } from "./findPortRecordOrFail"
 import { hasNode } from "./hasNode"
 
@@ -16,11 +18,32 @@ export function copyConnectedComponent(
 
   const portRecord = findPortRecordOrFail(net, node)
 
-  copyNode(net, component, node)
+  const entry = findNodeEntryOrFail(net, node)
+  component.nodeEntries.set(nodeKey(node), cloneNodeEntry(entry))
 
   for (const portEntry of Object.values(portRecord)) {
     if (portEntry.connection) {
-      copyConnectedComponent(net, component, portEntry.connection.port.node)
+      const halfEdgeEntry = findHalfEdgeEntryOrFail(
+        net,
+        portEntry.connection.halfEdge,
+      )
+
+      const otherHalfEdgeEntry = findHalfEdgeEntryOrFail(
+        net,
+        halfEdgeEntry.otherHalfEdge,
+      )
+
+      component.halfEdgeEntries.set(halfEdgeEntry.id, {
+        ...halfEdgeEntry,
+      })
+
+      component.halfEdgeEntries.set(otherHalfEdgeEntry.id, {
+        ...otherHalfEdgeEntry,
+      })
+
+      if (otherHalfEdgeEntry.port) {
+        copyConnectedComponent(net, component, otherHalfEdgeEntry.port.node)
+      }
     }
   }
 

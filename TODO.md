@@ -1,14 +1,16 @@
 # half-edge
 
-[half-edge] `PortEntry` -- `connection` through `HalfEdge`
+[half-edge] rename `net.activeEdges` to `net.activePortPairs`
 
 [half-edge] `Edge` has two `HalfEdge`s
 
-[half-edge] `HalfEdge` should be a kind of `Value`
+[half-edge] `HalfEdge` should be a kind of `Value` -- `Port` should quit being a `Value`
 
 [half-edge] avoid using `closeAllFreePorts`
 
 [half-edge] `@edge` as a builtin to create two `HalfEdge`s
+
+[half-edge] refactor
 
 # docs
 

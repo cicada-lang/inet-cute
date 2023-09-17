@@ -1,4 +1,4 @@
-import { connect } from "../connect/connect"
+import { connectPorts } from "../connect/connectPorts"
 import { Mod } from "../mod"
 import { Net } from "../net"
 import { addNode } from "../net/addNode"
@@ -23,6 +23,6 @@ export function capInputPort(mod: Mod, net: Net, port: Port): Port {
   }
 
   const capPort = findOutputPorts(net, node)[0]
-  connect(net, port, capPort)
+  connectPorts(net, port, capPort)
   return capPort
 }

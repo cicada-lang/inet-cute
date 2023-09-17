@@ -1,6 +1,6 @@
-import { Mod } from "../mod"
+import { globalHalfEdgeInfo } from "./globalHalfEdgeInfo"
 
-export function createHalfEdgeId(mod: Mod): string {
-  const n = mod.halfEdgeCounter++
+export function createHalfEdgeId(): string {
+  const n = globalHalfEdgeInfo.counter++
   return n.toString()
 }
