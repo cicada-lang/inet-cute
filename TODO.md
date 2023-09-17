@@ -1,7 +1,5 @@
 # half-edge
 
-[half-edge] `Mod` has `halfEdgeCounter`
-
 [half-edge] `createHalfEdgeId`
 
 [half-edge] `addEdge` -- generate `id` and add `HalfEdge`s to `net.halfEdgeEntries`
