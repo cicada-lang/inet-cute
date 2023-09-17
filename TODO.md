@@ -1,7 +1,5 @@
 # half-edge
 
-[half-edge] `Mod` has `nodeCounters` -- remove `globalNodeCounters`
-
 [half-edge] `Mod` has `halfEdgeCounter`
 
 [half-edge] `createHalfEdgeId`
