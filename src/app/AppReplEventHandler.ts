@@ -42,7 +42,7 @@ export class AppReplEventHandler extends ReplEventHandler {
   loader = new Loader({ fetcher })
 
   greeting(): void {
-    console.log(`iNet ${app.config.packageJson.version}`)
+    console.log(`iNet Cute ${app.config.packageJson.version}`)
   }
 
   async handle(event: ReplEvent): Promise<void> {
