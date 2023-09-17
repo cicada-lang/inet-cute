@@ -1,6 +1,12 @@
 # half-edge
 
-[half-edge] `addEdge` return two `HalfEdge`s -- that are symmetrical
+[half-edge] `Mod` has `nodeCounters` -- remove `globalNodeCounters`
+
+[half-edge] `Mod` has `halfEdgeCounter`
+
+[half-edge] `createHalfEdgeId`
+
+[half-edge] `addEdge` -- generate `id` and add `HalfEdge`s to `net.halfEdgeEntries`
 
 [half-edge] `PortEntry` -- `connection` through `HalfEdge`
 
