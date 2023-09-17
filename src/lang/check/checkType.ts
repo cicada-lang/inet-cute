@@ -27,7 +27,9 @@ export function checkType(
         [
           `[checkType] I expect the claimed input of a type definition to be Type.`,
           ``,
-          `  input values: [${inputValues.map(formatValue).join(", ")}]`,
+          `  input values: [${inputValues
+            .map((value) => formatValue(env, value))
+            .join(", ")}]`,
         ].join("\n"),
       )
     }
@@ -43,7 +45,9 @@ export function checkType(
         `[checkType] I expect a type definition to have one and only one claimed output.`,
         ``,
         `  output length: ${outputValues.length}`,
-        `  output values: [${outputValues.map(formatValue).join(", ")}]`,
+        `  output values: [${outputValues
+          .map((value) => formatValue(env, value))
+          .join(", ")}]`,
       ].join("\n"),
     )
   }
@@ -54,7 +58,7 @@ export function checkType(
       [
         `[checkType] I expect the claimed output of a type definition to be Type.`,
         ``,
-        `  output value: ${formatValue(outputValue)}`,
+        `  output value: ${formatValue(env, outputValue)}`,
       ].join("\n"),
     )
   }

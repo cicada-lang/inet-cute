@@ -13,7 +13,7 @@ export function compose(env: Env): void {
       [
         `[@run] I expect the top value on the stack to be a Port.`,
         ``,
-        `  value: ${formatValue(port)}`,
+        `  value: ${formatValue(env, port)}`,
       ].join("\n"),
     )
   }

@@ -1,15 +1,16 @@
+import { Net } from "../net"
 import { Port } from "../port"
-import { formatValue } from "../value/formatValue"
+import { formatPort } from "../port/formatPort"
 
-export function checkPortSigns(first: Port, second: Port): void {
+export function checkPortSigns(net: Net, first: Port, second: Port): void {
   if (first.sign === 1 && second.sign === 1) {
     throw new Error(
       [
         `[checkSigns] I expect the two ports to have opposite signs,`,
         `  but they all have positive sign.`,
         ``,
-        `  first port: ${formatValue(first)}`,
-        `  second port: ${formatValue(second)}`,
+        `  first port: ${formatPort(net, first)}`,
+        `  second port: ${formatPort(net, second)}`,
       ].join("\n"),
     )
   }
@@ -20,8 +21,8 @@ export function checkPortSigns(first: Port, second: Port): void {
         `[checkSigns] I expect the two ports to have opposite signs,`,
         `  but they all have negative sign.`,
         ``,
-        `  first port: ${formatValue(first)}`,
-        `  second port: ${formatValue(second)}`,
+        `  first port: ${formatPort(net, first)}`,
+        `  second port: ${formatPort(net, second)}`,
       ].join("\n"),
     )
   }

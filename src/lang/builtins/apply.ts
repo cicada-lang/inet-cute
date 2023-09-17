@@ -14,7 +14,7 @@ export function compose(env: Env, options: ComposeOptions): void {
       [
         `[@apply] I expect the value on top of the stack to be a Node.`,
         ``,
-        `  node: ${formatValue(value)}`,
+        `  node: ${formatValue(env, value)}`,
       ].join("\n"),
     )
   }

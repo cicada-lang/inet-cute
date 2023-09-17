@@ -1,3 +1,4 @@
+import { Env } from "../env"
 import { appendReport } from "../errors/appendReport"
 import { createReport } from "../errors/createReport"
 import { Value } from "../value"
@@ -7,6 +8,7 @@ import { occurInType } from "./occurInType"
 import { walkType } from "./walkType"
 
 export function unifyTypes(
+  env: Env,
   substitution: Map<string, Value>,
   left: Value,
   right: Value,
@@ -30,7 +32,10 @@ export function unifyTypes(
             `[unifyTypes] I find the left type variable occurs in the right type.`,
             ``,
             `  left type variable: '${left.name}`,
-            `  right type: ${formatValue(deepWalkType(substitution, right))}`,
+            `  right type: ${formatValue(
+              env,
+              deepWalkType(substitution, right),
+            )}`,
           ].join("\n"),
         )
       }
@@ -46,7 +51,10 @@ export function unifyTypes(
             `[unifyTypes] I find the right type variable occurs in the left type.`,
             ``,
             `  right type variable: '${right.name}`,
-            `  left type: ${formatValue(deepWalkType(substitution, left))}`,
+            `  left type: ${formatValue(
+              env,
+              deepWalkType(substitution, left),
+            )}`,
           ].join("\n"),
         )
       }
@@ -62,7 +70,7 @@ export function unifyTypes(
     ) {
       for (const [index, leftArg] of left.args.entries()) {
         const rightArg = right.args[index]
-        unifyTypes(substitution, leftArg, rightArg)
+        unifyTypes(env, substitution, leftArg, rightArg)
       }
 
       return
@@ -72,8 +80,8 @@ export function unifyTypes(
       message: [
         `[unifyTypes] I fail to unify types.`,
         ``,
-        `  left: ${formatValue(deepWalkType(substitution, left))}`,
-        `  right: ${formatValue(deepWalkType(substitution, right))}`,
+        `  left: ${formatValue(env, deepWalkType(substitution, left))}`,
+        `  right: ${formatValue(env, deepWalkType(substitution, right))}`,
       ].join("\n"),
     })
   }
@@ -82,8 +90,8 @@ export function unifyTypes(
     message: [
       `[unifyTypes] I fail to unify types.`,
       ``,
-      `  left: ${formatValue(deepWalkType(substitution, left))}`,
-      `  right: ${formatValue(deepWalkType(substitution, right))}`,
+      `  left: ${formatValue(env, deepWalkType(substitution, left))}`,
+      `  right: ${formatValue(env, deepWalkType(substitution, right))}`,
     ].join("\n"),
   })
 }

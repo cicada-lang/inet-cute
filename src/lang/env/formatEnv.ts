@@ -12,9 +12,11 @@ export function formatEnv(env: Env): string {
   const stackText =
     env.stack.length === 0
       ? "stack end"
-      : [`stack`, indent(env.stack.map(formatValue).join(" ")), `end`].join(
-          "\n",
-        )
+      : [
+          `stack`,
+          indent(env.stack.map((value) => formatValue(env, value)).join(" ")),
+          `end`,
+        ].join("\n")
 
   const localsText =
     env.locals.size === 0
@@ -23,7 +25,7 @@ export function formatEnv(env: Env): string {
           `locals`,
           indent(
             Array.from(env.locals.entries())
-              .map(([name, value]) => `${formatValue(value)} $${name}`)
+              .map(([name, value]) => `${formatValue(env, value)} $${name}`)
               .join("\n"),
           ),
           `end`,

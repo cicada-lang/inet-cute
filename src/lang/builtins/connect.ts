@@ -18,7 +18,7 @@ export function compose(env: Env, options: ComposeOptions): void {
       [
         `[@connect] I expect the first value on the stack to be a Port.`,
         ``,
-        `  first: ${formatValue(first)}`,
+        `  first: ${formatValue(env, first)}`,
       ].join("\n"),
     )
   }
@@ -30,7 +30,7 @@ export function compose(env: Env, options: ComposeOptions): void {
       [
         `[@connect] I expect a second value on the stack.`,
         ``,
-        `  first: ${formatValue(first)}`,
+        `  first: ${formatValue(env, first)}`,
       ].join("\n"),
     )
   }
@@ -40,14 +40,14 @@ export function compose(env: Env, options: ComposeOptions): void {
       [
         `[@connect] I expect the second value on the stack to be a Port.`,
         ``,
-        `  first: ${formatValue(first)}`,
-        `  second: ${formatValue(first)}`,
+        `  first: ${formatValue(env, first)}`,
+        `  second: ${formatValue(env, first)}`,
       ].join("\n"),
     )
   }
 
   connect(env.net, first, second)
   if (options.checking) {
-    unifyTypes(options.checking.substitution, first.t, second.t)
+    unifyTypes(env, options.checking.substitution, first.t, second.t)
   }
 }

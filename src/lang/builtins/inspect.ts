@@ -14,13 +14,13 @@ export function compose(env: Env): void {
     const connectedcomponent = findConnectedComponent(env.net, value.node)
     const netText = formatNet(connectedcomponent)
     if (netText.length === 0) {
-      env.mod.loader.onOutput(`netFromPort ${formatValue(value)} end`)
+      env.mod.loader.onOutput(`netFromPort ${formatValue(env, value)} end`)
     } else {
-      env.mod.loader.onOutput(`netFromPort ${formatValue(value)}`)
+      env.mod.loader.onOutput(`netFromPort ${formatValue(env, value)}`)
       env.mod.loader.onOutput(indent(netText))
       env.mod.loader.onOutput("end")
     }
   } else {
-    env.mod.loader.onOutput(formatValue(value))
+    env.mod.loader.onOutput(formatValue(env, value))
   }
 }

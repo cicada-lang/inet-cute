@@ -62,7 +62,7 @@ export function checkWords(
       )
     }
 
-    unifyTypes(checking.substitution, value.t, t)
+    unifyTypes(env, checking.substitution, value.t, t)
   }
 
   if (env.stack.length !== 0) {
@@ -71,7 +71,9 @@ export function checkWords(
         `[checkWords] I expect the stack to be empty after checking.`,
         ``,
         `  stack length: ${env.stack.length}`,
-        `  stack: [${env.stack.map(formatValue).join(", ")}]`,
+        `  stack: [${env.stack
+          .map((value) => formatValue(env, value))
+          .join(", ")}]`,
         ``,
         `  Maybe this is due to extra input arity,`,
         `  or lack of output arity.`,

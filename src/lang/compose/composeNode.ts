@@ -41,7 +41,7 @@ export function composeNode(
 
     connect(env.net, value, port)
     if (options.checking) {
-      unifyTypes(options.checking.substitution, value.t, port.t)
+      unifyTypes(env, options.checking.substitution, value.t, port.t)
     }
   }
 

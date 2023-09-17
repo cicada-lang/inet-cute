@@ -144,7 +144,7 @@ export function compose(
 
         connect(env.net, value, currentPort)
         if (options.checking) {
-          unifyTypes(options.checking.substitution, value.t, currentPort.t)
+          unifyTypes(env, options.checking.substitution, value.t, currentPort.t)
         }
 
         return null

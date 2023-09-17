@@ -1,5 +1,6 @@
 import { createChecking } from "../checking/createChecking"
 import { collectWords } from "../compose/collectWords"
+import { Env } from "../env"
 import { createEnv } from "../env/createEnv"
 import { Mod } from "../mod"
 import { PortExp } from "../port/PortExp"
@@ -24,8 +25,10 @@ export function checkNode(
 
   checkAllLocalsAreUsed(env.locals)
 
-  const inputPortExps = inputValues.map(portExpFromValue)
-  const outputPortExps = outputValues.map(portExpFromValue)
+  const inputPortExps = inputValues.map((value) => portExpFromValue(env, value))
+  const outputPortExps = outputValues.map((value) =>
+    portExpFromValue(env, value),
+  )
 
   const principalPorts = [...inputPortExps, ...outputPortExps].filter(
     (port) => port.isPrincipal,
@@ -49,13 +52,13 @@ export function checkNode(
   }
 }
 
-function portExpFromValue(value: Value): PortExp {
+function portExpFromValue(env: Env, value: Value): PortExp {
   if (value["@kind"] !== "Labeled") {
     throw new Error(
       [
         `[portExpFromValue] I expect the value to be a Labeled Value`,
         ``,
-        `  value: ${formatValue(value)}`,
+        `  value: ${formatValue(env, value)}`,
       ].join("\n"),
     )
   }

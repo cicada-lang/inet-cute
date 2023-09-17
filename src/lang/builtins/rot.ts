@@ -15,7 +15,7 @@ export function compose(env: Env): void {
       [
         `[@rot] I expect a second value on the stack.`,
         ``,
-        `  first: ${formatValue(first)}`,
+        `  first: ${formatValue(env, first)}`,
       ].join("\n"),
     )
   }
@@ -27,8 +27,8 @@ export function compose(env: Env): void {
       [
         `[@rot] I expect a third value on the stack.`,
         ``,
-        `  first: ${formatValue(first)}`,
-        `  second: ${formatValue(second)}`,
+        `  first: ${formatValue(env, first)}`,
+        `  second: ${formatValue(env, second)}`,
       ].join("\n"),
     )
   }

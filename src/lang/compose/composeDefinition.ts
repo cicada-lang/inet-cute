@@ -44,12 +44,14 @@ export function composeDefinition(
             ``,
             `  type term name: ${definition.name}`,
             `  type term arity: ${definition.inputArity}`,
-            `  collected args: [${args.map(formatValue).join(", ")}]`,
+            `  collected args: [${args
+              .map((arg) => formatValue(env, arg))
+              .join(", ")}]`,
           ].join("\n"),
         )
       }
 
-      checkTypeTermArgs(args)
+      checkTypeTermArgs(env, args)
 
       env.stack.push({
         "@type": "Value",

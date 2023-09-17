@@ -15,7 +15,7 @@ export function compose(env: Env): void {
       [
         `[@swap] I expect a second value on the stack.`,
         ``,
-        `  first: ${formatValue(first)}`,
+        `  first: ${formatValue(env, first)}`,
       ].join("\n"),
     )
   }

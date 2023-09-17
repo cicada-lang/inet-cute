@@ -3,7 +3,7 @@ import { Net } from "../net"
 import { findPortEntry } from "../net/findPortEntry"
 import { findPortRecordOrFail } from "../net/findPortRecordOrFail"
 import { Port } from "../port"
-import { formatValue } from "../value/formatValue"
+import { formatPort } from "../port/formatPort"
 
 export function connect(net: Net, first: Port, second: Port): void {
   const firstPortEntry = findPortEntry(net, first)
@@ -13,11 +13,12 @@ export function connect(net: Net, first: Port, second: Port): void {
       [
         `[connect] The first port is already connected.`,
         ``,
-        `  first port: ${formatValue(first)}`,
-        `  first connected port: ${formatValue(
+        `  first port: ${formatPort(net, first)}`,
+        `  first connected port: ${formatPort(
+          net,
           firstPortEntry.connection.port,
         )}`,
-        `  second port: ${formatValue(second)}`,
+        `  second port: ${formatPort(net, second)}`,
       ].join("\n"),
     )
   }
@@ -29,16 +30,17 @@ export function connect(net: Net, first: Port, second: Port): void {
       [
         `[connect] The second port is already connected.`,
         ``,
-        `  first port: ${formatValue(first)}`,
-        `  second port: ${formatValue(second)}`,
-        `  second connected port: ${formatValue(
+        `  first port: ${formatPort(net, first)}`,
+        `  second port: ${formatPort(net, second)}`,
+        `  second connected port: ${formatPort(
+          net,
           secondPortEntry.connection.port,
         )}`,
       ].join("\n"),
     )
   }
 
-  checkPortSigns(first, second)
+  checkPortSigns(net, first, second)
 
   const edge = { first, second }
 
