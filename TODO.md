@@ -4,9 +4,9 @@
 
 [half-edge] `Edge` has two `HalfEdge`s
 
-[half-edge] avoid using `closeAllFreePorts`
-
 [half-edge] `HalfEdge` should be a kind of `Value`
+
+[half-edge] avoid using `closeAllFreePorts`
 
 [half-edge] `@edge` as a builtin to create two `HalfEdge`s
 

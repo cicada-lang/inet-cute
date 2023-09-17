@@ -96,7 +96,7 @@ export function compose(
           )
         }
 
-        disconnectPort(env.net, portEntry.connection.port)
+        disconnectPort(env.net, currentPort)
 
         env.stack.push(currentPort)
         return null
@@ -123,7 +123,7 @@ export function compose(
           )
         }
 
-        disconnectPort(env.net, portEntry.connection.port)
+        disconnectPort(env.net, currentPort)
 
         const value = env.stack.pop()
         if (value === undefined) {

@@ -56,5 +56,6 @@ export type PortEntry = {
 //   interfere with each other.
 
 export type Connection = {
+  // halfEdge: HalfEdge
   port: Port
 }
