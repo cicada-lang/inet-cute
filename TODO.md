@@ -1,9 +1,5 @@
 # half-edge
 
-[half-edge] `createHalfEdgeId`
-
-[half-edge] `addEdge` -- generate `id` and add `HalfEdge`s to `net.halfEdgeEntries`
-
 [half-edge] `PortEntry` -- `connection` through `HalfEdge`
 
 [half-edge] `Edge` has two `HalfEdge`s
