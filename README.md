@@ -1,8 +1,12 @@
-# iNet
+# iNet Cute
 
 [ [Website](https://inet.run) ]
 
-Programming with [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets).
+An implementation of [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets),
+
+- ASCII art inspired syntax.
+- Pure postfix expression.
+- Using a stack-based low-layer language to build nets.
 
 ## Usage
 
@@ -11,15 +15,15 @@ Programming with [interaction nets](https://en.wikipedia.org/wiki/Interaction_ne
 Install it by the following command:
 
 ```sh
-npm -g i @cicada-lang/inet
+npm -g i @cicada-lang/inet-cute
 ```
 
-The command line program is called `inet`.
+The command line program is called `inet-cute`.
 
 ```sh
-inet repl         # Open an interactive REPL
-inet run [path]   # Run an inet program
-inet help [name]  # Display help for a command
+inet-cute repl         # Open an interactive REPL
+inet-cute run [path]   # Run an inet program
+inet-cute help [name]  # Display help for a command
 ```
 
 ### Online Playground
