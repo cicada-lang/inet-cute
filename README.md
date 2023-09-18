@@ -2,7 +2,7 @@
 
 [ [Website](https://inet.run) ]
 
-An implementation of [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets),
+An implementation of [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets).
 
 - ASCII art inspired syntax.
 - Pure postfix expression.
