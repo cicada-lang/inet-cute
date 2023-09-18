@@ -1,6 +1,6 @@
 {
   "name": "@cicada-lang/inet-cute",
-  "version": "0.1.36",
+  "version": "0.1.37",
   "repository": "github:cicada-lang/inet-cute",
   "main": "./lib/index.js",
   "files": [
