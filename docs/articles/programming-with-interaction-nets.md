@@ -163,7 +163,7 @@ Every port has a name.
 
 (add)-target  // target number
 (add)-addend  // the number to be added
-(add)-return  // result of addition
+(add)-result  // result of addition
 ```
 
 There are two kinds of ports -- input ports and output ports.
@@ -179,7 +179,7 @@ There are two kinds of ports -- input ports and output ports.
 (add)-target   // input port
 (add)-addend   // input port
 -------------
-(add)-return   // output port
+(add)-result   // output port
 ```
 
 Two nodes can be connected through ports,
@@ -214,7 +214,7 @@ connected through two principal ports.
 (add)-target!   // principal port
 (add)-addend
 -------------
-(add)-return
+(add)-result
 ```
 
 We also require each port to have a specific type,
@@ -251,7 +251,7 @@ node add
   Nat :target!
   Nat :prev
   --------
-  Nat :return
+  Nat :result
 end
 ```
 
@@ -295,7 +295,7 @@ Given two nodes, we can define an interaction rule for them.
 Let's review the interaction rule between `(add1)` and `(add)`:
 
 ```
-     return          value
+     result          value
        |               |
      (add)     =>    (add1)
      /   \             |
@@ -335,7 +335,7 @@ The the rule between `(add1)` and `(add)` as an example:
 rule add1 add
   (add)-addend
   (add1)-prev add
-  add1 return-(add)
+  add1 result-(add)
 end
 ```
 
@@ -370,18 +370,18 @@ add
     (add1)-prev target-(add₂)
     (add)-addend addend-(add₂)
 
-  stack: [ (add₂)-return ]
+  stack: [ (add₂)-result ]
 
 add1
 
   new node: (add1₂)
 
   new connections:
-    (add₂)-return prev-(add1₂)
+    (add₂)-result prev-(add1₂)
 
   stack: [ (add1₂)-value ]
 
-return-(add)
+result-(add)
 
   stack: [ ]
 ```
@@ -393,7 +393,7 @@ it does not introduce any new nodes.
 ```
 rule zero add
   (add)-addend
-  return-(add)
+  result-(add)
 end
 ```
 
@@ -408,7 +408,7 @@ we must use `claim` to claim the type of the word.
 
 We have an online playground, which can be used to easily share code.
 
-[Goto the playground of `Nat` and `(add)`](https://inet.run/playground/dHlwZSBOYXQgLS0gQFR5cGUgZW5kCgpub2RlIHplcm8KICAtLS0tLS0tLS0tLS0KICBOYXQgOnZhbHVlIQplbmQKCm5vZGUgYWRkMQogIE5hdCA6cHJldgogIC0tLS0tLS0tLS0tLQogIE5hdCA6dmFsdWUhCmVuZAoKbm9kZSBhZGQKICBOYXQgOnRhcmdldCEKICBOYXQgOmFkZGVuZAogIC0tLS0tLS0tLS0tLQogIE5hdCA6cmV0dXJuCmVuZAoKcnVsZSB6ZXJvIGFkZAogIChhZGQpLWFkZGVuZAogIHJldHVybi0oYWRkKQplbmQKCnJ1bGUgYWRkMSBhZGQKICAoYWRkKS1hZGRlbmQKICAoYWRkMSktcHJldiBhZGQKICBhZGQxIHJldHVybi0oYWRkKQplbmQKCmNsYWltIG9uZSAtLSBOYXQgZW5kCgpkZWZpbmUgb25lCiAgemVybyBhZGQxCmVuZAoKY2xhaW0gdHdvIC0tIE5hdCBlbmQKCmRlZmluZSB0d28KICBvbmUgYWRkMQplbmQKCmNsYWltIGFkZDIgTmF0IC0tIE5hdCBlbmQKCmRlZmluZSBhZGQyCiAgdHdvIGFkZAplbmQKCm9uZSBhZGQyCm9uZSBhZGQyCmFkZA)
+[Goto the playground of `Nat` and `(add)`](https://inet.run/playground/dHlwZSBOYXQgLS0gQFR5cGUgZW5kCgpub2RlIHplcm8KICAtLS0tLS0tLS0tLS0KICBOYXQgOnZhbHVlIQplbmQKCm5vZGUgYWRkMQogIE5hdCA6cHJldgogIC0tLS0tLS0tLS0tLQogIE5hdCA6dmFsdWUhCmVuZAoKbm9kZSBhZGQKICBOYXQgOnRhcmdldCEKICBOYXQgOmFkZGVuZAogIC0tLS0tLS0tLS0tLQogIE5hdCA6cmVzdWx0CmVuZAoKcnVsZSB6ZXJvIGFkZAogIChhZGQpLWFkZGVuZAogIHJlc3VsdC0oYWRkKQplbmQKCnJ1bGUgYWRkMSBhZGQKICAoYWRkKS1hZGRlbmQKICAoYWRkMSktcHJldiBhZGQKICBhZGQxIHJlc3VsdC0oYWRkKQplbmQKCmNsYWltIG9uZSAtLSBOYXQgZW5kCgpkZWZpbmUgb25lCiAgemVybyBhZGQxCmVuZAoKY2xhaW0gdHdvIC0tIE5hdCBlbmQKCmRlZmluZSB0d28KICBvbmUgYWRkMQplbmQKCmNsYWltIGFkZDIgTmF0IC0tIE5hdCBlbmQKCmRlZmluZSBhZGQyCiAgdHdvIGFkZAplbmQKCm9uZSBhZGQyCm9uZSBhZGQyCmFkZA)
 
 ```
 type Nat -- @Type end
@@ -428,18 +428,18 @@ node add
   Nat :target!
   Nat :addend
   ------------
-  Nat :return
+  Nat :result
 end
 
 rule zero add
   (add)-addend
-  return-(add)
+  result-(add)
 end
 
 rule add1 add
   (add)-addend
   (add1)-prev add
-  add1 return-(add)
+  add1 result-(add)
 end
 
 claim one -- Nat end
@@ -534,7 +534,7 @@ The max function of natural number is an example of such inconvenience.
 Let's introduce a node `(max)` for this function.
 
 ```
-     return
+     result
        |
      (max)
      /    \
@@ -548,14 +548,14 @@ node max
   Nat :first!
   Nat :second
   ----------
-  Nat :return
+  Nat :result
 end
 ```
 
 The interaction between `(zero)` and `(zero)` is simple:
 
 ```
-     return         return
+     result         result
        |              |
      (max)      =>    |
      /    \            \
@@ -566,7 +566,7 @@ Rule definition:
 
 ```
 rule zero max
-  (max)-second return-(max)
+  (max)-second result-(max)
 end
 ```
 
@@ -575,7 +575,7 @@ if there is no single-principal-port constraint,
 we can imagine the following interaction:
 
 ```
-     return           return
+     result           result
        |                |
      (max)      =>    (add1)
      /    \             |
@@ -591,7 +591,7 @@ to explicitly choose between two interactable edges.
 We call the auxiliary node `(maxAux)`.
 
 ```
-     return
+     result
        |
     (maxAux)
      /    \
@@ -605,7 +605,7 @@ node maxAux
   Nat :first
   Nat :second!
   --------
-  Nat :return
+  Nat :result
 end
 ```
 
@@ -613,7 +613,7 @@ Using the auxiliary node to define
 the rule between `(add1)` and `(max)`:
 
 ```
-     return            return
+     result            result
        |                 |
      (max)      =>    (maxAux)
      /    \            /   \
@@ -628,14 +628,14 @@ Rule definition:
 rule add1 max
   (max)-second
   (add1)-prev maxAux
-  return-(max)
+  result-(max)
 end
 ```
 
 The rule between `(zero)` and `(maxAux)`:
 
 ```
-     return            return
+     result            result
        |                 |
     (maxAux)     =>    (add1)
      /    \              |
@@ -647,14 +647,14 @@ Rule definition:
 ```
 rule zero maxAux
   (maxAux)-first add1
-  return-(maxAux)
+  result-(maxAux)
 end
 ```
 
 The rule between `(add1)` and `(maxAux)`:
 
 ```
-     return            return
+     result            result
        |                 |
     (maxAux)     =>    (add1)
      /    \              |
@@ -669,11 +669,11 @@ Rule definition:
 rule add1 maxAux
   (add1)-prev
   (maxAux)-first max
-  add1 return-(maxAux)
+  add1 result-(maxAux)
 end
 ```
 
-[Goto the playground of `Nat` and `(max)`](https://inet.run/playground/dHlwZSBOYXQgLS0gQFR5cGUgZW5kCgpub2RlIHplcm8KICAtLS0tLS0KICBOYXQgOnZhbHVlIQplbmQKCm5vZGUgYWRkMQogIE5hdCA6cHJldgogIC0tLS0tLS0tLS0KICBOYXQgOnZhbHVlIQplbmQKCm5vZGUgbWF4QXV4CiAgTmF0IDpmaXJzdAogIE5hdCA6c2Vjb25kIQogIC0tLS0tLS0tCiAgTmF0IDpyZXR1cm4KZW5kCgpub2RlIG1heAogIE5hdCA6Zmlyc3QhCiAgTmF0IDpzZWNvbmQKICAtLS0tLS0tLS0tCiAgTmF0IDpyZXR1cm4KZW5kCgpydWxlIHplcm8gbWF4CiAgKG1heCktc2Vjb25kIHJldHVybi0obWF4KQplbmQKCnJ1bGUgYWRkMSBtYXgKICAobWF4KS1zZWNvbmQgKGFkZDEpLXByZXYgbWF4QXV4CiAgcmV0dXJuLShtYXgpCmVuZAoKcnVsZSB6ZXJvIG1heEF1eAogIChtYXhBdXgpLWZpcnN0IGFkZDEKICByZXR1cm4tKG1heEF1eCkKZW5kCgpydWxlIGFkZDEgbWF4QXV4CiAgKGFkZDEpLXByZXYgKG1heEF1eCktZmlyc3QgbWF4CiAgYWRkMSByZXR1cm4tKG1heEF1eCkKZW5kCgpjbGFpbSBvbmUgLS0gTmF0IGVuZApkZWZpbmUgb25lIHplcm8gYWRkMSBlbmQKCmNsYWltIHR3byAtLSBOYXQgZW5kCmRlZmluZSB0d28gb25lIGFkZDEgZW5kCgpjbGFpbSB0aHJlZSAtLSBOYXQgZW5kCmRlZmluZSB0aHJlZSB0d28gYWRkMSBlbmQKCmNsYWltIGZvdXIgLS0gTmF0IGVuZApkZWZpbmUgZm91ciB0aHJlZSBhZGQxIGVuZAoKemVybyB0d28gbWF4Cgp0aHJlZSB0d28gbWF4)
+[Goto the playground of `Nat` and `(max)`](https://inet.run/playground/dHlwZSBOYXQgLS0gQFR5cGUgZW5kCgpub2RlIHplcm8KICAtLS0tLS0KICBOYXQgOnZhbHVlIQplbmQKCm5vZGUgYWRkMQogIE5hdCA6cHJldgogIC0tLS0tLS0tLS0KICBOYXQgOnZhbHVlIQplbmQKCm5vZGUgbWF4QXV4CiAgTmF0IDpmaXJzdAogIE5hdCA6c2Vjb25kIQogIC0tLS0tLS0tCiAgTmF0IDpyZXN1bHQKZW5kCgpub2RlIG1heAogIE5hdCA6Zmlyc3QhCiAgTmF0IDpzZWNvbmQKICAtLS0tLS0tLS0tCiAgTmF0IDpyZXN1bHQKZW5kCgpydWxlIHplcm8gbWF4CiAgKG1heCktc2Vjb25kIHJlc3VsdC0obWF4KQplbmQKCnJ1bGUgYWRkMSBtYXgKICAobWF4KS1zZWNvbmQgKGFkZDEpLXByZXYgbWF4QXV4CiAgcmVzdWx0LShtYXgpCmVuZAoKcnVsZSB6ZXJvIG1heEF1eAogIChtYXhBdXgpLWZpcnN0IGFkZDEKICByZXN1bHQtKG1heEF1eCkKZW5kCgpydWxlIGFkZDEgbWF4QXV4CiAgKGFkZDEpLXByZXYgKG1heEF1eCktZmlyc3QgbWF4CiAgYWRkMSByZXN1bHQtKG1heEF1eCkKZW5kCgpjbGFpbSBvbmUgLS0gTmF0IGVuZApkZWZpbmUgb25lIHplcm8gYWRkMSBlbmQKCmNsYWltIHR3byAtLSBOYXQgZW5kCmRlZmluZSB0d28gb25lIGFkZDEgZW5kCgpjbGFpbSB0aHJlZSAtLSBOYXQgZW5kCmRlZmluZSB0aHJlZSB0d28gYWRkMSBlbmQKCmNsYWltIGZvdXIgLS0gTmF0IGVuZApkZWZpbmUgZm91ciB0aHJlZSBhZGQxIGVuZAoKemVybyB0d28gbWF4Cgp0aHJlZSB0d28gbWF4)
 
 ```
 type Nat -- @Type end
@@ -693,33 +693,33 @@ node maxAux
   Nat :first
   Nat :second!
   --------
-  Nat :return
+  Nat :result
 end
 
 node max
   Nat :first!
   Nat :second
   ----------
-  Nat :return
+  Nat :result
 end
 
 rule zero max
-  (max)-second return-(max)
+  (max)-second result-(max)
 end
 
 rule add1 max
   (max)-second (add1)-prev maxAux
-  return-(max)
+  result-(max)
 end
 
 rule zero maxAux
   (maxAux)-first add1
-  return-(maxAux)
+  result-(maxAux)
 end
 
 rule add1 maxAux
   (add1)-prev (maxAux)-first max
-  add1 return-(maxAux)
+  add1 result-(maxAux)
 end
 
 claim one -- Nat end
@@ -791,7 +791,7 @@ to a local variable named `local`.
 - After the fetching, `$local` will be empty again,
   and can be used to save other value.
 
-[Goto the playground of `Nat` and `(mul)`](https://inet.run/playground/aW1wb3J0CiAgTmF0LCB6ZXJvLCBhZGQxLCBhZGQsCiAgb25lLCB0d28sIHRocmVlLApmcm9tICJodHRwczovL2NvZGUtb2YtaW5ldC5maWRiLmFwcC90ZXN0cy9kYXRhdHlwZS9OYXQuaSIKCm5vZGUgbmF0RXJhc2UKICBOYXQgOnRhcmdldCEKICAtLS0tLS0tLQplbmQKCnJ1bGUgemVybyBuYXRFcmFzZSBlbmQKCnJ1bGUgYWRkMSBuYXRFcmFzZQogIChhZGQxKS1wcmV2IG5hdEVyYXNlCmVuZAoKbm9kZSBuYXREdXAKICBOYXQgOnRhcmdldCEKICAtLS0tLS0tLQogIE5hdCA6c2Vjb25kCiAgTmF0IDpmaXJzdAplbmQKCnJ1bGUgemVybyBuYXREdXAKICB6ZXJvIGZpcnN0LShuYXREdXApCiAgemVybyBzZWNvbmQtKG5hdER1cCkKZW5kCgpydWxlIGFkZDEgbmF0RHVwCiAgKGFkZDEpLXByZXYgbmF0RHVwICRmaXJzdCAkc2Vjb25kCiAgZmlyc3QgYWRkMSBmaXJzdC0obmF0RHVwKQogIHNlY29uZCBhZGQxIHNlY29uZC0obmF0RHVwKQplbmQKCm5vZGUgbXVsCiAgTmF0IDp0YXJnZXQhCiAgTmF0IDptdWxlbmQKICAtLS0tLS0tLQogIE5hdCA6cmV0dXJuCmVuZAoKcnVsZSB6ZXJvIG11bAogIChtdWwpLW11bGVuZCBuYXRFcmFzZQogIHplcm8gcmV0dXJuLShtdWwpCmVuZAoKcnVsZSBhZGQxIG11bAogIChtdWwpLW11bGVuZCBuYXREdXAgJGZpcnN0ICRzZWNvbmQKICAoYWRkMSktcHJldiBmaXJzdCBtdWwgc2Vjb25kIGFkZAogIHJldHVybi0obXVsKQplbmQKCnR3byBuYXREdXAgJGZpcnN0ICRzZWNvbmQKCnR3byB0d28gbXVsCgp0aHJlZSB0aHJlZSBtdWw)
+[Goto the playground of `Nat` and `(mul)`](https://inet.run/playground/aW1wb3J0CiAgTmF0LCB6ZXJvLCBhZGQxLCBhZGQsCiAgb25lLCB0d28sIHRocmVlLApmcm9tICJodHRwczovL2NvZGUtb2YtaW5ldC5maWRiLmFwcC90ZXN0cy9kYXRhdHlwZS9OYXQuaSIKCm5vZGUgbmF0RXJhc2UKICBOYXQgOnRhcmdldCEKICAtLS0tLS0tLQplbmQKCnJ1bGUgemVybyBuYXRFcmFzZSBlbmQKCnJ1bGUgYWRkMSBuYXRFcmFzZQogIChhZGQxKS1wcmV2IG5hdEVyYXNlCmVuZAoKbm9kZSBuYXREdXAKICBOYXQgOnRhcmdldCEKICAtLS0tLS0tLQogIE5hdCA6c2Vjb25kCiAgTmF0IDpmaXJzdAplbmQKCnJ1bGUgemVybyBuYXREdXAKICB6ZXJvIGZpcnN0LShuYXREdXApCiAgemVybyBzZWNvbmQtKG5hdER1cCkKZW5kCgpydWxlIGFkZDEgbmF0RHVwCiAgKGFkZDEpLXByZXYgbmF0RHVwICRmaXJzdCAkc2Vjb25kCiAgZmlyc3QgYWRkMSBmaXJzdC0obmF0RHVwKQogIHNlY29uZCBhZGQxIHNlY29uZC0obmF0RHVwKQplbmQKCm5vZGUgbXVsCiAgTmF0IDp0YXJnZXQhCiAgTmF0IDptdWxlbmQKICAtLS0tLS0tLQogIE5hdCA6cmVzdWx0CmVuZAoKcnVsZSB6ZXJvIG11bAogIChtdWwpLW11bGVuZCBuYXRFcmFzZQogIHplcm8gcmVzdWx0LShtdWwpCmVuZAoKcnVsZSBhZGQxIG11bAogIChtdWwpLW11bGVuZCBuYXREdXAgJGZpcnN0ICRzZWNvbmQKICAoYWRkMSktcHJldiBmaXJzdCBtdWwgc2Vjb25kIGFkZAogIHJlc3VsdC0obXVsKQplbmQKCnR3byBuYXREdXAgJGZpcnN0ICRzZWNvbmQKCnR3byB0d28gbXVsCgp0aHJlZSB0aHJlZSBtdWw)
 
 ```
 import
@@ -832,18 +832,18 @@ node mul
   Nat :target!
   Nat :mulend
   --------
-  Nat :return
+  Nat :result
 end
 
 rule zero mul
   (mul)-mulend natErase
-  zero return-(mul)
+  zero result-(mul)
 end
 
 rule add1 mul
   (mul)-mulend natDup $first $second
   (add1)-prev first mul second add
-  return-(mul)
+  result-(mul)
 end
 
 two natDup $first $second
@@ -878,7 +878,7 @@ to representing a type variable.
 This means when connecting the corresponding ports,
 this type variable must match the same type.
 
-[Goto the playground of `List` and `(append)`](https://inet.run/playground/dHlwZSBMaXN0IEBUeXBlIC0tIEBUeXBlIGVuZAoKbm9kZSBudWxsCiAgLS0tLS0tLS0KICAnQSBMaXN0IDp2YWx1ZSEKZW5kCgpub2RlIGNvbnMKICAnQSA6aGVhZAogICdBIExpc3QgOnRhaWwKICAtLS0tLS0tLQogICdBIExpc3QgOnZhbHVlIQplbmQKCm5vZGUgYXBwZW5kCiAgJ0EgTGlzdCA6dGFyZ2V0IQogICdBIExpc3QgOnJlc3QKICAtLS0tLS0tLQogICdBIExpc3QgOnJldHVybgplbmQKCnJ1bGUgbnVsbCBhcHBlbmQKICAoYXBwZW5kKS1yZXN0CiAgcmV0dXJuLShhcHBlbmQpCmVuZAoKcnVsZSBjb25zIGFwcGVuZAogIChhcHBlbmQpLXJlc3QgKGNvbnMpLXRhaWwgYXBwZW5kCiAgKGNvbnMpLWhlYWQgY29ucwogIHJldHVybi0oYXBwZW5kKQplbmQKCmltcG9ydCB6ZXJvIGZyb20gImh0dHBzOi8vY2RuLmluZXQucnVuL3Rlc3RzL2RhdGF0eXBlL05hdC5pIgoKbnVsbCB6ZXJvIGNvbnMgemVybyBjb25zCm51bGwgemVybyBjb25zIHplcm8gY29ucwphcHBlbmQKCm51bGwgemVybyBjb25zIHplcm8gY29ucwpudWxsIHplcm8gY29ucyB6ZXJvIGNvbnMKYXBwZW5kIEBydW4gJHJlc3VsdA)
+[Goto the playground of `List` and `(append)`](https://inet.run/playground/dHlwZSBMaXN0IEBUeXBlIC0tIEBUeXBlIGVuZAoKbm9kZSBudWxsCiAgLS0tLS0tLS0KICAnQSBMaXN0IDp2YWx1ZSEKZW5kCgpub2RlIGNvbnMKICAnQSA6aGVhZAogICdBIExpc3QgOnRhaWwKICAtLS0tLS0tLQogICdBIExpc3QgOnZhbHVlIQplbmQKCm5vZGUgYXBwZW5kCiAgJ0EgTGlzdCA6dGFyZ2V0IQogICdBIExpc3QgOnJlc3QKICAtLS0tLS0tLQogICdBIExpc3QgOnJlc3VsdAplbmQKCnJ1bGUgbnVsbCBhcHBlbmQKICAoYXBwZW5kKS1yZXN0CiAgcmVzdWx0LShhcHBlbmQpCmVuZAoKcnVsZSBjb25zIGFwcGVuZAogIChhcHBlbmQpLXJlc3QgKGNvbnMpLXRhaWwgYXBwZW5kCiAgKGNvbnMpLWhlYWQgY29ucwogIHJlc3VsdC0oYXBwZW5kKQplbmQKCmltcG9ydCB6ZXJvIGZyb20gImh0dHBzOi8vY29kZS1vZi1pbmV0LmZpZGIuYXBwL3Rlc3RzL2RhdGF0eXBlL05hdC5pIgoKbnVsbCB6ZXJvIGNvbnMgemVybyBjb25zCm51bGwgemVybyBjb25zIHplcm8gY29ucwphcHBlbmQKCm51bGwgemVybyBjb25zIHplcm8gY29ucwpudWxsIHplcm8gY29ucyB6ZXJvIGNvbnMKYXBwZW5kIEBydW4gJHJlc3VsdA)
 
 ```
 type List @Type -- @Type end
@@ -899,18 +899,18 @@ node append
   'A List :target!
   'A List :rest
   --------
-  'A List :return
+  'A List :result
 end
 
 rule null append
   (append)-rest
-  return-(append)
+  result-(append)
 end
 
 rule cons append
   (append)-rest (cons)-tail append
   (cons)-head cons
-  return-(append)
+  result-(append)
 end
 
 import zero from "https://code-of-inet.fidb.app/tests/datatype/Nat.i"
@@ -957,7 +957,7 @@ follows `@spread` to put all it's ports to the stack
 in reverse order of the definition,
 then we save the ports to local variables for later use.
 
-[Goto the playground of `DiffList` and `(diffAppend)`](https://inet.run/playground/aW1wb3J0IExpc3QgZnJvbSAiaHR0cHM6Ly9jb2RlLW9mLWluZXQuZmlkYi5hcHAvdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKdHlwZSBEaWZmTGlzdCBAVHlwZSAtLSBAVHlwZSBlbmQKCm5vZGUgZGlmZgogICdBIExpc3QgOmZyb250CiAgLS0tLS0tLQogICdBIExpc3QgOmJhY2sKICAnQSBEaWZmTGlzdCA6dmFsdWUhCmVuZAoKbm9kZSBkaWZmQXBwZW5kCiAgJ0EgRGlmZkxpc3QgOnRhcmdldCEKICAnQSBEaWZmTGlzdCA6cmVzdAogIC0tLS0tLS0tCiAgJ0EgRGlmZkxpc3QgOnJldHVybgplbmQKCm5vZGUgZGlmZk9wZW4KICAnQSBEaWZmTGlzdCA6dGFyZ2V0IQogICdBIExpc3QgOmxpc3QKICAtLS0tLS0tLS0tCiAgJ0EgTGlzdCA6cmV0dXJuCmVuZAoKcnVsZSBkaWZmIGRpZmZBcHBlbmQKICAoZGlmZiktZnJvbnQgZGlmZiByZXR1cm4tKGRpZmZBcHBlbmQpCiAgKGRpZmZBcHBlbmQpLXJlc3QgZGlmZk9wZW4gYmFjay0oZGlmZikKZW5kCgpydWxlIGRpZmYgZGlmZk9wZW4KICAoZGlmZiktYmFjayBsaXN0LShkaWZmT3BlbikKICAoZGlmZiktZnJvbnQgcmV0dXJuLShkaWZmT3BlbikKZW5kCgppbXBvcnQgemVybyBmcm9tICJodHRwczovL2NvZGUtb2YtaW5ldC5maWRiLmFwcC90ZXN0cy9kYXRhdHlwZS9OYXQuaSIKaW1wb3J0IGNvbnMgZnJvbSAiaHR0cHM6Ly9jb2RlLW9mLWluZXQuZmlkYi5hcHAvdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrICR2YWx1ZQpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QgdmFsdWUKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrICR2YWx1ZQpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QgdmFsdWUKZGlmZkFwcGVuZAoKLy8gQnkgdXNpbmcgb25lIGxlc3MgbG9jYWwgdmFyaWFibGUgYCR2YWx1ZWAsCi8vIHdlIGNhbiBzaW1wbGlmeSB0aGUgYWJvdmUgY29kZToKCihkaWZmKSBAc3ByZWFkICRmcm9udCAkYmFjawpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrCmJhY2sgemVybyBjb25zIHplcm8gY29ucyBmcm9udCBAY29ubmVjdApkaWZmQXBwZW5kCgovLyBCeSB1c2luZyBvbmUgbGVzcyBsb2NhbCB2YXJpYWJsZSBgJGJhY2tgLAovLyB3ZSBjYW4gZnVydGhlciBzaW1wbGlmeSB0aGUgYWJvdmUgY29kZToKCihkaWZmKSBAc3ByZWFkICRmcm9udCB6ZXJvIGNvbnMgemVybyBjb25zIGZyb250IEBjb25uZWN0CihkaWZmKSBAc3ByZWFkICRmcm9udCB6ZXJvIGNvbnMgemVybyBjb25zIGZyb250IEBjb25uZWN0CmRpZmZBcHBlbmQKCkBydW4gJHJlc3VsdA)
+[Goto the playground of `DiffList` and `(diffAppend)`](https://inet.run/playground/aW1wb3J0IExpc3QgZnJvbSAiaHR0cHM6Ly9jb2RlLW9mLWluZXQuZmlkYi5hcHAvdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKdHlwZSBEaWZmTGlzdCBAVHlwZSAtLSBAVHlwZSBlbmQKCm5vZGUgZGlmZgogICdBIExpc3QgOmZyb250CiAgLS0tLS0tLQogICdBIExpc3QgOmJhY2sKICAnQSBEaWZmTGlzdCA6dmFsdWUhCmVuZAoKbm9kZSBkaWZmQXBwZW5kCiAgJ0EgRGlmZkxpc3QgOnRhcmdldCEKICAnQSBEaWZmTGlzdCA6cmVzdAogIC0tLS0tLS0tCiAgJ0EgRGlmZkxpc3QgOnJlc3VsdAplbmQKCm5vZGUgZGlmZk9wZW4KICAnQSBEaWZmTGlzdCA6dGFyZ2V0IQogICdBIExpc3QgOmxpc3QKICAtLS0tLS0tLS0tCiAgJ0EgTGlzdCA6cmVzdWx0CmVuZAoKcnVsZSBkaWZmIGRpZmZBcHBlbmQKICAoZGlmZiktZnJvbnQgZGlmZiByZXN1bHQtKGRpZmZBcHBlbmQpCiAgKGRpZmZBcHBlbmQpLXJlc3QgZGlmZk9wZW4gYmFjay0oZGlmZikKZW5kCgpydWxlIGRpZmYgZGlmZk9wZW4KICAoZGlmZiktYmFjayBsaXN0LShkaWZmT3BlbikKICAoZGlmZiktZnJvbnQgcmVzdWx0LShkaWZmT3BlbikKZW5kCgppbXBvcnQgemVybyBmcm9tICJodHRwczovL2NvZGUtb2YtaW5ldC5maWRiLmFwcC90ZXN0cy9kYXRhdHlwZS9OYXQuaSIKaW1wb3J0IGNvbnMgZnJvbSAiaHR0cHM6Ly9jb2RlLW9mLWluZXQuZmlkYi5hcHAvdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrICR2YWx1ZQpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QgdmFsdWUKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrICR2YWx1ZQpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QgdmFsdWUKZGlmZkFwcGVuZAoKLy8gQnkgdXNpbmcgb25lIGxlc3MgbG9jYWwgdmFyaWFibGUgYCR2YWx1ZWAsCi8vIHdlIGNhbiBzaW1wbGlmeSB0aGUgYWJvdmUgY29kZToKCihkaWZmKSBAc3ByZWFkICRmcm9udCAkYmFjawpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrCmJhY2sgemVybyBjb25zIHplcm8gY29ucyBmcm9udCBAY29ubmVjdApkaWZmQXBwZW5kCgovLyBCeSB1c2luZyBvbmUgbGVzcyBsb2NhbCB2YXJpYWJsZSBgJGJhY2tgLAovLyB3ZSBjYW4gZnVydGhlciBzaW1wbGlmeSB0aGUgYWJvdmUgY29kZToKCihkaWZmKSBAc3ByZWFkICRmcm9udCB6ZXJvIGNvbnMgemVybyBjb25zIGZyb250IEBjb25uZWN0CihkaWZmKSBAc3ByZWFkICRmcm9udCB6ZXJvIGNvbnMgemVybyBjb25zIGZyb250IEBjb25uZWN0CmRpZmZBcHBlbmQKCkBydW4gJHJlc3VsdA)
 
 ```
 import List from "https://code-of-inet.fidb.app/tests/datatype/List.i"
@@ -975,24 +975,24 @@ node diffAppend
   'A DiffList :target!
   'A DiffList :rest
   --------
-  'A DiffList :return
+  'A DiffList :result
 end
 
 node diffOpen
   'A DiffList :target!
   'A List :list
   ----------
-  'A List :return
+  'A List :result
 end
 
 rule diff diffAppend
-  (diff)-front diff return-(diffAppend)
+  (diff)-front diff result-(diffAppend)
   (diffAppend)-rest diffOpen back-(diff)
 end
 
 rule diff diffOpen
   (diff)-back list-(diffOpen)
-  (diff)-front return-(diffOpen)
+  (diff)-front result-(diffOpen)
 end
 
 import zero from "https://code-of-inet.fidb.app/tests/datatype/Nat.i"
