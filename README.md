@@ -231,6 +231,17 @@ npm run test         # Run test
 - [Models of Computation -- An Introduction to Computability Theory, Maribel Fernández, 2009](./docs/references/books/models-of-computation--maribel-fernández.pdf).
   - Chapter 7. Interaction-Based Models of Computation.
 
+## Community
+
+GitHub:
+
+- Organization: [github.com/cicada-lang](https://github.com/cicada-lang)
+
+Telegram:
+
+- English chat group: [CicadaLanguage](https://t.me/CicadaLanguage)
+- Chinese chat group: [CicadaLanguageCN](https://t.me/CicadaLanguageCN)
+
 ## Contributions
 
 To make a contribution, fork this project and create a pull request.
