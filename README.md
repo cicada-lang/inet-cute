@@ -15,7 +15,7 @@ An implementation of [interaction nets](https://en.wikipedia.org/wiki/Interactio
 Install it by the following command:
 
 ```sh
-npm -g i @cicada-lang/inet-cute
+npm install --global @cicada-lang/inet-cute
 ```
 
 The command line program is called `inet-cute`.
