@@ -12,7 +12,7 @@
   2 |
   3 |rule zero add
   4 |  (add)-addend
-  5 |  return-(add)
+  5 |  result-(add)
   6 |end
   7 |
   8 |rule add1 add

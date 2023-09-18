@@ -16,19 +16,19 @@ node append
   'A List :target!
   'A List :rest
   --------
-  'A List :return
+  'A List :result
 end
 
 rule null append
   (append)-rest
-  return-(append)
+  result-(append)
 end
 
 rule cons append
   (cons)-head
   (append)-rest (cons)-tail append
   cons
-  return-(append)
+  result-(append)
 end
 
 // The correct definition is:
@@ -36,5 +36,5 @@ end
 // rule cons append
 //   (append)-rest (cons)-tail append
 //   (cons)-head cons
-//   return-(append)
+//   result-(append)
 // end

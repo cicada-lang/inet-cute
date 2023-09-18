@@ -9,22 +9,22 @@ node add
   Nat :target!
   Nat :addend
   --------
-  Nat :return
+  Nat :result
 end
 
 rule zero add
   (add)-addend
-  return-(add)
+  result-(add)
 end
 
 rule add1 add
   (add)-addend prev-(add1) add add1
-  return-(add)
+  result-(add)
 end
 
 // The correct definition is:
 
 // rule add1 add
 //   (add)-addend (add1)-prev add add1
-//   return-(add)
+//   result-(add)
 // end

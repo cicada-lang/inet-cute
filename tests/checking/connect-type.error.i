@@ -9,15 +9,15 @@ node add
   Nat :target!
   Nat :addend
   --------
-  Nat :return
+  Nat :result
 end
 
 rule zero add
   (add)-addend
-  (add)-return sole @connect
+  (add)-result sole @connect
 end
 
 rule add1 add
   (add)-addend (add1)-prev add add1
-  return-(add)
+  result-(add)
 end

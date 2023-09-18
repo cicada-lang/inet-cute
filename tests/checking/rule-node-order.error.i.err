@@ -8,12 +8,12 @@
   rule nodes: add zero
 
  11 |  --------
- 12 |  Nat :return
+ 12 |  Nat :result
  13 |end
  14 |
  15 |rule add zero
  16 |  (add)-addend
- 17 |  (add)-return sole @connect
+ 17 |  (add)-result sole @connect
  18 |end
  19 |
  20 |// The correct definition is:

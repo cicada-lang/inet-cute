@@ -2,7 +2,7 @@ netFromPort (add1₂₅)-value!
   (add1₂₅)-prev value-(add1₂₃)
   (add1₂₃)-prev value-(zero₂₁)
 end
-netFromPort (add₁₀)-return
+netFromPort (add₁₀)-result
   (add₁₀)-target!value-(add1₂₂)
   (add₁₀)-addend value-(add1₂₁)
   (add1₂₂)-prev value-(zero₂₀)

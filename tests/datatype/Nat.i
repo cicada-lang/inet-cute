@@ -15,18 +15,18 @@ node add
   Nat :target!
   Nat :addend
   --------
-  Nat :return
+  Nat :result
 end
 
 rule zero add
   (add)-addend
-  return-(add)
+  result-(add)
 end
 
 rule add1 add
   (add)-addend
   (add1)-prev add
-  add1 return-(add)
+  add1 result-(add)
 end
 
 
@@ -77,18 +77,18 @@ node mul
   Nat :target!
   Nat :mulend
   --------
-  Nat :return
+  Nat :result
 end
 
 rule zero mul
   (mul)-mulend natErase
-  zero return-(mul)
+  zero result-(mul)
 end
 
 rule add1 mul
   (mul)-mulend natDup $first $second
   (add1)-prev first mul second add
-  return-(mul)
+  result-(mul)
 end
 
 // To define `max`, we need `maxAux`.
@@ -97,31 +97,31 @@ node maxAux
   Nat :first
   Nat :second!
   --------
-  Nat :return
+  Nat :result
 end
 
 node max
   Nat :first!
   Nat :second
   ----------
-  Nat :return
+  Nat :result
 end
 
 rule zero max
-  (max)-second return-(max)
+  (max)-second result-(max)
 end
 
 rule add1 max
   (max)-second (add1)-prev maxAux
-  return-(max)
+  result-(max)
 end
 
 rule zero maxAux
   (maxAux)-first add1
-  return-(maxAux)
+  result-(maxAux)
 end
 
 rule add1 maxAux
   (add1)-prev (maxAux)-first max
-  add1 return-(maxAux)
+  add1 result-(maxAux)
 end

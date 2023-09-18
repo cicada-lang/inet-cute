@@ -15,12 +15,12 @@ node add
   Nat :target!
   Nat :addend
   --------
-  Nat :return
+  Nat :result
 end
 
 rule zero add
   (add)-addend
-  return-(add)
+  result-(add)
 end
 
 rule add1 add
@@ -29,5 +29,5 @@ rule add1 add
 
   'abc $abc
 
-  add1 return-(add)
+  add1 result-(add)
 end

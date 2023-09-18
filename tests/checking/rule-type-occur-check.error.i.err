@@ -16,7 +16,7 @@
  28 |  (cons)-head
  29 |  (append)-rest (cons)-tail append
  30 |  cons
- 31 |  return-(append)
+ 31 |  result-(append)
  32 |end
 
 [DefineRule.execute] I fail to define rule.
@@ -24,14 +24,14 @@
   rule nodes: cons append
 
  23 |  (append)-rest
- 24 |  return-(append)
+ 24 |  result-(append)
  25 |end
  26 |
  27 |rule cons append
  28 |  (cons)-head
  29 |  (append)-rest (cons)-tail append
  30 |  cons
- 31 |  return-(append)
+ 31 |  result-(append)
  32 |end
  33 |
  34 |// The correct definition is:

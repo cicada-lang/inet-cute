@@ -9,17 +9,17 @@ node add
   Nat :target!
   Nat :addend
   --------
-  Nat :return
+  Nat :result
 end
 
 rule add zero
   (add)-addend
-  (add)-return sole @connect
+  (add)-result sole @connect
 end
 
 // The correct definition is:
 
 // rule zero add
 //   (add)-addend
-//   (add)-return sole @connect
+//   (add)-result sole @connect
 // end

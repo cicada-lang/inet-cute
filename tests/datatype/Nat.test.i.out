@@ -1,9 +1,9 @@
-netFromPort (add₁₀)-return
+netFromPort (add₁₀)-result
   (add₁₀)-target!value-(zero₂₀)
   (add₁₀)-addend value-(zero₁₉)
 end
 netFromPort (zero₁₉)-value! end
-netFromPort (add₁₁)-return
+netFromPort (add₁₁)-result
   (add₁₁)-target!value-(add1₂₂)
   (add₁₁)-addend value-(add1₂₁)
   (add1₂₂)-prev value-(zero₂₂)
@@ -13,9 +13,9 @@ netFromPort (add1₂₃)-value!
   (add1₂₃)-prev value-(add1₂₁)
   (add1₂₁)-prev value-(zero₂₁)
 end
-netFromPort (add₁₅)-return
-  (add₁₅)-target return-(add₁₄)
-  (add₁₅)-addend return-(add₁₃)
+netFromPort (add₁₅)-result
+  (add₁₅)-target result-(add₁₄)
+  (add₁₅)-addend result-(add₁₃)
   (add₁₄)-target!value-(add1₂₇)
   (add₁₄)-addend value-(add1₂₆)
   (add1₂₇)-prev value-(zero₂₆)
@@ -31,7 +31,7 @@ netFromPort (add1₃₀)-value!
   (add1₂₈)-prev value-(add1₂₄)
   (add1₂₄)-prev value-(zero₂₃)
 end
-netFromPort (add₂₀)-return
+netFromPort (add₂₀)-result
   (add₂₀)-target!value-(add1₃₂)
   (add₂₀)-addend value-(zero₂₇)
   (add1₃₂)-prev value-(zero₂₈)
@@ -47,7 +47,7 @@ end
 netFromPort (zero₃₄)-value! end
 netFromPort (zero₃₄)-value! end
 netFromPort (natDup₄)-first
-  (natDup₄)-target return-(add₃₀)
+  (natDup₄)-target result-(add₃₀)
   (add₃₀)-target!value-(add1₄₃)
   (add₃₀)-addend value-(add1₄₂)
   (add1₄₃)-prev value-(zero₃₆)
@@ -57,9 +57,9 @@ netFromPort (add1₄₅)-value!
   (add1₄₅)-prev value-(add1₄₇)
   (add1₄₇)-prev value-(zero₃₇)
 end
-netFromPort (mul₃)-return
-  (mul₃)-target return-(add₃₃)
-  (mul₃)-mulend return-(add₃₂)
+netFromPort (mul₃)-result
+  (mul₃)-target result-(add₃₃)
+  (mul₃)-mulend result-(add₃₂)
   (add₃₃)-target!value-(add1₅₂)
   (add₃₃)-addend value-(add1₅₁)
   (add1₅₂)-prev value-(zero₄₂)
@@ -75,18 +75,18 @@ netFromPort (add1₅₇)-value!
   (add1₆₃)-prev value-(add1₆₆)
   (add1₆₆)-prev value-(zero₅₁)
 end
-netFromPort (mul₈)-return
-  (mul₈)-target return-(add₄₇)
-  (mul₈)-mulend return-(add₄₅)
+netFromPort (mul₈)-result
+  (mul₈)-target result-(add₄₇)
+  (mul₈)-mulend result-(add₄₅)
   (add₄₇)-target!value-(add1₇₂)
-  (add₄₇)-addend return-(add₄₆)
+  (add₄₇)-addend result-(add₄₆)
   (add1₇₂)-prev value-(zero₅₇)
   (add₄₆)-target!value-(add1₇₁)
   (add₄₆)-addend value-(add1₇₀)
   (add1₇₁)-prev value-(zero₅₆)
   (add1₇₀)-prev value-(zero₅₅)
   (add₄₅)-target!value-(add1₆₉)
-  (add₄₅)-addend return-(add₄₄)
+  (add₄₅)-addend result-(add₄₄)
   (add1₆₉)-prev value-(zero₅₄)
   (add₄₄)-target!value-(add1₆₈)
   (add₄₄)-addend value-(add1₆₇)

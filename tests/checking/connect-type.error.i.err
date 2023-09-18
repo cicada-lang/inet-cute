@@ -10,7 +10,7 @@
  14 |
  15 |rule zero add
  16 |  (add)-addend
- 17 |  (add)-return sole @connect
+ 17 |  (add)-result sole @connect
  18 |end
  19 |
 
@@ -19,12 +19,12 @@
   rule nodes: zero add
 
  11 |  --------
- 12 |  Nat :return
+ 12 |  Nat :result
  13 |end
  14 |
  15 |rule zero add
  16 |  (add)-addend
- 17 |  (add)-return sole @connect
+ 17 |  (add)-result sole @connect
  18 |end
  19 |
  20 |rule add1 add

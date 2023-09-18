@@ -168,15 +168,15 @@ from "./Nat.i"
 node natDouble
   Nat :target!
   ------------
-  Nat :return
+  Nat :result
 end
 
 rule zero natDouble
-  zero return-(natDouble)
+  zero result-(natDouble)
 end
 
 rule add1 natDouble
-  (add1)-prev natDouble add1 add1 return-(natDouble)
+  (add1)-prev natDouble add1 add1 result-(natDouble)
 end
 
 node ntob

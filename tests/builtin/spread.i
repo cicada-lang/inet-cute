@@ -6,10 +6,10 @@ node add
   Nat :target!
   Nat :addend
   --------
-  Nat :return
+  Nat :result
 end
 
-(add) @spread $target $addend $return
+(add) @spread $target $addend $result
 target @inspect
 addend @inspect
-return @inspect
+result @inspect

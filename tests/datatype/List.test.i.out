@@ -1,4 +1,4 @@
-netFromPort (append₄)-return
+netFromPort (append₄)-result
   (append₄)-target!value-(cons₁₃)
   (append₄)-rest value-(cons₁₀)
   (cons₁₃)-head value-(sole₁₁)

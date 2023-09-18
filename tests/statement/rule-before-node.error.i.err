@@ -12,7 +12,7 @@
   4 |
   5 |rule zero add
   6 |  (add)-addend
-  7 |  return-(add)
+  7 |  result-(add)
   8 |end
   9 |
  10 |node add

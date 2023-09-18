@@ -1,4 +1,4 @@
-netFromPort (diffAppend₂)-return
+netFromPort (diffAppend₂)-result
   (diffAppend₂)-target!value-(diff₆)
   (diffAppend₂)-rest value-(diff₅)
   (diff₆)-front value-(cons₇)
@@ -19,7 +19,7 @@ netFromPort (diff₇)-value!
   (cons₆)-tail value-(cons₅)
   (cons₅)-head value-(sole₃)
 end
-netFromPort (diffAppend₄)-return
+netFromPort (diffAppend₄)-result
   (diffAppend₄)-target!value-(diff₁₁)
   (diffAppend₄)-rest value-(diff₁₀)
   (diff₁₁)-front value-(cons₁₅)
