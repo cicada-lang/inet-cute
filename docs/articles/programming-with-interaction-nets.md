@@ -797,7 +797,7 @@ to a local variable named `local`.
 import
   Nat, zero, add1, add,
   one, two, three,
-from "https://code-of-inet.fidb.app/tests/datatype/Nat.i"
+from "https://code-of-inet-cute.fidb.app/tests/datatype/Nat.i"
 
 node natErase
   Nat :target!
@@ -913,7 +913,7 @@ rule cons append
   result-(append)
 end
 
-import zero from "https://code-of-inet.fidb.app/tests/datatype/Nat.i"
+import zero from "https://code-of-inet-cute.fidb.app/tests/datatype/Nat.i"
 
 null zero cons zero cons
 null zero cons zero cons
@@ -960,7 +960,7 @@ then we save the ports to local variables for later use.
 [Goto the playground of `DiffList` and `(diffAppend)`](https://inet.run/playground/aW1wb3J0IExpc3QgZnJvbSAiaHR0cHM6Ly9jb2RlLW9mLWluZXQuZmlkYi5hcHAvdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKdHlwZSBEaWZmTGlzdCBAVHlwZSAtLSBAVHlwZSBlbmQKCm5vZGUgZGlmZgogICdBIExpc3QgOmZyb250CiAgLS0tLS0tLQogICdBIExpc3QgOmJhY2sKICAnQSBEaWZmTGlzdCA6dmFsdWUhCmVuZAoKbm9kZSBkaWZmQXBwZW5kCiAgJ0EgRGlmZkxpc3QgOnRhcmdldCEKICAnQSBEaWZmTGlzdCA6cmVzdAogIC0tLS0tLS0tCiAgJ0EgRGlmZkxpc3QgOnJlc3VsdAplbmQKCm5vZGUgZGlmZk9wZW4KICAnQSBEaWZmTGlzdCA6dGFyZ2V0IQogICdBIExpc3QgOmxpc3QKICAtLS0tLS0tLS0tCiAgJ0EgTGlzdCA6cmVzdWx0CmVuZAoKcnVsZSBkaWZmIGRpZmZBcHBlbmQKICAoZGlmZiktZnJvbnQgZGlmZiByZXN1bHQtKGRpZmZBcHBlbmQpCiAgKGRpZmZBcHBlbmQpLXJlc3QgZGlmZk9wZW4gYmFjay0oZGlmZikKZW5kCgpydWxlIGRpZmYgZGlmZk9wZW4KICAoZGlmZiktYmFjayBsaXN0LShkaWZmT3BlbikKICAoZGlmZiktZnJvbnQgcmVzdWx0LShkaWZmT3BlbikKZW5kCgppbXBvcnQgemVybyBmcm9tICJodHRwczovL2NvZGUtb2YtaW5ldC5maWRiLmFwcC90ZXN0cy9kYXRhdHlwZS9OYXQuaSIKaW1wb3J0IGNvbnMgZnJvbSAiaHR0cHM6Ly9jb2RlLW9mLWluZXQuZmlkYi5hcHAvdGVzdHMvZGF0YXR5cGUvTGlzdC5pIgoKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrICR2YWx1ZQpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QgdmFsdWUKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrICR2YWx1ZQpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QgdmFsdWUKZGlmZkFwcGVuZAoKLy8gQnkgdXNpbmcgb25lIGxlc3MgbG9jYWwgdmFyaWFibGUgYCR2YWx1ZWAsCi8vIHdlIGNhbiBzaW1wbGlmeSB0aGUgYWJvdmUgY29kZToKCihkaWZmKSBAc3ByZWFkICRmcm9udCAkYmFjawpiYWNrIHplcm8gY29ucyB6ZXJvIGNvbnMgZnJvbnQgQGNvbm5lY3QKKGRpZmYpIEBzcHJlYWQgJGZyb250ICRiYWNrCmJhY2sgemVybyBjb25zIHplcm8gY29ucyBmcm9udCBAY29ubmVjdApkaWZmQXBwZW5kCgovLyBCeSB1c2luZyBvbmUgbGVzcyBsb2NhbCB2YXJpYWJsZSBgJGJhY2tgLAovLyB3ZSBjYW4gZnVydGhlciBzaW1wbGlmeSB0aGUgYWJvdmUgY29kZToKCihkaWZmKSBAc3ByZWFkICRmcm9udCB6ZXJvIGNvbnMgemVybyBjb25zIGZyb250IEBjb25uZWN0CihkaWZmKSBAc3ByZWFkICRmcm9udCB6ZXJvIGNvbnMgemVybyBjb25zIGZyb250IEBjb25uZWN0CmRpZmZBcHBlbmQKCkBydW4gJHJlc3VsdA)
 
 ```
-import List from "https://code-of-inet.fidb.app/tests/datatype/List.i"
+import List from "https://code-of-inet-cute.fidb.app/tests/datatype/List.i"
 
 type DiffList @Type -- @Type end
 
@@ -995,8 +995,8 @@ rule diff diffOpen
   (diff)-front result-(diffOpen)
 end
 
-import zero from "https://code-of-inet.fidb.app/tests/datatype/Nat.i"
-import cons from "https://code-of-inet.fidb.app/tests/datatype/List.i"
+import zero from "https://code-of-inet-cute.fidb.app/tests/datatype/Nat.i"
+import cons from "https://code-of-inet-cute.fidb.app/tests/datatype/List.i"
 
 (diff) @spread $front $back $value
 back zero cons zero cons front @connect value
