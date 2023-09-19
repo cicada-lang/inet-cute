@@ -25,9 +25,9 @@ end
 
 node diffOpen
   'A DiffList :target!
-  'A List :list
+  'A List :newBack
   ----------
-  'A List :result
+  'A List :oldBack
 end
 
 rule diff diffAppend
@@ -36,6 +36,6 @@ rule diff diffAppend
 end
 
 rule diff diffOpen
-  (diff)-back list-(diffOpen)
-  (diff)-front result-(diffOpen)
+  (diff)-back newBack-(diffOpen)
+  (diff)-front oldBack-(diffOpen)
 end
