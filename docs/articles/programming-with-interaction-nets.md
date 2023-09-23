@@ -18,13 +18,6 @@ to introduce the principal of interaction nets.
 And I will also introduce a language I designed
 to practice this computation model.
 
-My language's main contribution to interaction nets,
-is to use stack and postfix notation to build nets.
-
-What is stack? What is postfix notation? How to build nets?
-
-Read this paper to see detailed explanation :)
-
 # 2
 
 How to use graph to encode data?
