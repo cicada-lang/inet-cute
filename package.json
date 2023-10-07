@@ -19,8 +19,8 @@
     "format": "prettier src docs --write"
   },
   "devDependencies": {
-    "@types/node": "^20.6.5",
-    "@xieyuheng/test-runner": "^0.2.9",
+    "@types/node": "^20.8.3",
+    "@xieyuheng/test-runner": "^0.2.10",
     "prettier": "^3.0.3",
     "prettier-plugin-organize-imports": "^3.2.3",
     "typescript": "^5.2.2"
@@ -28,10 +28,10 @@
   "dependencies": {
     "@cicada-lang/framework": "^0.1.5",
     "@cicada-lang/partech": "^0.2.5",
-    "@xieyuheng/command-line": "^0.0.11",
-    "@xieyuheng/ty": "^0.1.23",
+    "@xieyuheng/command-line": "^0.0.13",
+    "@xieyuheng/ty": "^0.1.26",
     "picocolors": "^1.0.0",
-    "vitest": "^0.34.5"
+    "vitest": "^0.34.6"
   },
   "license": "GPL-3.0-or-later"
 }
