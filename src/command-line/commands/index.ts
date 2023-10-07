@@ -1,4 +1,4 @@
 export * from "@xieyuheng/command-line/lib/commands"
-export * from "./DefaultCommand"
-export * from "./ReplCommand"
-export * from "./RunCommand"
+export * from "./Default"
+export * from "./Repl"
+export * from "./Run"

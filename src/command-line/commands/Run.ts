@@ -12,7 +12,7 @@ import { createURL } from "../../utils/createURL"
 type Args = { path: string }
 type Opts = {}
 
-export class RunCommand extends Command<Args, Opts> {
+export class Run extends Command<Args, Opts> {
   name = "run"
 
   description = "Run an inet program"
