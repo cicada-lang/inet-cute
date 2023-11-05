@@ -1,5 +1,8 @@
 # iNet Cute
 
+[ [Website](https://inet.run)
+| [iNet JS](https://github.com/cicada-lang/inet-js) ]
+
 An implementation of [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets).
 
 - ASCII art inspired syntax.
