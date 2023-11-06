@@ -19,7 +19,7 @@ Install it by the following command:
 npm install --global @cicada-lang/inet-cute
 ```
 
-The command line program is called `inet-cute`.
+The command-line program is called `inet-cute`.
 
 ```sh
 inet-cute repl         # Open an interactive REPL
