@@ -1,7 +1,7 @@
 {
-  "name": "@cicada-lang/inet",
+  "name": "@cicada-lang/inet-cute",
   "version": "0.2.1",
-  "repository": "github:cicada-lang/inet",
+  "repository": "github:cicada-lang/inet-cute",
   "license": "GPL-3.0-or-later",
   "type": "module",
   "main": "./lib/index.js",
@@ -10,14 +10,14 @@
     "src"
   ],
   "bin": {
-    "inet": "bin/inet.js"
+    "inet-cute": "bin/inet-cute.js"
   },
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
     "test:ts": "vitest --dir src --run",
-    "test:inet": "test-runner snapshot 'node ./bin/inet.js run --no-color' 'tests/**/*.i' --exclude 'tests/**/*.error.i'",
-    "test:inet-error": "test-runner snapshot-error 'node ./bin/inet.js run --no-color' 'tests/**/*.error.i'",
+    "test:inet": "test-runner snapshot 'node ./bin/inet-cute.js run --no-color' 'tests/**/*.i' --exclude 'tests/**/*.error.i'",
+    "test:inet-error": "test-runner snapshot-error 'node ./bin/inet-cute.js run --no-color' 'tests/**/*.error.i'",
     "test": "npm run test:ts && npm run test:inet && npm run test:inet-error",
     "format": "prettier src docs --write"
   },
