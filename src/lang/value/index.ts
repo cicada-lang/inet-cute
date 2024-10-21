@@ -1,2 +1,2 @@
-export * from "./Value.js"
 export * from "./formatValue.js"
+export * from "./Value.js"
