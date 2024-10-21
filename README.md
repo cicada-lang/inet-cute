@@ -1,4 +1,4 @@
-# iNet Cute
+# iNet
 
 [ [Website](https://inet.run)
 | [iNet JS](https://github.com/cicada-lang/inet-js) ]
@@ -16,15 +16,15 @@ An implementation of [interaction nets](https://en.wikipedia.org/wiki/Interactio
 Install it by the following command:
 
 ```sh
-npm install --global @cicada-lang/inet-cute
+npm install --global @cicada-lang/inet
 ```
 
-The command-line program is called `inet-cute`.
+The command-line program is called `inet`.
 
 ```sh
-inet-cute repl         # Open an interactive REPL
-inet-cute run [path]   # Run an inet program
-inet-cute help [name]  # Display help for a command
+inet repl         # Open an interactive REPL
+inet run [path]   # Run an inet program
+inet help [name]  # Display help for a command
 ```
 
 ## Examples
@@ -116,7 +116,7 @@ rule cons append
   result-(append)
 end
 
-import zero from "https://code-of-inet-cute.fidb.app/tests/datatype/Nat.i"
+import zero from "https://code-of-inet.fidb.app/tests/datatype/Nat.i"
 
 null zero cons zero cons
 null zero cons zero cons
@@ -130,7 +130,7 @@ append @run $result
 ### DiffList
 
 ```inet
-import List from "https://code-of-inet-cute.fidb.app/tests/datatype/List.i"
+import List from "https://code-of-inet.fidb.app/tests/datatype/List.i"
 
 // Concatenation of lists is performed in linear time
 // with respect to its first argument.
@@ -172,8 +172,8 @@ rule diff diffOpen
   (diff)-front oldBack-(diffOpen)
 end
 
-import zero from "https://code-of-inet-cute.fidb.app/tests/datatype/Nat.i"
-import cons from "https://code-of-inet-cute.fidb.app/tests/datatype/List.i"
+import zero from "https://code-of-inet.fidb.app/tests/datatype/Nat.i"
+import cons from "https://code-of-inet.fidb.app/tests/datatype/List.i"
 
 (diff) @spread $front $back $value
 back zero cons zero cons front @connect value
