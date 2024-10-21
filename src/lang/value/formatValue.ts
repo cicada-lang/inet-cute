@@ -1,5 +1,5 @@
-import { formatNode } from "../node/formatNode"
-import { Value } from "./Value"
+import { formatNode } from "../node/formatNode.js"
+import { type Value } from "./Value.js"
 
 export function formatValue(value: Value): string {
   switch (value["@kind"]) {

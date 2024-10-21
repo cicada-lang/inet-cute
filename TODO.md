@@ -1,4 +1,3 @@
-更新 TS 项目用 esmodule
 删除类型系统，并补充相关笔记
 更改命名惯例为 lisp-case
 

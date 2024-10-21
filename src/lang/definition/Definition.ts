@@ -1,9 +1,9 @@
-import { ComposeOptions } from "../compose/compose"
-import { Env } from "../env"
-import { Mod } from "../mod"
-import { PortExp } from "../port/PortExp"
-import { Span } from "../span"
-import { Word } from "../word"
+import { type ComposeOptions } from "../compose/compose.js"
+import { type Env } from "../env/index.js"
+import { type Mod } from "../mod/index.js"
+import { type PortExp } from "../port/PortExp.js"
+import { type Span } from "../span/index.js"
+import { type Word } from "../word/index.js"
 
 export type Definition =
   | NodeDefinition

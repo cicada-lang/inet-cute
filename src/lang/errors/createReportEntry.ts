@@ -1,4 +1,4 @@
-import { ReportEntry } from "./Report"
+import { type ReportEntry } from "./Report.js"
 
 export function createReportEntry(error: unknown): ReportEntry {
   if (error instanceof Error) {

@@ -1,12 +1,12 @@
-import { checkRule } from "../check/checkRule"
-import { checkRuleIsAboutOwnNode } from "../check/checkRuleIsAboutOwnNode"
-import { checkRuleNodeOrder } from "../check/checkRuleNodeOrder"
-import { appendReport } from "../errors/appendReport"
-import { Mod } from "../mod"
-import { defineRule } from "../mod/defineRule"
-import { Span } from "../span"
-import { Stmt } from "../stmt"
-import { Word } from "../word"
+import { checkRule } from "../check/checkRule.js"
+import { checkRuleIsAboutOwnNode } from "../check/checkRuleIsAboutOwnNode.js"
+import { checkRuleNodeOrder } from "../check/checkRuleNodeOrder.js"
+import { appendReport } from "../errors/appendReport.js"
+import { defineRule } from "../mod/defineRule.js"
+import { type Mod } from "../mod/index.js"
+import { type Span } from "../span/index.js"
+import { type Stmt } from "../stmt/index.js"
+import { type Word } from "../word/index.js"
 
 export class DefineRule implements Stmt {
   constructor(

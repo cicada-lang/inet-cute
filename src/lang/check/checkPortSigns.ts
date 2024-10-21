@@ -1,5 +1,5 @@
-import { Port } from "../port"
-import { formatValue } from "../value/formatValue"
+import { type Port } from "../port/index.js"
+import { formatValue } from "../value/formatValue.js"
 
 export function checkPortSigns(first: Port, second: Port): void {
   if (first.sign === 1 && second.sign === 1) {

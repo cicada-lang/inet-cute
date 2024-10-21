@@ -1,7 +1,7 @@
-import { Net } from "../net"
-import { findPortRecordOrFail } from "../net/findPortRecordOrFail"
-import { Node } from "../node"
-import { freshenType } from "./freshenType"
+import { findPortRecordOrFail } from "../net/findPortRecordOrFail.js"
+import { type Net } from "../net/index.js"
+import { type Node } from "../node/index.js"
+import { freshenType } from "./freshenType.js"
 
 /*
 

@@ -1,5 +1,5 @@
-import { Span } from "../span"
-import { Definition } from "./Definition"
+import { type Span } from "../span/index.js"
+import { type Definition } from "./Definition.js"
 
 export function definitionMaybeSpan(definition: Definition): Span | undefined {
   if (definition["@kind"] === "OperatorDefinition") {

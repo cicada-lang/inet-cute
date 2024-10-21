@@ -1,3 +1,3 @@
-export * from "./Edge"
-export * from "./edgeEqual"
-export * from "./formatEdge"
+export * from "./Edge.js"
+export * from "./edgeEqual.js"
+export * from "./formatEdge.js"

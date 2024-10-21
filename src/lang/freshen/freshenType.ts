@@ -1,5 +1,5 @@
-import { stringToSubscript } from "../../utils/stringToSubscript"
-import { Value } from "../value"
+import { stringToSubscript } from "../../utils/stringToSubscript.js"
+import { type Value } from "../value/index.js"
 
 export function freshenType(
   typeVarCounters: Map<string, number>,

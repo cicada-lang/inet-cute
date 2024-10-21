@@ -2,14 +2,14 @@
   "include": ["src"],
   "compilerOptions": {
     "lib": ["esnext", "dom"],
+    "module": "node16",
     "target": "es6",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "declaration": true,
     "strict": true,
-    "outDir": "lib",
-    "baseUrl": "."
+    "verbatimModuleSyntax": true,
+    "declaration": true,
+    "sourceMap": true,
+    "declarationMap": true,
+    "resolveJsonModule": true,
+    "outDir": "lib"
   }
 }

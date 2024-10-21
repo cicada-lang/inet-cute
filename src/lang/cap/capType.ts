@@ -1,11 +1,11 @@
-import { Mod } from "../mod"
-import { Net } from "../net"
-import { addNode } from "../net/addNode"
-import { findNodeEntryOrFail } from "../net/findNodeEntryOrFail"
-import { findOutputPorts } from "../net/findOutputPorts"
-import { Port } from "../port"
-import { PortExp } from "../port/PortExp"
-import { Value } from "../value"
+import { type Mod } from "../mod/index.js"
+import { addNode } from "../net/addNode.js"
+import { findNodeEntryOrFail } from "../net/findNodeEntryOrFail.js"
+import { findOutputPorts } from "../net/findOutputPorts.js"
+import { type Net } from "../net/index.js"
+import { type PortExp } from "../port/PortExp.js"
+import { type Port } from "../port/index.js"
+import { type Value } from "../value/index.js"
 
 export function capType(mod: Mod, net: Net, t: Value): Port {
   const portExp: PortExp = {

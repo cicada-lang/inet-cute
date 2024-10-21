@@ -1,9 +1,7 @@
-import { AppConfig } from "./AppConfig"
 import { AppHome } from "./AppHome.js"
-import { AppReplEventHandler } from "./AppReplEventHandler"
+import { AppReplEventHandler } from "./AppReplEventHandler.js"
 
 export class App {
   home = new AppHome()
-  config = new AppConfig()
   replEventHandler = new AppReplEventHandler()
 }

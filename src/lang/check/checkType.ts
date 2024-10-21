@@ -1,11 +1,11 @@
-import { createChecking } from "../checking/createChecking"
-import { collectWords } from "../compose/collectWords"
-import { createEnv } from "../env/createEnv"
-import { Mod } from "../mod"
-import { Value } from "../value"
-import { formatValue } from "../value/formatValue"
-import { Word } from "../word"
-import { checkAllLocalsAreUsed } from "./checkAllLocalsAreUsed"
+import { createChecking } from "../checking/createChecking.js"
+import { collectWords } from "../compose/collectWords.js"
+import { createEnv } from "../env/createEnv.js"
+import { type Mod } from "../mod/index.js"
+import { formatValue } from "../value/formatValue.js"
+import { type Value } from "../value/index.js"
+import { type Word } from "../word/index.js"
+import { checkAllLocalsAreUsed } from "./checkAllLocalsAreUsed.js"
 
 export function checkType(
   mod: Mod,

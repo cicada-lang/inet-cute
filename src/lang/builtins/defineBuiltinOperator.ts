@@ -1,6 +1,6 @@
-import { ComposeOptions } from "../compose/compose"
-import { Env } from "../env"
-import { Mod } from "../mod"
+import { type ComposeOptions } from "../compose/compose.js"
+import { type Env } from "../env/index.js"
+import { type Mod } from "../mod/index.js"
 
 export function defineBuiltinOperator(
   mod: Mod,

@@ -1,8 +1,8 @@
-import { appendReport } from "../errors/appendReport"
-import { importAll } from "../import/importAll"
-import { Mod } from "../mod"
-import { Span } from "../span"
-import { Stmt } from "../stmt"
+import { appendReport } from "../errors/appendReport.js"
+import { importAll } from "../import/importAll.js"
+import { type Mod } from "../mod/index.js"
+import { type Span } from "../span/index.js"
+import { type Stmt } from "../stmt/index.js"
 
 export class Require implements Stmt {
   constructor(

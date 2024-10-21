@@ -1,6 +1,6 @@
-import { Mod } from "../mod"
-import { ImportBinding } from "./ImportBinding"
-import { importNodeRules } from "./importNodeRules"
+import { type Mod } from "../mod/index.js"
+import { type ImportBinding } from "./ImportBinding.js"
+import { importNodeRules } from "./importNodeRules.js"
 
 export function importOne(
   mod: Mod,

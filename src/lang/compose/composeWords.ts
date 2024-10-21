@@ -1,7 +1,7 @@
-import { Env } from "../env"
-import { Mod } from "../mod"
-import { Word } from "../word"
-import { ComposeOptions, compose } from "./compose"
+import { type Env } from "../env/index.js"
+import { type Mod } from "../mod/index.js"
+import { type Word } from "../word/index.js"
+import { compose, type ComposeOptions } from "./compose.js"
 
 export function composeWords(
   mod: Mod,

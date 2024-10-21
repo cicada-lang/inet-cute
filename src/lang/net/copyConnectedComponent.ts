@@ -1,9 +1,9 @@
-import { edgeEqual } from "../edge/edgeEqual"
-import { Node } from "../node"
-import { Net } from "./Net"
-import { copyNode } from "./copyNode"
-import { findPortRecordOrFail } from "./findPortRecordOrFail"
-import { hasNode } from "./hasNode"
+import { edgeEqual } from "../edge/edgeEqual.js"
+import { type Node } from "../node/index.js"
+import { type Net } from "./Net.js"
+import { copyNode } from "./copyNode.js"
+import { findPortRecordOrFail } from "./findPortRecordOrFail.js"
+import { hasNode } from "./hasNode.js"
 
 export function copyConnectedComponent(
   net: Net,

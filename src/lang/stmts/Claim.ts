@@ -1,12 +1,12 @@
-import { definitionMaybeSpan } from "../definition/definitionMaybeSpan"
-import { appendReport } from "../errors/appendReport"
-import { createReport } from "../errors/createReport"
-import { Mod } from "../mod"
-import { define } from "../mod/define"
-import { findDefinition } from "../mod/findDefinition"
-import { Span } from "../span"
-import { Stmt } from "../stmt"
-import { Word } from "../word"
+import { definitionMaybeSpan } from "../definition/definitionMaybeSpan.js"
+import { appendReport } from "../errors/appendReport.js"
+import { createReport } from "../errors/createReport.js"
+import { define } from "../mod/define.js"
+import { findDefinition } from "../mod/findDefinition.js"
+import { type Mod } from "../mod/index.js"
+import { type Span } from "../span/index.js"
+import { type Stmt } from "../stmt/index.js"
+import { type Word } from "../word/index.js"
 
 export class Claim implements Stmt {
   constructor(

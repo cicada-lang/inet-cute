@@ -1,11 +1,11 @@
-import { connect } from "../connect/connect"
-import { Env } from "../env"
-import { refreshNode } from "../freshen/refreshNode"
-import { findInputPorts } from "../net/findInputPorts"
-import { findOutputPorts } from "../net/findOutputPorts"
-import { Node } from "../node"
-import { unifyTypes } from "../unify/unifyTypes"
-import { ComposeOptions } from "./compose"
+import { connect } from "../connect/connect.js"
+import { type Env } from "../env/index.js"
+import { refreshNode } from "../freshen/refreshNode.js"
+import { findInputPorts } from "../net/findInputPorts.js"
+import { findOutputPorts } from "../net/findOutputPorts.js"
+import { type Node } from "../node/index.js"
+import { unifyTypes } from "../unify/unifyTypes.js"
+import { type ComposeOptions } from "./compose.js"
 
 export function composeNode(
   env: Env,

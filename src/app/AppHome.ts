@@ -1,4 +1,4 @@
-import { LocalFileStore } from "@cicada-lang/framework/lib/file-stores/LocalFileStore"
+import { LocalFileStore } from "@cicada-lang/framework/lib/file-stores/LocalFileStore.js"
 import os from "os"
 import Path from "path"
 import process from "process"

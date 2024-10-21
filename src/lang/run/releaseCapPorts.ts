@@ -1,7 +1,7 @@
-import { Net } from "../net"
-import { deleteNodeEntry } from "../net/deleteNodeEntry"
-import { disconnectPort } from "../net/disconnectPort"
-import { Port } from "../port"
+import { deleteNodeEntry } from "../net/deleteNodeEntry.js"
+import { disconnectPort } from "../net/disconnectPort.js"
+import { type Net } from "../net/index.js"
+import { type Port } from "../port/index.js"
 
 export function releaseCapPorts(component: Net, capPorts: Array<Port>): void {
   for (const capPort of capPorts) {

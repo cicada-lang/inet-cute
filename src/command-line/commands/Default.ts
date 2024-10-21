@@ -1,6 +1,6 @@
 import { Command, CommandRunner } from "@xieyuheng/command-line"
 import { ty } from "@xieyuheng/ty"
-import { app } from "../../app/index.js"
+import { version } from "../../version.js"
 import * as Commands from "./index.js"
 
 type Args = { path?: string }
@@ -26,7 +26,7 @@ export class Default extends Command<Args, Opts> {
     }
 
     if (argv["version"]) {
-      console.log(app.config.packageJson.version)
+      console.log(version)
       return
     }
 

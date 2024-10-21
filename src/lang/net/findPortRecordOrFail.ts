@@ -1,7 +1,7 @@
-import { Node } from "../node"
-import { formatNode } from "../node/formatNode"
-import { Net, PortRecord } from "./Net"
-import { findNodeEntry } from "./findNodeEntry"
+import { formatNode } from "../node/formatNode.js"
+import { type Node } from "../node/index.js"
+import { type Net, type PortRecord } from "./Net.js"
+import { findNodeEntry } from "./findNodeEntry.js"
 
 export function findPortRecordOrFail(net: Net, node: Node): PortRecord {
   const nodeEntry = findNodeEntry(net, node)

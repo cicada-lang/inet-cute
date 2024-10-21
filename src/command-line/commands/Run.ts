@@ -1,13 +1,13 @@
-import { ParsingError } from "@cicada-lang/partech/lib/errors"
+import { ParsingError } from "@cicada-lang/partech"
 import { Command, CommandRunner } from "@xieyuheng/command-line"
 import { ty } from "@xieyuheng/ty"
 import fs from "node:fs"
 import { relative } from "node:path"
 import process from "node:process"
-import { Fetcher } from "../../fetcher"
-import { Report } from "../../lang/errors/Report"
-import { Loader } from "../../loader"
-import { createURL } from "../../utils/createURL"
+import { Fetcher } from "../../fetcher/index.js"
+import { Report } from "../../lang/errors/Report.js"
+import { Loader } from "../../loader/index.js"
+import { createURL } from "../../utils/createURL.js"
 
 type Args = { path: string }
 type Opts = {}

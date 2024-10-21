@@ -1,13 +1,13 @@
-import { capNodeNonPrinciplePorts } from "../cap/capNodeNonPrinciplePorts"
-import { createChecking } from "../checking/createChecking"
-import { compose } from "../compose/compose"
-import { createEnv } from "../env/createEnv"
-import { refreshNode } from "../freshen/refreshNode"
-import { Mod } from "../mod"
-import { findDefinitionOrFail } from "../mod/findDefinitionOrFail"
-import { createNodeFromDefinition } from "../node/createNodeFromDefinition"
-import { Word } from "../word"
-import { checkAllLocalsAreUsed } from "./checkAllLocalsAreUsed"
+import { capNodeNonPrinciplePorts } from "../cap/capNodeNonPrinciplePorts.js"
+import { createChecking } from "../checking/createChecking.js"
+import { compose } from "../compose/compose.js"
+import { createEnv } from "../env/createEnv.js"
+import { refreshNode } from "../freshen/refreshNode.js"
+import { findDefinitionOrFail } from "../mod/findDefinitionOrFail.js"
+import { type Mod } from "../mod/index.js"
+import { createNodeFromDefinition } from "../node/createNodeFromDefinition.js"
+import { type Word } from "../word/index.js"
+import { checkAllLocalsAreUsed } from "./checkAllLocalsAreUsed.js"
 
 export function checkRule(
   mod: Mod,

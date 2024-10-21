@@ -1,9 +1,9 @@
-import { Net } from "../net"
-import { deleteNodeEntry } from "../net/deleteNodeEntry"
-import { disconnectPort } from "../net/disconnectPort"
-import { findPortEntry } from "../net/findPortEntry"
-import { Port } from "../port"
-import { formatValue } from "../value/formatValue"
+import { deleteNodeEntry } from "../net/deleteNodeEntry.js"
+import { disconnectPort } from "../net/disconnectPort.js"
+import { findPortEntry } from "../net/findPortEntry.js"
+import { type Net } from "../net/index.js"
+import { type Port } from "../port/index.js"
+import { formatValue } from "../value/formatValue.js"
 
 export function collectConnectedPort(component: Net, capPort: Port): Port {
   const capPortEntry = findPortEntry(component, capPort)

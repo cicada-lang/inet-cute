@@ -1,8 +1,8 @@
-import { indent } from "../../utils/indent"
-import { formatNet } from "../net/formatNet"
-import { netIsEmpty } from "../net/netIsEmpty"
-import { formatValue } from "../value"
-import { Env } from "./Env"
+import { indent } from "../../utils/indent.js"
+import { formatNet } from "../net/formatNet.js"
+import { netIsEmpty } from "../net/netIsEmpty.js"
+import { formatValue } from "../value/index.js"
+import { type Env } from "./Env.js"
 
 export function formatEnv(env: Env): string {
   const netText = netIsEmpty(env.net)

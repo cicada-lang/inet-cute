@@ -1,5 +1,5 @@
-import { portEqual } from "../port/portEqual"
-import { Edge } from "./Edge"
+import { portEqual } from "../port/portEqual.js"
+import { type Edge } from "./Edge.js"
 
 export function edgeEqual(x: Edge, y: Edge): boolean {
   return (

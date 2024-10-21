@@ -1,7 +1,7 @@
-import { Node } from "../node"
-import { formatNode } from "../node/formatNode"
-import { nodeKey } from "../node/nodeKey"
-import { Net, NodeEntry } from "./Net"
+import { formatNode } from "../node/formatNode.js"
+import { type Node } from "../node/index.js"
+import { nodeKey } from "../node/nodeKey.js"
+import { type Net, type NodeEntry } from "./Net.js"
 
 export function findNodeEntryOrFail(net: Net, node: Node): NodeEntry {
   const nodeEntry = net.nodeEntries.get(nodeKey(node))

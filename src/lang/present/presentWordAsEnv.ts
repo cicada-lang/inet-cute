@@ -1,10 +1,10 @@
-import { capType } from "../cap"
-import { collectWords } from "../compose/collectWords"
-import { compose } from "../compose/compose"
-import { Env } from "../env"
-import { createEnv } from "../env/createEnv"
-import { Mod, findDefinitionOrFail } from "../mod"
-import { formatWord } from "../word"
+import { capType } from "../cap/index.js"
+import { collectWords } from "../compose/collectWords.js"
+import { compose } from "../compose/compose.js"
+import { createEnv } from "../env/createEnv.js"
+import { type Env } from "../env/index.js"
+import { findDefinitionOrFail, type Mod } from "../mod/index.js"
+import { formatWord } from "../word/index.js"
 
 export function presentWordAsEnv(mod: Mod, name: string): Env {
   const definition = findDefinitionOrFail(mod, name)

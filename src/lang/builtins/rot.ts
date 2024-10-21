@@ -1,5 +1,5 @@
-import { Env } from "../env"
-import { formatValue } from "../value/formatValue"
+import { type Env } from "../env/index.js"
+import { formatValue } from "../value/formatValue.js"
 
 export function compose(env: Env): void {
   const first = env.stack.pop()

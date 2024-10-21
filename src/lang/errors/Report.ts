@@ -1,5 +1,5 @@
 import * as pt from "@cicada-lang/partech"
-import { Span } from "../span"
+import { type Span } from "../span/index.js"
 
 export type ReportEntry = {
   message: string

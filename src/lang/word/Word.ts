@@ -1,4 +1,4 @@
-import { Span } from "../span"
+import { type Span } from "../span/index.js"
 
 export type Word =
   | Call

@@ -1,13 +1,16 @@
-import { ReplEvent, ReplEventHandler } from "@cicada-lang/framework/lib/repl"
+import {
+  ReplEventHandler,
+  type ReplEvent,
+} from "@cicada-lang/framework/lib/repl/index.js"
 import { ParsingError } from "@cicada-lang/partech"
 import fs from "fs"
 import { relative } from "node:path"
 import process from "process"
-import { app } from "../app"
 import { Fetcher } from "../fetcher/Fetcher.js"
 import { Report } from "../lang/errors/Report.js"
 import { parseStmts } from "../lang/syntax/index.js"
-import { Loader } from "../loader"
+import { Loader } from "../loader/index.js"
+import { version } from "../version.js"
 
 const fetcher = new Fetcher()
 
@@ -42,7 +45,7 @@ export class AppReplEventHandler extends ReplEventHandler {
   loader = new Loader({ fetcher })
 
   greeting(): void {
-    console.log(`iNet Cute ${app.config.packageJson.version}`)
+    console.log(`iNet Cute ${version}`)
   }
 
   async handle(event: ReplEvent): Promise<void> {

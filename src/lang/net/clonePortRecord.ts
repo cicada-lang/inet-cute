@@ -1,5 +1,5 @@
-import { PortRecord } from "./Net"
-import { clonePortEntry } from "./clonePortEntry"
+import { type PortRecord } from "./Net.js"
+import { clonePortEntry } from "./clonePortEntry.js"
 
 export function clonePortRecord(record: PortRecord): PortRecord {
   return Object.fromEntries(

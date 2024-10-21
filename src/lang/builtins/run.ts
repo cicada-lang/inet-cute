@@ -1,6 +1,6 @@
-import { Env } from "../env"
-import { runPort } from "../run/runPort"
-import { formatValue } from "../value/formatValue"
+import { type Env } from "../env/index.js"
+import { runPort } from "../run/runPort.js"
+import { formatValue } from "../value/formatValue.js"
 
 export function compose(env: Env): void {
   const port = env.stack.pop()

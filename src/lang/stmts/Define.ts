@@ -1,12 +1,12 @@
-import { checkWords } from "../check/checkWords"
-import { definitionMaybeSpan } from "../definition/definitionMaybeSpan"
-import { appendReport } from "../errors/appendReport"
-import { createReport } from "../errors/createReport"
-import { Mod } from "../mod"
-import { findDefinitionOrFail } from "../mod/findDefinitionOrFail"
-import { Span } from "../span"
-import { Stmt } from "../stmt"
-import { Word } from "../word"
+import { checkWords } from "../check/checkWords.js"
+import { definitionMaybeSpan } from "../definition/definitionMaybeSpan.js"
+import { appendReport } from "../errors/appendReport.js"
+import { createReport } from "../errors/createReport.js"
+import { findDefinitionOrFail } from "../mod/findDefinitionOrFail.js"
+import { type Mod } from "../mod/index.js"
+import { type Span } from "../span/index.js"
+import { type Stmt } from "../stmt/index.js"
+import { type Word } from "../word/index.js"
 
 export class Define implements Stmt {
   constructor(

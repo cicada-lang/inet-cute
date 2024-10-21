@@ -1,5 +1,5 @@
-import { Mod } from "../mod"
-import { Span } from "../span"
+import { type Mod } from "../mod/index.js"
+import { type Span } from "../span/index.js"
 
 export interface Stmt {
   span: Span

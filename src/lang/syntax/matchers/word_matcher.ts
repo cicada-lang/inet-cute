@@ -1,5 +1,5 @@
 import * as pt from "@cicada-lang/partech"
-import { Word } from "../../word"
+import { type Word } from "../../word/index.js"
 
 export function word_matcher(tree: pt.Tree): Word {
   return pt.matcher<Word>({

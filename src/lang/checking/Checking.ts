@@ -1,4 +1,4 @@
-import { Value } from "../value"
+import { type Value } from "../value/index.js"
 
 export type Checking = {
   substitution: Map<string, Value>

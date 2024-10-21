@@ -1,9 +1,9 @@
-import { checkPortSigns } from "../check/checkPortSigns"
-import { Net } from "../net"
-import { findPortEntry } from "../net/findPortEntry"
-import { findPortRecordOrFail } from "../net/findPortRecordOrFail"
-import { Port } from "../port"
-import { formatValue } from "../value/formatValue"
+import { checkPortSigns } from "../check/checkPortSigns.js"
+import { findPortEntry } from "../net/findPortEntry.js"
+import { findPortRecordOrFail } from "../net/findPortRecordOrFail.js"
+import { type Net } from "../net/index.js"
+import { type Port } from "../port/index.js"
+import { formatValue } from "../value/formatValue.js"
 
 export function connect(net: Net, first: Port, second: Port): void {
   const firstPortEntry = findPortEntry(net, first)

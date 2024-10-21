@@ -1,10 +1,10 @@
-import { checkType } from "../check/checkType"
-import { appendReport } from "../errors/appendReport"
-import { Mod } from "../mod"
-import { define } from "../mod/define"
-import { Span } from "../span"
-import { Stmt } from "../stmt"
-import { Word } from "../word"
+import { checkType } from "../check/checkType.js"
+import { appendReport } from "../errors/appendReport.js"
+import { define } from "../mod/define.js"
+import { type Mod } from "../mod/index.js"
+import { type Span } from "../span/index.js"
+import { type Stmt } from "../stmt/index.js"
+import { type Word } from "../word/index.js"
 
 export class DefineType implements Stmt {
   constructor(

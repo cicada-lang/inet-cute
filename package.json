@@ -2,9 +2,12 @@
   "name": "@cicada-lang/inet",
   "version": "0.2.0",
   "repository": "github:cicada-lang/inet",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
   "main": "./lib/index.js",
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "bin": {
     "inet": "bin/inet.js"
@@ -18,13 +21,6 @@
     "test": "npm run test:ts && npm run test:inet && npm run test:inet-error",
     "format": "prettier src docs --write"
   },
-  "devDependencies": {
-    "@types/node": "^20.8.10",
-    "@xieyuheng/test-runner": "^0.2.10",
-    "prettier": "^3.0.3",
-    "prettier-plugin-organize-imports": "^3.2.3",
-    "typescript": "^5.2.2"
-  },
   "dependencies": {
     "@cicada-lang/framework": "^0.1.6",
     "@cicada-lang/partech": "^0.2.5",
@@ -33,5 +29,11 @@
     "picocolors": "^1.0.0",
     "vitest": "^0.34.6"
   },
-  "license": "GPL-3.0-or-later"
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "@xieyuheng/test-runner": "^0.2.10",
+    "prettier": "^3.0.3",
+    "prettier-plugin-organize-imports": "^3.2.3",
+    "typescript": "^5.2.2"
+  }
 }

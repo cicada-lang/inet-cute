@@ -1,1 +1,1 @@
-export * from "./Checking"
+export * from "./Checking.js"

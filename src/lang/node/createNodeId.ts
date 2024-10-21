@@ -1,5 +1,5 @@
-import { Mod } from "../mod"
-import { globalNodeCounters } from "./globalNodeCounters"
+import { type Mod } from "../mod/index.js"
+import { globalNodeCounters } from "./globalNodeCounters.js"
 
 export function createNodeId(mod: Mod, name: string): string {
   const foundCounter = globalNodeCounters.get(name)

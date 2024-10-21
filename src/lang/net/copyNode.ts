@@ -1,8 +1,8 @@
-import { Node } from "../node"
-import { nodeKey } from "../node/nodeKey"
-import { Net } from "./Net"
-import { cloneNodeEntry } from "./cloneNodeEntry"
-import { findNodeEntryOrFail } from "./findNodeEntryOrFail"
+import { type Node } from "../node/index.js"
+import { nodeKey } from "../node/nodeKey.js"
+import { type Net } from "./Net.js"
+import { cloneNodeEntry } from "./cloneNodeEntry.js"
+import { findNodeEntryOrFail } from "./findNodeEntryOrFail.js"
 
 export function copyNode(source: Net, target: Net, node: Node): void {
   const entry = findNodeEntryOrFail(source, node)

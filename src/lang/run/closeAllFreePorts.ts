@@ -1,10 +1,10 @@
-import { capInputPort } from "../cap/capInputPort"
-import { capOutputPort } from "../cap/capOutputPort"
-import { Mod } from "../mod"
-import { Net } from "../net"
-import { createNodeFromNodeEntry } from "../net/createNodeFromNodeEntry"
-import { createPortFromPortEntry } from "../net/createPortFromPortEntry"
-import { Port } from "../port"
+import { capInputPort } from "../cap/capInputPort.js"
+import { capOutputPort } from "../cap/capOutputPort.js"
+import { type Mod } from "../mod/index.js"
+import { createNodeFromNodeEntry } from "../net/createNodeFromNodeEntry.js"
+import { createPortFromPortEntry } from "../net/createPortFromPortEntry.js"
+import { type Net } from "../net/index.js"
+import { type Port } from "../port/index.js"
 
 /*
 

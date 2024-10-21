@@ -1,6 +1,6 @@
-import { Node } from "../node"
-import { Port } from "../port"
-import { PortEntry } from "./Net"
+import { type Node } from "../node/index.js"
+import { type Port } from "../port/index.js"
+import { type PortEntry } from "./Net.js"
 
 export function createPortFromPortEntry(
   node: Node,

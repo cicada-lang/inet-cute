@@ -1,13 +1,13 @@
-import { Mod } from "../mod"
-import { Net } from "../net"
-import { createNet } from "../net/createNet"
-import { moveConnectedComponent } from "../net/moveConnectedComponent"
-import { Port } from "../port"
-import { closeAllFreePorts } from "./closeAllFreePorts"
-import { closePort } from "./closePort"
-import { collectConnectedPort } from "./collectConnectedPort"
-import { releaseCapPorts } from "./releaseCapPorts"
-import { runNet } from "./runNet"
+import { type Mod } from "../mod/index.js"
+import { createNet } from "../net/createNet.js"
+import { type Net } from "../net/index.js"
+import { moveConnectedComponent } from "../net/moveConnectedComponent.js"
+import { type Port } from "../port/index.js"
+import { closeAllFreePorts } from "./closeAllFreePorts.js"
+import { closePort } from "./closePort.js"
+import { collectConnectedPort } from "./collectConnectedPort.js"
+import { releaseCapPorts } from "./releaseCapPorts.js"
+import { runNet } from "./runNet.js"
 
 export function runPort(mod: Mod, net: Net, port: Port): Port {
   const component = createNet()

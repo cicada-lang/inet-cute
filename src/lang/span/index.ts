@@ -1,1 +1,1 @@
-export { Span } from "@cicada-lang/partech/lib/span"
+export { type Span } from "@cicada-lang/partech/lib/span/index.js"
