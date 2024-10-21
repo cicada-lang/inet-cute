@@ -10,8 +10,8 @@
     "inet": "bin/inet.js"
   },
   "scripts": {
-    "build": "rm -r lib && tsc",
-    "build:watch": "rm -r lib && tsc --watch",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
     "test:ts": "vitest --dir src --threads false --run",
     "test:inet": "test-runner snapshot 'node ./bin/inet.js run --no-color' 'tests/**/*.i' --exclude 'tests/**/*.error.i'",
     "test:inet-error": "test-runner snapshot-error 'node ./bin/inet.js run --no-color' 'tests/**/*.error.i'",
