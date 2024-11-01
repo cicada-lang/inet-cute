@@ -779,7 +779,7 @@ to a local variable named `local`.
 import
   Nat, zero, add1, add,
   one, two, three,
-from "https://code-of-inet-cute.fidb.app/tests/datatype/Nat.i"
+from "https://code-of-inet-cute.xieyuheng.com/tests/datatype/Nat.i"
 
 node natErase
   Nat :target!
@@ -892,7 +892,7 @@ rule cons append
   result-(append)
 end
 
-import zero from "https://code-of-inet-cute.fidb.app/tests/datatype/Nat.i"
+import zero from "https://code-of-inet-cute.xieyuheng.com/tests/datatype/Nat.i"
 
 null zero cons zero cons
 null zero cons zero cons
@@ -937,7 +937,7 @@ in reverse order of the definition,
 then we save the ports to local variables for later use.
 
 ```
-import List from "https://code-of-inet-cute.fidb.app/tests/datatype/List.i"
+import List from "https://code-of-inet-cute.xieyuheng.com/tests/datatype/List.i"
 
 type DiffList @Type -- @Type end
 
@@ -972,8 +972,8 @@ rule diff diffOpen
   (diff)-front oldBack-(diffOpen)
 end
 
-import zero from "https://code-of-inet-cute.fidb.app/tests/datatype/Nat.i"
-import cons from "https://code-of-inet-cute.fidb.app/tests/datatype/List.i"
+import zero from "https://code-of-inet-cute.xieyuheng.com/tests/datatype/Nat.i"
+import cons from "https://code-of-inet-cute.xieyuheng.com/tests/datatype/List.i"
 
 (diff) @spread $front $back $value
 back zero cons zero cons front @connect value
