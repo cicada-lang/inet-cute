@@ -1,6 +1,6 @@
 # iNet Cute
 
-[ [Website](https://inet.run)
+[ [Website](https://inet.xieyuheng.com)
 | [iNet JS](https://github.com/cicada-lang/inet-js) ]
 
 An implementation of [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets).
