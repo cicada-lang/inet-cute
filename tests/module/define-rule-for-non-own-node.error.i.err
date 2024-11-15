@@ -1,8 +1,8 @@
 [checkRuleIsAboutOwnNode] To define a rule, one of the node must be owned by this module.
 
-  loading module url: tests/module/define-rule-for-non-own-node.error.i
-  first node module url: tests/datatype/Nat.i
-  second node module url: tests/datatype/Nat.i
+  loading module url: examples/module/define-rule-for-non-own-node.error.i
+  first node module url: examples/datatype/Nat.i
+  second node module url: examples/datatype/Nat.i
 
 [DefineRule.execute] I fail to define rule.
 

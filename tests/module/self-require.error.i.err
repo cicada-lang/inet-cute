@@ -1,7 +1,7 @@
 [Require.execute] I can not do circular require.
 
-  loading module url: tests/module/self-require.error.i
-  requiring module url: tests/module/self-require.error.i
+  loading module url: examples/module/self-require.error.i
+  requiring module url: examples/module/self-require.error.i
 
 [Require.execute] I fail to require module.
 

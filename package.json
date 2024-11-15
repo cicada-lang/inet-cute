@@ -16,8 +16,8 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "test:ts": "vitest --dir src --run",
-    "test:inet": "test-runner snapshot 'node ./bin/inet-cute.js run --no-color' 'tests/**/*.i' --exclude 'tests/**/*.error.i'",
-    "test:inet-error": "test-runner snapshot-error 'node ./bin/inet-cute.js run --no-color' 'tests/**/*.error.i'",
+    "test:inet": "test-runner snapshot 'node ./bin/inet-cute.js run --no-color' 'examples/**/*.i' --exclude 'examples/**/*.error.i'",
+    "test:inet-error": "test-runner snapshot-error 'node ./bin/inet-cute.js run --no-color' 'examples/**/*.error.i'",
     "test": "npm run test:ts && npm run test:inet && npm run test:inet-error",
     "format": "prettier src docs --write"
   },
