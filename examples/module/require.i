@@ -1,3 +1,3 @@
-require "../datatype/Nat.i"
+require "../datatypes/Nat.i"
 
 zero one add @inspect @run @inspect

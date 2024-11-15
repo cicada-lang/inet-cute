@@ -116,7 +116,7 @@ rule cons append
   result-(append)
 end
 
-import zero from "https://code-of-inet-cute.xieyuheng.com/examples/datatype/Nat.i"
+import zero from "https://code-of-inet-cute.xieyuheng.com/examples/datatypes/Nat.i"
 
 null zero cons zero cons
 null zero cons zero cons
@@ -130,7 +130,7 @@ append @run $result
 ### DiffList
 
 ```inet
-import List from "https://code-of-inet-cute.xieyuheng.com/examples/datatype/List.i"
+import List from "https://code-of-inet-cute.xieyuheng.com/examples/datatypes/List.i"
 
 // Concatenation of lists is performed in linear time
 // with respect to its first argument.
@@ -172,8 +172,8 @@ rule diff diffOpen
   (diff)-front oldBack-(diffOpen)
 end
 
-import zero from "https://code-of-inet-cute.xieyuheng.com/examples/datatype/Nat.i"
-import cons from "https://code-of-inet-cute.xieyuheng.com/examples/datatype/List.i"
+import zero from "https://code-of-inet-cute.xieyuheng.com/examples/datatypes/Nat.i"
+import cons from "https://code-of-inet-cute.xieyuheng.com/examples/datatypes/List.i"
 
 (diff) @spread $front $back $value
 back zero cons zero cons front @connect value

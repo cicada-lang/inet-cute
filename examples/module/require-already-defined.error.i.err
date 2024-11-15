@@ -4,9 +4,9 @@
 
 [Require.execute] I fail to require module.
 
-  path: "../datatype/Nat.i"
+  path: "../datatypes/Nat.i"
 
  1 |type Nat -- @Type end
  2 |
- 3 |require "../datatype/Nat.i"
+ 3 |require "../datatypes/Nat.i"
  4 |

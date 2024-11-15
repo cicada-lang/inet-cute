@@ -26,11 +26,11 @@ export class Run extends Command<Args, Opts> {
     return [
       `Run a file:`,
       ``,
-      blue(`  ${runner.name} ${this.name} examples/datatype/Nat.test.i`),
+      blue(`  ${runner.name} ${this.name} examples/datatypes/Nat.test.i`),
       ``,
       `Run a URL:`,
       ``,
-      blue(`  ${runner.name} ${this.name} https://code-of-inet-cute.xieyuheng.com/examples/datatype/Nat.test.i`),
+      blue(`  ${runner.name} ${this.name} https://code-of-inet-cute.xieyuheng.com/examples/datatypes/Nat.test.i`),
 
       ``,
     ].join("\n")
