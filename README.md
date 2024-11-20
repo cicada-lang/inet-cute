@@ -1,6 +1,7 @@
 # iNet Cute
 
 [ [Website](https://inet.xieyuheng.com)
+| [iNet C](https://github.com/cicada-lang/inet)
 | [iNet JS](https://github.com/cicada-lang/inet-js) ]
 
 An implementation of [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets).
