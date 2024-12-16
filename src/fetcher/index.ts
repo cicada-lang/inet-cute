@@ -1,1 +1,1 @@
-export * from "./Fetcher.js"
+export * from "./Fetcher.ts"

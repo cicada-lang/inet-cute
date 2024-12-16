@@ -1,4 +1,4 @@
-import { type Port } from "../port/index.js"
+import { type Port } from "../port/index.ts"
 
 export type Edge = {
   first: Port

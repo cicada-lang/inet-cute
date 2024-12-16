@@ -1,4 +1,4 @@
-import { type Value } from "../value/index.js"
+import { type Value } from "../value/index.ts"
 
 export function checkAllLocalsAreUsed(locals: Map<string, Value>): void {
   if (locals.size > 0) {

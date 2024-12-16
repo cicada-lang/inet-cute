@@ -1,7 +1,7 @@
-import { type ComposeOptions } from "../compose/compose.js"
-import { composeNode } from "../compose/composeNode.js"
-import { type Env } from "../env/index.js"
-import { formatValue } from "../value/index.js"
+import { type ComposeOptions } from "../compose/compose.ts"
+import { composeNode } from "../compose/composeNode.ts"
+import { type Env } from "../env/index.ts"
+import { formatValue } from "../value/index.ts"
 
 export function compose(env: Env, options: ComposeOptions): void {
   const value = env.stack.pop()

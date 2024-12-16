@@ -1,4 +1,4 @@
-import { type Mod } from "../mod/index.js"
+import { type Mod } from "../mod/index.ts"
 
 export function importAll(mod: Mod, targetMod: Mod): void {
   for (const [name, definition] of targetMod.definitions) {

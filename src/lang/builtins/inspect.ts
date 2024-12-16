@@ -1,8 +1,8 @@
-import { indent } from "../../utils/indent.js"
-import { type Env } from "../env/index.js"
-import { findConnectedComponent } from "../net/findConnectedComponent.js"
-import { formatNet } from "../net/formatNet.js"
-import { formatValue } from "../value/formatValue.js"
+import { indent } from "../../utils/indent.ts"
+import { type Env } from "../env/index.ts"
+import { findConnectedComponent } from "../net/findConnectedComponent.ts"
+import { formatNet } from "../net/formatNet.ts"
+import { formatValue } from "../value/formatValue.ts"
 
 export function compose(env: Env): void {
   const value = env.stack[env.stack.length - 1]

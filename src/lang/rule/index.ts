@@ -1,1 +1,1 @@
-export * from "./Rule.js"
+export * from "./Rule.ts"

@@ -1,5 +1,5 @@
-import { type Definition } from "../definition/index.js"
-import { type Mod } from "./Mod.js"
+import { type Definition } from "../definition/index.ts"
+import { type Mod } from "./Mod.ts"
 
 export function findDefinitionOrFail(mod: Mod, name: string): Definition {
   const definition = mod.definitions.get(name)

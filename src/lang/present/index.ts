@@ -1,3 +1,3 @@
-export * from "./presentNodeAsNet.js"
-export * from "./presentRuleAsNets.js"
-export * from "./presentWordAsEnv.js"
+export * from "./presentNodeAsNet.ts"
+export * from "./presentRuleAsNets.ts"
+export * from "./presentWordAsEnv.ts"

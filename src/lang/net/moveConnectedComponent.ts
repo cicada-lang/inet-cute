@@ -1,10 +1,10 @@
-import { edgeEqual } from "../edge/edgeEqual.js"
-import { type Edge } from "../edge/index.js"
-import { type Node } from "../node/index.js"
-import { type Net } from "./Net.js"
-import { findPortRecordOrFail } from "./findPortRecordOrFail.js"
-import { hasNode } from "./hasNode.js"
-import { moveNode } from "./moveNode.js"
+import { edgeEqual } from "../edge/edgeEqual.ts"
+import { type Edge } from "../edge/index.ts"
+import { type Node } from "../node/index.ts"
+import { type Net } from "./Net.ts"
+import { findPortRecordOrFail } from "./findPortRecordOrFail.ts"
+import { hasNode } from "./hasNode.ts"
+import { moveNode } from "./moveNode.ts"
 
 export function moveConnectedComponent(
   net: Net,

@@ -1,7 +1,7 @@
-import { type NodeWithoutId } from "../node/Node.js"
-import { nodeKeyWithoutId } from "../node/nodeKeyWithoutId.js"
-import { type Rule } from "../rule/index.js"
-import { type Mod } from "./Mod.js"
+import { type NodeWithoutId } from "../node/Node.ts"
+import { nodeKeyWithoutId } from "../node/nodeKeyWithoutId.ts"
+import { type Rule } from "../rule/index.ts"
+import { type Mod } from "./Mod.ts"
 
 export function findRuleByNodes(
   mod: Mod,

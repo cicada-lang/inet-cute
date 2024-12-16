@@ -1,10 +1,10 @@
-import { appendReport } from "../errors/appendReport.js"
-import { createReport } from "../errors/createReport.js"
-import { formatValue } from "../value/formatValue.js"
-import { type Value } from "../value/index.js"
-import { deepWalkType } from "./deepWalkType.js"
-import { occurInType } from "./occurInType.js"
-import { walkType } from "./walkType.js"
+import { appendReport } from "../errors/appendReport.ts"
+import { createReport } from "../errors/createReport.ts"
+import { formatValue } from "../value/formatValue.ts"
+import { type Value } from "../value/index.ts"
+import { deepWalkType } from "./deepWalkType.ts"
+import { occurInType } from "./occurInType.ts"
+import { walkType } from "./walkType.ts"
 
 export function unifyTypes(
   substitution: Map<string, Value>,

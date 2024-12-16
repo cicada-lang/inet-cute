@@ -1,12 +1,12 @@
-import { createChecking } from "../checking/createChecking.js"
-import { collectWords } from "../compose/collectWords.js"
-import { createEnv } from "../env/createEnv.js"
-import { type Mod } from "../mod/index.js"
-import { type PortExp } from "../port/PortExp.js"
-import { formatValue } from "../value/formatValue.js"
-import { type Value } from "../value/index.js"
-import { type Word } from "../word/index.js"
-import { checkAllLocalsAreUsed } from "./checkAllLocalsAreUsed.js"
+import { createChecking } from "../checking/createChecking.ts"
+import { collectWords } from "../compose/collectWords.ts"
+import { createEnv } from "../env/createEnv.ts"
+import { type Mod } from "../mod/index.ts"
+import { type PortExp } from "../port/PortExp.ts"
+import { formatValue } from "../value/formatValue.ts"
+import { type Value } from "../value/index.ts"
+import { type Word } from "../word/index.ts"
+import { checkAllLocalsAreUsed } from "./checkAllLocalsAreUsed.ts"
 
 export function checkNode(
   mod: Mod,

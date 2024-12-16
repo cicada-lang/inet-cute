@@ -1,5 +1,5 @@
-import { type Mod } from "../mod/index.js"
-import { type Word } from "../word/index.js"
+import { type Mod } from "../mod/index.ts"
+import { type Word } from "../word/index.ts"
 
 export type Rule = {
   mod: Mod

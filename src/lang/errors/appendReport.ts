@@ -1,5 +1,5 @@
-import { Report, type ReportEntry } from "./Report.js"
-import { createReportEntry } from "./createReportEntry.js"
+import { Report, type ReportEntry } from "./Report.ts"
+import { createReportEntry } from "./createReportEntry.ts"
 
 export function appendReport(error: unknown, entry: ReportEntry): Report {
   // NOTE We put the most recent report entry at the end,

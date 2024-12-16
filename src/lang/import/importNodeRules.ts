@@ -1,5 +1,5 @@
-import { type Mod } from "../mod/index.js"
-import { nodeKeyWithoutId, type NodeWithoutId } from "../node/index.js"
+import { type Mod } from "../mod/index.ts"
+import { nodeKeyWithoutId, type NodeWithoutId } from "../node/index.ts"
 
 export function importNodeRules(
   mod: Mod,

@@ -1,7 +1,7 @@
-import { createEnv } from "../env/createEnv.js"
-import { interact } from "../interact/index.js"
-import { type Mod } from "../mod/index.js"
-import { type Net } from "../net/index.js"
+import { createEnv } from "../env/createEnv.ts"
+import { interact } from "../interact/index.ts"
+import { type Mod } from "../mod/index.ts"
+import { type Net } from "../net/index.ts"
 
 export function runNet(mod: Mod, net: Net): void {
   const env = createEnv(mod, { net })

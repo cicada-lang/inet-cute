@@ -1,4 +1,4 @@
-import { type Env } from "../env/index.js"
+import { type Env } from "../env/index.ts"
 
 export function compose(env: Env): void {
   env.stack.push({

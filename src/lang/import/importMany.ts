@@ -1,6 +1,6 @@
-import { type Mod } from "../mod/index.js"
-import { type ImportBinding } from "./ImportBinding.js"
-import { importOne } from "./importOne.js"
+import { type Mod } from "../mod/index.ts"
+import { type ImportBinding } from "./ImportBinding.ts"
+import { importOne } from "./importOne.ts"
 
 export function importMany(
   mod: Mod,

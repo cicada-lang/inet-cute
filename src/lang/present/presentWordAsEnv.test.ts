@@ -1,8 +1,8 @@
 import { expect, test } from "vitest"
-import { Fetcher } from "../../fetcher/index.js"
-import { Loader } from "../../loader/index.js"
-import { formatEnv } from "../env/formatEnv.js"
-import { presentWordAsEnv } from "./presentWordAsEnv.js"
+import { Fetcher } from "../../fetcher/index.ts"
+import { Loader } from "../../loader/index.ts"
+import { formatEnv } from "../env/formatEnv.ts"
+import { presentWordAsEnv } from "./presentWordAsEnv.ts"
 
 test("presentWordAsEnv", async () => {
   const text = `

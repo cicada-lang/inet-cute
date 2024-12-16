@@ -1,3 +1,3 @@
-import { App } from "./App.js"
+import { App } from "./App.ts"
 
 export const app = new App()

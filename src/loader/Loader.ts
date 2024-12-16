@@ -1,7 +1,7 @@
-import { Fetcher } from "../fetcher/index.js"
-import { createMod } from "../lang/mod/createMod.js"
-import { type Mod } from "../lang/mod/index.js"
-import { parseStmts } from "../lang/syntax/index.js"
+import { Fetcher } from "../fetcher/index.ts"
+import { createMod } from "../lang/mod/createMod.ts"
+import { type Mod } from "../lang/mod/index.ts"
+import { parseStmts } from "../lang/syntax/index.ts"
 
 export class Loader {
   loaded: Map<string, Mod> = new Map()

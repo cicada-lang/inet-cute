@@ -1,6 +1,6 @@
-import { type Node } from "../node/index.js"
-import { type Sign } from "../sign/index.js"
-import { type Value } from "../value/index.js"
+import { type Node } from "../node/index.ts"
+import { type Sign } from "../sign/index.ts"
+import { type Value } from "../value/index.ts"
 
 export type Port = {
   "@type": "Value"

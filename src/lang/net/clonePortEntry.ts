@@ -1,4 +1,4 @@
-import { type PortEntry } from "./Net.js"
+import { type PortEntry } from "./Net.ts"
 
 export function clonePortEntry(entry: PortEntry): PortEntry {
   return {

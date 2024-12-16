@@ -1,6 +1,6 @@
-import { type NodeWithoutId } from "../node/index.js"
-import { type Word } from "../word/index.js"
-import { type Mod } from "./Mod.js"
+import { type NodeWithoutId } from "../node/index.ts"
+import { type Word } from "../word/index.ts"
+import { type Mod } from "./Mod.ts"
 
 export type RuleEntry = {
   name: string

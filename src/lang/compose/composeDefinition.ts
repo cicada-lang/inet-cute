@@ -1,12 +1,12 @@
-import { arrayPopMany } from "../../utils/arrayPopMany.js"
-import { checkTypeTermArgs } from "../check/checkTypeTermArgs.js"
-import { type Definition } from "../definition/index.js"
-import { type Env } from "../env/index.js"
-import { createNodeFromDefinition } from "../node/createNodeFromDefinition.js"
-import { formatValue } from "../value/formatValue.js"
-import { type ComposeOptions } from "./compose.js"
-import { composeNode } from "./composeNode.js"
-import { composeWords } from "./composeWords.js"
+import { arrayPopMany } from "../../utils/arrayPopMany.ts"
+import { checkTypeTermArgs } from "../check/checkTypeTermArgs.ts"
+import { type Definition } from "../definition/index.ts"
+import { type Env } from "../env/index.ts"
+import { createNodeFromDefinition } from "../node/createNodeFromDefinition.ts"
+import { formatValue } from "../value/formatValue.ts"
+import { type ComposeOptions } from "./compose.ts"
+import { composeNode } from "./composeNode.ts"
+import { composeWords } from "./composeWords.ts"
 
 export function composeDefinition(
   env: Env,

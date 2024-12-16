@@ -5,8 +5,8 @@ export const one_or_more = pt.grammars.one_or_more
 export const optional = pt.grammars.optional
 export const dashline = pt.grammars.dashline
 
-export * from "./import_binding.js"
-export * from "./label.js"
-export * from "./name.js"
-export * from "./stmt.js"
-export * from "./word.js"
+export * from "./import_binding.ts"
+export * from "./label.ts"
+export * from "./name.ts"
+export * from "./stmt.ts"
+export * from "./word.ts"

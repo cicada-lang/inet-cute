@@ -1,13 +1,13 @@
-import { type Mod } from "../mod/index.js"
-import * as Type from "./Type.js"
-import * as apply from "./apply.js"
-import * as connect from "./connect.js"
-import { defineBuiltinOperator } from "./defineBuiltinOperator.js"
-import * as inspect from "./inspect.js"
-import * as rot from "./rot.js"
-import * as run from "./run.js"
-import * as spread from "./spread.js"
-import * as swap from "./swap.js"
+import { type Mod } from "../mod/index.ts"
+import * as Type from "./Type.ts"
+import * as apply from "./apply.ts"
+import * as connect from "./connect.ts"
+import { defineBuiltinOperator } from "./defineBuiltinOperator.ts"
+import * as inspect from "./inspect.ts"
+import * as rot from "./rot.ts"
+import * as run from "./run.ts"
+import * as spread from "./spread.ts"
+import * as swap from "./swap.ts"
 
 export function defineBuiltinOperators(mod: Mod): void {
   defineBuiltinOperator(mod, "swap", swap)

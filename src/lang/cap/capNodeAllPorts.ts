@@ -1,10 +1,10 @@
-import { type Mod } from "../mod/index.js"
-import { findInputPorts } from "../net/findInputPorts.js"
-import { findOutputPorts } from "../net/findOutputPorts.js"
-import { type Net } from "../net/index.js"
-import { type Node } from "../node/index.js"
-import { capInputPort } from "./capInputPort.js"
-import { capOutputPort } from "./capOutputPort.js"
+import { type Mod } from "../mod/index.ts"
+import { findInputPorts } from "../net/findInputPorts.ts"
+import { findOutputPorts } from "../net/findOutputPorts.ts"
+import { type Net } from "../net/index.ts"
+import { type Node } from "../node/index.ts"
+import { capInputPort } from "./capInputPort.ts"
+import { capOutputPort } from "./capOutputPort.ts"
 
 export function capNodeAllPorts(mod: Mod, net: Net, node: Node): void {
   for (const port of findInputPorts(net, node)) {

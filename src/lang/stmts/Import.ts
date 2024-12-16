@@ -1,10 +1,10 @@
-import { appendReport } from "../errors/appendReport.js"
-import { type ImportBinding } from "../import/ImportBinding.js"
-import { formatImportBinding } from "../import/formatImportBinding.js"
-import { importMany } from "../import/importMany.js"
-import { type Mod } from "../mod/index.js"
-import { type Span } from "../span/index.js"
-import { type Stmt } from "../stmt/index.js"
+import { appendReport } from "../errors/appendReport.ts"
+import { type ImportBinding } from "../import/ImportBinding.ts"
+import { formatImportBinding } from "../import/formatImportBinding.ts"
+import { importMany } from "../import/importMany.ts"
+import { type Mod } from "../mod/index.ts"
+import { type Span } from "../span/index.ts"
+import { type Stmt } from "../stmt/index.ts"
 
 export class Import implements Stmt {
   constructor(

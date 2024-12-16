@@ -1,7 +1,7 @@
 import { ReadlineRepl } from "@cicada-lang/framework/lib/repls/readline-repl/index.js"
 import { Command, CommandRunner } from "@xieyuheng/command-line"
 import Path from "path"
-import { app } from "../../app/index.js"
+import { app } from "../../app/index.ts"
 
 type Args = {}
 

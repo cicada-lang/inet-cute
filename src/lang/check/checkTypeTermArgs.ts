@@ -1,5 +1,5 @@
-import { formatValue } from "../value/formatValue.js"
-import { type Value } from "../value/index.js"
+import { formatValue } from "../value/formatValue.ts"
+import { type Value } from "../value/index.ts"
 
 export function checkTypeTermArgs(args: Array<Value>): void {
   for (const arg of args) {

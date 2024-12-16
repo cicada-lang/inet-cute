@@ -1,8 +1,8 @@
-import { type Node } from "../node/index.js"
-import { type Port } from "../port/index.js"
-import { type Net } from "./Net.js"
-import { createPortFromPortEntry } from "./createPortFromPortEntry.js"
-import { findPortRecordOrFail } from "./findPortRecordOrFail.js"
+import { type Node } from "../node/index.ts"
+import { type Port } from "../port/index.ts"
+import { type Net } from "./Net.ts"
+import { createPortFromPortEntry } from "./createPortFromPortEntry.ts"
+import { findPortRecordOrFail } from "./findPortRecordOrFail.ts"
 
 export function findOutputPorts(net: Net, node: Node): Array<Port> {
   const portRecord = findPortRecordOrFail(net, node)

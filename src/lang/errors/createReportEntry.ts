@@ -1,4 +1,4 @@
-import { type ReportEntry } from "./Report.js"
+import { type ReportEntry } from "./Report.ts"
 
 export function createReportEntry(error: unknown): ReportEntry {
   if (error instanceof Error) {

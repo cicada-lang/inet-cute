@@ -1,1 +1,1 @@
-export * from "./Definition.js"
+export * from "./Definition.ts"

@@ -1,1 +1,1 @@
-export * from "./Sign.js"
+export * from "./Sign.ts"

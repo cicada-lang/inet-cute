@@ -1,7 +1,7 @@
-import { type Env } from "../env/index.js"
-import { type Mod } from "../mod/index.js"
-import { createNet } from "../net/createNet.js"
-import { type Net } from "../net/index.js"
+import { type Env } from "../env/index.ts"
+import { type Mod } from "../mod/index.ts"
+import { createNet } from "../net/createNet.ts"
+import { type Net } from "../net/index.ts"
 
 export function createEnv(
   mod: Mod,

@@ -1,7 +1,7 @@
-import { nodeKeyWithoutId } from "../node/nodeKeyWithoutId.js"
-import { type Word } from "../word/index.js"
-import { type Mod } from "./Mod.js"
-import { findDefinitionOrFail } from "./findDefinitionOrFail.js"
+import { nodeKeyWithoutId } from "../node/nodeKeyWithoutId.ts"
+import { type Word } from "../word/index.ts"
+import { type Mod } from "./Mod.ts"
+import { findDefinitionOrFail } from "./findDefinitionOrFail.ts"
 
 export function defineRule(
   mod: Mod,

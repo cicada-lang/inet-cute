@@ -1,5 +1,5 @@
-import { type Value } from "../value/index.js"
-import { walkType } from "./walkType.js"
+import { type Value } from "../value/index.ts"
+import { walkType } from "./walkType.ts"
 
 export function occurInType(
   substitution: Map<string, Value>,

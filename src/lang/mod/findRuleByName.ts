@@ -1,7 +1,7 @@
-import { type Rule } from "../rule/index.js"
-import { type Mod } from "./Mod.js"
-import { findDefinitionOrFail } from "./findDefinitionOrFail.js"
-import { findRuleByNodes } from "./findRuleByNodes.js"
+import { type Rule } from "../rule/index.ts"
+import { type Mod } from "./Mod.ts"
+import { findDefinitionOrFail } from "./findDefinitionOrFail.ts"
+import { findRuleByNodes } from "./findRuleByNodes.ts"
 
 export function findRuleByName(mod: Mod, ruleName: string): Rule | undefined {
   const [firstName, secondName] = ruleName.split(" ")

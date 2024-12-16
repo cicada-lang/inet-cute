@@ -1,5 +1,5 @@
-import { findDefinitionOrFail } from "../mod/findDefinitionOrFail.js"
-import { type Mod } from "../mod/index.js"
+import { findDefinitionOrFail } from "../mod/findDefinitionOrFail.ts"
+import { type Mod } from "../mod/index.ts"
 
 export function checkRuleNodeOrder(
   mod: Mod,

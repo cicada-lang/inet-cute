@@ -1,4 +1,4 @@
-import { type Value } from "../value/index.js"
+import { type Value } from "../value/index.ts"
 
 export function deepWalkType(
   substitution: Map<string, Value>,

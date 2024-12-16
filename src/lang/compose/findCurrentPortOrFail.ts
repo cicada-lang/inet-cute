@@ -1,10 +1,10 @@
-import { findInputPorts } from "../net/findInputPorts.js"
-import { findOutputPorts } from "../net/findOutputPorts.js"
-import { findPortEntry } from "../net/findPortEntry.js"
-import { type Net } from "../net/index.js"
-import { type Node } from "../node/index.js"
-import { type Port } from "../port/index.js"
-import { type ComposeOptions } from "./compose.js"
+import { findInputPorts } from "../net/findInputPorts.ts"
+import { findOutputPorts } from "../net/findOutputPorts.ts"
+import { findPortEntry } from "../net/findPortEntry.ts"
+import { type Net } from "../net/index.ts"
+import { type Node } from "../node/index.ts"
+import { type Port } from "../port/index.ts"
+import { type ComposeOptions } from "./compose.ts"
 
 export function findCurrentPortOrFail(
   net: Net,

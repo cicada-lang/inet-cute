@@ -1,5 +1,5 @@
-import { type Node } from "../node/index.js"
-import { type NodeEntry } from "./Net.js"
+import { type Node } from "../node/index.ts"
+import { type NodeEntry } from "./Net.ts"
 
 export function createNodeFromNodeEntry(nodeEntry: NodeEntry): Node {
   return {

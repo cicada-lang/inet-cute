@@ -1,8 +1,8 @@
-import { type ComposeOptions } from "../compose/compose.js"
-import { type Env } from "../env/index.js"
-import { findInputPorts } from "../net/findInputPorts.js"
-import { findOutputPorts } from "../net/findOutputPorts.js"
-import { formatValue } from "../value/index.js"
+import { type ComposeOptions } from "../compose/compose.ts"
+import { type Env } from "../env/index.ts"
+import { findInputPorts } from "../net/findInputPorts.ts"
+import { findOutputPorts } from "../net/findOutputPorts.ts"
+import { formatValue } from "../value/index.ts"
 
 export function compose(env: Env, options: ComposeOptions): void {
   const value = env.stack.pop()

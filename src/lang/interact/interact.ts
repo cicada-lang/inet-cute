@@ -1,9 +1,9 @@
-import { type Checking } from "../checking/index.js"
-import { compose } from "../compose/compose.js"
-import { type Edge } from "../edge/index.js"
-import { type Env } from "../env/index.js"
-import { findRuleByPorts } from "../mod/findRuleByPorts.js"
-import { deleteNodeEntry } from "../net/deleteNodeEntry.js"
+import { type Checking } from "../checking/index.ts"
+import { compose } from "../compose/compose.ts"
+import { type Edge } from "../edge/index.ts"
+import { type Env } from "../env/index.ts"
+import { findRuleByPorts } from "../mod/findRuleByPorts.ts"
+import { deleteNodeEntry } from "../net/deleteNodeEntry.ts"
 
 export type InteractOptions = {
   checking?: Checking

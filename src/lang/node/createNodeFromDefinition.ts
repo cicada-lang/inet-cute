@@ -1,7 +1,7 @@
-import { type Definition } from "../definition/index.js"
-import { addNode } from "../net/addNode.js"
-import { type Net } from "../net/index.js"
-import { type Node } from "../node/index.js"
+import { type Definition } from "../definition/index.ts"
+import { addNode } from "../net/addNode.ts"
+import { type Net } from "../net/index.ts"
+import { type Node } from "../node/index.ts"
 
 export function createNodeFromDefinition(
   net: Net,

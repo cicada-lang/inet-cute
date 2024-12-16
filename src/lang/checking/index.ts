@@ -1,1 +1,1 @@
-export * from "./Checking.js"
+export * from "./Checking.ts"

@@ -1,7 +1,7 @@
-import { type Port } from "../port/index.js"
-import { type Rule } from "../rule/index.js"
-import { type Mod } from "./Mod.js"
-import { findRuleByNodes } from "./findRuleByNodes.js"
+import { type Port } from "../port/index.ts"
+import { type Rule } from "../rule/index.ts"
+import { type Mod } from "./Mod.ts"
+import { findRuleByNodes } from "./findRuleByNodes.ts"
 
 export function findRuleByPorts(
   mod: Mod,

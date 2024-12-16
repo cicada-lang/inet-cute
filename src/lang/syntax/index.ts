@@ -1,6 +1,6 @@
 import * as pt from "@cicada-lang/partech"
-import * as grammars from "./grammars/index.js"
-import * as matchers from "./matchers/index.js"
+import * as grammars from "./grammars/index.ts"
+import * as matchers from "./matchers/index.ts"
 
 /**
 

@@ -1,9 +1,9 @@
-import { checkWords } from "../check/checkWords.js"
-import { appendReport } from "../errors/appendReport.js"
-import { type Mod } from "../mod/index.js"
-import { type Span } from "../span/index.js"
-import { type Stmt } from "../stmt/index.js"
-import { type Word } from "../word/index.js"
+import { checkWords } from "../check/checkWords.ts"
+import { appendReport } from "../errors/appendReport.ts"
+import { type Mod } from "../mod/index.ts"
+import { type Span } from "../span/index.ts"
+import { type Stmt } from "../stmt/index.ts"
+import { type Word } from "../word/index.ts"
 
 // Just like unnamed `claim` + `define`.
 

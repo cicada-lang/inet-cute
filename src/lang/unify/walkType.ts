@@ -1,4 +1,4 @@
-import { type Value } from "../value/index.js"
+import { type Value } from "../value/index.ts"
 
 export function walkType(substitution: Map<string, Value>, t: Value): Value {
   while (t["@kind"] === "Symbol") {

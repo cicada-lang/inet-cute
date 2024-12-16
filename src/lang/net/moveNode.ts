@@ -1,7 +1,7 @@
-import { type Node } from "../node/index.js"
-import { nodeKey } from "../node/nodeKey.js"
-import { type Net } from "./Net.js"
-import { findNodeEntryOrFail } from "./findNodeEntryOrFail.js"
+import { type Node } from "../node/index.ts"
+import { nodeKey } from "../node/nodeKey.ts"
+import { type Net } from "./Net.ts"
+import { findNodeEntryOrFail } from "./findNodeEntryOrFail.ts"
 
 export function moveNode(source: Net, target: Net, node: Node): void {
   const entry = findNodeEntryOrFail(source, node)

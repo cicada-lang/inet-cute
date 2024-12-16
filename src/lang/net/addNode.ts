@@ -1,9 +1,9 @@
-import { type Mod } from "../mod/index.js"
-import { type Net, type PortRecord } from "../net/index.js"
-import { createNodeId } from "../node/createNodeId.js"
-import { type Node } from "../node/index.js"
-import { nodeKey } from "../node/nodeKey.js"
-import { type PortExp } from "../port/PortExp.js"
+import { type Mod } from "../mod/index.ts"
+import { type Net, type PortRecord } from "../net/index.ts"
+import { createNodeId } from "../node/createNodeId.ts"
+import { type Node } from "../node/index.ts"
+import { nodeKey } from "../node/nodeKey.ts"
+import { type PortExp } from "../port/PortExp.ts"
 
 export function addNode(
   net: Net,

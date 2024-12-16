@@ -1,5 +1,5 @@
-import { AppHome } from "./AppHome.js"
-import { AppReplEventHandler } from "./AppReplEventHandler.js"
+import { AppHome } from "./AppHome.ts"
+import { AppReplEventHandler } from "./AppReplEventHandler.ts"
 
 export class App {
   home = new AppHome()

@@ -1,5 +1,5 @@
-import { type Edge } from "../edge/index.js"
-import { formatNode } from "../node/formatNode.js"
+import { type Edge } from "../edge/index.ts"
+import { formatNode } from "../node/formatNode.ts"
 
 export function formatEdge(edge: Edge): string {
   const first = formatNode(edge.first.node)

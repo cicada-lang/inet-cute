@@ -1,8 +1,8 @@
 import { expect, test } from "vitest"
-import { Fetcher } from "../../fetcher/index.js"
-import { Loader } from "../../loader/index.js"
-import { formatNet } from "../net/formatNet.js"
-import { presentRuleAsNets } from "./presentRuleAsNets.js"
+import { Fetcher } from "../../fetcher/index.ts"
+import { Loader } from "../../loader/index.ts"
+import { formatNet } from "../net/formatNet.ts"
+import { presentRuleAsNets } from "./presentRuleAsNets.ts"
 
 test("presentRuleAsNets", async () => {
   const text = `

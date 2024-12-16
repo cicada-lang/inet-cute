@@ -1,4 +1,4 @@
-import { type Word } from "./Word.js"
+import { type Word } from "./Word.ts"
 
 export function formatWord(word: Word): string {
   switch (word["@kind"]) {

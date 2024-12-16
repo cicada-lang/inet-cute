@@ -1,6 +1,6 @@
 import * as pt from "@cicada-lang/partech"
-import { type ImportBinding } from "../../import/ImportBinding.js"
-import * as matchers from "../matchers/index.js"
+import { type ImportBinding } from "../../import/ImportBinding.ts"
+import * as matchers from "../matchers/index.ts"
 
 export function import_binding_matcher(tree: pt.Tree): ImportBinding {
   return pt.matcher<ImportBinding>({

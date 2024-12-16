@@ -5,6 +5,7 @@
     "module": "node16",
     "target": "es6",
     "strict": true,
+    "rewriteRelativeImportExtensions": true,
     "verbatimModuleSyntax": true,
     "declaration": true,
     "sourceMap": true,

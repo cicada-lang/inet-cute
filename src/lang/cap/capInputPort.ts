@@ -1,11 +1,11 @@
-import { connect } from "../connect/connect.js"
-import { type Mod } from "../mod/index.js"
-import { addNode } from "../net/addNode.js"
-import { findNodeEntryOrFail } from "../net/findNodeEntryOrFail.js"
-import { findOutputPorts } from "../net/findOutputPorts.js"
-import { type Net } from "../net/index.js"
-import { type PortExp } from "../port/PortExp.js"
-import { type Port } from "../port/index.js"
+import { connect } from "../connect/connect.ts"
+import { type Mod } from "../mod/index.ts"
+import { addNode } from "../net/addNode.ts"
+import { findNodeEntryOrFail } from "../net/findNodeEntryOrFail.ts"
+import { findOutputPorts } from "../net/findOutputPorts.ts"
+import { type Net } from "../net/index.ts"
+import { type PortExp } from "../port/PortExp.ts"
+import { type Port } from "../port/index.ts"
 
 export function capInputPort(mod: Mod, net: Net, port: Port): Port {
   const portExp: PortExp = {

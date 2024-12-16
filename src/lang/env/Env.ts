@@ -1,6 +1,6 @@
-import { type Mod } from "../mod/index.js"
-import { type Net } from "../net/index.js"
-import { type Value } from "../value/index.js"
+import { type Mod } from "../mod/index.ts"
+import { type Net } from "../net/index.ts"
+import { type Value } from "../value/index.ts"
 
 export type Env = {
   mod: Mod

@@ -1,4 +1,4 @@
-import { type ImportBinding } from "./ImportBinding.js"
+import { type ImportBinding } from "./ImportBinding.ts"
 
 export function formatImportBinding(binding: ImportBinding): string {
   if (binding.alias) {

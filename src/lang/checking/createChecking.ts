@@ -1,4 +1,4 @@
-import { type Checking } from "./Checking.js"
+import { type Checking } from "./Checking.ts"
 
 export function createChecking(): Checking {
   return {

@@ -1,2 +1,2 @@
-export * from "./Port.js"
-export * from "./portEqual.js"
+export * from "./Port.ts"
+export * from "./portEqual.ts"

@@ -1,5 +1,5 @@
-import { type Node } from "../node/index.js"
-import { type Port } from "../port/index.js"
+import { type Node } from "../node/index.ts"
+import { type Port } from "../port/index.ts"
 
 export type Value = Port | Node | Type | Symbol | TypeTerm | Labeled
 

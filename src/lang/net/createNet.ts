@@ -1,4 +1,4 @@
-import { type Net } from "./Net.js"
+import { type Net } from "./Net.ts"
 
 export function createNet(): Net {
   return {

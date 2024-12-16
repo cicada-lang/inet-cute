@@ -1,6 +1,6 @@
-import { type NodeWithoutId } from "../node/index.js"
-import { type Mod } from "./Mod.js"
-import { findDefinition } from "./findDefinition.js"
+import { type NodeWithoutId } from "../node/index.ts"
+import { type Mod } from "./Mod.ts"
+import { findDefinition } from "./findDefinition.ts"
 
 export function hasNodeDefinition(mod: Mod, node: NodeWithoutId): boolean {
   const definition = findDefinition(mod, node.name)

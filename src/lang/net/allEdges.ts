@@ -1,9 +1,9 @@
-import { type Edge } from "../edge/index.js"
-import { nodeKey } from "../node/nodeKey.js"
-import { type Port } from "../port/index.js"
-import { type Net } from "./Net.js"
-import { createNodeFromNodeEntry } from "./createNodeFromNodeEntry.js"
-import { createPortFromPortEntry } from "./createPortFromPortEntry.js"
+import { type Edge } from "../edge/index.ts"
+import { nodeKey } from "../node/nodeKey.ts"
+import { type Port } from "../port/index.ts"
+import { type Net } from "./Net.ts"
+import { createNodeFromNodeEntry } from "./createNodeFromNodeEntry.ts"
+import { createPortFromPortEntry } from "./createPortFromPortEntry.ts"
 
 export function allEdges(net: Net): Array<Edge> {
   const edges: Array<Edge> = []

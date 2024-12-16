@@ -1,8 +1,8 @@
-import { type ComposeOptions } from "../compose/compose.js"
-import { connect } from "../connect/connect.js"
-import { type Env } from "../env/index.js"
-import { unifyTypes } from "../unify/unifyTypes.js"
-import { formatValue } from "../value/formatValue.js"
+import { type ComposeOptions } from "../compose/compose.ts"
+import { connect } from "../connect/connect.ts"
+import { type Env } from "../env/index.ts"
+import { unifyTypes } from "../unify/unifyTypes.ts"
+import { formatValue } from "../value/formatValue.ts"
 
 export function compose(env: Env, options: ComposeOptions): void {
   const first = env.stack.pop()

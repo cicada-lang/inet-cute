@@ -1,9 +1,9 @@
-import { Loader } from "../../loader/index.js"
-import { defineBuiltinOperators } from "../builtins/defineBuiltinOperators.js"
-import { createChecking } from "../checking/createChecking.js"
-import { createEnv } from "../env/createEnv.js"
-import { type Stmt } from "../stmt/Stmt.js"
-import { type Mod } from "./Mod.js"
+import { Loader } from "../../loader/index.ts"
+import { defineBuiltinOperators } from "../builtins/defineBuiltinOperators.ts"
+import { createChecking } from "../checking/createChecking.ts"
+import { createEnv } from "../env/createEnv.ts"
+import { type Stmt } from "../stmt/Stmt.ts"
+import { type Mod } from "./Mod.ts"
 
 export function createMod(options: {
   url: URL
