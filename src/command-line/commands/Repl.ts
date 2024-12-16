@@ -1,4 +1,4 @@
-import { ReadlineRepl } from "@cicada-lang/framework/lib/repls/readline-repl/index.js"
+import { Repls } from "@cicada-lang/framework"
 import { Command, CommandRunner } from "@xieyuheng/command-line"
 import Path from "path"
 import { app } from "../../app/index.ts"
@@ -28,7 +28,7 @@ export class Repl extends Command<Args> {
   }
 
   async execute(argv: Args): Promise<void> {
-    const repl = await ReadlineRepl.create({
+    const repl = await Repls.ReadlineRepl.create({
       dir: Path.resolve(process.cwd()),
       handler: app.replEventHandler,
       files: app.home,
