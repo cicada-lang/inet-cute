@@ -1,14 +1,14 @@
 # iNet Cute
 
-[ [Website](https://inet.xieyuheng.com)
-| [iNet C](https://github.com/cicada-lang/inet)
-| [iNet JS](https://github.com/cicada-lang/inet-js) ]
+[ [website](https://inet.xieyuheng.com)
+| [inet-forth](https://github.com/cicada-lang/inet-forth)
+| [inet-js](https://github.com/cicada-lang/inet-js) ]
 
 An implementation of [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets).
 
 - Simply typed.
 - ASCII art inspired syntax.
-- Using a stack-based low-layer language to build nets.
+- Using a stack-based meta language to build nets.
 
 ## Usage
 
