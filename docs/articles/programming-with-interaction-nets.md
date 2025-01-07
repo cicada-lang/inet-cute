@@ -577,12 +577,12 @@ But because of single-principal-port constraint,
 we have to introduce an auxiliary node and some auxiliary rules,
 to explicitly choose between two interactable edges.
 
-We call the auxiliary node `(maxAux)`.
+We call the auxiliary node `(maxAdd1)`.
 
 ```
      result
        |
-    (maxAux)
+    (maxAdd1)
      /    \
 first    second!
 ```
@@ -590,7 +590,7 @@ first    second!
 Node definition:
 
 ```
-node maxAux
+node maxAdd1
   Nat :first
   Nat :second!
   --------
@@ -604,7 +604,7 @@ the rule between `(add1)` and `(max)`:
 ```
      result            result
        |                 |
-     (max)      =>    (maxAux)
+     (max)      =>    (maxAdd1)
      /    \            /   \
 (add1)   second     prev   second
    |
@@ -616,17 +616,17 @@ Rule definition:
 ```
 rule add1 max
   (max)-second
-  (add1)-prev maxAux
+  (add1)-prev maxAdd1
   result-(max)
 end
 ```
 
-The rule between `(zero)` and `(maxAux)`:
+The rule between `(zero)` and `(maxAdd1)`:
 
 ```
      result            result
        |                 |
-    (maxAux)     =>    (add1)
+    (maxAdd1)     =>   (add1)
      /    \              |
  first   (zero)        first
 ```
@@ -634,18 +634,18 @@ The rule between `(zero)` and `(maxAux)`:
 Rule definition:
 
 ```
-rule zero maxAux
-  (maxAux)-first add1
-  result-(maxAux)
+rule zero maxAdd1
+  (maxAdd1)-first add1
+  result-(maxAdd1)
 end
 ```
 
-The rule between `(add1)` and `(maxAux)`:
+The rule between `(add1)` and `(maxAdd1)`:
 
 ```
      result            result
        |                 |
-    (maxAux)     =>    (add1)
+    (maxAdd1)     =>   (add1)
      /    \              |
  first   (add1)        (max)
            |           /   \
@@ -655,10 +655,10 @@ The rule between `(add1)` and `(maxAux)`:
 Rule definition:
 
 ```
-rule add1 maxAux
+rule add1 maxAdd1
   (add1)-prev
-  (maxAux)-first max
-  add1 result-(maxAux)
+  (maxAdd1)-first max
+  add1 result-(maxAdd1)
 end
 ```
 
@@ -676,7 +676,7 @@ node add1
   Nat :value!
 end
 
-node maxAux
+node maxAdd1
   Nat :first
   Nat :second!
   --------
@@ -695,18 +695,18 @@ rule zero max
 end
 
 rule add1 max
-  (max)-second (add1)-prev maxAux
+  (max)-second (add1)-prev maxAdd1
   result-(max)
 end
 
-rule zero maxAux
-  (maxAux)-first add1
-  result-(maxAux)
+rule zero maxAdd1
+  (maxAdd1)-first add1
+  result-(maxAdd1)
 end
 
-rule add1 maxAux
-  (add1)-prev (maxAux)-first max
-  add1 result-(maxAux)
+rule add1 maxAdd1
+  (add1)-prev (maxAdd1)-first max
+  add1 result-(maxAdd1)
 end
 
 claim one -- Nat end

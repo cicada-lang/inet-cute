@@ -91,9 +91,9 @@ rule add1 mul
   result-(mul)
 end
 
-// To define `max`, we need `maxAux`.
+// To define `max`, we need `maxAdd1`.
 
-node maxAux
+node maxAdd1
   Nat :first
   Nat :second!
   --------
@@ -112,16 +112,16 @@ rule zero max
 end
 
 rule add1 max
-  (max)-second (add1)-prev maxAux
+  (max)-second (add1)-prev maxAdd1
   result-(max)
 end
 
-rule zero maxAux
-  (maxAux)-first add1
-  result-(maxAux)
+rule zero maxAdd1
+  (maxAdd1)-first add1
+  result-(maxAdd1)
 end
 
-rule add1 maxAux
-  (add1)-prev (maxAux)-first max
-  add1 result-(maxAux)
+rule add1 maxAdd1
+  (add1)-prev (maxAdd1)-first max
+  add1 result-(maxAdd1)
 end
