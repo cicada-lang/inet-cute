@@ -1,6 +1,6 @@
-require "nat.i"
-require "nat.i"
-require "nat.i" // multiple `require` is fine.
+require "Nat.i"
+require "Nat.i"
+require "Nat.i" // Multiple `require` is fine.
 
 zero zero add @inspect @run @inspect
 two @inspect @run @inspect

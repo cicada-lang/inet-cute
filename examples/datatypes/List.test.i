@@ -1,5 +1,5 @@
-require "list.i"
-require "trivial.i"
+require "List.i"
+require "Trivial.i"
 
 claim sixSoles -- Trivial List end
 

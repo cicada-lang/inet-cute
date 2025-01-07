@@ -163,7 +163,7 @@ end
 import
   Nat, zero, add1,
   natErase, natDup
-from "./nat.i"
+from "./Nat.i"
 
 node natDouble
   Nat :target!

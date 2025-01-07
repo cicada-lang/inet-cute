@@ -1,4 +1,4 @@
-require "./bin.i"
+require "./Bin.i"
 
 bend b1 b1 b0                                // = 0b110 = 4+2 = 6
 zero add1 add1 add1 add1 add1 add1 add1 ntob // 8 Nat -> 8 Bin

@@ -1,14 +1,14 @@
 [checkRuleIsAboutOwnNode] To define a rule, one of the node must be owned by this module.
 
   loading module url: examples/module/define-rule-for-non-own-node.error.i
-  first node module url: examples/datatypes/nat.i
-  second node module url: examples/datatypes/nat.i
+  first node module url: examples/datatypes/Nat.i
+  second node module url: examples/datatypes/Nat.i
 
 [DefineRule.execute] I fail to define rule.
 
   rule nodes: zero add
 
-  1 |import Nat, zero, add1, add from "../datatypes/nat.i"
+  1 |import Nat, zero, add1, add from "../datatypes/Nat.i"
   2 |
   3 |rule zero add
   4 |  (add)-addend

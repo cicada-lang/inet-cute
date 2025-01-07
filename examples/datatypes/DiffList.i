@@ -1,4 +1,4 @@
-require "list.i"
+require "List.i"
 
 // Concatenation of lists is performed in linear time
 // with respect to its first argument.
