@@ -1,3 +1,3 @@
 type Nat -- @Type end
 
-require "../datatypes/Nat.i"
+require "../datatypes/nat.i"

@@ -1,4 +1,4 @@
-import Nat, zero, add1, add from "../datatypes/Nat.i"
+import Nat, zero, add1, add from "../datatypes/nat.i"
 
 rule zero add
   (add)-addend

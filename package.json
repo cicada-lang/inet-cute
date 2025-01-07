@@ -30,7 +30,7 @@
     "vitest": "^2.1.8"
   },
   "devDependencies": {
-    "@types/node": "^22.10.2",
+    "@types/node": "^22.10.5",
     "@xieyuheng/test-runner": "^0.2.10",
     "prettier": "^3.4.2",
     "prettier-plugin-organize-imports": "^4.1.0",

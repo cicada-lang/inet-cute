@@ -1,4 +1,4 @@
-require "../datatypes/Nat.i"
+require "../datatypes/nat.i"
 
 one one add
 one one add

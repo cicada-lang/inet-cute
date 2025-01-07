@@ -1,5 +1,5 @@
-require "DiffList.i"
-require "Trivial.i"
+require "diff-list.i"
+require "trivial.i"
 
 claim oneTwoSoles -- Trivial DiffList end
 
