@@ -1,4 +1,4 @@
-# iNet Cute
+# inet-cute
 
 [ [website](https://inet.xieyuheng.com)
 | [inet-forth](https://github.com/cicada-lang/inet-forth)
