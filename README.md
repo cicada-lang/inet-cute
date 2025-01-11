@@ -1,9 +1,5 @@
 # inet-cute
 
-[ [website](https://inet.xieyuheng.com)
-| [inet-forth](https://github.com/cicada-lang/inet-forth)
-| [inet-js](https://github.com/cicada-lang/inet-js) ]
-
 An implementation of [interaction nets](https://en.wikipedia.org/wiki/Interaction_nets).
 
 - Simply typed.
@@ -209,6 +205,13 @@ npm run build        # Compile `src/` to `lib/`
 npm run build:watch  # Watch the compilation
 npm run test         # Run test
 ```
+
+## Implementations
+
+- [inet-cute](https://github.com/cicada-lang/inet-cute)
+- [inet-js](https://github.com/cicada-lang/inet-js)
+- [inet-forth](https://github.com/cicada-lang/inet-forth)
+- [inet-lisp](https://github.com/cicada-lang/inet-lisp)
 
 ## References
 
